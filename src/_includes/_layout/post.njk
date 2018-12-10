@@ -1,0 +1,45 @@
+---
+layout: _layout/html
+permalink: /blog/{{ slug }}/index.html
+newsletter: better-fed
+footer: true
+---
+<div class="l-wrap">
+  <article class="c-post l-post">
+  <h1 class="l-article__header">{{title | markdownInline}}</h1>
+    <div class="o-words c-post__content l-post__content jsPostContent">
+      <span class="c-post__date l-post__date">{{page.date | readableDate }}</span>
+      {%- youtube video -%}
+      {%- audio podcast -%}
+
+      {{- content | safe -}}
+
+      {%- markdown -%}
+        {% set link = '/blog/' + slug + '/'%}
+        {%- shareArticle {
+          siteURL: site.url,
+          title: title,
+          permalink: link
+        } -%}
+      {%- endmarkdown -%}
+    </div>
+
+    <section class="c-ck l-ck--standard jsCkForm">
+      {%- include 'convertkit.njk' -%}
+    </section>
+  </article>
+</div>
+
+<div class="l-wrap">
+  <div class="l-post">
+    <div class="l-article__text">
+      {%- markdown -%}
+        ## Comments are closed
+
+        Please [contact me](/contact) if you want to talk to me about this article.
+
+        If you spot a typo, I'd appreciate if you can correct [this page on Github](https://github.com/zellwk/zellwk.com//tree/master/{{ page.inputPath }}). Thank you!
+      {%- endmarkdown -%}
+    </div>
+  </div>
+</div>

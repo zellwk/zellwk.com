@@ -1,0 +1,56 @@
+{# Not in use right now #}
+<div class="c-form__item">
+  {% markdown %}
+    I'd love to work with you on your design/development project. However, I'm only taking projects after July 2018. If you'd love to work together then, please reach out.
+
+    Before you do so, please set aside at least $10,000 for engaging me for the project. Thank you.
+  {% endmarkdown %}
+</div>
+
+{{formItem.radios(
+  groupId = 'consulting-timeline',
+  groupText = "Are you okay with starting after July 2018?",
+  name = 'consulting-timeline',
+  required = true,
+  radios = [
+    { value: 'Yes' },
+    { value: 'No' }
+  ]
+)}}
+
+{{formItem.radios(
+  groupId = 'consulting-budget',
+  groupText = 'Have you set aside at least $10,000 to engage me for the project',
+  name = 'consulting-budget',
+  required = true,
+  radios = [
+    { value: 'Yes' },
+    { value: 'No' }
+  ]
+)}}
+
+{{formItem.textarea(
+  name = 'consulting-describe-biz',
+  question = "What's your project about?",
+  helpText = "Tell me about your business and project.",
+  required = true
+)}}
+
+{{formItem.textarea(
+  name = 'consulting-achieve',
+  question = "What's your goal for this project?",
+  required = true
+)}}
+
+{{formItem.textarea(
+  name = 'consulting-why',
+  question = "Why did you choose to work with me?",
+  required = true
+)}}
+
+{{formItem.textarea(
+  name = 'anything-else',
+  question = "Is there anything else you'd like to tell me?",
+  helpText = "Feel free to type as much or as little as you like.",
+  required = true
+)}}

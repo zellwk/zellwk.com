@@ -1,0 +1,134 @@
+@import 'reset';
+
+// ======================================
+// # Layouts for Convertkit form
+// ======================================
+
+@mixin l-ck--standard {
+  margin: vr(2) 0 vr(2) -25vw;
+  padding: vr(2.5) vr(3.5) vr(2.5) 25vw;
+
+  &:last-child { margin-bottom: 0; }
+
+  @include bp(max large) {
+    margin-right: vr(-0.75);
+    padding-right: vr(1);
+  }
+
+  .ck_form {
+    @include bp(large) { margin-left: vr(3.75); }
+  }
+
+  .ck_form_content p,
+  .ck_description > div,
+  .ck_subscribe_form {
+    @include bp(med) { margin-right: vr(2.25); }
+    @include bp(large) { margin-right: vr(6); }
+  }
+
+  // Fucked up hack because CK creates some divs instead of p
+  .ck_description > div {
+    margin-top: vr(0.75);
+  }
+}
+
+// CK Form in post and articles
+// Extra specificity required to overwrite props
+// when l-ck--standard is used directly in l-post__content
+.l-ck--standard,
+.l-post__content.l-post__content .l-ck--standard {
+  @include l-ck--standard;
+}
+
+// === End Layouts for Convertkit form
+
+// ======================================
+// # Convertkit Form styles
+// ======================================
+
+.c-ck {
+  border-top: vr(0.25) solid var(--theme-color);
+  background-color: color(alabaster);
+}
+
+// CK Form styles
+.ck_form.ck_form.ck_form {
+  background-color: transparent;
+  .ck_powered_by { display: none; }
+}
+
+.ck_form.ck_form .ck_form_content {
+  // Overwrite CK title to appear like h2
+  h3 {
+    color: color(mine);
+    @include tp-text2;
+    font-feature-settings: 'liga' 1;
+  }
+
+  // Allow ck image to float left and push words to right.
+  // Works only for books. Not courses, so not ideal.
+  // Might need a JS Solution. Have to think about it in future.
+  .ck_image {
+    margin: 0;
+    float: none;
+  }
+
+  .ck_image > * {
+    margin-top: vr(0.25);
+    margin-right: vr(0.75);
+    float: left;
+  }
+}
+
+.ck_subscribe_form.ck_subscribe_form.ck_subscribe_form {
+  margin-top: vr(0.75);
+
+  @supports (display: grid) and (not (display: ms-grid)) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: vr(0.75);
+  }
+
+  @supports not (display: grid) {
+    display: flex;
+    flex-flow: row wrap;
+    @include eq-flex-parent(vr(0.75), 2);
+
+    > .ck_control_group {
+      @include eq-flex-child(vr(0.75), 50%);
+    }
+
+    > button {
+      flex-grow: 1;
+      margin-top: vr(0.75);
+    }
+  }
+
+  label {
+    @include tp-sans2;
+    display: block;
+    margin-bottom: vr(0.175);
+  }
+
+  input {
+    @include input;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  button {
+    @include o-btn--secondary;
+    justify-self: flex-start;
+    grid-column: span 2;
+  }
+
+  .ck_guarantee {
+    display: none;
+  }
+
+  .ck_link {
+    margin-top: vr(-0.75);
+  }
+}
+
+// === End Convertkit Form styles

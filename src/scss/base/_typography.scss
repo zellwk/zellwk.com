@@ -1,0 +1,68 @@
+// Base Typography Declarations
+// ===============
+@include typi-init;
+
+html {
+  @include tp-sans;
+  color: color(mine);
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga' 1;
+}
+
+h1 {
+  @include tp-display;
+}
+
+h2 {
+  @include tp-text2;
+}
+
+h3 {
+  @include tp-condensed1;
+}
+
+a {
+  text-decoration: none;
+}
+
+strong {
+  @include fw('sans', 600);
+}
+
+em {
+  font-style: italic;
+}
+
+code {
+  @include tp-code;
+  color: inherit;
+}
+
+pre {
+  @include wrap-words;
+  background-color: color(mine);
+  white-space: pre-wrap;
+
+  code {
+    @include tp-code--pre;
+  }
+}
+
+blockquote {
+  padding-left: vr(0.5);
+  border-left: vr(0.175) solid var(--theme-color);
+  @include tp-text--italic;
+
+  > cite {
+    @include tp-condensed2;
+    display: block;
+    margin-top: vr(0.125);
+    color: var(--theme-color);
+    font-style: normal;
+    text-transform: none;
+  }
+}
+
+figcaption {
+  @include tp-sans2;
+}

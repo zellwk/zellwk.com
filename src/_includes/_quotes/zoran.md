@@ -1,0 +1,3 @@
+<blockquote>Zell is a very talented developer with in-depth knowledge of various front-end technologies and tools. He's not only proficient at his work, but he also regularly shares his knowledge with the community. His books and articles are so well written and so full of useful information that I would recommend them to everyone in the web development industry.
+  <cite>Zoran Jambor, CSS Weekly curator</cite>
+</blockquote>

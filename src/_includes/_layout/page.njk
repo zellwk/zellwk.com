@@ -1,0 +1,24 @@
+---
+layout: _layout/html
+permalink: /{{ page.inputPath | pagePathOverride }}/
+newsletter: better-fed
+footer: true
+---
+<div class="l-wrap">
+  <article class="o-words">{{- content | safe -}}</article>
+
+  {%- if newsletter -%}
+    <section class="c-ck l-ck--standard jsCkForm">
+      {%- include 'convertkit.njk' -%}
+    </section>
+  {%- endif -%}
+
+  {%- if blockAfterNewsletter -%}
+  <div class="l-article__text">
+    {% markdown %}
+      Don't want to sign up yet? [Feel free to browse around my blog!](/blog)
+    {% endmarkdown %}
+  </div>
+  {%- endif -%}
+</div>
+

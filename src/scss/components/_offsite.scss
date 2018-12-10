@@ -1,0 +1,109 @@
+body.has-opened-offsite {
+  overflow: hidden;
+}
+
+.c-offsite-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: opacity 0.3s ease-in-out,
+                z-index 0.3s step-end;
+  background-color: rgba(color(radred), 0.98);
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+
+  &.is-open {
+    transition: opacity 0.3s ease-in-out,
+                z-index 0.3s step-start;
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+  }
+
+  &.is-closing {
+    opacity: 0;
+    visibility: visible;
+    z-index: 1;
+  }
+}
+
+.c-offsite__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: vr(1);
+  padding-right: vr(1);
+  padding-left: vr(1);
+}
+
+.c-offsite__content {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+// ======================================
+// # Offsite link animation
+// ======================================
+
+// Z and close
+$initial-delay: 0.075;
+$additional-delay: 0.05;
+
+@function offsite-delay ($initial-delay, $additional-delay) {
+  $initial-delay: $initial-delay + $additional-delay !global;
+  @return unquote($initial-delay + 's');
+}
+
+@mixin offsite-before-transition {
+  transform: translateX(#{vr(-1)}) translateZ(0);
+  opacity: 0;
+  backface-visibility: hidden;
+}
+
+@mixin offsite-transition {
+  transform: translateX(0) translateZ(0);
+  transition:
+    transform 0.3s offsite-delay($initial-delay, $additional-delay) ease-out,
+    opacity 0.3s offsite-delay($initial-delay, $additional-delay) ease-out;
+  opacity: 1;
+}
+
+.c-offsite__header > * {
+  @include offsite-before-transition;
+
+  @for $i from 1 through 2 {
+    .c-offsite-container.is-open &:nth-child(#{$i}) {
+      @include offsite-transition;
+    }
+  }
+}
+
+.c-offsite__nav > * {
+  @include offsite-before-transition;
+
+  @for $i from 1 through 5 {
+    .c-offsite-container.is-open &:nth-child(#{$i}) {
+      @include offsite-transition;
+    }
+  }
+}
+
+// === End Offsite link animation
+
+.c-offsite__close {
+  position: relative;
+  top: 0.15em;
+  color: rgba(color(w), 0.9);
+  @include typi('tsl1');
+  line-height: 1;
+}

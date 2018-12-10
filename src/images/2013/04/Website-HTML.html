@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset= "UTF-8">
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<title> My First Website </title>
+</head>
+
+<body>
+	<div id="header">
+		<!-- #header given to allow better targeting for CSS at a later stage  -->
+		<div class="wrap">
+			<!-- .wrap given  because multiple elements use the same wrap -->
+			<div id="title-area">
+				<h1 id="title">
+					<a href="#">Zell Liew</a>
+					<!-- anchor tags are given href of # for demo purposes. -->
+				</h1>
+			</div>
+
+			<nav>
+				<ul>
+					<!-- An unordered list is used for navigation -->
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Portfolio</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">About Me</a></li>
+					<li><a href="#">Contact </a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+
+	<div id="content">
+		<div class="post">
+			<h2 class="entry-title">
+				<a href="#">
+					<!-- We use an anchor tag here because we want the post preview to link to the post itself -->
+					The Layout of a Website
+					<!-- Title of post goes here -->
+				</a>
+			</h2>
+			<div class="postinfo">
+				APRIL 21, 2013
+				<!-- Post info, like time goes here -->
+			</div>
+			<div class="entry-content">
+				<!-- Actual post items goes here -->
+				<img src="" alt="">
+				<p>
+					Some post information
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div id="sidebar">
+		<div class="widget-wrap">
+			<!-- Similarly, a wrap is used here to allow easy duplicating of layouts in the sidebar -->
+			<h4 class="widgettitle">
+				Title of sidebar item
+			</h4>
+		</div>
+	</div>
+
+	<div id="footer" class="footer">
+		<div class="wrap">
+			<div class="creds">
+				<p>Copyright &#x000A9; 2013 &middot;
+					<a href="#">Zell Liew</a> &middot; Built on the <a href="#">Genesis Framework</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+---
+title: 5 things I learned from Infinity Wars
+layout: post
+slug: things-i-learned-from-infinity-wars
+tags:
+ - lessons
+newsletter: better-fed
+---
+
+Infinity Wars was amazing. I recommend you watch it—even if you think the plot, the cast, or even the ending sounds silly.
+
+I learned five things from the movie. I want to share these things with you (and talk about how they relate back to life, coding, and learning).
+
+Note: there's going to be spoilers.
+
+<!--more-->
+
+## Lesson #1. Try to understand people's world views
+
+Before I watched Infinity Wars, I thought Thanos (the bad guy) wanted to destroy planets because he wanted power or immortality.
+
+But Thanos didn't want power or immortality. He wanted peace.
+
+What's surprising was:
+
+1. He thought destroying half the universe will bring about peace.
+2. His conviction to his thoughts
+
+Way back in history, Thanos experienced famine due to overpopulation on his planet. People fought over food. Nobody could think of a good solution to end the famine.
+
+Thanos thought up a possible solution—to kill half the population so nobody will go hungry again.
+
+Everyone thought Thanos was insane. Everyone except Thanos.
+
+They didn't listen to Thanos. They didn't even try to understand his perspective. They assumed Thanos was crazy. Now, if they tried to understand Thanos, they could, for example, convince him to go for therapy. If they succeeded, the whole Infinity war could be avoided.
+
+On the flipside, if Thanos listened to other people, he might be able to find another solution. A solution that's way better than killing other people.
+
+This kind of "infinity war" happen around us every day.
+
+Designers and developers don't bother to understand each other. Clients and project managers refuse to understand designers and developers. Heck, even developers don't bother to talk to each other. 😓
+
+What if we tried to understand each other better? Can we resolve our differences and have happy working relationships?
+
+Can we treat each other [as humans](https://youtu.be/XnDGJrvEzJg)?
+
+We can. It's up to us to make a difference.
+
+## Lesson #2. If you want something to happen, you need to have the will and ability to see it through
+
+Thanos made the entire universe his enemy on his quest to kill half the universe. He faced warriors from everywhere—including the Avengers—to secure the 6 infinity gemstones.
+
+You think it's easy?
+
+Nope.
+
+But Thanos secured all 6 infinity gemstones anyway.
+
+Like Thanos, you will face obstacles in life. The question is, do you have the will and ability to overcome these obstacles?
+
+If you want to learn JavaScript, can you overcome the fear, confusion, and overwhelm that's stopping you? Can you [find the time to learn](/blog/finding-time-to-learn)?
+
+What obstacles are standing between you and your dreams? Can you get the will and ability to realize your dreams?
+
+**How hard will you push yourself to make your dreams a reality?**
+
+## Lesson 3. Get your priorities right
+
+Thanos faced a huge obstacle when he tried to get the Soul stone on Boromir. This obstacle was so huge that I would have faltered.
+
+To get the Soul stone, Thanos had to sacrifice a person dear to him. He loved Gamora. He cried. But he sacrificed Gamora anyway.
+
+This shows that Thanos prioritized his dream over his love for Gamora. He even prioritized his dream over Gamora's life.
+
+Sometimes you will have to make tough choices between things that are dear to you. How will you choose?
+
+You can only choose when your priorities are clear.
+
+**There shouldn't be two things that are equally important. Something is ranked higher. Know what you want and prioritize accordingly.**
+
+## Lesson 4. Don't lose control of your emotions
+
+Dr. Strange went to the future before the Avengers ambushed Thanos on Titan (Thanos's home planet). He wanted to find a way to win.
+
+He found one success in 14 million tries.
+
+They had a plan.
+
+The plan was to make Thanos sleep with Mantis's ability. The team will remove Thanos's Infinity Gauntlet when he's asleep.
+
+They almost succeeded.
+
+But Star Lord (Peter Quill) fucked things up.
+
+Peter lost control of his emotions when discovered Thanos killed Gamora. He punched Thanos's face in anger while he was supposed to help the team remove Thanos's gauntlet. The punches woke Thanos, and Thanos annihilated the team.
+
+Thanks, Star Lord. Half the universe died because of you.
+
+There's an important lesson to take away here.
+
+Don't ever lose control of your emotions. Keep them in check. Do what you're supposed to do, especially when you're in a pinch.
+
+**If you lose control, you may suffer consequences you'll regret.**
+
+## Lesson 5. Move on
+
+Strange told Iron Man that he'd prioritize the Time stone over Iron Man's life. But Strange gave up the Time stone to save Iron Man's life in the end.
+
+When Iron Man asked why, Strange said: "that's the only way".
+
+A lesson came to me at this moment. **There is no use crying over things that have happened. Accept reality, do damage control, and move on.**
+
+A few days later, I also realized that "that's the only way" could mean that giving up the Time stone was the only way they could defeat Thanos... But well, we won't know for sure until the next movie comes around!
+
+## Wrapping up
+
+Infinity Wars is a great movie. It contained many plot twists I wasn't expecting. I'm glad I watched it, and I'm glad I could take away some life lessons from the movie.
+
+Did you enjoy the movie? Did you learn anything from the movie? I'd love to hear your thoughts. Share them with me in the comments below!

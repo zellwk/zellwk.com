@@ -1,0 +1,50 @@
+.o-book {
+  margin-top: vr(1.5);
+
+  @include bp(med) {
+    @supports (display: grid) {
+      display: grid;
+      grid-template-columns: vr(4.5) 1fr;
+      grid-gap: vr(0.75) vr(0.125);
+
+      > * { grid-column: 2 / span 1}
+
+      > .o-book__img {
+        margin-top: vr(0.175);
+        grid-column: 1 / span 1 ;
+        grid-row: 1 / 3;
+      }
+    }
+
+    @supports not (display: grid) {
+      > * {
+        padding-left: vr(5.25);
+      }
+
+      > .o-book__img {
+        max-width: vr(4.5);
+        margin-top: vr(0.375);
+        padding-left: 0;
+        float: left;
+      }
+
+      > .o-book__desc {
+        margin-top: vr(0.125);
+      }
+    }
+  }
+}
+
+.o-book__title {
+  margin-top: 0;
+  @include bp(max med) { margin-bottom: vr(0.25); }
+}
+
+.o-book__img {
+  @include bp(max med) {
+    max-width: vr(4.5);
+    margin-top: vr(0.25);
+    margin-right: vr(0.75);
+    float: left;
+  }
+}

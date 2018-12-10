@@ -1,0 +1,24 @@
+<div class="c-form__item">
+  {% markdown %}
+    I'd love to, and I'm happy to hold a workshop for you. Please send me details about your company/conference and I'll be back with you shortly.
+  {% endmarkdown %}
+</div>
+
+{%- formInput {
+  name: 'workshop-topic',
+  label: "What topic would you like a workshop on?",
+  required: true
+} -%}
+
+{%- formTextarea {
+  name: 'workshop-venue',
+  label: "Please describe your event.",
+  helpText: "Is this a workshop for a company? Is this a workshop for a conference? Tell me more.",
+  required: true
+} -%}
+
+{%- formTextarea {
+  name: 'workshop-anything else',
+  label: "Is there anything else I should know about?",
+  required: true
+} -%}

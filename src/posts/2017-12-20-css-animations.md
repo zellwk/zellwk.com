@@ -1,0 +1,246 @@
+---
+title: CSS Animations explained
+layout: post
+slug: css-animations
+newsletter: better-fed
+shareText: "CSS Animations explained by @zellwk"
+tags:
+ - css
+ - animation
+---
+
+The second way to animate your components is through CSS Animations. CSS Animations are like CSS Transitions, except they're way more powerful.
+
+<!--more-->
+
+You create a CSS Animation by defining an animation in `@keyframes`.
+
+```css
+@keyframes animation-name {
+  0% {
+    margin-left: 0px;
+  }
+
+  50% {
+    margin-right: 400px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
+}
+```
+
+In the keyframes above, the `0%`, `50%` and `100%` values are points on an animation timeline. It means the following:
+
+1. Begin the animation (0%) with `margin-left` set to 0px.
+2. Animate `margin-left` to 400px as the animation continues to the the middle of the animation duration (50%)
+3. Animate `margin-left` to 0px as the animation continues to the end (100%)
+
+You can add any number of points on the `@keyframes` declaration. Each point you add should be a percentage value. (You can also substitute `from` for 0% and `to` for 100%).
+
+```css
+@keyframes animation-name {
+  0% {
+    margin-left: 0px;
+  }
+
+  25% {
+    margin-right: 200px;
+  }
+
+  50%, {
+    margin-right: 400px;
+  }
+
+  75% {
+    margin-right: 200px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
+}
+```
+
+If your `@keyframes` points contain similar properties (like in the above case), you can stack the points together to compact the `@keyframes` declaration.
+
+```css
+@keyframes animation-name {
+  from, to {
+    margin-left: 0px;
+  }
+
+  25%, 75% {
+    margin-right: 200px;
+  }
+
+  50% {
+    margin-right: 400px;
+  }
+}
+```
+
+## Using the animation
+
+You can use the animation you've created with the `animation` property. Like `transition`, `animation` is a short hand for a handful of `animation-` properties (8 in total).
+
+```css
+.component {
+  animation-name: name;
+  animation-duration: duration;
+  animation-timing-function: timing-function;
+  animation-delay: delay;
+  animation-iteration-count: count;
+  animation-direction: direction;
+  animation-fill-mode: fill-mode;
+  animation-play-state: play-state;
+
+  /* OR */
+  animation: name
+             duration
+             timing-function
+             delay
+             iteration-count
+             direction
+             fill-mode
+             play-state;
+}
+```
+
+`animation-name` is the name of the animation you created with the `@keyframes` syntax. You can include more than one animation by separating them with commas.
+
+`animation-duration` is the duration of the animation. It is written in seconds with the `s` suffix, like `3s`. It is also a required value.
+
+`animation-timing-function` is the timing-function used for the animation. It has the same syntax as a `transition-timing-function`. If left out, it defaults to `ease`.
+
+`animation-delay` is the delay before starting the animation. It creates a delay for every iteration of the animation and is written in seconds with the `s` suffix, like `3s`. If left out, it defaults to 0s.
+
+`animation-iteration-count` tells CSS how many times you want the animation to occur. It takes in a number value. If you want the animation to loop infinitely (until you say stop), use `infinite`. If left out, it defaults to 1.
+
+`animation-direction` is the direction of the animation. More on `animation-direction` below.
+
+`animation-fill-mode` tells CSS what to do when the animation ends. More on `animation-fill-mode` below.
+
+`animation-play-state` determines the state of the animation. It can either be `running` (which means the animation is playing) or `paused`. If left out, it defaults to `running`.
+
+## Animation-direction
+
+`animation-direction` tells CSS to play the animation from 0% to 100% or vice versa.
+
+If the `animation-direction` is set to `normal`, the animation plays from 0% to 100%.
+
+If the `animation-direction` is set to `reverse`, the animation plays from 100% to 0%.
+
+If the `animation-direction` is set to `alternate`, the animation plays from 0% to 100% first, then plays from 100% to 0%, and from 0% to 100% again, until the `animating-iteration-count` runs out.
+
+If the `animation-direction` is set to `alternate-reverse`, the animation plays from 100% to 0% first, then plays from 0% to 100%, and from 100% to 0% again, until the `animating-iteration-count` runs out.
+
+<p data-height="600" data-theme-id="7929" data-slug-hash="eGxBWP" data-default-tab="result" data-user="zellwk" data-embed-version="2" data-pen-title="Animation direction demo" class="codepen">See the Pen <a href="https://codepen.io/zellwk/pen/eGxBWP/">Animation direction demo</a> by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+## Animation-fill-mode
+
+`animation-fill-mode` tells CSS how to style the animated element when the animation ends. It can take four possible values: `none`, `forwards`, `backwards` and `both`.
+
+(If the `animation-iteration-count` is infinite, this property does nothing).
+
+`animation-fill-mode: none;` tells CSS to style the animated element CSS rules that apply to it. Nothing from the `@keyframes` declaration should affect the animation when it ends.
+
+`animation-fill-mode: forwards;` tells CSS to style the animated element such that it contains styles from the last `@keyframes` it encountered. If the animation goes in the normal direction, CSS will style the element with properties from the `100%` step. If the animation goes in the reverse direction, CSS styles the element with properties from the `0%` step.
+
+`animation-fill-mode: backwards;` tells CSS to style the animated element according to where it originated. In practice, this looks exactly the same as `none`. I don't see a good use case for it.
+
+`animation-fill-mode: both;` tells CSS to apply properties in both the `forwards` and `backwards` direction. In practice, this works exactly like `forwards` most of the time. I don't see a good use case for it too.
+
+Of the four different fill-modes, the one you'll most likely use is `forwards`.
+
+<p data-height="600" data-theme-id="7929" data-slug-hash="bozBRr" data-default-tab="result" data-user="zellwk" data-embed-version="2" data-pen-title="Animation fill-mode demo" class="codepen">See the Pen <a href="https://codepen.io/zellwk/pen/bozBRr/">Animation fill-mode demo</a> by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+## Animating two or more properties.
+
+You can animate two or more properties from the same element by separating the `animation-name` property with commas, just like how you'd do it with `transition-property`.
+
+```css
+.selector {
+  animation-name: slideIn, fadeIn;
+  animation-duration: 2s;
+}
+```
+
+The syntax is exactly the same as [transitioning multiple properties](/blog/css-transitions#transitioning-two-or-more-properties), so I'm confident you know how to take it from here :)
+
+## Vary your @keyframes points
+
+Setting `@keyframes` point values to standard, divisible values like 0%, 25%, 50%, 75% and 100% can make your animation dull and boring – because its predictable.
+
+You can vary your @keyframe point values so your animation becomes a bit more life-like, like the heartbeat example here:
+
+```css
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.3); }
+  50% { transform: scale(1); }
+  65% { transform: scale(1.2); }
+  80% { transform: scale(1); }
+}
+```
+
+<p data-height="300" data-theme-id="7929" data-slug-hash="wrNoXP" data-default-tab="result" data-user="zellwk" data-embed-version="2" data-pen-title="Heartbeat simple" class="codepen">See the Pen <a href="https://codepen.io/zellwk/pen/wrNoXP/">Heartbeat simple</a> by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+
+## Points and timing
+
+It's hard to time your CSS animation with other elements on the page at the same time.
+
+For example, let’s say you decide the animation should last for three seconds. You go ahead and calculate your points. In three seconds, if you want a specific part of the animation to take one second, you need to divide 100% by three. That means 33.333%.
+
+Later, you decide to change the entire animation to two seconds, but you still want the same part to be one second. Now you’re screwed. You need to redo your entire `@keyframes` sequence because 33.333% now means 0.67 seconds instead.
+
+😡.
+
+I have to confess here, this is why I don't use CSS animations much. Whenever I have a complicated animation I want to create, I'll use JavaScript instead. Animating with JavaScript is much easier once you get used to the syntax.
+
+## Playing/pausing your animation with CSS or JavaScript
+
+CSS animations play immediately when the page loads. If you want to play/pause your CSS animation on an event, you need to change the `animation-play-state`.
+
+```css
+.heart {
+  animation-play-state: running;
+}
+
+.heart:hover {
+  animation-play-state: paused;
+}
+```
+
+Mouse over the heart below and you'll see a paused animation:
+
+<p data-height="300" data-theme-id="7929" data-slug-hash="WZPRva" data-default-tab="result" data-user="zellwk" data-embed-version="2" data-pen-title="Heartbeat (pause on hover)" class="codepen">See the Pen <a href="https://codepen.io/zellwk/pen/WZPRva/">Heartbeat (pause on hover)</a> by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+IMPORTANT! Always pause your CSS animations when you don't need them! This stops the animations from moving, which saves precious computing power that can be used for other things.
+
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+## When to use CSS Animations
+
+Now, this is the big question. You've learned so much about CSS animations. When should you use it?
+
+Although CSS animations are useful, I recommend it only one or more if the following scenarios are met.
+
+1. You need a complex animation that CSS Transitions cannot provide you with (like the heartbeat animation for example)
+2. You need to transition more than 2 properties for a single element.
+3. The animation is relatively simple. It should not be more than 4 steps. Any more, you're in for a headache.
+4. You want to trigger the animation when the screen loads (without listening for any JavaScript event).
+
+If the animation becomes complicated enough to exceed 4 steps, I recommend you animate your component with JavaScript. It's far easier to calculate and synchronize timings with JavaScript.
+
+## Wrapping up
+
+CSS Animations are kind of a powered-up version of CSS Transitions. They allow you to create multi-step transitions through the `@keyframes` syntax.
+
+To use an animation you created, you can specify the animation in `animation` or `animation-property`.
+
+CSS Animations are great for animations that are relatively simple, because of the way `@keyframes` is structured. If you want to create a more complex animation, I highly recommend Javascript to create your animation instead.
+
+If you loved this article, you'll love learn **Learn JavaScript**—a course that helps you learn to **build real components from scratch** with Javascript. [Click here to find out more about Learn JavaScript](https://learnjavascript.today) if you're interested.

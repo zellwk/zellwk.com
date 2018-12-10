@@ -1,0 +1,65 @@
+// THEME RESET
+// -----------
+// Personal resets in addition to Normalize.scss
+// ===========
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+pre,
+blockquote,
+figure,
+hr {
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: block;
+}
+
+a:focus { outline: none; }
+
+// Removes all decimals and discs from li
+li {
+  list-style: none;
+}
+
+// Completely resets form items
+// - Super hard reset that removes all borders
+//   and radiuses of all form items (including
+//   checkboxes and radios)
+// ---------------
+input,
+textarea,
+button {
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+

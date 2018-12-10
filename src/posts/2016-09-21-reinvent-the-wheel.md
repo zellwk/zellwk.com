@@ -1,0 +1,117 @@
+---
+title: Don't reinvent the wheel
+layout: post
+slug: dont-reinvent-the-wheel
+tags:
+ - life
+ - code
+ - mindset
+newsletter: jsr
+---
+
+<em>"Don't reinvent the wheel".</em>
+
+You heard that one before?
+
+It's an age-old wisdom that's been passed around between developers since the dawn of time (at least for programming anyway).
+
+It's also the worst advice you'll hear from anyone. But we say it on a daily basis. To others, and even to ourselves. It's just that whenever we say this, we sugar-coat the words in different forms so we don't feel as hurt.
+
+We say things like:
+
+- Just use [insert framework here]
+- Use [insert plugin here] instead of creating your own. It's not a priority.
+- Don't waste your time building something that has been done before.
+
+Sounds familiar yet? Has anyone said these to you before? How did you feel? Don't kid anyone. You felt something. Did you feel:
+
+- Threatened?
+- Defensive?
+- Aggressive?
+- Angry?
+- Sad?
+- Stupid?
+- Worthless?
+- A combination of many of these?
+- Others...
+
+These statements challenge the receiver. With any questions that challenge, it not only challenges the decisions on the surface (for most of us, it's a choice whether or not to do something for a project), it challenges the core beliefs of the receiver.
+
+Like it or not, it happens unconsciously. And because these questions are directed towards the core beliefs, the repercussions can be severe.
+
+<!--more-->
+
+## It's never about reinventing the wheel
+
+Go back to the time where you wanted to build something. And somebody stopped you by telling you not to reinvent the wheel. That somebody can be anyone. It can even be you.
+
+There yet? Good.
+
+Now, answer these questions.
+
+1. What makes you want to build [insert thing here]?
+2. How important is it to you for [insert thing here] to be built?
+
+Your answer can be anything too, as long as it feels true for you.
+
+- Is your way easier to maintain?
+- Does your way fuel your pursuit of excellence and mastery?
+- Does the thing outside not perform up to expectations?
+- Or is it just for your pride and ego?
+
+## Let's say the thing is super important
+
+How did you respond to the challenge?
+
+Did you fight for your reasons to the death (or until you're proven you're dead wrong), or did you switch directions immediately to avoid conflict?
+
+Something profound happens to your inner psyche depending on which response you took.
+
+If you fought for your reasons until you're proven you're wrong, you become more confident in yourself and your beliefs. Do it consistently and you'll believe in yourself so strongly that you'll dare to do what others don't. You'll dare to express yourself. Let your creative genius out. You'll make more useful (or maybe even crappy) stuff. And you'll see more possibilities and opportunities.
+
+If you changed directions to avoid conflict, *congratulations, you have slapped yourself. HARD.*
+
+Don't feel like it?
+
+Well, dig into that uneasy feeling you had when you decided to switch directions. How does it feel? What was it about?
+
+Maybe you hated yourself for giving up so easily. Maybe you wondered why you're so stupid to come up with the idea in the first place. Maybe you felt the indignation for not feeling appreciated for your efforts. Maybe you feel sorry for your helplessness and worthlessness. Maybe it's something else.
+
+No matter what, it felt like shit.
+
+There's something inside that's telling you why [insert thing here] needs to be done. There's a fire burning within, and you snuffed it out.
+
+You become less confident. You lose the power to stand for yourself. Maybe you'll also become angrier with the world.
+
+Then, what if it happens again? And again? And again?
+
+Eventually, you'll lose all respected for yourself and your skills you've gained through all the hard work. And you don't even need me to spell out what happens if you get there.
+
+## The real cost of reinventing the wheel
+
+So you see, the real cost of reinventing the wheel ain't simple. It's the possibility of developing an inferiority complex that's so strong that you can no longer help it. And worse of all, you don't see it coming.
+
+And if you're reading this now, you may think to yourself. "Zell, don't be such a pessimistic dickhead. It wouldn't happen. You're thinking too far."
+
+Would it happen? Maybe, I don't know. Most likely, you wouldn't even know if it has happened, because you're so used to it already.
+
+If you're a project manager, you won't ever know because you may never see the developer for the rest of your life.
+
+If you're the developer, would you know? Maybe. I hope you do. You know you're on the path if you constantly feel sucky, useless and worthless. You'll know it if you feel that everyone in the world is better than you. I hope you notice it.
+
+## What to do instead
+
+Reinventing the wheel or not isn't the big problem here. It's how you speak to the other person. If you're issuing a challenge, you have to ask yourself if the other party can take the challenge.
+
+If he can't, try to understand what's going through the other person's brain. Seek to understand their emotions.
+
+If you're the one that got challenged, what you do is simple. Search through your reasons and stand for yourself. Fight for your beliefs (no, not literally, please).
+
+Yes, thoughts about displeasing your boss and getting fired will cross your head. You'll feel that it's a real risk.
+
+More often than not, your bosses won't throw you out of the company. Instead, they'll respect you for the strength of your character, and they'll lean on you in times of need.
+
+Even if you get thrown out of the company, so what? It's probably a good thing. What's riskier? Living a life full of doubts and regrets or moving on in search of a new company?
+
+You decide.
+

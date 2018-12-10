@@ -1,0 +1,141 @@
+---
+title: 5 things you can do to keep learning when things turn unexpectedly difficult
+layout: post
+slug: learning
+tags:
+ - life
+newsletter: better-fed
+---
+
+Learning anything from scratch isn't a problem. In the beginning, milestones between each difficulty level are small and it is easy to get a sense of accomplishment for each small step you take.
+
+After one or two weeks, "reality" sets in. It becomes increasingly difficult to hit the next milestone. Sometimes people just forget the initial enthusiam they. Sometimes, they become "too busy". Most people give up on learning at this stage. Some persist for another month or two before giving up. Yet, others continue to learn and thereafter begin to excel in whatever they do. Is there a secret in learning?
+
+Over the last half a year, I have gone from knowing nothing about designing and coding, to building two wordpress themes and I am still learning. My motivation is still strong.
+
+In this post, I would like to share with you how I view learning after persevering for 6 months and how I kept my motivation levels up.
+
+<!--more-->
+
+## How each learning journey looks like
+
+Before even begin diving down into the tips on learning. I feel that it is crucial to address how each learning process looks like and the emotional impact we feel from it.
+
+We traditionally think that the learning curve looks somewhat like this:
+
+![][image-1]
+
+I feel that the learning process is not just a smooth diminishing curve shown above. It is just a little more complex.
+
+Each learning journey invariably takes a similar shape to each other with no regard of the subject discussed. It doesn't matter if you're trying to learn to draw, program, design, negotiate, network or anything else for the record. Although the skills you need to pick up are different in each scenario, each journey will probably look something like this. (My drawing sucks, bear with me for a while)
+
+![][image-2]
+
+Lets say for example you start off at 0, an arbitrary number given our current level of skill (or actually 0 if you don't know anything). Initially, as you begin to put more effort into learning the skills, you see that our skills improve dramatically with a small amount of effort. Everything seems to be going along smoothly, and it doesn't seem difficult at all. It looks like you have the talent to make it!
+
+Eventually, you reach a plateau. This plateau sometimes takes a lot of effort to break through. Other times, it is pretty easy.
+Sometimes, no matter how much you try, it doesn't look like your skills are improving and you begin to feel frustrated. This is very normal and we humans usually tend to start undermining ourselves at this juncture and begin to wonder whether we are overly optimistic at the beginning, and whether we had any talent in the skill we are trying to develop.
+
+With enough effort, it is possible that you break through to the next level. Things goes smoothly for another period, the future looks bright and nothing seems impossible again. Unfortunately, further down the road, you meet the same problem again. Your skills seem to get stagnant.
+
+This happens to me a lot, in many skills that I have tried to pick up. That includes playing the guitar, learning to draw, learning to design websites, learning to code and other areas. I had the experience of giving up in the first plateau, sometimes second, sometimes third. Sometimes, I manage to strive on despite the difficulties. After reviewing my past successes and failures, I found a pattern.
+
+The learning of any skill follows a cycle, where there is rapid improvement, followed by slow improvement, and a plateau.
+
+It's not surprising that our emotions follow a pattern that is closely related to the skills cycle.
+
+![][image-3]
+
+At each breakthrough, optimism and other positive emotions wins over.
+
+At each plateau, frustration and other negative emotions build up. We start to feel like shit. The next instance you know, people start quitting.
+
+The key therefore, is to make sure that you, for the lack of a better term, **pull through each emotion hurdle.**
+
+In 6 months, I went from not knowing any code at all, to developing two wordpress themes at the time in writing. I have encountered many ups and downs, cried over my designs looking too ugly, and sometimes felt that I was the dumbest person on earth. After going through these, I have learnt a few lessons keeping myself happy and thus perservering through the tough situations.
+
+## How to make it through each emotional hurdle
+Learning to overcome emotional setbacks is no easy task. Like any other skill, learning this one takes time, effort and perserverance.
+
+The first step to learning to overcome emotional setbacks is to learn to identify your feelings. The better you are able to articulate what you feel at any point in time, the better poised you are to determine what actions you have to take.
+
+What do you currently feel? Angry? Worthless? Apathy? Bored? Happy? Relaxed? Invincible?
+
+If your emotional state is positive, then forget about monitoring it and carry on whatever you want to do
+
+If your emotional state is anything negative, the second step is to change it. The goal is to remove negative emotions as quickly as possible.
+
+Here are a list of activities that you can do to switch your feelings.
+
+### 1. Meditate
+
+Its a cliche you here everywhere. The thing is, the cliche works.
+
+The thing about meditation is not trying to sit still for hours and not to count breaths.
+
+The thing about meditation is to learn to know what you feel now, to accept it and sometimes to dive further into asking yourself why you feel that way.
+
+Meditation is one good way to begin learning how to identify your emotions and also a good way to clear out any negative emotions you might be having.
+
+Try: Make a habit out of meditating by doing it twice a day, 15mins every morning and every night. I imagine that you will start to feel its effects after keeping it up for at least a month.
+
+If you're totally clueless to meditation, one resource I find particularly helpful to start out with [Peter Russell's meditation course – How to meditate without even trying][1]. This course operates on a pay what you wish scheme, and you can get it at a very low price of $1 if you wish to begin trying it out.
+
+### 2. Create a journal.
+
+Writing is probably one of the best ways to keep track of what you have done. Simply the process of offloading what you have been thinking can be a tremendous help to empty your mind to let thoughts flow.
+
+I tend to find writing as one good way to think to myself. If I try to think about a difficult problem, I usually get nowhere and I get frustrated easily. However, when I start writing down my problems and thoughts, solutions naturally emerge.
+
+To help myself understand how far I have came (which is a good motivation booster), I set weekly goals for whatever I am trying to learn, and I write down my thoughts and what I did daily.
+
+Try: Set a goal for the task you are trying to learn, and write down what you did daily.
+
+### 3. Stay away from critics
+
+A common problem I found is that whenever my learning becomes stagnant and I start to get frustrated, I have the urge to talk to people about what I am experiencing, and to find answers as to how I should continue.
+
+I often talked about what I was experiencing with friends or family, they are the easiest people to reach, but are often not the ideal candidates to talk to.
+
+Critics are people who expresses an unfavourable opinion of something. It turns out that most of my friends around are critics in disguise. Whenever I share a new design with these people, subconciously, they shoot down certain areas where they think are not good enough.
+
+Try: If you know who these people are, try not to talk to them when you are not feeling in the game, it is very likely that they can conciously or unconciously cause you to give up on what you're doing.
+
+Who should I talk to if I should not talk to my friends? Find people who are smarter than you, or have done it before.
+
+### 4. Get an accountability group
+
+There are tons of accountability groups out in the internet with people that are far smarter than you and I combined. When looking for accountability partners or for advice, it is extremely important to find someone who has already done it before you, and can show you the way if you get lost.
+
+More often than not, these group of people are not our close friends that we currently have (at least not for me at the time of writing). However, they can be easily found all around the internet in various tribes.
+
+Just as an example, I have had the opportunity to be part of [Henri Juntilla's Lifestyle Liberation Academy][2] and [Ramit's Brain Trust.][3] Both groups feature people who have already made it far past the level that I am at. Answers from these groups of people are far more likely to be applicable to my situation compared to advice given by close friends that have not made it.
+
+Try: Find a group online that talks about the things that you are trying to learn. Join them, participate actively and ask questions.
+
+### 5. Play and have fun
+
+Last but not least, humans learn best when we are having fun. Consider the time you were in school and was forced to learn a subject you didn't like versus another that you liked. How did the learning process go?
+
+Similarly, if you find joy in the learning process, then it will be much easier for you to continue learning. The unfortunate thing is that in the current society, we are indoctrinated not to play.
+
+I have been on both sides of the coin and fluctuate between these two mental modes while learning about web design. I have also noticed that when I try to adopt a playful mentality, it is easier for me to carry on learning and experimenting with different colors, grid layouts and other fundamental design aspects. However, if I were to go into a serious no joke mood, the results often turn out to be disastrous.
+
+Try: Adopting a playful attitude towards whatever you are trying to learn. Try experimenting with many different combinations and see what you come up with!
+
+## Ending it all off
+
+Mastering the learning process couldd eventually very much impact many major areas of our lives. I hope this short sharing session of what I think about learning and what you can do to aid in your own learning process is helpful in whatever you are trying to learn.
+
+Did you have any other tips or process that you use to aid yourself in the learning process, I'll really love to hear more about them.
+
+
+
+
+[1]:  http://www.peterrussell.com/HMWET/index.php "How to meditate without trying"
+[2]:  http://www.lifestyleliberationacademy.com "Lifestyle Liberation Academy"
+[3]:  http://go.ramitsbraintrust.com "Ramit's Brain Trust"
+
+[image-1]:  /images/2013/07/Skills-Usual-Thinking.jpg "Traditional thinking on learning curve"
+[image-2]:  /images/2013/07/skills-what-I-feel.jpg "What the learning curve should instead look like"
+[image-3]:  /images/2013/07/skills-and-emotions.jpg "Relationship between the Learning Curve and Emotions we feel"

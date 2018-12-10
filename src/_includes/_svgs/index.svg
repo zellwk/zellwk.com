@@ -1,0 +1,3 @@
+<svg style="display: none;">
+  {% include "svgs/zell.svg" %}
+</svg>

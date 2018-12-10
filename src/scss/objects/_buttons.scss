@@ -1,0 +1,52 @@
+@mixin o-btn {
+  display: inline-block;
+  position: relative;
+  // Text in button feels slightly low. Bumping padding bottom to centralize them
+  padding: 0.75em 1.5em 0.85em;
+  transition: background-color 0.15s ease-in-out;
+  border: 1px solid transparent; // to balance with input
+  font-size: inherit;
+  // Safari inline block has a whitespace bug that causes. nowrap fixes it
+  // white-space: nowrap;
+  @include tp-condensed;
+  @include remove-link-underline;
+
+  &:hover,
+  &:active,
+  &:focus {
+    @include remove-link-underline;
+    background-color: color(geebung);
+    color: color(w);
+  }
+}
+
+.o-btn,
+a.o-btn {
+  @include o-btn;
+}
+
+// ======================================
+// # Button modifiers
+// ======================================
+.o-btn--primary,
+a.o-btn--primary {
+  @include o-btn;
+  background-color: var(--theme-color);
+  color: color(w);
+}
+
+@mixin o-btn--secondary {
+  @include o-btn;
+  background-color: color(malachite);
+  color: color(w);
+}
+
+.o-btn--secondary,
+a.o-btn--secondary {
+  @include o-btn--secondary;
+}
+
+.o-btn--flat,
+a.o-btn--flat {
+  padding: 0.35em 0.5em;
+}

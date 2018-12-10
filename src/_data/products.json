@@ -1,0 +1,24 @@
+{
+  "books": [
+    {
+      "title": "Learning Susy",
+      "desc": "_products/susy.md",
+      "img": "/images/books/ls.jpg",
+      "url": "https://learnsusy.zellwk.com"
+    },
+    {
+      "title": "Automating Your Workflow",
+      "desc": "_products/ayw.md",
+      "img": "/images/books/ayw.jpg",
+      "url": "https://automateyourworkflow.com"
+    }
+  ],
+  "courses": [
+    {
+      "title": "Mastering Responsive Typography",
+      "desc": "_products/mrt.md",
+      "img": "/images/courses/mrt-900.jpg",
+      "url": "https://mastering-responsive-typography.com"
+    }
+  ]
+}

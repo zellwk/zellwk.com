@@ -1,0 +1,113 @@
+---
+title: Understanding Wordpress Actions and Filters
+layout: post
+slug: wordpress-actions-and-filters
+tags:
+ - wordpress
+newsletter: better-fed
+---
+
+Wordpress action and filter hooks are what makes Wordpress incredibly extendable. These hooks are very easy to use if someone else has already wrote them, and you just had to hook something in. Understanding how they work is another matter entirely.
+
+In this post, I'm going to walk you through my personal understanding of Wordpress action and filer hooks after a few hours of experiments.
+
+<!--more-->
+
+## The Difference Between Actions and Filters
+The main difference between actions and filters is the purpose they are used for and how they are declared and used. Here's a quick summary.
+
+- **Actions**
+When something has to be **added**
+declared with `add_action()`.
+used with `do_action()`.
+- **Filters**
+When something has to be **changed**
+declared with `apply_filters()`.
+used with `add_filters().`
+
+Not sure you get what I mean? Lets dive into some examples of creating and using actions and filters.
+
+## Creating Wordpress Actions
+You can create a wordpress action with the following code.
+
+  <?php
+  add_action('my_action_hook_name', 'my_action_function_name', $priority);
+
+  function my_action_function_name() {
+    // things your function should do
+  }
+  // Note: $priority is optional, and defaults to 10
+
+Multiple functions to a single action hook, allowing many possibities of adding functionality to a particular area.
+
+When the above code is executed, Wordpress searches the actions list for`'my_action_hook_name'`. If `my_action_hook_name` is not found, Wordpress creates the action hook.
+
+If `my_action_hook_name` is already declared, Wordpress tries to find out when it should execute the function with the `$priority `. The lower a number given to priority, the earlier that particular code will execute.
+
+Since you now know how to create an Wordpress action, the next step is to know how to use it.
+
+## Using Wordpress Actions
+You can you the wordpress action with the following code.
+
+  <?php
+  do_action('my_action_hook_name');
+
+When the action is called, all functions that are 'hooked' to this action will get executed.
+
+From what I see, action hooks are usually used to output information or do some additional logic.
+
+Thats it for actions! Lets move on to filters.
+
+## Declaring Wordpress Filters
+
+Wordpress filters are more difficult to understand compared to actions.
+
+Lets first talk about how to declare filters first, followed by understanding how to modify the information used by filters.
+
+Filters are declared with the `apply_filters()` function shown below.
+
+  <?php
+  $output = apply_filters('filter_name', 'filter_args');
+
+In the code mentioned above, the declared filter has a name of `filter_name` with default value `'filter_args'`. filter arguments can be strings or even arrays if you like them to.
+
+To initialise an array as the default value of a filter, consider writing it like this instead.
+
+  <?php
+  $filter_defaults = array('one','two');
+  $output = apply_filters('filter_name', $filter_defaults);
+
+In the above example, we initialized an array and assigned `$output` to be `array('one','two')`.
+
+Next, lets find out how to change the value of `$output` with filter hooks
+
+## Changing the passed value to filter hooks
+
+To change the value of `$output`, you have to pass the value through a filter function.
+
+  <?php
+  add_filter('filter_name', 'my_filter_function');
+  function my_filter_function ( $args ) {
+   $args = 'my new value';
+   return $args;
+  }
+
+In this case, `$args`, which currently contains `array('one','two')` is the default value passed to `$output`. For the code above, I have changed `$args` to `my_new_value`, which will be passed on to `$output` when the filter function executes. The value of `$output` is now `my_new_value`.
+
+Thats it!
+
+## Summing it up
+In essence, Wordpress filters and actions are used for very different purposes, and they are declared very differently.
+
+Here's a quick summary:
+
+- **Actions**
+When something has to be **added**
+declared with `add_action()`.
+used with `do_action()`.
+- **Filters**
+When something has to be **changed**
+declared with `apply_filters()`.
+used with `add_filters().`
+
+Hopefully this clears up the difference between wordpress actions and filters for you.

@@ -1,0 +1,23 @@
+<footer class="c-footer" role="contentinfo">
+  <div class="l-wrap">
+    <div class="l-wrap__full l-footer__wrap">
+      <div class="c-footer__cta">
+        <div class="o-words">
+            {% markdown %}
+            ### Need help with your projects?
+
+            Hit the button below and tell me more! I'd love to help :)
+            {% endmarkdown %}
+          <p><a href="/apply" class="o-btn--secondary">Hire Zell for my project</a></p>
+        </div>
+
+        {% import '_macros/nav.njk' as nav %}
+        {{nav.footer()}}
+      </div>
+
+      <div class="c-footer__info">
+        <p class="s2">©2016-2018, Zell Liew</p>
+      </div>
+    </div>
+  </div>
+</footer>

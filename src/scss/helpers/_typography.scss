@@ -1,0 +1,30 @@
+// Typography mixins
+// -----------------
+
+// Font weight
+// -----------
+
+@mixin fw($family, $weight, $map: $font-weights) {
+  $weights: map-fetch($map, $family);
+  $w: contains($weights, $weight);
+  @if ($w) {
+    font-weight: $weight;
+  } @else {
+    @error "$weight '#{$weight}' was not found in $font-weights: #{$family}.";
+  }
+}
+
+
+
+// Font Family
+// -----------
+@mixin ff($family, $map: $font-families) {
+  font-family: map-get($map, $family);
+}
+
+@mixin wrap-words {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}

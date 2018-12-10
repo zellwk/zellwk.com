@@ -1,0 +1,22 @@
+{
+  "title": "Zell Liew",
+  "url": "https://zellwk.com",
+  "description": "Zell is a designer, developer and writer. He shares things he knows about web development on this blog.",
+  "author": {
+    "name": "Zell Liew",
+    "twitter": "@zellwk",
+    "email": "zellwk@gmail.com",
+    "gplus": "https://plus.google.com/u/0/107981139229061135975"
+  },
+  "feed": {
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "url": "https://zellwk.com/feed/feed.xml",
+    "id": "https://zellwk.com/"
+  },
+  "newsletters": [
+    "CSS Tricks",
+    "Smashing Mag",
+    "Scotch"
+  ]
+}

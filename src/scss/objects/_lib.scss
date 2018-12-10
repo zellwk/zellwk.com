@@ -1,0 +1,21 @@
+.o-lib {
+  margin-top: vr(1.5);
+
+  p { margin-top: vr(0); }
+}
+
+.o-lib__name {
+  display: inline-block;
+  margin-bottom: vr(-0.75);
+}
+
+.o-lib__stars {
+  display: inline-block;
+  @include tp-condensed--lnum;
+
+  > svg {
+    position: relative;
+    top: 0.025em;
+    margin-right: -0.0625em;
+  }
+}

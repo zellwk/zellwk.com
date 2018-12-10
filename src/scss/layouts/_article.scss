@@ -1,0 +1,74 @@
+// Article
+// ===============
+
+// Article Header
+// ---------------
+.l-article__header {
+  @include bp(large) { margin-right: vr(3); }
+  @include bp(mega) { margin-right: 0; }
+}
+
+// Article Text layout
+// ---------------
+@mixin l-content {
+  @include bp(large) { margin-left: vr(3.75); }
+}
+
+@mixin l-content__text {
+  @include l-content;
+  @include bp(med) { margin-right: vr(3.75); }
+  @include bp(large) { margin-right: vr(7.5); }
+}
+
+@mixin l-content__extended {
+  @include l-content;
+  @include bp(med) { margin-right: vr(3.75); }
+}
+
+@mixin l-article__text {
+  // TODO: Refactor back into CSS Grid.
+  // Forget about using margin left/right. Too difficult to control
+  > *:not(.l-post__date):not(.article__external-logo) {
+   @include l-content__text;
+ }
+
+  > pre,
+  > figure,
+  > iframe,
+  > .l-article__extended-text {
+    @include l-content__extended;
+  }
+
+  > h2 {
+    @include l-content;
+  }
+
+  > figure {
+    position: relative;
+
+    figcaption {
+        margin-top: vr(0.375);
+        padding-left: vr(0.25);
+        border-left: 3px solid #ccc;
+    }
+  }
+}
+
+.l-article__text {
+  @include l-article__text;
+  h1 + & { margin-top: vr(0.75) }
+}
+
+// TODO: Refactor into CSS Grid
+.article__external-logo {
+  svg {
+    display: none;
+    @include bp(med) {
+      display: block;
+      max-width: vr(2.75);
+      max-height: vr(2.75);
+      margin-top: vr(0.375);
+      float: left;
+    }
+  }
+}

@@ -1,0 +1,326 @@
+---
+title: An In-depth Tutorial to Typi
+layout: post
+slug: typi
+tags:
+ - typography
+ - responsive
+ - typi
+newsletter: mrt-simplicity
+---
+
+Typi is a library I've created to help make responsive Typography easy. I first talked about Typi when I released the article on [responsive typography](/blog/responsive-typography) in January 2016. Since then, I've added new functionalities to Typi to make it even better.
+
+In this article, I'm going to tell you what Typi can do and how to use it.
+
+<!--more-->
+
+Let's begin by installing Typi.
+
+## Installing Typi
+
+[Typi](https://github.com/zellwk/typi) requires you to have Sass installed for your project. If you're unsure how to install Sass, I highly suggest [checking this article](/blog/gulp-libsass-with-susy/) where I teach you how to setup your project with a LibSass and Susy (Sass library just like Typi).
+
+There are three ways you can install Typi:
+
+### Installing with Bower
+
+- Terminal: `bower install typi --save`.
+- SCSS: `@import path-to-typi/scss/typi`
+
+### Installing with npm
+
+- Terminal: `npm install typi --save`.
+- SCSS: `@import path-to-typi/scss/typi`
+
+### Installing with Vanilla Sass
+
+- [Download the latest release](https://github.com/zellwk/typi/releases)
+- Extract it into your project
+- SCSS: `@import path-to-typi/scss/typi`
+
+Once you're done installing Typi, move on to the next step.
+
+## Setting Up
+
+You have to set up two Sass maps in order to use Typi. **The first map is a `$breakpoints` map**. It is a series of `key: value` pairs that tells Typi what media queries to create. It looks like this:
+
+```scss
+$breakpoints: (
+  small: 600px,
+  large: 1200px
+);
+```
+
+What this means is that when Typi looks for a `small` key, it will create a media query at `600px`.
+
+**The second map that you have to create is a `$typi` map**. It is responsible for telling Typi what `font-size` and `line-height` values to create at different media queries. It looks like this:
+
+```scss
+$typi: (
+  null: (16px, 1.4),
+  small: 18px,
+  large: 20px
+);
+```
+
+That's all for the setup. We'll talk about what the values in the `$typi` map mean as we go through how to use Typi.
+
+## Using Typi
+
+**The first thing that Typi does is to create `font-size` and `line-height` values for your body text**. To do so, you use the `typi-base` mixin on the `html` selector.
+
+```scss
+html {
+  @include typi-base();
+}
+```
+
+Typi looks for the `$typi` map to figure out what `font-size` and `line-height` values to create when you call the `typi-base` mixin.
+
+You can change the `$typi` map to another font-map by changing the `$typi` setting in the `typi-base` mixin. I highly discourage changing the `$typi` map because other mixins and functions use it as well.
+
+```scss
+html {
+  @include typi-base($typi: $some-other-map);
+}
+```
+
+Once Typi finds the `$typi` map, it creates a **min-width media query for each key** it finds. The only exception is **`null`**, which **tells Typi to create properties without media queries**.
+
+From the current `$typi` map, we see that there are `null`, `small` and `large` keys:
+
+```scss
+$typi: (
+  null: (16px, 1.4),
+  small: 18px,
+  large: 20px
+);
+```
+
+Here, Typi will first create some properties without media queries since there's a `null` key.
+
+Then, Typi looks into the `$breakpoints` map to identify the viewport values to create a `min-width` query for the `small` and `large` keys. This is behavior means Typi creates your properties with a [mobile-first](/blog/how-to-write-mobile-first-css/) CSS approach.
+
+You can also change the `$breakpoints` map into another name that you desire if you change the `$breakpoints` setting in `typi-base`. As above, I highly discourage changing the `$breakpoints` map because the `typi` mixin (mentioned below) use it as well:
+
+```scss
+html {
+  @include typi-base($breakpoints: $some-other-map);
+}
+```
+
+Since the `small` key has a value of `600px` while the large key has a value of `1200px`, the CSS produced by Typi is equivalent to the following:
+
+```css
+html { /* props here */ }
+
+@media all and (min-width: 600px) {
+  html { /* props here */ }
+}
+
+@media all and (min-width: 1200px) {
+  html { /* props here */ }
+}
+```
+
+For each key Typi finds in the `$typi` map, it will **create a `font-size` property for the first value** in the key. It will also **create a `line-height` value if it finds a second value** in the key.
+
+For example, the `null` key has a first value of `16px` and a second value of `1.4`. Here, Typi will create a `font-size` of `16px` and a `line-height` of `1.4` without any media queries.
+
+It does the same for the rest of the keys. Hence, the CSS produced by Typi is equivalent to the following:
+
+```css
+html {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+@media all and (min-width: 600px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  html {
+    font-size: 20px;
+  }
+}
+```
+
+Typi improves on this code a little more. **It converts `font-size` from `px` to percentages** to make sure that your typography scales according to the `font-size` set in the visitor's browser (it's a best practice).
+
+Since most browsers are set to `16px` by default, Typi uses `16px` as `100%`.
+
+**The actual CSS produced by `typi-base()` is:**
+
+```css
+html {
+  font-size: 100%;
+  line-height: 1.4;
+}
+
+@media all and (min-width: 600px) {
+  html {
+    font-size: 112.5%;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  html {
+    font-size: 125%;
+  }
+}
+```
+
+*Note: Typi creates media queries in px by default. You can use mappy-breakpoint or breakpoint-sass to convert it into em queries. More on that in the next article.*
+
+That's the basics to using Typi.
+
+## Using Typi For Other Elements
+
+After using Typi to create `font-size` and `line-height` properties for the body text, you can use Typi to create the same properties for other typography elements (like h1-h6) as well.
+
+To do so, you have to create a new font map for each typography element.
+
+Let's say you have a `<h1>` that has a `font-size` of `2em` and a `line-height` of `1.2` without media queries. At `600px`, The `font-size` changes to `3em` and `line-height` changes to `1.3`. The CSS code for this `<h1>` element is:
+
+```scss
+h1 {
+  font-size: 2em;
+  line-height: 1.2;
+}
+
+@media (min-width: 600px) {
+  h1 {
+    font-size: 3em;
+    line-height: 1.3;
+  }
+}
+```
+
+In Typi, what you'll do is to create a font-map that contains these `font-size` and `line-height` values at different breakpoints. These font maps work exactly the same as the `$typi` map.
+
+```scss
+$h1-font-map: (
+  null: (2em, 1.2),
+  small: (3em, 1.3)
+);
+```
+
+Once you've created the font-map, you can use the `typi` mixin to create the `font-size` and `line-height` properties. It takes in one required argument, the font map that you intend to create:
+
+```scss
+h1 {
+  @include typi($h1-font-map);
+}
+```
+
+*Note: if you changed the `$breakpoints` or `$typi` map in  `typi-base`, you have to change them in every `typi` mixin as well*:
+
+```scss
+h1 {
+  @include typi(
+    $h1-font-map,
+    $breakpoints: $some-breakpoint-map
+    $typi: $some-typi-map
+  );
+}
+```
+
+The `typi` mixin does the same thing as the `typi-base` mixin. The difference is that it creates `font-size` in `rems` instead of percentages. [Check out this post](/blog/rem-vs-em) if you're wondering why I use rem typography.
+
+The CSS produced by `@include typi($h1-font-map)` is:
+
+```scss
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+@media all and (min-width: 600px) {
+  h1 {
+    font-size: 3rem;
+    line-height: 1.3;
+  }
+}
+```
+
+You can create an unlimited number of font-maps with Typi if you wish to. Just use them in their respective selectors.
+
+```scss
+$h1-font-map: (//... );
+$h2-font-map: (//... );
+$h3-font-map: (//... );
+// ...
+
+h1 { @include typi($h1-font-map); }
+h2 { @include typi($h2-font-map); }
+h3 { @include typi($h3-font-map); }
+```
+
+This is how you can use Typi to create `font-size` and `line-height` properties easily for multiple elements without writing media queries yourself.
+
+## Using Typi for Vertical Rhythm
+
+Vertical Rhythm is a concept that originated from print typography. In Vertical Rhythm, we try to keep vertical spaces between elements on a page consistent with each other.
+
+This means that we have two rules to follow:
+
+1. Set the **vertical white space between elements** to a **multiple of the baseline**.
+2. Set the **line-height of all text elements** to a **multiple of the baseline**.
+
+*Note: [check this post out](/blog/why-vertical-rhythms) if you want to find out more about Vertical Rhythm.*
+
+**Calculating Vertical Rhythm is a chore.**
+
+Let's use the `font-size` and `line-height` values we have to illustrate why.
+
+Right now, the `font-size` is `16px` and the `line-height` is `1.4`. This means one baseline is `16px * 1.4 = 22.4px.`
+
+We have to convert the `22.4px` into a relative unit because it allows us to scale typography easily ([Check this post if you need proof](/blog/responsive-typography)). The best to do so is to convert it into rem.
+
+Hence, one baseline is equal to `1.4rem`.
+
+Since we're building with Vertical Rhythm, we need to use a multiple of `1.4rem` everywhere in the CSS. It's common to see code like this:
+
+```scss
+.selector {
+  margin: 4.2rem; // value 3 baselines
+  padding: 2.8rem; // value of 2 baselines
+}
+```
+
+Here, we've calculated `4.2rem` and `2.8rem` manually. It's not big of a deal when working with small sites, but the cognitive power required increases as your site complexity increases.
+
+Typi helps to remove the need for this math by providing you with a `vr` function that takes in a multiple of the baseline.
+
+So, the above code will turn into this:
+
+```scss
+.selector {
+  margin: vr(3); // value 3 baselines
+  padding: vr(2); // value of 2 baselines
+}
+```
+
+Much easier, isn't it? :)
+
+There's only one prerequisite for using Typi to create Vertical Rhythm. You need to specify a `line-height` value in the `$typi` map's `null` key (which you should already have):
+
+```scss
+$typi: (
+  null: (16px, 1.4)
+);
+```
+
+That's it for using the `vr` function to calculate baselines.
+
+## Wrapping Up
+
+In this article, you learned how to use the `typi-base` and `typi` mixins to create `font-size` and `line-height` properties. You also learned how to use the `vr` function in Typi to create Vertical Rhythm without complex math.
+
+There's a lot more to Typi than I can finish in one article. In the next one, I'll show you some advanced techniques you can use with Typi to make it easier to write responsive typography.
+
+Meanwhile, give Typi a go and let me know what you think about it in the comments! :)

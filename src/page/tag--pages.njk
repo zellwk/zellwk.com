@@ -1,0 +1,28 @@
+---
+# layout: _layout/page
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - post
+    - all
+permalink: /tags/{{ tag | slug}}/
+noIndex: true
+---
+<h1 class="l-article__header">Tagged with “{{ tag | capitalize }}”</h1>
+
+<div class="l-article__text">
+  {% markdown %}
+  Here are all articles tagged with {{tag}}. They're shown in reverse-chronological order. Enjoy!
+  {%- endmarkdown %}
+  <ol>
+  {%- set taglist = collections[ tag ] -%}
+
+  {%- for post in taglist | reverse %}
+  {%- isPublished post.date %}
+    <li><a href="{{ post.url | url }}">{{ post.data.title }}</a></li>
+  {%- endisPublished %}
+  {%- endfor %}
+  </ol>
+</div>

@@ -1,0 +1,32 @@
+// ==========
+// LIBRARIES
+// ------
+// This file is for you to import other libraries that
+// you would like to include into your project.
+//
+// I chose to include all my project dependencies with Bower.
+//
+// To install libraries with Bower, open the terminal and type
+// `bower install <package-name> --save` and it will be automatically
+// installed in app/bower_components.
+//
+// If you want to use Bower, you must have node.js and bower installed
+// in your system.
+//
+// Node.js - http://nodejs.org
+// Bower - http://bower.io
+//
+// If you are not comfortable with Bower, feel free to add new
+// libraries into the libraries folder in any way you like.
+// Then, import those libraries in the file here.
+// ==========
+@import "normalize.css/normalize";
+
+// Breakpoints
+// ------------
+@import "mappy-breakpoints/mappy-breakpoints";
+
+// Typography
+// ----------
+@import "typi/scss/typi";
+@import "modularscale-sass/stylesheets/modular-scale";

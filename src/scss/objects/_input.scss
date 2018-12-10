@@ -1,0 +1,56 @@
+@mixin input {
+  display: block;
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  background-color: color(w);
+  @include tp-sans2;
+  color: color(mine);
+
+  &::placholder { color: color(monsoon); }
+  &:focus { border-color: color(monsoon); }
+}
+
+
+// Text input
+[type='text'],
+[type='email'] {
+  @include input;
+}
+
+// Capitalize all input with the a name of 'name'
+input[name*='name'] { text-transform: capitalize; }
+
+textarea {
+  @include input;
+  min-height: vr(6);
+}
+
+// Radio input
+[type='radio'] {
+  // Normal firefox and IE doesn't support appearance none, so hide visually
+  @include is-invisible;
+  appearance: none;
+
+  ~ svg {
+    display: inline-block;
+    position: relative;
+    top: 0.165em;
+    width: 0.9em;
+    height: 0.9em;
+    margin-right: vr(0.25);
+  }
+
+  &:focus {
+    ~ * { color: color(geebung); }
+  }
+
+  &:checked {
+    & ~ * { color: color(geebung); }
+
+    & ~ svg path {
+      transition: stroke-dashoffset .3s linear;
+      stroke-dashoffset: 0;
+    }
+  }
+}

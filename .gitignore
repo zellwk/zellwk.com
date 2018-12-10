@@ -1,0 +1,21 @@
+# osx noise
+.DS_Store
+profile
+
+#ignore packages
+node_modules
+
+#ignore logs
+*.log
+
+#ignore generated files
+dist
+rev.json
+_tmp
+
+# Ignore env variables and secret keys
+secrets/*
+
+# For Ulysses
+*.plist
+

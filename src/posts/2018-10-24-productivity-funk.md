@@ -1,0 +1,137 @@
+---
+title: Getting out of a productivity funk
+layout: post
+slug: get-out-of-productivity-funk
+newsletter: better-fed
+tags:
+ - mindset
+ - best
+description: I got thrown into a situation where I couldn't find space and time to work for about a month. I want to share with you what happened, how I handled the situation, and the lessons I learned. This article will help if you found yourself in a productivity funk.
+---
+
+It's ironic. I became unproductive after releasing an article about [increasing productivity while working less][1].
+
+I got thrown into a situation where I couldn't find space and time to work for about a month.
+
+I want to share with you what happened, how I handled the situation, and the lessons I learned. This article will help if you found yourself in a productivity funk.
+
+<!-- more -->
+
+<div class="jsCkClone" data-should-not-clone></div>
+
+## What happened
+
+Here's what happened in brief:
+
+**Week One:** I went on a one-week break to learn about healing. (Yeah, you read that right. I spend time to learn about stuff outside of programming. I'll talk about this mindset and the details about what I learned in future articles).
+
+**Week two:** My grandfather got hospitalized the same day I returned from my break. His condition worsened throughout the week. We know he's gonna go away, I spent most of the week at the hospital. I was also packing up for an inevitable renovation (see week 3 for details).
+
+**Week three**: My grandfather passed away on Monday morning. We held a funeral for him immediately after that lasts 5 days. I spent most of my waking hours at the wake.
+
+My house (specifically the toilets) was scheduled for renovations at the same time. The entire estate got forced into the renovations. Nobody wanted it. Since my house will be dusty and unfit for living, we wrapped up the house and left for my parents' place.
+
+Here's what it looked like:
+
+<figure>
+  <img src="/images/2018/productivity-funk/wrapped.jpg" alt="Everything got wrapped in plastic">
+  <figcaption>Everything got wrapped in plastic</figcaption>
+</figure>
+
+**Week Four**: The renovations lasts ten days. On day 8, my baby girl tried to figure out the commands for "Hello World!". She was born 18 hours later.
+
+It's a happy occasion! But I had a problem: My house was still under renovations. I had to make the house suitable for a baby to live as soon as possible. Since Day 9 was a Friday, I was only able to get cleaning help the next week.
+
+Plus points this week: I worked for a few hours at Starbucks this week!
+
+**Week Five**: I spent Monday to cleanup my house with a helper. My wife and baby were also discharged on Monday, but because I was cleaning up, I couldn't make it to the hospital. Luckily, a relative volunteered to help bring them home.
+
+We brought the baby for a checkup on Tuesday. She had serious jaundice and had to be admitted into the hospital. We spent the rest of the day at the hospital.
+
+On Wednesday and Thursday, I cleaned up my house further and moved my wife back home.
+
+Baby got discharged on Friday. We brought her home.
+
+(Didn't get much work done because we're moving things everywhere this week!)
+
+**Week Six**: My renovations were completed, but my neighbours' weren't. Both my direct neighbours decided to revamp their houses. Even the neighbours downstairs decided to further renovate their house!
+
+(I live in an 12-storey apartment and only the neighbours closest to me decided to further renovate their houses. What are the odds? 😵)
+
+Noise was a standard when a house gets renovated. The noises from hammering of floors and drilling of walls were especially loud. Even as adults, we couldn't stand the noise. How can a baby?
+
+(Baby got a shock from the drills one day. It was hard to calm her back down again. Poor baby!).
+
+So we become refugees. Wed had to flee the house when our neighbours were drilling and hammering away.
+
+Other than scurrying around like refugees, I had fun learning to be a parent. I learned when the baby wants milk, how to feed her, how to change her diapers, etc.
+
+## The lessons I learned
+
+It's a dramatic sequence of back-to-back events. I never imagined my life could become so dramatic. I was able to learn three important lessons because these few weeks were especially tough.
+
+**First: Plan and communicate early**.
+
+We were told the renovations will occur around July/August, and we'd be informed a month before the renovations.
+
+We didn't receive any notification when August came around, so I went to the office to ask for updates. This time, they said the renovation for my unit will start in September 26. I couldn't request for them to renovate my unit earlier because it was already too late to make changes
+
+Looking back, I should have informed the office that my baby was coming months before the actual renovation. I could have split up the unfortunate events if I did it.
+
+**Second: Respond to situations**.
+
+You have limited control over what happens in life. There's no point blaming anyone (or even yourself) for things that are out of your control. What you can do is respond to situations as best as you can.
+
+In this situation, here the things I don't have control over:
+
+1. When my grandfather will pass away
+2. When my daughter will be born
+3. Whether my neighbours are going to renovate their house (and when the drilling and hammering will occur)
+4. When my daughter will cry for milk, or sleep, or the usual things babies do
+
+Here are things that I do have control over:
+
+1. My behavior
+2. How I communicate with my family
+3. How I handle the ongoing renovations
+4. How I plan my time for work, accompanying my wife, and accompanying my daughter
+
+Many friends told me its impossible to get work done when your baby gets born. One of my self-employed friends said you can kiss 3 months of work goodbye.
+
+I was afraid it would come true.
+
+I want to be with my daughter, but I also want to write articles, make videos, and produce Learn JavaScript lessons. My work can't stop.
+
+I threw away my productive routine because it couldn't accommodate my life anymore. And I began to observe how I spend my time again.
+
+I discovered that I'm usually the one who wakes up in the middle of the night to feed the baby. My wife will be fast asleep. And I built my new routine on top of this pattern.
+
+- I'd wake up at 3am (or when the baby cries)
+- Feed the baby till 4am
+- Work till 6am
+- Exercise till 8am
+- Have breakfast and sleep
+
+With this routine, I get 1.5 to 2 hours of work done each day. There's a bonus to working so early (or late, depending on how you see it): It's quiet.
+
+Will this routine hold?
+
+I don't know. Babies are unreliable creatures. I'm pretty sure the routine will break sooner or later, and I'd have to find create a new one.
+
+But I'm not afraid of it breaking because I'll find another way to be productive.
+
+**Third: Enjoy!**
+
+One of my key takeaways from my one-week break was to enjoy. If you can allow yourself to enjoy everything you do, things will turn out alright. Your instincts will kick in and tell you what you should do.
+
+I took this lesson home and I enjoyed being with my daughter the moment she was born. I enjoyed looking after my wife as she recovers from childbirth. I enjoyed finding a way out of the chaotic life that I have now. And lastly, I enjoy writing and teaching.
+
+## Wrapping up
+
+When life throws chaos at you, take a step back and look at the chaos. You won't like it at first, but you can find a way to enjoy it and work with it.
+
+Whatever circumstances you have, you won't always stay in a productivity funk. Sometimes things may be harder. If you stick through it to the end, things will improve. They always do.
+
+Have faith.
+
+[1]:	/blog/becoming-more-productive-while-working-less/ "Becoming more productive while working less"

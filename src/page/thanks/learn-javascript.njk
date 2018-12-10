@@ -1,0 +1,52 @@
+---
+layout: _layout/page
+title: Welcome to Learn JavaScript
+blockRobots: true
+newsletter: ''
+footer: blank
+---
+{# This is a thank-you page for buying Learn JavaScript. To prompt people to tell me why they bought the course #}
+<h1 class="l-article__header"> {% markdown %} Welcome to Learn JavaScript!{% endmarkdown %} </h1>
+
+<div class="l-article__text">
+  {% markdown %}
+  I'm thrilled you've decided to enroll in Learn JavaScript!
+
+  **First of all, a big welcome to the club!** JavaScript may not be easy to you right now, but it will be when you complete the course. You'll be able to write JavaScript as swiftly as you write CSS (or maybe even faster than you can write CSS).
+
+  **I'm confident that Learn JavaScript will turn out to be one of your best investments this year. I want to help you learn JavaScript properly, and I can't wait to help you get started!**
+
+  But before that, I want to understand where you're at, so I can figure out how to best help you through Learn JavaScript. Take some time and tell me why you enrolled in Learn JavaScript. Also, share all your JavaScript questions with me!
+  {% endmarkdown %}
+
+  {%- form {
+    redirect: '/ok/filled-form',
+    spreadsheet: '1cXkx761DJvThlQo1NJGLtdKtdMB21ZQq7wdf2VRYpKE',
+    subject: 'hy I enrolled in Learn JavaScript + JavaSCript questions',
+    initialMessage: "Awesome to hear from you! Let me get back to you in a few days. Super excited to teach you JavaScript :)",
+    finalMessage: "That's it! Watch out for another email from me regarding the course access :)"
+  } -%}
+    {%- formTextarea {
+      name: 'why',
+      label: "Why did you enroll in Learn JavaScript?",
+      helpText: "Are there any obstacles that could have prevented you from joining the course? If so, what are they? Why did you decide to enroll in the end?",
+      placeholder: "XXX was an issue for me but I decided to enroll in Learn JavaScript because...",
+      required: true
+    } -%}
+
+    {%- formTextarea {
+      name: 'questions',
+      label: "What JavaScript questions do you have?",
+      helpText: "List all your JavaScript questions here. Don't be shy! I'll try to answer them all.",
+      placeholder: "My questions are...",
+      required: true
+    } -%}
+
+    {%- formTextarea {
+      name: 'wand',
+      label: "What do you need to help you learn JavaScript incredibly well?",
+      helpText: "Ask for anything; imagine you have a magic wand. Wave it; what will you get?",
+      placeholder: "I always had XXX problems with JavaScript, so YYY will help me learn JavaScript."
+    } -%}
+  {% endform %}
+</div>

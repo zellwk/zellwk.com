@@ -1,0 +1,12 @@
+<svg id="zell" viewBox="0 0 90 30">
+  <title> Zell </title>
+  <g>
+    <g class="z">
+      <path class="o-zell__bar" d="M0 0v6.332h24.336L24.384 0z"/>
+      <path class="o-zell__text" d="M24.336 6.332h-8.154L0 23.425v6.332h24.336v-6.38H9.562z"/>
+    </g>
+    <path class="e o-zell__text" d="M45.706 29.757v-5.34H34.657v-3.614h9.194v-4.941h-9.194V12.28h11.05V6.956H27.893v22.801z"/>
+    <path class="l1 o-zell__text" d="M68.124 29.757v-5.9H57.938V6.956h-7.275v22.801z"/>
+    <path class="l2 o-zell__text" d="M89.646 29.757v-5.9H79.461V6.956h-7.276v22.801z"/>
+  </g>
+</svg>

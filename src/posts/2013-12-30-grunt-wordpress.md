@@ -1,0 +1,188 @@
+---
+title: How to Quicken Wordpress Development with Grunt JS
+layout: post
+slug: wordpress-with-grunt
+tags:
+ - css
+ - tools
+newsletter: better-fed
+---
+
+A couple of days ago Chris Coyier's post regarding [Grunt JS](http://24ways.org/2013/grunt-is-not-weird-and-hard/) on the [24ways blog](http://24ways.org) got me interested in playing with Grunt JS again. I've tried tinkering with Grunt but I never gotten it to work correctly for me. After reading Chris's post and two more days of tinkering, I manage to come up with a configuration have helped hasten my wordpress development dramatically.
+
+<!--more-->
+
+The configuration I'm going to talk about helps with 3 processes.
+
+1. Watches for changes on all PHP, Javascript and Sass files and reloads the browser automatically when anything changes (I can't stress how useful this is during development).
+2. Processing all development scripts, concatenating and minifying them with one simple command.
+3. Detection of development and production servers, and automatically serves up the correct styles and javascript files.
+
+I'm going to break up these three points and explain how to set these things up create the magic. This post might be a little heavy if you're completely new to Grunt JS since I'm not going to explain everything. If so, it might be best for you if you check out [Chris's article](http://24ways.org/2013/grunt-is-not-weird-and-hard/) before continuing. I'll wait :)
+
+## Setting up Grunt JS with Compass ##
+
+I prefer to work with Compass and Sass when it comes to CSS. In order to work with Compass. I'm going to first explain how to setup Grunt JS to work with Compass. If you have already gotten Compass to work, skip ahead to the next section where the meat is.
+
+    compass: {
+      dev: {
+        options: {
+          require: 'susy', // optional if you don't use Susy. But you should!
+          sassDir: 'dev/scss',
+          cssDir: 'dev/css',
+          fontsDir: 'dev/fonts',
+          javascriptsDir: 'dev/js',
+          imagesDir: 'dev/images',
+          relativeAssets: true,
+        }
+      }
+    }
+
+## Watching and Reloading the browser for changes  ##
+
+One cool thing I really really like about Grunt JS is that it can reload the browser when any file changes. The tedious part is to figure out how to configure grunt to do that in the first place, which is what we're going to tackle now.
+
+To allow Grunt to reload your browser automatically when files changes, you have to setup a task in grunt.
+
+Fire up the terminal in the folder where you stored your gruntfile.js and install the [grunt-contrib-watch plugin](https://github.com/gruntjs/grunt-contrib-watch).
+
+    $ npm install grunt-contrib-watch --save-dev
+
+and load the plugin into your gruntfile.
+
+    grunt.loadNpmTasks('grunt-contrib-watch');
+
+This is an example of my watch function where I watched for changes in javascript files, scss files and php files. Adapt this to how you would like to structure your files and use [Grunt's globbing patterns](http://gruntjs.com/configuring-tasks) to target your files.
+
+    watch: {
+      scripts: {
+        files: ['dev/js/*.js'],
+        tasks: ['jshint', 'concat']
+      },
+      compass: {
+        files: ['dev/scss/{,*/}*.{scss,sass}'],
+        tasks: ['compass:dev']
+      },
+      php: {
+        files: ['*.php', 'includes/{,*/}*.php'],
+      },
+      options: {
+        livereload: true,
+        spawn: false
+      }
+    },
+
+    /**
+     * Quick and dirty explanation to Grunt. If you didn't catch on to the above two code snippets, read this. Otherwise, skip this part.
+     */
+
+    In grunt, you configure tasks in this way.
+
+    The first JSON object literal you see here (watch), refers to the task to be configured.
+
+    The second object (scripts, compass and php) refers to targets. These can be named anyway you want them to, and can be trigged independently by running them with the :target suffix in terminal. (For example, grunt watch:compass will only watch for files within compass.)
+
+    The third object literal (files and tasks) are configurations that the plugin provides. Some defaults that grunt has are 'files', 'src', 'dest' for example.
+
+    Options if placed as the second level (alongside scripts, compass and php) stands for global options, and will affect all other targets. IF they are placed within the second level objects like the example below, then they affect only the compass target.
+
+    watch : {
+      compass: {
+        options: 'xyz'
+      }
+    }
+
+And I configured my default grunt task to watch the above mentioned files.
+
+    // Configuring the grunt task
+    grunt.registerTask('default', ['watch']);
+
+
+There is just one thing left to have our browsers automatically reload whenever we save a file. We have to insert a javascript snippet that tells our browsers to reload. If you're working with MAMP or any other server, the **trick here is to make sure this livereload snippet is found at the root of your server.**
+
+In this case, I would create a file called livereload.js in the root folder with the following code.
+
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+
+This allows the browser to fetch javascript codes that automatically refreshes the browser. The final step to get livereload working is to inject this livereload.js into your Wordpress theme.
+
+Within the functions.php file,
+
+    add_action( 'wp_enqueue_scripts', 'zell_load_dev_scripts' );
+    function zell_load_dev_scripts(){
+      wp_enqueue_script( 'livereload', 'http://' . $_SERVER['SERVER_NAME'] . '/livereload.js', '', null, true );
+    }
+
+We're set and the browser will automatically reload when you save any compass file, javascript file in the dev folder or any php files.
+
+## Processing development scripts into production scripts  ##
+
+We are often told that we should minify and concatenate all styles and script files for production servers. But that work is INCREDIBLY time consuming. There's a ton of wasted effort if your styles or scripts require changes (and there are always changes aren't there :) ).
+
+Grunt makes it super easy for front end developers to minify and concatenate all styles and javascripts with a simple command. The caveat is that you have to set it up first.
+
+Here's a sample config I have setup to concatenate javascripts.
+
+    concat: {
+        dev: {
+          src: [
+            'dev/js/*.js', // All JS in the dev/js folder
+          ],
+          dest: 'dev/js/build/dev.js'
+        }
+      },
+
+    uglify: {
+      target: {
+        src: '<%= concat.dev.dest %>',
+        dest: 'dist/js/production.min.js'
+      }
+    },
+
+Concat([grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat)) and uglify([grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify)) are two grunt plugins that I have used above. The configuration for Concat tells grunt to look out for all files in the dev/js folder, join them up together and spew them into a file called dev.js in dev/js/build while uglify is set to take the oupt from concat and convert it into production.min.js, located in the dist/js folder.
+
+My configuration for minifying and concatenating these scripts are currently mediocre at best as I'm still focused on developing a website using Grunt. I'll update this section as soon as I attempt to do more heavyduty converting work.
+
+## Automagic detection of local and production servers ##
+
+One neat thing to add to the whole process is to allow our files to automatically differentiate development and production servers. One method of doing so is to look for a file called wp-local-config.php that is only present on my development server.
+
+**If this file is found, Wordpress will enqueue development stylesheets and javascripts. Otherwise, it will enqueue the production stylesheets and javascripts.**
+
+    // Checking if the wp-local-config.php file exists
+    $localConfig = $_SERVER['DOCUMENT_ROOT'] .'/wp-local-config.php';
+    if (file_exists($localConfig)) {
+      // Load dev styles
+      // load dev js
+    }
+    else {
+      // Load Prod CSS
+      // Load Prod JS
+    }
+
+Here's a sample on how to enqueue stylesheets and javascripts.
+
+    Enqueuing stylesheets
+    add_action( 'wp_enqueue_scripts', 'zell_load_dev_stylesheets' );
+    function zell_load_dev_stylesheets() {
+      if( !is_admin() ) {
+        wp_enqueue_style( 'zell_dev_stylesheet', get_stylesheet_directory_uri() . '/app/css/styles.css', array(), null );
+      }
+    }
+
+    Enqueuing javscripts
+    add_action( 'wp_enqueue_scripts', 'zell_load_dev_scripts' );
+    function zell_load_dev_scripts(){
+      wp_enqueue_script( 'zell_dev_scripts', get_stylesheet_directory_uri() . '/app/js/build/dev.js', array( 'jquery' ), null, true );
+      wp_enqueue_script( 'livereload', 'http://' . $_SERVER['SERVER_NAME'] . '/livereload.js', '', null, true );
+    }
+
+With the presence of this script, Wordpress will automatically detect the correct files to serve up for both production and development environments. One less job to do and more time to work on cool stuff!
+
+## Problems and thoughts  ##
+
+One problem I have yet to solve with the configuration I mentioned above was the order of concatenating javascript files. A possible way would be to create two folders, one to house all vendor related files while the other one holds all my javascript files.
+
+This would work for small projects, but might become a headache for bigger projects if javascript files have to be arranged in a specific way. It would be great to hear your suggestions on this one.
+
+Other than that, I think the configuration is good enough as it is for now. Take what I had above and try playing around. Let me know if this helped you or if you have any great suggestions!

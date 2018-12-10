@@ -1,0 +1,53 @@
+.c-home {
+  position: relative;
+  width: 100vw;
+  min-height: calc(100vh - #{vr(0.25)});
+  padding-top: vr(12);
+  background-image:
+    linear-gradient(to right, rgba(#000, 0.5), rgba(#000, 0) 75%, rgba(#000, 0.25)),
+    url('/images/home/hero-med.jpg');
+  background-repeat: no-repeat;
+  background-position: 75% top;
+  background-size: cover;
+
+  // Different resolutions for hero image
+  @include bp(med) {
+    background-image:
+      linear-gradient(to right, rgba(#000, 0.5), rgba(#000, 0) 75%, rgba(#000, 0.25)),
+      url('/images/home/hero.jpg');
+  }
+
+  // Changing padding top
+  @include bp(med orientation portrait) { padding-top: 28vh; }
+  @include bp(large) { padding-top: 15vh; }
+  @include bp(mega) { padding-top: 20vh; }
+}
+
+.c-home__content {
+  padding: vr(1.5) vr(1);
+  border-top: vr(0.25) solid color(radred);
+  background: color(w);
+
+  @include bp(med orientation portrait) {
+    width: 70vw;
+    max-width: vr(25);
+    margin-left: 7.5vw;
+    padding: vr(2) vr(2.5);
+  }
+
+  @include bp(large) {
+    width: 50vw;
+    max-width: vr(25);
+    margin-left: 7.5vw;
+    padding: vr(2) vr(2.5);
+  }
+
+  @include bp(mega) { margin-left: 12.5vw; }
+}
+
+.c-home__ck {
+  .ck_form_content p,
+  .ck_subscribe_form {
+    max-width: vr(17)
+  }
+}

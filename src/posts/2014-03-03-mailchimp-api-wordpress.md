@@ -1,0 +1,91 @@
+---
+title: How to use Mailchimp API in Wordpress
+layout: post
+slug: mailchimp-api-in-wordpress-1
+tags:
+ - wordpress
+newsletter: better-fed
+---
+
+There may have been times where you had to update Mailchimp regarding changes in user particulars. Most of the time, a plugin like Autochimp works incredibly well.
+
+Unfortunately, non of these plugins work exceptionally well if you need to introduce complex things like interest groups.
+
+In this article, I'll show you how to set up the Mailchimp API with Wordpress, and how you can use it to update a user interest group when he changes his profile. You'll learn how to use the Mailchimp API for other purposes along the way.
+
+<!--more-->
+
+## Prerequisites
+You should already have a mailchimp account and at least one interest group set up before attempting this.
+
+## Setting up a Mailchimp API Wrapper
+The first step to use Mailchimp is to set up an [API Wrapper][1] that allows you to quickly and easily use Mailchimp's commands.
+
+Since this tutorial is about Wordpress, we're going to use the [PHP Wrappers][2], particularly the version by [Drew McLellan][3].
+
+Head over to [https://github.com/drewm/mailchimp-api/][4]and download the zip.
+
+Remane the folder to mailchimp and place it into your theme. (Note: It might be better to place this into a plugin, but lets work with themes for now)
+
+Then create a file called mailchimp.php within the mailchimp folder.
+
+Within mailchimp.php, we can now get ready to use Mailchimp by setting up the following code.
+
+    // This is to tell Wordpress our file requires Drewm/MailChimp.php.
+    require_once( 'src/Drewm/MailChimp.php' );
+    // This is for namespacing since Drew used that.
+    use \Drewm;
+
+To then link it to your mailchimp account, set up the following code
+
+    // Your Mailchimp API Key
+    $api = 'f3335c741cb441d9576fa6936eb45813-us3';
+    // Initializing the $MailChimp object
+    $MailChimp = new \Drewm\MailChimp($api);
+
+We're done with the setup. Now lets do something awesome.
+
+## Using the Mailchimp API
+The way to use Drew's API Wrapper as simple as using a method called "call". Here's an example to show what I mean.
+
+Right now, you're trying to find out about "Mr Potato" is in your list. After checking the mailchimp api reference page, you see a method called "member-info". Here's how you would use it.
+
+```php
+$member_info = $MailChimp->call('lists/member-info', array(
+  'id' => $id, // your mailchimp list id here
+  'emails' => array(
+    array('email' => "mr.potato@gmail.com") // Mr Potato's email here
+    )
+  )
+);
+
+// Essentially, what you're doing is this
+$Mailchimp->call('Mailchimp api method here',
+  array(
+  // Mailchimp required things here. Refer to Mailchimp API to have a good understanding of what is required since everything is different.
+  // Note that you don't have to use your api key anymore because Drew already took care of that.
+  )
+);
+```
+
+Thats basically it!
+
+This looks simple. But looking through Mailchimp API methods is probably not so, which is the reason for the next section :)
+
+## Important API Methods
+You have to check for a few things when a member saves, just to make sure everything runs smoothly. Here's a few methods I think are important.
+
+1. `list/member-info` - To find out whether member X is in your list.
+2. `list/subscribe` - If member is not in the list, you can subscribe him.
+3. `list/update-member` - If member is in the list, you can go ahead and update
+4. `list/interest-groupings` - Since we're working with interest groups, we need to get the interest group id from here.
+
+After understanding which methods you need, you can now nail this in code. In the next post, I'll walk through the steps of using these methods in wordpress.
+
+
+
+
+[1]:  http://apidocs.mailchimp.com/api/downloads/ "mailchimp wrappers"
+[2]:  http://apidocs.mailchimp.com/api/downloads/#php "mailchimp php wrappers"
+[3]:  http://allinthehead.com "Drew Mclellan"
+[4]:  https://github.com/drewm/mailchimp-api/

@@ -1,0 +1,95 @@
+---
+title: Using Codekit 2 Autoprefixer With Compass
+layout: post
+slug: codekit-2-autoprefixer-with-compass
+tags:
+ - css
+ - tools
+newsletter: better-fed
+---
+
+Codekit 2 is a great compiler built for Mac. It helps you to quickly compile languages like Sass without going through the command line.
+
+One awesome new feature in Codekit 2 is the built in support for autoprefixer. Sadly, Codekit 2 currently does not allow the use of autoprefixer with Compass due to technical difficulties.
+
+But not all is lost if you still want to use certain Compass modules with Codekit 2.
+
+I've managed to find a way and I'd love to share that with you in this post.
+
+<!--more-->
+
+## Summary of the Method
+
+When there is a config.rb file within the project, Codekit automatically removes the option to use autoprefixer.
+
+What we need is a way to use Compass without the need for a config.rb file.
+
+This means that we will not be able to use Compass normally by calling it with the config.rb file and importing it from the stylesheet.
+
+One way to do this is to manually add the needed sass files from Compass Core directly into the project folder.
+
+When using this method, you won't be able to use any of Compass's extra functions like spriting.
+
+**Note: This is an extremely hacky solution. Its not future proof, you are warned :) **
+
+## Add Compass to Your Sass Project
+
+Getting the required Compass sass files is relatively easy because the authors have kept it relatively clean.
+
+If you would like to use every CSS mixin provided by compass, you could clone the whole compass folder [from the github repo][1] and navigate it into `/frameworks/compass/stylesheets`. Copy the whole stylesheets folder and add it into your sass project.
+
+You can then import compass as you would import any other sass files.
+
+    @import "compass/utilities";
+    @import "compass/typography";
+    @import "compass/css3";
+
+I recommend only adding files you really need into the project because it would slow down compilation alot if you added the whole compass core the sass project.
+
+I only wanted to use vertical rhythms with autoprefixer when I resorted to looking for this hack. I've wrote about how to use vertical rhythms previously [here]()
+
+If you wanted to use the same vertical rhythms as I had used above, you have to find the beta branch. I hypothesize that the beta branch is "youcanuseicanuse" because I managed to find the vertical rhythms modules there.
+
+I've prepared the vertical rhythms module for you if you wanted to use it. Grab it [here](). Add it into your sass project folder and import it with
+
+    @import"compass/vertical-rhythms";
+
+Now that you have added the files you need, you can start using autoprefixer on
+
+## Turn on Autoprefixer on Codekit 2
+
+When you add a project to codekit, you can take a look at the scss file and check autoprefixer to use it.
+
+![][image-1]
+
+Depending on your project needs, you can also configure Codekit's autoprefixer settings easily
+
+## Configure Autoprefixer
+
+Bring up the project settings by first clicking on the gear icon.
+
+![][image-2]
+
+You can find autoprefixer's settings under `Languages > Special Languages Tool`.
+
+![][image-3]
+
+Since Codekit 2 now includes settings on a project basis, new projects would not automatically have autoprefixer turned on.
+
+To turn on autoprefixer automatically for all new projects, go to `File > Edit defaults for new projects`(or press Cmd + D), then follow the same steps as above to configure the initial properties for autoprefixer.
+
+## Summing it up
+
+Autoprefixer works wonderfully with Codekit 2, but it doesn't play well if Compass is added at the same time.
+
+Unfortunately, this is the best method I found for adding specific compass modules to Codekit 2 for the moment.
+
+I look forward to the day Codekit finds a way to make compass work with its built in autoprefixer.
+
+
+[1]:  https://github.com/chriseppstein/compass
+
+
+[image-1]:  /images/2014/05/codekit.png
+[image-2]:  /images/2014/05/codekit-2.png
+[image-3]:  /images/2014/05/codekit-3.png

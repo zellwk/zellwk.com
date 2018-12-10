@@ -1,0 +1,66 @@
+---
+title: The key to teaching
+layout: post
+slug: key-to-teaching
+tags:
+ - teaching
+ - writing
+newsletter: better-fed
+description: There's a never-ending list of things to get good at if you want to teach well. But there's just one thing that holds them together. If you get this one thing right, everything follows.
+---
+
+A good teacher has many skills.
+
+They know how to communicate well, They know how to explain things, they know how to tell if students are confused. They also know how to tease questions out of students.
+
+There's a never-ending list of things to get good at if you want to teach well.
+
+But there's just one thing that holds them together. If you get this one thing right, everything follows.
+
+<!-- more -->
+
+## Your posture
+
+A good teacher cares.
+
+They place their students before themselves.
+
+They do everything they can to help their students learn.
+
+That includes:
+
+1. Listening to their questions patiently.
+2. Explaining things over and over, using a different manner each time, until they get it.
+3. Providing encouragement and hope.
+4. Asking guiding questions so students find answers to their own questions.
+5. Giving exercises
+6. Being strict with homework.
+7. Segmenting lessons so students can digest information.
+
+They put themselves into their students' shoes to be able to do the above.
+
+## The teacher's responsibility
+
+A teacher is responsible to help students learn.
+
+If students don't learn, the teacher is at fault.
+
+The question is, do you care enough to do better the next time? It's okay if you can't teach well right now. It's okay if you can't even teach yourself well.
+
+If you care, you'll find a way to improve.
+
+## There aren't many good teachers out there
+
+Few people want to teach. They don't teach because they want to help students. They teach because they want to help themselves.
+
+Sometimes they teach because it's their "job" to teach. But teaching is not a profession. It's an attitude.
+
+The question isn't whether you can teach.
+
+You can.
+
+Anyone can.
+
+The real question is: do you care enough to teach?
+
+You can make a big difference if you step out and start teaching. You might not know it now, but you'll see it paying off in 5 years.

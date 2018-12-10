@@ -1,0 +1,74 @@
+body.has-opened-modal {
+  overflow: hidden;
+}
+
+.c-modal-container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease-in-out,
+              z-index 0.3s step-end;
+  background-color: rgba(#000, 0.75);
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+
+  &.is-open {
+    transition: opacity 0.3s ease-in-out,
+                z-index 0.3s step-start;
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+  }
+
+  &.is-closing {
+    opacity: 0;
+    visibility: visible;
+    z-index: 1;
+  }
+}
+
+@mixin c-modal {
+  position: relative;
+  padding: vr(2);
+  background-color: color(w);
+  box-shadow: 0 0 0 4px var(--theme-color),
+              0 15px 30px 0 rgba(#000, 0.35);
+  opacity: 1;
+  overflow: hidden;
+
+  > * { transition: opacity 0.2s ease-in-out; }
+
+  &.is-animating {
+    padding: 0;
+
+    > * {
+    @include is-invisible;
+    opacity: 0;
+    }
+  }
+}
+
+.c-modal {
+  @include c-modal;
+}
+
+.c-modal--center {
+  @include c-modal;
+  text-align: center
+}
+
+.c-modal__content {
+  position: relative;
+  margin-top: vr(0.75);
+}
+
+.c-modal__title {
+  font-size: ms(3);
+  text-align: center;
+}

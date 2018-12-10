@@ -1,0 +1,130 @@
+---
+title: Trolls & Expert Opinions – Lessons Learned From Publishing on a Popular Website
+layout: post
+slug: trolls-and-expert-opinions
+tags:
+ - lessons
+newsletter: better-fed
+---
+
+
+I recently published an article on Smashing Magazine. For those who don't know, Smashing Magazine is a well respected website in the design and development world. It's kind of like [Lifehacker](http://lifehacker.com/) or [Tiny Buddha](http://tinybuddha.com/), but for web designers and developers.
+
+I was incredibly proud of the article I published. It took weeks of effort and I was elated that I made a contribution to the world. I went to sleep feeling awesome about it.
+
+Unfortunately, I woke up feeling horrified when I looked at my twitter notifications the next day. Many people (mostly whom I don't know) commented on my article, saying how "the author doesn't know what he's talking about", that "it was a bad article".
+
+Even people whom I know and respect said that they felt "confused and bizzare" that an article like mine appeared on a well-curated website like Smashing Magazine, and they were "getting worried" about the contents of the article.
+
+The same happened under the comments section on Smashing Magazine as well.
+
+What a great start to the day. What would you have felt, or did?
+
+<!--more-->
+
+Well, I didn't know what to do, nor feel. I guess I was devastated. The first thing I remembered doing was jumping through my email inbox, furiously searching thank-you notes that came from others who benefited from the article.
+
+I didn't count how many there were, but I estimated maybe 20-30 combined from my email inbox, Twitter notifications and Smashing Magazine comments. That's exclusive of the retweets and likes I saw on Twitter.
+
+And I got confused.
+
+Was the article *so bad that the experts had to comment on it?* If that's the case, why did so many people like and share the article, and generally found it useful?
+
+I didn't know how to handle the situation anymore, so I reached out for help. Specifically, I contacted Miriam Suzanne, because I know he's awesome, and he would know how to handle it.
+
+Here's how the conversation went:
+
+<figure>
+![](/images/2015/12/advice-from-miriam.png)
+</figure>
+
+I started sobbing uncontrollably the minute I read his words. I never knew how bad it was hurting inside until this moment.
+
+Shortly later, I got comforted by other awesome folks like Jina, James Steinbach and Stu Robson. All folks from my industry and people whom I respected.
+
+I probably cried for about half an hour before I realized I had to get my act together and head to work. So I stopped thinking about it altogether.
+
+That night (or rather, five hours ago), I woke up at 2am and started pondering about the incident. I couldn't get to sleep once I started thinking about it. I wanted to find out what I could learn from the incident, and form proper conclusions before moving on.
+
+Once I did, I wanted to write this article for whoever (myself included), might find themselves in similar situation in future. Or in Miriam's words, interneted.
+
+## What I Learned
+
+The first thing I learned was that it's awesome if you have a great support group. If I had been alone throughout this whole fiasco, I would probably have said something like this and went on with my life:
+
+- *I'm just not good enough* to write for blogs like Smashing Magazine yet.
+- *I shouldn't feel hurt* by people like this. *There's still a lot for me to learn, to improve myself so I don't get hurt*
+- Some people can just be bastards. Experts included.
+- Fuck this shit. I don't care anymore.
+
+Can you imagine how such conclusions would adversely affect someone for the rest of his life? Well, I was on the verge of forming these conclusions myself. Luckily, Miriam replied quickly and stopped me from going down this rabbit hole of self destruction.
+
+*Second*, who you ask for help is incredibly important. You should only ask people who have gone though the same pain, lived through it, and know how to give advice.
+
+The reason I say this is because my wife saw me crying in bed when she woke up. Naturally, she was concerned and asked what happened (I'll be damned if she doesn't!). Yet, what she said to me after hearing what I had to say *made me feel like a fool*. That I should have known better, that I shouldn't take what others say seriously.
+
+Offhand note to self: I always get it wrongly when she shows her concern, but I'm so glad she tried!
+
+Anyway, enough about how awful I am at interpreting my wife's concerns. Let's move on to the next point I want to make.
+
+*Third*, it is important to sit down and reflect on the reality of what has happened, and not just say "I'll learn from it" and move on. More often than not, you'll take the dangerous conclusions you formed when feeling hurt, apply that into your life. I know it would have happened to me.
+
+Here, I first had to realize that I have the tendency to shrug things off and forget about it. I'll say things like "I'll just have to do better next time" without sitting down and reflecting.
+
+So, I say to reflect on the reality of what happened. How do we reflect? What is the reality?
+
+There are two parts of the equation here:
+
+1. My reality
+2. Truth of how the world works
+
+I had to ask myself this question: **"Why did I react so strongly to these comments?"**
+
+After thinking about it, I realized I wouldn't have taken the comments seriously if those who commented were people I didn't know. I'd just treat them as trolls, throw in the hashtag #hatersgonnahate and ignore them entirely.
+
+What hurt me, the part where I reacted to strongly, was that the experts I looked up to had similar comments!
+
+"Why didn't they understand me?!", I kept thinking to myself. I thought I made my point incredibly clear while writing the article. Yet, the reactions and comments I get are **EXACTLY THE SAME THINGS** I'd concluded in the article itself! And they are "worried and confused" over my article?
+
+That conversation with myself went downhill quickly. Just like how an avalanche builds up quickly from a little snowball:
+
+1. "Am I not making myself clear?"
+2. "Are my concepts wrong?"
+3. "Is it that bad?"
+4. "Am I harming more than helping?"
+5. "Should I ask Smashing Magazine to take down my article?"
+6. ...
+7. "Am I worthless?"
+
+That's dangerous. No wonder I felt like shit.
+
+As I sat down and tried to figure out why the conversation went this way, I realized that I have this deep-rooted belief that great people are rational. They would think things through before shooting their mouth off, and whatever they say holds truth. This was the reality I held in my mind.
+
+Understanding my reality was a revelation. It resulted in a complete shift in my perspective and my expectation of human beings.
+
+In reality, people aren't rational at all. We already know from research done by people like Dan Arielly. If you don't, have a look at [Predictably Irrational](http://www.amazon.com/Predictably-Irrational-Revised-Expanded-Edition/dp/0061353248). It's guaranteed to blow your mind.
+
+Since people aren't rational, it's ridiculous to expect that experts are completely rational and understanding 100% of the time.
+
+They're people too! They have their lives, their beliefs and their emotions.
+
+Sometimes they get grumpy because it's a bad day in their lives. It's gloomy, it's rainy, and they lose control over their better selves. We all do.
+
+The question then, is *"what made them react so much to what I said?"*, so much that it prompted a reaction from them to lash out at me through their tweets and comments?
+
+Discounting bastards who shoot their mouth off without thinking, I believe it's because the things I said triggered their deeply held beliefs, just like how mine got triggered when they "got worried" over my article.
+
+As experts, they're teachers. They're may feel that they're responsible for educating the community, They may believe (and pride) themselves for teaching only the *correct* solutions people *should* be using, and hence, are incredibly apprehensive about comparisons done in their industry. They may even go as far as worrying about the terminology used in articles.
+
+As an author of two technical books so far, I share the same apprehension. I have the same belief system, that I should only teach correct things to students who are learning, *so they don't fall into a trap of jumping to conclusions quickly*, which is so prevalent in the world of web development.
+
+That's about everything I wanted to say in this article. There are two things to quickly summarize:
+
+1. Find people that can support you when shit happens
+2. Dig deep within yourself to discover the truth of what's happening. Then, learn from it.
+
+Finally, one last note to experts who happen to be reading this. I sincerely appreciate what you do, you've been a great help to the community.
+
+But please, remember your words weigh twenty thousand times more compared to other people. Remember that there's someone else on the other side of the internet, that whatever you're saying may hurt them so badly that they'll never find the courage to stand up again. You'll never know who these silent sufferers are, and you'll never know how many bright talents you have accidentally stifled.
+
+Please be careful with your words. And if you want to comment on anything, please explain everything you want to say. Don't let us try to read your mind and destroy ourselves in the process.

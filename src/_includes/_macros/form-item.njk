@@ -1,0 +1,34 @@
+{# radio #}
+{% macro radios(
+  groupId,
+  groupText,
+  helpText,
+  classMod,
+  required,
+  filter,
+  name,
+  radios
+) %}
+  <div class="c-form__item--radios jsFormItem {{classMod}} {% if filter %}jsGroupFilter{% endif %}"
+    role="group" aria-labelledby="{{groupId}}"
+  >
+    <div class="c-form__question jsFormQuestion" id="{{groupId}}"> {{groupText | markdownInline}} </div>
+    {% if helpText %}
+      <div class="c-form__help-text">{{helpText | markdownInline}}</div>
+    {% endif %}
+    {% for radio in radios %}
+      <label for="{{name}}{{loop.index}}">
+        <input
+          type="radio"
+          name="{{name}}"
+          id="{{name}}{{loop.index}}"
+          value="{{radio.value}}"
+          {% if radio.target %} data-target="{{radio.target}}" {% endif %}
+          {% if required %} required data-required {% endif %}
+        >
+        {% include "_svgs/radio.svg" %}
+        <span>{{radio.value | markdownInline}}</span>
+      </label>
+    {% endfor %}
+  </div>
+{% endmacro %}

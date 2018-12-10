@@ -1,0 +1,201 @@
+---
+title: How to use Masonry with Susy
+layout: post
+slug: masonry-with-susy
+tags:
+ - layout
+ - susy
+newsletter: susy
+---
+
+Masonry is a popular JavaScript library that helps you create a pinterest-like gallery even if your content has irregular heights and widths.
+
+This article is here to help you out if you're having trouble using Masonry with Susy.
+
+<!--more-->
+
+## How Susy Works with Masonry
+
+Masonry provides many options with its API, what we're looking out for is the "Element Sizing" option.
+
+"Element Sizing" tells Masonry to get gutter and column width values from the HTML and CSS.
+
+If we're using "Element Sizing", we need to tell Masonry 3 things.
+
+1. `columnWidth` - The width of each column.
+3. `gutter` - The width of gutters of the grid.
+2. `item__selector` - The items of the grid.
+
+The code for this JavaScript would be:
+
+~~~js
+jQuery(document).ready(function($) {
+  var $masonryContainer = $('.masonry');
+
+  $masonryContainer.masonry({
+    columnWidth: '.masonry__column',
+    gutter: '.masonry__gutter',
+    itemSelector: '.masonry__item'
+  });
+});
+~~~
+
+This gives us a clue on how to use Susy to feed Masonry with the `columnWidth` and `gutter` values.
+
+We just have to do the following:
+
+1. create a selector named `.masonry__column` and give it a width of 1 (or several) columns.
+2. Create a selector named `.masonry__gutter` and give it a width of 1 gutter
+
+Let's work through an example.
+
+## The HTML
+
+We need a few elements to form the HTML for a Masonry grid. As you may expect from the above JavaScript code, we need 4 different elements.
+
+First off, we need the Masonry grid container.
+
+~~~html
+<div class="masonry"></div>
+~~~
+
+Within the Masonry container, we need to have the other 3 elements. The `columnWidth`, `gutter` and `item-selector`.
+
+~~~html
+<div class="masonry">
+  <!-- Masonry gutter sizer-->
+  <div class="masonry__gutter"></div>
+  <!-- Masonry columnWidth sizer -->
+  <div class="masonry__column"></div>
+  <!-- Masonry items -->
+  <div class="masonry__item"></div>
+  <div class="masonry__item"></div>
+  <div class="masonry__item"></div>
+  <div class="masonry__item"></div>
+  <div class="masonry__item"></div>
+</div>
+~~~
+
+That's everything we need in the HTML for Masonry and Susy to work properly.
+
+## Create Masonry Classes with Susy
+
+Next, we will need to create these Masonry classes with Susy. You will have start of with creating the `$susy` map.
+
+Say we have 12 columns in our Susy map, with a container width of 1140px.
+
+Here's the map we're looking at:
+
+~~~scss
+$susy: (
+  container: 1140px,
+  columns: 12,
+  global-box-sizing: border-box,
+  debug: (image: show),
+  );
+~~~
+
+Remember to put in the border-box [box sizing]() mixin.
+
+~~~scss
+@include border-box-sizing
+~~~
+
+That's all we need to set up Susy.
+
+Next, we will need to create the Susy container. In this case, we can just use it with the Masonry container (`.masonry`).
+
+~~~scss
+.masonry {
+  @include container();
+}
+~~~
+
+Next, we will need to give the correct widths to the `.masonry__gutter` and `.masonry__column` selectors. We can use the `gutter()` function to get the width of 1 gutter.
+
+~~~scss
+.masonry__gutter {
+  width: gutter();
+}
+~~~
+
+We will then need to decide how many columns one Masonry grid item will take up. If we have 4 columns of grid items in total, then each Masonry grid item will take up 3 of 12 columns on the grid.
+
+~~~scss
+.masonry__column {
+  width: span(3);
+}
+~~~
+
+Then, we will have to give the same width to each Masonry Grid item, just like how we would normally create a Susy grid.
+
+~~~scss
+.masonry__item {
+  width: span(3);
+}
+~~~
+
+Last of all, we need to give the `.masonry__item` a margin top or bottom to separate the current element from the one above or below it. If we want the horizontal and vertical margins to be the same, then this margin should be `gutter()`.
+
+~~~scss
+.masonry__item {
+  width: span(3);
+  margin-top: gutter();
+}
+~~~
+
+Oh yes, remember to add the JavaScript mentioned at the beginning of this article to your JavaScript file!
+
+~~~js
+jQuery(document).ready(function($) {
+  var $masonryContainer = $('.masonry');
+
+  $masonryContainer.masonry({
+    columnWidth: '.masonry__column',
+    gutter: '.masonry__gutter',
+    itemSelector: '.masonry__item'
+  });
+});
+~~~
+
+That's all you need to use Masonry with Susy!
+
+Aaaand Tadaa! Here's demo of the code above, packed with some demo styles.
+
+<p data-height="266" data-theme-id="7929" data-slug-hash="WveqVZ" data-default-tab="result" data-user="zellwk" class='codepen'>See the Pen <a href='http://codepen.io/zellwk/pen/WveqVZ/'>WveqVZ</a> by Zell Liew (<a href='http://codepen.io/zellwk'>@zellwk</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+## Masonry with Images
+
+Well, things get slightly more complicated when you have images. This is because images aren't ready when the DOM is ready.
+
+Masonry can only calculate the grids correctly if all of the images within are already loaded.
+
+Hence, you'll have to make sure you add [imagesLoaded](http://imagesloaded.desandro.com) to your JavaScript files.
+
+You'll also need to tweak the JavaScript slightly to ensure that Masonry only triggers when images are loaded.
+
+Here's the JavaScript you're looking for:
+
+~~~js
+jQuery(document).ready(function($) {
+  var $masonryContainer = $('.masonry');
+
+  $masonryContainer.imagesLoaded(function() {
+    $masonryContainer.masonry({
+      columnWidth: '.masonry__column',
+      gutter: '.masonry__gutter',
+      itemSelector: '.masonry__item'
+    });
+  })
+
+});
+~~~
+
+Not too hard was it? :)
+
+## Conclusion
+
+Many people get stuck when trying to integrate Susy with other solutions, like Masonry. The trick is to be aware that Susy helps calculate widths, then find out how to add utilise these widths into the solution you're using.
+
+Have you thought about using Susy with Masonry? Has this article helped you do so? I'd love to hear your thoughts in the comments below :)

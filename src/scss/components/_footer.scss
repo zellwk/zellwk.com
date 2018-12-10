@@ -1,0 +1,31 @@
+.l-footer__wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.c-footer {
+  margin-top: vr(3);
+  padding-top: vr(1);
+  padding-bottom: vr(1);
+  border-top: vr(0.25) solid var(--theme-color);
+  background-color: color(alabaster);
+}
+
+.c-footer__nav {
+  margin-top: vr(0.75);
+}
+
+.c-footer__info {
+  @include tp-sans2;
+  margin-bottom: vr(0.25);
+  color: color(aluminium);
+  font-style: italic;
+  text-align: right;
+}
+
+.c-footer--blank {
+  border-top: 0;
+  background-color: transparent;
+  margin-top: vr(2);
+}

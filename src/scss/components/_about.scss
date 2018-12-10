@@ -1,0 +1,67 @@
+@mixin l-about {
+  > h3,
+  > p,
+  > ol,
+  > ul,
+  .l-about__featured {
+    @include l-content__text;
+  }
+
+  > pre,
+  > figure {
+    @include l-content__extended;
+  }
+
+  > h2 {
+    @include l-content;
+  }
+}
+
+.l-about {
+  @include l-article__text;
+}
+
+.l-about--initial {
+  @include l-article__text;
+
+  > h1 { margin-top: 0; }
+
+  > :nth-child(-n + 4) {
+    @include bp(med) {
+      margin-right: vr(1.5);
+      margin-left: vr(10.5);
+    }
+
+    @include bp(large) {
+      margin-right: vr(3.75);
+      margin-left: vr(12.5);
+    }
+  }
+
+  > .l-about__headshot {
+    margin-bottom: vr(0.75);
+    @include bp(med) {
+      width: vr(9);
+      margin: vr(0.45) vr(1.5) vr(1.5) 0;
+      float: left;
+    }
+
+    @include bp(large) {
+      width: vr(11);
+      margin-top: vr(0.65);
+      margin-right: vr(1.5);
+      margin-left: 0;
+    }
+  }
+}
+
+.l-about__title-break {
+  @include bp(med) {
+    display: block;
+  }
+}
+
+.c-about__headshot.c-about__headshot {
+  > img { border: 0; }
+}
+

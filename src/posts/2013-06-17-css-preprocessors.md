@@ -1,0 +1,202 @@
+---
+title: How to organize and edit your CSS painlessly
+layout: post
+slug: css-preprocessors
+tags:
+ - css
+newsletter: better-fed
+---
+
+It is very common to have to change CSS codes midway in a design at some point or another. Because of the way most CSS codes are structured, it is usually painful to sieve through the whole code and look for the particular area where you would like changed.
+
+Whats more, if colors or text sizes have to be changed, it can be disastrous if you miss out on a few elements and an absolute headache if you can't find where they're located
+
+In this article, I'm going to introduce one simple add-on that really helped me with organizing and changing my CSS codes.
+
+<!--more-->
+
+## Introduction to CSS preprocessors
+
+CSS preprocessors are programs that allow you to write in a language similar to CSS, and these preprocessors will automatically convert the languages into CSS.
+
+These preprocessors come with extremely powerful abilities that solves all of the above problems and adds performance benefits to the final CSS code. In short, they're just great stuff and I'll explain more on the benefits and give examples of how they helped me later in the article.
+
+The two most common CSS preprocessors out in the market are [LESS][1] and [SASS][2].
+
+The benefits discussed later in the article applies to all preprocessors in general. However, since I only have experience with SASS personally, and would focus the discussion and examples on SASS.
+
+## What are the benefits of SASS?
+
+SASS provides two different syntaxes for designers to use, sass and scss. **I prefer scss more than sass because it is totally the same as normal css.** If you have experience with programming in python though, sass might be more attractive to you.
+
+All my code examples later in the article will be typed with the scss syntax because I use them.
+
+SASS provides many benefits to us designers and allows us to shorten the amount of code we have to write. Here are some of the benefits that I felt after starting to use SASS for my projects in the last two months.
+
+1. Easier to organize and find code
+2. Easier to change code
+3. Reduced need to remember specific things
+4. Reduced need for calculations
+5. Increased the performance of deployed code
+
+This is a list of SASS features that I have been actively using.
+
+1. Nesting
+2. Partials
+3. Variables
+4. Mixins
+5. Other awesome stuff
+
+I go through each feature in detail and explain which how the feature has helped me with the above benefits.
+
+## Feature 1: Nesting
+
+Wikipedia defines nesting as enclosing of control structures one into another, usually indicated through different indentation levels within the source code.
+
+**In simple terms, nesting relates to showing items at the same indentation levels if they are within the same parent. **
+
+SASS nesting works the same way as most programming nesting work. Here's an example of SASS nesting at work.
+
+![][image-1]
+
+Within each parent bracket, if there is a child selector within,  the output to CSS will contain the parent selector, followed by the child selector, and any properties mentioned will be group together smartly.
+
+I find that the ability to clearly see child selectors within parent selectors are extremely helpful.
+
+Compared to the previously wordy selectors, SASS nesting allows me to write short and concise selectors that I can easily glance at and know what I am currently working on.
+
+When I come back to find things within my code, I can easily remember how the code looks like and quickly get to the portion that I want to edit.
+
+## Feature 2: Partials
+
+The second feature that I find very helpful in organizing my code is to break them up into smaller pieces with partials.
+
+If you have been working with CSS for a while, you might know of the @import statement, where you can import another CSS file into the current CSS file for execution.
+
+For those that don't know, @import statements allow you to break up your CSS files into smaller pieces, like header, main, footer, sidebar sections and piece each bit together in a style.css file.
+
+@import statements require browsers to send an extra HTTP request to fetch the separate CSS file. This means that the user will have to wait a little longer to be able to see the website.
+
+The more @import statements there are, the slower your website will load. Hence, the practice of using @important statements within deployed code are generally frowned upon.
+
+Partials work the same way with one major difference.
+
+**With partials and SASS, importing happens when the CSS file is produced.** There will be no need for browsers to send extra requests that lengthen the wait time for our readers and users.
+
+Because of this benefit, I can safely break down my files into many different partials to organize my code and I'm not afraid that it will hinder the performance of the final code.
+
+To use partials, you have to save the filename starting with an underscore, like "\_typography.scss" or "\_header.scss" for example.
+
+Importing these partials work exactly the same as as importing CSS files. Within a main scss file, you just have to write @import "name of partial";
+
+Below is an example of how I used SCSS partials on a project that I am currently working on.
+
+![][image-2]
+
+As you can see, I have broken up my SASS files into very many partials including typography, color, different sections of the website. This allows me to find my code quickly and easily.
+
+I am still very new to the practice of breaking up code and organizing them like the example shown above, and the example shown is definitely not the best way to go about doing things.
+
+There are many other frameworks that hold best practices on how one can organize his or her SASS files. Of them, probably the most famous one is [SMACSS][3].
+
+It doesn't matter if you use a framework or just go about doing it your way when you are just starting out. In my experience, the practice of just breaking up code into smaller and manageable pieces saves tons of heartache in the long run, and I'm still using my hacky way of organizing code at the moment.
+
+## Feature 3: Variables
+
+Variables are a die for feature that I have deeply fell in love with ever since using them once for a simple project. I think you will too. **This is the pill to solve most your needs to change CSS codes**
+
+Variables, as its name suggests, give you the option to store anything as a variable. The stored items can be changed at any time and proerties using the variable will be updated automatically.
+
+Here's a quick example
+
+![][image-3]
+
+Variables are very very powerful and allows you to easily change anything on your website as long as you use them.
+
+Great candidates for using varables are:
+
+1. Colors (ALL colors)
+2. Font Family
+2. Font size
+3. Line heights
+4. Baseline
+
+I firmly believe the ability to use variables in SASS is already more than enough reason to spend some time on learning it since it reduces a whole lot of pain in future projects.
+
+In my last project, I had to switch colors and font sizes for some items for some items in the design. Instead of crawling around my whole css file and making sure everything is correctly changed, I simply head over to my variables partial and switch the colors and font sizes.
+
+What was supposed to be a 2-hour worth of senseless combing suddenly became a quick 2mins work.
+
+## Feature 4: Mixins
+
+Mixins are useful helpers that can be predetermined and used at various areas while coding.
+
+I feel that mixins are helpful because it reduces the need to remember things such as the specific code to produce a circle and various vendor prefixes.
+
+Here's a quick example of how it looks like
+
+![][image-4]
+
+In the above code, the circle mixin was predefined myself by copying the required code off from the internet. The vendor prefixes added with box shadow are predefined in a mixin library called [Compass][4] referenced above.
+
+Compass is a solid mixin library that provides plenty of mixins that is more than enough to do almost everything you might require. To learn to use compass mixins, give the [reference pages][5] a quick look and see the examples in action.
+
+There are other notable mixin libraries out there and [burbon][6] is another one of them.
+
+No matter which you would like to choose, installing these mixin libraries along with SASS is very a easy thing to do, especially on a mac, and I highly recommend going with one of them. I personally use compass.
+
+I saved a lot of time and effort on CSS coding without the need to remember prefixes and other commonly used codes. This is something a little more advanced, but is immensely useful as you start to adopt SASS.
+
+Here's another quick example of using mixins for media queries
+
+![][image-5]
+
+## Feature 5: Other awesome stuff
+
+SASS comes along with very many helper functions that allows a ton of code to be programmatically correct without the need to do calculations yourself.
+
+There are so many helper functions that I can't even remember them all. Here are my top 2 most used random things to date
+
+1. Basic mathematical expressions
+
+    Basic mathematical expressions can be carried out straight while writing SASS. Because of this, you'll catch me often writing things like
+
+    ![][image-6]
+
+2. Color alteration functions
+
+    I usually use color alteration functions within my variables partials and they look like this
+
+        $head-c:#e2e2e2;
+        $body-c:darken($head-c,20%);
+        // $body-c has the color #afafaf because it was darked 20% from #e2e2e2
+
+Visit the [Sass reference page][7] to find out more about other functions.
+
+## Conclusion
+
+SASS is a very powerful addon to have in your arsenal while writing CSS. It allows your to forget about the various nuances and focus your time in creating beautiful layouts and designs while at the same time provide flexibility for changes that happen along the way.
+
+I honestly say that if I didn't encounter SASS, I would probably have spent a whole lot more time trying to change colors, font-sizes and basically struggling with CSS.
+
+I hope this was a good introduction to SASS and how you could benefit from using SASS as well. I didn't regret learning about Sass at all, and I don't think you will too.
+
+If you want to get start with Sass, a very good video source that will explain many things in detail, including how to get Sass up and running on your computer can be found at [levelup tuts][8]. I highly recommend looking through the videos and learning at least you saw what Sass can do with nesting, variables, mixins, partials and extensions.
+
+Have fun playing with Sass!
+
+[1]:    http://lesscss.org "The dynamic stylesheet language"
+[2]:    http://sass-lang.com "SASS - Synthetically awesome stylesheets"
+[3]:    http://smacss.com "Scalable and Modular Architecture for CSS"
+[4]:    http://compass-style.org "Compass - A sass mixin library"
+[5]:    http://compass-style.org/reference/compass/ "Compass reference page"
+[6]:    http://bourbon.io "Burbon - a lightweight Sass mixin library"
+[7]:    http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html "Sass reference page"
+[8]:    http://leveluptuts.com
+
+[image-1]:    /images/2013/06/nesting-example.png "Nesting example with an anchor tag selector in a h5 selector"
+[image-2]:    /images/2013/06/partials-example.jpg "How to save partials  and import them into a SASS project"
+[image-3]:    /images/2013/06/variables-example.png "Sass Variables example "
+[image-4]:    /images/2013/06/mixin-example.png "Mixin example with self defined mixin and compass mixins"
+[image-5]:    /images/2013/06/CSS-media-queries.png "Media queries with Sass"
+[image-6]:    /images/2013/06/helper-math.png "Multiplying values with Sass"

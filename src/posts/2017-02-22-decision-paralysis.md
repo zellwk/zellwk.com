@@ -1,0 +1,94 @@
+---
+title: Fighting decision paralysis
+layout: post
+slug: fighting-decision-paralysis
+tags:
+ - life
+ - mindset
+ - best
+newsletter: jsr
+---
+
+It's common for designers and web developers to suffer from decision paralysis. You know you've battled with it if you had problems like:
+
+1. Spending hours choosing the right typefaces
+2. Obsessing over choosing the right framework
+3. Scratching your head over what to learn next
+4. Facing writer's block
+
+Does any of them sound familiar?
+
+Decision paralysis has been the bane of my life so far. I battled against it again recently and I'm happy to say I finally got out of the rut (today!).
+
+In this article, I'd love to share my experiences with you and how I handle decision paralysis.
+
+<!--more-->
+
+## Decision paralysis can surface anywhere
+
+For me, it appears in areas that I deem important. One of these areas is work.
+
+It can show up when I'm designing. If it does, I'll find myself going back and forth about color, whitespace, typeface choices, font-sizes and almost every aspect of design that I can think of. Sometimes, I'd even create multiple logos and reject them all! (Which is why I still don't have a logo nor favicon for this blog 😒).
+
+It can also appear when I'm coding. If it does, I'll change my naming conventions, code architecture and function names numerous times, and I'd end up with a messy codebase that contains everything I conceived. Sometimes, I'd even spend hours (or weeks!) diving into rabbit holes to find the best practice for whatever I happen to work on.
+
+Want an example? I went searching for best practices for JavaScript promises and Mongo Database architecture just two weeks ago. None of these were immediately important for my code. But I spent precious time, which delayed the release of my project.<span class="kaomoji">¯\\\_(ツ)\_/¯</span>
+
+Decision paralysis hits me the hardest when I'm producing content for others (like the article you're reading). It's even worse when I create books and courses for sale.
+
+Sometimes, it gets so bad that I don't only procrastinate. I flee from the work altogether. I'd come up with all sorts of excuses to stop myself from working (while hoping the work gets done by itself).
+
+(I wrote an article on [beating procrastination](https://zellwk.com/blog/procrastination/) previously, if you're interested)
+
+Now, if you noticed I haven't written for a while, that's because I got stuck in a paralysis rut. I'm in the midst of getting ready to launch a responsive typography course, and I had problems deciding what's the best articles to send you while during the launch.
+
+(It's so lame, but it happens 😑)
+
+## Causes of decision paralysis
+
+I've observed that my decision paralysis stems from *five elements* over the years.
+
+First: I have an **unreasonably high standard**. To be honest, I don't even consciously know what this standard is. I've never been completely satisfied with any work that I've done. Something is always wrong. Something is always missing. And it fed my desire to seek the best possible design, code and copy.
+
+Second: I'm plagued by **incessant self-doubt**. I'd questions all my decisions over and over again, wondering if they're right. Since it's impossible to know if I made the right choice every single time, I sometimes get stuck asking myself the same questions over and over, afraid to make a decision.
+
+Third: I **take results personally**. I'm constantly worried about my results. This, coupled with an unreasonably high standard, is a surefire fail to fail (horribly). I hate it when I fail.
+
+Fourth: **I'm afraid of failing**. What would it mean if others say my work suck? Do I suck? Am I good enough to make anything for anyone? Am I worthy enough to continue living on this earth? (I can't help it, I have dark thoughts 😶).
+
+Fifth: **I'm afraid of succeeding**. Deep down, I don't think about succeeding. I don't know what success looks like, and I don't want to think about what happens next. Will I need to make harder decisions? What if I can't cope? Will I be able to pull off another success? What if I don't? You can already see how my self-doubt comes into play 😒.
+
+These five elements cause my decision paralysis. I don't know about you, but yours may be similar to mine. Yours might be different as well. It's best you take some time no examine yourself.
+
+Now, knowing the causes of my decision paralysis, I can take some steps to fight against it.
+
+## Fighting against decision paralysis
+
+First, I understand that I'm afraid of both failure and success. With this in mind, in makes sense for me to begin all projects by **setting expectations upfront**.
+
+Some questions I'd ask myself are:
+
+1. What does success mean?
+2. What does failure mean?
+3. How do I measure if I have failed or succeeded?
+4. What's next if I succeed?
+5. What's next if I failed?
+
+These questions free me from thinking about success or failure in the midst of the project (when I'm most vulnerable). It also frees me from taking results personally since I'd make sure I measure success or failure with a good measuring stick.
+
+Next, I also know that I have an unreasonably high standard which I'm incapable of meeting (always). So, I aim to produce work that's **good enough instead of epic**.
+
+At this point, I define work to be good enough if it
+
+- Gets the job done
+- Useful to at least one person
+- Follows practices I've learned so far
+
+These rules free me from the terror of making work that falls below my expectations (which always happens). As a result, my work isn't perfect, but I get stuff done.
+
+## Does decision paralysis get you too?
+
+Decision paralysis gets everyone. You're normal if you can't decide or have problems creating awesome work. No need to beat yourself up for it anymore.
+
+Whenever you're unsure, just remember: **forget perfection**. *Set expectations*, *do good-enough work* and *let the results worry about itself*.
+

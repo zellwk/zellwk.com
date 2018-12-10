@@ -1,0 +1,38 @@
+---
+layout: _layout/html
+pagination:
+  data: collections.publishedPosts
+  size: 10
+  alias: posts
+permalink: /blog{{'/page-' + (pagination.pageNumber + 1) if pagination.pageNumber}}/
+footer: true
+---
+<div class="l-wrap">
+  <article class="l-post">
+    <h1>Articles</h1>
+
+    {%- for post in pagination.items %}
+      <article class="o-words l-post__content">
+      {% if post.data.external -%}
+        <svg viewBox="0 0 80 80">
+          <use xlink:href="#{{post.data.external | slug}}"></use>
+        </svg>
+      {%- endif %}
+        <h2>
+          <a href="{{post.url}}">
+            {{- post.data.title | markdownInline -}}
+          </a>
+        </h2>
+
+        {%- youtube post.data.video -%}
+        {# TODO: ADD post date #}
+        {# <p>{{post.data.page.date}}</p> #}
+        {%- markdown -%}
+          {% summary post %}
+        {%- endmarkdown -%}
+      </article>
+    {%- endfor -%}
+
+    {%- paginate pagination, page, 7 -%}
+  </div>
+</div>

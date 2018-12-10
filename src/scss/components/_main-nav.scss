@@ -1,0 +1,18 @@
+.c-main-nav {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: vr(6);
+
+  @include bp(mega) {
+    margin-left: vr(-3);
+  }
+
+  .page-salespage & {
+    margin-top: vr(5);
+  }
+}
+
+.c-main-nav__toggle {
+  @include bp(med) { display: none; }
+}

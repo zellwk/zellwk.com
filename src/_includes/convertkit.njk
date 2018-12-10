@@ -1,0 +1,20 @@
+{%- set newsletters = {
+  'default-honesty': 174404,
+  'mrt-simplicity': 177782,
+  'better-fed': 212048,
+  'fed-wed': 214866,
+  'susy': 987,
+  'ayw': 2439,
+  'rt-system': 60354,
+  'home-start': 215884,
+  'better-fed-node': 228199,
+  'jsr': 275679,
+  'learnjs': 282474,
+  'build-calculator': 361296
+} -%}
+
+{% if newsletters[newsletter] -%}
+  <script defer id="_ck_{{newsletters[newsletter]}}" src="https://forms.convertkit.com/{{newsletters[newsletter]}}?v=6"></script>
+{%- else -%}
+  NOTE! No newsletter found!
+{%- endif -%}

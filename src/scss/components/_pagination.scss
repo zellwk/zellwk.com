@@ -1,0 +1,26 @@
+.c-pagination {
+  margin-top: vr(2);
+  @include l-content;
+  font-feature-settings: 'liga' 1, 'lnum' 1;
+
+  > * {
+    @include tp-sans2;
+    display: inline-block;
+    padding: 0.5em 0.75em;
+  }
+
+  > a {
+    transition:
+      background-color 0.15s ease-in-out,
+      color 0.15s ease-in-out;
+    background-color: color(gallery);
+    color: color(monsoon);
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: color(geebung);
+      color: color(w);
+    }
+  }
+}

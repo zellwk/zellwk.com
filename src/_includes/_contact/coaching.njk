@@ -1,0 +1,46 @@
+{# Not in use right now #}
+<div class="c-form__item">
+  {% markdown %}
+    I'll be honored to teach you.
+
+    **How coaching works**
+
+    The main purpose of a coaching call is to provide you with enough information, motivation, and courage to perform the action you need. Each call would last for approximately 1 hour.
+
+    Before our call, I'll send you a form where you can list questions you'd like me to answer. You can ask me anything you want, but I recommend you prioritize your questions. Typically, we can get 2-3 questions answered well.
+
+    Make sure you send in your questions at least one day in advance. This allows me to prepare for our call, which would maximize the quality of my answers.
+
+    **Topics and fees per session:**
+
+    1. Business/Entrepreneurship—$250
+    2. Creating books/courses—$250
+    3. Web development—$200
+  {% endmarkdown %}
+
+  {% markdown %}
+    What usually happens in a coaching call is this—you'll gain so much information from one session that you'll have weeks and months of work to do; it's packed with value. You won't need a second call until you've completed the work, or if you get stuck again somewhere.
+
+    If you'd like to get into a coaching call with me, please fill in the details below. I'll get in touch with you shortly.
+  {% endmarkdown %}
+</div>
+
+{{formItem.input(
+  name = 'coaching-teach',
+  label = 'What would you like me to teach you?',
+  required = true
+)}}
+
+{{formItem.radios(
+  groupId = 'coaching-payment',
+  groupText = 'Are you willing and able to invest in the coaching call?',
+  name = 'coaching-payment',
+  required = true,
+  radios = [{
+    target: 'yes',
+    value: 'Yes'
+  }, {
+    target: 'no',
+    value: 'No'
+  }]
+)}}

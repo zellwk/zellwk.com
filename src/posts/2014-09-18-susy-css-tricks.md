@@ -1,0 +1,18 @@
+---
+title: Build Web Layouts Easily with Susy
+layout: post
+slug: https://css-tricks.com/build-web-layouts-easily-susy/
+external: CSS Tricks
+tags:
+ - susy
+ - css
+ - guest-article
+---
+
+Susy provides you with the tools to build your own grid layouts that match the needs of your website. It gives you the freedom and flexibility to build any design that you can imagine. It doesn't matter if your design has 5, 14 or 48 columns. Unequal width columns? Susy's got you covered.
+
+Why would you pick Susy over the million other frameworks out there on the internet? You may never even heard of it before. What if it's beauty is only skin deep?
+
+Susy is one of the best things that happened to me in terms of my front-end development workflow over the past few months. It has helped me out so much that I decided to write a book about it to share it's merits with the world. It's an in-depth guide on Susy and how you can use it to easily create any website design you want.
+
+<!--more-->

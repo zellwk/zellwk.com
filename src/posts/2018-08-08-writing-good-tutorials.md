@@ -1,0 +1,120 @@
+---
+title: How to write a good coding article
+layout: post
+slug: writing-good-coding-articles
+tags:
+ - teaching
+ - writing
+newsletter: better-fed
+description: A good article shows a student how to think through a problem. The student will go "oooohhhhh!" as they read through the article. You can write a good programming article if you watch out for these five factors.
+---
+
+A good article shows a student how to think through a problem. The student will go "oooohhhhh!" as they read through the article. They'll understand the concept they're trying to learn, and they'll stop searching the web for the same topic.
+
+Lousy articles do the opposite. Students get more confused as they read through the article. They may even wonder if they have what it takes to learn programming.
+
+It doesn't take much to turn a bad article into a good one. The content can remain the same. You only need to get five factors right.
+
+<!-- more -->
+
+## The five factors
+
+The five factors are:
+
+1. The purpose of your article
+2. Who's the student
+3. The examples and analogies used
+4. The language used
+5. The ease of reading
+
+## The purpose of your article
+
+Imagine you're in a maze. You're walking down along a path and you see a fork in the road.
+
+Should you go left, or should you go right?
+
+You won't know the answer. That's because you don't know the way out.
+
+Students who're searching for articles are equally lost. they don't have answers, which is why they're searching in the first place.
+
+It is your article's job to point them in the correct direction. This means every article you write should have an end-point. This end-point is the purpose of your article.
+
+For example, in this article, I want to show you the five factors to watch out for so you can avoid writing bad articles. Every article you create will be at least decent (and hopefully good!).
+
+To point students in the correct path, you have to understand who they are and what are their skill levels.
+
+## Who's the student?
+
+Is your student a beginner, intermediate or expert?
+
+Beginners, intermediate students, and experts have different skill levels. Once you consider their skill levels, you'll be able to write better articles for them.
+
+For example, you won't teach beginners to build complicated applications. You won't start your article with "npm install these packages".
+
+This is because there's a high chance that beginners don't know what npm is. They may also not know about the packages you're getting them to install.
+
+And they get lost.
+
+Also, your content changes when you consider the skill level of your students. For beginners, you'll create articles that contain smaller chunks of information. For experts, you can combine many different skills together in one article.
+
+For this article, my ideal student is someone who wants to write good programming articles. They have written less than twenty articles.
+
+Once you consider the purpose and the student, it's time to look at the examples and analogies you use.
+
+## The examples and analogies used
+
+Programming is not abstract. Programming can be explained in ways that are real and close to the heart. It feels abstract because teachers use meaningless variables like `foo` and `bar` 😑.
+
+So the first rule of thumb is never to use `foo` or `bar`. Always try to use an example that students can relate to.
+
+Think about your student.
+
+What do they experience in their daily lives? Which experiences can you use as analogies for the concept you're trying to explain?
+
+Decide on an analogy, then explain it such that students who don't get the analogy intuitively will still get what you mean.
+
+For example, I used a one-way glass analogy to explain JavaScript scopes. Read [this article](https://css-tricks.com/javascript-scope-closures/) to find out how I explained it.
+
+Next comes your language.
+
+## The language used
+
+Words have the ability to elicit strong emotions. When used wrongly, they have the ability to make students feel like idiots.
+
+See what I did there?
+
+That one sentence may have triggered some feelings of apprehension, uselessness or guilt, and those feelings are not constructive for most articles.
+
+Grasping emotions may be difficult if you're a beginner at writing articles. Don't let that stop you from writing though.
+
+For now, I want you to focus on two things. When you get more experienced, we can dive how you can insert and withdraw emotions from your articles 😉.
+
+**One, make sure you explain every jargon you use**. Jargons make concepts obscure. They feel like Pandora's boxes that cannot be explained. But, if you can't explain a jargon, how can you expect someone to get what you mean?
+
+That's why the first thing you need to do is to learn to explain jargons in simple-to-understand language.
+
+**Second, watch out for words like** *obviously*, *simply*, and *just*.
+
+Finally, you'd want to smooth out your writing with some edits.
+
+## Edit for smooth reading
+
+Your article's job is to help students understand the concept you're teaching. You want to do your best to aid their understanding.
+
+One way to improve their understanding is to use short and simple sentences. Always remember that clarity is more important than cleverness. This is a craft that can take a while to improve. You can speed up the process if you use an app like [Hemingway](http://www.hemingwayapp.com). It tells you which of your sentences need reworking.
+
+Another way to improve understanding is to rid your article of grammatical errors. Here, you can use an app like [Grammarly](https://www.grammarly.com) to check for grammatical errors.
+
+## Wrapping up
+
+To write a good article, you need to consider five factors:
+
+1. The purpose of your article
+2. Your students' skill levels
+3. The examples and analogies you use
+4. The language you use
+5. Editing for smooth reading
+
+There are a lot more tips and techniques you can use to write good articles. These five factors are the basic ones.
+
+Now enjoy and go write some articles :)

@@ -1,0 +1,30 @@
+{%- macro active(page = 'hire') -%}
+<div class="jsNavContainer">
+  <a href="https://learnjavascript.today" class="o-navlink">Learn JavaScript</a>
+  <a href="/about" class="o-navlink">About</a>
+  <a href="/blog" class="o-navlink">Articles</a>
+  <a href="/products" class="o-navlink">Products</a>
+  <a href="/contact" class="o-navlink">Contact</a>
+
+  <button
+    class="o-btn--primary o-btn--flat c-main-nav__toggle jsOffsiteLauncher">Menu</button>
+</div>
+{%- endmacro -%}
+
+{%- macro footer() -%}
+<nav class="c-footer__nav">
+  <a href="/about" class="o-navlink">About</a>
+  <a href="/products" class="o-navlink">Products</a>
+  <a href="/newsletter" class="o-navlink">Newsletter</a>
+</nav>
+{%- endmacro -%}
+
+{%- macro offsite() -%}
+<nav class="c-offsite__nav">
+  <a href="/about" class="o-navlink--offsite">About</a>
+  <a href="/blog" class="o-navlink--offsite">Articles</a>
+  <a href="/newsletter" class="o-navlink--offsite">Newsletter</a>
+  <a href="/products" class="o-navlink--offsite">Products</a>
+  <a href="/contact" class="o-navlink--offsite">Hire me</a>
+</nav>
+{%- endmacro -%}

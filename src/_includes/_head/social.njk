@@ -1,0 +1,32 @@
+{# TODO: Reset OG format and make sure its right #}
+{# Open Graph Tags #}
+<meta property="og:site_name" content="{{siteTitle}}"/>
+{% block ogTitle %}
+  <meta property="og:title" content="{% if title %} {{title}} | {{siteTitle}}
+  {% else %} {{siteTitle}} {% endif %}"/> {% endblock %}
+
+{% block ogDesc %}
+  <meta name="og:description" content="{% if description %} {{description}}
+  {% else %} {{siteDescription}}
+  {% endif %}" />
+{% endblock %}
+
+<meta property="og:email" content="{{siteEmail}}">
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="{{siteUrl}}"/>
+{# <meta property="og:image" content="{{ogImage}}"/> #}
+
+{# Twitter Tags #}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="{{twitterHandle}}">
+<meta name="twitter:creator" content="{{twitterHandle}}">
+{% block twitterTitle %}<meta name="twitter:title" content="{{title}} | {{siteTitle}}">{% endblock %}
+{% block twitterDesc %}
+  <meta name="twitter:description" content="{% if description %} {{description}}
+  {% else %} {{siteDescription}}
+  {% endif %}" />
+{% endblock %}
+{# <meta name="twitter:image" content="{{twitterImage}}"> #}
+
+{# Google plus #}
+<link rel="author" href="{{googlePlusUrl}}">

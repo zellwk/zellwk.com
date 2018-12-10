@@ -1,0 +1,73 @@
+---
+title: How to find the Wordpress CSS File
+layout: post
+slug: find-wordpress-css
+tags:
+ - css
+ - wordpress
+newsletter: better-fed
+---
+
+A theme bought off the marketplace can never be 100% what you intended your website to look like. There are always small things that you want to change.
+
+Travis asked me a question on finding out where to edit Wordpress theme's CSS files and I thought I'd just share it you.
+
+If you had bought a Wordpress theme and wanted to change how the website looks in some areas, this post is for you.
+
+<!--more-->
+
+## What controls how a website looks
+
+Cascading Style Sheets **(more commonly known as CSS, or stylesheets)** is a file that tells our browsers how the website should look like.
+
+When you visit a website, your browser will fetch this css file, along with other important documents, and show it to you.
+
+Contained within CSS files are code contents that tell your browser how to render(in other words, show) the webpage. An example of a CSS statement is
+
+  /* This tells our browser that it should leave a gap of 18px after each paragraph */
+  p {
+   margin-bottom: 18px;
+  }
+
+There's a whole lot more in CSS that the small code snippet above, and its waaay out of topic for this post. If you're totally new to CSS, I'd suggest at least checking the CSS portion of [Code Academy][1] before trying to change any CSS files on your wordpress theme.
+
+## Where is this CSS file located
+Finding this CSS file can be a little cumbersome, and it depends on whether the theme author has decided to place the CSS files in another folder (I personally do that).
+
+You're probably not sure whether the CSS files are in their default location, so try the following methods.
+
+**SERIOUS NOTE:** No matter which method you used to edit your CSS files, always save a backup copy before you make any changes! Its going to be a big disaster if you broke your site by accident! You probably wouldn't want that to happen :)
+
+### Method 1
+Go under Appearance \> Editor and click on style.css.
+
+You can edit the files directly from this window and hit save when you're done. Remember to clear your caches if you're using any CDN or caching plugins. (Not sure? Check your plugins in Wordpress and see if you have activated a plugin with the cache  word.
+
+### Method 2
+If you had saw very few lines of code, like the image below, you're outta luck. The theme author has chosen to place the file somewhere else.
+
+![Sample CSS File on Wordpress that has too little code. This means the actuall style.css is somewhere else][image-1]
+
+For this method, you'll need to have access to your domain hosting service (Dreamhost, Hostgater and Bluehost for example).
+
+Log in to your domain hosting service and select the file manager through cPanel. Select the final option and choose the document root for your website.
+
+![Here's the how the file manager looks like on cPanel][image-2]
+
+Go to wp-content \> themes \> **YOUR THEME NAME** and try to finder a folder that houses the css files. They are usually named CSS stylesheets or styles.
+
+You can then choose to download it and edit with a text editing program on your computer.
+
+After editing, head to the same directory you found the CSS files and hit upload.
+
+## The end
+Thats two methods of finding and editing your theme CSS files. They're definitely not coding best practices and editing them in this way is often frowed upon.
+
+But hey, you don't have to worry about the best practices stuff if you're not going to develop themes.
+
+If you feel like learning about these code stuff though, I have something very special coming up within the next couple of weeks. Join my mailing list below and get first hand information about it.
+
+[1]:  http://www.codeacademy.com "Code Academy"
+
+[image-1]:  /images/2014/01/Screenshot_15_1_14_6_16_pm.png "Sample CSS File on Wordpress that has too little code"
+[image-2]:  /images/2014/01/Screenshot_15_1_14_6_11_pm-2.png "cPanel File Manager"

@@ -1,0 +1,77 @@
+version: 2.1
+jobs:
+  build-and-deploy:
+    # pre-built images: https://circleci.com/docs/2.0/circleci-images/
+    docker:
+      - image: circleci/node:11.3.0-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - npm-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - tmp-images-{{ .Branch }}-
+      - restore_cache:
+          keys:
+            - tmp-images-{{ .Branch }}-
+      - run:
+          name: Install files
+          command: npm install
+      - save_cache:
+          key: npm-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Build
+          command: npm run build
+      - save_cache:
+          key: tmp-images-{{ .Branch }}-
+          paths:
+            - ./_tmp
+      - run:
+          name: Check for built files
+          command: |
+            cd dist
+            ls -l
+      - add_ssh_keys:
+          fingerprints:
+            - "c7:53:7e:6b:71:5b:4e:92:40:45:fb:90:2c:0d:80:74"
+      - run:
+          # https://discuss.circleci.com/t/capistrano-and-ssh-host-authenticity/13586/7
+          name: Fix Authenticity of hosts
+          command: ssh-keyscan 192.241.199.177 >> ~/.ssh/known_hosts
+      - run:
+          name: Deploy static site
+          command: |
+            sudo apt-get install rsync # DeployCI requires rsync
+            npm run deployCI
+      - run:
+          name: Restart node server
+          command: |
+            ssh $SSH_USER@$SSH_HOST "
+              cd /home/zellwk/zellwk.com
+              git fetch origin master
+              git reset --hard FETCH_HEAD
+              npm install --production
+              npm run restart
+              exit"
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - build-and-deploy:
+          filters:
+            branches:
+              only:
+                - master
+                - circleci
+  nightly:
+    triggers:
+      - schedule:
+          # Everyday at 12am UTC
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build-and-deploy

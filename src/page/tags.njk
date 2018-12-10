@@ -1,0 +1,20 @@
+---
+layout: _layout/page
+# permalink: _test/tag/index.html
+---
+
+<h1 class="l-article__header">Tagged with “{{ tag }}”</h1>
+
+<div class="l-article__text">
+  {% markdown %}
+  Here's a list of tags for my blog. Feel free to browse around.
+  {%- endmarkdown %}
+
+  <ol>
+    {%- for tag in collections.tagslist %}
+      <li><a href="/tags/{{ tag.name | slug }}/">{{tag.name | capitalize}}</a>: {{ tag.items.length }} articles</li>
+    {%- endfor %}
+  </ol>
+</div>
+
+

@@ -1,0 +1,151 @@
+---
+title: Should I teach authentication in Learn JavaScript?
+layout: post
+slug: should-i-teach-authentication-in-learn-javascript
+tags:
+ - javascript
+newsletter: jsr
+---
+
+I ran into a problem while writing Learn JavaScript. This problem is about teaching Ajax.
+
+I'm deciding between three possible solutions right now. Since I am making Learn JavaScript for people like you, I want to hear your thoughts before I decide.
+
+<!--more-->
+
+<div class="jsCkClone" data-should-not-clone></div>
+
+## What's the problem with teaching Ajax?
+
+Let's iron out some technical terms so we're on the same page.
+
+Ajax stands for asynchronous JavaScript and XML. It is a term often used to say:
+
+1. Get (or send) some data to the server
+2. Wait for the server to send something back
+3. Update the page without refreshing it
+
+The data you send over to a server is called a **request**. The data you get back from a server is called a **response**. The action (sending a request and getting a response) is called a **fetch**. The thing you want to fetch is called a **resource**.
+
+We fetch resources through APIs. An API stands for application programming interface. It defines a set of rules for your program to talk to theirs.
+
+Here's an example. Let's say we want to create an app that searches Twitter for a keyword. To do so, we need to connect to Twitter and get a list of tweets that match the search.
+
+**Here's the problem—to connect to Twitter, we need to authenticate ourselves via OAuth.**
+
+## Authentication
+
+Authentication is a process to verify you are who you claim to be. There are two main forms of authentication—basic authentication and OAuth.
+
+Basic authentication is simple. The server checks if your username and password you supplied are correct. If the credentials (username and password) are correct, it gives you access to the API.
+
+OAuth is more complicated. When we work with OAuth, we send our username and password to the server first. The server then checks if our credentials are correct. If our credentials are correct, they issue us an access token. We will use this access token to login.
+
+To visualize how OAuth works, imagine you work at a company that issues identity passes. You can use these passes to get through security checkpoints. The access token is akin to the identity pass.
+
+## Why is authentication cumbersome?
+
+There is a problem with JavaScript—it is not secure. Anyone who visits your website can see the JavaScript you write.
+
+If you authenticate yourself with JavaScript, anyone can steal your credentials. This is bad. **We don't want anyone to steal our credentials.**
+
+If someone gets their hands on our credentials, they can cause damage beyond what we can imagine. For example, I received a $60,000 bill because my friend leaked my Amazon access token. 😱😱😱!
+
+Lucky for me, I didn't have to pay. Amazon was kind enough to waive off the charges.
+
+The moral of the story is: protect your credentials. Don't let anyone steal it.
+
+**To protect our credentials, we need to authenticate ourselves through our own server.**
+
+Therein lies the problem.
+
+## Should I show you how to create a server in Learn JavaScript?
+
+I made Learn JavaScript to help students become confident with JavaScript. When they complete the course, they will be able to build components from scratch.
+
+**If I talked about authentication (and servers), I move students away from the core of the course—JavaScript—to security.**
+
+Security, servers, and JavaScript. These are three different beasts.
+
+I tried drafting out an outline on authentication and APIs. It contained topics like:
+
+1. Setting up a server
+2. Authenticating with basic authentication
+3. Authenticating with OAuth
+4. Creating applications that can sign in with third-party services with OAuth (like "sign in with twitter").
+5. Protecting passwords
+6. REST APIs
+7. Graph APIs
+8. CORS
+9. JSON Web Tokens
+10. Session-based authentication
+11. Persistent authentication
+
+Since authentication is about security, should I still teach authentication in Learn JavaScript?
+
+I see three possible choices.
+
+## Three possible choices
+
+The three choices are:
+
+1. Skip authentication
+2. Teach authentication regardless
+3. Teach authentication in a separate course
+
+### Option 1: skip authentication
+
+With Option 1, we will skip the authentication process completely. We will talk about what is required for proper authentication, but we won't dive into details or code.
+
+The pros are:
+
+1. Students can focus on JavaScript
+2. Students can use APIs that do not require authentication
+3. Students can use APIs that use JSONP
+4. Students will understand authentication requires server-side skills
+
+The cons are:
+
+1. Students will not understand authentication completely
+2. Students will not understand CORS completely
+3. Students cannot use APIs that require OAuth. Examples of such APIs include Twitter, Pinterest, and Dribbble.
+4. Students cannot setup their own servers.
+
+### Option 2: Teach authentication regardless
+
+With Option 2, we will cover authentication in Learn JavaScript. This means everything I mentioned above in the current curriculum.
+
+The pros are:
+
+1. Students will have a firm grasp of Ajax and CORS
+2. Students will be able to authenticate with any API they desire
+3. Students will be able to setup their own servers
+
+The cons are:
+
+1. Students will be forced to learn server-related code, even if they are not ready for it. This will create overwhelm.
+2. Students get veered off track to another topic—servers and authentication—in the middle of the course.
+3. The completion date for Learn JavaScript will be pushed back.
+
+### Option 3: Teach authentication in a separate course
+
+With the third option, we will cover the things I mentioned—authentication, creating servers, securing passwords, signing in with third-party services—in a separate course.
+
+The pros are:
+
+1. Students can dedicate themselves to learning JavaScript
+2. Students will not be forced to learn about servers.
+3. Students can opt-in into another course if they're ready for servers, and want to learn about authentication.
+
+The cons are:
+
+1. Enrolling in another course means students will need to invest another sum of money.
+
+## What should I choose?
+
+I have my opinions, but I want to hear from you before I decide.
+
+If you are a Learn JavaScript student. Please let me know your thoughts through our Slack group. If you are not a Learn JavaScript student, please [send me an email](/contact) or leave your comment in the comments section below.
+
+Waiting to hear back from you.
+

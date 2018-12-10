@@ -1,0 +1,246 @@
+---
+title: Configuring Grunt To Use LibSass With Susy
+layout: post
+slug: grunt-sass-with-susy
+tags:
+ - post
+ - css
+ - workflow
+newsletter: susy
+---
+
+Every developer I know has been eagerly awaiting to use LibSass in their development process. When Eric announced that Susy is now compatible with LibSass, I jumped out of my seat and began tinkering with Grunt to create a build process.
+
+Unfortunately, it didn't work out then :(
+
+The good news is that we can now use Grunt to compile LibSass with Susy without a hitch! I'll show you how I configured Grunt to use LibSass with Susy in this article.
+
+<!--more-->
+
+## Prerequisites
+
+This article assumes that you have Node JS, Bower and Grunt JS installed. You can find the instructions to install these tools from the following links if you don't have them installed already.
+
+- Node JS - [http://nodejs.org](http://nodejs.org)
+- Bower - [http://bower.io](http://bower.io)
+- Grunt Js - [http://gruntjs.com](http://gruntjs.com)
+
+Once you have the tools installed, open up a new folder and let's begin to setup your project.
+
+## Setting Up The Project
+
+Since we are using grunt and bower in this project, we can set the project up to easily add or manage both node and bower dependencies for the project.
+
+To do so, we require the `package.json` and `bower.json` files.
+
+We can use the `npm init` command to create the `package.json` file and the `bower init` command to create the `bower.json` file.
+
+~~~bash
+$ npm init
+~~~
+
+![NPM Init](/images/2015/02/npminit.png)
+
+~~~bash
+$ bower init
+~~~
+
+![Bower Init](/images/2015/02/bowerinit.png)
+
+These two files combined will allow you to easily add or manage dependencies in your project. Your folder structure should now be:
+
+![Folder Structure](/images/2015/02/folder-1.png)
+
+We can proceed on to install the grunt packages we need to run LibSass with Susy.
+
+## Installing Grunt Packages
+
+The node package named `grunt-sass` is required for you to run LibSass with Susy. Let's begin be installing that.
+
+~~~bash
+$ npm install grunt-sass --save-dev
+~~~
+
+You'll also want to watch for changes and recompile any Sass files into CSS whenever you save a file. To do so, we need the `grunt-contrib-watch` package.
+
+~~~bash
+$ npm install grunt-contrib-watch --save-dev
+~~~
+
+Your project structure should now be:
+
+![Folder Structure](/images/2015/02/folder-2.png)
+
+We now have the necessary node packages to compile Sass into CSS with LibSass. Let's move on to installing our front-end dependencies with Bower.
+
+## Installing Bower Packages
+
+The only bower package we need to install in this article is Susy.
+
+~~~bash
+bower install susy --save
+~~~
+
+Your folder structure should now be:
+
+![Folder Structure 3](/images/2015/02/folder-3.png)
+
+Remember to add your HTML, SCSS and CSS folders into the project.
+
+![Folder Structure 4](/images/2015/02/folder-4.png)
+
+We have to import Susy into the stylesheets to use it. This is how you import Susy if you have the same folder structure as the picture above.
+
+~~~bash
+@import "../bower_components/susy/sass/susy";
+~~~
+
+**UPDATE:** Optionally, you may also want `breakpoint-sass` if you want to use the `breakpoint` mixin. Susy doesn't depend on `breakpoint-sass` anymore since version 2.2.2 so you can safely omit it if you want to. I still use the `breakpoint` mixin heavily in my workflow though.
+
+~~~bash
+# Note! This is optional!
+bower install breakpoint-sass --save
+~~~
+
+If you do install `breakpoint-sass`, you'll have to import it in your stylesheets as well
+
+~~~bash
+@import "../bower_components/breakpoint-sass/stylesheets/breakpoint";
+~~~
+
+Now we have all the necessary libraries for this setup to work properly. Let's proceed with writing the Gruntfile – the heart of the process.
+
+## Writing the Gruntfile
+
+The simplest way to begin writing the Gruntfile is to create a `Gruntfile.js` and add that to your project structure.
+
+![Folder Structure 5](/images/2015/02/folder-5.png)
+
+Then add the following anatomy of the Gruntfile into your `Gruntfile.js`.
+
+~~~js
+module.exports = function(grunt) {
+
+  // Project configuration.
+  grunt.initConfig({
+
+  });
+
+  // Loads Grunt Tasks
+
+  // Default task(s).
+};
+~~~
+
+We begin writing the Gruntfile by loading the various tasks that we have to run. In this case, we have to load up the `grunt-sass` package and `grunt-contrib-watch` package.
+
+~~~js
+module.exports = function(grunt) {
+  // Project configuration.
+  // ...
+
+  // Loads Grunt Tasks
+  grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
+  // Default task(s).
+  // ...
+};
+~~~
+
+We can configure the Grunt project to run according to how we have set up the folder structure.
+
+~~~js
+module.exports = function(grunt) {
+  // Project configuration.
+  grunt.initConfig({
+
+    // Grunt-sass
+    sass: {
+      app: {
+        // Takes every file that ends with .scss from the scss
+        // directory and compile them into the css directory.
+        // Also changes the extension from .scss into .css.
+        // Note: file name that begins with _ are ignored automatically
+        files: [{
+          expand: true,
+          cwd: 'scss',
+          src: ['*.scss'],
+          dest: 'css',
+          ext: '.css'
+        }]
+      },
+      options: {
+        sourceMap: true,
+        outputStyle: 'nested',
+        imagePath: "../",
+      }
+    },
+
+    // Grunt-contrib-watch
+    watch: {
+      sass: {
+        // Watches all Sass or Scss files within the scss folder and one level down.
+        // If you want to watch all scss files instead, use the "**/*" globbing pattern
+        files: ['scss/{,*/}*.{scss,sass}'],
+        // runs the task `sass` whenever any watched file changes
+        tasks: ['sass']
+      },
+      options: {
+        // Sets livereload to true for livereload to work
+        // (livereload is not covered in this article)
+        livereload: true,
+        spawn: false
+      }
+    },
+  });
+
+  // Loads Grunt Tasks
+  // ...
+
+  // Default task(s).
+  // ...
+}
+~~~
+
+Finally, we have to create a task in order to run it with Grunt. We can use the `registerTask` command to create such a task.
+
+~~~js
+module.exports = function(grunt) {
+  // ...
+
+  // Default task(s).
+  // This registers a task that runs `sass`, followed by `watch`.
+  grunt.registerTask('default', ['sass', 'watch']);
+}
+~~~
+
+We're done with writing the Gruntfile.
+
+## Running Grunt
+
+We have created a default task in the above step. Defaults tasks can be ran with the `grunt` command in the terminal
+
+~~~bash
+$ grunt
+~~~
+
+Once the command is given, Grunt should run Sass and begin to watch for changes
+
+![Run Grunt](/images/2015/02/run-grunt-1.png)
+
+Once you save any Sass or Scss files within the scss directory, Grunt will compile the new updates and keep watching the directory.
+
+![Run Grunt](/images/2015/02/run-grunt-2.png)
+
+Enjoy your new LibSass compiler!
+
+Here's a github repo for the LibSass compiler we just built: [https://github.com/zellwk/grunt-susy-starter](https://github.com/zellwk/grunt-susy-starter).
+
+## Conclusion
+
+We built a basic Grunt setup that allows you to use LibSass with Susy in this short article. Once you get this running, feel free to add more packages to make this starter more robust. Things that  come to mind straight away are livereload, autoprefixer and even CSS and JS minification!
+
+Whatever you do, have fun with the process and feel free to let me know if you have any questions via the comments!
+
+PS: I'm updating my starter template to include everything mentioned here. You can grab it if you bought the full version of Learning Susy :)

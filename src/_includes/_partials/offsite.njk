@@ -1,0 +1,14 @@
+<div class="c-offsite-container jsOffsiteContainer">
+  <div class="c-offsite">
+    <div class="c-offsite__header">
+      <a class="c-main-nav__logo" href="/about">
+        <div class="o-zell--white">{%- include "_svgs/zell.svg" -%}</div>
+      </a>
+      <a href="#" class="c-offsite__close jsOffsiteClose">&times;</a>
+    </div>
+    <div class="c-offsite__content">
+      {%- import '_macros/nav.njk' as nav -%}
+      {{- nav.offsite() -}}
+    </div>
+  </div>
+</div>

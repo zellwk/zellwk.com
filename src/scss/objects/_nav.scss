@@ -1,0 +1,60 @@
+// TODO: Figure out why loading is jerky
+@mixin active-link {
+  color: var(--theme-color);
+
+  &::after {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@mixin inactive-link {
+  color: color(mine);
+
+  &::after {
+    transform: translateY(-150%);
+    opacity: 0;
+  }
+}
+
+.o-navlink {
+  display: inline-block;
+  position: relative;
+  @include tp-sans;
+  @include inactive-link;
+  transition: color 0.15s ease-in-out;
+
+  &::after {
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    transition: transform 0.15s ease-in-out,
+                opacity 0.15s ease-in-out;
+    background-color: color(radred);
+    content: '';
+  }
+
+  &:hover,
+  &:active,
+  &:focus,
+  &.is-active {
+    @include active-link;
+  }
+
+  & + * { margin-left: vr(0.75); }
+
+  &:nth-child(-n + 4) {
+    @include bp(max med) {display: none;}
+  }
+}
+
+.o-navlink--offsite {
+  display: block;
+  padding: vr(0.25) vr(1);
+  color: rgba(color(w), 0.9);
+  @include tp-sans;
+  text-align: center;
+}

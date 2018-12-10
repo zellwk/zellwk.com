@@ -1,0 +1,17 @@
+---
+title: Website Layout Tools Compared—Flexbox Vs. Susy
+layout: post
+slug: https://www.smashingmagazine.com/2015/12/website-layout-tools-compared-flexbox-vs-susy/
+external: Smashing Magazine
+tags:
+ - css
+ - susy
+ - flexbox
+ - guest-article
+---
+
+Flexbox has become one of the most popular tools for creating website layouts. Susy is another layout tool that has gained popularity with the Sass community over the last few years.
+
+Many developers I’ve spoken with are unsure which tool is best for creating layouts for their websites. Some feel that flexbox is powerful enough to handle all of their layout problems. However, they are unsure whether to learn it because of its confusing syntax. Others feel that Susy is much simpler and prefer its simplicity to flexbox.
+
+<!--more-->

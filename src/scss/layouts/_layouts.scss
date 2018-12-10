@@ -1,0 +1,32 @@
+:root {
+  --theme-color: #{color(radred)};
+}
+
+body {
+  border-top: vr(0.25) solid var(--theme-color);
+  overflow-x: hidden;
+  &.page-salespage {
+    border-top: 0;
+  }
+}
+
+.c-site-container {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+
+  > main {
+    flex-grow: 1;
+  }
+}
+
+main {
+  margin-top: vr(2);
+  @include bp(mega) {
+    margin-top: vr(4);
+  }
+
+  .page-salespage & {
+    margin-top: vr(0);
+  }
+}
