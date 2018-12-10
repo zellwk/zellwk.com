@@ -10,9 +10,6 @@ jobs:
           keys:
             - npm-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
             - tmp-images-{{ .Branch }}-
-      - restore_cache:
-          keys:
-            - tmp-images-{{ .Branch }}-
       - run:
           name: Install files
           command: npm install
@@ -23,10 +20,6 @@ jobs:
       - run:
           name: Build
           command: npm run build
-      - save_cache:
-          key: tmp-images-{{ .Branch }}-
-          paths:
-            - ./_tmp
       - run:
           name: Check for built files
           command: |
