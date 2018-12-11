@@ -52,9 +52,9 @@ The next step is to figure out how to create the `em` and `rem` units.
 2. user zoomed in.
 3. user changed their browser's font setting.
 
-Since the conditions are ideal at this point, I can safely assume that `16px
- -  1em
- -  1rem`. `400px`, then, is equivalent to `25em` or `25rem`.
+Since the conditions are ideal at this point, I can safely assume that `16px = 1em = 1rem`.
+
+`400px`, then, is equivalent to `25em` or `25rem`.
 
 ```scss
 .pixel {
@@ -85,11 +85,9 @@ Since the conditions are ideal at this point, I can safely assume that `16px
 
 And they did (on every browser I tested).
 
-<figure>
-  ![The Base Experiment](/images/2016/media-query-units/control.gif)
-
-  <figcaption>The base experiment</figcaption>
-</figure>
+| ![The Base Experiment](../images/2016/media-query-units/control.gif) |
+|:--:| 
+| The base experiment |
 
 Since all three media queries kicked in at the same breakpoint, we know that **there's no difference between `px`, `em` or `rem` queries at this stage**.
 
@@ -116,21 +114,18 @@ Here, I chose to use a `font-size` of 200% in my test, which means that I'm sett
 
 Here's the result: Chrome, Firefox and IE 11 triggered all three media queries at 400px:
 
-<figure>
-  ![Results from Chrome, Firefox and Internet Explorer 11 for scenario 1](/images/2016/media-query-units/chrome.gif)
 
-  <figcaption>Results from Chrome, Firefox and Internet Explorer 11</figcaption>
-</figure>
+| ![Results from Chrome, Firefox and Internet Explorer 11 for scenario 1](../images/2016/media-query-units/chrome.gif) |
+|:--:| 
+| Results from Chrome, Firefox and Internet Explorer 11 |
 
 This is the correct behavior. **`em` and `rem` units should not be affected by changes in `font-size` in the HTML** since they're based on the browser's internal `font-size` property.
 
 Unfortunately, we didn't get the perfect behavior on Safari. It triggered the `rem` media query at 800px :(
 
-<figure>
-  ![Results from Safari for scenario 1](/images/2016/media-query-units/safari-200.gif)
-
-  <figcaption>Results from Safari</figcaption>
-</figure>
+| ![Results from Safari for scenario 1](../images/2016/media-query-units/safari-200.gif) |
+|:--:| 
+| Results from Safari |
 
 Since this behavior only occurs on Safari, I was curious to see if mobile Safari was affected as well. Turns out, it did.
 
@@ -142,11 +137,9 @@ The second scenario is common as well. If the text on your page isn't large enou
 
 A quick note here: The original idea behind `em` based sizes was due to older browsers not being able to update pixel values when a user zooms. In this regard, testing the difference between media query units when a user zooms will help to answer the question on whether we can use `px` based media queries now.
 
-<figure>
-  ![User zooms in](/images/2016/media-query-units/zoom.gif)
-
-  <figcaption>User zooms in</figcaption>
-</figure>
+| ![User zooms in](../images/2016/media-query-units/zoom.gif) |
+|:--:| 
+| figcaption>User zooms in |
 
 The results from this experiment is that Chrome, Firefox and IE showed the same behavior. `px` unit queries fired at the same time as `em` and `rem` queries.
 
@@ -158,11 +151,9 @@ The results from this experiment is that Chrome, Firefox and IE showed the same 
 
 And you guessed it... Safari didn't :(
 
-<figure>
-  ![Results from Safari in scenario 2](/images/2016/media-query-units/safari-zoom.gif)
-
-  <figcaption>Results from Safari</figcaption>
-</figure>
+| ![Results from Safari in scenario 2](../images/2016/media-query-units/safari-zoom.gif) |
+|:--:| 
+| Results from Safari |
 
 **Unfortunately, this means that pixel based media queries are out of the question**. Safari doesn't support them properly (unless you decide to forsake Safari?).
 
@@ -186,11 +177,9 @@ The only browser I couldn't figure out where to set the font-size was **Safari**
 
 **This was the only test that all browsers behaved in the same way:**
 
-<figure>
-  ![Results from all browsers for scenario 3](/images/2016/media-query-units/chrome-very-large-font-size.gif)
-
-  <figcaption>Results from all browsers for scenario 3</figcaption>
-</figure>
+| ![Results from all browsers for scenario 3](../images/2016/media-query-units/chrome-very-large-font-size.gif) |
+|:--:| 
+| Results from all browsers for scenario 3 |
 
 As you can see, the pixel queries triggered earlier than `em` or `rem` queries.
 
