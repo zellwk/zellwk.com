@@ -1,7 +1,7 @@
 ---
 title: The Gitignore file
 layout: post
-slug: gitignore
+slug: gitignore-file
 newsletter: better-fed
 video: xlQIABDgTOs
 podcast: e5bf779f
