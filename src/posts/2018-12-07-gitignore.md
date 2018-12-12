@@ -21,7 +21,7 @@ You can do this with a Gitignore file.
 In the video, we installed a library called Typi with npm. Many files come into our staging area when we installed Typi.
 
 <figure>
-  <img src="/images/2018/node-modules-folder.png" alt="Node modules files in staging area">
+  <img src="/images/2018/gitignore/node-modules-folder.png" alt="Node modules files in staging area">
 </figure>
 
 To prevent `node_modules` and its files from appearing in the staging area, you:
@@ -32,7 +32,7 @@ To prevent `node_modules` and its files from appearing in the staging area, you:
 And the staging area becomes clean. AT this point, you want to commit your `.gitignore` file to preserve what to ignore.
 
 <figure>
-  <img src="/images/2018/clean-staging-area.png" alt="Node modules removed from staging area">
+  <img src="/images/2018/gitignore/clean-staging-area.png" alt="Node modules removed from staging area">
 </figure>
 
 ## How to use Gitignore
