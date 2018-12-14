@@ -2,11 +2,13 @@ const { src, dest, series, parallel } = require('gulp')
 const imagemin = require('gulp-imagemin')
 const webp = require('gulp-webp')
 const newer = require('gulp-newer')
-const reiz = require('./_reiz')
+const resizer = require('@zellwk/resize-images')
 
 const { input, output, imageSizes } = require('./_config')
+
 const imageInput = `${input}/images/**/*`
-const tmpOutput = `./_tmp/images`
+const tmpOutput = `./_tmp/minified`
+const tmpOutput2 = `./_tmp/resized`
 const imageOutput = `${output}/images`
 
 const jpegToWebp = _ => {
@@ -29,39 +31,39 @@ const minifyImages = _ => {
   return src(imageInput + `.{png,jpg,jpeg,gif}`)
     .pipe(newer(tmpOutput))
     .pipe(imagemin([
-      imagemin.gifsicle({ interlaced: true }),
       imagemin.jpegtran({ progressive: true }),
       imagemin.optipng({ optimizationLevel: 5 })
     ]))
     .pipe(dest(tmpOutput))
 }
 
-const copySvg = _ => {
+const resizeImages = _ => {
+  return resizer({
+    inputDir: tmpOutput,
+    outputDir: tmpOutput2,
+    outputSizes: imageSizes
+  })
+}
+
+const copyImagesToDist = _ => {
+  return src(tmpOutput2 + `/**/*`)
+    .pipe(dest(imageOutput))
+}
+
+const copySvgToDist = _ => {
   return src(imageInput + `.svg`)
     .pipe(dest(imageOutput))
 }
 
-const copyFavicons = _ => {
+const copyFaviconsToDist = _ => {
   return src(input + `/favicons/**/*`)
     .pipe(dest(imageOutput + '/favicons'))
 }
 
-const resizeImages = _ => {
-  return reiz({
-    inputDir: tmpOutput,
-    outputDir: imageOutput,
-    sizes: imageSizes
-  })
-}
-
-const copyMinifiedImages = _ => {
-  return src(tmpOutput + `/**/*`)
-    .pipe(dest(imageOutput))
-}
-
 const images = series(
   parallel(jpegToWebp, pngToWebp, minifyImages),
-  parallel(resizeImages, copyMinifiedImages, copySvg, copyFavicons)
+  parallel(resizeImages),
+  parallel(copyImagesToDist, copySvgToDist, copyFaviconsToDist)
 )
 
 exports.default = images
