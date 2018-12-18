@@ -87,3 +87,30 @@
 .home-page .c-footer {
   margin-top: 0;
 }
+
+.c-footer__nav {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: vr(0.75);
+
+  // Nav headers
+  li > span {
+    @include tp-sans2;
+    font-weight: 600;
+    color: #333;
+  }
+
+  // Separator betwene header and content
+  span + ol {
+    margin-top: vr(0.25);
+  }
+
+  li li {
+    line-height: 1.2;
+  }
+
+  li li a {
+    @include tp-sans2;
+    font-weight: 400;
+  }
+}

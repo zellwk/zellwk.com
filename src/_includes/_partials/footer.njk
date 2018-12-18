@@ -2,17 +2,33 @@
   <div class="l-wrap">
     <div class="l-wrap__full l-footer__wrap">
       <div class="c-footer__cta">
-        <div class="o-words">
-            {% markdown %}
-            ### Need help with your projects?
+        <ol class="c-footer__nav">
+          <li>
+            <span>More about Zell</span>
+            <ol>
+              <li> <a href="/about">About</a> </li>
+              <li> <a href="/contact">Contact</a> </li>
+              {# <li> <a href="/contact">Fun facts</a> </li> #}
+            </ol>
+          </li>
 
-            Hit the button below and tell me more! I'd love to help :)
-            {% endmarkdown %}
-          <p><a href="/apply" class="o-btn--secondary">Hire Zell for my project</a></p>
-        </div>
+          <li>
+            <span>Things I made</span>
+            <ol>
+              <li> <a href="/products#course-section">Courses</a> </li>
+              <li> <a href="/products#library-section">Libraries</a> </li>
+              {# <li> <a href="/contact">Mini-courses</a> </li> #}
+            </ol>
+          </li>
 
-        {% import '_macros/nav.njk' as nav %}
-        {{nav.footer()}}
+          <li>
+            <span>Subscribe</span>
+            <ol>
+              <li> <a href="/newsletter">Email</a> </li>
+              <li> <a href="/rss">RSS</a> </li>
+            </ol>
+          </li>
+        </ol>
       </div>
 
       <div class="c-footer__info">

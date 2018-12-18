@@ -12,7 +12,7 @@ permalink: feed.xml
   <author>
     <name>{{ site.author.name }}</name>
     <email>{{ site.author.email }}</email>
-    <uri> {{ site.url }}/about </uri>
+    <uri>{{ site.url }}/about </uri>
   </author>
   {%- for post in collections.publishedPosts %}
   {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(site.url) }}{% endset %}
