@@ -220,7 +220,7 @@ The cleanest solution I received is: `.*\S.*` by [Daniel O'Connor](https://www.n
 Other regexes I received include:
 
 - `.*\S+.*` by [Matt Mink](https://twitter.com/matthewjmink).
-- `\s*\S.*` by [Sungjoon]()
+- `\s*\S.*` by [Sungbin Jo](https://github.com/pcr910303)
 - `^\s?(?=\S).` with a lookahead by Konstantin
 
 And many others!
@@ -229,7 +229,6 @@ Here's a codepen with the updated solution by Daniel:
 
 <p data-height="486" data-theme-id="7929" data-slug-hash="NeRaPw" data-default-tab="result" data-user="zellwk" data-pen-title="Pure CSS Empty validation" class="codepen">See the Pen <a href="https://codepen.io/zellwk/pen/NeRaPw/">Pure CSS Empty validation</a> by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-
 
 ## Wrapping up
 
