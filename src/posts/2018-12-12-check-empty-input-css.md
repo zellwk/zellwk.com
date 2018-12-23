@@ -221,7 +221,7 @@ Other regexes I received include:
 
 - `.*\S+.*` by [Matt Mink](https://twitter.com/matthewjmink).
 - `\s*\S.*` by [Sungbin Jo](https://github.com/pcr910303)
-- `^\s?(?=\S).` with a lookahead by Konstantin
+- `^\s?(?=\S).` with a lookahead by [Konstantin](https://twitter.com/KonstantinRouda)
 
 And many others!
 
