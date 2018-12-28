@@ -86,6 +86,7 @@ Since the conditions are ideal at this point, I can safely assume that `16px
 And they did (on every browser I tested).
 
 <figure>
+
   ![The Base Experiment](/images/2016/media-query-units/control.gif)
 
   <figcaption>The base experiment</figcaption>
@@ -117,6 +118,7 @@ Here, I chose to use a `font-size` of 200% in my test, which means that I'm sett
 Here's the result: Chrome, Firefox and IE 11 triggered all three media queries at 400px:
 
 <figure>
+
   ![Results from Chrome, Firefox and Internet Explorer 11 for scenario 1](/images/2016/media-query-units/chrome.gif)
 
   <figcaption>Results from Chrome, Firefox and Internet Explorer 11</figcaption>
@@ -127,6 +129,7 @@ This is the correct behavior. **`em` and `rem` units should not be affected by c
 Unfortunately, we didn't get the perfect behavior on Safari. It triggered the `rem` media query at 800px :(
 
 <figure>
+
   ![Results from Safari for scenario 1](/images/2016/media-query-units/safari-200.gif)
 
   <figcaption>Results from Safari</figcaption>
@@ -143,6 +146,7 @@ The second scenario is common as well. If the text on your page isn't large enou
 A quick note here: The original idea behind `em` based sizes was due to older browsers not being able to update pixel values when a user zooms. In this regard, testing the difference between media query units when a user zooms will help to answer the question on whether we can use `px` based media queries now.
 
 <figure>
+
   ![User zooms in](/images/2016/media-query-units/zoom.gif)
 
   <figcaption>User zooms in</figcaption>
@@ -151,6 +155,7 @@ A quick note here: The original idea behind `em` based sizes was due to older br
 The results from this experiment is that Chrome, Firefox and IE showed the same behavior. `px` unit queries fired at the same time as `em` and `rem` queries.
 
 <figure>
+
   ![Results from Chrome, Firefox and Internet Explorer 11 in scenario 2](/images/2016/media-query-units/chrome-zoom.gif)
 
   <figcaption>Results from Chrome, Firefox and Internet Explorer 11</figcaption>
@@ -159,6 +164,7 @@ The results from this experiment is that Chrome, Firefox and IE showed the same 
 And you guessed it... Safari didn't :(
 
 <figure>
+
   ![Results from Safari in scenario 2](/images/2016/media-query-units/safari-zoom.gif)
 
   <figcaption>Results from Safari</figcaption>
@@ -187,6 +193,7 @@ The only browser I couldn't figure out where to set the font-size was **Safari**
 **This was the only test that all browsers behaved in the same way:**
 
 <figure>
+
   ![Results from all browsers for scenario 3](/images/2016/media-query-units/chrome-very-large-font-size.gif)
 
   <figcaption>Results from all browsers for scenario 3</figcaption>
