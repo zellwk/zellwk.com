@@ -624,7 +624,7 @@ For example:
 .u-text-right { text-align: right !important; }
 
 .u-hide-st-med {
-  @media (man-width: 599px) {
+  @media (max-width: 599px) {
     display: none !important;
   }
 }
