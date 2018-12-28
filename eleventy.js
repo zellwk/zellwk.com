@@ -38,6 +38,20 @@ module.exports = eleventyConfig => {
       .reverse()
   })
 
+  // Collections
+  eleventyConfig.addCollection('algolia', collection => {
+    return collection.getFilteredByGlob('./src/posts/*.md')
+      .filter(isPublished)
+      .reverse()
+      .map(post => {
+        return {
+          title: post.data.title,
+          tags: post.data.tags,
+          url: post.url
+        }
+      })
+  })
+
   eleventyConfig.addCollection('best', collection => {
     return collection.getFilteredByTag('best')
       .filter(isPublished)

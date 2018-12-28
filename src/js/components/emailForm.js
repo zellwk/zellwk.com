@@ -109,7 +109,6 @@ const submitHandler = e => {
 
   // Get all form items
   const formItems = getActiveFormItems(form)
-  console.log(formItems)
   const entries = constructEntriesArray(formItems)
 
   // Trigger loading modal
@@ -124,7 +123,7 @@ const submitHandler = e => {
   zlFetch('/email', {
     method: 'post',
     body: {
-      spreadsheetId: form.dataset.spreadsheetid,
+      spreadsheetId: form.dataset.spreadsheet,
       entries
     }
   })
