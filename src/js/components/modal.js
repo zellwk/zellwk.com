@@ -153,9 +153,12 @@ const Modal = () => {
     // redirect
     // ==========
     redirect (e) {
-      let { url } = e.detail
+      const { url } = e.detail
       document.removeEventListener('modalRedirect', this.listeners.redirect)
-      window.location.href = `${window.location.origin}${url}`
+
+      window.location.href = url.includes('http')
+        ? url
+        : `${window.location.origin}${url}`
     }
   }
 }

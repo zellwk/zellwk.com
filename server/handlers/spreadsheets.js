@@ -21,10 +21,14 @@ const getDateString = _ => {
   return `${now.getDate()} ${now.toLocaleString('en-us', { month: 'short' })} ${now.getFullYear()}`
 }
 
-const getTestRemark = _ => process.env.NODE_ENV === 'production' ? '' : 'Test'
+const isTest = _ => {
+  return process.env.NODE_ENV === 'production'
+    ? ''
+    : 'Test'
+}
 
 const makeData = data => {
-  return [getDateString(), ...data, getTestRemark()]
+  return [getDateString(), ...data, isTest()]
 }
 
 const makeConfig = ({

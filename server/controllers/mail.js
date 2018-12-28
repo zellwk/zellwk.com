@@ -14,6 +14,7 @@ const parseEntriesForGsheets = entries => {
 
 const sendGsheet = (options) => {
   const { spreadsheetId, entries } = options
+  // TODO: Find a freaking way to test this...
   if (!spreadsheetId) return Promise.resolve(true)
 
   return spreadsheets.send({

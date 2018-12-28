@@ -10,11 +10,11 @@ pagination:
 permalink: /tags/{{ tag | slug}}/
 noIndex: true
 ---
-<h1 class="l-article__header">Tagged with “{{ tag | capitalize }}”</h1>
+<h1 class="l-article__header">Tagged with “{{ tag }}”</h1>
 
 <div class="l-article__text">
   {% markdown %}
-  Here are all articles tagged with {{tag}}. They're shown in reverse-chronological order. Enjoy!
+  Here are all articles tagged with {{tag}}. Enjoy!
   {%- endmarkdown %}
   <ol>
   {%- set taglist = collections[ tag ] -%}
