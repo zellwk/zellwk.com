@@ -7,8 +7,8 @@ const syncSecrets = cb => {
   return gulp.src('secrets')
     .pipe(rsync({
       root: 'secrets',
-      hostname: `${process.env.SSH_USER}@${process.env.SSH_HOST}`, // Set this to your ssh login
-      destination: '/home/zellwk/zellwk.com/secrets', // Set this to your destination path
+      hostname: `${process.env.SSH_USER}@${process.env.SSH_HOST}`,
+      destination: '/home/zellwk/zellwk.com/secrets', // Path to destination
       clean: true,
       recursive: true
     }))
@@ -18,8 +18,9 @@ const syncFiles = cb => {
   return gulp.src('dist')
     .pipe(rsync({
       root: 'dist',
-      hostname: `${process.env.SSH_USER}@${process.env.SSH_HOST}`, // Set this to your ssh login
-      destination: '/home/zellwk/zellwk.com/dist', // Set this to your destination path
+      hostname: `${process.env.SSH_USER}@${process.env.SSH_HOST}`,
+      destination: '/home/zellwk/zellwk.com/dist', // Path to destination
+      clean: true,
       recursive: true
     }))
 }
