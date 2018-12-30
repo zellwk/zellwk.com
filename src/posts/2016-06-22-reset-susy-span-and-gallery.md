@@ -12,6 +12,7 @@ Did your `span` or `gallery` mixin behave unexpectedly (like the image below) wh
 
 <figure>
   ![Span and Gallery Problem](/images/2016/susy-span-gallery/problems.png)
+  <img src="/images/2016/susy-span-gallery/problems.png" alt="Span and Gallery Problem">
 </figure>
 
 You're not alone. Many people have faced the same problems I outlined above. When they meet with these problems, the common question was how to "reset" the output from the `span`, or the `gallery` mixin, so the weird behavior goes away, but that's not the best way to fix the problem.
@@ -48,6 +49,7 @@ $susy: (
 
 <figure>
   ![2-column layout](/images/2016/susy-span-gallery/layout-2col.png)
+  <img src="/images/2016/susy-span-gallery/layout-2col.png" alt="2-column layout">
 </figure>
 
 So far so good.
@@ -74,7 +76,7 @@ Most people add a media query to their SCSS, but they'll forget about the `:nth-
 ```
 
 <figure>
-  ![3-column layout with problems](/images/2016/susy-span-gallery/layout-3col-prob.png)
+  <img src="/images/2016/susy-span-gallery/layout-3col-prob.png" alt="3-column layout with problems">
 </figure>
 
 😱
@@ -98,7 +100,7 @@ If you've opted to use the `last` keyword instead of the `last` mixin, here's wh
 ```
 
 <figure>
-  ![3-column layout with problems 2](/images/2016/susy-span-gallery/layout-3col-prob-2.png)
+  <img src="/images/2016/susy-span-gallery/layout-3col-prob-2.png" alt="3-column layout with problems 2">
 </figure>
 
 That's even worse!!! 😱😱😱
@@ -136,7 +138,7 @@ A quick fix is to create a selector that overrides the previous layout with the 
 ```
 
 <figure>
-  ![3-column layout](/images/2016/susy-span-gallery/layout-3col.png)
+  <img src="/images/2016/susy-span-gallery/layout-3col.png" alt="3-column layout">
 </figure>
 
 Although it works, you can see the code starts to get verbose.
@@ -170,7 +172,7 @@ If you used the same solution, you'd notice you need to override the remnants of
 ```
 
 <figure>
-  ![4-column layout](/images/2016/susy-span-gallery/layout-4col.png)
+  <img src="/images/2016/susy-span-gallery/layout-4col.png" alt="4-column layout">
 </figure>
 
 Ugh. Not very nice. We can agree that there's a better solution out there.
@@ -223,7 +225,7 @@ In this case, both `@include span(6)` and `@include last` will only trigger when
 By doing this, you'll see that each gallery item automatically returns to it's default styles (`width: 100%` and `float: none`) when the viewport hits 600px.
 
 <figure>
-  ![Gallery Item automatically returns to default styles at 600px](/images/2016/susy-span-gallery/layout-mq-transition.gif)
+  <img src="/images/2016/susy-span-gallery/layout-mq-transition.gif" alt="Gallery Item automatically returns to default styles at 600px">
 </figure>
 
 With these styles, we're free to code the 3-column layout without any side effects.
@@ -249,7 +251,7 @@ Note: Some people will also call this "resetting" the `span` mixin's output. How
 Once again, you'll see that the `gallery__item` returns to its default styles at 1000px. We can then code the 4-column layout without any side effects from the previous two layouts
 
 <figure>
-  ![Gallery Item automatically returns to default styles at 1000px](/images/2016/susy-span-gallery/layout-mq-transition-2.gif)
+  <img src="/images/2016/susy-span-gallery/layout-mq-transition-2.gif" alt="Gallery Item automatically returns to default styles at 1000px">
 </figure>
 
 For the 4-column layout, we know it's the largest layout of all, so we only need a `min-width` query to prevent it's styles from affecting the 2-column and 3-column layouts:
@@ -276,7 +278,7 @@ For the 4-column layout, we know it's the largest layout of all, so we only need
 The problem from the `gallery` mixin is similar to the problem from the `span` mixin. Here's what it looks like again:
 
 <figure>
-  ![Gallery Problem](/images/2016/susy-span-gallery/problem-gallery.png)
+  <img src="/images/2016/susy-span-gallery/problem-gallery.png" alt="Gallery Problem">
 </figure>
 
 This problem happens to people who decide to write "desktop-first" CSS. By desktop-first CSS, I mean they write properties for desktop related styles without media queries, then proceed to add `max-width` queries for smaller viewports. Here's what it looks like:
@@ -312,7 +314,7 @@ A desktop first approach with the `gallery` mixin will look like this:
 Essentially, this code tries to override the 2-column layout by creating a new 1-column layout style. But the results you get is:
 
 <figure>
-  ![The gallery problem](/images/2016/susy-span-gallery/problem-gallery.png)
+  <img src="/images/2016/susy-span-gallery/problem-gallery.png" alt="The gallery problem">
 </figure>
 
 This problem happens because Susy uses the [isolate technique](https://css-tricks.com/build-web-layouts-easily-susy/#article-header-id-4) whenever the `gallery` mixin is used.
@@ -384,7 +386,7 @@ Since we know setting `clear: both` will unstack all gallery items, the quickest
 ```
 
 <figure>
-  ![Gallery 1-column](/images/2016/susy-span-gallery/gallery-1col.png)
+  <img src="/images/2016/susy-span-gallery/gallery-1col.png" alt="Gallery 1-column">
 </figure>
 
 Of course, there's a much better way. We just have to use mobile-first CSS with `min-width` media queries and the code becomes much simpler:

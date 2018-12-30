@@ -31,7 +31,7 @@ There are 4 different types of viewport units available in CSS today. They are:
 **Viewport**, in this case, **refers to the browser screen**. `1vw` would mean one percent of the browser's width. **`100vw` would mean the full browser width**.
 
 <figure>
-  ![Viewport units](/images/2016/viewport-based-typography/viewport-units.png)
+  <img src="/images/2016/viewport-based-typography/viewport-units.png" alt="Viewport units">
 </figure>
 
 <figcaption>100vw and 100vh</figcaption>
@@ -49,7 +49,7 @@ Since viewport units are automatically recalculated, it becomes extremely easy t
 ```
 
 <figure>
-  ![Quarter viewport component](/images/2016/viewport-based-typography/quarter-viewport-component.gif)
+  <img src="/images/2016/viewport-based-typography/quarter-viewport-component.gif" alt="Quarter viewport component">
 
 <figcaption>A component that's always a quarter of the viewport</figcaption>
 </figure>
@@ -108,7 +108,7 @@ html { font-size: 3vw; }
 ```
 
 <figure>
-  ![Font size in vw](/images/2016/viewport-based-typography/font-size-in-vw.gif)
+  <img src="/images/2016/viewport-based-typography/font-size-in-vw.gif" alt="Font size in vw">
 
   <figcaption>Resizing text automatically with viewport units!</figcaption>
 </figure>
@@ -143,7 +143,7 @@ html { font-size: calc(112.5% + 0.5vw) }
 Tada!
 
 <figure>
-  ![Font size tamed](/images/2016/viewport-based-typography/font-size-vw-tamed.gif)
+  <img src="/images/2016/viewport-based-typography/font-size-vw-tamed.gif" alt="Font size tamed">
 </figure>
 
 <figcaption>Font sized with vw now tamed!</figcaption>
@@ -164,7 +164,7 @@ h1 { font-size: calc((112.5% + 0.25vw) * 2); }
 ```
 
 <figure>
-  ![Incorrectly sized h1](/images/2016/viewport-based-typography/viewport-sized-header.png "Optional title")
+  <img src="/images/2016/viewport-based-typography/viewport-sized-header.png" alt="Incorrectly sized h1">
 </figure>
 
 <figcaption>H1 has sized incorrectly :(</figcaption>
@@ -214,7 +214,7 @@ h1 { font-size: 2em; }
 ```
 
 <figure>
-  ![Correctly sized headers](/images/2016/viewport-based-typography/correctly-sized-header.png)
+  <img src="/images/2016/viewport-based-typography/correctly-sized-header.png" alt="Correctly sized headers">
 </figure>
 
 <figcaption>H1 now correctly sized with em!</figcaption>

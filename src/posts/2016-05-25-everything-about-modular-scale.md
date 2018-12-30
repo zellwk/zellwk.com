@@ -60,7 +60,7 @@ Modular Scale gives you a `ms()` function to calculate the `font-size` you wante
 It takes in a number, the nth-step you want your font-size to be. By step, I mean the font-size is the number nth on your scale, like this:
 
 <figure>
-  ![Modular Scale Steps](/images/2016/everything-about-ms/modular-scale-steps.png)
+  <img src="/images/2016/everything-about-ms/modular-scale-steps.png" alt="Modular Scale Steps">
 
   <figcaption>Modular Scale Steps</figcaption>
 </figure>
@@ -111,7 +111,7 @@ $ms3: ms(3); // => 1.777em
 ```
 
 <figure>
-  ![Steps for a double-ratio scale](/images/2016/everything-about-ms/double-ratio.png)
+  <img src="/images/2016/everything-about-ms/double-ratio.png" alt="Steps for a double-ratio scale">
 
   <figcaption>Steps for a double-ratio scale</figcaption>
 </figure>
@@ -139,7 +139,7 @@ $ms3: ms(3); // => 2em
 ```
 
 <figure>
-  ![Steps for a double-base scale](/images/2016/everything-about-ms/double-base-scale.png)
+  <img src="/images/2016/everything-about-ms/double-base-scale.png" alt="Steps for a double-base scale">
 
   <figcaption>Steps for a double-base scale</figcaption>
 </figure>

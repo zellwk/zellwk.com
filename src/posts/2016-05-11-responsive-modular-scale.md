@@ -24,7 +24,7 @@ This problem happens a lot because people want to use the golden ratio for their
 Unfortunately, the golden ratio isn't ideal for creating a Modular Scale because it's **large ratio creates large changes in font-size between each step of the scale**.
 
 <figure>
-  ![Modular Scale produced by the Golden Ratio (1.618)](/images/2016/responsive-modular-scale/golden-ratio-scale.png)
+  <img src="/images/2016/responsive-modular-scale/golden-ratio-scale.png" alt="Modular Scale produced by the Golden Ratio (1.618)">
 
   <figcaption>Modular Scale produced by the Golden Ratio (1.618)</figcaption>
 </figure>
@@ -65,7 +65,7 @@ This method works because a **smaller ratio produces a scale with smaller differ
 Just take a look at the difference in sizes between these two scales and you'll see what I mean:
 
 <figure>
-  ![Modular Scale with ratio 1.333 vs Modular Scale with ratio 1.618](/images/2016/responsive-modular-scale/diff-scales.png)
+  <img src="/images/2016/responsive-modular-scale/diff-scales.png" alt="Modular Scale with ratio 1.333 vs Modular Scale with ratio 1.618">
 
   <figcaption>Modular Scale with ratio 1.333 vs Modular Scale with ratio 1.618</figcaption>
 </figure>
@@ -96,7 +96,7 @@ The second way to fix the problem is to add a second number to the base-font-siz
 Let's say you somehow decided that 36px would make a great heading size on the mobile. All you do is to add 36px as the second base number to the scale:
 
 <figure>
-  ![Adding 36px as a second base](/images/2016/responsive-modular-scale/second-base.png)
+  <img src="/images/2016/responsive-modular-scale/second-base.png" alt="Adding 36px as a second base">
 
   <figcaption>Adding 36px as a second base</figcaption>
 </figure>
@@ -116,7 +116,7 @@ The third method is to add a second ratio to your modular scale. This can be any
 Let's say you decided to use a ratio of 1.25 in addition to the golden ratio. Your Modular Scale will become:
 
 <figure>
-  ![Adding a second ratio to the modular scale](/images/2016/responsive-modular-scale/second-ratio.png)
+  <img src="/images/2016/responsive-modular-scale/second-ratio.png" alt="Adding a second ratio to the modular scale">
 
   <figcaption>Adding a second ratio to the modular scale</figcaption>
 </figure>
@@ -138,7 +138,7 @@ The fourth method is to vary the Modular Scale ratio at different breakpoints. W
 Here's how it might look; notice how the sizes of headers change while the size of the body text remains the same.
 
 <figure>
-  ![Changing Modular Scale ratio at different viewports](/images/2016/responsive-modular-scale/change-ratio.gif)
+  <img src="/images/2016/responsive-modular-scale/change-ratio.gif" alt="Changing Modular Scale ratio at different viewports">
 
   <figcaption>Changing Modular Scale ratio at different viewports</figcaption>
 </figure>
@@ -158,7 +158,7 @@ Every element has the ability to distract visitors from reading the intended con
 A great example of a large and beautiful attention-grabbing title is on Trent Walton's blog:
 
 <figure>
-  ![Title text on Trent's blog is big, grabs attention and is absolutely stunning](/images/2016/responsive-modular-scale/trent.png)
+  <img src="/images/2016/responsive-modular-scale/trent.png" alt="Title text on Trent's blog is big, grabs attention and is absolutely stunning">
 
   <figcaption>Title text on Trent's blog is big, grabs attention and is absolutely stunning</figcaption>
 </figure>
