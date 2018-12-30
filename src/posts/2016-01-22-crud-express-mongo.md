@@ -47,7 +47,7 @@ Great. Let's move on.
 
 We're going to build an application simple list application that allows you to keep track of things within a list (like a Todo List for example).
 
-Well, a todo list is kind of boring. How about we make a list of quotes from Star wars characters instead? Awesome, isn't it? Feel free to take a quick look at the [demo][4] before continuing with the tutorial. Also, [this is where][5] you can find the finished code for the application.
+Well, a todo list is kind of boring. How about we make a list of quotes from Star wars characters instead? Awesome, isn't it? Feel free to take a quick look at the [demo][4] before continuing with the tutorial. Also, you can find the [finished code on Github][5].
 
 By the way, what we're building isn't a sexy single page app. We're mainly focusing on how to use CRUD, Express and Mongo DB in this tutorial, so, more server-side stuff. I'm not going to emphasize on the styles.
 

@@ -422,8 +422,7 @@ We'll write HTML that would be created within the macro. Here, we can also use t
 ```html
 {% macro active(activePage='home') %}
 <nav>
-  <a href="#" class="{%if activePage
- -  'home' %} active {% endif %}">Home</a>
+  <a href="#" class="{%if activePage == 'home' %} active {% endif %}">Home</a>
   <!-- Repeat for about and contact -->
 </nav>
 {% endmacro %}
@@ -446,11 +445,11 @@ We use the `import` function in Nunjucks to add a macro file. (We used an `inclu
 ```
 {% endraw %}
 
-In this case, we've set the `nav` variable as the entire `navigation.nunjucks` macro file. We can then use the `nav` variable to call any macro that were written in the file.
+In this case, we've set the `nav` variable as the entire `nav-macro.nunjucks` macro file. We can then use the `nav` variable to call any macro that were written in the file.
 
 {% raw %}
 ```html
-{% import 'macros/navigation.nunjucks' as nav %}
+{% import 'macros/nav-macro.nunjucks' as nav %}
 <!-- Creating the navigation with activePage = 'home' -->
 {{nav.active('home')}}
 ```
