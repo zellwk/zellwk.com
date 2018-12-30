@@ -269,7 +269,7 @@ date
 ```
 
 <figure>
-  ![Date command](/images/2016/deploying-static-site/date-command.png)
+  <img src="/images/2016/deploying-static-site/date-command.png" alt="Date command">
 
   <figcaption>Date command on Digital Ocean</figcaption>
 </figure>
@@ -285,7 +285,7 @@ crontab -e
 This command brings up a file that you can edit:
 
 <figure>
-  ![Crontab](/images/2016/deploying-static-site/crontab.png)
+  <img src="/images/2016/deploying-static-site/crontab.png" alt="Crontab">
 
   <figcaption>Default Crontab</figcaption>
 </figure>

@@ -27,7 +27,7 @@ This is often done with the help of a **baseline** – A common denominator used
 In practice, we often visualize the baseline in print design by overlaying our page with a baseline grid as shown below:
 
 <figure>
-  ![](/images/2016/why-vertical-rhythm/baseline-print.png)
+  <img src="/images/2016/why-vertical-rhythm/baseline-print.png" alt="">
 </figure>
 
 <figcaption>Baseline grid in Print design</figcaption>
@@ -35,7 +35,7 @@ In practice, we often visualize the baseline in print design by overlaying our p
 Baseline grids on the web are slightly different because of the way the `line-height` property works. We often see a baseline grid that looks like this instead:
 
 <figure>
-  ![](/images/2016/why-vertical-rhythm/baseline-web.png)
+  <img src="/images/2016/why-vertical-rhythm/baseline-web.png" alt="">
 </figure>
 
 <figcaption>Baseline grid for the web</figcaption>
@@ -68,7 +68,7 @@ p {
 Just following these simple rules has the effect of producing results like this:
 
 <figure>
-  ![](/images/2016/why-vertical-rhythm/before-after.png)
+  <img src="/images/2016/why-vertical-rhythm/before-after.png" alt="">
 </figure>
 
 <figcaption>Before and after implementing Vertical Rhythm</figcaption>
@@ -113,7 +113,7 @@ You can even repeat spatial relationships as well. In the case of Vertical Rhyth
 Take for instance, a lonely circle in the middle of nowhere.
 
 <figure>
-  ![one circle](/images/2016/why-vertical-rhythm/lonely-circle.png)
+  <img src="/images/2016/why-vertical-rhythm/lonely-circle.png" alt="one circle">
 </figure>
 
 <figcaption>Lonely, I'm Mr.Lonely, I have nobody ~~~ ♪ </figcaption>
@@ -125,7 +125,7 @@ Your mind begins to race. It tries to search for coherent answers to your questi
 Watch what happens if you add more circles to the group
 
 <figure>
-  ![more circle](/images/2016/why-vertical-rhythm/more-circles.png)
+  <img src="/images/2016/why-vertical-rhythm/more-circles.png" alt="more circle">
 </figure>
 
 <figcaption>More circles</figcaption>
@@ -134,7 +134,9 @@ The circle doesn't seem so out of place anymore does it? Don't you feel more com
 
 Watch what happens if you add even more circles to the group
 
-<figure>![Many circles](/images/2016/why-vertical-rhythm/many-circles.png)</figure>
+<figure>
+  <img src="/images/2016/why-vertical-rhythm/many-circles.png" alt="Many circles">
+</figure>
 
 <figcaption>Moar moar moar circles!!! </figcaption>
 
@@ -157,14 +159,14 @@ There's only one reason: **it's the value that gets repeated the most on the pag
 Take a look at the baseline grid again. Notice what you see now:
 
 <figure>
-  ![Repeated baselines](/images/2016/why-vertical-rhythm/baseline-24.png)
+  <img src="/images/2016/why-vertical-rhythm/baseline-24.png" alt="Repeated baselines">
 </figure>
 
 <figcaption>See how the baseline of 24px is repeated multiple times?</figcaption>
 
 <!-- Mind blown here -->
 <figure>
-  ![](/images/2016/why-vertical-rhythm/mindblown.gif)
+  <img src="/images/2016/why-vertical-rhythm/mindblown.gif" alt="">
 </figure>
 
 Mind-blowingly simple, isn't it.
@@ -193,7 +195,7 @@ Carry on with this process of multiplication and you'll eventually end up with a
 Try using any of these numbers as a margin or padding to any element and they'll automatically feel as if they're part of the design.
 
 <figure>
-  ![](/images/2016/why-vertical-rhythm/separation-of-72px.png)
+  <img src="/images/2016/why-vertical-rhythm/separation-of-72px.png" alt="">
 </figure>
 
 <figcaption>Second heading element has margin-top of 72px instead of 24px</figcaption>
@@ -214,7 +216,7 @@ Try it on the left and right padding of components:
 ```
 
 <figure>
-  ![](/images/2016/why-vertical-rhythm/components.png)
+  <img src="/images/2016/why-vertical-rhythm/components.png" alt="">
 </figure>
 
 Try using it as the gutter of your grid items:
@@ -233,7 +235,7 @@ Try using it as the gutter of your grid items:
 ```
 
 <figure>
-  ![](/images/2016/why-vertical-rhythm/grids.png)
+  <img src="/images/2016/why-vertical-rhythm/grids.png" alt="">
 </figure>
 
 Try it as the padding (or margin) between your text and the edge of the screen (especially on a mobile device)
@@ -252,7 +254,9 @@ article {
 }
 ```
 
-<figure>![](/images/2016/why-vertical-rhythm/layout.jpg)</figure>
+<figure>
+  <img src="/images/2016/why-vertical-rhythm/layout.jpg" alt="">
+</figure>
 
 ## Wrapping Up
 
