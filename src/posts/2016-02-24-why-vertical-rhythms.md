@@ -28,17 +28,15 @@ In practice, we often visualize the baseline in print design by overlaying our p
 
 <figure>
   <img src="/images/2016/why-vertical-rhythm/baseline-print.png" alt="">
+  <figcaption>Baseline grid in Print design</figcaption>
 </figure>
-
-<figcaption>Baseline grid in Print design</figcaption>
 
 Baseline grids on the web are slightly different because of the way the `line-height` property works. We often see a baseline grid that looks like this instead:
 
 <figure>
   <img src="/images/2016/why-vertical-rhythm/baseline-web.png" alt="">
+  <figcaption>Baseline grid for the web</figcaption>
 </figure>
-
-<figcaption>Baseline grid for the web</figcaption>
 
 Don't worry about the nuances between print and web baseline grids. Although they look slightly different, the principle behind Vertical Rhythm still remain.
 
@@ -69,9 +67,8 @@ Just following these simple rules has the effect of producing results like this:
 
 <figure>
   <img src="/images/2016/why-vertical-rhythm/before-after.png" alt="">
+  <figcaption>Before and after implementing Vertical Rhythm</figcaption>
 </figure>
-
-<figcaption>Before and after implementing Vertical Rhythm</figcaption>
 
 Which design feels better? By better, it could mean things like feeling:
 
@@ -114,9 +111,8 @@ Take for instance, a lonely circle in the middle of nowhere.
 
 <figure>
   <img src="/images/2016/why-vertical-rhythm/lonely-circle.png" alt="one circle">
+  <figcaption>Lonely, I'm Mr.Lonely, I have nobody ~~~ ♪ </figcaption>
 </figure>
-
-<figcaption>Lonely, I'm Mr.Lonely, I have nobody ~~~ ♪ </figcaption>
 
 What is the circle doing there? What is it supposed to mean? What is the designer trying to say?
 
@@ -126,9 +122,8 @@ Watch what happens if you add more circles to the group
 
 <figure>
   <img src="/images/2016/why-vertical-rhythm/more-circles.png" alt="more circle">
+  <figcaption>More circles</figcaption>
 </figure>
-
-<figcaption>More circles</figcaption>
 
 The circle doesn't seem so out of place anymore does it? Don't you feel more comfortable now?
 
@@ -136,9 +131,8 @@ Watch what happens if you add even more circles to the group
 
 <figure>
   <img src="/images/2016/why-vertical-rhythm/many-circles.png" alt="Many circles">
+  <figcaption>Moar moar moar circles!!! </figcaption>
 </figure>
-
-<figcaption>Moar moar moar circles!!! </figcaption>
 
 Ah. Many circles. You begin to see a pattern now.
 
@@ -160,9 +154,8 @@ Take a look at the baseline grid again. Notice what you see now:
 
 <figure>
   <img src="/images/2016/why-vertical-rhythm/baseline-24.png" alt="Repeated baselines">
+  <figcaption>See how the baseline of 24px is repeated multiple times?</figcaption>
 </figure>
-
-<figcaption>See how the baseline of 24px is repeated multiple times?</figcaption>
 
 <!-- Mind blown here -->
 <figure>
@@ -196,9 +189,8 @@ Try using any of these numbers as a margin or padding to any element and they'll
 
 <figure>
   <img src="/images/2016/why-vertical-rhythm/separation-of-72px.png" alt="">
+  <figcaption>Second heading element has margin-top of 72px instead of 24px</figcaption>
 </figure>
-
-<figcaption>Second heading element has margin-top of 72px instead of 24px</figcaption>
 
 Of course, remember to **keep repeating** the number you choose to use!
 

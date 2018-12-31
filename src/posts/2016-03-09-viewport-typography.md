@@ -32,9 +32,8 @@ There are 4 different types of viewport units available in CSS today. They are:
 
 <figure>
   <img src="/images/2016/viewport-based-typography/viewport-units.png" alt="Viewport units">
+  <figcaption>100vw and 100vh</figcaption>
 </figure>
-
-<figcaption>100vw and 100vh</figcaption>
 
 The good thing about **viewport units is that they are automatically recalculated whenever the viewport changes**. This happens on load, on resize or even on orientation change.
 
@@ -50,8 +49,7 @@ Since viewport units are automatically recalculated, it becomes extremely easy t
 
 <figure>
   <img src="/images/2016/viewport-based-typography/quarter-viewport-component.gif" alt="Quarter viewport component">
-
-<figcaption>A component that's always a quarter of the viewport</figcaption>
+  <figcaption>A component that's always a quarter of the viewport</figcaption>
 </figure>
 
 
@@ -109,7 +107,6 @@ html { font-size: 3vw; }
 
 <figure>
   <img src="/images/2016/viewport-based-typography/font-size-in-vw.gif" alt="Font size in vw">
-
   <figcaption>Resizing text automatically with viewport units!</figcaption>
 </figure>
 
@@ -144,9 +141,8 @@ Tada!
 
 <figure>
   <img src="/images/2016/viewport-based-typography/font-size-vw-tamed.gif" alt="Font size tamed">
+  <figcaption>Font sized with vw now tamed!</figcaption>
 </figure>
-
-<figcaption>Font sized with vw now tamed!</figcaption>
 
 Shwweeeeeet! Can we really get rid of `em`, `rem` and media queries altogether in our code? At this point, I can't wait to try it out!
 
@@ -165,9 +161,8 @@ h1 { font-size: calc((112.5% + 0.25vw) * 2); }
 
 <figure>
   <img src="/images/2016/viewport-based-typography/viewport-sized-header.png" alt="Incorrectly sized h1">
+  <figcaption>H1 has sized incorrectly :(</figcaption>
 </figure>
-
-<figcaption>H1 has sized incorrectly :(</figcaption>
 
 **This happens because I'm using a percentage-based `font-size` calculation in the `<h1>`**. Effectively, I'm recalculating the `font-size` in `<h1>` after inheriting the calculated `font-size` in `<html>`.
 
@@ -215,9 +210,8 @@ h1 { font-size: 2em; }
 
 <figure>
   <img src="/images/2016/viewport-based-typography/correctly-sized-header.png" alt="Correctly sized headers">
+  <figcaption>H1 now correctly sized with em!</figcaption>
 </figure>
-
-<figcaption>H1 now correctly sized with em!</figcaption>
 
 Since we're talking about scaling font-sizes, the next question you may have is: "**What about vertical rhythm or modular scale with viewport units?**"
 
