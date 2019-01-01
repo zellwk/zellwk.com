@@ -7,7 +7,7 @@ tags:
  - javascript
 ---
 
-JavaScript can be scary. It can be scarier for you if you've never to programming school before, and it is even scarier if you tried to learn it through different books and courses, but you found that you've failed along the way.
+JavaScript can be scary. It can be scarier for you if you've never been to programming school before, and it is even scarier if you tried to learn it through different books and courses, but you found that you've failed along the way.
 
 *"I don't get it. I'm smart, but why can't I learn JavaScript?"*
 
