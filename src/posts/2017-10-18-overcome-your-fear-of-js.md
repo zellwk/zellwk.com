@@ -7,7 +7,7 @@ tags:
  - javascript
 ---
 
-JavaScript can be scary. It can be scarier for you if you've never to programming school before, and it is even scarier if you tried to learn it through different books and courses, but you found that you've failed along the way.
+JavaScript can be scary. It can be scarier for you if you've never been to programming school before, and it is even scarier if you tried to learn it through different books and courses, but you found that you've failed along the way.
 
 *"I don't get it. I'm smart, but why can't I learn JavaScript?"*
 
@@ -43,11 +43,11 @@ It's normal. We're biologically tuned to avoid pain. It keeps us safe. I told my
 
 So the good news is, it's normal to feel afraid. You're not the only one. Don't be alarmed. You're one of the many people who has embarked on the same journey. You can learn JavaScript.
 
-The bad news is, the fear you experience often cause you to try and learn too quickly. While doing so, you also feel confused and overwhelmed.
+The bad news is, the fear you experience often causes you to try and learn too quickly. While doing so, you also feel confused and overwhelmed.
 
 ## Fear is just one part of the resistance
 
-Humans resist change. It's our nature. We rather be couch potatoes than have errors throws in our faces by some damn programming language (JavaScript, I'm looking at you!) any day.
+Humans resist change. It's our nature. We'd rather be couch potatoes than have errors thrown in our faces by some damn programming language (JavaScript, I'm looking at you!) any day.
 
 The fear you feel daily is part of this resistance. No matter how much you want to learn JavaScript, there’s always going to be a little bastard that tries to thwart your plans from within.
 
@@ -109,7 +109,7 @@ You may resonate with these statements:
 
 1. You can’t find any good materials
 2. You don’t know where to start.
-3. You feel that its impossible to get hired because the requirements are insane.
+3. You feel that it's impossible to get hired because the requirements are insane.
 4. You can’t build things because nobody taught you how to think through problems.
 5. You don’t have the time/energy to learn after [insert work, family, hobbies].
 
@@ -198,7 +198,7 @@ Don’t worry if you’re wrong. It makes a valuable lesson. You know what not t
 
 Better to move and get it wrong than to stay still. If you move, you learn. If you stay still, you’re stuck for who knows how long.
 
-Have you considered what costs you’re incurring by staying still. These costs are collectively called the cost of inaction. It can cost you a ton.
+Have you considered what costs you’re incurring by staying still? These costs are collectively called the cost of inaction. It can cost you a ton.
 
 So take action. Take the wrong action if that’s the only thing you know now. You’ll learn to course correct as you go. Once you get it right, you’re set.
 
