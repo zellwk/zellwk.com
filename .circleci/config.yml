@@ -44,7 +44,7 @@ jobs:
               cd /home/zellwk/zellwk.com
               git fetch origin master
               git reset --hard FETCH_HEAD
-              git clean -d -f
+              git clean -d -f -n # -n for dry run. Maybe we need to exclude secrets... Need to test it out.
               npm install --production
               npm run restart
               exit"
