@@ -16,7 +16,7 @@
     "observe": "NODE_ENV=production npm run server & gulp serve",
     "deploy": "npm run build && gulp deploy",
     "deployCI": "gulp deployCI",
-    "test": "standard | standard-reporter --stylish"
+    "test": "jest --watch"
   },
   "standard": {
     "ignore": [
@@ -50,6 +50,7 @@
     "gulp-sourcemaps": "^2.6.0",
     "gulp-webp": "^3.0.0",
     "image-size": "^0.6.3",
+    "jest": "^23.6.0",
     "mappy-breakpoints": "^0.2.3",
     "markdown-it": "^8.4.2",
     "markdown-it-container": "^2.0.0",
