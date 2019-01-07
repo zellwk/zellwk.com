@@ -6,7 +6,6 @@ slug: its-okay-to-write-dirty-code
 tags:
   - mindset
   - best
-- processes
 ---
 
 Many developers feel they *need* to write clean code. They're good developers only if they write clean code. They're lousy developers if they don't.
