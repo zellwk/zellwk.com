@@ -35,7 +35,7 @@ For example, I usually get stuck when I try to write articles. I get stuck becau
 
 1. This idea isn't good enough
 2. I shouldn't write this way 
-3. What if someose sees this article and decide I'm a lousy developer? 
+3. What if someone sees this article and decide I'm a lousy developer? 
 
 It's scary. 
 
@@ -50,24 +50,24 @@ Think of thoughts like water in a tap.
 1. Good ideas, good work, good writing, good code, etc is hot water. 
 2. Bad ideas, bad code, bad writing, bad work is cold water. 
 
-If you want thoughts to flow, you have to turn on the tap. If you cencor yourself, you plug your thumb into the tap. 
+If you want thoughts to flow, you have to turn on the tap. If you censort yourself, you plug your thumb into the tap. 
 
-Try turning on the tap with your thumb plugged into it. What happens? Water gets stuck. You won't be able to let any of your thougths flow. 
+Try turning on the tap with your thumb plugged into it. What happens? Water gets stuck. You won't be able to let any of your thoughts flow. 
 
-If you want to make anything worthwhile, you need to stop cencoring yourself. This begins the creation process. It lets water flow. 
+If you want to make anything worthwhile, you need to stop censoring yourself. This begins the creation process. It lets water flow. 
 
-Next, when you turn on the tap, cold water will invariably come out first. It doesn't matter how long you've turned the heater up for. This is because cold water already ready  to come out. Hot water only comes after cold water empties. 
+Next, when you turn on the tap, cold water will invariably come out first. It doesn't matter how long you've turned the heater up for. This is because cold water already ready to come out. Hot water only comes after cold water empties. 
 
 **You have to let your bad ideas out first because good ideas don't come until all the bad ones are gone.**
 
 1. You don't come to work with good ideas. 
 2. You don't stare at a screen and hopefully know how to code
 
-Good ideas surface as you work. They surface only if you stop cencoring yourself. 
+Good ideas surface as you work. They surface only if you stop censoring yourself. 
 
 Want to guess how I came up with this cold water/hot water analogy? 
 
-I started writing this article with "I am cencoring myself right now...". Look at what you're reading now. You're not even halfway done, and you want to read more. Yes? :) 
+I started writing this article with "I am censoring myself right now...". Look at what you're reading now. You're not even halfway done, and you want to read more. Yes? :) 
 
 Let's continue. 
 
@@ -83,7 +83,7 @@ You can blurt out your thoughts (without editing) an put in on your blog. This i
 
 Good writing comes from refining bad writing. It's called editing. It's where we slash and burn anything that doesn't help us deliver the message we want to deliver. 
 
-Good code comes from editing too. Except we call this process refactoring: Changing the code the way its written without affecting the its behavior. 
+Good code comes from editing too. Except we call this process refactoring: Changing code the way its written without affecting its behavior. 
 
 You have to write bad code to get the creative juices flowing. Then you have to edit your bad code so others can understand it. 
 
@@ -97,9 +97,9 @@ Developers have this habit of adding features we don't need into our code. For e
 2. We write OOP or FP or other programming paradigms when we don't have to. 
 3. We use `map`/`filter`/`reduce` when its easier to write a `for` loop. 
 
-In these three examples, I only talked about using different features when we're in the process of writing code. 
+In these three examples, I only talked about using different JavaScript features when we're writing code. 
 
-We often add for more complexity than we need to when we make things. For example, when I made a countdown timer for the Learn JavaScript salespage, I added timezone support for every timezone in the world... even though I only needed PST. 
+We often add for more complexity than we need to when we make things. For example, when I made a countdown timer for the Learn JavaScript sales page, I added timezone support for every timezone in the world... even though I only needed PST. 
 
 I did this because I wanted to release the countdown timer as a library for others. But I never released it anyway. I spent hours researching about timezones while there are more pressing items on my todo-list. 
 
@@ -107,10 +107,10 @@ It's okay to write bad code at first. It prevents you from overengineering thing
 
 ## How to write good code (consistently and quickly)
 
-Essentially the process to writing good code boils down to: 
+Essentially the process of writing good code boils down to: 
 
 1. Write bad code 
-2. Don't cencor yourself when you write bad code 
+2. Don't censtor yourself when you write bad code 
 3. Refactor when you're done writing bad code 
 
 The refactoring process is critical if you want to write good code consistently and quickly. It rewires your brain. You'll see how you can write better code from the get-go without going through the uber-lousy code in the first place. You'll also learn to spot what good code looks like. 
@@ -121,6 +121,6 @@ If you want to write good code, we need to write bad code first. Let the lousyne
 
 It's risky. It's scary. But it's what we have to do. 
 
-Writing this article gave me the permission to write dirty code (and also to publish dirty code). I hope it gave you the permission to write dirty code too. 
+Writing this article gave me permission to write dirty code (and also to publish dirty code). I hope it gave you the permission to write dirty code too. 
 
 Here's to making better things by writing shitty code first. 🍻. 
