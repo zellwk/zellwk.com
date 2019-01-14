@@ -1,32 +1,24 @@
-{# TODO: Reset OG format and make sure its right #}
-{# Open Graph Tags #}
-<meta property="og:site_name" content="{{siteTitle}}"/>
-{% block ogTitle %}
-  <meta property="og:title" content="{% if title %} {{title}} | {{siteTitle}}
-  {% else %} {{siteTitle}} {% endif %}"/> {% endblock %}
-
-{% block ogDesc %}
-  <meta name="og:description" content="{% if description %} {{description}}
-  {% else %} {{siteDescription}}
-  {% endif %}" />
-{% endblock %}
-
-<meta property="og:email" content="{{siteEmail}}">
+<!-- For Facebook -->
+<meta property="og:site_name" content="{{- site.title -}}"/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="{{siteUrl}}"/>
-{# <meta property="og:image" content="{{ogImage}}"/> #}
+<meta property="og:url" content="{{site.url}}"/>
+<meta property="og:email" content="{{site.author.email}}">
+<meta property="og:title" content="{{- pageTitle -}}"/>
+<meta name="og:description" content="{{- pageDesc -}}" />
 
-{# Twitter Tags #}
+<!-- For Twitter -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="{{twitterHandle}}">
-<meta name="twitter:creator" content="{{twitterHandle}}">
-{% block twitterTitle %}<meta name="twitter:title" content="{{title}} | {{siteTitle}}">{% endblock %}
-{% block twitterDesc %}
-  <meta name="twitter:description" content="{% if description %} {{description}}
-  {% else %} {{siteDescription}}
-  {% endif %}" />
-{% endblock %}
-{# <meta name="twitter:image" content="{{twitterImage}}"> #}
+<meta name="twitter:site" content="{{- site.author.twitter }}">
+<meta name="twitter:creator" content="{{- site.author.twitter }}">
+<meta name="twitter:title" content="{{- pageTitle -}}" />
+<meta name="twitter:description" content="{{- pageDesc -}}" />
 
-{# Google plus #}
-<link rel="author" href="{{googlePlusUrl}}">
+<!-- For Google plus -->
+<link rel="author" href="{{site.author.gplus}}">
+
+<!-- Social media images
+  Facebook: 1200x630
+  Twitter: 1200x600
+-->
+{# <meta property="og:image" content="{{site.social.facebook}}"/> #}
+{# <meta name="twitter:image" content="{{site.social.twitter}}"> #}
