@@ -322,6 +322,11 @@ fetch({ /* request */ })
 
 That's it for the **DELETE** operation!
 
+## Other articles in this series
+
+1. Part 1: [Building a Simple CRUD Application with Express and MongoDB](/blog/crud-express-mongodb)
+2. Part 2: This article
+
 ## Wrapping Up
 
 You have now learned all you need to know about creating simple applications with Node and MongoDB. Now, go forth and create more applications, young padawan. May the force be with you.
