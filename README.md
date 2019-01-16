@@ -23,6 +23,7 @@ For development work, you need to run two commands at the same time:
 
 1. This project uses [Circleci](https://circleci.com) for continuous deployment. Look at [.circleci/config.yml](.circleci/config.yml) for the configuration.
 2. For manual deploy, run `npm run deploy`.
+3. Please change `sync` in `gulp/_config` to the correct paths before using.
 
 ## Contributing
 
