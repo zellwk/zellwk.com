@@ -1,5 +1,6 @@
 const gulp = require('gulp')
 const rsync = require('gulp-rsync')
+const { sync } = require('./_config')
 
 // Cannot set gulp.src to a glob.
 // https://github.com/jerrysu/gulp-rsync/issues/23
@@ -8,7 +9,7 @@ const syncSecrets = cb => {
     .pipe(rsync({
       root: 'secrets',
       hostname: `${process.env.SSH_USER}@${process.env.SSH_HOST}`,
-      destination: '/home/zellwk/zellwk.com/secrets', // Path to destination
+      destination: sync.secretsDest,
       clean: true,
       recursive: true
     }))
@@ -19,7 +20,7 @@ const syncFiles = cb => {
     .pipe(rsync({
       root: 'dist',
       hostname: `${process.env.SSH_USER}@${process.env.SSH_HOST}`,
-      destination: '/home/zellwk/zellwk.com/dist', // Path to destination
+      destination: sync.staticDest,
       clean: true,
       recursive: true
     }))
