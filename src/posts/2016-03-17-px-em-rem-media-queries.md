@@ -52,9 +52,8 @@ The next step is to figure out how to create the `em` and `rem` units.
 2. user zoomed in.
 3. user changed their browser's font setting.
 
-Since the conditions are ideal at this point, I can safely assume that `16px
- -  1em
- -  1rem`. `400px`, then, is equivalent to `25em` or `25rem`.
+Since the conditions are ideal at this point, I can safely assume that `16px`, `1em` and `1rem` are equal. 
+`400px`, then, is equivalent to `25em` or `25rem`.
 
 ```scss
 .pixel {
