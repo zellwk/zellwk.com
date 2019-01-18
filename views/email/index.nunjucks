@@ -8,18 +8,18 @@
 <body>
   <p>Hey {{name}},</p>
 
-  {% for entry in entries %}
+  {%- for entry in entries %}
 
-    {% if entry.name === 'initial-message' %}
-      {% markdown %}
+    {%- if entry.name === 'initial-message' %}
+      {%- markdown -%}
       {{ entry.answer }}
 
       For the record, here's what you filled in:
       <hr/>
-      {% endmarkdown %}
-    {% endif %}
+      {%- endmarkdown -%}
+    {%- endif %}
 
-    {% if entry.name === 'name'
+    {%- if entry.name === 'name'
       or entry.name === 'email'
       or entry.name === 'subject'
       or entry.name === 'initial-message'
@@ -28,32 +28,32 @@
       or entry.name === 'product'
     %}
       {# Do nothing! #}
-    {% else %}
-      {% markdown %}
+    {%- else %}
+      {%- if entry.question %}
+      {%- markdown %} **{{- entry.question -}}** {% endmarkdown %}
+      {%- endif %}
 
-      {% if entry.question %} *{{entry.question}}* {% endif %}
+      {%- markdown %}
+      {{- entry.answer if entry.answer else '(Not filled in)' }}
+      {%- endmarkdown %}
+    {%- endif %}
 
-      {{ entry.answer if entry.answer else '(Not filled in)' }}
-
-      {% endmarkdown %}
-    {% endif %}
-
-    {% if entry.name === 'final-message' %}
-      {% markdown %}
+    {%- if entry.name === 'final-message' %}
+      {%- markdown %}
       <hr/>
-      {{ entry.answer }}
-      {% endmarkdown %}
-    {% endif %}
-  {% endfor %}
+      {{- entry.answer }}
+      {%- endmarkdown %}
+    {%- endif %}
+  {%- endfor %}
 
   <p>Stay awesome, <br> Zell</p>
 
-  {% for entry in entries %}
-    {% if entry.name === 'ps' %}
-      {% markdown %}
-      {{ entry.answer }}
-      {% endmarkdown %}
-    {% endif %}
-  {% endfor %}
+  {%- for entry in entries %}
+    {%- if entry.name === 'ps' %}
+      {%- markdown %}
+      {{- entry.answer }}
+      {%- endmarkdown %}
+    {%- endif %}
+  {%- endfor %}
 </body>
 </html>
