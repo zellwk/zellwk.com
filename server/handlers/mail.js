@@ -14,8 +14,8 @@ const transporter = nodemailer.createTransport(
       api_key: process.env.MAILGUN,
       domain: 'email.zellwk.com'
     }
-  }
-  ))
+  })
+)
 
 const getEntry = (entries, item) => entries.find(entry => entry.name === item).answer
 const getName = (entries) => getEntry(entries, 'name')
@@ -28,8 +28,10 @@ const markdownFilter = (str, stripPara = true) => {
   return text
 }
 
-const generateHTML = (options) => {
-  const { filename, entries } = options
+const generateHTML = ({
+  filename,
+  entries
+} = {}) => {
   const env = new nunjucks.Environment(new nunjucks.FileSystemLoader('views'), {
     watch: !isProduction,
     noCache: !isProduction,
@@ -40,7 +42,7 @@ const generateHTML = (options) => {
   markdown.register(env, marked)
   env.addFilter('markdown', markdownFilter)
 
-  const name = getName(options.entries)
+  const name = getName(entries)
   const html = env.render(`email/${filename}.nunjucks`, { name, entries })
   return juice(html)
 }
