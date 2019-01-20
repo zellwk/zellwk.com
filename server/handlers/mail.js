@@ -61,13 +61,7 @@ exports.send = async (options) => {
     text: htmlToText.fromString(html)
   }
 
-  console.log(mailOptions)
-  console.log('==================================')
-
   const sendMail = denodeify(transporter.sendMail).bind(transporter)
-
-  console.log(sendMail)
-  console.log('---------------------------------')
 
   return sendMail(mailOptions)
 }
