@@ -44,7 +44,6 @@ const generateHTML = ({
 
   const name = getName(entries)
   const html = env.render(`email/${filename}.njk`, { name, entries })
-  console.log(html)
   return juice(html)
 }
 
@@ -62,6 +61,13 @@ exports.send = async (options) => {
     text: htmlToText.fromString(html)
   }
 
+  console.log(mailOptions)
+  console.log('==================================')
+
   const sendMail = denodeify(transporter.sendMail).bind(transporter)
+
+  console.log(sendMail)
+  console.log('---------------------------------')
+
   return sendMail(mailOptions)
 }
