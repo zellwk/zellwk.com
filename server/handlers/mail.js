@@ -43,7 +43,7 @@ const generateHTML = ({
   env.addFilter('markdown', markdownFilter)
 
   const name = getName(entries)
-  const html = env.render(`email/${filename}.nunjucks`, { name, entries })
+  const html = env.render(`email/${filename}.njk`, { name, entries })
   return juice(html)
 }
 
