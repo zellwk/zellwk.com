@@ -8,6 +8,8 @@ const marked = require('marked')
 const isProduction = process.env.NODE_ENV === 'production'
 const htmlToText = require('html-to-text')
 
+console.log(process.env.MAILGUN)
+
 const transporter = nodemailer.createTransport(
   mailgunTransport({
     auth: {
