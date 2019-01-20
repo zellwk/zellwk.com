@@ -19,7 +19,7 @@ const pairedMarkdown = content => {
   return lib.render(formatted)
 }
 
-const inline = content => lib.renderInline(content)
+const inline = content => content ? lib.renderInline(content) : content
 
 module.exports = {
   lib: lib,

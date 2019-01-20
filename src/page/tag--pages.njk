@@ -21,7 +21,7 @@ noIndex: true
 
   {%- for post in taglist | reverse %}
   {%- isPublished post.date %}
-    <li><a href="{{ post.url | url }}">{{ post.data.title }}</a></li>
+    <li><a href="{{ post.url | url }}">{{ post.data.title | markdownInline }}</a></li>
   {%- endisPublished %}
   {%- endfor %}
   </ol>
