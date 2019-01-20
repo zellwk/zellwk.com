@@ -29,8 +29,8 @@ exports.devErrors = (err, req, res, next) => {
 exports.prodErrors = (err, req, res, next) => {
   res.status(err.status || 500)
   console.log(chalk.red(err))
-  res.json('error', {
+  res.json({
     message: err.message,
-    error: {}
+    error: err
   })
 }
