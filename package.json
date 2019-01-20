@@ -26,6 +26,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.6.0",
     "@11ty/eleventy-plugin-rss": "^1.0.3",
+    "@zellwk/resize-images": "^1.1.1",
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "babel-loader": "^8.0.4",
@@ -72,7 +73,6 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
-    "@zellwk/resize-images": "^1.1.1",
     "body-parser": "^1.17.1",
     "btoa": "^1.2.1",
     "camelcase-keys": "^5.0.0",
