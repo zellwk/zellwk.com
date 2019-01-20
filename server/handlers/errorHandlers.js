@@ -29,7 +29,7 @@ exports.devErrors = (err, req, res, next) => {
 exports.prodErrors = (err, req, res, next) => {
   res.status(err.status || 500)
   console.log(chalk.red(err))
-  res.render('error', {
+  res.json('error', {
     message: err.message,
     error: {}
   })
