@@ -64,4 +64,9 @@ exports.send = async (options) => {
   const sendMail = denodeify(transporter.sendMail).bind(transporter)
 
   return sendMail(mailOptions)
+    .then(console.log)
+    .catch(e => {
+      console.log(e)
+      console.log('---')
+    })
 }
