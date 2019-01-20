@@ -26,12 +26,11 @@ exports.sendMail = async (req, res) => {
   const { entries } = req.body
 
   const gSheetPromise = sendGsheet(req.body)
-  // const mailPromise = mail.send({
-  //   entries,
-  //   filename: 'index'
-  // })
+  const mailPromise = mail.send({
+    entries,
+    filename: 'index'
+  })
 
-  // await Promise.all([mailPromise, gSheetPromise])
-  await Promise.all([gSheetPromise])
+  await Promise.all([mailPromise, gSheetPromise])
   res.json('success')
 }
