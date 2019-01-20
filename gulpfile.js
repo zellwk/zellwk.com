@@ -33,3 +33,4 @@ exports.build = series(
 
 exports.deploy = parallel(syncSecrets, syncFiles)
 exports.deployCI = series(syncFiles)
+exports.deploySecrets = series(syncSecrets)
