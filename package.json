@@ -7,7 +7,7 @@
   "license": "ISC",
   "scripts": {
     "start": "node pm2.js",
-    "restart": "pm2 restart zellwk.com",
+    "restart": "pm2 restart zellwk.com --update-env",
     "server": "nodemon start.js --ignore 'src/**/*.js' --ignore 'dev/**/*' --ignore 'dist/**/*'",
     "dev": "NODE_ENV=development gulp",
     "eleventy": "rm -rf dist && eleventy --watch --config=eleventy.js --quiet",
