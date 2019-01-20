@@ -43,9 +43,9 @@ const generateHTML = ({
   env.addFilter('markdown', markdownFilter)
 
   const name = getName(entries)
-  // const html = env.render(`email/${filename}.njk`, { name, entries })
-  console.log('testing')
-  return juice('')
+  const html = env.render(`email/${filename}.njk`, { name, entries })
+  console.log(html)
+  return juice(html)
 }
 
 exports.send = async (options) => {
