@@ -13,6 +13,7 @@ const app = express()
 // # Statics
 // ======================================
 app.use(express.static('dist'))
+app.set('view engine', 'html')
 
 if (isProduction) {
   app.use(favicon(path.join(__dirname, '../', '/dist/images/favicons/favicon.ico')))
