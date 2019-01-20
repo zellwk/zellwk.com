@@ -8,12 +8,12 @@ const marked = require('marked')
 const isProduction = process.env.NODE_ENV === 'production'
 const htmlToText = require('html-to-text')
 
-console.log(process.env.MAILGUN)
+console.log(process.env.MAILGUN_KEY)
 
 const transporter = nodemailer.createTransport(
   mailgunTransport({
     auth: {
-      api_key: process.env.MAILGUN,
+      api_key: process.env.MAILGUN_KEY,
       domain: 'email.zellwk.com'
     }
   })
