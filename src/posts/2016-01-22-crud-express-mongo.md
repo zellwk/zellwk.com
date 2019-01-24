@@ -347,7 +347,7 @@ We first have to install MongoDB through npm if we want to use it as our databas
 npm install mongodb --save
 ```
 
-Once installed, we can connect to MongoDB through the `Mongo.Client`'s connect method as shown in the code below:
+Once installed, we can connect to MongoDB through the `MongoClient`'s connect method as shown in the code below:
 
 ```javascript
 const MongoClient = require('mongodb').MongoClient
