@@ -6,33 +6,32 @@ import { redirect, readyModal, LaunchModal } from './modal'
 // Default position:
 //   1. .jsCkClone
 //   2. Before second h2
+// const getCloneLocation = element => selector => {
+//   const cloneLocation = element.querySelector(selector)
+//   return cloneLocation || Array.from(postContent.querySelectorAll('h2'))[2]
+// }
 
-const getCloneLocation = element => selector => {
-  const cloneLocation = element.querySelector(selector)
-  return cloneLocation || Array.from(postContent.querySelectorAll('h2'))[2]
-}
+// const beforeCloneText = (cloneLocation) => {
+//   const p = document.createElement('p')
+//   const text = `(Before we move on, here’s a quick signup form if you'd like to read similar articles from me every Wednesday).`
+//   p.innerHTML = cloneLocation.dataset.text || text
+//   return p
+// }
 
-const beforeCloneText = (cloneLocation) => {
-  const p = document.createElement('p')
-  const text = `(Before we move on, here’s a quick signup form if you'd like to read similar articles from me every Wednesday).`
-  p.innerHTML = cloneLocation.dataset.text || text
-  return p
-}
+// const shouldClone = cloneLocation => !cloneLocation.hasAttribute('data-should-not-clone')
 
-const shouldClone = cloneLocation => !cloneLocation.hasAttribute('data-should-not-clone')
+// const createCkClone = (ckForm, postContent) => {
+//   const cloneLocation = getCloneLocation(postContent)('.jsCkClone')
+//   if (!shouldClone(cloneLocation)) return false
 
-const createCkClone = (ckForm, postContent) => {
-  const cloneLocation = getCloneLocation(postContent)('.jsCkClone')
-  if (!shouldClone(cloneLocation)) return false
+//   const clone = ckForm.cloneNode(true)
+//   postContent.insertBefore(beforeCloneText(cloneLocation), cloneLocation)
+//   postContent.insertBefore(clone, cloneLocation)
+// }
 
-  const clone = ckForm.cloneNode(true)
-  postContent.insertBefore(beforeCloneText(cloneLocation), cloneLocation)
-  postContent.insertBefore(clone, cloneLocation)
-}
-
-const postContent = document.querySelector('.jsPostContent')
-const ckForm = document.querySelector('.jsCkForm')
-if (postContent && ckForm) createCkClone(ckForm, postContent)
+// const postContent = document.querySelector('.jsPostContent')
+// const ckForm = document.querySelector('.jsCkForm')
+// if (postContent && ckForm) createCkClone(ckForm, postContent)
 // === End Clone CK Form for articles
 
 // ======================================
