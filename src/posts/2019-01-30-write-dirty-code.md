@@ -12,7 +12,7 @@ Many developers feel they *need* to write clean code. They're good developers on
 
 I feel the same way too. And I try to make my code as clean as possible.
 
-But this attempt to write clean code actually slows most of us down. We learn slower. We make fewer things. And as a result, we contribute lesser to this world.
+But this attempt to write clean code actually slows most of us down. We learn slower. We make fewer things. And as a result, we contribute less to this world.
 
 I want to make a point that it's okay to write dirty code. I want to give permission for myself and for you to write dirty code in this article.
 
@@ -24,7 +24,7 @@ There are a few occasions where its okay to write dirty code:
 2. When you want to write good code
 3. When you want to make things quickly
 
-Point number 2 sounds contradictory yeah? We'll get to this. Promise.
+Point number 2 sounds contradictory, yeah? We'll get to this. Promise.
 
 ## Write dirty code when you're stuck
 
@@ -34,7 +34,7 @@ For example, I usually get stuck when I try to write articles. I get stuck becau
 
 1. This idea isn't good enough
 2. I shouldn't write this way
-3. What if someone sees this article and decide I'm a lousy developer?
+3. What if someone sees this article and decides I'm a lousy developer?
 
 It's scary.
 
@@ -46,16 +46,16 @@ Here's why.
 
 Think of thoughts like water in a tap.
 
-1. Good ideas, good work, good writing, good code, etc is hot water.
+1. Good ideas, good work, good writing, good code, etcetera is hot water.
 2. Bad ideas, bad code, bad writing, bad work is cold water.
 
-If you want thoughts to flow, you have to turn on the tap. If you censort yourself, you plug your thumb into the tap.
+If you want thoughts to flow, you have to turn on the tap. If you censor yourself, you plug your thumb into the tap.
 
 Try turning on the tap with your thumb plugged into it. What happens? Water gets stuck. You won't be able to let any of your thoughts flow.
 
 If you want to make anything worthwhile, you need to stop censoring yourself. This begins the creation process. It lets water flow.
 
-Next, when you turn on the tap, cold water will invariably come out first. It doesn't matter how long you've turned the heater up for. This is because cold water already ready to come out. Hot water only comes after cold water empties.
+Next, when you turn on the tap, cold water will invariably come out first. It doesn't matter how long you've turned the heater up for. This is because cold water is already ready to come out. Hot water only comes after the cold water empties.
 
 **You have to let your bad ideas out first because good ideas don't come until all the bad ones are gone.**
 
@@ -74,15 +74,15 @@ Let's continue.
 
 How can you write dirty code to write good code? This sounds contradictory.
 
-But its the truth.
+But it's the truth.
 
 Good code comes from bad code. Just like how good writing comes from bad writing.
 
-You can blurt out your thoughts (without editing) an put in on your blog. This is easy. But it'll be bad writing. It'll contain all sorts of irrelevant information.
+You can blurt out your thoughts (without editing) and put in on your blog. This is easy. But it'll be bad writing. It'll contain all sorts of irrelevant information.
 
 Good writing comes from refining bad writing. It's called editing. It's where we slash and burn anything that doesn't help us deliver the message we want to deliver.
 
-Good code comes from editing too. Except we call this process refactoring: Changing code the way its written without affecting its behavior.
+Good code comes from editing too. Except we call this process refactoring: Changing code the way it's written without affecting its behavior.
 
 You have to write bad code to get the creative juices flowing. Then you have to edit your bad code so others can understand it.
 
@@ -98,9 +98,9 @@ Developers have this habit of adding features we don't need into our code. For e
 
 In these three examples, I only talked about using different JavaScript features when we're writing code.
 
-We often add for more complexity than we need to when we make things. For example, when I made a countdown timer for the Learn JavaScript sales page, I added timezone support for every timezone in the world... even though I only needed PST.
+We often add far more complexity than we need to when we make things. For example, when I made a countdown timer for the Learn JavaScript sales page, I added timezone support for every timezone in the world... even though I only needed PST.
 
-I did this because I wanted to release the countdown timer as a library for others. But I never released it anyway. I spent hours researching about timezones while there are more pressing items on my todo-list.
+I did this because I wanted to release the countdown timer as a library for others. But I never released it anyway. I spent hours researching about timezones while there are more pressing items on my to-do list.
 
 It's okay to write bad code at first. It prevents you from overengineering things. It helps you make things faster.
 
@@ -109,14 +109,14 @@ It's okay to write bad code at first. It prevents you from overengineering thing
 Essentially the process of writing good code boils down to:
 
 1. Write bad code
-2. Don't censtor yourself when you write bad code
+2. Don't censor yourself when you write bad code
 3. Refactor when you're done writing bad code
 
 The refactoring process is critical if you want to write good code consistently and quickly. It rewires your brain. You'll see how you can write better code from the get-go without going through the uber-lousy code in the first place. You'll also learn to spot what good code looks like.
 
 ## Wrapping up
 
-If you want to write good code, we need to write bad code first. Let the lousyness pour out of you, and the good ones will follow.
+If you want to write good code, we need to write bad code first. Let the lousiness pour out of you, and the good ones will follow.
 
 It's risky. It's scary. But it's what we have to do.
 
