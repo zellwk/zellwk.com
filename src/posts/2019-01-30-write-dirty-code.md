@@ -46,7 +46,7 @@ Here's why.
 
 Think of thoughts like water in a tap.
 
-1. Good ideas, good work, good writing, good code, etcetera is hot water.
+1. Good ideas, good work, good writing, good code is hot water.
 2. Bad ideas, bad code, bad writing, bad work is cold water.
 
 If you want thoughts to flow, you have to turn on the tap. If you censor yourself, you plug your thumb into the tap.
