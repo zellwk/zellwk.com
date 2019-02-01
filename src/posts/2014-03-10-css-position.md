@@ -55,7 +55,8 @@ If there are no parent elements that has a relative position, then the absolutel
 
 ### Fixed
 
-Similar to position absolute, an element that has fixed position is taken out of the document flow. The major difference with position absolute is it always takes its positioning relative to the browser window.
+Similar to position absolute, an element that has fixed position is taken out of the document flow. The major difference is: elements with position fixed is always positioned relative to the browser window.
+
 
 ![][image-3]
 
