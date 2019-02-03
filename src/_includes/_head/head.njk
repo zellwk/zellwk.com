@@ -15,7 +15,7 @@
   {% getDesc page, description, site.description %}
 {%- endset -%}
 
-<title>{{- pageTitle -}}</title>
+<title>{{- pageTitle | decode -}}</title>
 <meta name="description" content="{{- pageDesc -}}"/>
 <link rel="canonical" href="{{- site.url -}} {{- page.url }}">
 {% if blockRobots -%} <meta name="robots" content="noindex, follow"> {%- endif %}

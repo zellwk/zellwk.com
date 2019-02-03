@@ -1,6 +1,9 @@
 const fs = require('fs')
 const frontMatter = require('front-matter')
 
+const HtmlEntities = require('html-entities').AllHtmlEntities
+const entities = new HtmlEntities()
+
 module.exports = {
   youtube (hash) {
     if (!hash) return ''
@@ -10,6 +13,10 @@ module.exports = {
   audio (hash) {
     if (!hash) return ''
     return ` <iframe frameborder='0' height='200px' scrolling='no' seamless src=https://embed.simplecast.com/${hash}?color=f5f5f5' width="100%"></iframe>`
+  },
+
+  decode (content) {
+    return entities.decode(content)
   },
 
   getDescription (page, desc, siteDesc) {

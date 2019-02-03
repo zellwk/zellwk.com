@@ -3,14 +3,14 @@
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="{{site.url}}"/>
 <meta property="og:email" content="{{site.author.email}}">
-<meta property="og:title" content="{{- pageTitle -}}"/>
+<meta property="og:title" content="{{- pageTitle | decode -}}"/>
 <meta name="og:description" content="{{- pageDesc -}}" />
 
 <!-- For Twitter -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="{{- site.author.twitter }}">
 <meta name="twitter:creator" content="{{- site.author.twitter }}">
-<meta name="twitter:title" content="{{- pageTitle -}}" />
+<meta name="twitter:title" content="{{- pageTitle | decode -}}" />
 <meta name="twitter:description" content="{{- pageDesc -}}" />
 
 <!-- For Google plus -->

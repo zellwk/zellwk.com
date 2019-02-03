@@ -50,6 +50,7 @@
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-webp": "^3.0.0",
+    "html-entities": "^1.2.1",
     "image-size": "^0.7.1",
     "jest": "^23.6.0",
     "mappy-breakpoints": "^0.2.3",

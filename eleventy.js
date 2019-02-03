@@ -12,7 +12,6 @@ const { input, output } = require('./gulp/_config')
 
 module.exports = eleventyConfig => {
   eleventyConfig.addPlugin(pluginRss)
-
   eleventyConfig.addLayoutAlias('post', '_layout/post')
 
   // Markdown
@@ -117,6 +116,7 @@ module.exports = eleventyConfig => {
   // Sitewide shortcodes
   eleventyConfig.addShortcode('youtube', sitewide.youtube)
   eleventyConfig.addShortcode('audio', sitewide.audio)
+  eleventyConfig.addFilter('decode', sitewide.decode)
   eleventyConfig.addShortcode('getDesc', sitewide.getDescription)
 
   const getSrcSet = (width, size, dir, basename, ext) => {
