@@ -16,6 +16,8 @@ But this attempt to write clean code actually slows most of us down. We learn sl
 
 I want to make a point that it's okay to write dirty code. I want to give permission for myself and for you to write dirty code in this article.
 
+<!-- more -->
+
 ## When to write dirty code
 
 There are a few occasions where its okay to write dirty code:

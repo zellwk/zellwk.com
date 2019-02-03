@@ -4,8 +4,9 @@ title: Zellwk.com is now open source!
 description: "I decided to open source my blog. In this article, I explain why I chose to open source my blog and how I chose to use the tools I use."
 slug: open-sourcing-my-blog
 tags:
-  - code
+  - updates
 ---
+
 Good news!
 
 I decided to open source my blog. You can see the source code (for almost everything, except credentials) over at this [Github repo][1].
@@ -27,14 +28,14 @@ It contains:
 
 Zellwk.com is unique because most statically-generated sites don't use a backend. They're primarily served through Github, Netlify, or other platforms.
 
-I use a static-site generator because:
+**I use a static-site generator because:**
 
 1. Static sites load fast
 2. There's no need to create a database
 3. They're easy to maintain
 4. They're easy to publish
 
-I added a node backend because:
+**I added a node backend because:**
 
 1. I wanted to redirect people to a 404 page if a page isn't found.
 2. I wanted to integrate my site with features I thought about (some of them requires a backend).
@@ -77,33 +78,33 @@ I didn't choose Hugo because I didn't want to learn Go. It was too much work to 
 
 I didn't choose Gatsby because I wasn't a React fan. I was using Nunjucks. I didn't want to switch to React.
 
-I chose Eleventy because Eleventy allowed me to use Nunjucks. The switch was relatively painless (still took me a week to make the switch though!).
+**I chose Eleventy because** Eleventy allowed me to use Nunjucks. The **switch was relatively painless** (still took me a week to make the switch though!).
 
 ### Gulp 4
 
 I used Gulp 3 to run CSSG previously. It was a no-brainer to continue using Gulp to build my site.
 
-I upgraded to Gulp 4 when I rebuilt zellwk.com with Eleventy because I wanted to understand the difference between Gulp 3 and Gulp 4.
+I upgraded to Gulp 4 when I rebuilt zellwk.com with Eleventy because **I wanted to understand the difference between Gulp 3 and Gulp 4.**
 
-This was unnecessary work. But it was work I was interested in.
+This was unnecessary work. But **it was work I was interested in.**
 
 Here, I discovered Gulp 4 had a simpler API, which means I have an easier time writing plugins to improve my build processes. For example, I built a plugin that [resizes images][4] to various widths. I'll talk about this plugin in the future when I've solidified everything.
 
 ### Sass
 
-I've always been writing Sass so... ¯\_(ツ)_/¯.
+I've always been writing Sass. There's nothing wrong with it, and there's no reason for me to change.
 
 ### Webpack
 
 I like writing Vanilla JavaScript. I didn't need a framework for Zellwk.com. Using a framework would be overkill.
 
-But I wanted the ability to `import` packages I downloaded through npm. To do this, I needed to use a tool like Browserify, Webpack, Rollup or Parcel.
+But **I wanted the ability to `import` packages I downloaded through npm**. To do this, I needed to use a tool like Browserify, Webpack, Rollup or Parcel.
 
-Here, I chose Webpack because I already invested a considerable amount of work into understanding Webpack. I tried switching to Rollup and Parcel, but I couldn't get them up in 20 mins (so I gave up and stuck to Webpack).
+Here, **I chose Webpack because I already invested a considerable amount of work into understanding Webpack.** I tried switching to Rollup and Parcel, but I couldn't get them up in 20 mins (so I gave up and stuck to Webpack).
 
-I decided it wasn't worth my time to try something similar if they didn't work immediately. I could use the time elsewhere.
+I decided **it wasn't worth my time to try something similar **if they didn't work immediately. I could use the time elsewhere.
 
-## Browser Sync
+### Browser Sync
 
 Browser Sync is amazing. It lets you do two things:
 
@@ -114,7 +115,7 @@ I love it so much I want to keep using it.
 
 If you're interested, [this article on CSS Tricks][5] shows you how to set up Browser Sync with Gulp.
 
-## CircleCI
+### CircleCI
 
 It's always a stressful moment to deploy ANYTHING to a server. I wanted to reduce this stress as much as possible by using a continuous integration (CI) tool.
 
@@ -132,7 +133,7 @@ There are many CI tools out there. Examples include:
 4. CircleCI
 5. Etc.
 
-I'm not sophisticated enough to spot the difference between CI tools. I picked the one that looked easy to begin with.
+I'm not sophisticated enough to spot the difference between CI tools. **I picked the one that looked easy to begin with.**
 
 ## Jest
 
@@ -156,19 +157,19 @@ I love Jest because:
 I continue to use Node and Express because:
 
 1. I was already using it
-2. I only knew Node + Express backend
+2. I knew Node + Express backend
 3. I didn't want to learn anything else right now
 
 ## Wrapping up
 
 So there you have it.
 
-Everyone has a different definition of what's "better". For Zellwk.com, I chose to use tools I'm already familiar with so don't have to spend time learning something similar to what I already know.
+Everyone has a different definition of what's "better". **For Zellwk.com, I chose to use tools I'm already familiar with**. I don't want to spend extra time learning similar things. 
 
 Hope you have fun going through [the repository][6]!
 
 [1]:	https://github.com/zellwk/zellwk.com/ "Zellwk.com Github repo"
-[2]:	/blog/write-dirty-code "Write dirty code"
+[2]:	/blog/its-okay-to-write-dirty-code "Write dirty code"
 [3]:	https://github.com/zellwk/zellwk.com/ "Zellwk.com Github repository"
 [4]:	https://github.com/zellwk/resize-images
 [5]:	https://css-tricks.com/gulp-for-beginners/ "Gulp for beginners"
