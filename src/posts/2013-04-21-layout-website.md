@@ -54,7 +54,7 @@ And this is what you will see on a web browser
 Note: A simple mistake that I made when I first started out in web design is that I didn't understand how HTML elements work. One important concept that you have to know is that elements **cannot intersect each other**.
 ![ HTML elements cannot intersect ][3]
 
-The final sample here is a detailed layout of my blog, and you can see how each element comes together to make up the whole website.
+The final sample here is a detailed layout of my blog, and you can see how all the elements come together to make up the whole website.
 ![Zell's Blog Layout][5]
 
 ## Final Words ##
