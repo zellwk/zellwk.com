@@ -111,7 +111,7 @@ It's okay to write bad code at first. It prevents you from overengineering thing
 Essentially the process of writing good code boils down to:
 
 1. Write bad code
-2. Don't censtor yourself when you write bad code
+2. Don't censor yourself when you write bad code
 3. Refactor when you're done writing bad code
 
 The refactoring process is critical if you want to write good code consistently and quickly. It rewires your brain. You'll see how you can write better code from the get-go without going through the uber-lousy code in the first place. You'll also learn to spot what good code looks like.
