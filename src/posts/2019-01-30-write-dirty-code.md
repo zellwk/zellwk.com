@@ -51,7 +51,7 @@ Think of thoughts like water in a tap.
 1. Good ideas, good work, good writing, good code, etc is hot water.
 2. Bad ideas, bad code, bad writing, bad work is cold water.
 
-If you want thoughts to flow, you have to turn on the tap. If you censort yourself, you plug your thumb into the tap.
+If you want thoughts to flow, you have to turn on the tap. If you censor yourself, you plug your thumb into the tap.
 
 Try turning on the tap with your thumb plugged into it. What happens? Water gets stuck. You won't be able to let any of your thoughts flow.
 
