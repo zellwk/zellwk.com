@@ -51,7 +51,7 @@ Think of thoughts like water in a tap.
 1. Good ideas, good work, good writing, good code, etc is hot water.
 2. Bad ideas, bad code, bad writing, bad work is cold water.
 
-If you want thoughts to flow, you have to turn on the tap. If you censort yourself, you plug your thumb into the tap.
+If you want thoughts to flow, you have to turn on the tap. If you censor yourself, you plug your thumb into the tap.
 
 Try turning on the tap with your thumb plugged into it. What happens? Water gets stuck. You won't be able to let any of your thoughts flow.
 
@@ -111,7 +111,7 @@ It's okay to write bad code at first. It prevents you from overengineering thing
 Essentially the process of writing good code boils down to:
 
 1. Write bad code
-2. Don't censtor yourself when you write bad code
+2. Don't censor yourself when you write bad code
 3. Refactor when you're done writing bad code
 
 The refactoring process is critical if you want to write good code consistently and quickly. It rewires your brain. You'll see how you can write better code from the get-go without going through the uber-lousy code in the first place. You'll also learn to spot what good code looks like.
