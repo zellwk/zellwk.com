@@ -107,13 +107,17 @@ button {
 }
 ```
 
-I set button padding to `0.75em` and `1em` because they seem like sensible defaults from my experience. I also remove the default `border-radius` that's applied to buttons. 
+I made a few more adjustments to buttons: 
 
+1. Set button padding to `0.75em` and `1em` because they seem like sensible defaults from my experience. 
+2. Removed the default `border-radius` that's applied to buttons.
+3. Forced background color to be transparent
 
 ```css
 button {
   border-radius: 0; 
   padding: 0.75em 1em;
+  background-color: transparent;
 }
 ```
 
