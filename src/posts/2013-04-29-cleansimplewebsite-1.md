@@ -142,7 +142,7 @@ Finally, the footer of the website:
         </div>
     </div>
 
-##Wrapping it up##
+## Wrapping it up ##
 HTML, as you can see, is a series of tags and text. It's not exceptionally difficult to grasp and I'd recommend you to sign up for my newsletter and grab the getting ebook on how to get started if you're having difficulties. It'll make things much clearer.
 
 This example is also a tad more complicated because I wanted to give you a clearer picture of how a website would look like. If it is too complicated, let me know in the comments and I'll make a shorter one instead.
