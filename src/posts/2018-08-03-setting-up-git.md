@@ -54,8 +54,7 @@ I'm going to show you how to setup Fork.
 
 Here's the Welcome screen when you open up Fork for the first time:
 
-<figure>
-  <img src="/images/2018/setting-up-a-git-client/fork-welcome-screen.png" alt="Welcome screen from Fork">
+<figure><img src="/images/2018/setting-up-a-git-client/fork-welcome-screen.png" alt="Welcome screen from Fork">
   <figcaption aria-hidden>Welcome screen from Fork</figcaption>
 </figure>
 

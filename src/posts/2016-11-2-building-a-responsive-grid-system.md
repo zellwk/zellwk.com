@@ -115,8 +115,7 @@ The `box-sizing` property alters the default CSS Box model that's used by browse
 
 Here's an image that summarizes how `width` is  calculated at different `box-sizing` values.
 
-<figure>
-  <img src="/images/2016/building-grid-systems/box-sizing.jpg" alt="Box sizing property and how it affects width calculations">
+<figure><img src="/images/2016/building-grid-systems/box-sizing.jpg" alt="Box sizing property and how it affects width calculations">
   <figcaption>Box sizing property and how it affects width calculations</figcaption>
 </figure>
 
@@ -181,8 +180,7 @@ It gets complicated if we think about columns and gutters at the same time, so l
 
 The output for such a grid will resemble something like this:
 
-<figure>
-  <img src="/images/2016/building-grid-systems/columns.png" alt="Three-column grid without gutters">
+<figure><img src="/images/2016/building-grid-systems/columns.png" alt="Three-column grid without gutters">
   <figcaption>Three-column grid without gutters</figcaption>
 </figure>
 
@@ -197,8 +195,7 @@ This is the point where we have to do some math. We know that the grid has a max
 
 So far so good. We've made a grid that works great at a viewport larger than 1140px. Unfortunately, it breaks when the viewport is smaller than 1140px.
 
-<figure>
-  <img src="/images/2016/building-grid-systems/grid-break.gif" alt="Grid breaks below 1140px">
+<figure><img src="/images/2016/building-grid-systems/grid-break.gif" alt="Grid breaks below 1140px">
   <figcaption>Grid breaks below 1140px</figcaption>
 </figure>
 
@@ -215,15 +212,13 @@ This means we can't use pixels as our measurement. We need a unit that can resiz
 
 What you get from the above code is simply three-column grid without any gutters. When the browser resizes, these three columns will resize proportionally.
 
-<figure>
-  <img src="/images/2016/building-grid-systems/grid-columns.gif" alt="Three columns without gutters">
+<figure><img src="/images/2016/building-grid-systems/grid-columns.gif" alt="Three columns without gutters">
   <figcaption>Three columns without gutters</figcaption>
 </figure>
 
 One more thing before we move on. Whenever all children elements are floated in a container, the container's height collapses. This phenomenon is called the [float collapse](https://css-tricks.com/all-about-floats/). It's as if the container doesn't contain any children:
 
-<figure>
-  <img src="/images/2016/building-grid-systems/float-collapse.png" alt="Float collapse. Image from CSS Tricks">
+<figure><img src="/images/2016/building-grid-systems/float-collapse.png" alt="Float collapse. Image from CSS Tricks">
   <figcaption>Float collapse (image from CSS Tricks)</figcaption>
 </figure>
 
@@ -266,8 +261,7 @@ If you sketch around for a bit, you'll quickly notice that you have four possibl
 3. Gutters can be split equally on *both sides*, as *margins*
 4. Gutters can be split equally on *both sides*, as *paddings*
 
-<figure>
-  <img src="/images/2016/building-grid-systems/combi.png" alt="4 possible ways to create columns and gutters">
+<figure><img src="/images/2016/building-grid-systems/combi.png" alt="4 possible ways to create columns and gutters">
   <figcaption>4 possible ways to create columns and gutters</figcaption>
 </figure>
 
@@ -293,8 +287,7 @@ For the purpose of this article, let's say you chose to put your gutters on the 
 
 Then, you recalculate your column-width according to this image:
 
-<figure>
-  <img src="/images/2016/building-grid-systems/pattern-1side-margin.png" alt="One-sided gutters using margins">
+<figure><img src="/images/2016/building-grid-systems/pattern-1side-margin.png" alt="One-sided gutters using margins">
   <figcaption>One-sided gutters using margins</figcaption>
 </figure>
 
@@ -327,8 +320,7 @@ After getting the column width, you need to remove the final gutter from the rig
 
 Most of the time, when you remove the final gutter on the rightmost item, you also want to float it to the right to prevent subpixel rounding errors from messing up your grid by sending the last item into the next row. This only happens on browsers that round subpixels up.
 
-<figure>
-  <img src="/images/2016/building-grid-systems/subpixel.png" alt="Subpixel rounding errors might break the grid by pushing the final item to the next row">
+<figure><img src="/images/2016/building-grid-systems/subpixel.png" alt="Subpixel rounding errors might break the grid by pushing the final item to the next row">
   <figcaption>Subpixel rounding errors might break the grid by pushing the final item to the next row</figcaption>
 </figure>
 
@@ -343,8 +335,7 @@ Phew. Almost there. Just one more thing.
 
 The code so far is great if our grid contains only a single row. It doesn't cut it, however, if there's more than one row of items 😢.
 
-<figure>
-  <img src="/images/2016/building-grid-systems//margin-side-last-child.png" alt="Our code fails if there's more than one row">
+<figure><img src="/images/2016/building-grid-systems//margin-side-last-child.png" alt="Our code fails if there's more than one row">
   <figcaption>Our code fails if there's more than one row</figcaption>
 </figure>
 
@@ -379,8 +370,7 @@ Like the one-sided gutters with margins, this method requires you to place your 
 
 Then, you can recalculate your column-width according to this image:
 
-<figure>
-  <img src="/images/2016/building-grid-systems/pattern-1side-gutter.png" alt="One-sided gutters using padding">
+<figure><img src="/images/2016/building-grid-systems/pattern-1side-gutter.png" alt="One-sided gutters using padding">
   <figcaption>One-sided gutters using padding</figcaption>
 </figure>
 
@@ -405,8 +395,7 @@ In this method, you split gutters into two and place each half on the sides of y
 
 Then, you calculate your column-width according to this image:
 
-<figure>
-  <img src="/images/2016/building-grid-systems/pattern-split-margin.png" alt="Split gutters with margin">
+<figure><img src="/images/2016/building-grid-systems/pattern-split-margin.png" alt="Split gutters with margin">
   <figcaption>Split gutters with margin</figcaption>
 </figure>
 
@@ -441,8 +430,7 @@ This method is similar to the previous one. You split your gutters and place eac
 
 Then, you calculate your column widths as follows:
 
-<figure>
-  <img src="/images/2016/building-grid-systems/pattern-split-padding.png" alt="Split gutters with padding">
+<figure><img src="/images/2016/building-grid-systems/pattern-split-padding.png" alt="Split gutters with padding">
   <figcaption>Split gutters with padding</figcaption>
 </figure>
 
@@ -466,8 +454,7 @@ Before we move on, I want to tell you about a small caveat if you use split gutt
 
 This is because background is shown on padding properties. This image should explain why (hopefully), by showing the relationship between `background` and other properties.
 
-<figure>
-  <img src="/images/2016/building-grid-systems/bg-relationship.jpg" alt="Background is shown on the padding property">
+<figure><img src="/images/2016/building-grid-systems/bg-relationship.jpg" alt="Background is shown on the padding property">
   <figcaption>Background is shown on the padding property</figcaption>
 </figure>
 
@@ -528,8 +515,7 @@ The next step is to create your layout variations based on your content. This is
 
 For instance, let's say you have this grid layout that's only used for guest articles. The layout looks like this on desktop:
 
-<figure>
-  <img src="/images/2016/building-grid-systems/grid-example.png" alt="Example grid layout that's only used for guest articles">
+<figure><img src="/images/2016/building-grid-systems/grid-example.png" alt="Example grid layout that's only used for guest articles">
   <figcaption>Example grid layout that's only used for guest articles</figcaption>
 </figure>
 
@@ -601,8 +587,7 @@ There. Much cleaner. :)
 
 The final step is to make your layouts responsive. Let's say our guest article layout responds in the following way:
 
-<figure>
-  <img src="/images/2016/building-grid-systems/grid-responsive.png" alt="How guest the guest article layout respond to different viewports">
+<figure><img src="/images/2016/building-grid-systems/grid-responsive.png" alt="How guest the guest article layout respond to different viewports">
   <figcaption>How guest the guest article layout respond to different viewports</figcaption>
 </figure>
 

@@ -30,8 +30,7 @@ There are 4 different types of viewport units available in CSS today. They are:
 
 **Viewport**, in this case, **refers to the browser screen**. `1vw` would mean one percent of the browser's width. **`100vw` would mean the full browser width**.
 
-<figure>
-  <img src="/images/2016/viewport-based-typography/viewport-units.png" alt="Viewport units">
+<figure><img src="/images/2016/viewport-based-typography/viewport-units.png" alt="Viewport units">
   <figcaption>100vw and 100vh</figcaption>
 </figure>
 
@@ -47,8 +46,7 @@ Since viewport units are automatically recalculated, it becomes extremely easy t
 }
 ```
 
-<figure>
-  <img src="/images/2016/viewport-based-typography/quarter-viewport-component.gif" alt="Quarter viewport component">
+<figure><img src="/images/2016/viewport-based-typography/quarter-viewport-component.gif" alt="Quarter viewport component">
   <figcaption>A component that's always a quarter of the viewport</figcaption>
 </figure>
 
@@ -105,8 +103,7 @@ Consider the results from the following code:
 html { font-size: 3vw; }
 ```
 
-<figure>
-  <img src="/images/2016/viewport-based-typography/font-size-in-vw.gif" alt="Font size in vw">
+<figure><img src="/images/2016/viewport-based-typography/font-size-in-vw.gif" alt="Font size in vw">
   <figcaption>Resizing text automatically with viewport units!</figcaption>
 </figure>
 
@@ -139,8 +136,7 @@ html { font-size: calc(112.5% + 0.5vw) }
 
 Tada!
 
-<figure>
-  <img src="/images/2016/viewport-based-typography/font-size-vw-tamed.gif" alt="Font size tamed">
+<figure><img src="/images/2016/viewport-based-typography/font-size-vw-tamed.gif" alt="Font size tamed">
   <figcaption>Font sized with vw now tamed!</figcaption>
 </figure>
 
@@ -159,8 +155,7 @@ html { font-size: calc(112.5% + 0.25vw) }
 h1 { font-size: calc((112.5% + 0.25vw) * 2); }
 ```
 
-<figure>
-  <img src="/images/2016/viewport-based-typography/viewport-sized-header.png" alt="Incorrectly sized h1">
+<figure><img src="/images/2016/viewport-based-typography/viewport-sized-header.png" alt="Incorrectly sized h1">
   <figcaption>H1 has sized incorrectly :(</figcaption>
 </figure>
 
@@ -208,8 +203,7 @@ html { font-size: calc(112.5% + 0.25vw) }
 h1 { font-size: 2em; }
 ```
 
-<figure>
-  <img src="/images/2016/viewport-based-typography/correctly-sized-header.png" alt="Correctly sized headers">
+<figure><img src="/images/2016/viewport-based-typography/correctly-sized-header.png" alt="Correctly sized headers">
   <figcaption>H1 now correctly sized with em!</figcaption>
 </figure>
 

@@ -134,8 +134,7 @@ const applesToBuy = 22
 applesToBuy = 27
 ```
 
-<figure>
-  <img src="/images/2017/js-variables/const.png" alt="Reassigning a variable declared with const results in an error">
+<figure><img src="/images/2017/js-variables/const.png" alt="Reassigning a variable declared with const results in an error">
   <figcaption>Reassigning a variable declared with const results in an error</figcaption>
 </figure>
 
@@ -147,8 +146,7 @@ applesToBuy = 27
 console.log(applesToBuy)
 ```
 
-<figure>
-  <img src="/images/2017/js-variables/let.png" alt="It's okay to reassign variables declared with let">
+<figure><img src="/images/2017/js-variables/let.png" alt="It's okay to reassign variables declared with let">
   <figcaption>It's okay to reassign variables declared with let</figcaption>
 </figure>
 

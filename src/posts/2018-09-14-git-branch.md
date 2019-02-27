@@ -30,8 +30,7 @@ You can have a branch that stays the same in one world. Then, you branch off int
 
 Open up your Git client. Look for the branch you want to branch from. Right click on it and select create new branch.
 
-<figure>
-  <img src="/images/2018/git-branch/create-new-branch.png" alt="Cursor on the menu that says create new branch">
+<figure><img src="/images/2018/git-branch/create-new-branch.png" alt="Cursor on the menu that says create new branch">
 </figure>
 
 You can name your branch anything you want.
@@ -40,20 +39,17 @@ Usually the first branch we as developers is the development branch.
 
 Once you name your branch, click on create and checkout. Checkout, in this case, means to move to the development branch.
 
-<figure>
-  <img src="/images/2018/git-branch/name-branch.png" alt="Setting the branch name to development">
+<figure><img src="/images/2018/git-branch/name-branch.png" alt="Setting the branch name to development">
 </figure>
 
 Once you create the development branch, you can see two branches in your branches section—master and development.
 
-<figure>
-  <img src="/images/2018/git-branch/sidebar.png" alt="Sidebar contains all branches. In this case, it shows master and development">
+<figure><img src="/images/2018/git-branch/sidebar.png" alt="Sidebar contains all branches. In this case, it shows master and development">
 </figure>
 
 In the Git history, you can also see a new tag called `development`. This `development` tag is on the same commit as `master` and `origin/master`.
 
-<figure>
-  <img src="/images/2018/git-branch/history.png" alt="Git history shows the `development` tag">
+<figure><img src="/images/2018/git-branch/history.png" alt="Git history shows the `development` tag">
 </figure>
 
 ## Why create a development branch?
@@ -85,8 +81,7 @@ If you go back to your Git client, you can commit this change to the development
 
 Make sure you're on the development branch when you create the commit. In Fork, you can tell the branch your on by looking at the bolded branch.
 
-<figure>
-  <img src="/images/2018/git-branch/sidebar-2.png" alt="Development is bold on the sidebar. This shows that the development branch is selected">
+<figure><img src="/images/2018/git-branch/sidebar-2.png" alt="Development is bold on the sidebar. This shows that the development branch is selected">
 </figure>
 
 Commit your code to the development branch.
@@ -95,8 +90,7 @@ Now, if you look at the Git history, you can see that the development branch is 
 
 This shows we can code as much as we like on the `development` branch without affecting other branches.
 
-<figure>
-  <img src="/images/2018/git-branch/history-2.png" alt="`development` tag is ahead of `origin/master` and `master`">
+<figure><img src="/images/2018/git-branch/history-2.png" alt="`development` tag is ahead of `origin/master` and `master`">
 </figure>
 
 ## Pushing the development branch into the Git remote
@@ -105,8 +99,7 @@ You can push the development branch into the Git remote by clicking the push but
 
 Once the push is completed, you can see the `origin/development` tag on the same commit as the `development` tag.
 
-<figure>
-  <img src="/images/2018/git-branch/history-3.png" alt="`origin/development` tag on the same commit as the `development` tag.">
+<figure><img src="/images/2018/git-branch/history-3.png" alt="`origin/development` tag on the same commit as the `development` tag.">
 </figure>
 
 ## Switching between branches
@@ -115,8 +108,7 @@ To switch between branches, you can double-click the branch you want to go (on t
 
 Checkout means to switch to the branch you chose.
 
-<figure>
-  <img src="/images/2018/git-branch/sidebar-3.png" alt="Double-click the master branch to checkout the master branch">
+<figure><img src="/images/2018/git-branch/sidebar-3.png" alt="Double-click the master branch to checkout the master branch">
 </figure>
 
 If you look at your project now, you will realize that the `development.md` file is missing. This proves again that you can make as many commits on your `development` branch without affecting other branches.
@@ -129,15 +121,13 @@ To merge, you first checkout the branch you want to merge to. This should be `ma
 
 Then, to merge the `development` branch into the `master` branch, you right-click the `development` branch in your Git client and select merge into 'master.'
 
-<figure>
-  <img src="/images/2018/git-branch/merge-1.png" alt="Cursor on menu item that says merge into 'master'">
+<figure><img src="/images/2018/git-branch/merge-1.png" alt="Cursor on menu item that says merge into 'master'">
   <figcaption></figcaption>
 </figure>
 
 Fork will ask you whether you want to create a merge commit. Some clients do this for you automatically.
 
-<figure>
-  <img src="/images/2018/git-branch/merge-2.png" alt="Menu that asks whether you want to create a merge commit">
+<figure><img src="/images/2018/git-branch/merge-2.png" alt="Menu that asks whether you want to create a merge commit">
   <figcaption></figcaption>
 </figure>
 
@@ -147,42 +137,36 @@ If you look at the Git history now, you'll see the `master` branch is ahead of t
 
 This is because we have done a merge commit.
 
-<figure>
-  <img src="/images/2018/git-branch/history-4.png" alt="`master` branch is ahead of the `development` and `origin/development` branches">
+<figure><img src="/images/2018/git-branch/history-4.png" alt="`master` branch is ahead of the `development` and `origin/development` branches">
 </figure>
 
 At the same time, `master` is two commits ahead of the `origin/master` branch. That's why we see 2 up in the sidebar.
 
-<figure>
-  <img src="/images/2018/git-branch/sidebar-4.png" alt="`master` is two commits ahead of the `origin/master` branch">
+<figure><img src="/images/2018/git-branch/sidebar-4.png" alt="`master` is two commits ahead of the `origin/master` branch">
 </figure>
 
 When you're done merging, you can update the Git remote by clicking on the Push button.
 
-<figure>
-  <img src="/images/2018/git-branch/history-5.png" alt="`origin/master` and `master` are now on the same commit">
+<figure><img src="/images/2018/git-branch/history-5.png" alt="`origin/master` and `master` are now on the same commit">
 </figure>
 
 ## Deleting a branch
 
 To delete a branch, you right-click the branch you want to delete and select delete 'branch-name'.
 
-<figure>
-  <img src="/images/2018/git-branch/delete-1.png" alt="Cursor on menu item that says delete development">
+<figure><img src="/images/2018/git-branch/delete-1.png" alt="Cursor on menu item that says delete development">
 </figure>
 
 In Fork, you can also choose to remove the branch from the remote as well.
 
-<figure>
-  <img src="/images/2018/git-branch/delete-2.png" alt="Menu that asks if you want to remove the branch from the origin">
+<figure><img src="/images/2018/git-branch/delete-2.png" alt="Menu that asks if you want to remove the branch from the origin">
 </figure>
 
 Click on Delete and Fork will delete both branches.
 
 Once the delete is done, you can take a look at the Git history. You'll notice that the `origin/development` and `development` tags have both disappeared from the history.
 
-<figure>
-  <img src="/images/2018/git-branch/history-6.png" alt="`origin/development` and `development` tags have both disappeared from the history">
+<figure><img src="/images/2018/git-branch/history-6.png" alt="`origin/development` and `development` tags have both disappeared from the history">
 </figure>
 
 ## Wrapping up

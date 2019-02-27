@@ -36,8 +36,7 @@ When you increase a new patch, **you increase the rightmost number by 1.** From 
 
 **If your patch number is 9,** when you increase the patch version again, **you increase it to 10,** then 11, then 12, and so on. (There are no limits to the numbers)
 
-<figure>
-  <img src="/images/2018/semantic-versioning/patch.png" alt="A patch version is the rightmost number">
+<figure><img src="/images/2018/semantic-versioning/patch.png" alt="A patch version is the rightmost number">
 </figure>
 
 ### Minor versions
@@ -46,8 +45,7 @@ The second number is called the minor version number. It is **used when you rele
 
 When you increase the minor version, you also increase it by one. But **when you increase the minor version, you must reset the patch version to zero.**
 
-<figure>
-  <img src="/images/2018/semantic-versioning/minor.png" alt="A minor version is the second number">
+<figure><img src="/images/2018/semantic-versioning/minor.png" alt="A minor version is the second number">
 </figure>
 
 ### Major versions
@@ -56,8 +54,7 @@ The leftmost number is a major version. When you increase the major version, you
 
 **When you increase the major version number, you reset both patch version and minor versions.**
 
-<figure>
-  <img src="/images/2018/semantic-versioning/major.png" alt="A major version is the leftmost number">
+<figure><img src="/images/2018/semantic-versioning/major.png" alt="A major version is the leftmost number">
 </figure>
 
 ## Pre-releases

@@ -28,8 +28,7 @@ The Baseline grid is primarily the manifestation of Vertical Rhythm at a work. I
 
 When these baselines are stacked together onto the same page, we have a baseline grid.
 
-<figure>
-  <img src="/images/2016/web-typography-broken/baseline-grid.png" alt="A baseline grid">
+<figure><img src="/images/2016/web-typography-broken/baseline-grid.png" alt="A baseline grid">
 
   <figcaption>A baseline grid</figcaption>
 </figure>
@@ -48,8 +47,7 @@ body {
 
 Baseline grids often appear like this on the web. You'll see that text floats between the baselines.
 
-<figure>
-  <img src="/images/2016/web-typography-broken/baseline-web.png" alt="Baseline grid on the web">
+<figure><img src="/images/2016/web-typography-broken/baseline-web.png" alt="Baseline grid on the web">
 
   <figcaption>Baseline grid on the web</figcaption>
 </figure>
@@ -58,8 +56,7 @@ They appear this way because the `line-height` property distributes extra pixels
 
 Baseline grids on Print design is slightly different. Text sits on the baseline instead of floating between them.
 
-<figure>
-  <img src="/images/2016/web-typography-broken/baseline-print.png" alt="Print baseline grid">
+<figure><img src="/images/2016/web-typography-broken/baseline-print.png" alt="Print baseline grid">
 
   <figcaption>Print baseline grid</figcaption>
 </figure>
@@ -89,8 +86,7 @@ The situation becomes slightly more complicated when you have text elements with
 
 You'll discover that the **`<h1>` element sits slightly above the baseline** no matter which method you use to "fix the baseline grid".
 
-<figure>
-  <img src="/images/2016/web-typography-broken/h1-above-baseline.png" alt="H1 sits above baseline">
+<figure><img src="/images/2016/web-typography-broken/h1-above-baseline.png" alt="H1 sits above baseline">
 
   <figcaption>H1 sits above baseline</figcaption>
 </figure>
@@ -104,8 +100,7 @@ h1 {
 }
 ```
 
-<figure>
-  <img src="/images/2016/web-typography-broken/h1-to-baseline.png" alt="Pushing h1 to baseline">
+<figure><img src="/images/2016/web-typography-broken/h1-to-baseline.png" alt="Pushing h1 to baseline">
 
   <figcaption>Pushing h1 to baseline</figcaption>
 </figure>
@@ -116,8 +111,7 @@ There are two solutions to this problem. First, there's a library called [Sassli
 
 In case you were wondering, the CSS output from Sassline and MegaType are both pretty complicated. Here's what the output from Sassline looks like:
 
-<figure>
-  <img src="/images/2016/web-typography-broken/sassline.png" alt="Sassline CSS">
+<figure><img src="/images/2016/web-typography-broken/sassline.png" alt="Sassline CSS">
 
   <figcaption>Sassline CSS</figcaption>
 </figure>
@@ -126,8 +120,7 @@ As you can see, Sassline uses negative `margins` coupled with `padding` to repos
 
 The CSS output from MegaType is:
 
-<figure>
-  <img src="/images/2016/web-typography-broken/megatype.png" alt="MegaType CSS">
+<figure><img src="/images/2016/web-typography-broken/megatype.png" alt="MegaType CSS">
 
   <figcaption>MegaType CSS</figcaption>
 </figure>
@@ -150,16 +143,14 @@ Since we're following the principle of repetition, the key to finding out whethe
 
 I decided to compare print and web baselines side by side while repeating more elements. Here's the result:
 
-<figure>
-  <img src="/images/2016/web-typography-broken/print-vs-web-1.png" alt="Implementation of Print and Web Baselines placed side by side">
+<figure><img src="/images/2016/web-typography-broken/print-vs-web-1.png" alt="Implementation of Print and Web Baselines placed side by side">
 
   <figcaption>Implementation of Print and Web Baselines placed side by side</figcaption>
 </figure>
 
 Uh. It's hard to compare the results with the baselines turned on. Hold on, I'll remove them.
 
-<figure>
-  <img src="/images/2016/web-typography-broken/print-vs-web-2.png" alt="Implementation of Print and Web Baselines placed side by side">
+<figure><img src="/images/2016/web-typography-broken/print-vs-web-2.png" alt="Implementation of Print and Web Baselines placed side by side">
 
   <figcaption>Print vs Web Baselines</figcaption>
 </figure>
@@ -172,8 +163,7 @@ It seems to me that type set with print baseline follows a more consistent rhyth
 
 Now, let's try repeating some more elements:
 
-<figure>
-  <img src="/images/2016/web-typography-broken/print-vs-web-3.png" alt="More repetitions">
+<figure><img src="/images/2016/web-typography-broken/print-vs-web-3.png" alt="More repetitions">
 
   <figcaption>More repetitions on the web baseline.</figcaption>
 </figure>
@@ -188,16 +178,14 @@ There's more to web design than pure text elements. Sometimes, we have elements 
 
 When you have elements like a button, how would you place them on the baseline? Would you put the button's edges, the text, or both of them on the baseline?
 
-<figure>
-  <img src="/images/2016/web-typography-broken/buttons-on-baseline.png" alt="Variations of placing a button on a baseline">
+<figure><img src="/images/2016/web-typography-broken/buttons-on-baseline.png" alt="Variations of placing a button on a baseline">
 
   <figcaption>Variations of placing a button on a baseline</figcaption>
 </figure>
 
 Both Jake's Sassline and Tom's MegaType seem to suggest that we should place both the edges and text on the baseline:
 
-<figure>
-  <img src="/images/2016/web-typography-broken/sassline-megatype-buttons.png" alt="Sassline and MegaType buttons">
+<figure><img src="/images/2016/web-typography-broken/sassline-megatype-buttons.png" alt="Sassline and MegaType buttons">
 
   <figcaption>Sassline and MegaType suggests we placeboth the edges and text on the baseline</figcaption>
 </figure>
@@ -206,8 +194,7 @@ Personally, I don't agree with Sassline nor MegaType because it's weird to see b
 
 Instead of accepting their answers as the correct one, I decided to test all three variations to see if one was better than the other. Here are the results if I compared all four variations (plus the web one) with their respective baselines turned on.
 
-<figure>
-  <img src="/images/2016/web-typography-broken/print-vs-web-4.png" alt="web baseline grid">
+<figure><img src="/images/2016/web-typography-broken/print-vs-web-4.png" alt="web baseline grid">
 
   <figcaption>All three variations vs web baseline grid</figcaption>
 </figure>
@@ -218,8 +205,7 @@ When I changed the `<h1`>'s `font-size`, I also realized that I had to create a 
 
 Let me turn off the baseline grid now. Take a look and see which you prefer.
 
-<figure>
-  <img src="/images/2016/web-typography-broken/print-vs-web-5.png" alt="web baseline grid">
+<figure><img src="/images/2016/web-typography-broken/print-vs-web-5.png" alt="web baseline grid">
 
   <figcaption>All four versions without baselines</figcaption>
 </figure>
@@ -246,8 +232,7 @@ Medium has a beautiful design with long-form text. It's a perfect case to test f
 
 To conduct the case study, I picked [a random article](https://medium.com/@deanvipond/explaining-graphic-design-to-four-year-olds-fe9257ffaf3d#.hk353i17k) and inspected the paragraph tag.
 
-<figure>
-  <img src="/images/2016/web-typography-broken/medium.png" alt="Medium's CSS">
+<figure><img src="/images/2016/web-typography-broken/medium.png" alt="Medium's CSS">
 
   <figcaption>Medium's CSS</figcaption>
 </figure>
@@ -258,8 +243,7 @@ Here, I found out what Medium uses a `font-size` of `21px` and a `line-height` o
 
 The next step was to create a baseline grid on Medium with `repeating-linear-gradient()`. Here's what I found
 
-<figure>
-  <img src="/images/2016/web-typography-broken/medium-baseline-print.png" alt="Medium with a baseline grid">
+<figure><img src="/images/2016/web-typography-broken/medium-baseline-print.png" alt="Medium with a baseline grid">
 
   <figcaption>Medium with a Baseline grid</figcaption>
 </figure>
@@ -282,24 +266,21 @@ Awwward's design is radically different from Medium's. I picked it because I wan
 
 There isn't much text on the page itself, so I picked the only text container I could see to hypothesize a baseline.
 
-<figure>
-  <img src="/images/2016/web-typography-broken/awwwards-baseline-assumption.png" alt="Assuming a baseline from Awwward's text container">
+<figure><img src="/images/2016/web-typography-broken/awwwards-baseline-assumption.png" alt="Assuming a baseline from Awwward's text container">
 
   <figcaption>Assuming a baseline from Awwwards's text container</figcaption>
 </figure>
 
 Here, I see that Awwwards uses a `font-size` of `16px` and a `line-height` of `1.9`.
 
-<figure>
-  <img src="/images/2016/web-typography-broken/awwwards.png" alt="Awwward's font-size and line-height">
+<figure><img src="/images/2016/web-typography-broken/awwwards.png" alt="Awwward's font-size and line-height">
 
   <figcaption>Awwward's font-size and line-height</figcaption>
 </figure>
 
 This means Awwwards should have a baseline of `16px * 1.9 = 30.4px`. Here's what it looks like when I added a baseline grid to Awwward:
 
-<figure>
-  <img src="/images/2016/web-typography-broken/awwwards-baseline.png" alt="Baseline grid on Awwward">
+<figure><img src="/images/2016/web-typography-broken/awwwards-baseline.png" alt="Baseline grid on Awwward">
 
   <figcaption>Baseline grid on Awwward</figcaption>
 </figure>
@@ -310,8 +291,7 @@ Nope.
 
 As I looked deeper, I noticed that Awwwards repeats a `padding` of `20px` in multiple places:
 
-<figure>
-  <img src="/images/2016/web-typography-broken/awwwards-padding.png" alt="Awwwards uses 20px padding in multiple places">
+<figure><img src="/images/2016/web-typography-broken/awwwards-padding.png" alt="Awwwards uses 20px padding in multiple places">
 
   <figcaption>Awwwards uses 20px padding in multiple places</figcaption>
 </figure>
@@ -328,8 +308,7 @@ For the third test, I wanted to find a page that uses both images and text to se
 
 Dribble's shot page uses a `font-size` of `16px` and a `line-height` of `1.5`, which means the baseline should be `24px`.
 
-<figure>
-  <img src="/images/2016/web-typography-broken/dribbble-baseline.png" alt="Dribbble with a baseline grid">
+<figure><img src="/images/2016/web-typography-broken/dribbble-baseline.png" alt="Dribbble with a baseline grid">
 
   <figcaption>Dribbble with a baseline grid</figcaption>
 </figure>
@@ -340,8 +319,7 @@ Nope.
 
 As I dug further, I noticed that Dribbble also used multiples of `5px` as margins or paddings all around.
 
-<figure>
-  <img src="/images/2016/web-typography-broken/dribbble-repetition.png" alt="Dribbble repeats a rhythm of 5px all around">
+<figure><img src="/images/2016/web-typography-broken/dribbble-repetition.png" alt="Dribbble repeats a rhythm of 5px all around">
 
   <figcaption>Dribbble repeats a rhythm of 5px all around</figcaption>
 </figure>

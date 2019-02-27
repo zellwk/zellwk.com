@@ -146,8 +146,7 @@ Now, music would be boring if you listen to a note with same beat, pitch, and te
 
 Music is beautiful because there's contrast. The contrast – the difference between high and the lows – catch our attention and allows us to differentiate one part of the music from another. In typography, we also need contrast, and we often create contrast between headings and text font-sizes through a technique called Modular Scale. For more information, you might want to read ["More Meaningful Typography"](https://alistapart.com/article/more-meaningful-typography) by Tim Brown.
 
-<figure>
-  <img src="/images/case-studies/typi/modular-scale.png" alt="An example of a Modular Scale">
+<figure><img src="/images/case-studies/typi/modular-scale.png" alt="An example of a Modular Scale">
   <figcaption>An example of a Modular Scale</figcaption>
 </figure>
 

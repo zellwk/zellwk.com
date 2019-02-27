@@ -136,8 +136,7 @@ Let me give you an example.
 
 When I created the website for [Mastering Responsive Typography](https://mastering-responsive-typography.com), I added a payment form that looks like the following:
 
-<figure>
-  <img src="/images/2017/css-architecture-2/mrt-form-main.png" alt="Payment form on Mastering Responsive Typography">
+<figure><img src="/images/2017/css-architecture-2/mrt-form-main.png" alt="Payment form on Mastering Responsive Typography">
   <figcaption>Payment form on Mastering Responsive Typography</figcaption>
 </figure>
 
@@ -214,8 +213,7 @@ For example, buttons are objects. They're small and they can be placed anywhere.
 
 An example of a larger object is the countdown timer I built for Mastering Responsive Typography:
 
-<figure>
-  <img src="/images/2017/css-architecture-2/obj-countdown.png" alt="Example of a large object">
+<figure><img src="/images/2017/css-architecture-2/obj-countdown.png" alt="Example of a large object">
   <figcaption>Example of a large object. Still considered an object since it contains neither objects nor components</figcaption>
 </figure>
 
@@ -368,8 +366,7 @@ Let's dive into the properties and I'll supplement you with much-needed examples
 
 Let's go back to the form I described where I talked about layouts. It's the perfect example of a component.
 
-<figure>
-  <img src="/images/2017/css-architecture-2/mrt-form-main.png" alt="Payment form on Mastering Responsive Typography">
+<figure><img src="/images/2017/css-architecture-2/mrt-form-main.png" alt="Payment form on Mastering Responsive Typography">
   <figcaption>Payment form on Mastering Responsive Typography</figcaption>
 </figure>
 
@@ -417,8 +414,7 @@ Components are large enough that you want to take special care about positioning
 
 Here's what the form looks like in a sidebar context:
 
-<figure>
-  <img src="/images/2017/css-architecture-2/mrt-form-sidebar.png" alt="Form component in a sidebar context">
+<figure><img src="/images/2017/css-architecture-2/mrt-form-sidebar.png" alt="Form component in a sidebar context">
   <figcaption>Form component in a sidebar context</figcaption>
 </figure>
 

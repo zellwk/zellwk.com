@@ -175,8 +175,7 @@ One more thing. Don't choose plugins/tools blindly because of what they advertis
 
 Don't get me wrong. CSSNext is great and awesome. There's only one thing I hate. It claims you can use CSS Variables in your code, but outputs pure values that have nothing to do with CSS Variables! 😡
 
-<figure>
-  <img src="/images/2017/learn-tools/css-next.jpg" alt="CSS Next doesn't create any CSS Variables!">
+<figure><img src="/images/2017/learn-tools/css-next.jpg" alt="CSS Next doesn't create any CSS Variables!">
   <figcaption>CSS Next doesn't create any CSS Variables!</figcaption>
 </figure>
 

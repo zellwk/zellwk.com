@@ -32,22 +32,19 @@ As the reviewer, if you scroll down to the bottom of the page, you'll see a gree
 
 If you want to merge the pull request, you can click on the green button and you're done.
 
-<figure>
-  <img src="/images/2018/edit-pr/merge.png" alt="The merge pull request button">
+<figure><img src="/images/2018/edit-pr/merge.png" alt="The merge pull request button">
 </figure>
 
 If you don't have write access to the repository, you won't see a button that says merge pull request.
 
-<figure>
-  <img src="/images/2018/edit-pr/no-merge.png" alt="Non-collaborators won't see the merge pull request button">
+<figure><img src="/images/2018/edit-pr/no-merge.png" alt="Non-collaborators won't see the merge pull request button">
 </figure>
 
 ## Reviewing the pull request
 
 As a reviewer, you'll want to click on the files changed tab. This tells you what files have changed.
 
-<figure>
-  <img src="/images/2018/edit-pr/files-changed-tab.png" alt="The files changed tab">
+<figure><img src="/images/2018/edit-pr/files-changed-tab.png" alt="The files changed tab">
 </figure>
 
 You'll come to a page with two sets of code:
@@ -57,8 +54,7 @@ You'll come to a page with two sets of code:
 
 You can see what code is added or removed in this view. Green lines signify code that's added. Red lines signify code that's removed.
 
-<figure>
-  <img src="/images/2018/edit-pr/diff.png" alt="The diff view">
+<figure><img src="/images/2018/edit-pr/diff.png" alt="The diff view">
 </figure>
 
 ### Commenting, approving, or requesting changes
@@ -71,8 +67,7 @@ If you click on the review changes button, you'll see three options:
 2. Approve
 3. Request changes
 
-<figure>
-  <img src="/images/2018/edit-pr/review-change-button.png" alt="The review changes button">
+<figure><img src="/images/2018/edit-pr/review-change-button.png" alt="The review changes button">
 </figure>
 
 ### A better way to review
@@ -81,14 +76,12 @@ A better way to review the code is to provide feedback on the line of code that 
 
 You can do this by hovering over the line you want to provide feedback for. When you do so, you'll see a blue `+` button.
 
-<figure>
-  <img src="/images/2018/edit-pr/plus-button.png" alt="The plus button">
+<figure><img src="/images/2018/edit-pr/plus-button.png" alt="The plus button">
 </figure>
 
 When you click on the blue `+` button, you'll see an editor. You can comment on the line of code here.
 
-<figure>
-  <img src="/images/2018/edit-pr/the-editor.png" alt="The editor shows up after you click the plus button">
+<figure><img src="/images/2018/edit-pr/the-editor.png" alt="The editor shows up after you click the plus button">
 </figure>
 
 There are two options:
@@ -100,36 +93,31 @@ If you click on add single comment, the comment will be made immediately.
 
 If you click on start a review, you'll have the chance to write more comments before sending them at once. To end the review, you need to click on the review changes button and select submit review.
 
-<figure>
-  <img src="/images/2018/edit-pr/submit-review.png" alt="Submitting the review">
+<figure><img src="/images/2018/edit-pr/submit-review.png" alt="Submitting the review">
 </figure>
 
 The pull request will be updated with your changes after you submit your review:
 
-<figure>
-  <img src="/images/2018/edit-pr/pr-updated.png" alt="Pull request updated">
+<figure><img src="/images/2018/edit-pr/pr-updated.png" alt="Pull request updated">
 </figure>
 
 ## Working on the pull request
 
 The person who is submitting the pull request can also see the comments.
 
-<figure>
-  <img src="/images/2018/edit-pr/pr-updated-2.png" alt="Pull request from the submitter's view">
+<figure><img src="/images/2018/edit-pr/pr-updated-2.png" alt="Pull request from the submitter's view">
 </figure>
 
 If you're working on the pull request, you have to make the necessary changes. To do so, you go back to your forked repository and update the same branch you used to submit the pull request.
 
 In this case, this will be the development branch. I went ahead and added the closing `<ul>` tag in the `index.html` file. I also set the commit message to `closing <ul> appropriately`.
 
-<figure>
-  <img src="/images/2018/edit-pr/edit-pr.png" alt="Writing a commit message that says closing <ul> appropriately">
+<figure><img src="/images/2018/edit-pr/edit-pr.png" alt="Writing a commit message that says closing <ul> appropriately">
 </figure>
 
 Github will update the pull request with the new changes once the submitter pushes into the forked repository.
 
-<figure>
-  <img src="/images/2018/edit-pr/pr-updated-after-edit.png" alt="Pull request updated automatically after commits are pushed">
+<figure><img src="/images/2018/edit-pr/pr-updated-after-edit.png" alt="Pull request updated automatically after commits are pushed">
 </figure>
 
 The reviewer can now merge the request by clicking on the merge pull request button.

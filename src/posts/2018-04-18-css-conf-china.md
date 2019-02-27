@@ -40,8 +40,7 @@ But for now, on to the conference itself!
 
 The conference is held in a cinema. (Yes, the kind you watch movies at).
 
-<figure>
-  <img src="/images/2018/cssconfchina/venue.jpg" alt="Conference venue">
+<figure><img src="/images/2018/cssconfchina/venue.jpg" alt="Conference venue">
   <figcaption aria-hidden>The conference is held in a cinema</figcaption>
 </figure>
 
@@ -65,13 +64,11 @@ Luckily, there were expert translators in the speaking group. Two, in fact. Both
 
 They even gave me a list of words to translate. (I added these words into my slides so I won't forget about them 😂).
 
-<figure>
-  <img src="/images/2018/cssconfchina/words.jpg" alt="A list of words translated from English to Chinese">
+<figure><img src="/images/2018/cssconfchina/words.jpg" alt="A list of words translated from English to Chinese">
   <figcaption aria-hidden>A list of words translated from English to Chinese</figcaption>
 </figure>
 
-<figure>
-  <img src="/images/2018/cssconfchina/slides.jpg" alt="Slides contain both english and chinese words">
+<figure><img src="/images/2018/cssconfchina/slides.jpg" alt="Slides contain both english and chinese words">
   <figcaption>Inserting translated words into my slides to joy my memory</figcaption>
 </figure>
 
@@ -110,7 +107,6 @@ I also had an unexpected reward—kicking myself in the butt about how tired I f
 
 It was a great trip.
 
-<figure>
-  <img src="/images/2018/cssconfchina/group-photo.jpg" alt="Group photo">
+<figure><img src="/images/2018/cssconfchina/group-photo.jpg" alt="Group photo">
   <figcaption>Can you spot where I am? 😁</figcaption>
 </figure>

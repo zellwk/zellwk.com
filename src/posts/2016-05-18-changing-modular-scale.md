@@ -27,8 +27,7 @@ Let's assume that you're going to use the following numbers:
 
 Let's also say that your `h1` font-size is set to the 3rd step. When I say the 3rd step, I mean the font-size of your `h1` is the third number on the scale:
 
-<figure>
-  <img src="/images/2016/changing-ms-ratio/modular-scale-steps.png" alt="Modular Scale Steps">
+<figure><img src="/images/2016/changing-ms-ratio/modular-scale-steps.png" alt="Modular Scale Steps">
 
   <figcaption>Modular Scale Steps</figcaption>
 </figure>
@@ -140,8 +139,7 @@ Calculating viewport-based typography is complicated. I've dove into more detail
 
 Anyway, since the Modular Scale plugin uses viewport based typography, you'll see your `h1` changing sizes whenever you resize your browser between 20em and 40em:
 
-<figure>
-  <img src="/images/2016/changing-ms-ratio/change-ratio.gif" alt="Changing Ratio of Modular Scale">
+<figure><img src="/images/2016/changing-ms-ratio/change-ratio.gif" alt="Changing Ratio of Modular Scale">
 </figure>
 
 Many people love viewport-based typography because they get to write lesser media queries and their font-sizes changes automatically.

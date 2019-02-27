@@ -144,8 +144,7 @@ This declarative method of listing variables, objects and components, is the hea
 
 Whenever I need to search for a component, I can always refer to this `styles.scss` file, look for the component and type `c component name` in my Sublime Text's file search field.
 
-<figure>
-  <img src="/images/2017/css-architecture-3/search-file.gif" alt="Searching for files with Sublime Text">
+<figure><img src="/images/2017/css-architecture-3/search-file.gif" alt="Searching for files with Sublime Text">
   <figcaption>Searching for files with Sublime Text</figcaption>
 </figure>
 
@@ -293,8 +292,7 @@ The `objects/` and `components/` folders are pretty self-explanatory. It's where
 
 As far as objects and components are concerned, I'll always begin by writing objects. Whenever objects grow to include another object or component, I'll rename all instances of `.o-object` with `.c-object` with the help of Sublime Text's find and replace tool.
 
-<figure>
-  <img src="/images/2017/css-architecture-3/find-and-replace.png" alt="Find and replace tool in Sublime Text">
+<figure><img src="/images/2017/css-architecture-3/find-and-replace.png" alt="Find and replace tool in Sublime Text">
   <figcaption>Find and replace tool in Sublime Text</figcaption>
 </figure>
 

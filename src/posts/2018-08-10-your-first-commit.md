@@ -31,8 +31,7 @@ To the right, you'll see a placeholder that shows Fork's icon. At the bottom, yo
 
 This place is called the **staging area**. This is where you decide what files you want to save into Git.
 
-<figure>
-  <img src="/images/2018/your-first-commit/staging-area.png" alt="The staging area">
+<figure><img src="/images/2018/your-first-commit/staging-area.png" alt="The staging area">
   <figcaption aria-hidden>The staging area</figcaption>
 </figure>
 
@@ -44,8 +43,7 @@ Open up your Git project in a text editor like VS Code. Create a file called `in
 
 Once you save this file, you'll see this file in the staging area. It should appear in the unstaged files section of the staging area.
 
-<figure>
-  <img src="/images/2018/your-first-commit/unstaged-file.png" alt="Files that have been changed will appear in the unstaged area">
+<figure><img src="/images/2018/your-first-commit/unstaged-file.png" alt="Files that have been changed will appear in the unstaged area">
   <figcaption aria-hidden>Files that have been changed will appear in the unstaged area</figcaption>
 </figure>
 
@@ -53,8 +51,7 @@ Once you save this file, you'll see this file in the staging area. It should app
 
 If you want to commit a file (in this case, the `index.html` file), you can click on the file and click on stage. This file will be moved from the unstaged files section into the staged files section.
 
-<figure>
-  <img src="/images/2018/your-first-commit/staged-file.png" alt="Files that have been staged will appear in the staged area">
+<figure><img src="/images/2018/your-first-commit/staged-file.png" alt="Files that have been staged will appear in the staged area">
   <figcaption aria-hidden>Files that have been staged will appear in the staged area</figcaption>
 </figure>
 
@@ -66,8 +63,7 @@ If you click on the file, you'll see the lines of code (in green) that will be s
 
 To create a commit, you write your commit message at the bottom right corner, then click the "create commit" button.
 
-<figure>
-  <img src="/images/2018/your-first-commit/creating-a-commit.png" alt="Creating a commit">
+<figure><img src="/images/2018/your-first-commit/creating-a-commit.png" alt="Creating a commit">
   <figcaption aria-hidden>Creating a commit</figcaption>
 </figure>
 
@@ -81,15 +77,13 @@ In this example, I added a CSS file and a JavaScript file to the repository. I a
 
 If you go back into Fork now, you should see the folders and files that are changed.
 
-<figure>
-  <img src="/images/2018/your-first-commit/staging-area-multiple.png" alt="Files and folders that are changed in the staging area. This shows a CSS folder, a styles.css file, a JS folder, a main.js file and an index.html file. ">
+<figure><img src="/images/2018/your-first-commit/staging-area-multiple.png" alt="Files and folders that are changed in the staging area. This shows a CSS folder, a styles.css file, a JS folder, a main.js file and an index.html file. ">
   <figcaption>You can see all files and folders that are changed in the staging area</figcaption>
 </figure>
 
 To commit all three files at once, you select the files and click the stage button. Then, you write your commit message and commit the files.
 
-<figure>
-  <img src="/images/2018/your-first-commit/commit-multi.png" alt="Committing multiple files at once">
+<figure><img src="/images/2018/your-first-commit/commit-multi.png" alt="Committing multiple files at once">
   <figcaption aria-hidden>Committing multiple files at once</figcaption>
 </figure>
 

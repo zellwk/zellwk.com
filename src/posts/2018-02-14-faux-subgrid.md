@@ -21,8 +21,7 @@ When we design websites, we don't often think about how we write HTML. We usuall
 
 Most of the time, the HTML structure is straightforward. Let's say you have a 3x2 grid in a component. You can style your grid this way:
 
-<figure>
-  <img src="/images/2018/faux-subgrid/kats.png" alt="Image that contains 6 cats lined up in a grid">
+<figure><img src="/images/2018/faux-subgrid/kats.png" alt="Image that contains 6 cats lined up in a grid">
 </figure>
 
 ```html
@@ -49,8 +48,7 @@ Most of the time, the HTML structure is straightforward. Let's say you have a 3x
 
 But sometimes, your design may call for a complicated nested HTML structure. I ran into one such case when I built [Learn JavaScript](https://learnjavascript.today). Here's the design of the component that I had troubles with:
 
-<figure>
-  <img src="/images/2018/faux-subgrid/learnjavascript.png" alt="A component from learnjavascript.today that requires a nested HTML structure">
+<figure><img src="/images/2018/faux-subgrid/learnjavascript.png" alt="A component from learnjavascript.today that requires a nested HTML structure">
 </figure>
 
 From the design, you can tell that I need a nested HTML structure that resembles the following.

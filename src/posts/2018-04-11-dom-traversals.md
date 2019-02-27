@@ -98,8 +98,7 @@ const listItems = list.children
 console.log(listItems)
 ```
 
-<figure>
-  <img src="/images/2018/traversal/children.png" alt="Selecting all list items with the children property">
+<figure><img src="/images/2018/traversal/children.png" alt="Selecting all list items with the children property">
   <figcaption>Selecting all list items with the children property</figcaption>
 </figure>
 
@@ -142,8 +141,7 @@ console.log(fourthItem)
 console.log(fifthItem)
 ```
 
-<figure>
-  <img src="/images/2018/traversal/specific-child.png" alt="Select a specific child with [index]">
+<figure><img src="/images/2018/traversal/specific-child.png" alt="Select a specific child with [index]">
   <figcaption>Select a specific child with [index]</figcaption>
 </figure>
 

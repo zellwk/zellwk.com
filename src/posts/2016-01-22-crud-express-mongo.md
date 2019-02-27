@@ -35,8 +35,7 @@ CRUD, Express and MongoDB are big words for a person who has never touched any s
 
 If we put CRUD, Express and MongoDB together into a single diagram, this is what it would look like:
 
-<figure>
-  <img src="/images/2016/01/crud-express-mongo.png" alt="">
+<figure><img src="/images/2016/01/crud-express-mongo.png" alt="">
 </figure>
 
 Does CRUD, Express and MongoDB makes more sense to you now?

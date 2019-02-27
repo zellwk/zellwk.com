@@ -46,8 +46,7 @@ Here's what most people would answer:
 
 Problem solved.
 
-<figure>
-  <img src="/images/2017/think/ele-in-fridge.jpg" alt="Image of an elephant in the fridge">
+<figure><img src="/images/2017/think/ele-in-fridge.jpg" alt="Image of an elephant in the fridge">
   <figcaption>Poor elephant. It looks so sad in the fridge :(</figcaption>
 </figure>
 

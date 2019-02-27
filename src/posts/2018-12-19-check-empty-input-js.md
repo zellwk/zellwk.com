@@ -9,16 +9,13 @@ tags:
 description: This article shows you how to check if an input is empty with JavaScript
 ---
 
-Last week, I shared how to [check if an input is empty with CSS](/blog/check-empty-input-css "Checking if an input is empty with CSS"). Today, let's talk about the same thing, but with JavaScript.
+Last week, I shared how to [check if an input is empty with CSS][1]. Today, let's talk about the same thing, but with JavaScript.
 
 It's much simpler.
 
 Here's what we're building:
 
-<figure>
-  <img src="/images/2018/empty-input-validation-js/check.gif" alt="When input is filled, borders should turn green">
-  <figcaption></figcaption>
-</figure>
+<figure><img src="/images/2018/empty-input-validation-js/check.gif" alt="When input is filled, borders should turn green"></figure>
 
 <!-- more -->
 
@@ -110,10 +107,7 @@ When a user enters text into the field, input validation begins. However, if the
 
 We don't want to invalidate the input if the user removes all text. They may need a moment to think, but the invalidated state sets off an unnecessary alarm.
 
-<figure>
-  <img src="/images/2018/empty-input-validation-js/problem.gif" alt="Form becomes invalid when empty after user types into it">
-  <figcaption></figcaption>
-</figure>
+<figure><img src="/images/2018/empty-input-validation-js/problem.gif" alt="Form becomes invalid when empty after user types into it"></figure>
 
 To fix this, we can check whether the user has entered any text into the input before we `trim` it.
 
@@ -140,3 +134,5 @@ Here's a Codepen for you to play with:
 
 <p data-height="476" data-theme-id="7929" data-slug-hash="EObQpr" data-default-tab="result" data-user="zellwk" data-pen-title="Empty validation with JavaScript" class="codepen">See the Pen <a href="https://codepen.io/zellwk/pen/EObQpr/">Empty validation with JavaScript</a> by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+[1]:	/blog/check-empty-input-css "Checking if an input is empty with CSS"

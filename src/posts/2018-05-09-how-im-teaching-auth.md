@@ -35,28 +35,24 @@ Here's why:
 
 Many students who enroll in Learn JavaScript are new to JavaScript. They don't know how to even use JavaScript. Most of them aren't ready to learn about servers yet.
 
-<figure>
-  <img src="/images/2018/how-im-teaching-authentication/cory.png" alt="Reply from Cory">
+<figure><img src="/images/2018/how-im-teaching-authentication/cory.png" alt="Reply from Cory">
 </figure>
 
-<figure>
-  <img src="/images/2018/how-im-teaching-authentication/abbey.png" alt="Reply from Abbey">
+<figure><img src="/images/2018/how-im-teaching-authentication/abbey.png" alt="Reply from Abbey">
 </figure>
 
 **I don't want to overwhelm students by adding things they don't need right now.** I want them to focus on JavaScript. I want them to be great at JavaScript. Other things can wait.
 
 Some people responded with opinions that match my thoughts. For example, Nick said that I shouldn't distract learners. I should reduce complexity.
 
-<figure>
-  <img src="/images/2018/how-im-teaching-authentication/nick.png" alt="Reply from Nick">
+<figure><img src="/images/2018/how-im-teaching-authentication/nick.png" alt="Reply from Nick">
 </figure>
 
 Another example. Klaus said his enemy to learning is picking up too many subjects.
 
 As a teacher, I'm here to help reduce complexity and increase focus so you can learn things well. I shouldn't be adding complexity unless necessary.
 
-<figure>
-  <img src="/images/2018/how-im-teaching-authentication/klaus.png" alt="Reply from Klaus">
+<figure><img src="/images/2018/how-im-teaching-authentication/klaus.png" alt="Reply from Klaus">
 </figure>
 
 **It's important to teach the right things, in the right order, at the right time.** If I teach the right things in the right order at the right time, people learn.
@@ -81,8 +77,7 @@ But students who learn CSS fundamentals can do without frameworks. They're confi
 
 This is why I focus on fundamentals. Shahar echoes my thoughts. He's a student who went enrolled in Learn JavaScript.
 
-<figure>
-  <img src="/images/2018/how-im-teaching-authentication/shahar.png" alt="Reply from Shahar">
+<figure><img src="/images/2018/how-im-teaching-authentication/shahar.png" alt="Reply from Shahar">
 </figure>
 
 This is also why I'm not going to make a server for my students. If I teach servers, I'll teach students to create their servers (which is a huge topic).
@@ -111,8 +106,7 @@ To handle errors, we need to know when errors happen. We also need to know how t
 
 Here's an outline on what I'm teaching on Ajax. There's so many things to talk about that I had to break it into two modules!
 
-<figure>
-  <img src="/images/2018/how-im-teaching-authentication/ajax.png" alt="2 modules, 20+ lessons on Ajax">
+<figure><img src="/images/2018/how-im-teaching-authentication/ajax.png" alt="2 modules, 20+ lessons on Ajax">
   <figcaption>2 modules, 20+ lessons on Ajax</figcaption>
 </figure>
 

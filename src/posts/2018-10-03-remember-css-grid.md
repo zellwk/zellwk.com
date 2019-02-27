@@ -280,8 +280,7 @@ So the inline and block axis is:
 1. Inline: left to right
 2. Block: top to bottom
 
-<figure>
-  <img src="/images/2018/remember-css-grid-properties/axes.png" alt="Inline-axis reads left to right. Block-axis reads top to bottom">
+<figure><img src="/images/2018/remember-css-grid-properties/axes.png" alt="Inline-axis reads left to right. Block-axis reads top to bottom">
   <figcaption aria-hidden>Inline-axis reads left to right. Block-axis reads top to bottom</figcaption>
 </figure>
 
@@ -308,8 +307,7 @@ You can pick from seven values:
 6. **space-around**: spreads whitespace around each grid item
 7. **space-evenly**: spreads whitespace evenly around all grid items including the ends
 
-<figure>
-  <img src="/images/2018/remember-css-grid-properties/alignment-values.png" alt="7 possible alignment values and what they do">
+<figure><img src="/images/2018/remember-css-grid-properties/alignment-values.png" alt="7 possible alignment values and what they do">
   <figcaption aria-hidden>7 possible alignment values and what they do</figcaption>
 </figure>
 
@@ -333,8 +331,7 @@ You can pick from the same four values:
 3. **center**: align item to the center of the axis
 4. **stretch**: fills the axis (this is the default value)
 
-<figure>
-  <img src="/images/2018/remember-css-grid-properties/alignment-values-2.png" alt="4 possible alignment values and what they do">
+<figure><img src="/images/2018/remember-css-grid-properties/alignment-values-2.png" alt="4 possible alignment values and what they do">
   <figcaption>4 possible alignment values and what they do</figcaption>
 </figure>
 

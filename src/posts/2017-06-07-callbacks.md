@@ -258,8 +258,7 @@ addOne(5) // 6
 
 This is what would appear on JavaScript's todo-list.
 
-<figure>
-  <img src="/images/2017/callbacks/todo.png" alt="Commands appear synchronously on JavaScript's todo list">
+<figure><img src="/images/2017/callbacks/todo.png" alt="Commands appear synchronously on JavaScript's todo list">
   <figcaption>Commands appear synchronously on JavaScript's todo list</figcaption>
 </figure>
 
@@ -286,29 +285,25 @@ ironClothes()
 
 JavaScript's initial todo-list would be:
 
-<figure>
-  <img src="/images/2017/callbacks/todo2.png" alt="JavaScript's todo list">
+<figure><img src="/images/2017/callbacks/todo2.png" alt="JavaScript's todo list">
   <figcaption>Order pizza, mop floor and iron clothes! 😄</figcaption>
 </figure>
 
 Then, while going through `orderPizza`, JavaScript knows it needs to wait for the pizza to arrive. So, it adds "waiting for pizza to arrive" to its waiting list while it tackles the rest of its jobs.
 
-<figure>
-  <img src="/images/2017/callbacks/waiting.png" alt="JavaScript waits for pizza to arrive">
+<figure><img src="/images/2017/callbacks/waiting.png" alt="JavaScript waits for pizza to arrive">
   <figcaption>JavaScript waits for pizza to arrive</figcaption>
 </figure>
 
 When the pizza arrives, JavaScript gets notified by the doorbell and it makes a **mental note** to execute `layTheTable` when it's done with the other chores
 
-<figure>
-  <img src="/images/2017/callbacks/mental-note.png" alt="JavaScript knows it needs to execute layTheTable by adding the command to its mental note">
+<figure><img src="/images/2017/callbacks/mental-note.png" alt="JavaScript knows it needs to execute layTheTable by adding the command to its mental note">
   <figcaption>JavaScript knows it needs to execute layTheTable by adding the command to its mental note</figcaption>
 </figure>
 
 Then, once it's done with the other chores, JavaScript executes the callback function, `layTheTable`.
 
-<figure>
-  <img src="/images/2017/callbacks/lay-table.png" alt="JavaScript lays the table when everything else is completed">
+<figure><img src="/images/2017/callbacks/lay-table.png" alt="JavaScript lays the table when everything else is completed">
   <figcaption>JavaScript lays the table when everything else is completed</figcaption>
 </figure>
 
@@ -318,8 +313,7 @@ This, my friend, is called the Event Loop. You can substitute our butler analogy
 - **Waiting-list** -> Web apis
 - **Mental note** -> Event queue
 
-<figure>
-  <img src="/images/2017/callbacks/event-loop.png" alt="JavaScript's event loop">
+<figure><img src="/images/2017/callbacks/event-loop.png" alt="JavaScript's event loop">
   <figcaption>JavaScript's event loop</figcaption>
 </figure>
 

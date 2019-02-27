@@ -50,8 +50,7 @@ I didn't expect the book to sell. I wrote it because I wanted to share my knowle
 
 To my surprise, [Learn Susy](https://learnsusy.zellwk.com) made $56,000 in it's lifetime (three years I think). Here's some solid proof:
 
-<figure>
-  <img src="/images/2018/what-to-build/learnsusy-revenue.png" alt="Image of the revenues generated from Learn Susy">
+<figure><img src="/images/2018/what-to-build/learnsusy-revenue.png" alt="Image of the revenues generated from Learn Susy">
 </figure>
 
 Was Learning Susy a good idea?
@@ -136,8 +135,7 @@ Give it your best shot. Build something you're proud of. It doesn't matter if it
 
 One of my early projects, a HSL color tool, looked pretty ugly too. (You can read about this tool in this [ancient article](https://zellwk.com/blog/color-tools/) if you like).
 
-<figure>
-  <img src="/images/2018/what-to-build/hsl-trainer.png" alt="Probably the ugliest web app you'll ever see">
+<figure><img src="/images/2018/what-to-build/hsl-trainer.png" alt="Probably the ugliest web app you'll ever see">
   <figcaption>This app lacks UX and design sense. Don't you agree?</figcaption>
 </figure>
 
@@ -145,8 +143,7 @@ But it didn't matter. It was the first project I built with Angular. I challenge
 
 When you build something you're proud to share, you'll tell everyone about it automatically. Another example I'm super proud to share is [Learn JavaScript](https://learnjavascript.today)—it's a course on JavaScript; I believe it's the best course on JavaScript, ever.
 
-<figure>
-  <img src="/images/2018/what-to-build/learnjavascript.jpg" alt="Image of Learn JavaScript's logo">
+<figure><img src="/images/2018/what-to-build/learnjavascript.jpg" alt="Image of Learn JavaScript's logo">
   <figcaption>Learn JavaScript is the best course on JavaScript! 😺</figcaption>
 </figure>
 
@@ -158,8 +155,7 @@ I can't seem to build a project that's silly—it was never my style, but I stil
 
 You own your life, you create your rules. What matters is you make something you're proud to show the world and say, "I made this".
 
-<figure>
-  <img src="/images/2018/what-to-build/icarus-deception.png" alt="A section from Seth Godin's book, Icarus Deception">
+<figure><img src="/images/2018/what-to-build/icarus-deception.png" alt="A section from Seth Godin's book, Icarus Deception">
   <figcaption aria-hidden>A section from Seth Godin's book, Icarus Deception</figcaption>
 </figure>
 

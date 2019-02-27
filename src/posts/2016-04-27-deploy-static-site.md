@@ -268,8 +268,7 @@ If you want to execute a command every Wednesday at midnight, you can use the fo
 date
 ```
 
-<figure>
-  <img src="/images/2016/deploying-static-site/date-command.png" alt="Date command">
+<figure><img src="/images/2016/deploying-static-site/date-command.png" alt="Date command">
 
   <figcaption>Date command on Digital Ocean</figcaption>
 </figure>
@@ -284,8 +283,7 @@ crontab -e
 
 This command brings up a file that you can edit:
 
-<figure>
-  <img src="/images/2016/deploying-static-site/crontab.png" alt="Crontab">
+<figure><img src="/images/2016/deploying-static-site/crontab.png" alt="Crontab">
 
   <figcaption>Default Crontab</figcaption>
 </figure>

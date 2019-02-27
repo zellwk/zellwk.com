@@ -10,8 +10,7 @@ tags:
 
 There was a time when web design got monotonous. Designers and developers built the same kinds of websites over and over again, so much so that we were mocked by people in our own industry for creating only two kinds of websites:
 
-<figure>
-  <img src="https://res.cloudinary.com/indysigner/image/upload/v1525708189/which-one-of-the-two-possible-websites-are-you-currently-designing_hxjfnc.png" alt="A tweet by Jon Gold asking: “which one of the two possible websites are you currently designing?”">
+<figure><img src="https://res.cloudinary.com/indysigner/image/upload/v1525708189/which-one-of-the-two-possible-websites-are-you-currently-designing_hxjfnc.png" alt="A tweet by Jon Gold asking: “which one of the two possible websites are you currently designing?”">
   <figcaption>On Twitter, Jon Gold is asking: “which one of the two possible websites are you currently designing?”</figcaption>
 </figure>
 

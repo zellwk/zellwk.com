@@ -11,8 +11,7 @@ This is the start of a three-part lesson about building a calculator. By the end
 
 Here's what you'll get:
 
-<figure>
-  <img src="/images/2018/calculator-1/calculator.gif" alt="GIF of a calculator you'll build">
+<figure><img src="/images/2018/calculator-1/calculator.gif" alt="GIF of a calculator you'll build">
   <figcaption aria-hidden>GIF of a calculator you'll build</figcaption>
 </figure>
 
@@ -46,8 +45,7 @@ First, we want to build the calculator.
 
 The calculator consist of two parts. The display and the keys.
 
-<figure>
-  <img src="/images/2018/calculator-1/display-and-keys.png" alt="Squares that label the calculator's display and keys">
+<figure><img src="/images/2018/calculator-1/display-and-keys.png" alt="Squares that label the calculator's display and keys">
   <figcaption>Calculators have a display and several keys</figcaption>
 </figure>
 
@@ -167,8 +165,7 @@ if (action
 
 At this point, you should get a `console.log` response from every calculator key.
 
-<figure>
-  <img src="/images/2018/calculator-1/click-key.gif" alt="We're now able to detect different types of keys">
+<figure><img src="/images/2018/calculator-1/click-key.gif" alt="We're now able to detect different types of keys">
   <figcaption aria-hidden>We're now able to detect different types of keys</figcaption>
 </figure>
 
@@ -194,15 +191,13 @@ When Mary picks up a calculator, she'll probably hit a number key.
 
 At this point, if the calculator shows 0 (the default number), the target number should replace zero.
 
-<figure>
-  <img src="/images/2018/calculator-1/num-zero.gif" alt="Calculator replaces 0 with 9">
+<figure><img src="/images/2018/calculator-1/num-zero.gif" alt="Calculator replaces 0 with 9">
   <figcaption aria-hidden>Calculator replaces 0 with 9</figcaption>
 </figure>
 
 If the calculator shows a non-zero number, the target number should be appended to the displayed number.
 
-<figure>
-  <img src="/images/2018/calculator-1/num-non-zero.gif" alt="Calculator appends 5 to 9">
+<figure><img src="/images/2018/calculator-1/num-non-zero.gif" alt="Calculator appends 5 to 9">
   <figcaption aria-hidden>Calculator appends 5 to 9</figcaption>
 </figure>
 
@@ -262,8 +257,7 @@ Let's say Mary hits the decimal key.
 
 When Mary hits the decimal key, a decimal should appear on the display. If Mary hits any number after hitting a decimal key, the number should be appended on the display as well.
 
-<figure>
-  <img src="/images/2018/calculator-1/decimal-non-zero.gif" alt="Calculator adds a decimal, followed by a number, to the display">
+<figure><img src="/images/2018/calculator-1/decimal-non-zero.gif" alt="Calculator adds a decimal, followed by a number, to the display">
   <figcaption aria-hidden>Calculator adds a decimal, followed by a number, to the display</figcaption>
 </figure>
 
@@ -282,8 +276,7 @@ Next, let's say Mary continues her calculation by hitting an operator key.
 
 If Mary hits an operator key, the operator should be highlighted so Mary knows the operator is active.
 
-<figure>
-  <img src="/images/2018/calculator-1/operator.gif" alt="Operator keys should be depressed when they're clicked on">
+<figure><img src="/images/2018/calculator-1/operator.gif" alt="Operator keys should be depressed when they're clicked on">
   <figcaption aria-hidden>Operator keys should be depressed when they're clicked on</figcaption>
 </figure>
 
@@ -310,8 +303,7 @@ Once Mary has hit an operator key, she'll hit another number key.
 
 When Mary hits a number key again, the previous display should be replaced with the new number. The operator key should also release it's pressed state.
 
-<figure>
-  <img src="/images/2018/calculator-1/num-after-operator.gif" alt="Display replaced by a new number">
+<figure><img src="/images/2018/calculator-1/num-after-operator.gif" alt="Display replaced by a new number">
   <figcaption aria-hidden>Display replaced by a new number</figcaption>
 </figure>
 
@@ -388,8 +380,7 @@ When Mary hits the equal key, the calculator should calculate a result that depe
 
 After the calculation, the result should replace the displayed value.
 
-<figure>
-  <img src="/images/2018/calculator-1/equal.gif" alt="Calculates the correct value">
+<figure><img src="/images/2018/calculator-1/equal.gif" alt="Calculates the correct value">
   <figcaption aria-hidden>Calculates the correct value</figcaption>
 </figure>
 

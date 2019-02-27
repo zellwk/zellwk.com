@@ -22,8 +22,7 @@ The lack of time is often cited as the main obstacle to learning. But time isn't
 
 There are four kinds of things you can spend time on:
 
-<figure>
-  <img src="/images/2018/finding-time/quadrants.jpg" alt="The four quadrants">
+<figure><img src="/images/2018/finding-time/quadrants.jpg" alt="The four quadrants">
 </figure>
 
 Quadrant 1 contains things that are important and urgent. These can be work-related things with a deadline. They can things that throw you into a crisis mode.

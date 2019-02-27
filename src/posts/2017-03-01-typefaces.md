@@ -31,43 +31,37 @@ You can split typefaces into the **first three categories** by looking at the **
 
 If the typeface contains *no serifs*, they fall into the *sans-serif category*. (sans means without). Examples of sans-serif typefaces include Helvetica and Gill sans.
 
-<figure>
-  <img src="/images/2017/pairing-typefaces/sans-serif.png" alt="Image of Helvetica typeface that contains no serifs">
+<figure><img src="/images/2017/pairing-typefaces/sans-serif.png" alt="Image of Helvetica typeface that contains no serifs">
   <figcaption>Helvetica doesn't contain any serifs.</figcaption>
 </figure>
 
 If the typeface contains serifs that look *blocky*, they fall under the *slab-serif* category. (slab means a large thick block). Slab-serifs are also called *Egyptians* even though there's no relationship between the serifs and Egyptian writing. Examples of slab-serifs include Archer and Museo Slab.
 
-<figure>
-  <img src="/images/2017/pairing-typefaces/slab-serif.png" alt="Image of Museo Slab typeface that contains blocky serifs">
+<figure><img src="/images/2017/pairing-typefaces/slab-serif.png" alt="Image of Museo Slab typeface that contains blocky serifs">
   <figcaption>Museo Slab has blocky serifs.</figcaption>
 </figure>
 
 *Any other typeface* that *contains serifs* fall under the *serifs* category. Examples include Garamond and Georgia.
 
-<figure>
-  <img src="/images/2017/pairing-typefaces/serif.png" alt="Image of Garamond typeface that contains serifs">
+<figure><img src="/images/2017/pairing-typefaces/serif.png" alt="Image of Garamond typeface that contains serifs">
   <figcaption>Garamond has serifs, but they're not blocky.</figcaption>
 </figure>
 
 *Monospace* typefaces are no strangers to us developers. They're typefaces whose characters occupy the same amount of horizontal space. They're often used in tabular data and code. Examples include Menlo and Monaco.
 
-<figure>
-  <img src="/images/2017/pairing-typefaces/monospace.png" alt="Image of Menlo that shows each character taking up the same amount of space">
+<figure><img src="/images/2017/pairing-typefaces/monospace.png" alt="Image of Menlo that shows each character taking up the same amount of space">
   <figcaption>Each letter in Menlo takes up the same amount of space.</figcaption>
 </figure>
 
 *Script* (or cursive) typefaces are often calligraphic in nature. They're often used for short headlines, invitations and expressive text. Examples include Dancing Script and Lobster.
 
-<figure>
-  <img src="/images/2017/pairing-typefaces/script.png" alt="Image of Dancing Script">
+<figure><img src="/images/2017/pairing-typefaces/script.png" alt="Image of Dancing Script">
   <figcaption>Dancing Script is a script typeface.</figcaption>
 </figure>
 
 Finally, *display typefaces* are typefaces that are only used for large headlines. Many display typefaces are serif and sans-serif versions that are specially tweaked to look good at large sizes. Display typefaces also include *ornamentals* and *decoratives*, which can come in all sorts of form and styles. Examples include Freight Display and Abril Fatface.
 
-<figure>
-  <img src="/images/2017/pairing-typefaces/display.png">
+<figure><img src="/images/2017/pairing-typefaces/display.png">
   <figcaption>Freight Display is a display typeface.</figcaption>
 </figure>
 
@@ -81,8 +75,7 @@ Things begin to get confusing when you begin to subcategorize. There's a lot of 
 
 *Remembering* the names of these subcategories, *differentiating* between them and correctly *placing typefaces in them* are three major challenges people face, myself included. After much research, I noticed you can group these subcategories into a simple **3&times;3 grid**.
 
-<figure>
-  <img src="/images/2017/pairing-typefaces/table-empty.jpg" alt="Empty 3&times;3 table with serif, sans-serif and slab-serif headers">
+<figure><img src="/images/2017/pairing-typefaces/table-empty.jpg" alt="Empty 3&times;3 table with serif, sans-serif and slab-serif headers">
 </figure>
 
 To fill up the 3&times3; grid, we can look at three properties of the typeface. They are:
@@ -103,8 +96,7 @@ Pay careful attention to the *shape of the letters*, especially of the letters *
 
 The geometric subcategory is only applicable to sans-serif and slab-serif typefaces. So, we can fill up the 3&times;3 grid as follows:
 
-<figure>
-  <img src="/images/2017/pairing-typefaces/table-geo.jpg" alt="bottom and bottom left slots of the table contians the word: Geometric">
+<figure><img src="/images/2017/pairing-typefaces/table-geo.jpg" alt="bottom and bottom left slots of the table contians the word: Geometric">
 </figure>
 
 Next, we look at the stroke.
@@ -113,8 +105,7 @@ Next, we look at the stroke.
 
 The *stroke* of a typeface is *lines that make it up*. Pay attention to these lines. Do they vary in size between different parts of the letters?
 
-<figure>
-  <img src="/images/2017/pairing-typefaces/stroke.png" alt="Image that explains what stroke is">
+<figure><img src="/images/2017/pairing-typefaces/stroke.png" alt="Image that explains what stroke is">
 </figure>
 
 When we look at the stroke of a typeface, we're only interested to use it to *categorize serifs*. This is because it's rare for sans-serif and slab-serifs to exhibit any difference in the stroke.
@@ -129,15 +120,13 @@ Modern serifs are deliberately constructed to stand out. Their letterforms often
 
 Finally, what lies between modern serifs and old-style serifs are **transitional** serifs. Their *stroke contrast* is distinguishably *larger than old-style* serifs, but *not as much as modern* ones.
 
-<figure>
-  <img src="/images/2017/pairing-typefaces/stroke-contrast.png" alt="Increasing order of contrast in stroke from the left. Garamond, Baskerville and Didot">
+<figure><img src="/images/2017/pairing-typefaces/stroke-contrast.png" alt="Increasing order of contrast in stroke from the left. Garamond, Baskerville and Didot">
   <figcaption>See the difference in strokes in these three typefaces?</figcaption>
 </figure>
 
 After going through the stroke, our 3&times;3 grid becomes:
 
-<figure>
-  <img src="/images/2017/pairing-typefaces/table-serifs.jpg" alt="Filled up serifs column with old-style, transitional and modern categories">
+<figure><img src="/images/2017/pairing-typefaces/table-serifs.jpg" alt="Filled up serifs column with old-style, transitional and modern categories">
 </figure>
 
 Lets move on to the tilt.
@@ -181,8 +170,7 @@ Want an example? How about Aktiv Grotesk? :)
 
 After looking at the *tilt*, we can finally complete the 3&times;3 grid:
 
-<figure>
-  <img src="/images/2017/pairing-typefaces/table-full.jpg" alt="3&times;3 table filled entirely">
+<figure><img src="/images/2017/pairing-typefaces/table-full.jpg" alt="3&times;3 table filled entirely">
 </figure>
 
 And with that, we're done with categorizing typefaces into their respective categories and subcategories.
@@ -202,8 +190,7 @@ The reason why experts recommend you to pair typefaces from the same era (or eve
 
 Coincidentally (maybe not!), our 3&times;3 grid helps you identify typefaces created in the same era without remembering the subcategories. It's used this way:
 
-<figure>
-  <img src="/images/2017/pairing-typefaces/table-groups.jpg" alt="Image showing how to pair typefaces using categories">
+<figure><img src="/images/2017/pairing-typefaces/table-groups.jpg" alt="Image showing how to pair typefaces using categories">
 </figure>
 
 (This is mind blowing, isn't it? 😉)

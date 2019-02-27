@@ -60,8 +60,7 @@ function sayHello () {
 sayHello()
 ```
 
-<figure>
-  <img src="/images/2017/js-functions/declare.png" alt="Declaring and using sayHello function">
+<figure><img src="/images/2017/js-functions/declare.png" alt="Declaring and using sayHello function">
   <figcaption>Declaring and using sayHello function</figcaption>
 </figure>
 
@@ -173,8 +172,7 @@ First of all, you need to declare a function before you can use it. In the first
 
 It skips over the code in the function at this point because the function is not used yet.
 
-<figure>
-  <img src="/images/2017/js-functions/flow-1.png" alt="JavaScript sees add2 and skips it">
+<figure><img src="/images/2017/js-functions/flow-1.png" alt="JavaScript sees add2 and skips it">
   <figcaption>JavaScript sees add2 and skips it</figcaption>
 </figure>
 
@@ -182,22 +180,19 @@ Next, JavaScript sees you're declaring a variable called `number`, and assigning
 
 Since the right hand side (RHS) is a function call (an expression), JavaScript needs to evaluate the value of `add2(8)` before it can assign it to the `number` variable. Here, it sets the parameter `num` to `8`, since you passed in 8 as the argument when you call `add2(8)`.
 
-<figure>
-  <img src="/images/2017/js-functions/flow-2.png" alt="JavaScript executes the add2 function">
+<figure><img src="/images/2017/js-functions/flow-2.png" alt="JavaScript executes the add2 function">
   <figcaption>JavaScript executes the add2 function</figcaption>
 </figure>
 
 In the `add2` function, JavaScript sees a return statement that says `num + 2`. This is an expression, so it needs to evaluate it before moving on. Since `num` is 8, `num + 2` must be 10.
 
-<figure>
-  <img src="/images/2017/js-functions/flow-3.png" alt="JavaScript evaluates num + 2 as 10">
+<figure><img src="/images/2017/js-functions/flow-3.png" alt="JavaScript evaluates num + 2 as 10">
   <figcaption>JavaScript evaluates num + 2 as 10</figcaption>
 </figure>
 
 Once `num + 2` is evaluated, JavaScript returns the value to the function call. It replaces the function call with the returned value. So, `add2(8)` becomes 10.
 
-<figure>
-  <img src="/images/2017/js-functions/flow-4.png" alt="JavaScript replaces add2(8) with the result, 10">
+<figure><img src="/images/2017/js-functions/flow-4.png" alt="JavaScript replaces add2(8) with the result, 10">
   <figcaption>JavaScript replaces add2(8) with the result, 10</figcaption>
 </figure>
 

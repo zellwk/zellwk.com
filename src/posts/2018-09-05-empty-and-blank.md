@@ -10,8 +10,7 @@ description: "How to use the :empty selector and the :blank selector"
 
 I made a terrible mistake when I tweeted about `:empty` and `:blank` a month ago. I said that `:empty` wasn't useful, and `:blank` is much more useful than `:empty`.
 
-<figure>
-  <img src="/images/2018/empty-and-blank/tweet.png" alt="Blank is not supported by any browser">
+<figure><img src="/images/2018/empty-and-blank/tweet.png" alt="Blank is not supported by any browser">
 </figure>
 
 I was wrong!
@@ -236,13 +235,11 @@ Here's the code for this example:
 
 `:empty` supported on all browsers, and `:blank` has poor browser support. This gives you plenty of reason to use `:empty` over `:blank` today!
 
-<figure>
-  <img src="/images/2018/empty-and-blank/empty-browser-support.png" alt="Empty supported by every browser">
+<figure><img src="/images/2018/empty-and-blank/empty-browser-support.png" alt="Empty supported by every browser">
   <figcaption>:empty browser support</figcaption>
 </figure>
 
-<figure>
-  <img src="/images/2018/empty-and-blank/blank-browser-support.png" alt="Blank is not supported by any browser">
+<figure><img src="/images/2018/empty-and-blank/blank-browser-support.png" alt="Blank is not supported by any browser">
   <figcaption>:blank browser support (from CSS Tricks)</figcaption>
 </figure>
 

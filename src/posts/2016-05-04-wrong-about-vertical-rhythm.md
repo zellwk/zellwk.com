@@ -18,8 +18,7 @@ Even though I don't believe it, I decided to try it out since I respect his expe
 
 Let me show you the before / after pictures of the change and I'm sure you'll be convinced as well.
 
-<figure>
-  <img src="/images/2016/wrong-about-vr/before-after.png" alt="">
+<figure><img src="/images/2016/wrong-about-vr/before-after.png" alt="">
 
   <figcaption>Before and After the change</figcaption>
 </figure>
@@ -40,8 +39,7 @@ Proximity refers to the physical closeness between two objects. The human brain 
 
 We rely on proximity as a shortcut to help organize content on the web as well. Take for instance, you have two groups of circles like this:
 
-<figure>
-  <img src="/images/2016/wrong-about-vr/circles.png" alt="Two groups of circles">
+<figure><img src="/images/2016/wrong-about-vr/circles.png" alt="Two groups of circles">
 </figure>
 
 Don't you think the circles on the left seems closer compared to the circles on the right? That's proximity at work! :)
@@ -58,8 +56,7 @@ Remember the before / after image I showed you right at the start of this articl
 
 If you look at printed books (or even on the Kindle), you'll notice that paragraphs aren't separated by whitespace. Instead, we know that a new paragraph has began whenever the first line is indented to the right:
 
-<figure>
-  <img src="/images/2016/wrong-about-vr/paragraph.jpg" alt="Transitions between paragraphs on a Kindle">
+<figure><img src="/images/2016/wrong-about-vr/paragraph.jpg" alt="Transitions between paragraphs on a Kindle">
 
   <figcaption>Transitions between paragraphs on a Kindle</figcaption>
 </figure>
@@ -68,8 +65,7 @@ Notice how flawless the reading experience is when you transit from one paragrap
 
 Notice how the reading experience gets disrupted when you transit from one paragraph to the next as you read the image below (it's the before image):
 
-<figure>
-  <img src="/images/2016/wrong-about-vr/paragraphs-old.png" alt="">
+<figure><img src="/images/2016/wrong-about-vr/paragraphs-old.png" alt="">
 
   <figcaption>Transitions between paragraphs on the web</figcaption>
 </figure>
@@ -84,8 +80,7 @@ By separating paragraphs by one baseline, we're essentially splitting the paragr
 
 Realizing this was a mind-blowing moment for me.
 
-<figure>
-  <img src="/images/2016/wrong-about-vr/mindblown.gif" alt="">
+<figure><img src="/images/2016/wrong-about-vr/mindblown.gif" alt="">
 </figure>
 
 **So, what should the whitespace be between paragraphs?**
@@ -118,8 +113,7 @@ Anyway, that's the end of the first example on using proximity in typography. Le
 
 The second area you can apply proximity to is to differentiate the amount of space between subheads and paragraph text. If we used the same amount of whitespace above   and below a subhead, it would look like this:
 
-<figure>
-  <img src="/images/2016/wrong-about-vr/subhead-equal.png" alt="Whitespace above and below subhead are equal">
+<figure><img src="/images/2016/wrong-about-vr/subhead-equal.png" alt="Whitespace above and below subhead are equal">
 
   <figcaption>Equal whitespace above and below subheads</figcaption>
 </figure>
@@ -138,8 +132,7 @@ h2 + p {
 }
 ```
 
-<figure>
-  <img src="/images/2016/wrong-about-vr/subhead-proximity.png" alt="Whitespace above subhead is larger than whitespace below subhead">
+<figure><img src="/images/2016/wrong-about-vr/subhead-proximity.png" alt="Whitespace above subhead is larger than whitespace below subhead">
 
   <figcaption>Whitespace above subhead is larger than whitespace below subhead</figcaption>
 </figure>
@@ -180,8 +173,7 @@ ul, ol {
 }
 ```
 
-<figure>
-  <img src="/images/2016/wrong-about-vr/list-1.png" alt="">
+<figure><img src="/images/2016/wrong-about-vr/list-1.png" alt="">
 </figure>
 
 Let's look at the indentation of each list item next. Here, we can see that the browser has already indented items inward for us.
@@ -198,8 +190,7 @@ ul, ol {
 
 When the padding is removed, we can see that bullet points lie outside of the text. Text within the list items are aligned to the paragraph text:
 
-<figure>
-  <img src="/images/2016/wrong-about-vr/list-2.png" alt="">
+<figure><img src="/images/2016/wrong-about-vr/list-2.png" alt="">
 </figure>
 
 If we want to make sure the list indentation follows the rhythm we've set on the page, we need to first align the edges of the bullets with the edges of the text paragraph text (alignment).
@@ -212,8 +203,7 @@ ul {
 }
 ```
 
-<figure>
-  <img src="/images/2016/wrong-about-vr/list-3.png" alt="Alt text">
+<figure><img src="/images/2016/wrong-about-vr/list-3.png" alt="Alt text">
 </figure>
 
 The alignment looks much better straight away.
@@ -229,8 +219,7 @@ ul {
 }
 ```
 
-<figure>
-  <img src="/images/2016/wrong-about-vr/list-4.png" alt="Alt text">
+<figure><img src="/images/2016/wrong-about-vr/list-4.png" alt="Alt text">
 </figure>
 
 Now, we can indent the list items to the right by a multiple of the Vertical Rhythm. I've found that half a baseline works best for most situations:
@@ -241,8 +230,7 @@ ul {
 }
 ```
 
-<figure>
-  <img src="/images/2016/wrong-about-vr/list-5.png" alt="">
+<figure><img src="/images/2016/wrong-about-vr/list-5.png" alt="">
 </figure>
 
 Much better, once again.
@@ -265,8 +253,7 @@ li + li {
 }
 ```
 
-<figure>
-  <img src="/images/2016/wrong-about-vr/list-6.png" alt="">
+<figure><img src="/images/2016/wrong-about-vr/list-6.png" alt="">
 </figure>
 
 How does this list compare with the one with started with? Much better, isn't it? :)

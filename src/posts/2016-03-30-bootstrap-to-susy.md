@@ -32,8 +32,7 @@ Let's walk through each of these steps in the article.
 
 **A layout pattern is pattern that determines how your layout changes at different breakpoints.** An example of a layout pattern is a content-sidebar layout. In this layout, both content and sidebar elements take up the full 12 columns on the mobile (assuming you're using a 12-column grid). At `600px`, the content takes up 9 columns while the sidebar takes up 3 columns.
 
-<figure>
-  <img src="/images/2016/html-grids-to-css-grids/layout-content-sidebar.png" alt="Content Sidebar Layout pattern">
+<figure><img src="/images/2016/html-grids-to-css-grids/layout-content-sidebar.png" alt="Content Sidebar Layout pattern">
 
   <figcaption>Content Sidebar Layout pattern</figcaption>
 </figure>
@@ -49,8 +48,7 @@ The code for this layout in Bootstrap is relatively straightforward. (Btw, let's
 
 Another example of a layout pattern is a 3-column grid. In this layout, each grid item takes up the full 12 columns on a mobile. At `600px`, each grid item takes up 4 columns.
 
-<figure>
-  <img src="/images/2016/html-grids-to-css-grids/layout-grid-3col.png" alt="3-column grid layout">
+<figure><img src="/images/2016/html-grids-to-css-grids/layout-grid-3col.png" alt="3-column grid layout">
 
   <figcaption>3-column grid layout</figcaption>
 </figure>
@@ -67,8 +65,7 @@ The code for this 3-column grid in Bootstrap is straightforward as well:
 
 Once in a while, you may encounter a layout that's more complex. For example, you might want to feature two items in a 3-column grid. Each featured item should take up 6 columns instead of 4 columns at `600px`.
 
-<figure>
-  <img src="/images/2016/html-grids-to-css-grids/layout-featured.png" alt="Feature Grid">
+<figure><img src="/images/2016/html-grids-to-css-grids/layout-featured.png" alt="Feature Grid">
 
   <figcaption>Feature Grid</figcaption>
 </figure>
@@ -402,8 +399,7 @@ The first thing to do when creating grids with Flexbox is to add the `flex` prop
 
 Once you've done this, you'll notice that flex items take up only their required space:
 
-<figure>
-  <img src="/images/2016/html-grids-to-css-grids/l-fg-req-space.png" alt="Flex items only take up their required spaces">
+<figure><img src="/images/2016/html-grids-to-css-grids/l-fg-req-space.png" alt="Flex items only take up their required spaces">
 
   <figcaption>Flex items only take up their required spaces</figcaption>
 </figure>
@@ -421,8 +417,7 @@ Let's go with setting `flex-basis` to `100%`. It's easier to understand.
 }
 ```
 
-<figure>
-  <img src="/images/2016/html-grids-to-css-grids/l-fg-mobile.png" alt="Fixing Flexbox layout for mobile">
+<figure><img src="/images/2016/html-grids-to-css-grids/l-fg-mobile.png" alt="Fixing Flexbox layout for mobile">
 
   <figcaption>Fixing Flexbox layout for mobile</figcaption>
 </figure>
@@ -440,8 +435,7 @@ We're done with setting the mobile layout. Let's move on and create the feature 
 }
 ```
 
-<figure>
-  <img src="/images/2016/html-grids-to-css-grids/l-fg-1.png" alt="Three-column featured grid without margins">
+<figure><img src="/images/2016/html-grids-to-css-grids/l-fg-1.png" alt="Three-column featured grid without margins">
 
   <figcaption>Three-column featured grid without margins</figcaption>
 </figure>
@@ -462,8 +456,7 @@ When working with flexbox, you have to split gutters in half and place them on t
 
 Unfortunately, when you look at the layout produced by this code, you'll probably get confused and disappointed :(
 
-<figure>
-  <img src="/images/2016/html-grids-to-css-grids/l-fg-2.png" alt="Layout gets screwed up because Flex-basis wasn't calculated properly">
+<figure><img src="/images/2016/html-grids-to-css-grids/l-fg-2.png" alt="Layout gets screwed up because Flex-basis wasn't calculated properly">
 
   <figcaption>Layout gets screwed up because Flex-basis wasn't calculated properly </figcaption>
 </figure>
@@ -484,8 +477,7 @@ The fix is surprisingly simple. We just have to remove the margins from each gri
 
 And you'll get a normal three-column grid (but with a fixed gutter width of 20px).
 
-<figure>
-  <img src="/images/2016/html-grids-to-css-grids/l-fg-3.png" alt="three-column-grid with Flexbox">
+<figure><img src="/images/2016/html-grids-to-css-grids/l-fg-3.png" alt="three-column-grid with Flexbox">
 
   <figcaption>three-column-grid with Flexbox</figcaption>
 </figure>
@@ -506,8 +498,7 @@ We know each featured item is supposed to half up approximately 50% of the width
 }
 ```
 
-<figure>
-  <img src="/images/2016/html-grids-to-css-grids/l-fg-4.png" alt="3-column Feature Grid with Flexbox">
+<figure><img src="/images/2016/html-grids-to-css-grids/l-fg-4.png" alt="3-column Feature Grid with Flexbox">
 
   <figcaption>3-column Feature Grid with Flexbox</figcaption>
 </figure>
@@ -524,8 +515,7 @@ Normally, you wouldn't want the additional `10px` margin on all four sides of th
 
 If you do this, you'll find that you'll be able to scroll to the right. This is something we definitely don't want.
 
-<figure>
-  <img src="/images/2016/html-grids-to-css-grids/l-fg-5.png" alt="Negative margins allow users to scroll right">
+<figure><img src="/images/2016/html-grids-to-css-grids/l-fg-5.png" alt="Negative margins allow users to scroll right">
 
   <figcaption>Negative margins allow users to scroll right</figcaption>
 </figure>

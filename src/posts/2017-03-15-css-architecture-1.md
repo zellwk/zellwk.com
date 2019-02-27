@@ -343,8 +343,7 @@ Next, there's one more thing I add to BEM for my use case — containers.
 
 Sometimes (many, actually), I run into situations where I had to bleed the background color of a section while ensuring everything else is aligned, like this:
 
-<figure>
-  <img src="/images/2017/css-architecture/container.png" alt="Image of a block that contains a background that bleeds out of it">
+<figure><img src="/images/2017/css-architecture/container.png" alt="Image of a block that contains a background that bleeds out of it">
   <figcaption>The greyish background bleeds out of alignment</figcaption>
 </figure>
 

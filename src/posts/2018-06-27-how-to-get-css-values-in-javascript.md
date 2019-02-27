@@ -67,8 +67,7 @@ const style = getComputedStyle(element)
 
 If you log `style`, you should see an object that contains every CSS property and their respective values.
 
-<figure>
-  <img src="/images/2018/get-css/all-properties.png" alt="`getComputedStyle` returns an object that contains every CSS property and their respective values">
+<figure><img src="/images/2018/get-css/all-properties.png" alt="`getComputedStyle` returns an object that contains every CSS property and their respective values">
   <figcaption>`getComputedStyle` returns an object that contains every CSS property and their respective values</figcaption>
 </figure>
 
@@ -76,15 +75,13 @@ You can also see this object in Chrome's and Firefox's dev tools.
 
 For Firefox dev tools, look under "Inspector", "Computed".
 
-<figure>
-  <img src="/images/2018/get-css/firefox.png" alt="Firefox dev tools computed tab">
+<figure><img src="/images/2018/get-css/firefox.png" alt="Firefox dev tools computed tab">
   <figcaption aria-hidden>Firefox dev tools computed tab</figcaption>
 </figure>
 
 For Chrome dev tools, look under "Elements". If the dev tools window is large, you can see the computed styles on the right panel. If the dev tools window is small, you can look under the "Computed" tab.
 
-<figure>
-  <img src="/images/2018/get-css/chrome.png" alt="Chrome dev tools computed tab">
+<figure><img src="/images/2018/get-css/chrome.png" alt="Chrome dev tools computed tab">
   <figcaption aria-hidden>Chrome dev tools computed tab</figcaption>
 </figure>
 

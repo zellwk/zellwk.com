@@ -12,8 +12,7 @@ You learned to create a simple form with Flexbox in the [previous article][1]. T
 
 Here's what we're building:
 
-<figure>
-  <img src="/images/2018/simple-form-css-grid/form.png" alt="The simple form we're building consists of one email input and one submit button">
+<figure><img src="/images/2018/simple-form-css-grid/form.png" alt="The simple form we're building consists of one email input and one submit button">
 </figure>
 
 <!-- more -->
@@ -46,8 +45,7 @@ form {
 
 Here’s what you get:
 
-<figure>
-  <img src="/images/2018/simple-form-css-grid/grid1.png" alt="Two rows of elements. The first row is the email input. The second row is the submit button">
+<figure><img src="/images/2018/simple-form-css-grid/grid1.png" alt="Two rows of elements. The first row is the email input. The second row is the submit button">
 </figure>
 
 Why did we get two rows?
@@ -84,8 +82,7 @@ We will simulate elements of unequal height by substituting the `button`'s text 
 </form>
 ```
 
-<figure>
-  <img src="/images/2018/simple-form-css-grid/smiley.png" alt="Adding a smiley icon as the to the submit button">
+<figure><img src="/images/2018/simple-form-css-grid/smiley.png" alt="Adding a smiley icon as the to the submit button">
   <figcaption aria-hidden>Adding a smiley icon as the to the submit button</figcaption>
 </figure>
 
@@ -93,8 +90,7 @@ Notice the `input`'s height increases to fit the large SVG icon too! Once again,
 
 If you want to change this behavior, you can change the `align-items` property to either `start`, `end`, or `center`.
 
-<figure>
-  <img src="/images/2018/simple-form-css-grid/align-items.png" alt="Items can be aligned differently if you set `align-itemns` to a different value">
+<figure><img src="/images/2018/simple-form-css-grid/align-items.png" alt="Items can be aligned differently if you set `align-itemns` to a different value">
   <figcaption aria-hidden>Items can be aligned differently if you set `align-itemns` to a different value</figcaption>
 </figure>
 

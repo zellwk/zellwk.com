@@ -10,8 +10,7 @@ description: Flexbox can help you create a simple form that contains an email an
 
 The simplest form on the web contains an email field and a submit button. Sometimes, the email field and the submit button is placed on the same row, like this:
 
-<figure>
-  <img src="/images/2018/simple-form-flexbox/form.png" alt="Email and submit button on the same row">
+<figure><img src="/images/2018/simple-form-flexbox/form.png" alt="Email and submit button on the same row">
   <figcaption aria-hidden>Email and submit button on the same row</figcaption>
 </figure>
 
@@ -41,8 +40,7 @@ Here's the HTML:
 
 Here's what you have when you write the HTML (after styling for appearance).
 
-<figure>
-  <img src="/images/2018/simple-form-flexbox/before.png" alt="Input and Button elements are both inline-block elements">
+<figure><img src="/images/2018/simple-form-flexbox/before.png" alt="Input and Button elements are both inline-block elements">
   <figcaption>Input and Button elements are both inline-block elements</figcaption>
 </figure>
 
@@ -60,8 +58,7 @@ form {
 
 Here’s what you get once you set the display to flex:
 
-<figure>
-  <img src="/images/2018/simple-form-flexbox/flexboxed.png" alt="Whitespace between elements disappeared we used Flexbox">
+<figure><img src="/images/2018/simple-form-flexbox/flexboxed.png" alt="Whitespace between elements disappeared we used Flexbox">
   <figcaption>Whitespace between elements disappeared we changed to Flexbox</figcaption>
 </figure>
 
@@ -77,8 +74,7 @@ input {
 }
 ```
 
-<figure>
-  <img src="/images/2018/simple-form-flexbox/form.png" alt="Email field grew to take up any available spaces">
+<figure><img src="/images/2018/simple-form-flexbox/form.png" alt="Email field grew to take up any available spaces">
   <figcaption aria-hidden>Email field grew to take up any available spaces</figcaption>
 </figure>
 
@@ -98,8 +94,7 @@ This technique helps a lot if your `input` and `button` elements are of unequal 
 </form>
 ```
 
-<figure>
-  <img src="/images/2018/simple-form-flexbox/smiley.png" alt="Adding a smiley icon as the to the submit button">
+<figure><img src="/images/2018/simple-form-flexbox/smiley.png" alt="Adding a smiley icon as the to the submit button">
   <figcaption>Adding a smiley icon as the to the submit button</figcaption>
 </figure>
 
@@ -107,8 +102,7 @@ Notice the `input`'s height increases to fit the large SVG icon. We didn't have 
 
 If you want to change this behavior, you can change the `align-items` property to either `flex-start`, `flex-end`, or `center`.
 
-<figure>
-  <img src="/images/2018/simple-form-flexbox/align-items.png" alt="Items can be aligned differently if you set `align-itemns` to a different value">
+<figure><img src="/images/2018/simple-form-flexbox/align-items.png" alt="Items can be aligned differently if you set `align-itemns` to a different value">
   <figcaption aria-hidden>Items can be aligned differently if you set `align-itemns` to a different value</figcaption>
 </figure>
 

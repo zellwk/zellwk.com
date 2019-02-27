@@ -36,14 +36,12 @@ In our case, we edit the files on Github to simulate a change.
 
 Let's say we change the text in `README.md` from "Hello world, this is my first Github repo" to "Hello world, this is my second Github repo".
 
-<figure>
-  <img src="/images/2018/git-conflicts/changing-readme.png" alt="Changing the readme file">
+<figure><img src="/images/2018/git-conflicts/changing-readme.png" alt="Changing the readme file">
 </figure>
 
 We're also going make a commit message that says "Change first to second" to see the effects in our Git History later.
 
-<figure>
-  <img src="/images/2018/git-conflicts/changing-readme-commit.png" alt="Making a commit on the remote">
+<figure><img src="/images/2018/git-conflicts/changing-readme-commit.png" alt="Making a commit on the remote">
 </figure>
 
 For the second set of code, you can change the same `README.md` file on your local repository. Instead of "second Github repository", we're going to say "third Github repository".
@@ -54,38 +52,33 @@ Hello world! This is my third Github repo!
 
 We're going to commit this file and set the commit message to "changed first to third."
 
-<figure>
-  <img src="/images/2018/git-conflicts/commit-readme-local.png" alt="Make another commit on the local">
+<figure><img src="/images/2018/git-conflicts/commit-readme-local.png" alt="Make another commit on the local">
 </figure>
 
 You can check for an updated in your Git Client with the Fetch button. Once the fetch is completed, you can see that `origin/master` is on a different fork compared to `master`.
 
 This happens because there are changes on the Git remote and on our local repository at the same time.
 
-<figure>
-  <img src="/images/2018/git-conflicts/history-fork.png" alt="There is a fork on the Git history">
+<figure><img src="/images/2018/git-conflicts/history-fork.png" alt="There is a fork on the Git history">
 </figure>
 
 If you look at the branch on the left, you can see that the master branch says one down one up. This tells us there is one commit in the Git remote that is ahead of our master. At the same time, our master branch has one commit ahead of the remote.
 
-<figure>
-  <img src="/images/2018/git-conflicts/sidebar.png" alt="Master branch on the sidebar says one up and one down">
+<figure><img src="/images/2018/git-conflicts/sidebar.png" alt="Master branch on the sidebar says one up and one down">
 </figure>
 
 We need to pull our changes onto our local branch to consolidate the changes. When you pull the changes, you'll see an error message.
 
 This error message may be slightly different depending on the Git client you're using. In Fork, it says "Merging branch `origin/master` into `master`. Fix 1 conflict and then continue".
 
-<figure>
-  <img src="/images/2018/git-conflicts/conflict.png" alt="The error message">
+<figure><img src="/images/2018/git-conflicts/conflict.png" alt="The error message">
 </figure>
 
 What this means is you need to fix the conflict before you continue.
 
 To see the conflict, you can go back to the changes section. Here, you'll see the files that contain conflicts. In this case, it is the `README.md` file.
 
-<figure>
-  <img src="/images/2018/git-conflicts/readme-has-conflict.png" alt="The readme file has a conflict">
+<figure><img src="/images/2018/git-conflicts/readme-has-conflict.png" alt="The readme file has a conflict">
 </figure>
 
 First, let's talk about why you need to merge.
@@ -145,22 +138,19 @@ If you look at the commit message area, you'll see that Fork has filled in a com
 
 Click on commit to commit the changes.
 
-<figure>
-  <img src="/images/2018/git-conflicts/merge-commit.png" alt="Making a merge commit">
+<figure><img src="/images/2018/git-conflicts/merge-commit.png" alt="Making a merge commit">
 </figure>
 
 When you commit the changes, you'll see that the master branch in the sidebar says 2 up. This means our local branch is two commits ahead of the remote.
 
 If you look at the Git history, You can see that the remote master branch has a link back to the local master branch. This shows a merge.
 
-<figure>
-  <img src="/images/2018/git-conflicts/history-2.png" alt="The fork from `origin/master` has merged back into `master`">
+<figure><img src="/images/2018/git-conflicts/history-2.png" alt="The fork from `origin/master` has merged back into `master`">
 </figure>
 
 What you need to do next is to push the changes up to the Git remote.
 
-<figure>
-  <img src="/images/2018/git-conflicts/history-3.png" alt="`origin/master` and `master` are on the same commit again">
+<figure><img src="/images/2018/git-conflicts/history-3.png" alt="`origin/master` and `master` are on the same commit again">
 </figure>
 
 And this is how you resolve a Git conflict.

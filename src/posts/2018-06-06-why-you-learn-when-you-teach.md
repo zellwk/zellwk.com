@@ -29,28 +29,24 @@ Let's say you want to learn JavaScript. All you know is you're on one side of a 
 
 You don't know how to cross the gap (yet).
 
-<figure>
-  <img src="/images/2018/teaching/comic1.jpg">
+<figure><img src="/images/2018/teaching/comic1.jpg">
 </figure>
 
 When I tried to learn JavaScript, I read through countless books and tutorials. I even looked at source code to see how people coded. I also searched for best practices.
 
 Each material I come across acts as a tiny foothold for me to get to the other side. Some materials are easy to understand; some are hard.
 
-<figure>
-  <img src="/images/2018/teaching/comic2.jpg">
+<figure><img src="/images/2018/teaching/comic2.jpg">
 </figure>
 
 Sometimes the footholds were too wide apart. I miss my step, I fall into the valley, and I try again.
 
-<figure>
-  <img src="/images/2018/teaching/comic3.jpg">
+<figure><img src="/images/2018/teaching/comic3.jpg">
 </figure>
 
 Sometimes I hit a wall. I don't understand articles I read. I fall into the valley, and I try again.
 
-<figure>
-  <img src="/images/2018/teaching/comic4.jpg">
+<figure><img src="/images/2018/teaching/comic4.jpg">
 </figure>
 
 After trying enough (and losing enough lives), I toned up my leg muscles. I can jump a little farther and higher than before. I try the articles I couldn't understand again.
@@ -59,14 +55,12 @@ And sometimes I succeed in getting past the stage I was stuck at.
 
 And I get to the other side.
 
-<figure>
-  <img src="/images/2018/teaching/comic5.jpg">
+<figure><img src="/images/2018/teaching/comic5.jpg">
 </figure>
 
 Only to realize there's more to go...
 
-<figure>
-  <img src="/images/2018/teaching/comic6.jpg">
+<figure><img src="/images/2018/teaching/comic6.jpg">
 </figure>
 
 But that's okay. There's always more to go. That's what makes learning fun.
@@ -91,16 +85,14 @@ You know more than you give yourself credit for.
 
 When you teach, you try to help someone cross the cliff you crossed.
 
-<figure>
-  <img src="/images/2018/teaching/comic7.jpg">
+<figure><img src="/images/2018/teaching/comic7.jpg">
 </figure>
 
 One way to teach is to direct people to resources you went through. They will face the same difficulties you face. They'll hit walls; they'll miss their steps. Hopefully, they'll gain enough strength to move past the obstacles themselves.
 
 But this isn't teaching. This is simply... pointing people to the resources you used. You can help shorten their learning curve, but you're not teaching. Not yet.
 
-<figure>
-  <img src="/images/2018/teaching/comic8.jpg">
+<figure><img src="/images/2018/teaching/comic8.jpg">
 </figure>
 
 **To teach, you walk backwards. You stand beside the student and help them through the gap.**
@@ -109,8 +101,7 @@ You can point them to a tutorial while you wait for their questions. Sooner or l
 
 Sometimes, one is better than the other. Sometimes, both ways are possible. And you learn there's another way to cross the cliff.
 
-<figure>
-  <img src="/images/2018/teaching/comic9.jpg">
+<figure><img src="/images/2018/teaching/comic9.jpg">
 </figure>
 
 Sometimes, you think of a better example to help them cross the chasm easier. When you do this, you build another foothold for yourself.
@@ -118,16 +109,14 @@ Sometimes, you think of a better example to help them cross the chasm easier. Wh
 That's why you learn when you teach—**you build more footholds.**
 
 
-<figure>
-  <img src="/images/2018/teaching/comic10.jpg">
+<figure><img src="/images/2018/teaching/comic10.jpg">
 </figure>
 
 Maybe one day, when you've answered enough questions, you build so many footholds that you fill the gap.
 
 That's when your knowledge is rock solid.
 
-<figure>
-  <img src="/images/2018/teaching/comic11.jpg">
+<figure><img src="/images/2018/teaching/comic11.jpg">
 </figure>
 
 There's no need for footholds anymore. You can simply walk across. Students you teach can walk across too.
@@ -138,16 +127,14 @@ You don't need to be an expert to teach. **You can teach anyone who wants to cro
 
 It's best to help immediately because you know how it feels to go past the cliff. You know danger spots where students need to be aware of.
 
-<figure>
-  <img src="/images/2018/teaching/comic12.jpg">
+<figure><img src="/images/2018/teaching/comic12.jpg">
 </figure>
 
 Sometimes people will ask you questions and you go, "I don't know".
 
 That's okay. You may not be able to fill up all the gaps yet. But you know you're missing a piece. You can fill it up later by doing more research.
 
-<figure>
-  <img src="/images/2018/teaching/comic13.jpg">
+<figure><img src="/images/2018/teaching/comic13.jpg">
 </figure>
 
 Sometimes you won't be able to fill up the gap immediately. There are too many things you don't know about.

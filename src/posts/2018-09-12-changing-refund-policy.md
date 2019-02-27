@@ -76,8 +76,7 @@ Integrity (and thus, honesty) is my #1 value. I hate dishonest people, and I hat
 
 **PayPal eventually awarded the case in my favor.**
 
-<figure>
-  <img src="/images/2018/changing-refund-policy/win.png" alt="Evidence that PayPal awarded the case in my favor">
+<figure><img src="/images/2018/changing-refund-policy/win.png" alt="Evidence that PayPal awarded the case in my favor">
 </figure>
 
 "Yay, serves O right!", I thought. Good job, Zell. Right?

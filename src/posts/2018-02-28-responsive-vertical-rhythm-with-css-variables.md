@@ -137,8 +137,7 @@ p {
 }
 ```
 
-<figure>
-  <img src="/images/2018/responsive-vertical-rhythm/var-change.gif" alt="GIF that shows a paragraph to text switching between red and blue colors">
+<figure><img src="/images/2018/responsive-vertical-rhythm/var-change.gif" alt="GIF that shows a paragraph to text switching between red and blue colors">
   <figcaption>CSS Custom properties are updated dynamically, even within media queries!</figcaption>
 </figure>
 
@@ -158,8 +157,7 @@ That means you can create a `--baseline` property that correspond to one rhythm 
 }
 ```
 
-<figure>
-  <img src="/images/2018/responsive-vertical-rhythm/baseline-resize.gif" alt="GIF that shows that line-height can be changed via the baseline custom property.">
+<figure><img src="/images/2018/responsive-vertical-rhythm/baseline-resize.gif" alt="GIF that shows that line-height can be changed via the baseline custom property.">
   <figcaption>Line height can be changed at different breakpoints via a custom property</figcaption>
 </figure>
 
@@ -173,8 +171,7 @@ h2 { margin-top: calc(var(--baseline) * 2rem); }
 p { margin-top: calc(var(--baseline) * 0.75rem); }
 ```
 
-<figure>
-  <img src="/images/2018/responsive-vertical-rhythm/calc-resize.gif" alt="GIF that shows the margins of both <h2> and <p> change at the breakpoint">
+<figure><img src="/images/2018/responsive-vertical-rhythm/calc-resize.gif" alt="GIF that shows the margins of both <h2> and <p> change at the breakpoint">
   <figcaption>CSS Calc can be used together with CSS Custom Properties to calculate rhythm values</figcaption>
 </figure>
 
@@ -205,13 +202,11 @@ p { margin-top: rvr(0.75); }
 
 Support for both [CSS Custom Properties](https://caniuse.com/#feat=css-variables) and [CSS Calc](https://caniuse.com/#feat=calc) are awesome. They're supported in all major browsers today.
 
-<figure>
-  <img src="/images/2018/responsive-vertical-rhythm/ciu-custom-props.png" alt="Support chart for CSS Custom properties from caniuse.com">
+<figure><img src="/images/2018/responsive-vertical-rhythm/ciu-custom-props.png" alt="Support chart for CSS Custom properties from caniuse.com">
   <figcaption>CSS Custom Properties are pretty well supported!</figcaption>
 </figure>
 
-<figure>
-  <img src="/images/2018/responsive-vertical-rhythm/ciu-calc.png" alt="Support chart for CSS Calc from caniuse.com">
+<figure><img src="/images/2018/responsive-vertical-rhythm/ciu-calc.png" alt="Support chart for CSS Calc from caniuse.com">
   <figcaption>CSS Calc is pretty well supported too!</figcaption>
 </figure>
 

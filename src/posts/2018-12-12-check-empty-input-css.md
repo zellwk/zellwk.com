@@ -15,9 +15,7 @@ I had that question when I tried to make an autocomplete component for Learn Jav
 1. Hide a dropdown if the input is empty
 2. Show the dropdown if the input is filled
 
-<figure>
-  <img src="/images/2018/empty-input-validation-css/autocomplete.gif" alt="autocomplete demo from https://learnjavascript.today">
-</figure>
+<figure><img src="/images/2018/empty-input-validation-css/autocomplete.gif" alt="autocomplete demo from https://learnjavascript.today"></figure>
 
 I found a way to do it. It's not perfect. There are a few nuances involved, but I want to share it with you.
 
@@ -36,9 +34,7 @@ First, let's build a form so we're on the same page. We're going to use a simple
 
 When the input is filled, we want to change its `border-color` to green. Here's an example of what we're creating:
 
-<figure>
-  <img src="/images/2018/empty-input-validation-css/check.gif" alt="when input is filled, borders should turn green">
-</figure>
+<figure><img src="/images/2018/empty-input-validation-css/check.gif" alt="when input is filled, borders should turn green"></figure>
 
 ## Checking if the input is empty
 
@@ -53,15 +49,11 @@ I relied on HTML form validation to check whether the input is empty. That meant
 
 At this point, it works fine when the input is filled. Borders turned green.
 
-<figure>
-  <img src="/images/2018/empty-input-validation-css/check.gif" alt="borders turned green when input is filled">
-</figure>
+<figure><img src="/images/2018/empty-input-validation-css/check.gif" alt="borders turned green when input is filled"></figure>
 
 But there's a problem: If the user enters a whitespace into the field, the borders turn green too.
 
-<figure>
-  <img src="/images/2018/empty-input-validation-css/check-whitespace.gif" alt="Borders turn green even if user enters a whitespace">
-</figure>
+<figure><img src="/images/2018/empty-input-validation-css/check-whitespace.gif" alt="Borders turn green even if user enters a whitespace"></figure>
 
 Technically, this is correct. The input is filled because the user typed something into it.
 
@@ -84,23 +76,17 @@ Since I didn't want whitespaces to be recognized, I started with the `\S+` patte
 
 Sure enough, it worked. If a user enters a whitespace into the field, the input doesn't get validated.
 
-<figure>
-  <img src="/images/2018/empty-input-validation-css/check-pattern-pre1.gif" alt="Input doesn't get validated when whitespaces are entered">
-</figure>
+<figure><img src="/images/2018/empty-input-validation-css/check-pattern-pre1.gif" alt="Input doesn't get validated when whitespaces are entered"></figure>
 
 But when a whitespace is entered (anywhere) into the input, the input gets invalidated.
 
-<figure>
-  <img src="/images/2018/empty-input-validation-css/check-pattern1.gif" alt="Borders turned from greet to black when a whitespace is added.">
-</figure>
+<figure><img src="/images/2018/empty-input-validation-css/check-pattern1.gif" alt="Borders turned from greet to black when a whitespace is added."></figure>
 
 Unfortunately, this pattern didn't work in my use case.
 
 In Learn JavaScript's autocomplete component, I taught students how to complete a list of countries. The names of some countries had spaces...
 
-<figure>
-  <img src="/images/2018/empty-input-validation-css/autocomplete.gif" alt="Dropdown contains countries with names that have spaces in them. For example, United States.">
-</figure>
+<figure><img src="/images/2018/empty-input-validation-css/autocomplete.gif" alt="Dropdown contains countries with names that have spaces in them. For example, United States."></figure>
 
 I had to include whitespaces in the mix.
 
@@ -115,15 +101,11 @@ The next best alternative I could think of is `\S+.*`. This means 1 or more non-
 
 This worked! I can enter whitespaces into the mix now!
 
-<figure>
-  <img src="/images/2018/empty-input-validation-css/check-pattern2.gif" alt="Borders remained green when whitespace is added in the middle of the input">
-</figure>
+<figure><img src="/images/2018/empty-input-validation-css/check-pattern2.gif" alt="Borders remained green when whitespace is added in the middle of the input"></figure>
 
 But there's one more problem... the input doesn't validate if you START with a whitespace...
 
-<figure>
-  <img src="/images/2018/empty-input-validation-css/check-pattern3.gif" alt="Borders turned black when whitespace is added to the start of input">
-</figure>
+<figure><img src="/images/2018/empty-input-validation-css/check-pattern3.gif" alt="Borders turned black when whitespace is added to the start of input"></figure>
 
 And that's the problem I couldn't resolve. More on this later.
 
@@ -211,7 +193,7 @@ Here are the use-cases:
 
 Many readers were generous enough to email me their solutions. I want to thank everyone who helped. Thank you so much!
 
-The cleanest solution I received is: `.*\S.*` by [Daniel O'Connor](https://www.nvinteractive.com). This means:
+The cleanest solution I received is: `.*\S.*` by [Daniel O'Connor][3]. This means:
 
 - `.*`: Any character
 - `\S`: Followed *one* non-whitespace character
@@ -219,9 +201,9 @@ The cleanest solution I received is: `.*\S.*` by [Daniel O'Connor](https://www.n
 
 Other regexes I received include:
 
-- `.*\S+.*` by [Matt Mink](https://twitter.com/matthewjmink).
-- `\s*\S.*` by [Sungbin Jo](https://github.com/pcr910303)
-- `^\s?(?=\S).*` with a lookahead by [Konstantin](https://twitter.com/KonstantinRouda)
+- `.*\S+.*` by [Matt Mink][4].
+- `\s*\S.*` by [Sungbin Jo][5]
+- `^\s?(?=\S).*` with a lookahead by [Konstantin][6]
 
 And many others!
 
@@ -238,3 +220,7 @@ If you don't mind the whitespaces, it works perfectly. Have fun trying this patt
 
 [1]:	https://css-tricks.com/form-validation-ux-html-css/ "Form Validation UX in HTML and CSS"
 [2]:	https://css-tricks.com/form-validation-ux-html-css/ "Form Validation UX in HTML and CSS"
+[3]:	https://www.nvinteractive.com
+[4]:	https://twitter.com/matthewjmink
+[5]:	https://github.com/pcr910303
+[6]:	https://twitter.com/KonstantinRouda

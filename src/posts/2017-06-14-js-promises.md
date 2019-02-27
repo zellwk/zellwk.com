@@ -37,8 +37,7 @@ const promise = jeffBuysCake('black forest')
 
 Right now, Jeff hasn't acted on his promise yet. In JavaScript, we say the promise is `pending`. You can verify this if you `console.log` a promise object.
 
-<figure>
-  <img src="/images/2017/promises/pending.png" alt="Logging jeffBuysCake shows that the promise is pending.">
+<figure><img src="/images/2017/promises/pending.png" alt="Logging jeffBuysCake shows that the promise is pending.">
   <figcaption>Logging jeffBuysCake shows that the promise is pending.</figcaption>
 </figure>
 
@@ -161,8 +160,7 @@ const promise = jeffBuysCake('black forest')
 console.log(promise)
 ```
 
-<figure>
-  <img src="/images/2017/promises/pending.png" alt="Logging jeffBuysCake shows that the promise is pending.">
+<figure><img src="/images/2017/promises/pending.png" alt="Logging jeffBuysCake shows that the promise is pending.">
   <figcaption>Logging jeffBuysCake shows that the promise is pending.</figcaption>
 </figure>
 
@@ -174,8 +172,7 @@ const promise = jeffBuysCake('black forest')
   .catch(nocake => console.log(nocake))
 ```
 
-<figure>
-  <img src="/images/2017/promises/hascake.png" alt="The console shows either black forest cake or no cake, depending on what you pass into jeffBuysCake.">
+<figure><img src="/images/2017/promises/hascake.png" alt="The console shows either black forest cake or no cake, depending on what you pass into jeffBuysCake.">
   <figcaption>The console shows either black forest cake or no cake, depending on what you pass into jeffBuysCake.</figcaption>
 </figure>
 

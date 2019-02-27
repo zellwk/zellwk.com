@@ -29,15 +29,11 @@ People asked for two features here:
 
 I've created the tags for the blog. You can find every tag on [the tags archive page][2].
 
-<figure>
-  <img src="/images/2019/rss/tags.png" alt="Image for the tags page">
-</figure>
+<figure><img src="/images/2019/rss/tags.png" alt="Image for the tags page"></figure>
 
 This page shows a list of tags for all my blog posts. You'll also see the number of articles that are tagged with a specific tag.
 
-<figure>
-  <img src="/images/2019/rss/tag-page.png" alt="Image for each tag page">
-</figure>
+<figure><img src="/images/2019/rss/tag-page.png" alt="Image for each tag page"></figure>
 
 If you click on a tag, you'll see a list of articles. I listed only the title of each article here. I thought it'll be easier for you to browser through everything I've created.
 
