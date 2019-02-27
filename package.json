@@ -55,6 +55,7 @@
     "jest": "^23.6.0",
     "mappy-breakpoints": "^0.2.3",
     "markdown-it": "^8.4.2",
+    "markdown-it-anchor": "^5.0.2",
     "markdown-it-container": "^2.0.0",
     "mkdirp-promise": "^5.0.1",
     "modularscale-sass": "^2.1.1",

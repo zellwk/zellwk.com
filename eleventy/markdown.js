@@ -1,10 +1,12 @@
 const markdownIt = require('markdown-it')
-const markdownItContainer = require('markdown-it-container')
+const containerPlugin = require('markdown-it-container')
+const anchorPlugin = require('markdown-it-anchor')
 const lib = markdownIt({
   html: true,
   typographer: true
 })
-  .use(markdownItContainer)
+  .use(containerPlugin)
+  .use(anchorPlugin)
 
 // Trims whitespace from front and back of every line.
 // Allows markdown tag to be used with any indentation.
