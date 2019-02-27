@@ -3,7 +3,8 @@ const containerPlugin = require('markdown-it-container')
 const anchorPlugin = require('markdown-it-anchor')
 const lib = markdownIt({
   html: true,
-  typographer: true
+  typographer: true,
+  linkify: true
 })
   .use(containerPlugin)
   .use(anchorPlugin)
