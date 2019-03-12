@@ -88,7 +88,7 @@ When I talk about design, I mean both visual design and interaction design.
 
 **We're the best person to work on design because we know how the web works**. We know what can be done and what cannot be done. We also know how people use the web. And we care enough to keep ourselves updated.
 
-**We are not here to take over a designer's job**. They have their skill sete, and we have ours. We augment each other.
+**We are not here to take over a designer's job**. They have their skill set, and we have ours. We augment each other.
 
 We can critique a designer's ideas.
 
@@ -117,7 +117,7 @@ The point is, we need to know how to talk to people if we want to get buy-in fro
 
 It's pretty hard to become good at frontend development. We need to wear different hats depending on the situation, and we need to be pretty good with all these hats.
 
-It may be hard, but it isn't possible. Frontend development is a skill that takes time to master.
+It may be hard, but it isn't impossible. Frontend development is a skill that takes time to master.
 
 I'm not even close to mastering everything in the frontend world right now. I'm still working towards it.
 
