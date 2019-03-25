@@ -179,15 +179,15 @@ git commit -m "Initial Commit"
 
 If your project is not a Git repository, you'll get this error:
 
-<figure><img src="/images/2019/publish-to-npm/np-error-no-git.png" alt=""><figcaption>np's error if project is not a Git repository</figcaption></figure>
+<figure><img src="/images/2019/publish-to-npm/np-error-no-git.png" alt="np's error if project is not a Git repository"><figcaption>np's error if project is not a Git repository</figcaption></figure>
 
 If your project doesn't have remote, you'll get this error (at a later part of the checks).
 
-<figure><img src="/images/2019/publish-to-npm/np-error-no-remote.png" alt=""><figcaption>np's error if project does not have a remote. This error happens later in the process</figcaption></figure>
+<figure><img src="/images/2019/publish-to-npm/np-error-no-remote.png" alt="np's error if project does not have a remote"><figcaption>np's error if project does not have a remote. This error happens later in the process</figcaption></figure>
 
 If your working directory is dirty, you'll get this error:
 
-<figure><img src="/images/2019/publish-to-npm/np-error-dirty.png" alt=""><figcaption>np's error working directory is dirty</figcaption></figure>
+<figure><img src="/images/2019/publish-to-npm/np-error-dirty.png" alt="np's error working directory is dirty"><figcaption>np's error working directory is dirty</figcaption></figure>
 
 If you haven't pushed to the Git remote at least once, `np` will just hang and do nothing.
 
@@ -215,7 +215,7 @@ Choose a number and `np` will ask you to confirm your choice.
 
 If you followed the tutorial up to this point, you would get an error that looks like this:
 
-<figure><img src="/images/2019/publish-to-npm/np-test-error.png" alt=""></figure>
+<figure><img src="/images/2019/publish-to-npm/np-test-error.png" alt="An error with running tests"></figure>
 
 This happens because our `npm test` command results in an error. You can try it yourself:
 
@@ -223,7 +223,7 @@ This happens because our `npm test` command results in an error. You can try it 
 npm test
 ```
 
-<figure><img src="/images/2019/publish-to-npm/npm-test-error.png" alt=""></figure>
+<figure><img src="/images/2019/publish-to-npm/npm-test-error.png" alt="npm test results in an error"></figure>
 
 To fix this error, we need to change the `test` script in `package.json` file.
 
@@ -247,11 +247,11 @@ This change works because `exit 1` creates an error.
 
 With this change, `np` should complete the publishing process. (Remember to commit the change before running `np`).
 
-<figure><img src="/images/2019/publish-to-npm/np-process.png" alt=""></figure>
+<figure><img src="/images/2019/publish-to-npm/np-process.png" alt="The np publishing process"></figure>
 
 At the end of the process, `np` launches a browser window for you to write your release notes.
 
-<figure><img src="/images/2019/publish-to-npm/np-release.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/images/2019/publish-to-npm/np-release.png" alt="Writing release notes"></figure>
 
 In short, `np` makes publishing packages much simpler!
 
