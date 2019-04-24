@@ -59,7 +59,7 @@ Here's what he responded with:
 
 He also wondered if `pointer-events: none` would stop keyboard-trigged click events (which are absolutely essential for screen readers and keyboard users). 
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Pointer events shouldn’t obscure because any click/touch events pass through. Although, actually, unsure if that breaks keyboard-triggered clock events. 🤔</p>&mdash; Snook (@snookca) <a href="https://twitter.com/snookca/status/1120844382754754562?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Pointer events shouldn’t obscure because any click/touch events pass through. Although, actually, unsure if that breaks keyboard-triggered clock events. 🤔</p>&mdash; Snook (@snookca) <a href="https://twitter.com/snookca/status/1120844382754754562?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote>
 
 I was curious, so I tested `pointer-events: none` and discovered it works with keyboard-generated clicks, screen-reader-generated clicks, and JavaScript generated clicks. 
 
@@ -74,9 +74,9 @@ Here's the Codepen I used for my test:
 
 I reported my findings back to Jonathan and he said we might have a winner! 
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Sounds like we might have a winner then!</p>&mdash; Snook (@snookca) <a href="https://twitter.com/snookca/status/1120862948866633728?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Sounds like we might have a winner then!</p>&mdash; Snook (@snookca) <a href="https://twitter.com/snookca/status/1120862948866633728?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote>
 
-## The snippet 
+## The snippet
 
 Here's the snippet if you want to use this method. 
 
@@ -88,7 +88,7 @@ Here's the snippet if you want to use this method.
 }
 ```
 
-This is method is still incredibly new. I've only tested it on the latest versions of Firefox, Safari, and Chrome. I wasn't able to run a test on Edge and other browsers yet. 
+This method is still incredibly new. I've only tested it on the latest versions of Firefox, Safari, and Chrome. I wasn't able to run a test on Edge and other browsers yet. 
 
 Please feel free to take this snippet out for a spin. 
 
