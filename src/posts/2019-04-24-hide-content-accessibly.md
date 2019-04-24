@@ -88,11 +88,11 @@ Here's the snippet if you want to use this method.
 }
 ```
 
-This method is still incredibly new. I've only tested it on the latest versions of Firefox, Safari, and Chrome. I wasn't able to run a test on Edge and other browsers yet. 
+**DISCLAIMER:** This method is still incredibly new. I've only tested it on the latest versions of Firefox, Safari, and Chrome. I wasn't able to run a test on Edge and other browsers yet. 
 
-Please feel free to take this snippet out for a spin. 
+If you're an accessibility consultant, I'd greatly appreciate it if help me take this snippet out for a spin. 
 
-And let me know if it works for you! 
+For the rest: I don't recommend using this snippet in product yet. (Not until I get confirmation from accessibility experts). 
 
 [1]:	https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 [2]:	https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
