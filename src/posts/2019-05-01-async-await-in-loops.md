@@ -14,11 +14,11 @@ In this article, I want to share some gotchas to watch out for if you intend to 
 
 <!-- more -->
 
-## Before you begin 
+## Before you begin
 
 I'm going to assume you know how to use `async` and `await`. If you don't, read [the previous article][1] to familiarize yourself before continuing. 
 
-## Preparing an example 
+## Preparing an example
 
 For this article, let's say you want to get the number of fruits from a fruit basket. 
 
@@ -137,7 +137,7 @@ This behaviour works with most loops (like `while` and `for-of` loops)...
 
 But it won't work with loops that require a callback. Examples of such loops that require a fallback include `forEach`, `map`, `filter`, and `reduce`. We'll look at how `await` affects `forEach`, `map`, and `filter` in the next few sections. 
 
-## Await in a forEach loop 
+## Await in a forEach loop
 
 We'll do the same thing as we did in the for-loop example. First, let's loop through the array of fruits. 
 
@@ -194,7 +194,7 @@ The console logs in this order:
 
 JavaScript does this because `forEach` is not promise-aware. It cannot support `async` and `await`. You *cannot* use `await` in `forEach`. 
 
-## Await with map 
+## Await with map
 
 If you use `await` in a `map`, `map` will always return an array of promise. This is because asynchronous functions always return promises. 
 
@@ -362,7 +362,7 @@ End
 
 <figure><img src="/images/2019/async-await-loop/filter-2.gif" alt="Console shows 'Start'. One second later, console logs '['apple']' and 'End'"></figure>
 
-## Await with reduce 
+## Await with reduce
 
 For this case, let's say you want to find out the total number of fruits in the fruitBastet. Normally, you can use `reduce` to loop through an array and sum the number up. 
 
@@ -474,7 +474,7 @@ This version only takes one second to calculate the total number of fruits.
 
 <figure><img src="/images/2019/async-await-loop/reduce-4.gif" alt="Console logs 'Start'. One second later, it logs '41' and 'End'"></figure>
 
-## Key Takeaways 
+## Key Takeaways
 
 1. If you want to execute `await` calls in series, use a for-loop (or any loop without a callback). 
 2. Don't ever use `await` with `forEach`. Use a for-loop (or any loop without a callback) instead. 
