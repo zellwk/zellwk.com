@@ -208,10 +208,12 @@ const sleep = ms => {
 // Using Sleep
 console.log('Now')
 sleep(1000)
-  .then(v => { console.log('After one second') })
+  .then(v => { 
+    console.log('After one second') 
+  })
 ```
 
-<figure><img src="/images/2019/async-await/sleep.gif" alt="Console logs 'now' immediately. One second later, it logs 'After one second'></figure>
+<figure><img src="/images/2019/async-await/sleep.gif" alt="Console logs 'now' immediately. One second later, it logs 'After one second'"></figure>
 
 Let's say `getOne` takes one second to resolve. To create this delay, we pass `1000` (one second) into `sleep`. After one second has passed and the `sleep` promise resolves, we return the value 1. 
 
