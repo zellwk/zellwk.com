@@ -272,7 +272,7 @@ Now imagine if you have a larger viewport and you wanted to show 5 items per row
 
 ## A Video!
 
-The guys over at [Webucator](https://www.webucator.com/mobile-training/mobile-web-development.cfm) were extremely kind and volunteered to create a video to summarize this blog post. So if video are your thing, do check this out.
+The guys over at [Webucator](https://www.webucator.com/mobile-training/mobile-web-development.cfm) were extremely kind and volunteered to create a video to summarize this blog post. So if videos are your thing, do check this out.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LCveWtlvSbM" frameborder="0" allowfullscreen></iframe>
 
