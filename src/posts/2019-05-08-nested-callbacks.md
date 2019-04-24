@@ -27,11 +27,11 @@ This is JavaScript for you. It's mind-boggling to see nested callbacks, but I do
 
 <!-- more -->
 
-## On callbacks 
+## On callbacks
 
 I assume you know what callbacks are if you're reading this article. If you don't, please read [this article][1] for an introduction to callbacks before continuing. There, we talk about what callbacks are and why you use them in JavaScript. 
 
-## Solutions to callback hell 
+## Solutions to callback hell
 
 There are four solutions to callback hell: 
 
@@ -42,7 +42,7 @@ There are four solutions to callback hell:
 
 Before we dive into the solutions, let's construct a callback hell together. Why? Because it's too abstract to see `firstFunction`, `secondFunction`, and `thirdFunction`. We want to make it concrete. 
 
-## Constructing a callback hell 
+## Constructing a callback hell
 
 Let's imagine we're trying to make a burger. To make a burger, we need to go through the following steps: 
 
@@ -331,7 +331,7 @@ makeBurger()
 
 (Note: You can do the same with Promises... but the syntax isn't as nice and as clear as async/await functions). 
 
-## Wrapping up 
+## Wrapping up
 
 Callback hell isn't as hellish as you think. There are four easy ways to manage callback hell: 
 

@@ -40,7 +40,7 @@ To make it easier for you to digest, I also summarized what we talked about into
 
 <!-- more -->
 
-## Your CV / Resume 
+## Your CV / Resume
 
 It's hard to write a CV. On one hand, you want to pad it with enough information to make you attractive. On the other hand, you want to keep it short enough for recruiters to not hate you. 
 
@@ -62,7 +62,7 @@ Chris calls this The Crayon Test.
 
 What you should do is **make sure your CV is clear and understandable**. It should not have any spelling mistakes. It should contain the necessary information a recruiter needs to contact you. 
 
-### Keywords 
+### Keywords
 
 **Make sure you have the right keywords** for the position you want to apply for. For example, if the job ad is for a "React Developer", make sure you have "React" somewhere on your Resume. 
 
@@ -88,7 +88,7 @@ There are a variety of ways to talk about your passion and experience in this in
 
 Most of these can go into the "Community" section of your CV. More on this later. 
 
-### Length of your CV 
+### Length of your CV
 
 Your CV should be short. **Keep it to 1-2 pages if you're starting out.** 
 
@@ -167,7 +167,7 @@ Your cover letter should contain these three paragraphs (in your own words):
 - Paragraph 2: Why you fit the role
 - Paragraph 3: You can reach me at [this number ]. 
 
-## Before you apply 
+## Before you apply
 
 Most job requirements seem daunting. Everyone is looking for some JavaScript experience. Everyone want React Developers. Some even want Full Stack developers. 
 
@@ -180,7 +180,7 @@ We'll talk about four important things you need to understand. Some may create a
 3. The "Full Stack" developer 
 4. Keep applying
 
-### Why some job ads suck 
+### Why some job ads suck
 
 **The person who hires for the person and the person who crafts the job ad may be different people.** This is especially true in large companies. 
 
@@ -225,7 +225,7 @@ They'll only interview you if your CV matches what they think is "Full Stack". T
 
 What this means is: **Don't worry about getting a full-stack experience.** Read the job description, apply, and ask questions during the interview (more on this later). 
 
-### Keep applying 
+### Keep applying
 
 It can be dispiriting to apply for jobs. You'll get rejected (many times without even knowing). It sucks. 
 
@@ -241,9 +241,9 @@ But **you got to keep applying.** You have to continue to review your CV and Cov
 
 **Don't give up.** You'll get a job eventually if you keep it up. 
 
-## During the interview 
+## During the interview
 
-Interviews are nerve-wreaking. We'll talk about five things in this section:   
+Interviews are nerve-wreaking. We'll talk about five things in this section:  
 
 1. Feeling nervous 
 2. Whiteboard interviews
@@ -261,7 +261,7 @@ You will stumble as you answer questions. You will get something wrong during th
 
 Hopefully, this makes you feel better. The more relaxed you can be, the better. But don't stress yourself to be relaxed. 
 
-### Whiteboard interviews 
+### Whiteboard interviews
 
 Whiteboard interviews suck because people test you on the wrong things. You won't be writing code on the whiteboard in your job, so **it makes no sense to create a whiteboard interview**. 
 
@@ -315,7 +315,7 @@ If you left your job because it's a toxic environment, you want to be specific a
 
 We didn't tackle this question any further in the chat I had with Chris, so I don't have concrete answers for you if you got bored and simply wanted to switch. 
 
-### Standing out 
+### Standing out
 
 You need to sell yourself during an interview so you stand out. You can do this by answering questions the interviewer has not asked. 
 
@@ -323,7 +323,7 @@ You need to sell yourself during an interview so you stand out. You can do this 
 
 It is the nature of our industry to think creatively. **If you managed to solve a problem in a useful way before, talk about it**. It'll put you in a good light. The more you've done this, the more you're of a right employee. 
 
-### Questions to ask 
+### Questions to ask
 
 As much as the interview is interviewing you, **you're also interviewing the interviewer**. Remember this. 
 
@@ -346,13 +346,13 @@ You'd want to hear what they want to hide. You want to test their honesty as wel
 
 Everyone will try to sell you the job if they're interested in you. They'll tell you about shiny frameworks and greenfield projects. But when you show up, they might ask you to work on legacy systems. 
 
-### Be honest 
+### Be honest
 
 **Always be honest.** It's not going to work if you bluff. 
 
 The worst part about lying is you might get the job. And then you're screwed because you're expected to perform. 
 
-## Final words from Chris 
+## Final words from Chris
 
 So much about finding a job is not cutting yourself out of the process. 
 
