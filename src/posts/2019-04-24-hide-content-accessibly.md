@@ -53,7 +53,7 @@ I thought this felt good enough, and I asked Jonathan about it.
 
 Here's what he responded with: 
 
-<blockquote class="twitter-tweet" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">While it pulls it out of flow, it can obscure clickable items. You could add `pointer-events: none;` to it. I don&#39;t know how screenreaders behave with pointer-events turned off; I haven&#39;t tested it. <a href="https://t.co/fa8qHvfWic">https://t.co/fa8qHvfWic</a></p>&mdash; Snook (@snookca) <a href="https://twitter.com/snookca/status/1120809900878307328?ref_src=twsrc%5Etfw">April 23, 2019</a></blockquote>
+<blockquote class="twitter-tweet" data-conversation="none" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">While it pulls it out of flow, it can obscure clickable items. You could add `pointer-events: none;` to it. I don&#39;t know how screenreaders behave with pointer-events turned off; I haven&#39;t tested it. <a href="https://t.co/fa8qHvfWic">https://t.co/fa8qHvfWic</a></p>&mdash; Snook (@snookca) <a href="https://twitter.com/snookca/status/1120809900878307328?ref_src=twsrc%5Etfw">April 23, 2019</a></blockquote>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -94,11 +94,9 @@ If you're an accessibility consultant, I'd greatly appreciate it if help me take
 
 For the rest: I don't recommend using this snippet in production yet. (Not until I get confirmation from accessibility experts). 
 
-## The results are in!
-
 **UPDATE**: Many developers voiced their opinions, concerns, and experiments over at Twitter. I wanted to share with you what I consolidated and learned. 
 
-Overall, it sounds like all three properties need to be debated upon. 
+At the start, all three properties were debated upon.
 
 First, let's talk about `opacity`. 
 
@@ -106,15 +104,15 @@ First, let's talk about `opacity`.
 
 Patrick and Vadim were concerned about `opacity` because it seemed to break in some browser/screen reader combination. 
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">don&#39;t have test results to hand/time to test just now, but in short: yes, in at least some browser/screen reader combination, opacity below a certain value results in content not being announced. suggest sticking with tried and tested (albeit a bit lengthy looking) sr-only styles</p>&mdash; patrick h. lauke (@patrick_h_lauke) <a href="https://twitter.com/patrick_h_lauke/status/1120955137491705856?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote>
+<blockquote class="twitter-tweet" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">don&#39;t have test results to hand/time to test just now, but in short: yes, in at least some browser/screen reader combination, opacity below a certain value results in content not being announced. suggest sticking with tried and tested (albeit a bit lengthy looking) sr-only styles</p>&mdash; patrick h. lauke (@patrick_h_lauke) <a href="https://twitter.com/patrick_h_lauke/status/1120955137491705856?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote>
 
 But Jonathan found some research that suggests that `opacity` is okay. Patrick further did some tests and agreed that `opacity` is okay. 
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">embarassing, but i stand corrected. it appears the half-remembered fact about opacity not working was, in essence, for the opposites case (problems with sites using it thinking it hides it from AT, but it not doing it).<br><br>just opacity itself seems to be ignored by AT 1/</p>&mdash; patrick h. lauke (@patrick_h_lauke) <a href="https://twitter.com/patrick_h_lauke/status/1121000192080273409?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> 
+<blockquote class="twitter-tweet" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">embarassing, but i stand corrected. it appears the half-remembered fact about opacity not working was, in essence, for the opposites case (problems with sites using it thinking it hides it from AT, but it not doing it).<br><br>just opacity itself seems to be ignored by AT 1/</p>&mdash; patrick h. lauke (@patrick_h_lauke) <a href="https://twitter.com/patrick_h_lauke/status/1121000192080273409?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> 
 
 Scott O'Hara also chimed in on the original problem with `opacity`
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">ChromeVox used to completely ignore opacity: 0; essentially treated it the same as display: none.<br><br>that was a few years back with the browser extension version. Would need an actual chromebook to test if that&#39;s still an issue with the modern build.</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1121045899982012416?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> 
+<blockquote class="twitter-tweet" data-conversation="none" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">ChromeVox used to completely ignore opacity: 0; essentially treated it the same as display: none.<br><br>that was a few years back with the browser extension version. Would need an actual chromebook to test if that&#39;s still an issue with the modern build.</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1121045899982012416?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> 
 
 The verdict at this point: 
 
@@ -127,7 +125,7 @@ Next, let's talk about `pointer-events` because it's the second most-troublesome
 
 Scott O'Hara pointed out that iOS Voiceover users wouldn't be able to trigger a click if an element had `pointer-events: none`. I tested what Scott said and found it to be true. 
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Definitely a contextually appropriate solution to hide static text content. But this should be noted as not recommended for visually hiding interactive elements. For instance IOS VoiceOver will not be able to activate a pointer-events none button.</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1120909503585767424?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> 
+<blockquote class="twitter-tweet" data-conversation="none" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">Definitely a contextually appropriate solution to hide static text content. But this should be noted as not recommended for visually hiding interactive elements. For instance IOS VoiceOver will not be able to activate a pointer-events none button.</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1120909503585767424?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> 
 
 This means we can't use the `pointer-events` universally on all elements. 
 
@@ -143,7 +141,7 @@ My next question was: If we can't use `pointer-events`, what if we set `z-index`
 
 Well, Scott said we shouldn't use `z-index: -999` on buttons as well, because visually hidden buttons wouldn't work correctly on iOS Voiceover. 
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">it should not be used on buttons, as visually hidden buttons also won&#39;t work correctly with iOS VO. It also has the potential to trigger desktop VoiceOver&#39;s reading out of order, as <a href="https://twitter.com/letrastudio?ref_src=twsrc%5Etfw">@letrastudio</a> mentioned, depending on real world styling of the interactive element it&#39;s used w/in</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1121016947251064832?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> 
+<blockquote class="twitter-tweet" data-conversation="none" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">it should not be used on buttons, as visually hidden buttons also won&#39;t work correctly with iOS VO. It also has the potential to trigger desktop VoiceOver&#39;s reading out of order, as <a href="https://twitter.com/letrastudio?ref_src=twsrc%5Etfw">@letrastudio</a> mentioned, depending on real world styling of the interactive element it&#39;s used w/in</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1121016947251064832?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> 
 
 I'll be honest. I don't understand why `z-index: -999` wouldn't work correctly with iOS Voiceover, so I don't have a proper conclusion here. I didn't test it. 
 
@@ -155,17 +153,17 @@ Scott and João Beleza Freire (@letrastudio mentioned above) pointed out a notew
 
 I did my own test on this, but the bug Joao reported doesn't seem to happen on my computer, even though we used the same device! 
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Huh, that’s weird. I’ve done some more tests, macOS 10.14.4:<br><br>- Latest Safari and Chrome act the same: fail example 1, correct on 2<br>- Firefox reads 1 correctly and fails on 2!<br>- Safari Tech Preview reads both correctly<br><br>That’s what I call *finicky*</p>&mdash; Letra Studio (@letrastudio) <a href="https://twitter.com/letrastudio/status/1120980475307274240?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-conversation="none" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">Huh, that’s weird. I’ve done some more tests, macOS 10.14.4:<br><br>- Latest Safari and Chrome act the same: fail example 1, correct on 2<br>- Firefox reads 1 correctly and fails on 2!<br>- Safari Tech Preview reads both correctly<br><br>That’s what I call *finicky*</p>&mdash; Letra Studio (@letrastudio) <a href="https://twitter.com/letrastudio/status/1120980475307274240?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Scott O'Hara shared a little more info on when this bug occurs: 
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">it&#39;s definitely still a bug, as Letra mentioned.<br><br>It only occurs if you place position absolute content (visually hidden) within focusable elements. <br><br>Spent way too long trying to tackle that when Joe reported it. His last workaround ended up being the best.</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1121005390412562432?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-conversation="none" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">it&#39;s definitely still a bug, as Letra mentioned.<br><br>It only occurs if you place position absolute content (visually hidden) within focusable elements. <br><br>Spent way too long trying to tackle that when Joe reported it. His last workaround ended up being the best.</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1121005390412562432?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 It turns out, a bunch of experts (including Scott) were already going back-and-forth about this macOS Voiceover bug since 2017. It's worth reading through the entire [issue thread][3] about the problem. 
 
 From what I've read, it seems like the problem happens when `position: absolute` is used. When you use `position: absolute` and you mess around with the CSS positing, it messes with the position of the Voiceover focus-ring, which changes the reading order. 
 
-<figure><img src="/images/2019/" alt=""></figure>
+<figure><img src="/images/2019/hide-content-accessibly/focus-ring.png" alt="An image detailing the experiments done by Joe Watkin on how CSS affects focus rings"></figure>
 
 This means ANY solution that there's a chance that macOS Voiceover screws ANY solution that contains `position: absolute`. 
 
@@ -173,7 +171,7 @@ This means ANY solution that there's a chance that macOS Voiceover screws ANY so
 
 And this whole issue is only Voiceover related. We haven't considered how `position: absolute` can make it weird for other screen readers. 
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">and that was all just VoiceOver related. nothing in there about how position: absolute can make for awkward announcements when used within interactive elements with PC screen readers...<br><br>moral of all of this, there is presently no silver bullet to be found here.</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1121053472105934849?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-conversation="none" data-dnt="true" data-theme="light><p lang="en" dir="ltr">and that was all just VoiceOver related. nothing in there about how position: absolute can make for awkward announcements when used within interactive elements with PC screen readers...<br><br>moral of all of this, there is presently no silver bullet to be found here.</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1121053472105934849?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## The solution in HTML Boilerplate
 
@@ -214,21 +212,19 @@ The best solution so far was suggested by Joe Watkin:
 
 At the time of writing, this solution has not been integrated into HTML5 Boilerplate officially. Do take note. 
 
-Again, it's worth going through the [conversations in the issue thread][5] if you nerd out in this field. It's priceless. 
+Again, it's worth going through the [conversations in the issue thread][5] if you nerd out in this field. It's priceless. (As an aside, I learned that `aria-label` is [ignored by Google's and Microsoft's translators][6]! 😱). 
 
 ## Concluding words
 
-While Joe Watkin's solution seems to be the best so far, the real answer is we don't know. There are too many inconsistencies between browsers and screen readers. 
+**While Joe Watkin's solution seems to be the best so far, the real answer is it depends.** Each method we discussed above, in [Jonathan's article][7], and elsewhere on the internet has their pros and cons. 
 
-Each method we discussed above, in Jonathan's [article](), and elsewhere on the internet has its pros and cons. 
+Like Scott mentioned, it's almost like a situation where you can choose between grid vs flex vs other layout methods. You have to pick the best method depending on the situation (and your knowledge of the weird quirks). 
 
-Like Scott mentioned, it's almost like a situation where you can choose between grid vs flex vs other layout methods. And you have to pick the best method depending on the situation (and your knowledge of the weird quirks). 
+<blockquote class="twitter-tweet" data-conversation="none" data-dnt="true" data-theme="light><p lang="en" dir="ltr">I look at it like float vs inline-block vs column-count vs flexbox vs grid vs positioning for layout purposes.<br><br>or display none, visibility hidden, inert, aria-hidden=true, role=presentation, and the hidden attribute for fully hiding content<br><br>they are all contextually appropriate</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1121056096356007937?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I look at it like float vs inline-block vs column-count vs flexbox vs grid vs positioning for layout purposes.<br><br>or display none, visibility hidden, inert, aria-hidden=true, role=presentation, and the hidden attribute for fully hiding content<br><br>they are all contextually appropriate</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1121056096356007937?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote>
+**There's one thing we can do to further clarify things.** And that's to compile the pros and cons of each solution we know so far. 
 
-There's one thing we can do to further clarify things. And that's to compile the pros and cons of each solution we know so far. 
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">that&#39;s what i tried to do at a high level in my post about this, while leaving out a lot of the techniques that i knew had problems.<br><br>though per all this, seems there&#39;s a need to go deeper and call out the various pros/cons.</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1121067322477817856?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-dnt="true" data-theme="light><p lang="en" dir="ltr">that&#39;s what i tried to do at a high level in my post about this, while leaving out a lot of the techniques that i knew had problems.<br><br>though per all this, seems there&#39;s a need to go deeper and call out the various pros/cons.</p>&mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1121067322477817856?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Unfortunately, this is something that's way out of my league right now. If you'd like to step up and participate in the conversation, I'm sure Jonathan, Scott, and many others would love to chat! 
 
@@ -238,3 +234,5 @@ Unfortunately, this is something that's way out of my league right now. If you'd
 [3]:	https://github.com/h5bp/main.css/issues/12
 [4]:	https://github.com/h5bp/main.css/issues/12
 [5]:	https://github.com/h5bp/main.css/issues/12
+[6]:	https://github.com/h5bp/main.css/issues/12#issuecomment-392156112
+[7]:	https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
