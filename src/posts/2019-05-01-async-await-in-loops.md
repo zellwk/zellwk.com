@@ -508,4 +508,4 @@ This version is simple to read and understand, and takes one second to calculate
 
 [1]:	/blog/async-await
 [2]:	/blog/async-await
-[3]:	https://twitter.com/secoif?lang=en
+[3]:	https://twitter.com/timkevinoxley
