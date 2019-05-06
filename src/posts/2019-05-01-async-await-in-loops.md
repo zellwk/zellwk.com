@@ -451,7 +451,32 @@ const reduceLoop = async _ => {
 
 <figure><img src="/images/2019/async-await-loop/reduce-3.gif" alt="Console logs 'Start'. Three seconds later, it logs '41' and 'End'"></figure>
 
-But... as you can see from the gif, it takes pretty long to `await` everything. The more efficient way is to: 
+But... as you can see from the gif, it takes pretty long to `await` everything. This happens because `reduceLoop` needs to wait for the `promisedSum` to be completed for each iteration. 
+
+There's a way to speed up the reduce loop. (I found out about this thanks to [Tim Oxley][3]). If you `await getNumFruits()` first before `await promisedSum`, the `reduceLoop` takes only one second to complete: 
+
+```js
+const reduceLoop = async _ => {
+  console.log('Start')
+
+  const sum = await fruitsToGet.reduce(async (promisedSum, fruit) => {
+    // Heavy-lifting comes first. 
+    // This triggers all three `getNumFruit` promises before waiting for the next interation of the loop. 
+    const numFruit = await getNumFruit(fruit)
+    const sum = await promisedSum
+    return sum + numFruit
+  }, 0)
+
+  console.log(sum)
+  console.log('End')
+}
+```
+
+<figure><img src="/images/2019/async-await-loop/reduce-4.gif" alt="Console logs 'Start'. One second later, it logs '41' and 'End'"></figure>
+
+This works because `reduce` can fire all three `getNumFruit` promises before waiting for the next iteration of the loop. However, this method is slightly confusing since you have to be careful of the order you `await` things. 
+
+The simplest (and most efficient way) to use `await` in reduce is to:
 
 1. Use `map` to return an array promises
 2. `await` the array of promises
@@ -470,7 +495,7 @@ const reduceLoop = async _ => {
 }
 ```
 
-This version only takes one second to calculate the total number of fruits. 
+This version is simple to read and understand, and takes one second to calculate the total number of fruits. 
 
 <figure><img src="/images/2019/async-await-loop/reduce-4.gif" alt="Console logs 'Start'. One second later, it logs '41' and 'End'"></figure>
 
@@ -483,3 +508,4 @@ This version only takes one second to calculate the total number of fruits.
 
 [1]:	/blog/async-await
 [2]:	/blog/async-await
+[3]:	https://twitter.com/secoif?lang=en
