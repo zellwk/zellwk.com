@@ -190,7 +190,7 @@ The console logs in this order:
 '14'
 ```
 
-<figure><img src="/images/2019/async-await-loop/foreach.gif" alt="Console logs 'Start' and 'End' immediately. One second later, it logs 27, 0, and 14."></figure>
+<figure><img src="/images/2019/async-await-loop/foreach-1.gif" alt="Console logs 'Start' and 'End' immediately. One second later, it logs 27, 0, and 14."></figure>
 
 JavaScript does this because `forEach` is not promise-aware. It cannot support `async` and `await`. You *cannot* use `await` in `forEach`. 
 
