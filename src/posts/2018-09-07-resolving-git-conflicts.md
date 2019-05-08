@@ -99,22 +99,15 @@ The easiest way to resolve a conflict is to change the file on your computer. If
 <<<<<< HEAD
 Hello world! This is my third Github repo!
 
- -
- -
- -
+---
+
 Hello world! This is my second Github repo!
 >>>>>> snt2h1s3n4tnthd9au8d3324
 ```
 
-The code between `<<<<<< HEAD` and `
- -
- -
- - =` is the code in our local repository (our code).
+The code between `<<<<<< HEAD` and `---` is the code in our local repository (our code).
 
-The cobe between `
- -
- -
- - ` and `>>>>>>` is the code from the remote repository (their code).
+The cobe between `---` and `>>>>>>` is the code from the remote repository (their code).
 
 This two lines of code conflicting. We need to choose between the "second Github repo" or the "third Github repo".
 

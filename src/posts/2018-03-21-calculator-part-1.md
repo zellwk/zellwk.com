@@ -131,14 +131,10 @@ If the key has a `data-action` that is either `add`, `subtract`, `multiply` or `
 
 ```js
 if (
-  action
- - = 'add' ||
-  action
- - = 'subtract' ||
-  action
- - = 'multiply' ||
-  action
- - = 'divide'
+  action === 'add' ||
+  action === 'subtract' ||
+  action === 'multiply' ||
+  action === 'divide'
 ) {
   console.log('operator key!')
 }
@@ -147,18 +143,15 @@ if (
 If the key's `data-action` is `decimal`, we know the user clicked on the decimal key. Following the same thought process, if the key's `data-action` is `clear`, we know the user clicked on the clear (the one that says AC) key; if the key's `data-action` is `calculate`, we know the user clicked on the equal key.
 
 ```js
-if (action
- - = 'decimal') {
+if (action === 'decimal') {
   console.log('decimal key!')
 }
 
-if (action
- - = 'clear') {
+if (action === 'clear') {
   console.log('clear key!')
 }
 
-if (action
- - = 'calculate') {
+if (action === 'calculate') {
   console.log('equal key!')
 }
 ```
@@ -226,8 +219,7 @@ keys.addEventListener('click', e => {
 
 ```js
 if (!action) {
-  if (displayedNum
- - = '0') {
+  if (displayedNum === '0') {
     display.textContent = keyContent
   }
 }
@@ -237,8 +229,7 @@ if (!action) {
 
 ```js
 if (!action) {
-  if (displayedNum
- - = '0') {
+  if (displayedNum === '0') {
     display.textContent = keyContent
   } else {
     display.textContent = displayedNum + keyContent
@@ -264,8 +255,7 @@ When Mary hits the decimal key, a decimal should appear on the display. If Mary 
 To create this effect, we can concatenate `.` to the displayed number.
 
 ```js
-if (action
- - = 'decimal') {
+if (action === 'decimal') {
   display.textContent = displayedNum + '.'
 }
 ```
@@ -284,14 +274,10 @@ To do so, we can add the `is-depressed` class to the operator key.
 
 ```js
 if (
-  action
- - = 'add' ||
-  action
- - = 'subtract' ||
-  action
- - = 'multiply' ||
-  action
- - = 'divide'
+  action === 'add' ||
+  action === 'subtract' ||
+  action === 'multiply' ||
+  action === 'divide'
 ) {
   key.classList.add('is-depressed')
 }
@@ -335,14 +321,10 @@ keys.addEventListener('click', e => {
     // ...
 
     if (
-      action
- - = 'add' ||
-      action
- - = 'subtract' ||
-      action
- - = 'multiply' ||
-      action
- - = 'divide'
+      action === 'add' ||
+      action === 'subtract' ||
+      action === 'multiply' ||
+      action === 'divide'
     ) {
       key.classList.add('is-depressed')
       // Add custom attribute
@@ -358,9 +340,7 @@ If the `previousKeyType` is an operator, we want to replace the displayed number
 const previousKeyType = calculator.dataset.previousKeyType
 
 if (!action) {
-  if (displayedNum
- - = '0' || previousKeyType
- - = 'operator') {
+  if (displayedNum === '0' || previousKeyType === 'operator') {
     display.textContent = keyContent
   } else {
     display.textContent = displayedNum + keyContent
@@ -387,8 +367,7 @@ After the calculation, the result should replace the displayed value.
 At this point, we only know the *second number*—the currently displayed number.
 
 ```js
-if (action
- - = 'calculate') {
+if (action === 'calculate') {
   const secondValue = displayedNum
   // ...
 }
@@ -400,14 +379,10 @@ To get the *operator*, we can also use the same technique.
 
 ```js
 if (
-  action
- - = 'add' ||
-  action
- - = 'subtract' ||
-  action
- - = 'multiply' ||
-  action
- - = 'divide'
+  action === 'add' ||
+  action === 'subtract' ||
+  action === 'multiply' ||
+  action === 'divide'
 ) {
   // ...
   calculator.dataset.firstValue = displayedNum
@@ -418,8 +393,7 @@ if (
 Once we have the three values we need, we can perform a calculation. Eventually, we want code to look something like this:
 
 ```js
-if (action
- - = 'calculate') {
+if (action === 'calculate') {
   const firstValue = calculator.dataset.firstValue
   const operator = calculator.dataset.operator
   const secondValue = displayedNum
@@ -442,17 +416,13 @@ If the operator is `add`, we want to add values together; if the operator is `su
 const calculate = (n1, operator, n2) => {
   let result = ''
 
-  if (operator
- - = 'add') {
+  if (operator === 'add') {
     result = n1 + n2
-  } else if (operator
- - = 'subtract') {
+  } else if (operator === 'subtract') {
     result = n1 - n2
-  } else if (operator
- - = 'multiply') {
+  } else if (operator === 'multiply') {
     result = n1 * n2
-  } else if (operator
- - = 'divide') {
+  } else if (operator === 'divide') {
     result = n1 / n2
   }
 
@@ -473,17 +443,13 @@ For a calculator, we need a float.
 const calculate = (n1, operator, n2) => {
   let result = ''
 
-  if (operator
- - = 'add') {
+  if (operator === 'add') {
     result = parseFloat(n1) + parseFloat(n2)
-  } else if (operator
- - = 'subtract') {
+  } else if (operator === 'subtract') {
     result = parseFloat(n1) - parseFloat(n2)
-  } else if (operator
- - = 'multiply') {
+  } else if (operator === 'multiply') {
     result = parseFloat(n1) * parseFloat(n2)
-  } else if (operator
- - = 'divide') {
+  } else if (operator === 'divide') {
     result = parseFloat(n1) / parseFloat(n2)
   }
 

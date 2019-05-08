@@ -92,8 +92,7 @@ Let's go through an example and you'll see how this works.
 ```js
 let hair
 
-if (today
- - = 'Monday') {
+if (today === 'Monday') {
   hair = 'bangs'
 } else {
   hair = 'something else'
@@ -111,8 +110,7 @@ Here, your brain goes:
 Now compare this thought process with one where you use ternary operators.
 
 ```js
-const hair = today
- - = 'Monday'
+const hair = today === 'Monday'
   ? 'bangs'
   : 'something else'
 ```
@@ -134,20 +132,15 @@ Ternary operators only work if you have simple `if/else` statements. What if you
 ```js
 let hair
 
-if (today
- - = 'Monday') {
+if (today === 'Monday') {
   hair = 'bangs'
-} else if (today
- - = 'Tuesday') {
+} else if (today === 'Tuesday') {
   hair = 'braids'
-} else if (today
- - = 'Wednesday') {
+} else if (today === 'Wednesday') {
   hair = 'short hair'
-} else if (today
- - = 'Thursday') {
+} else if (today === 'Thursday') {
   hair = 'long hair'
-} else if (today
- - = 'Friday') {
+} else if (today === 'Friday') {
   hair = 'bright pink hair'
 }
 ```
@@ -160,20 +153,15 @@ Here's a start (where we simply wrap a function around the above code):
 function getHairType (today) {
   let hair
 
-  if (today
- - = 'Monday') {
+  if (today === 'Monday') {
     hair = 'bangs'
-  } else if (today
- - = 'Tuesday') {
+  } else if (today === 'Tuesday') {
     hair = 'braids'
-  } else if (today
- - = 'Wednesday') {
+  } else if (today === 'Wednesday') {
     hair = 'short hair'
-  } else if (today
- - = 'Thursday') {
+  } else if (today === 'Thursday') {
     hair = 'long hair'
-  } else if (today
- - = 'Friday') {
+  } else if (today === 'Friday') {
     hair = 'bright pink hair'
   }
 
@@ -194,16 +182,11 @@ An early return means you return a value before the function completes execution
 
 ```js
 function getHairType (today) {
-  if (today
- - = 'Monday') return 'bangs'
-  if (today
- - = 'Tuesday') return 'braids'
-  if (today
- - = 'Wednesday') return 'short hair'
-  if (today
- - = 'Thursday') return 'long hair'
-  if (today
- - = 'Friday') return 'bright pink hair'
+  if (today === 'Monday') return 'bangs'
+  if (today === 'Tuesday') return 'braids'
+  if (today === 'Wednesday') return 'short hair'
+  if (today === 'Thursday') return 'long hair'
+  if (today === 'Friday') return 'bright pink hair'
 }
 ```
 

@@ -40,17 +40,13 @@ Here's what we have so far.
 ```js
 const calculate = (n1, operator, n2) => {
   let result = ''
-  if (operator
- - = 'add') {
+  if (operator === 'add') {
     result = parseFloat(n1) + parseFloat(n2)
-  } else if (operator
- - = 'subtract') {
+  } else if (operator === 'subtract') {
     result = parseFloat(n1) - parseFloat(n2)
-  } else if (operator
- - = 'multiply') {
+  } else if (operator === 'multiply') {
     result = parseFloat(n1) * parseFloat(n2)
-  } else if (operator
- - = 'divide') {
+  } else if (operator === 'divide') {
     result = parseFloat(n1) / parseFloat(n2)
   }
 
@@ -62,17 +58,13 @@ You learned that we should reduce reassignments as much as possible. Here, we ca
 
 ```js
 const calculate = (n1, operator, n2) => {
-  if (operator
- - = 'add') {
+  if (operator === 'add') {
     return firstNum + parseFloat(n2)
-  } else if (operator
- - = 'subtract') {
+  } else if (operator === 'subtract') {
     return parseFloat(n1) - parseFloat(n2)
-  } else if (operator
- - = 'multiply') {
+  } else if (operator === 'multiply') {
     return parseFloat(n1) * parseFloat(n2)
-  } else if (operator
- - = 'divide') {
+  } else if (operator === 'divide') {
     return parseFloat(n1) / parseFloat(n2)
   }
 }
@@ -82,23 +74,19 @@ Since we return all values, we can use **early returns**. If we do so, there's n
 
 ```js
 const calculate = (n1, operator, n2) => {
-  if (operator
- - = 'add') {
+  if (operator === 'add') {
     return firstNum + parseFloat(n2)
   }
 
-  if (operator
- - = 'subtract') {
+  if (operator === 'subtract') {
     return parseFloat(n1) - parseFloat(n2)
   }
 
-  if (operator
- - = 'multiply') {
+  if (operator === 'multiply') {
     return parseFloat(n1) * parseFloat(n2)
   }
 
-  if (operator
- - = 'divide') {
+  if (operator === 'divide') {
     return parseFloat(n1) / parseFloat(n2)
   }
 }
@@ -108,14 +96,10 @@ And since we have one statement per `if` condition, we can remove the brackets. 
 
 ```js
 const calculate = (n1, operator, n2) => {
-  if (operator
- - = 'add') return parseFloat(n1) + parseFloat(n2)
-  if (operator
- - = 'subtract') return parseFloat(n1) - parseFloat(n2)
-  if (operator
- - = 'multiply') return parseFloat(n1) * parseFloat(n2)
-  if (operator
- - = 'divide') return parseFloat(n1) / parseFloat(n2)
+  if (operator === 'add') return parseFloat(n1) + parseFloat(n2)
+  if (operator === 'subtract') return parseFloat(n1) - parseFloat(n2)
+  if (operator === 'multiply') return parseFloat(n1) * parseFloat(n2)
+  if (operator === 'divide') return parseFloat(n1) / parseFloat(n2)
 }
 ```
 
@@ -125,14 +109,10 @@ Finally, we called `parseFloat` eight times in the function. We can simplify it 
 const calculate = (n1, operator, n2) => {
   const firstNum = parseFloat(n1)
   const secondNum = parseFloat(n2)
-  if (operator
- - = 'add') return firstNum + secondNum
-  if (operator
- - = 'subtract') return firstNum - secondNum
-  if (operator
- - = 'multiply') return firstNum * secondNum
-  if (operator
- - = 'divide') return firstNum / secondNum
+  if (operator === 'add') return firstNum + secondNum
+  if (operator === 'subtract') return firstNum - secondNum
+  if (operator === 'multiply') return firstNum * secondNum
+  if (operator === 'divide') return firstNum / secondNum
 }
 ```
 
@@ -148,23 +128,17 @@ keys.addEventListener('click', e => {
 
     if (!action) { /* ... */ }
 
-    if (action
- - = 'add' ||
-      action
- - = 'subtract' ||
-      action
- - = 'multiply' ||
-      action
- - = 'divide') {
+    if (action === 'add' ||
+      action === 'subtract' ||
+      action === 'multiply' ||
+      action === 'divide') {
       /* ... */
     }
 
-    if (action
- - = 'clear') { /* ... */ }
+    if (action === 'clear') { /* ... */ }
     if (action !
  -  'clear') { /* ... */ }
-    if (action
- - = 'calculate') { /* ... */ }
+    if (action === 'calculate') { /* ... */ }
   }
 })
 ```
@@ -222,12 +196,9 @@ Here's the code we have for number keys:
 ```js
 if (!action) {
   if (
-    displayedNum
- - = '0' ||
-    previousKeyType
- - = 'operator' ||
-    previousKeyType
- - = 'calculate'
+    displayedNum === '0' ||
+    previousKeyType === 'operator' ||
+    previousKeyType === 'calculate'
   ) {
     display.textContent = keyContent
   } else {
@@ -243,12 +214,9 @@ The first step is to copy parts that say `display.textContent = 'some value'` in
 const createResultString = () => {
   if (!action) {
     if (
-      displayedNum
- - = '0' ||
-      previousKeyType
- - = 'operator' ||
-      previousKeyType
- - = 'calculate'
+      displayedNum === '0' ||
+      previousKeyType === 'operator' ||
+      previousKeyType === 'calculate'
     ) {
       return keyContent
     } else {
@@ -263,12 +231,9 @@ Next, we can convert the  `if/else` statement to a ternary operator:
 ```js
 const createResultString = () => {
   if (action!) {
-    return displayedNum
- - = '0' ||
-      previousKeyType
- - = 'operator' ||
-      previousKeyType
- - = 'calculate'
+    return displayedNum === '0' ||
+      previousKeyType === 'operator' ||
+      previousKeyType === 'calculate'
       ? keyContent
       : displayedNum + keyContent
   }
@@ -286,12 +251,9 @@ const createResultString = () => {
   // 4. action
 
   if (action!) {
-    return displayedNum
- - = '0' ||
-      previousKeyType
- - = 'operator' ||
-      previousKeyType
- - = 'calculate'
+    return displayedNum === '0' ||
+      previousKeyType === 'operator' ||
+      previousKeyType === 'calculate'
       ? keyContent
       : displayedNum + keyContent
   }
@@ -303,15 +265,12 @@ const createResultString = () => {
 Here's the code we have for the decimal key:
 
 ```js
-if (action
- - = 'decimal') {
+if (action === 'decimal') {
   if (!displayedNum.includes('.')) {
     display.textContent = displayedNum + '.'
   } else if (
-    previousKeyType
- - = 'operator' ||
-    previousKeyType
- - = 'calculate'
+    previousKeyType === 'operator' ||
+    previousKeyType === 'calculate'
   ) {
     display.textContent = '0.'
   }
@@ -326,13 +285,10 @@ As before, we want to move anything that changes `display.textContent` into `cre
 const createResultString = () => {
   // ...
 
-  if (action
- - = 'decimal') {
+  if (action === 'decimal') {
     if (!displayedNum.includes('.')) {
       return = displayedNum + '.'
-    } else if (previousKeyType
- - = 'operator' || previousKeyType
- - = 'calculate') {
+    } else if (previousKeyType === 'operator' || previousKeyType === 'calculate') {
       return = '0.'
     }
   }
@@ -345,12 +301,9 @@ Since we want to return all values, we can convert `else if` statements into ear
 const createResultString = () => {
   // ...
 
-  if (action
- - = 'decimal') {
+  if (action === 'decimal') {
     if (!displayedNum.includes('.')) return displayedNum + '.'
-    if (previousKeyType
- - = 'operator' || previousKeyType
- - = 'calculate') return '0.'
+    if (previousKeyType === 'operator' || previousKeyType === 'calculate') return '0.'
   }
 }
 ```
@@ -361,12 +314,9 @@ A common mistake here is to forget to return the currently displayed number when
 const createResultString = () => {
   // ...
 
-  if (action
- - = 'decimal') {
+  if (action === 'decimal') {
     if (!displayedNum.includes('.')) return displayedNum + '.'
-    if (previousKeyType
- - = 'operator' || previousKeyType
- - = 'calculate') return '0.'
+    if (previousKeyType === 'operator' || previousKeyType === 'calculate') return '0.'
     return displayedNum
   }
 }
@@ -390,14 +340,10 @@ Here's the code we wrote for operator keys.
 
 ```js
 if (
-  action
- - = 'add' ||
-  action
- - = 'subtract' ||
-  action
- - = 'multiply' ||
-  action
- - = 'divide'
+  action === 'add' ||
+  action === 'subtract' ||
+  action === 'multiply' ||
+  action === 'divide'
 ) {
   const firstValue = calculator.dataset.firstValue
   const operator = calculator.dataset.operator
@@ -430,14 +376,10 @@ You know the drill by now; we want to move everything that changes `display.text
 const createResultString = () => {
   // ...
   if (
-    action
- - = 'add' ||
-    action
- - = 'subtract' ||
-    action
- - = 'multiply' ||
-    action
- - = 'divide'
+    action === 'add' ||
+    action === 'subtract' ||
+    action === 'multiply' ||
+    action === 'divide'
   ) {
     const firstValue = calculator.dataset.firstValue
     const operator = calculator.dataset.operator
@@ -463,14 +405,10 @@ Remember, `createResultString` needs to return the value to be displayed on the 
 const createResultString = () => {
   // ...
   if (
-    action
- - = 'add' ||
-    action
- - = 'subtract' ||
-    action
- - = 'multiply' ||
-    action
- - = 'divide'
+    action === 'add' ||
+    action === 'subtract' ||
+    action === 'multiply' ||
+    action === 'divide'
   ) {
     const firstValue = calculator.dataset.firstValue
     const operator = calculator.dataset.operator
@@ -498,14 +436,10 @@ We can then refactor the `if/else` statement into a ternary operator:
 const createResultString = () => {
   // ...
   if (
-    action
- - = 'add' ||
-    action
- - = 'subtract' ||
-    action
- - = 'multiply' ||
-    action
- - = 'divide'
+    action === 'add' ||
+    action === 'subtract' ||
+    action === 'multiply' ||
+    action === 'divide'
   ) {
     const firstValue = calculator.dataset.firstValue
     const operator = calculator.dataset.operator
@@ -529,14 +463,10 @@ If you look closely, you'll realize that there's no need to store a `secondValue
 const createResultString = () => {
   // ...
   if (
-    action
- - = 'add' ||
-    action
- - = 'subtract' ||
-    action
- - = 'multiply' ||
-    action
- - = 'divide'
+    action === 'add' ||
+    action === 'subtract' ||
+    action === 'multiply' ||
+    action === 'divide'
   ) {
     const firstValue = calculator.dataset.firstValue
     const operator = calculator.dataset.operator
@@ -572,10 +502,8 @@ const createResultString = () => {
 We wrote the following code to handle the `clear` key.
 
 ```js
-if (action
- - = 'clear') {
-  if (key.textContent
- - = 'AC') {
+if (action === 'clear') {
+  if (key.textContent === 'AC') {
     calculator.dataset.firstValue = ''
     calculator.dataset.modValue = ''
     calculator.dataset.operator = ''
@@ -594,8 +522,7 @@ As above, want to move everything that changes `display.textContent` into `creat
 ```js
 const createResultString = () => {
   // ...
-  if (action
- - = 'clear') return 0
+  if (action === 'clear') return 0
 }
 ```
 
@@ -604,15 +531,13 @@ const createResultString = () => {
 Here's the code we wrote for the equal key:
 
 ```js
-if (action
- - = 'calculate') {
+if (action === 'calculate') {
   let firstValue = calculator.dataset.firstValue
   const operator = calculator.dataset.operator
   let secondValue = displayedNum
 
   if (firstValue) {
-    if (previousKeyType
- - = 'calculate') {
+    if (previousKeyType === 'calculate') {
       firstValue = displayedNum
       secondValue = calculator.dataset.modValue
     }
@@ -628,15 +553,13 @@ if (action
 As above, we want to copy everything that changes `display.textContent` into `createResultString`. Here's what needs to be copied:
 
 ```js
-if (action
- - = 'calculate') {
+if (action === 'calculate') {
   let firstValue = calculator.dataset.firstValue
   const operator = calculator.dataset.operator
   let secondValue = displayedNum
 
   if (firstValue) {
-    if (previousKeyType
- - = 'calculate') {
+    if (previousKeyType === 'calculate') {
       firstValue = displayedNum
       secondValue = calculator.dataset.modValue
     }
@@ -651,15 +574,13 @@ When copying the code into `createResultString`, make sure you return values for
 const createResultString = () => {
   // ...
 
-  if (action
- - = 'calculate') {
+  if (action === 'calculate') {
     let firstValue = calculator.dataset.firstValue
     const operator = calculator.dataset.operator
     let secondValue = displayedNum
 
     if (firstValue) {
-      if (previousKeyType
- - = 'calculate') {
+      if (previousKeyType === 'calculate') {
         firstValue = displayedNum
         secondValue = calculator.dataset.modValue
       }
@@ -677,15 +598,13 @@ Next, we want to reduce reassignments. We can do so by passing in the correct va
 const createResultString = () => {
   // ...
 
-  if (action
- - = 'calculate') {
+  if (action === 'calculate') {
     const firstValue = calculator.dataset.firstValue
     const operator = calculator.dataset.operator
     const modValue = calculator.dataset.modValue
 
     if (firstValue) {
-      return previousKeyType
- - = 'calculate'
+      return previousKeyType === 'calculate'
         ? calculate(displayedNum, operator, modValue)
         : calculate(firstValue, operator, displayedNum)
     } else {
@@ -701,15 +620,13 @@ You can further simplify the above code with another ternary operator if you fee
 const createResultString = () => {
   // ...
 
-  if (action
- - = 'calculate') {
+  if (action === 'calculate') {
     const firstValue = calculator.dataset.firstValue
     const operator = calculator.dataset.operator
     const modValue = calculator.dataset.modValue
 
     return firstValue
-      ? previousKeyType
- - = 'calculate'
+      ? previousKeyType === 'calculate'
         ? calculate(displayedNum, operator, modValue)
         : calculate(firstValue, operator, displayedNum)
       : displayedNum
@@ -795,43 +712,31 @@ In `createResultString`, we used the following conditions to test for the type o
 if (!action) { /* ... */ }
 
 // If key is decimal
-if (action
- - = 'decimal') { /* ... */ }
+if (action === 'decimal') { /* ... */ }
 
 // If key is operator
 if (
-  action
- - = 'add' ||
-  action
- - = 'subtract' ||
-  action
- - = 'multiply' ||
-  action
- - = 'divide'
+  action === 'add' ||
+  action === 'subtract' ||
+  action === 'multiply' ||
+  action === 'divide'
 ) { /* ... */}
 
 // If key is clear
-if (action
- - = 'clear') { /* ... */ }
+if (action === 'clear') { /* ... */ }
 
 // If key is calculate
-if (action
- - = 'calculate') { /* ... */ }
+if (action === 'calculate') { /* ... */ }
 ```
 
 They're not consistent, so they're hard to read. If possible, we want to make them consistent so we can write something like this:
 
 ```js
-if (keyType
- - = 'number') { /* ... */ }
-if (keyType
- - = 'decimal') { /* ... */ }
-if (keyType
- - = 'operator') { /* ... */}
-if (keyType
- - = 'clear') { /* ... */ }
-if (keyType
- - = 'calculate') { /* ... */ }
+if (keyType === 'number') { /* ... */ }
+if (keyType === 'decimal') { /* ... */ }
+if (keyType === 'operator') { /* ... */}
+if (keyType === 'clear') { /* ... */ }
+if (keyType === 'calculate') { /* ... */ }
 ```
 
 To do so, we can create a function called `getKeyType`. This function should return the type of key that was clicked.
@@ -841,14 +746,10 @@ const getKeyType = (key) => {
   const { action } = key.dataset
   if (!action) return 'number'
   if (
-    action
- - = 'add' ||
-    action
- - = 'subtract' ||
-    action
- - = 'multiply' ||
-    action
- - = 'divide'
+    action === 'add' ||
+    action === 'subtract' ||
+    action === 'multiply' ||
+    action === 'divide'
   ) return 'operator'
   // For everything else, return the action
   return action
@@ -861,16 +762,11 @@ Here's how you'd use the function:
 const createResultString = (key, displayedNum, state) => {
   const keyType = getKeyType(key)
 
-  if (keyType
- - = 'number') { /* ... */ }
-  if (keyType
- - = 'decimal') { /* ... */ }
-  if (keyType
- - = 'operator') { /* ... */}
-  if (keyType
- - = 'clear') { /* ... */ }
-  if (keyType
- - = 'calculate') { /* ... */ }
+  if (keyType === 'number') { /* ... */ }
+  if (keyType === 'decimal') { /* ... */ }
+  if (keyType === 'operator') { /* ... */}
+  if (keyType === 'clear') { /* ... */ }
+  if (keyType === 'calculate') { /* ... */ }
 }
 ```
 
@@ -886,16 +782,11 @@ As with `createResultString`, we need to check the type of key that was clicked.
 const updateCalculatorState = (key) => {
   const keyType = getKeyType(key)
 
-  if (keyType
- - = 'number') { /* ... */ }
-  if (keyType
- - = 'decimal') { /* ... */ }
-  if (keyType
- - = 'operator') { /* ... */}
-  if (keyType
- - = 'clear') { /* ... */ }
-  if (keyType
- - = 'calculate') { /* ... */ }
+  if (keyType === 'number') { /* ... */ }
+  if (keyType === 'decimal') { /* ... */ }
+  if (keyType === 'operator') { /* ... */}
+  if (keyType === 'clear') { /* ... */ }
+  if (keyType === 'calculate') { /* ... */ }
 }
 ```
 
@@ -910,34 +801,27 @@ const updateCalculatorState = (key, calculator) => {
     calculator.dataset.previousKeyType = 'number'
   }
 
-  if (action
- - = 'decimal') {
+  if (action === 'decimal') {
     // ...
     calculator.dataset.previousKeyType = 'decimal'
   }
 
   if (
-    action
- - = 'add' ||
-    action
- - = 'subtract' ||
-    action
- - = 'multiply' ||
-    action
- - = 'divide'
+    action === 'add' ||
+    action === 'subtract' ||
+    action === 'multiply' ||
+    action === 'divide'
   ) {
     // ...
     calculator.dataset.previousKeyType = 'operator'
   }
 
-  if (action
- - = 'clear') {
+  if (action === 'clear') {
     // ...
     calculator.dataset.previousKeyType = 'clear'
   }
 
-  if (action
- - = 'calculate') {
+  if (action === 'calculate') {
     calculator.dataset.previousKeyType = 'calculate'
   }
 }
@@ -950,16 +834,11 @@ const updateCalculatorState = (key, calculator) => {
   const keyType = getKeyType(key)
   calculator.dataset.previousKeyType = keyType
 
-  if (keyType
- - = 'number') { /* ... */ }
-  if (keyType
- - = 'decimal') { /* ... */ }
-  if (keyType
- - = 'operator') { /* ... */}
-  if (keyType
- - = 'clear') { /* ... */ }
-  if (keyType
- - = 'calculate') { /* ... */ }
+  if (keyType === 'number') { /* ... */ }
+  if (keyType === 'decimal') { /* ... */ }
+  if (keyType === 'operator') { /* ... */}
+  if (keyType === 'clear') { /* ... */ }
+  if (keyType === 'calculate') { /* ... */ }
 }
 ```
 
@@ -979,8 +858,7 @@ const updateCalculatorState = (key, calculator) => {
 Here's what's left from what we've written for operator keys, after moving pieces related to `display.textContent` into `createResultString`.
 
 ```js
-if (keyType
- - = 'operator') {
+if (keyType === 'operator') {
   if (firstValue &&
       operator &&
       previousKeyType !
@@ -1001,8 +879,7 @@ if (keyType
 You may notice that we can shorten the code with a ternary operator:
 
 ```js
-if (keyType
- - = 'operator') {
+if (keyType === 'operator') {
   key.classList.add('is-depressed')
   calculator.dataset.operator = key.dataset.action
   calculator.dataset.firstValue = firstValue &&
@@ -1033,10 +910,8 @@ const updateCalculatorState = (key, calculator) => {
 Here's the leftover code for the clear key:
 
 ```js
-if (action
- - = 'clear') {
-  if (key.textContent
- - = 'AC') {
+if (action === 'clear') {
+  if (key.textContent === 'AC') {
     calculator.dataset.firstValue = ''
     calculator.dataset.modValue = ''
     calculator.dataset.operator = ''
@@ -1060,15 +935,13 @@ There's nothing much we can refactor here; feel free to copy/paste everything in
 Here's the code we wrote for the equal key:
 
 ```js
-if (action
- - = 'calculate') {
+if (action === 'calculate') {
   let firstValue = calculator.dataset.firstValue
   const operator = calculator.dataset.operator
   let secondValue = displayedNum
 
   if (firstValue) {
-    if (previousKeyType
- - = 'calculate') {
+    if (previousKeyType === 'calculate') {
       firstValue = displayedNum
       secondValue = calculator.dataset.modValue
     }
@@ -1084,13 +957,11 @@ if (action
 Here's what we're left with if we remove everything that concerns `display.textContent`.
 
 ```js
-if (action
- - = 'calculate') {
+if (action === 'calculate') {
   let secondValue = displayedNum
 
   if (firstValue) {
-    if (previousKeyType
- - = 'calculate') {
+    if (previousKeyType === 'calculate') {
       secondValue = calculator.dataset.modValue
     }
   }
@@ -1102,10 +973,8 @@ if (action
 We can refactor this into the following:
 
 ```js
-if (keyType
- - = 'calculate') {
-  calculator.dataset.modValue = firstValue && previousKeyType
- - = 'calculate'
+if (keyType === 'calculate') {
+  calculator.dataset.modValue = firstValue && previousKeyType === 'calculate'
     ? modValue
     : displayedNum
 }
@@ -1172,11 +1041,9 @@ const updateVisualState = (key, calculator) => {
   const keyType = getKeyType(key)
   Array.from(key.parentNode.children).forEach(k => k.classList.remove('is-depressed'))
 
-  if (keyType
- - = 'operator') key.classList.add('is-depressed')
+  if (keyType === 'operator') key.classList.add('is-depressed')
 
-  if (keyType
- - = 'clear' && key.textContent !
+  if (keyType === 'clear' && key.textContent !
  -  'AC') {
     key.textContent = 'AC'
   }

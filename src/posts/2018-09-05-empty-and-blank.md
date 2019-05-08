@@ -150,7 +150,7 @@ I felt `:empty` isn't good enough because of two reasons:
 
 The first reason is valid, but it isn't a big deal.
 
-~~**The second reason is not valid**. I assumed I had to trim whitespaces, but I don't need to.~~
+**The second reason is not valid**. I assumed I had to trim whitespaces, but I don't need to.
 
 EDIT: The second reason is valid too! I have no idea why my tests went haywire when writing this article. I found out about it thanks to Daniel and Konrud5 (below).
 
@@ -186,7 +186,7 @@ But then again, it's a small problem for a big benefit.
 
 ### You need to trim whitespaces manually with JavaScript
 
-~~I say it again. **You don't need to trim whitespaces manually in JavaScript** if you use `:empty`. I made a wrong assumption.~~
+I say it again. **You don't need to trim whitespaces manually in JavaScript** if you use `:empty`. I made a wrong assumption.
 
 You need to trim whitespace manually in JavaScript if you want to use `:empty`.
 
@@ -220,8 +220,7 @@ const li = ul.children[0]
 
 ul.removeChild(li)
 
-if (ul.children.length
- - = 0) {
+if (ul.children.length === 0) {
   ul.innerHTML = ''
 }
 ```
