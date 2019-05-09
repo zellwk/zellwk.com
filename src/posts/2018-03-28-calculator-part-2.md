@@ -167,8 +167,7 @@ To prevent the calculator from performing calculation on subsequent clicks on th
 if (
   firstValue &&
   operator &&
-  previousKeyType !
- -  'operator'
+  previousKeyType !== 'operator'
 ) {
   display.textContent = calculate(firstValue, operator, secondValue)
 }
@@ -236,8 +235,7 @@ const secondValue = displayedNum
 if (
   firstValue &&
   operator &&
-  previousKeyType !
- -  'operator'
+  previousKeyType !== 'operator'
 ) {
   const calcValue = calculate(firstValue, operator, secondValue)
   display.textContent = calcValue
@@ -479,10 +477,8 @@ if (
   if (
     firstValue &&
     operator &&
-    previousKeyType !
- -  'operator' &&
-    previousKeyType !
- -  'calculate'
+    previousKeyType !== 'operator' &&
+    previousKeyType !== 'calculate'
   ) {
     const calcValue = calculate(firstValue, operator, secondValue)
     display.textContent = calcValue
@@ -517,8 +513,7 @@ First, if Tim hits a key (any key except clear), `AC` should be changed to `CE`.
 We do this by checking if the `data-action` is `clear`. If it's not `clear`, we look for the clear button and change its `textContent`.
 
 ```js
-if (action !
- -  'clear') {
+if (action !== 'clear') {
   const clearButton = calculator.querySelector('[data-action=clear]')
   clearButton.textContent = 'CE'
 }

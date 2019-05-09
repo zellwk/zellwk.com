@@ -136,8 +136,7 @@ keys.addEventListener('click', e => {
     }
 
     if (action === 'clear') { /* ... */ }
-    if (action !
- -  'clear') { /* ... */ }
+    if (action !==  'clear') { /* ... */ }
     if (action === 'calculate') { /* ... */ }
   }
 })
@@ -352,10 +351,8 @@ if (
   if (
     firstValue &&
     operator &&
-    previousKeyType !
- -  'operator' &&
-    previousKeyType !
- -  'calculate'
+    previousKeyType !==  'operator' &&
+    previousKeyType !==  'calculate'
   ) {
     const calcValue = calculate(firstValue, operator, secondValue)
     display.textContent = calcValue
@@ -388,10 +385,8 @@ const createResultString = () => {
     if (
       firstValue &&
       operator &&
-      previousKeyType !
- -  'operator' &&
-      previousKeyType !
- -  'calculate'
+      previousKeyType !==  'operator' &&
+      previousKeyType !==  'calculate'
     ) {
       return calculate(firstValue, operator, secondValue)
     }
@@ -417,10 +412,8 @@ const createResultString = () => {
     if (
       firstValue &&
       operator &&
-      previousKeyType !
- -  'operator' &&
-      previousKeyType !
- -  'calculate'
+      previousKeyType !==  'operator' &&
+      previousKeyType !==  'calculate'
     ) {
       return calculate(firstValue, operator, secondValue)
     } else {
@@ -447,10 +440,8 @@ const createResultString = () => {
 
     return firstValue &&
       operator &&
-      previousKeyType !
- -  'operator' &&
-      previousKeyType !
- -  'calculate'
+      previousKeyType !==  'operator' &&
+      previousKeyType !==  'calculate'
       ? calculate(firstValue, operator, secondValue)
       : displayedNum
   }
@@ -473,10 +464,8 @@ const createResultString = () => {
 
     return firstValue &&
       operator &&
-      previousKeyType !
- -  'operator' &&
-      previousKeyType !
- -  'calculate'
+      previousKeyType !==  'operator' &&
+      previousKeyType !==  'calculate'
       ? calculate(firstValue, operator, displayedNum)
       : displayedNum
   }
@@ -861,10 +850,8 @@ Here's what's left from what we've written for operator keys, after moving piece
 if (keyType === 'operator') {
   if (firstValue &&
       operator &&
-      previousKeyType !
- -  'operator' &&
-      previousKeyType !
- -  'calculate'
+      previousKeyType !==  'operator' &&
+      previousKeyType !==  'calculate'
   ) {
     calculator.dataset.firstValue = calculatedValue
   } else {
@@ -884,10 +871,8 @@ if (keyType === 'operator') {
   calculator.dataset.operator = key.dataset.action
   calculator.dataset.firstValue = firstValue &&
     operator &&
-    previousKeyType !
- -  'operator' &&
-    previousKeyType !
- -  'calculate'
+    previousKeyType !==  'operator' &&
+    previousKeyType !==  'calculate'
     ? calculatedValue
     : displayedNum
 }
@@ -921,8 +906,7 @@ if (action === 'clear') {
   }
 }
 
-if (action !
- -  'clear') {
+if (action !==  'clear') {
   const clearButton = calculator.querySelector('[data-action=clear]')
   clearButton.textContent = 'CE'
 }
@@ -1043,13 +1027,11 @@ const updateVisualState = (key, calculator) => {
 
   if (keyType === 'operator') key.classList.add('is-depressed')
 
-  if (keyType === 'clear' && key.textContent !
- -  'AC') {
+  if (keyType === 'clear' && key.textContent !==  'AC') {
     key.textContent = 'AC'
   }
 
-  if (keyType !
- -  'clear') {
+  if (keyType !==  'clear') {
     const clearButton = calculator.querySelector('[data-action=clear]')
     clearButton.textContent = 'CE'
   }

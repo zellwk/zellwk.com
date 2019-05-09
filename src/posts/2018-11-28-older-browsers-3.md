@@ -45,8 +45,7 @@ if (!Array.prototype.find) {
       var len = o.length >>> 0;
 
       // 3. If IsCallable(predicate) is false, throw a TypeError exception.
-      if (typeof predicate !
- -  'function') {
+      if (typeof predicate !== 'function') {
         throw new TypeError('predicate must be a function');
       }
 
