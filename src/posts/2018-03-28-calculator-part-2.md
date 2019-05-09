@@ -72,20 +72,17 @@ if (!action) {
   calculator.dataset.previousKeyType = 'number'
 }
 
-if (action
- - = 'decimal') {
+if (action === 'decimal') {
   // ...
   calculator.dataset.previousKeyType = 'decimal'
 }
 
-if (action
- - = 'clear') {
+if (action === 'clear') {
   // ...
   calculator.dataset.previousKeyType = 'clear'
 }
 
-if (action
- - = 'calculate') {
+if (action === 'calculate') {
  // ...
   calculator.dataset.previousKeyType = 'calculate'
 }
@@ -94,12 +91,10 @@ if (action
 Once we have the correct `previousKeyType`, we can use it to check if the previous key is an operator.
 
 ```js
-if (action
- - = 'decimal') {
+if (action === 'decimal') {
   if (!displayedNum.includes('.')) {
     display.textContent = displayedNum + '.'
-  } else if (previousKeyType
- - = 'operator') {
+  } else if (previousKeyType === 'operator') {
     display.textContent = '0.'
   }
 
@@ -139,14 +134,10 @@ This means we need to use the `calculate` function when `firstValue`, `operator`
 
 ```js
 if (
-  action
- - = 'add' ||
-  action
- - = 'subtract' ||
-  action
- - = 'multiply' ||
-  action
- - = 'divide'
+  action === 'add' ||
+  action === 'subtract' ||
+  action === 'multiply' ||
+  action === 'divide'
 ) {
   const firstValue = calculator.dataset.firstValue
   const operator = calculator.dataset.operator
@@ -284,8 +275,7 @@ First, nothing should happen if Tim hits the equal key before any operator keys,
 We know that operator keys have not been clicked yet if `firstValue` is not set to a number. We can use this knowledge to prevent the equal from calculating.
 
 ```js
-if (action
- - = 'calculate') {
+if (action === 'calculate') {
   const firstValue = calculator.dataset.firstValue
   const operator = calculator.dataset.operator
   const secondValue = displayedNum
@@ -377,15 +367,13 @@ You can tell what's wrong here.
 Instead of `secondValue`, we want the set `firstValue` to the displayed number.
 
 ```js
-if (action
- - = 'calculate') {
+if (action === 'calculate') {
   let firstValue = calculator.dataset.firstValue
   const operator = calculator.dataset.operator
   const secondValue = displayedNum
 
   if (firstValue) {
-    if (previousKeyType
- - = 'calculate') {
+    if (previousKeyType === 'calculate') {
       firstValue = displayedNum
     }
 
@@ -399,15 +387,13 @@ if (action
 We also want to carry forward the previous `secondValue` into the new calculation. For `secondValue` to persist to the next calculation, we need to store it in another custom attribute. Let's call this custom attribute `modValue` (stands for modifier value).
 
 ```js
-if (action
- - = 'calculate') {
+if (action === 'calculate') {
   let firstValue = calculator.dataset.firstValue
   const operator = calculator.dataset.operator
   const secondValue = displayedNum
 
   if (firstValue) {
-    if (previousKeyType
- - = 'calculate') {
+    if (previousKeyType === 'calculate') {
       firstValue = displayedNum
     }
 
@@ -424,8 +410,7 @@ If the `previousKeyType` is `calculate`, we know we can use `calculator.dataset.
 
 ```js
 if (firstValue) {
-  if (previousKeyType
- - = 'calculate') {
+  if (previousKeyType === 'calculate') {
     firstValue = displayedNum
     secondValue = calculator.dataset.modValue
   }
@@ -449,12 +434,9 @@ Here, instead of just checking if the `previousKeyType` is `operator`, we also n
 ```js
 if (!action) {
   if (
-    displayedNum
- - = '0' ||
-    previousKeyType
- - = 'operator' ||
-    previousKeyType
- - = 'calculate'
+    displayedNum === '0' ||
+    previousKeyType === 'operator' ||
+    previousKeyType === 'calculate'
   ) {
     display.textContent = keyContent
   } else {
@@ -463,15 +445,12 @@ if (!action) {
   calculator.dataset.previousKeyType = 'number'
 }
 
-if (action
- - = 'decimal') {
+if (action === 'decimal') {
   if (!displayedNum.includes('.')) {
     display.textContent = displayedNum + '.'
   } else if (
-    previousKeyType
- - = 'operator' ||
-    previousKeyType
- - = 'calculate'
+    previousKeyType === 'operator' ||
+    previousKeyType === 'calculate'
   ) {
     display.textContent = '0.'
   }
@@ -490,14 +469,10 @@ To do this, we check if the `previousKeyType` is `calculate` before performing c
 
 ```js
 if (
-  action
- - = 'add' ||
-  action
- - = 'subtract' ||
-  action
- - = 'multiply' ||
-  action
- - = 'divide'
+  action === 'add' ||
+  action === 'subtract' ||
+  action === 'multiply' ||
+  action === 'divide'
 ) {
   // ...
 
@@ -556,8 +531,7 @@ Second, if Tim hits `CE`, the display should read 0. At the same time, `CE` shou
 </figure>
 
 ```js
-if (action
- - = 'clear') {
+if (action === 'clear') {
   display.textContent = 0
   key.textContent = 'AC'
   calculator.dataset.previousKeyType = 'clear'
@@ -569,10 +543,8 @@ Third, if Tim hits `AC`, reset the calculator to its initial state.
 To reset the calculator to its initial state, we need to clear all custom attributes we've set.
 
 ```js
-if (action
- - = 'clear') {
-  if (key.textContent
- - = 'AC') {
+if (action === 'clear') {
+  if (key.textContent === 'AC') {
     calculator.dataset.firstValue = ''
     calculator.dataset.modValue = ''
     calculator.dataset.operator = ''
