@@ -5,7 +5,7 @@ slug: how-to-learn-javascript
 newsletter: jsr
 tags:
  - javascript
-shareText: Learning JS is like growing up, you can think about it in 4 phases – baby, child, teenage and adult
+shareText: "Learning JS is like growing up, you can think about it in 4 phases – baby, child, teenage and adult"
 ---
 
 Have you tried to learn a JavaScript related topic/framework and found that you understand almost nothing?

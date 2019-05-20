@@ -3,7 +3,7 @@ title: Understanding JavaScript Functions
 layout: post
 slug: js-functions
 newsletter: jsr
-shareText: A function executes tasks in a specific order (like take empty bucket, go to well, draw water, head back home)
+shareText: "A function executes tasks in a specific order (like take empty bucket, go to well, draw water, head back home)"
 tags:
  - javascript
  - best

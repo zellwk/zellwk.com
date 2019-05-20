@@ -5,7 +5,7 @@ title: What are variables and why use them in JavaScript
 newsletter: jsr
 tags:
   - javascript
-shareText: Use const over let when declaring variables. No need to use var anymore
+shareText: "Use const over let when declaring variables. No need to use var anymore"
 ---
 
 The main purpose of coding is to solve problems. What happens when you click on a button? That's also a problem for us to solve.
