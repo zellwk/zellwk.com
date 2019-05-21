@@ -463,6 +463,6 @@ That's it; we're done constructing the happy path! 😄
 
 But we're not done building the calculator yet. This is because users tend to veer away from happy paths in reality.
 
-So, when you any application, you want to make sure you cater for common edge cases that may happen. You'll learn how to do this in the next lesson.
+So, when you any application, you want to make sure you cater for common edge cases that may happen. You'll learn how to do this in the [next lesson](/blog/calculator-part-2).
 
 I hope you enjoyed this article. If you did, you'll want to check out [Learn JavaScript](https://learnjavascript.today)—a course to help you learn JavaScript once and for all.

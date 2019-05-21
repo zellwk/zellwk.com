@@ -561,6 +561,6 @@ For homework, write down all the edge cases mentioned above on a piece of paper,
 
 I hope you enjoyed this article. If you did, you'll want to check out [Learn JavaScript](https://learnjavascript.today)—a course to help you learn JavaScript once and for all.
 
-In the next lesson, you'll learn to refactor the calculator with best practices.
+In the [next lesson](/blog/calculator-part-3), you'll learn to refactor the calculator with best practices.
 
 
