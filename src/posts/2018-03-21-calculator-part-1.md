@@ -166,7 +166,7 @@ At this point, you should get a `console.log` response from every calculator key
 
 ## Building the happy path
 
-When a user picks up the calculator, they can any of these five types of keys:
+When a user picks up the calculator, they can click on any of these five types of keys:
 
 1. a number key (0-9)
 2. an operator key (+, -, &times;, ÷)
@@ -178,7 +178,7 @@ It can be overwhelming to consider five types of keys at once, so let's take it 
 
 Let's call our normal person Mary.
 
-When Mary picks up a calculator, she'll probably hit a number key.
+When Mary picks up a calculator, she'll probably hit a number key at first.
 
 ## When a user hits a number key
 
@@ -215,7 +215,7 @@ keys.addEventListener('click', e => {
 })
 ```
 
-**If the calculator shows 0, we want to replace the calculator's display with the clicked key.** We can do so by replacing the display's textContent property.
+**If the calculator shows 0, we want to replace the calculator's display with the textContent of the clicked key.** We can do so by replacing the display's textContent property.
 
 ```js
 if (!action) {
@@ -373,7 +373,7 @@ if (action === 'calculate') {
 }
 ```
 
-To get the *first number*, we need to store the calculator's displayed value before we wiped it clean. One way to save this first number is to add it to a custom attribute when the operator button gets clicked.
+To get the *first number*, we need to store the calculator's displayed value before we erase it. One way to save this first number is to add it to a custom attribute when the operator button gets clicked.
 
 To get the *operator*, we can also use the same technique.
 
