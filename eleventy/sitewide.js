@@ -12,7 +12,12 @@ module.exports = {
 
   audio (hash) {
     if (!hash) return ''
-    return ` <iframe frameborder='0' height='200px' scrolling='no' seamless src=https://embed.simplecast.com/${hash}?color=f5f5f5' width="100%"></iframe>`
+    return `<iframe frameborder='0' height='200px' scrolling='no' seamless src=https://embed.simplecast.com/${hash}?color=f5f5f5' width="100%"></iframe>`
+  },
+
+  audio2 (hash) {
+    if (!hash) return ''
+    return `<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/${hash}?dark=false"></iframe>`
   },
 
   decode (content) {

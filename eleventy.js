@@ -116,6 +116,7 @@ module.exports = eleventyConfig => {
   // Sitewide shortcodes
   eleventyConfig.addShortcode('youtube', sitewide.youtube)
   eleventyConfig.addShortcode('audio', sitewide.audio)
+  eleventyConfig.addShortcode('audio2', sitewide.audio2)
   eleventyConfig.addFilter('decode', sitewide.decode)
   eleventyConfig.addShortcode('getDesc', sitewide.getDescription)
 

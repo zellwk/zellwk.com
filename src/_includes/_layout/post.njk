@@ -9,8 +9,12 @@ footer: true
   <h1 class="l-article__header">{{title | markdownInline}}</h1>
     <div class="o-words c-post__content l-post__content jsPostContent">
       <span class="c-post__date l-post__date">{{page.date | readableDate }}</span>
-      {%- youtube video -%}
-      {%- audio podcast -%}
+
+      {%- if video %} {%- youtube video -%} {% endif %}
+      {# Podcast is for old simplecast format #}
+      {# Podcast2 is for new simplecast format #}
+      {%- if podcast %} {%- audio podcast -%} {% endif %}
+      {%- if podcast2 %} {%- audio2 podcast2 -%} {% endif %}
 
       {{- content | safe -}}
 
@@ -21,7 +25,7 @@ footer: true
           title: title,
           permalink: link
         } -%}
-      {%- endmarkdown -%}
+      {%- endmarkdown %}
     </div>
 
     <section class="c-ck l-ck--standard jsCkForm">
