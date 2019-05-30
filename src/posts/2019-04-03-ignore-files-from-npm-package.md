@@ -19,7 +19,9 @@ You can decide what files people get when they download your package in three wa
 
 We'll look at each method and discuss which methods you should (or shouldn't) be using. 
 
-## Excluding files with gitignore 
+<!-- more -->
+
+## Excluding files with gitignore
 
 First, npm will check your repository for a `.gitignore` file. If there is a `.gitignore` file, npm will ignore files according to what's listed in the `.gitignore` file. 
 
@@ -45,7 +47,7 @@ node_modules
 
 In this case, both Git and npm ignore the `node_modules` folder. 
 
-## Blacklisting files with npmignore 
+## Blacklisting files with npmignore
 
 A second way is to blacklist files with a `.npmignore` file. The `.npmignore` file works the same way as a `.gitignore` file. If a file is listed in the `.npmignore` file, the file will be excluded from the package. 
 
@@ -80,7 +82,7 @@ node_modules
 tests
 ```
 
-## Whitelisting files with the files property 
+## Whitelisting files with the files property
 
 A third method is to **whitelist** files you want to be **included** in the `package.json` file, under the `files` property. 
 
@@ -100,7 +102,7 @@ Here's an example:
 
 Note: Some files, like `package.json`, is [always included][1] in a package. You don't have to write these files in the `files` property. 
 
-## Which method to use? 
+## Which method to use?
 
 All three methods work. Pick the one you're most comfortable with. For simple projects, the `.gitignore` file method should suffice. 
 
