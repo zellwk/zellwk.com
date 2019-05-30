@@ -3,6 +3,7 @@ layout: post
 title: How to go through the job application process—an interview with Chris Lienert
 description: Chris shares valuable insights that can help you find a good development job
 slug: job-application-process
+podcast2: ee1dd3d6-1f4c-43a2-a4e3-dd502550c629
 tags:
   - job
   - interview
@@ -10,7 +11,7 @@ tags:
 
 "Do you have any advice on finding a job as a developer?"
 
-Many people have asked me that question, but I can't give a proper answer because I *never* got a developer job before. What I did was:
+Many people have asked me that question, but I can’t give a proper answer because I have never been hired as a developer before. What I did was:
 
 1. Wriggled my way into a Wordpress dev role in an admin-based internship
 2. Freelanced
@@ -18,9 +19,9 @@ Many people have asked me that question, but I can't give a proper answer becaus
 
 So I'm horribly inadequate at answering a question about finding a job. 
 
-**But Chris Lienert is an expert at it**. Chris has experience hiring and building teams of excellent developers. (A fun aside: He used to co-run CSS Singapore, which is a monthly CSS Meetup in Singapore). 
+But Chris Lienert is an expert at it. Chris has experience hiring and building teams of excellent developers. (A fun aside: He used to co-run CSS Singapore, which is a monthly CSS Meetup in Singapore). 
 
-**I managed to grab Chris** (before he left Singapore for good) and asked him to talk about the job application process. You'll hear golden advice in this interview from Chris, like:
+I managed to grab Chris (before he left Singapore for good) and asked him to talk about the job application process. You'll hear golden advice in this interview from Chris, like:
 
 1. Chris' opinions about the hiring process. 
 2. How to improve your chances of getting an interview
@@ -30,7 +31,7 @@ So I'm horribly inadequate at answering a question about finding a job.
 6. What questions to ask during the interview 
 7. How to answer any tricky questions you get
 
-Note: We jumped around a lot in this 1.5h chat because Chris has so much to say about this topic. I highly recommend you listen to the audio version if you can. 
+Note: We jumped around a lot in this 1.5 chat because Chris has so much to say about this topic. I highly recommend you listen to the audio version if you can. 
 
 To make it easier for you to digest, I also summarized what we talked about into three stages:
 
@@ -56,9 +57,9 @@ We'll first talk about three keys to writing a CV before we talk about the struc
 
 Recruiters are busy. They have to go through hundreds of applications for each job opening. 
 
-**This means recruiters will scan through your CV** quickly. They'll put away your CV immediately if there are any spelling errors. They will also put away your CV if you miss out any important information (like your email or phone number), 
+**This means recruiters will scan through your CV** quickly. They'll put away your CV immediately if there are any spelling errors. They will also put away your CV if you miss out any important information (like your email or phone number). 
 
-Chris calls this The Crayon Test. 
+Chris calls this The Crayon Test. (Because it tests whether the candidate is able to fulfil  basic requirements like spelling their name correctly). 
 
 What you should do is **make sure your CV is clear and understandable**. It should not have any spelling mistakes. It should contain the necessary information a recruiter needs to contact you. 
 
@@ -76,21 +77,21 @@ What makes you different from thousands of other applicants out there?
 
 If you're a fresh graduate, the answer is nothing. 
 
-**You need to make it NOT nothing.**
+You need to make it SOMETHING. 
 
 There are a variety of ways to talk about your passion and experience in this industry (even if you haven't got a job yet). Some ways include: 
 
-1. Contributing the open source 
-2. Notable Codepen projects
-3. Articles you've written 
-4. Things you built before (on your own, not by following tutorials!). 
-5. Your projects on Github
+1. Notable Codepen projects
+2. Your projects on Github
+3. Things you built before (on your own, not by following tutorials!). 
+4. Articles you've written 
+5. Contributing to open source 
 
 Most of these can go into the "Community" section of your CV. More on this later. 
 
 ### Length of your CV
 
-Your CV should be short. **Keep it to 1-2 pages if you're starting out.** 
+Your CV should be short. Keep it to 1-2 pages if you're starting out. 
 
 As you gain more experience and want to switch to more senior roles, your CV can go beyond 2 pages. (Chris' CV is four pages longs. It needs to be that long to show he has the qualifications for a job at his level). 
 
@@ -159,7 +160,7 @@ One way to game the keywords (if you need to) is to include the keyword in the t
 
 ### Your cover letter
 
-Some companies require a cover letter. Keep it short if you need to write one. **You don't need an essay** for our industry. 
+Some companies require a cover letter. Keep it short if you need to write one. You don't need an essay for our industry. 
 
 Your cover letter should contain these three paragraphs (in your own words): 
 
@@ -182,7 +183,7 @@ We'll talk about four important things you need to understand. Some may create a
 
 ### Why some job ads suck
 
-**The person who hires for the person and the person who crafts the job ad may be different people.** This is especially true in large companies. 
+The person who hires for the person and the person who crafts the job ad may be different people. This is especially true in large companies. 
 
 If the person who crafts the job ad knows nothing about the industry, they may require "10 years of React experience" even though React has been out only for 6. This is why you see jokes about bad job requirements all over the place. 
 
@@ -190,13 +191,13 @@ To put your bias aside, people do try to improve their job ads. Chris, for examp
 
 In the interview, Chris shared about an experience where he rewrote a job ad. And he gave the HR strict instructions to post the job as it is. But when Chris looked at the actual advertisement, he didn't recognize the ad. It was butchered badly. 
 
-The key takeaway here is: **Don't be too concerned about what's written on the job ad.** It might have been inflated with unreasonable demands. 
+The key takeaway here is: Don't be too concerned about what's written on the job ad. It might have been inflated with unreasonable demands. 
 
 ### Imposter Syndrome and minorities
 
-**If you feel like a minority, you've labeled yourself as a minority.** It doesn't matter if you're a white male, or a black woman, or an Asian, or anything else. Chris, for example, is a white male that feels like a minority because he doesn't fit with anyone else. 
+If you feel like a minority, you've labeled yourself as a minority. It doesn't matter if you're a white male, or a black woman, or an Asian, or anything else. Chris, for example, is a white male that feels like a minority because he doesn’t feel like he easily fits with anyone else.
 
-The thing about minorities is most minorities have Imposter Syndrome. 
+The thing about minorities is minorities have high rates of Imposter Syndrome. 
 
 - They wonder if they're qualified for the job. 
 - They wonder why people should pick them over so many qualified candidates out there. 
@@ -205,9 +206,9 @@ As a result, most minorities only apply to when they feel they're qualified for 
 
 This is insane. 
 
-**Minorities are usually better candidates** because they have to fight through lots of barriers. They have better skills, better attitude, they work harder, and they know more about they're doing. 
+Minorities are usually better candidates because they have to fight through lots of barriers. They have better skills, better attitude, they work harder, and they know more about they're doing. 
 
-What this means is: If you're a minority candidate, please apply to more jobs. **Apply to jobs even if you don't meet 80% (or 100%!) of the requirements.**
+What this means is: If you're a minority candidate, please apply to more jobs. Apply to jobs even if you don't meet 80% (or 100%!) of the requirements. 
 
 Don't worry about meeting the requirements. Apply if you are confident you'll be able to do the job (and you're able to learn on the job). 
 
@@ -217,33 +218,33 @@ Job ads are often inflated. Remember that.
 
 Many jobs require a "Full Stack" developer experience. This puts pressure on developers to learn the "Full" stack (and it makes them feel inadequate in the process). 
 
-**But how full is a "Full Stack"?** Do you need to know databases? Do you need to know how to write server code? Design? Draw? UX? There's no concrete definition for a Full-stack developer. 
+But how full is a "Full Stack"? Do you need to know databases? Do you need to know how to write server code? Design? Draw? UX? There's no concrete definition for a Full-stack developer. 
 
-**Most companies don't actually want to look for a full-stack developer.** They *think* they want to look for a full-stack developer based on what they know. 
+Most companies don't actually want to look for a full-stack developer. They *think* they want to look for a full-stack developer based on what they know. 
 
 They'll only interview you if your CV matches what they think is "Full Stack". They might be wrong. And they might not even know what they need. 
 
-What this means is: **Don't worry about getting a full-stack experience.** Read the job description, apply, and ask questions during the interview (more on this later). 
+What this means is: Don't worry about getting a full-stack experience. Read the job description, apply, and ask questions during the interview (more on this later). 
 
 ### Keep applying
 
 It can be dispiriting to apply for jobs. You'll get rejected (many times without even knowing). It sucks. 
 
-**It doesn't matter where you are in your carrier.** If you're looking for jobs, the same thing will happen. **You'll still get rejected.**
+It doesn't matter where you are in your career. If you're looking for jobs, the same thing will happen. You'll still get rejected. 
 
-Chris is a top qualified candidate in what he does. He shared with me that during his job search process, he applied for 16 jobs, but only heard back from 3. 
+Chris is a top qualified candidate in what he does. He shared with me that during his recent job search process, he applied for 16 jobs, but only heard back from 3. 
 
 Even Chris can't get interviews at places. (I thought Chris wouldn't have a problem with finding jobs). But this just shows how messy the hiring process can be. 
 
 It's hard to get over a rejection. You're emotionally invested in the process, so it becomes especially hard. 
 
-But **you got to keep applying.** You have to continue to review your CV and Cover letter. 
+But you got to keep applying for jobs. You have to continue to review your CV and Cover letter. 
 
-**Don't give up.** You'll get a job eventually if you keep it up. 
+Don't give up. You'll get a job eventually if you keep it up. 
 
 ## During the interview
 
-Interviews are nerve-wreaking. We'll talk about five things in this section:  
+Interviews are nerve-racking. We'll talk about five things in this section:  
 
 1. Feeling nervous 
 2. Whiteboard interviews
@@ -257,19 +258,19 @@ You are going to be nervous. You're going to be frightened out of your mind. It'
 
 You will stumble as you answer questions. You will get something wrong during the interview (only to remember the actual answer later on). 
 
-**It's okay to be nervous and mess up because everyone will be nervous and mess up.** 
+It's okay to be nervous and mess because everyone will be nervous and mess. 
 
 Hopefully, this makes you feel better. The more relaxed you can be, the better. But don't stress yourself to be relaxed. 
 
 ### Whiteboard interviews
 
-Whiteboard interviews suck because people test you on the wrong things. You won't be writing code on the whiteboard in your job, so **it makes no sense to create a whiteboard interview**. 
+Whiteboard interviews suck because people test you on the wrong things. You won't be writing code on the whiteboard in your job, so it makes no sense to create a whiteboard interview. 
 
-Chris argues that **interviewers should mirror the person's job as much as possible** during the interview. If you're hiring a developer, you'd want to put a laptop in front of her. 
+Chris argues that interviewers should mirror the person's job as much as possible during the interview. If you're hiring a developer, you'd want to put a laptop in front of them. 
 
-If you want to observe what she does, you can mirror the laptop onto a screen so you can observe from afar. This way, the she can focus on coding. 
+If you want to observe what they do, you can mirror the laptop onto a screen so you can observe from afar. This way, the developer can focus on coding. 
 
-We didn't answer how to tackle a whiteboard interview during the chat, but you might want to take what Chris said in mind. Maybe you can request for the interviewer to put you in a comfortable space to perform? It's not always possible, but it might make you stand out in the right way!. 
+We didn't answer how to tackle a whiteboard interview during the chat, but you might want to take what Chris said in mind. Maybe you can request for the interviewer to put you in a comfortable space to perform? It's not always possible, but it might make you stand out in the right way :). 
 
 ### Answering tricky questions
 
@@ -291,23 +292,21 @@ When you answer the question about your weakness, you want to say what you're do
 
 Here's an example Chris gave: 
 
-> "I was a team leader for 10 years. In the first five years, I didn't understand what being a team leader was about. I focused on myself. It took me a while to realize that the benefit I provide as a leader is what we produce as a team and not what I produce as an individual. 
-> 
-> My weakness then was I was too focused on the individual and not very a good leader. And I did something about it." 
-> 
-> My weakness now is: I'm not technically as strong as I used to be, because I spend more time making sure everyone is doing their job properly and happily than focusing on my technical side. 
+I was a team leader for 10 years. In the first five years, I didn't understand what being a team leader was about. I focused on myself. It took me a while to realize that the benefit I provide as a leader is what we produce as a team and not what I produce as an individual. 
 
-(This weakness makes a great manager. Yeah?). 
+My weakness then was I was too focused on the individual and not very a good leader. And I did something about it. 
+
+My weakness now is: I'm not technically as strong as I used to be, because I spend more time making sure everyone is doing their job properly and happily than focusing on my technical side. 
+
+(This weakness makes a great manager). 
 
 **Where do you see yourself in 3-5 years time?** 
 
 This question gives an insight into what you're looking for. If you say something along the lines of moving up the career ladder, it hints that you're not interested in the job itself. 
 
-If you're looking to be a frontend developer, a good example is to say you see yourself coding for the company. *Keep it direct and straightforward.* 
+If you're looking to be a frontend developer, a good example is to say you see yourself coding for the company. Keep it direct and straightforward. 
 
-Example from Chris: 
-
-> "My focus then is a job where I can code. My focus now is to make the company I'm working for succeed. I'm going to code really well and lead the team really well. 
+Example from Chris: "My focus then is a job where I can code. My focus now is to make the company I'm working for succeed. I'm going to code really well and lead the team really well. 
 
 **Why did you leave your previous job?**
 
@@ -319,13 +318,13 @@ We didn't tackle this question any further in the chat I had with Chris, so I do
 
 You need to sell yourself during an interview so you stand out. You can do this by answering questions the interviewer has not asked. 
 
-**Tell them the things you list on your CV.** Tell them about contributing to open source, attending meetups, conferences, blogging, and anything you can think of that helps you stand out. 
+Tell them the things you listed on your CV. Tell them about contributing to open source, attending meetups, conferences, blogging, and anything you can think of that helps you stand out. 
 
-It is the nature of our industry to think creatively. **If you managed to solve a problem in a useful way before, talk about it**. It'll put you in a good light. The more you've done this, the more you're of a right employee. 
+It is the nature of our industry to think creatively. If you managed to solve a problem in a useful way before, talk about it. It'll put you in a good light. The more you've done this, the more you're of a right employee. 
 
 ### Questions to ask
 
-As much as the interview is interviewing you, **you're also interviewing the interviewer**. Remember this. 
+As much as the interview is interviewing you, you're also interviewing the interviewer. Remember this. 
 
 Chris says he'd ask two questions: 
 
@@ -348,7 +347,7 @@ Everyone will try to sell you the job if they're interested in you. They'll tell
 
 ### Be honest
 
-**Always be honest.** It's not going to work if you bluff. 
+Always be honest. It's not going to work if you bluff. 
 
 The worst part about lying is you might get the job. And then you're screwed because you're expected to perform. 
 
@@ -364,7 +363,7 @@ You nothing much to distinguish yourself from other candidates at the start. It 
 
 Good luck. 
 
-Please thank Chris Lienert for spending his time to walk me through the interview process if this has helped you. [You can reach him through Twitter][1].
+Please thank Chris Lienert for spending his time with us if this helped you. [You can reach him through Twitter][1].
 
 
 [1]:	https://twitter.com/cliener "Chris Lienert"
