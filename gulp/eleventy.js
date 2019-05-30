@@ -1,7 +1,7 @@
 const exec = require('child_process').exec
 
 const eleventy = cb => {
-  const command = 'eleventy --config=eleventy.js --quiet'
+  const command = 'eleventy'
 
   exec(command, function (err, stdout, stderr) {
     console.log(stdout)

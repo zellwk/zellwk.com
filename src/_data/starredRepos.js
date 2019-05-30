@@ -1,16 +1,13 @@
 require('isomorphic-fetch')
 require('dotenv').config({ path: 'secrets/variables.env' })
 
-const zlFetch = require('zl-fetch').default
+const zlFetch = require('zl-fetch')
 const token = process.env.GH_TOKEN
 
+// TODO: Somehow zlFetch doesn't work here. I don't know why!
 const fetchMyStarred = async _ => {
-  const { body: repos } = await zlFetch('https://api.github.com/user/starred', {
-    token,
-    headers: {
-      accept: 'application/vnd.github.v3+json'
-    }
-  })
+  const response = await fetch('https://api.github.com/users/zellwk/starred')
+  const repos = await response.json()
 
   return repos
     .filter(repo => repo.owner.login === 'zellwk')
@@ -23,4 +20,6 @@ const fetchMyStarred = async _ => {
     })
 }
 
-module.exports = fetchMyStarred
+module.exports = function () {
+  return fetchMyStarred()
+}
