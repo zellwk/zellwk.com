@@ -221,7 +221,7 @@ If you take advantage of the single-argument style with promises, you can tweak 
 const makeBurger = () => {
   return getBeef()
     .then(cookBeef)
-    .then(cookedBeef => getBuns().then(buns => putBeefBetweenBuns(buns, cookedBeef))
+    .then(cookedBeef => getBuns().then(buns => putBeefBetweenBuns(buns, cookedBeef)))
 }
 
 // Make and serve burger 
