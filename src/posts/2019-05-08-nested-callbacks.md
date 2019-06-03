@@ -59,7 +59,7 @@ const makeBurger = () => {
   const beef = getBeef()
   const patty = cookBeef(beef)
   const buns = getBuns()
-  const burger = putBeefBetweenBuns(buns, beef)
+  const burger = putBeefBetweenBuns(buns, patty)
   return burger
 }
 
@@ -102,7 +102,7 @@ const makeBurger = () => {
   getBeef(function (beef) {
     cookBeef(beef, function (cookedBeef) {
       getBuns(function (buns) {
-        putBeefBetweenBuns(buns, beef, function(burger) {
+        putBeefBetweenBuns(buns, cookedBeef, function(burger) {
           // Serve the burger 
         })
       })
@@ -118,7 +118,7 @@ const makeBurger = nextStep => {
   getBeef(function (beef) {
     cookBeef(beef, function (cookedBeef) {
       getBuns(function (buns) {
-        putBeefBetweenBuns(buns, beef, function(burger) {
+        putBeefBetweenBuns(buns, cookedBeef, function(burger) {
           nextStep(burger)
         })
       })
@@ -157,7 +157,7 @@ const makeBurger = nextStep => {
   getBeef(function (beef) {
     cookBeef(beef, function (cookedBeef) {
       getBuns(function (buns) {
-        putBeefBetweenBuns(buns, beef, function(burger) {
+        putBeefBetweenBuns(buns, cookedBeef, function(burger) {
           nextStep(burger)
         })
       })
@@ -207,7 +207,7 @@ Promises can make callback hell much easier to manage. Instead of the nested cod
 const makeBurger = () => {
   return getBeef()
     .then(beef => cookBeef(beef))
-    .then(cookedBeef => getBuns(beef))
+    .then(cookedBeef => getBuns(cookedBeef))
     .then(bunsAndBeef => putBeefBetweenBuns(bunsAndBeef))
 }
 
