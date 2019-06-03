@@ -207,7 +207,8 @@ Promises can make callback hell much easier to manage. Instead of the nested cod
 const makeBurger = () => {
   return getBeef()
     .then(beef => cookBeef(beef))
-    .then(cookedBeef => getBuns().then(buns => putBeefBetweenBuns(buns, cookedBeef)))
+    .then(cookedBeef => getBuns(cookedBeef))
+    .then(bunsAndBeef => putBeefBetweenBuns(bunsAndBeef))
 }
 
 // Make and serve burger 
@@ -221,7 +222,8 @@ If you take advantage of the single-argument style with promises, you can tweak 
 const makeBurger = () => {
   return getBeef()
     .then(cookBeef)
-    .then(cookedBeef => getBuns().then(buns => putBeefBetweenBuns(buns, cookedBeef)))
+    .then(getBuns)
+    .then(putBeefBetweenBuns)
 }
 
 // Make and serve burger 
