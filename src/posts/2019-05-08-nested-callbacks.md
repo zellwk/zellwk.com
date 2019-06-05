@@ -127,7 +127,7 @@ const makeBurger = nextStep => {
 }
 
 // Make and serve the burger
-makeBurger(function (burger) => {
+makeBurger(function (burger) {
   serve(burger)
 })
 ```
@@ -176,7 +176,7 @@ For `getBeef`, our first callback, we have to go to the fridge to get the beef. 
 
 ```js
 const getBeef = (nextStep) => {
-  const fridge = leftFright
+  const fridge = leftFridge
   const beef = getBeefFromFridge(fridge)
   nextStep(beef)
 }
@@ -186,7 +186,7 @@ To cook beef, we need to put the beef into an oven; turn the oven to 200 degrees
 
 ```js
 const cookBeef = (beef, nextStep) => {
-  const workInProgress = putBeefinOven(beef)
+  const workInProgress = putBeefInOven(beef)
   setTimeout (function () {
     nextStep(workInProgress)
  }, 1000 * 60 * 20)
@@ -241,7 +241,7 @@ To convert callbacks into promises, we need to create a new promise for each cal
 
 ```js
 const getBeefPromise = _ => {
-  const fridge = leftFright
+  const fridge = leftFridge
   const beef = getBeefFromFridge(fridge)
 
   return new Promise((resolve, reject) => {
@@ -256,7 +256,7 @@ const getBeefPromise = _ => {
 
 ```js
 const cookBeefPromise = beef => {
-  const workInProgress = putBeefinOven(beef)
+  const workInProgress = putBeefInOven(beef)
 
   return new Promise((resolve, reject) => {  
     setTimeout (function () {
@@ -305,7 +305,7 @@ const makeBurger = async () => {
   const beef = await getBeef()
   const cookedBeef = await cookBeef(beef)
   const buns = await getBuns()
-  const burger = await putBeefBetweenBuns(cookedBeef, buns)
+  const burger = await putBeefBetweenBuns(buns, cookedBeef)
   return burger 
 }
 
@@ -318,9 +318,9 @@ There's one improvement we can make to the `makeBurger` here. You can probably g
 
 ```js
 const makeBurger = async () => {
-  const [beef, buns] = await Promise.all(getBeef, getBuns)
+  const [beef, buns] = await Promise.all([getBeef(), getBuns()])
   const cookedBeef = await cookBeef(beef)
-  const burger = await putBeefBetweenBuns(cookedBeef, buns)
+  const burger = await putBeefBetweenBuns(buns, cookedBeef)
   return burger 
 }
 
