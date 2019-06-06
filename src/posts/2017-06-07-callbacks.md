@@ -11,9 +11,9 @@ hash: js
 
 Have you came across the term "callback" but don't know what it means? Don't worry. You're not alone. Many newcomers to JavaScript found callbacks hard to understand too.
 
-Although callbacks can be confusing, you still need to learn them thoroughly as they form a critical concept in JavaScript. You can't get very far without knowing callbacks 🙁.
+Although callbacks can be confusing, you still need to learn them thoroughly as they form a critical concept in JavaScript. You can't get very far without knowing callbacks. 🙁
 
-That's what today's article is for! You'll learn what callbacks are, why they're important and how to use them. 😄
+That's what today's article is for! You'll learn what callbacks are, why they're important, and how to use them. 😄
 
 <!--more-->
 
@@ -51,13 +51,13 @@ button.addEventListener('click', clicked)
 
 Here, we told JavaScript to listen for the `click` event on a button. If a click is detected, JavaScript should fire the `clicked` function. So, in this case, `clicked` is the callback while `addEventListener` is a function that accepts a callback.
 
-See what's a callback now? :)
+See what a callback is now? :)
 
-Let's go through another example. This time, let's say you wanted to filter an array of numbers to get a list that's lesser than five. Here, you pass a callback into the `filter` function:
+Let's go through another example. This time, let's say you wanted to filter an array of numbers to get a list that's less than five. Here, you pass a callback into the `filter` function:
 
 ```js
 const numbers = [3, 4, 10, 20]
-const lesserThanFive = numbers.filter(num => num < 5)
+const lessThanFive = numbers.filter(num => num < 5)
 ```
 
 Now, if you do the above code with named functions, filtering the array would look like this instead:
@@ -67,14 +67,14 @@ const numbers = [3, 4, 10, 20]
 const getLessThanFive = num => num < 5
 
 // Passing getLessThanFive function into filter
-const lesserThanFive = numbers.filter(getLessThanFive)
+const lessThanFive = numbers.filter(getLessThanFive)
 ```
 
 In this case, `getLessThanFive` is the callback. `Array.filter` is a function that accepts a callback function.
 
 See why now? Callbacks are everywhere once you know what they are!
 
-This example below shows you how to write a callback function and a callback-accepting function:
+The example below shows you how to write a callback function and a callback-accepting function:
 
 ```js
 // Create a function that accepts another function as an argument
@@ -93,7 +93,7 @@ const result = callbackAcceptingFunction(callback)
 console.log(result) // 6
 ```
 
-Notice that, when you pass a callback into another function, you only pass the reference to the function (without executing it, thus without the parenthesis `()`).
+Notice that, when you pass a callback into another function, you only pass the reference to the function (without executing it; thus without the parenthesis `()`).
 
 ```js
 const result = callbackAcceptingFunction(callback)
@@ -117,7 +117,7 @@ const callback = (arg1, arg2, arg3) => {
 }
 ```
 
-That's the anatomy of a callback. Now, you know `addEventListener` contains an `event` argument :)
+That's the anatomy of a callback. Now, you know `addEventListener` contains an `event` argument. :)
 
 ```js
 // Now you know where this event object comes from! :)
@@ -128,7 +128,7 @@ button.addEventListener('click', (event) => {
 
 Phew! That's the basic idea for callbacks! Just remember the keyword: **passing a function into another function** and you'll recall the mechanics I mentioned above.
 
-(Side note: This ability to pass functions around is a big thing. It's so huge that say functions in JavaScript are *higher order functions*. Higher order functions is a huge thing that in a programming paradigm called Functional Programming).
+(Side note: This ability to pass functions around is a big thing. It's so big, that functions in JavaScript are considered *higher order functions*. Higher order functions are also a big thing in a programming paradigm called Functional Programming).
 
 But that's a topic for another day. Now, I'm sure you're beginning to see what callbacks are and how they're used. But why? Why do you need callbacks?
 
@@ -138,7 +138,7 @@ Callbacks are used in two different ways — in *synchronous* functions and *asy
 
 ### Callbacks in synchronous functions
 
-If your code executes in a *top to bottom*, *left to right* fashion, *sequentially*, *waiting* until one code has *finished* before the next line begins, your code is **synchronous**.
+If your code executes in a *top to bottom*, *left to right* fashion, *sequentially*, and *waiting* until one code has *finished* before the next line begins, then your code is **synchronous**.
 
 Let's look at an example to make it easier to understand:
 
@@ -150,11 +150,11 @@ addOne(3) // 4
 addOne(4) // 5
 ```
 
-In this example above, `addOne(1)` executes first. Once it's done, `addOne(2)` begins to execute. Once `addOne(2)` is done, `addOne(3)` executes. This process goes on until the last line of code gets executed.
+In the example above, `addOne(1)` executes first. Once it's done, `addOne(2)` begins to execute. Once `addOne(2)` is done, `addOne(3)` executes. This process goes on until the last line of code gets executed.
 
 Callbacks are used in **synchronous** functions when you want a part of the code to be *easily swapped* with something else.
 
-So, back in the `Array.filter` example above, although we filtered the array to contain numbers that are lesser than five, you could easily reuse `Array.filter` to obtain an array of numbers that are greater than ten:
+So, back in the `Array.filter` example above, although we filtered the array to contain numbers that are less than five, you could easily reuse `Array.filter` to obtain an array of numbers that are greater than ten:
 
 ```js
 const numbers = [3, 4, 10, 20]
@@ -162,7 +162,7 @@ const getLessThanFive = num => num < 5
 const getMoreThanTen = num => num > 10
 
 // Passing getLessThanFive function into filter
-const lesserThanFive = numbers.filter(getLessThanFive)
+const lessThanFive = numbers.filter(getLessThanFive)
 
 // Passing getMoreThanTen function into filter
 const moreThanTen = numbers.filter(getMoreThanTen)
@@ -204,13 +204,13 @@ So, this is what you'll see if you log the above code:
 // > 10 seconds passed! (after ten seconds)
 ```
 
-Ugh. Asynchronous operations sound complicated, isn't it? But why do we use it everywhere in JavaScript?
+Ugh. Asynchronous operations sound complicated, don't they? But why do we use them everywhere in JavaScript?
 
 To see why asynchronous operations are important, imagine JavaScript is a robot helper you have in your house. This helper is pretty dumb. It can only do one thing at a time. (This behavior is called *single-threaded*).
 
-Let's say you tell the robot helper to order some pizza for you. But the robot is so dumb that, after calling the pizza house, the robots sits at your front door and waits for the pizza to be delivered. It can't do anything else in the meantime.
+Let's say you tell the robot helper to order some pizza for you.  But, the robot is so dumb, that after calling the pizza house, the robots sits at your front door and waits for the pizza to be delivered. It can't do anything else in the meantime.
 
-You can't get it to iron clothes, mop the floor or do anything while it's waiting. You need to wait 20 minutes till the pizza arrives before it's willing to do anything else...
+You can't get it to iron clothes, mop the floor, or do anything while it's waiting. You need to wait 20 minutes till the pizza arrives before it's willing to do anything else...
 
 (This behavior is called *blocking*. Other operations are blocked when you wait for something to complete).
 
@@ -228,7 +228,7 @@ mopFloor()
 ironClothes()
 ```
 
-Now, blocking operations are a bummer. 🙁.
+Now, blocking operations are a bummer. 🙁
 
 Why?
 
@@ -236,13 +236,13 @@ Let's put the dumb robot helper into the context of a browser. Imagine you tell 
 
 What would this dumb robot do?
 
-It stares intently at the button, ignoring everything command that comes, until the button gets clicked. Meanwhile, the user can't select anything else. See where it goes now? That's why asynchronous programming is such a big thing in JavaScript.
+It stares intently at the button, ignoring every other command that comes, until the button gets clicked. Meanwhile, the user can't select anything else because they're being blocked by the robot.  That's why asynchronous programming is such a big thing in JavaScript.
 
 But to really understand what's happening during asynchronous operations, we need to bring in another thing – the event loop.
 
 ### The event loop
 
-To envision the event loop, imagine JavaScript is a butler that carries around a **todo-list**. This list contains everything you told it to do. JavaScript will then go through the list, one by one, in the order you gave it.
+To envision the event loop, imagine JavaScript is like a butler that carries around a **todo-list**. The butler will then go through the list, one by one, in the order you provide.
 
 Let's say you give JavaScript five commands as follows:
 
@@ -256,13 +256,13 @@ addOne(4) // 5
 addOne(5) // 6
 ```
 
-This is what would appear on JavaScript's todo-list.
+This is what would appear on the todo-list.
 
 <figure><img src="/images/2017/callbacks/todo.png" alt="Commands appear synchronously on JavaScript's todo list">
   <figcaption>Commands appear synchronously on JavaScript's todo list</figcaption>
 </figure>
 
-In addition to a todo-list, JavaScript also keeps a **waiting-list** where it tracks things it needs to wait for. If you tell JavaScript to order a pizza, it will call the pizza shop and adds "wait for pizza to arrive" in the waiting list. Meanwhile, it does other things that are already on the todo-list.
+In addition to a todo-list, your JavaScript butler also keeps a **waiting-list** where it tracks things it needs to wait for. If you tell the butler to order a pizza, it will call the pizza shop and then writes "wait for pizza to arrive" on the waiting list. Meanwhile, it does other things that are already on the todo-list.
 
 So, imagine you have this code:
 
@@ -289,13 +289,13 @@ JavaScript's initial todo-list would be:
   <figcaption>Order pizza, mop floor and iron clothes! 😄</figcaption>
 </figure>
 
-Then, while going through `orderPizza`, JavaScript knows it needs to wait for the pizza to arrive. So, it adds "waiting for pizza to arrive" to its waiting list while it tackles the rest of its jobs.
+Again, while going through `orderPizza`, your JavaScript butler knows it needs to wait for the pizza to arrive. So, it adds "waiting for pizza to arrive" to its waiting list while it tackles the rest of its jobs.
 
 <figure><img src="/images/2017/callbacks/waiting.png" alt="JavaScript waits for pizza to arrive">
   <figcaption>JavaScript waits for pizza to arrive</figcaption>
 </figure>
 
-When the pizza arrives, JavaScript gets notified by the doorbell and it makes a **mental note** to execute `layTheTable` when it's done with the other chores
+When the pizza arrives, your JavaScript butler is notified by the doorbell and makes a **mental note** to execute `layTheTable` when it's done with the other chores.
 
 <figure><img src="/images/2017/callbacks/mental-note.png" alt="JavaScript knows it needs to execute layTheTable by adding the command to its mental note">
   <figcaption>JavaScript knows it needs to execute layTheTable by adding the command to its mental note</figcaption>
@@ -323,15 +323,15 @@ I highly recommend you watch [Philip Roberts](https://twitter.com/philip_roberts
 
 ## Uhh... So, why are callbacks important again?
 
-Ooh. We went a big round into event loops. Let's come back 😂.
+Ooh. We went on a big detour around into event loops. Let's come back. 😂
 
-Previously, we mentioned that it would be bad if JavaScript stares intently at a button and ignores all other commands. Yes?
+Previously, we mentioned that it would be bad if JavaScript blocks all other commands while waiting, yes?
 
 With asynchronous callbacks, we can **give JavaScript instructions in advance without stopping the entire operation**.
 
-Now, when you ask JavaScript to watch a button for a click, it puts the "watch button" into the waiting-list and goes on its chores. When the button finally gets a click, JavaScript activates the callback, then goes on with life.
+Now, when you ask JavaScript to watch a button for a click, it puts the "watch button" into the waiting-list and goes on with its chores. When the button finally gets a click, JavaScript activates the callback, then goes on with life.
 
-Here are some common uses of callbacks to tell JavaScript what to do...
+Here are some common uses of callbacks to tell JavaScript what to do:
 
 1. When an event fires (like `addEventListener`)
 2. After AJAX calls (like `jQuery.ajax`)
@@ -358,11 +358,11 @@ fs.readFile('pathToDirectory', (err, data) => {
 app.get('/', (req, res) => res.sendFile(index.html))
 ```
 
-And that's it callbacks! 😄
+And that's callbacks! 😄
 
 Hopefully, you're clear what callbacks are for and how to use them now. You won't create a lot of callbacks yourself in the beginning, so focus on learning how to use the available ones.
 
-Now, before we wrap up, let's look at the #1 problem developers have with callbacks – callback hell.
+Now, before we wrap up, let's look at the #1 problem developers have with callbacks: callback hell.
 
 ## Callback hell
 
@@ -389,9 +389,9 @@ app.get('/', function (req, res) {
 })
 ```
 
-And now, a challenge for you — try to decipher the code above at a glance. Pretty hard, isn't it? No wonder developers shudder at the sight of nested callbacks.
+And now, a challenge for you: try to decipher the code above at a glance. Pretty hard, isn't it? No wonder developers shudder at the sight of nested callbacks.
 
-One solution to overcome callback hell is to break the callback functions into smaller pieces to reduce the amount of nested code:
+One solution to overcome callback hell is to break the callback functions into smaller pieces which reduces the amount of nested code:
 
 ```js
 const updateUser = (req, res) => {
@@ -421,10 +421,10 @@ app.get('/', function (req, res) {
 
 Much easier to read, isn't it?
 
-There are other solutions to combat callback hell in newer versions of JavaScript — like promises and async/await. But well, explaining them would be a topic for another day too.
+There are other solutions to combat callback hell in newer versions of JavaScript like promises and async/await. But well, explaining them would be a topic for another day too.
 
 ## Wrapping up
 
-Today, you learned what callbacks are, why they're so important in JavaScript and how to use them. You also learned about callback hell and a way to combat against it. Hopefully, callbacks no longer scare you now 😉.
+Today, you learned what callbacks are, why they're so important in JavaScript and how to use them. You also learned about callback hell and a way to combat against it. Hopefully, callbacks no longer scare you now. 😉
 
 Do you still have any questions about callbacks? Feel free to leave a comment down below if you do and I'll get back to you as soon as I can.
