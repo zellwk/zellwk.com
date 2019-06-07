@@ -188,7 +188,7 @@ It can be a chore to write `calc` and `var` every time you create a rhythm value
 }
 ```
 
-Then, you can use the `vr` function you've created like this. Much simpler! 💃.
+Then, you can use the `rvr` function you've created like this. Much simpler! 💃.
 
 ```scss
 /* Two rhythm units */
