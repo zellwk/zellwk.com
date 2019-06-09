@@ -19,7 +19,7 @@ But publishing packages the way the industry does it? Not so simple. There are m
 
 ## Creating your first package
 
-This section is for you if you haven't published a package to npm before. Feel free to skip to the next section if you published one before.
+This section is for you if you haven't published a package to npm before. Feel free to skip to the next section if you've published one before.
 
 To publish your first package to npm, you need to go through these steps:
 
