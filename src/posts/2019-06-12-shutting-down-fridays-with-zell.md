@@ -79,6 +79,6 @@ You can always walk away if it's not for you.
 
 If you walk away, you'll know why it's not for you. You'll have a better idea about what you want/don't want to do. And you can focus better on the next thing. 
 
-Sometimes, what's right for you now doesn't mean it's never going to be right for you. 
+Sometimes, what's not right for you now doesn't mean it's never going to be right for you. 
 
 Keep experimenting, and continue to challenge your assumptions. 
