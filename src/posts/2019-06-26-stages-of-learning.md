@@ -45,7 +45,7 @@ When panic/overwhelm sets in, we tend to avoid what we're doing.
 - "I need a break" 
 - "Life happens" 
 
-We give ourselves \<span class="strikeout"\> excuses \</span\> permission to drop the thing we're learning. 
+We give ourselves <span class="strikeout"> excuses </span> permission to drop the thing we're learning. 
 
 It's okay to pause for a breather if you can't catch your breath. We all need a breather sometimes. But it's not okay to give up. (Unless you decide it's something you never wanted to do for the rest of your life. In which case, giving up is a good choice). 
 

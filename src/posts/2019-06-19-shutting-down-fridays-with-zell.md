@@ -12,6 +12,8 @@ If you stuck around for a while, you might have noticed I used to post a video (
 
 In 2019, I decided to stop making videos. I want to share why I decided to stop making videos. 
 
+<!-- more -->
+
 ## Why I started making videos
 
 I started making videos because of three reasons: 
