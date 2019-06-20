@@ -90,8 +90,8 @@ Notice the `input`'s height increases to fit the large SVG icon too! Once again,
 
 If you want to change this behavior, you can change the `align-items` property to either `start`, `end`, or `center`.
 
-<figure><img src="/images/2018/simple-form-css-grid/align-items.png" alt="Items can be aligned differently if you set `align-itemns` to a different value">
-  <figcaption aria-hidden>Items can be aligned differently if you set `align-itemns` to a different value</figcaption>
+<figure><img src="/images/2018/simple-form-css-grid/align-items.png" alt="Items can be aligned differently if you set `align-items` to a different value">
+  <figcaption aria-hidden>Items can be aligned differently if you set `align-items` to a different value</figcaption>
 </figure>
 
 Here's a Codepen for you to play:
