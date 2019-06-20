@@ -7,6 +7,8 @@ pagination:
 permalink: /blog{{'/page-' + (pagination.pageNumber + 1) if pagination.pageNumber}}/
 footer: true
 ---
+{% include "_svgs/guest-sites.svg" %}
+
 <div class="l-wrap">
   <article class="l-post">
     <h1>Articles</h1>
@@ -14,12 +16,14 @@ footer: true
     {%- for post in pagination.items %}
       <article class="o-words l-post__content">
       {% if post.data.external -%}
-        <svg viewBox="0 0 80 80">
-          <use xlink:href="#{{post.data.external | slug}}"></use>
-        </svg>
+          <div class="article__external-logo">
+            <svg viewbox="0 0 80 80">
+              <use xlink:href="#{{post.data.external | slug}}"></use>
+            </svg>
+          </div>
       {%- endif %}
         <h2>
-          <a href="{{post.url}}">
+          <a href="{{post.data.slug if post.data.external else post.url}}">
             {{- post.data.title | markdownInline -}}
           </a>
         </h2>
