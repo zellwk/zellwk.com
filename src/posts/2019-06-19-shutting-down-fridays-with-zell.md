@@ -22,7 +22,7 @@ I started making videos because of three reasons:
 
 I finally got a chance to try making videos at the start of 2018. I committed for one year (and made 44 videos in total). That's approximately 1 video per week. 
 
-## Why I'm shutting down Fridays with Zell. 
+## Why I'm shutting down Fridays with Zell.
 
 Two reasons: 
 
@@ -31,7 +31,7 @@ Two reasons:
 
 I should probably say more about each statement, so here we go.
 
-### Videos don't bring me additional subscribers 
+### Videos don't bring me additional subscribers
 
 Here's a chart of subscribers in 2018 and in 2019. 
 Green bars indicate the number of new subscribers. 
@@ -65,11 +65,11 @@ I got burned out.
 
 So I decided to stop. 
 
-## Will I ever make videos again? 
+## Will I ever make videos again?
   
 I can't say for sure. Maybe I will make videos again when the dread fades away. But if I ever start making videos again, I'll do it in a different way. 
 
-## Final words 
+## Final words
 
 You won't know whether you should (or shouldn't) do something until you've done it. 
 

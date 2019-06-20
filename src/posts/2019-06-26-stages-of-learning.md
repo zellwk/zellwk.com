@@ -26,7 +26,7 @@ Over time, I realized there are five stages of learning.
 
 In the awareness stage, you learn about a problem. And you realize you need to find a solution. 
 
-## Panic 
+## Panic
 
 Panic might come to some people. This depends on how much pressure you put on yourself. If you pressure yourself hard, you'll get into panic mode. 
 
@@ -36,7 +36,7 @@ If you set a deadline to learn something, that deadline you set is probably ambi
 
 If you put too much pressure on yourself, you may get overwhelmed. You may look for shortcuts instead of actually learning what you're supposed to learn. 
 
-## Avoidance 
+## Avoidance
 
 When panic/overwhelm sets in, we tend to avoid what we're doing. 
 
@@ -45,13 +45,13 @@ When panic/overwhelm sets in, we tend to avoid what we're doing.
 - "I need a break" 
 - "Life happens" 
 
-We give ourselves `<span class="strikeout"> excuses </span>` permission to drop the thing we're learning. 
+We give ourselves \<span class="strikeout"\> excuses \</span\> permission to drop the thing we're learning. 
 
 It's okay to pause for a breather if you can't catch your breath. We all need a breather sometimes. But it's not okay to give up. (Unless you decide it's something you never wanted to do for the rest of your life. In which case, giving up is a good choice). 
 
 The unfortunate thing is: Some people never realize they're avoiding. They search the internet, hoping to find "good tutorials" that'll teach them everything they need to know. And they use "I can't find any good tutorials" as an excuse not to learn. 
 
-## Acceptance 
+## Acceptance
 
 This is where you accept you bit off more than you can chew, and decide to chew it anyway. You accept the tough challenge ahead. And you prepare to face it head-on. 
 
@@ -61,7 +61,7 @@ This is when we dedicate the necessary resources, time, and energy to learn the 
 
 If you get into this mode, anything you learn stays with you for a long time. Before this stage, you don't actually learn. You may remember something for a short while, but you'll forget about it quickly. 
 
-## Learning 
+## Learning
 
 And so learning begins. 
 
@@ -86,7 +86,7 @@ At a certain point, we may decide we learned enough.
 
 And learning stops. 
 
-## Mastery 
+## Mastery
 
 Mastery is a continuous process where you learn more and more things about the same subject. You get deeper into the subject and you're able to sieve out the nuances. 
 

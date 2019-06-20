@@ -15,7 +15,7 @@ Here's what you'll create by the end of this article:
 
 <!-- more -->
 
-# Creating the HTML 
+# Creating the HTML
 
 You can tell from the image that the calendar contains three parts: 
 
@@ -41,7 +41,7 @@ You should also be able to see we need seven columns for the grid.
 
 We'll focus the conversation on `.day-of-week` and `.date-grid` since we're only talking about grid. 
 
-## Structuring the grid 
+## Structuring the grid
 
 There are two ways to create the CSS Grid. 
 
@@ -106,7 +106,7 @@ Both `.day-of-week` and `.date-grid` can use the same seven-column grid.
 
 <figure><img src="/images/2019/calendar-css-grid/calendar-grid.png" alt="1 Feb 2019 begins on a Friday"></figure>
 
-## Pushing the dates 
+## Pushing the dates
 
 February 2019 begins on a Friday. If we want the calendar to be correct, we need to make sure: 
 
@@ -152,7 +152,7 @@ Here's a codepen for you to play with:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-## Want to learn more? 
+## Want to learn more?
 
 This article contains one fraction of a component (a datepicker) from Learn JavaScript. There's so much more I want to show you. (But they're mostly JavaScript related topics).
 
