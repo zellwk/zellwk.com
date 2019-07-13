@@ -216,7 +216,7 @@ fetch({ /* request */ })
 })
 ~~~
 
-That's it for the **CREATE** operation! Let's move on to the final one – **DELETE**.
+That's it for the **UPDATE** operation! Let's move on to the final one – **DELETE**.
 
 ## CRUD - DELETE
 
