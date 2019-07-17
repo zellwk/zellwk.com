@@ -6,9 +6,10 @@ slug: local-mongodb
 tags:
   - mongodb
   - mongoose
+  - node
 ---
 
-When I create an app, I like to connect to a database on my computer. It speeds up dev and test-related work.
+I always use MongoDB as a database when I work on an app. And I like to connect to a database on my computer because it speeds up dev and test-related work. 
 
 Today, I want to share how to create and connect to a local MongoDB Database.
 

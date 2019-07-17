@@ -1,0 +1,29 @@
+---
+layout: _layout/page
+title: Questions for Learn JavaScript Q&A calls
+blockRobots: true
+newsletter: ''
+footer: blank
+---
+<h1 class="l-article__header"> {% markdown %} {{title}} {% endmarkdown %} </h1>
+
+<div class="l-article__text">
+  {% markdown %}
+  Please fill in the form to submit your questions
+  {% endmarkdown %}
+
+  {%- form {
+    redirect: '/ok/filled-form',
+    spreadsheet: '',
+    subject: 'Question for Learn JavaScript Call',
+    initialMessage: "Thanks for submitting your questions!",
+    finalMessage: ""
+  } -%}
+    {%- formTextarea {
+      name: 'question',
+      label: "Your question",
+      helpText: "Please describe your question in as much detail as possible. Please also include a link to a Codepen or Github repository if you want me to review your code. You can submit multiple times if you have many questions.", 
+      required: true
+    } -%}
+  {% endform %}
+</div>

@@ -7,13 +7,13 @@ tags:
   - thoughts
 ---
 
-How hard would it be to learn Backend? I already know JavaScript. I should be able to write Node. It should be simple. Right?
+I used to think it would be easy to write backend if I knew JavaScript. I thought it would be easy because Node is JavaScript. I didn't have to learn a new language. 
 
-Wrong.
+But I was wrong. 
 
-Backend was hard to learn. I took AGES to learn it (and I'm still trying to master it).
+But backend was hard to learn. I took ages to learn it. (And I'm still trying to master it). 
 
-I realized I had problems learning Backend because I thought Frontend and Backend were the same—they were just code.
+I realized I had problems learning backend because I thought Frontend and Backend were the same—they were just code.
 
 That's a big mistake.
 
