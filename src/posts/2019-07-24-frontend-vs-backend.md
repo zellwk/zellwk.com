@@ -25,7 +25,7 @@ If I were to explain the difference between Frontend and Backend (in terms of im
 - Backend is about communication
 
 <!-- more -->
-
+ 
 ## Frontend is about perception
 
 When we build Frontend things, we care a lot about how users perceive what we built. We spend an ungodly amount of time asking these questions (so much that countless jobs were created for each of them).
@@ -93,10 +93,9 @@ We also think about speed and reliability. (Imagine what happens if you send som
 Here's a common pattern I observed in my early days of learning backend:
 
 1. I would assume things to work in a specific way
-2. I would search on Google to implement the specific way I thought
-3. (Google results would come up empty)
-4. I would hack around it and build my own infrastructure
-5. Only to learn (much later) that my way sucked
+2. I thought I would search on Google to implement the specific way (but Google results would come up empty)
+3. I would hack around it and build my own infrastructure
+4. Only to learn (much later) that my way sucked
 
 I was almost always wrong because I unconsciously relied on my frontend experience while I learned backend. I had to learn things the hard way to rewire my thinking.
 
