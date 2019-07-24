@@ -11,13 +11,13 @@ I used to think it would be easy to write backend if I knew JavaScript. I though
 
 But I was wrong. 
 
-But backend was hard to learn. I took ages to learn it. (And I'm still trying to master it). 
+But backend was hard to learn. It took ages to learn it. (And I'm still trying to master it). 
 
 I realized I had problems learning backend because I thought Frontend and Backend were the same—they were just code.
 
 That's a big mistake.
 
-**Frontend and Backend are different beasts altogether**. I had to respect their differences to before I could learn Backend properly.
+**Frontend and Backend are different beasts altogether**. I had to respect their differences, before I could learn Backend properly.
 
 If I were to explain the difference between Frontend and Backend (in terms of implementation), I would say:
 
