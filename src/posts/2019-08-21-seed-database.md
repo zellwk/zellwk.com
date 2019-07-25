@@ -24,7 +24,7 @@ For the other three types of operations, you need to put something into the data
 
 <!-- more -->
 
-## Putting things into the database 
+## Putting things into the database
 
 The process where you add things to a database is called **seeding a database**. 
 
@@ -80,7 +80,7 @@ beforeEach(async () => {
 })
 ```
 
-## create vs insertMany 
+## create vs insertMany
 
 Mongoose has a second method to help you seed the database. This method is called `insertMany`. `insertMany` is faster than `create`, because: 
 
@@ -89,7 +89,7 @@ Mongoose has a second method to help you seed the database. This method is calle
 
 However, `insertMany` does not run the `save` middleware. 
 
-### Is triggering the save middleware important? 
+### Is triggering the save middleware important?
 
 This depends on your seed data. If your seed data needs to go through the `save` middleware, you need to use `create`. For example, let's say you want to save a user's password into the database. You have this data: 
 
@@ -129,7 +129,7 @@ If you use `insertMany`, you'll get users without hashed passwords:
 
 <figure role="figure"><img src="/images/2019/seed-database/insert-many.png" alt="InsertMany does not run the save middleware."></figure>
 
-### When to use create, when to use insertMany 
+### When to use create, when to use insertMany
 
 Since `insertMany` is faster than `create`, you want to use `insertMany` whenever you can. 
 
@@ -169,7 +169,7 @@ const util = require('util')
 
 // fs.readdir is written with callbacks. 
 // This line converts fs.readdir into a promise
-const readDir = util.promisify(fs.readdir).bind(fs)
+const readDir = util.promisify(fs.readdir)
 
 async function seedDatabase () {
   // Gets list of files in the directory
