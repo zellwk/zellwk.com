@@ -17,7 +17,7 @@ I realized I had problems learning backend because I thought Frontend and Backen
 
 That's a big mistake.
 
-**Frontend and Backend are different beasts altogether**. I had to respect their differences to before I could learn Backend properly.
+**Frontend and Backend are different beasts altogether**. I had to respect their differences before I could learn Backend properly.
 
 If I were to explain the difference between Frontend and Backend (in terms of implementation), I would say:
 
@@ -93,7 +93,7 @@ We also think about speed and reliability. (Imagine what happens if you send som
 Here's a common pattern I observed in my early days of learning backend:
 
 1. I would assume things to work in a specific way
-2. I would search on Google to implement the specific way I thought
+2. I would search on Google on how to implement things the specific way I thought
 3. (Google results would come up empty)
 4. I would hack around it and build my own infrastructure
 5. Only to learn (much later) that my way sucked
