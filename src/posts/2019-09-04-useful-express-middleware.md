@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Three useful Express middleware
-description: I want to share three useful express middlewares with you. They are: Morgan, Camelcase, and Remove Empty Properties. 
+description: "I want to share three useful express middlewares with you. They are: Morgan, Camelcase, and Remove Empty Properties."
 slug: express-middlewares
 tags:
   - express
