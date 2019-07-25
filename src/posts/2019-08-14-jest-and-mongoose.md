@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Connecting Jest and Mongoose
-description: 
+description: The hard part about testing a backend application is setting up a test database. In this article, I share how I setup Jest and Mongoose.
 slug: jest-and-mongoose
 tags:
   - javascript
@@ -17,7 +17,7 @@ Today, I want to share how I setup Jest and Mongoose.
 
 <!-- more -->
 
-## Setting up Mongoose with Jest 
+## Setting up Mongoose with Jest
 
 Jest gives you a warning if you try to use Mongoose with Jest. 
 
@@ -83,7 +83,7 @@ beforeAll(async () => {
 })
 ```
 
-## Sending a POST request 
+## Sending a POST request
 
 Let's say you want to create a user for your app. The user has a name and an email address. Your Mongoose Schema might look like this: 
 
@@ -165,7 +165,7 @@ afterEach(async () => {
 })
 ```
 
-## Testing the Endpoint 
+## Testing the Endpoint
 
 Let's begin our tests. In this test, we will send a POST request to the `/signup` endpoint. We want to make sure: 
 
@@ -232,7 +232,7 @@ it('Should save user to database', async done => {
 
 We're done with our tests now. We want to delete the database from MongoDB. 
 
-## Deleting the database 
+## Deleting the database
 
 To delete the database, you need to ensure there are 0 collections in the database. We can do this by dropping each collection we used. 
 

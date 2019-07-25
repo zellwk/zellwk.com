@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Endpoint testing with Jest and Supertest
-description: 
+description: How to setup Jest and Supertest for endpoint testing.
 slug: endpoint-testing
 tags:
   - javascript
@@ -33,7 +33,7 @@ You might have expected Express and Mongoose because everyone else seems to use 
 
 But why Jest and not other test frameworks?
 
-## Why Jest 
+## Why Jest
 
 I don't like Facebook, so I didn't want to try anything that was created by Facebook's team. I know it sounds silly, but that was the truth. 
 
@@ -181,7 +181,7 @@ const app = require('./server.js')
 app.listen(3000)
 ```
 
-### Using Supertest 
+### Using Supertest
 
 To use Supertest, you require your app and supertest in the test file. 
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Seeding a database
-description: 
+description: The process where you add things to a database is called seeding a database. Here, I teach you how to seed a database automatically. 
 slug: seed-database
 tags:
   - javascript
