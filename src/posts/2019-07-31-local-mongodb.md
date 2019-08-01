@@ -202,7 +202,7 @@ const url = 'mongodb://127.0.0.1:27017/game-of-thrones'
 You can connect to MongoDB with the `connect` method:
 
 ```js
-mongoose.connect('url', { useNewUrlParser: true })
+mongoose.connect(url, { useNewUrlParser: true })
 ```
 
 Here's how you can check whether the connection succeeds.
