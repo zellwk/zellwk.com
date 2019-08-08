@@ -13,8 +13,6 @@ series: endpoint-testing
 
 I played around with testing lately. One thing I tried to do was to test the endpoints of my Express application. 
 
-I did it because I felt Endpoint testing is Integration testing. And integration testing is better than unit testing because I can make sure my application works end-to-end. 
-
 Setting up the test was the hard part. People who write about tests don't actually teach you how they set it up. I could not find any useful information about this, and I had to try and figure it out. 
 
 So today, I want to share the setup I created for myself. Hopefully, this can help you when you create your own tests.  

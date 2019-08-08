@@ -21,7 +21,7 @@ I want to share what these three middlewares do, and how they make life easier f
 
 <!-- more -->
 
-## Morgan 
+## Morgan
 
 Morgan is a request logger. It tells you several things when your server receives a request. It can log things like: 
 
@@ -55,7 +55,7 @@ I use Morgan to check two things:
 1. The method and the endpoint
 2. Status codes
 
-### Checking the method and endpoint 
+### Checking the method and endpoint
 
 When you write backend code, you need to make sure you send a request with the correct method and endpoint. If the method or endpoint is wrong, you will not be able to trigger the request handler you're expecting to trigger. 
 
@@ -93,7 +93,7 @@ And a 500+ status code is red:
 
 <figure role="figure"><img src="/images/2019/express-middlewares/500.png" alt="500 status code is red."></figure>
 
-## CamelCase 
+## CamelCase
 
 Let's say you want to get a user's first name from a form. To do this, you need a `<form>` in your HTML. The `<form>` should contain an `<input>` with the `name` of `first-name`. 
 
@@ -170,7 +170,7 @@ With `camelcase`, you don't have to worry about `first name`, `first_name`, `fir
 
 It doesn't matter whether you're getting from `req.body`, `req.params` or `req.query` too. All properties will be in camel case. 
 
-## Remove empty properties 
+## Remove empty properties
 
 Let's imagine a situation where you expect an array of skills. 
 

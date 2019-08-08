@@ -19,7 +19,7 @@ Today, I want to share how to use async/await in an Express request handler.
 
 Note: Before you continue, you need to know what Async/await is. If you don't know, you can read [this article][1] for more information. 
 
-## Using Async/await with a request handler 
+## Using Async/await with a request handler
 
 To use Async/await, you need to use the `async` keyword when you define a request handler. (Note: These request handlers are known as called "controllers". I prefer calling them request handlers because request handlers are more explicit). 
 
@@ -37,7 +37,7 @@ app.post('/testing', async (req, res) => {
 })
 ```
 
-## Handling Async errors 
+## Handling Async errors
 
 Let's say you want to create a user through a POST request. To create a user, you need to pass in a `firstName` and an `email` address. Your Mongoose Schema looks like this: 
 
@@ -127,7 +127,7 @@ Express's default error handler will:
 
 <figure role="figure" aria-label="Notice the 500 HTTP Status log in this image. This tells me Express's default handler changed the HTTP Status to 500."><img src="/images/2019/async-await-express/default-error-handler-log.png" alt="Logs the text response into the console."><figcaption>Notice the 500 HTTP Status log in this image. This tells me Express's default handler changed the HTTP Status to 500. The log is from Morgan. E talked about Morgan in detail <a href="/blog/middlewares"> here</a>. </figcaption></figure>
 
-## Handling two or more async errors 
+## Handling two or more async errors
 
 If you need to handle two `await` statements, you might write this code: 
 
@@ -162,7 +162,7 @@ app.post('/signup', async(req, res, next) => {
 })
 ```
 
-## Cleaning up 
+## Cleaning up
 
 It sucks to have a `try/catch` statement in each request handler. They make the request handler seem more complicated than it has to be. 
 
@@ -196,7 +196,7 @@ app.post('/signup', runAsyncWrapper(async(req, res) => {
 })
 ```
 
-## Express Async Handler 
+## Express Async Handler
 
 You don't have to write `runAsyncWrapper` code each time you write an express app either. [Alexei Bazhenov][3] has created a package called [express-async-handler][4] that does the job in a slightly more robust way. (It ensures `next` is always the last argument). 
 

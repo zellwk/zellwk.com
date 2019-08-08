@@ -15,7 +15,7 @@ Today I want to show you how to convert callbacks to promises.
 
 Before you read this article, it helps to know what a [promise][1] is. 
 
-## Converting Node-styled callbacks to promises 
+## Converting Node-styled callbacks to promises
 
 Callbacks from Node's API have the same pattern. They're passed into functions as the final argument. Here's an example with `fs.readFile`. 
 
@@ -56,7 +56,7 @@ readFilePromise(filePath, options)
 
 Once in a while, you may run into APIs that do not conform to Node's error-first callback format. For these situations, you cannot use `util.promisify`. You need to write your own promise. 
 
-## Writing your own promise 
+## Writing your own promise
 
 To convert a callback into a promise, you need to return a promise. 
 
