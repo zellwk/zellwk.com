@@ -35,7 +35,7 @@ But why Jest and not other test frameworks?
 
 I don't like Facebook, so I didn't want to try anything that was created by Facebook's team. I know it sounds silly, but that was the truth. 
 
-Before Jest, I tried out all sorts of test frameworks. I tried Tap, Tape, Mocha, Jasmine, and AVA. Each test framework has its own pros and cons. I almost ended up with AVA, but I didn't go with AVA because I found it hard to set up. Eventually, I tried Jest out because Kent C. Dotts recommended it.
+Before Jest, I tried out all sorts of test frameworks. I tried Tap, Tape, Mocha, Jasmine, and AVA. Each test framework has its own pros and cons. I almost ended up with AVA, but I didn't go with AVA because I found it hard to set up. Eventually, I tried Jest out because Kent C. Dodds recommended it.
 
 I fell in love with Jest after trying it out. I love it because: 
 

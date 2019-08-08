@@ -25,7 +25,7 @@ The test is simple. We're testing what happens when we click on a `<button>`. Sp
 
 Here's the HTML we're using for the test: 
 
-```js
+```html
 <div tabindex="0">Placeholder for testing tab</div>
 <button>Button</button>
 <div tabindex="0">Placeholder for testing tab</div>
