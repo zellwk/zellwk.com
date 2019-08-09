@@ -36,7 +36,7 @@ There's no fixed structure. As long as you covered the three guidelines above, y
 
 Here's an example of a question that I procrastinated before answering (any procrastination from your answerer is bad because they might end up skipping them entirely):
 
-<figure>![Example of Bad question #1](/images/2016/asking-questions/badq1.png)</figure>
+<figure role="figure"><img src="/images/2016/asking-questions/badq1.png" alt="Example of a bad question."></figure>
 
 Let's break it down why this question doesn't get answered immediately, and how it can be improved.
 
@@ -61,13 +61,13 @@ After some clarifying questions, I realized that what he wanted was the ability 
 Here's one way to make the question better:
 
 > Hey Zell,
->
+> 
 > Thanks for all the articles you wrote about responsive typography. It helped me xxxx.
->
+> 
 > I have one question that I'm confused about. When you use em and rems, will you be able to keep the proportions between elements on a page consistent even if someone else zooms in or out?
->
+> 
 > To make it clearer, let's say the font-size of my body text is 16px while the font-size of h1 is twice of that at 32px. Will the font-size of h1 always be twice of the body text?
->
+> 
 > Thanks,
 > Name-of-awesome-question-asker
 
@@ -97,7 +97,7 @@ This is where we get an interesting dilemma. What happens usually with people as
 
 Here's an example of a question I received:
 
-<figure>![Example of Bad question #2](/images/2016/asking-questions/badq2.png)</figure>
+<figure role="figure"><img src="/images/2016/asking-questions/badq2.png" alt="Example of a bad question."></figure>
 
 😄
 
@@ -111,11 +111,11 @@ When you think about the specificity of your questions, **think about how you ca
 
 **When you show code, make sure you only show the relevant parts to the question.** Don't show everything, because it's immensely overwhelming. Will you debug someone's code with 1000 lines of CSS at a whim? Probably not. I don't want to either.
 
-By the way, this is what we call a reduced test case. Chris Coyier explains in detail what a reduced test case is, and how to pull it off properly in [his article](https://css-tricks.com/reduced-test-cases/). I recommend you check it out.
+By the way, this is what we call a reduced test case. Chris Coyier explains in detail what a reduced test case is, and how to pull it off properly in [his article][1]. I recommend you check it out.
 
 **If you need to show code, make sure you find a way for the answerer to look at, and edit your code easily.** Even though the person you're asking is much better than you, he probably can't get to the correct code without debugging (I know some awesome people can, but I can't. I'm sorry).
 
-For frontend / static questions, you can use [Codepen](http://codepen.io) to create your test case easily. If you don't know how to use Codepen, make sure you take a look at [this video](https://css-tricks.com/video-screencasts/112-using-codepen/) by Chris, where he walks you through the basics of Codepen. It's old, but the principles remain the same.
+For frontend / static questions, you can use [Codepen][2] to create your test case easily. If you don't know how to use Codepen, make sure you take a look at [this video][3] by Chris, where he walks you through the basics of Codepen. It's old, but the principles remain the same.
 
 If you can't use Codepen, it's your job to find an alternative way where your answerer can quickly look and code through your question. Git repos are an excellent way of doing so.
 
@@ -137,7 +137,7 @@ You can pop the question via email, in forums, Stack Overflow, or anywhere you c
 
 Different people have different preferences. Some prefer you ask via email, some twitter, others maybe in person perhaps?
 
-For me, I'm switching the way I answer questions starting from today. **If you want to ask me a question (Design, Frontend, Backend, Life etc), please [head over to this Github repo](https://github.com/zellwk/ama/issues) and file an issue.** I'll reply.
+For me, I'm switching the way I answer questions starting from today. **If you want to ask me a question (Design, Frontend, Backend, Life etc), please [head over to this Github repo][4] and file an issue.** I'll reply.
 
 I want to handle code-related questions via Github because:
 
@@ -155,3 +155,8 @@ It's tiring. I reply to emails more than doing actual work that I care about. So
 So, if your question doesn't follow the guidelines I mentioned in this article, I'll point you back here until you refine them. Deal?
 
 Besides, you know the benefits to learning to ask good questions. I don't have to spell it out :)
+
+[1]:	https://css-tricks.com/reduced-test-cases/
+[2]:	http://codepen.io
+[3]:	https://css-tricks.com/video-screencasts/112-using-codepen/
+[4]:	https://github.com/zellwk/ama/issues
