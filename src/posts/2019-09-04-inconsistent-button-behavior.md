@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Inconsistent behavior among browsers when clicking on buttons 
-description: 
+description: I noticed browsers were inconsistent in how they handle a click on a button element. Some browsers choose to focus on the button. Some browsers don't. 
 slug: inconsistent-button-behavior
 tags:
   - javascript
@@ -14,7 +14,7 @@ In this article, I want to show you my test and findings. Then, I want to talk a
 
 <!-- more -->
 
-## The test 
+## The test
 
 The test is simple. We're testing what happens when we click on a `<button>`. Specifically, we want to know if: 
 
@@ -57,7 +57,7 @@ button.addEventListener('click', event => {
 
 Note: If you're using Chrome, you can use the Live Expression tool (so there's no need to log `document.activeElement`). 
 
-### Testing for keypress 
+### Testing for keypress
 
 Here, we can add a `keydown` event listener to the document. Here, we want to log what element triggered the event. We can tell the element with `event.target`. 
 
@@ -75,7 +75,7 @@ Likewise, does `Shift` + `Tab` goes to the previous focusable element? If it goe
 
 I did not log `document.activeElement` because the focus glow is enough.
 
-## Results 
+## Results
 
 ### Safari (Mac)
 
@@ -192,7 +192,7 @@ The next keypress originates from `<button>`.
 
 <figure role="figure"><img src="/images/2019/inconsistent-button-behavior/edge-shift-tab.gif" alt="Previous element gets focus when you press Shift + Tab"></figure>
 
-## Summary of the results 
+## Summary of the results
 
 We tested for four things across the common browsers: 
 
@@ -257,22 +257,22 @@ Here are the results in a table form.
 
 You can see the inconsistencies here. It's clear as day. The major inconsistencies are: 
 
-1. Firefox on Mac is simply weird. Everything seems wrong.
-2. Some browsers don't focus on the button when they're clicked. 
-3. Some browsers don't include a focus glow on the button when they're clicked. 
+1. **Firefox on Mac is simply weird.** Everything seems wrong.
+2. **Some browsers don't focus on the button** when they're clicked. 
+3. **Some browsers don't include a focus glow** on the button when they're clicked. 
 
-The [HTML Spec]() doesn't state what browsers should do after a user clicks on a button. So no browsers are at fault for the inconsistent behavior. 
+The [HTML Spec]() doesn't state what browsers should do after a user clicks on a button. So *no browsers are at fault* for the inconsistent behavior. 
 
 ## Here's a potential fix
 
-I think Chrome's implementation (both Mac and Windows) makes the most sense. 
+**I think Chrome's implementation (both Mac and Windows) makes the most sense.**
 
 1. When you click on a button, focus should be on the button. 
 2. Button should have a focus glow 
 3. When you press `Tab` after clicking a button, the next element should get focus. 
 4. When you press `Shift` + `Tab` after clicking a button, the previous element should get focus. 
 
-Note: If you're the kind of person that hates the default focus glow, you can restyle the focus glow (or you can wait for `:focus-visible` to be widely supported). 
+Note: If you're the kind of person that hates the default focus style, you can restyle the focus ring (or you can wait for `:focus-visible` to be widely supported). 
 
 There's a quick fix if you want to make the other browsers behave consistently with Chrome's implementation. All you have to do is add this code at the top of your JavaScript. 
 
@@ -292,7 +292,7 @@ This code focuses on the button when you click on it. This also makes sure:
 
 **Important note:** You want to put this code AT THE TOP of your JavaScript files. It works because event listeners are called in the order they're declared. Focus will always go to the button first. You can then redirect focus to other elements if you desire. 
 
-**Important note #2:** I have not tested this code thoroughly with all devices yet. (Only the ones I mentioned above). If you're an Accessibility Expert, I appreciate it if you can help to conduct some tests. Let me know if I'm wrong in any way. Thanks. 
+**Important note #2:** I have not tested this code thoroughly with all devices yet. (Only Mac versions Safari, Firefox, and Chrome). I appreciate it if you can help to conduct some tests. Let me know if I'm wrong in any way. Thanks. 
 
 In case you were wondering why I did these tests: I realized the inconsistent behavior when I was writing the Keyboard section for [Learn JavaScript][2]. I did these tests because I wanted to teach my students the right way to handle buttons and focus (which is a big part of accessibility!). 
 
