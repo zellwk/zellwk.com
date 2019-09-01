@@ -23,7 +23,7 @@ Jest gives you a warning if you try to use Mongoose with Jest.
 
 <figure role="figure"><img src="/images/2019/jest-and-mongoose/mongoose-jest-warning.png" alt="Warning if you try to use Mongoose with Jest"></figure>
 
-If you don't want to see this error, you need to set `testEnrinmonte` to `node` in your `package.json` file.
+If you don't want to see this error, you need to set `testEnvironment` to `node` in your `package.json` file.
 
 ```js
 "jest": {
