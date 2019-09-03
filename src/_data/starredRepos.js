@@ -6,7 +6,11 @@ const token = process.env.GH_TOKEN
 
 // TODO: Somehow zlFetch doesn't work here. I don't know why!
 const fetchMyStarred = async _ => {
-  const response = await fetch('https://api.github.com/users/zellwk/starred')
+  const response = await fetch('https://api.github.com/users/zellwk/starred', {
+    headers: {
+      Authorization: 'Bearer ' + token
+    }
+  })
   const repos = await response.json()
 
   return repos
