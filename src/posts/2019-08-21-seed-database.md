@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Seeding a database
-description: The process where you add things to a database is called seeding a database. Here, I teach you how to seed a database automatically. 
+description: The process where you add initial content to a database is called seeding. Here, I teach you how to seed a database automatically. 
 slug: seed-database
 tags:
   - javascript
@@ -26,7 +26,7 @@ For the other three types of operations, you need to put something into the data
 
 ## Putting things into the database
 
-The process where you add things to a database is called **seeding a database**. 
+The process where you add initial content to a database is called **seeding**. 
 
 Let's say you want to add three users to the database. These users contain a name and an email address. 
 
