@@ -11,8 +11,8 @@ Fears and doubt often pop into my head when I work.
 
 When I code, I wonder: 
 
-- Am I'm using best practices?
-- Did I'm structure code in the best possible way?
+- Am I using best practices?
+- Did I structure code in the best possible way?
 - Am I doing it correctly?
 
 When I write, I wonder: 
