@@ -37,13 +37,13 @@ const minifyImages = _ => {
     .pipe(dest(tmpOutput))
 }
 
-const resizeImages = _ => {
-  return resizer({
-    inputDir: tmpOutput,
-    outputDir: tmpOutput2,
-    outputSizes: imageSizes
-  })
-}
+// const resizeImages = _ => {
+//   return resizer({
+//     inputDir: tmpOutput,
+//     outputDir: tmpOutput2,
+//     outputSizes: imageSizes
+//   })
+// }
 
 const copyImagesToDist = _ => {
   return src(tmpOutput2 + `/**/*`)
@@ -62,7 +62,7 @@ const copyFaviconsToDist = _ => {
 
 const images = series(
   parallel(jpegToWebp, pngToWebp, minifyImages),
-  parallel(resizeImages),
+  // parallel(resizeImages),
   parallel(copyImagesToDist, copySvgToDist, copyFaviconsToDist)
 )
 
