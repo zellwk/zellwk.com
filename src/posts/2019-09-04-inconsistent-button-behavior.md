@@ -31,7 +31,7 @@ Here's the HTML we're using for the test:
 <div tabindex="0">Placeholder for testing tab</div>
 ```
 
-The `<div>`s are there for us test tabbing and shift-tabbing easily. 
+The `<div>`s are there for us to test tabbing and shift-tabbing easily. 
 
 Here's a Codepen for you if you want to follow along with the tests. 
 
@@ -268,7 +268,7 @@ The [HTML Spec]() doesn't state what browsers should do after a user clicks on a
 **I think Chrome's implementation (both Mac and Windows) makes the most sense.**
 
 1. When you click on a button, focus should be on the button. 
-2. Button should have a focus glow 
+2. Button should have a focus glow.
 3. When you press `Tab` after clicking a button, the next element should get focus. 
 4. When you press `Shift` + `Tab` after clicking a button, the previous element should get focus. 
 
@@ -286,8 +286,8 @@ document.addEventListener('click', event => {
 
 This code focuses on the button when you click on it. This also makes sure: 
 
-1. The focus glow appears
-2. Tab goes to the next element
+1. The focus glow appears.
+2. Tab goes to the next element.
 3. Shift-Tab goes to the previous element
 
 **Important note:** You want to put this code AT THE TOP of your JavaScript files. It works because event listeners are called in the order they're declared. Focus will always go to the button first. You can then redirect focus to other elements if you desire. 
