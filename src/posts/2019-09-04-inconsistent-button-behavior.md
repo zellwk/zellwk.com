@@ -261,7 +261,7 @@ You can see the inconsistencies here. It's clear as day. The major inconsistenci
 2. **Some browsers don't focus on the button** when they're clicked. 
 3. **Some browsers don't include a focus glow** on the button when they're clicked. 
 
-The [HTML Spec]() doesn't state what browsers should do after a user clicks on a button. So *no browsers are at fault* for the inconsistent behavior. 
+The [HTML Spec](https://html.spec.whatwg.org/multipage/) doesn't state what browsers should do after a user clicks on a button. So *no browsers are at fault* for the inconsistent behavior. 
 
 ## Here's a potential fix
 
