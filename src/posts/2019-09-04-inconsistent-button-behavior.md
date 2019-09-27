@@ -278,7 +278,7 @@ There's a quick fix if you want to make the other browsers behave consistently w
 
 ```js
 document.addEventListener('click', event => {
-  if (event.target.matches('button') {
+  if (event.target.matches('button')) {
     event.target.focus()
   }
 })
