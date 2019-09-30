@@ -277,7 +277,7 @@ Note: If you're the kind of person that hates the default focus style, you can r
 There's a quick fix if you want to make the other browsers behave consistently with Chrome's implementation. All you have to do is add this code at the top of your JavaScript. 
 
 ```js
-document.addEventListener('click', event => {
+document.addEventListener('click', function (event) {
   if (event.target.matches('button') {
     event.target.focus()
   }

@@ -214,9 +214,11 @@ At the time of writing, this solution has not been integrated into HTML5 Boilerp
 
 Again, it's worth going through the [conversations in the issue thread][5] if you nerd out in this field. It's priceless. (As an aside, I learned that `aria-label` is [ignored by Google's and Microsoft's translators][6]! 😱).
 
+Update: Aswin notified me that `clip` [is deprecated][7]. We should use `clip-path` instead.  I haven't tested `clip-path` in production yet though. 
+
 ## Concluding words
 
-**While Joe Watkin's solution seems to be the best so far, the real answer is it depends.** Each method we discussed above, in [Jonathan's article][7], and elsewhere on the internet has their pros and cons.
+**While Joe Watkin's solution seems to be the best so far, the real answer is it depends.** Each method we discussed above, in [Jonathan's article][8], and elsewhere on the internet has their pros and cons.
 
 Like Scott mentioned, it's almost like a situation where you can choose between grid vs flex vs other layout methods. You have to pick the best method depending on the situation (and your knowledge of the weird quirks).
 
@@ -235,4 +237,5 @@ Unfortunately, this is something that's way out of my league right now. If you'd
 [4]:	https://github.com/h5bp/main.css/issues/12
 [5]:	https://github.com/h5bp/main.css/issues/12
 [6]:	https://github.com/h5bp/main.css/issues/12#issuecomment-392156112
-[7]:	https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+[7]:	https://developer.mozilla.org/en-US/docs/Web/CSS/clip "Clip"
+[8]:	https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
