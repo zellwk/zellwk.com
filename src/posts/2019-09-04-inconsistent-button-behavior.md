@@ -261,7 +261,7 @@ You can see the inconsistencies here. It's clear as day. The major inconsistenci
 2. **Some browsers don't focus on the button** when they're clicked.
 3. **Some browsers don't include a focus glow** on the button when they're clicked.
 
-The [HTML Spec](https://www.w3.org/TR/2011/WD-html5-20110525/the-button-element.html#the-button-element) doesn't state what browsers should do after a user clicks on a button. So *no browsers are at fault* for the inconsistent behavior.
+The [HTML Spec][1] doesn't state what browsers should do after a user clicks on a button. So *no browsers are at fault* for the inconsistent behavior.
 
 ## Here's a potential fix
 
@@ -296,4 +296,5 @@ This code focuses on the button when you click on it. This also makes sure:
 
 In case you were wondering why I did these tests: I realized the inconsistent behavior when I was writing the Keyboard section for [Learn JavaScript][2]. I did these tests because I wanted to teach my students the right way to handle buttons and focus (which is a big part of accessibility!).
 
+[1]:	https://www.w3.org/TR/2011/WD-html5-20110525/the-button-element.html#the-button-element
 [2]:	https://learnjavascript.today "Learn JavaScript"
