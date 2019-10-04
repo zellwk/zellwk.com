@@ -28,7 +28,7 @@ Today, I want to show you how to create these focus styles and use them effortle
 
 <!-- more -->
 
-## Creating the focus for Smashing Magazine 
+## Creating the focus for Smashing Magazine
 
 Smashing Magazine uses a large dotted outline for focus. To create this focus style, you set the `outline` property to `3px dotted`. 
 
@@ -216,7 +216,7 @@ button:focus {
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-## Combined demo 
+## Combined demo
 
 I combined the different methods onto one demo for you to play with. Here it is: 
 

@@ -125,7 +125,7 @@ Express's default error handler will:
 
 <figure role="figure" aria-label="I used Postman to send a request to my server. Here's the text response back from the server."><img src="/images/2019/async-await-express/default-error-handler-response.png" alt="Sends a text response back to the request"><figcaption>I used Postman to send a request to my server. Here's the text response back from the server. </figcaption></figure>
 
-<figure role="figure" aria-label="Notice the 500 HTTP Status log in this image. This tells me Express's default handler changed the HTTP Status to 500."><img src="/images/2019/async-await-express/default-error-handler-log.png" alt="Logs the text response into the console."><figcaption>Notice the 500 HTTP Status log in this image. This tells me Express's default handler changed the HTTP Status to 500. The log is from Morgan. E talked about Morgan in detail <a href="/blog/middlewares"> here</a>. </figcaption></figure>
+<figure role="figure" aria-label="Notice the 500 HTTP Status log in this image. This tells me Express's default handler changed the HTTP Status to 500."><img src="/images/2019/async-await-express/default-error-handler-log.png" alt="Logs the text response into the console."><figcaption>Notice the 500 HTTP Status log in this image. This tells me Express's default handler changed the HTTP Status to 500. The log is from Morgan. I talked about Morgan in detail <a href="/blog/express-middlewares"> here</a>. </figcaption></figure>
 
 ## Handling two or more async errors
 

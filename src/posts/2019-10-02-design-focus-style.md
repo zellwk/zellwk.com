@@ -179,4 +179,4 @@ Finally, you want to consider changing `color`. Use `color` with the three other
 
 [1]:	http://wtfforms.com/
 [2]:	https://twitter.com/mdo/
-[3]:	/blog/create-focus-style "Creating a custom focus style"
+[3]:	/blog/creating-focus-style "Creating a custom focus style"
