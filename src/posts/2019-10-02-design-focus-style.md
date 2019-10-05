@@ -8,18 +8,18 @@ tags:
   - accessibility
 ---
 
-**Focus is important.** It tells us what element we're focusing on. Most developers on the internet suggest keeping with the default focus style. 
+**Focus is important.** It tells us what element we're currently focusing on. Most developers suggest keeping the default focus style. 
 
-I think **there are problems with the default style.** I tried to search for inspirations to design a better focus, but I couldn't find anything on this topic. So I did a quick research by visiting sites I use and paying attention to their focus styles.  
+I think **there are problems with the default style.** I tried searching for inspiration to design a better focus style, but I couldn't find anything on this topic. So I did some quick research by visiting sites I use and paying attention to their focus styles.  
 
 I want to document my research and findings in this article. I hope it helps you: 
 
 1. Understand the problems with the default focus style
-2. Give you some inspiration to **design your own focus**
+2. Give you some inspiration to **design your own focus styles**
 
 <!-- more -->
 
-Let's start off by talking about the pros and cons with the default focus style. 
+Let's start off by talking about the pros and cons of browser default focus styles. 
 
 ## Pros and cons with the defaults
 
@@ -150,7 +150,7 @@ Chris Coyier pointed to [WTF Forms][1] by [Mark Otto][2] during my research. The
 
 No research is complete without checking whether I failed or succeeded at creating focus styles. (Bad habit). 
 
-Turns out, I did not create enough focus for links. The color change was not enough to catch my attention immediately. It would have been sufficient if I added the focus ring though! 
+Turns out, I did not create enough focus for the links on my own site. The color change was not enough to catch my attention immediately. It would have been sufficient if I added the focus ring though! 
 
 <figure role="figure"><img src="/images/2019/focus/zellwk.gif" alt="Tabbing through links on my site."></figure>
 
@@ -169,7 +169,7 @@ If you want to design your own focus style, you need to **think about four varia
 3. Changing the background color (if any) 
 4. Changing the color of the text (if any)
 
-Outlines are best because create the most amount of contrast. 
+Outlines are best because they create the most amount of contrast. 
 
 Animations come next because our eyes get drawn to moving objects. 
 
