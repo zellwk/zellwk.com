@@ -27,7 +27,7 @@ Let's start off by talking about the pros and cons of browser default focus styl
 
 The default focus style is great because **we're familiar with it**. When we see the blue ring around something, we know it is in focus. 
 
-Note: Since the default focus style is a ring around the content, I'm going to use the term "focus ring" instead of "focus style" from now on. 
+Note: Since the default focus style is a ring around the content, I'm going to use the term "focus ring" and "focus style" interchangeably. 
 
 <figure role="figure"><img src="/images/2019/focus/chrome-focus.png" alt="Default focus ring in Chrome."></figure>
 
