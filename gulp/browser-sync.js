@@ -24,7 +24,7 @@ const serve = done => {
     open: false,
     // For builds without a server, use { server: ./dist }
     proxy: {
-      target: `localhost:5555`,
+      target: 'localhost:5555',
       middleware: [
         // Hot module reloading notes:
         // 1. No HMR because setup is complicated without hot-loader for a frameworks

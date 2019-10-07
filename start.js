@@ -5,7 +5,7 @@
 //     https://www.npmjs.com/package/dotenv
 const updateEnv = pathToConfig => {
   const envConfig = dotenv.parse(fs.readFileSync(pathToConfig))
-  for (let k in envConfig) {
+  for (const k in envConfig) {
     process.env[k] = envConfig[k]
   }
 }
