@@ -19,7 +19,7 @@ There are LOTS of languages. Picking one (or two, or three! 😱) can be scary a
 
 For this article, I assume you want **to be a web developer**. If you don't want to be a web developer, then these considerations and recommendations do not apply to you.
 
-## Two categories of web development 
+## Two categories of web development
 
 Web development can be divided into two large categories: 
 
@@ -33,7 +33,7 @@ The basic gist is:
 1. Frontend is about stuff a user can see (and touch). 
 2. Backend is about stuff a user cannot see (or touch). 
 
-## Must-learn languages 
+## Must-learn languages
 
 It doesn't matter whether you want to specialize in Frontend or Backend (or both). **You need to know these two languages**: 
 
@@ -81,7 +81,7 @@ When it comes to these three languages:
 
 By the way, I wrote a [huge course on JavaScript][4]. If you need help, look at the course details. I'm sure it can help you. 
 
-## Learning backend development 
+## Learning backend development
 
 Backend can be split into three parts:
 
@@ -89,7 +89,7 @@ Backend can be split into three parts:
 2. Databases 
 3. Servers
 
-### Backend languages 
+### Backend languages
 
 There are many backend languages. You can choose from: 
 
@@ -127,7 +127,7 @@ I suggest you **use these frameworks** if you don't know what to choose:
 2. [Ruby on Rails][11] (for Ruby)
 3. [Django][12] (for Python)
 
-### Databases 
+### Databases
 
 **Databases let you save things.**
 
@@ -157,7 +157,7 @@ Again, **pick one and go**. Don't get paralyzed. **I chose MongoDB** because peo
 
 You can (and will) learn about their differences as you get more advanced. No hurry to learn the differences. **Build something first.** 
 
-### Servers 
+### Servers
 
 **Servers are where you host your website.** They can go from simple to super-duper complicated. 
 
@@ -174,7 +174,7 @@ Both **Now and Netlify** let you host **static frontend** websites easily. (And 
 
 **Digital Ocean** is a good choice to **configure your own server**. (The link above gives you $50 credit). 
 
-### Configuring a server 
+### Configuring a server
 
 **Servers are hosted on Linux machines** (not Windows, not Mac). This means you need to learn to use Linux when you configure a server. 
 
@@ -187,7 +187,7 @@ You also need to **pick a language**. Here, you can choose from:
 
 Again, pick one and go. **I used Apache initially** when I first built websites (because it was configured for me). **Later, I moved on to Nginx** when I configured my server. Today, this blog (and almost everything I build) runs on a Digital Ocean server. 
 
-## Wrapping up 
+## Wrapping up
 
 Here's a quick summary. 
 
@@ -202,7 +202,7 @@ If you want to become a backend developer, you need to:
 1. Choose one backend language
 2. Choose one database language
 
-Start by building a website on Now.sh and Netlify. Then, move to Heroku. Finally, configure your own server with Digital Ocean. 
+Start by building a website on Now.sh or Netlify. Then, move to Heroku. Finally, configure your own server with Digital Ocean. 
 
 When you configure your server, you need to:
 
