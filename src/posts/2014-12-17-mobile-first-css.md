@@ -144,7 +144,7 @@ Say these spaces each take up 5% of the width:
 .gallery__item {
   float: left;
   width: 30%;
-  margin-right 5%;
+  margin-right: 5%;
   margin-bottom: 5%;
 }
 ~~~
@@ -155,7 +155,7 @@ We will also have to give the final (3rd item) on the row a `margin-right` of 0 
 .gallery__item {
   float: left;
   width: 30%;
-  margin-right 5%;
+  margin-right: 5%;
   margin-bottom: 5%;
   &:nth-child(3n) {
     margin-right: 0;
@@ -169,7 +169,7 @@ This code must also work for the case where there are four items in the row. If 
 .gallery__item {
   float: left;
   width: 30%;
-  margin-right 5%;
+  margin-right: 5%;
   margin-bottom: 5%;
   &:nth-child(3n) {
     margin-right: 0;
