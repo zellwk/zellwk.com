@@ -10,6 +10,12 @@ footer: true
     <div class="o-words c-post__content l-post__content jsPostContent">
       <span class="c-post__date l-post__date">{{page.date | readableDate }}</span>
 
+      {%- if cover %}
+      <figure role="figure">
+        <img src="{{cover}}" alt="{{coverAlt}}">
+      </figure>
+      {% endif %}
+
       {%- if video %} {%- youtube video -%} {% endif %}
       {# Podcast is for old simplecast format #}
       {# Podcast2 is for new simplecast format #}

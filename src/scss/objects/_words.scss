@@ -1,17 +1,33 @@
 @mixin o-words {
-  * + h2 { margin-top: vr(1.5); }
-  * + h3 { margin-top: vr(1.5); }
-  h3 + p { margin-top: vr(0.25); }
+  * + h2 {
+    margin-top: vr(1.5);
+  }
+  * + h3 {
+    margin-top: vr(1.5);
+  }
+  h3 + p {
+    margin-top: vr(0.25);
+  }
 
   // lists
-  ul li { list-style-type: disc }
-  ol li { list-style-type: decimal; }
-  li + li { margin-top: vr(0.125) }
+  ul li {
+    list-style-type: disc;
+  }
+  ol li {
+    list-style-type: decimal;
+  }
+  li + li {
+    margin-top: vr(0.125);
+  }
+  li > ul,
+  li > ol {
+    margin-top: vr(0.125);
+  }
 
   li {
     margin-left: 2.5rem;
     list-style-position: outside;
-    font-feature-settings: 'liga' 1, 'lnum' 1;
+    font-feature-settings: "liga" 1, "lnum" 1;
   }
 
   // image

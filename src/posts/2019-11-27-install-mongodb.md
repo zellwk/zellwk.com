@@ -15,7 +15,7 @@ Here's an updated version on how to install MongoDB on a Mac.
 
 There are a few steps:
 
-**First, you install Home-brew.** If you're curious about what Homebrew is, read [this article][2].
+**First, you install Homebrew.** If you're curious about what Homebrew is, read [this article][2].
 
 ```bash
 # Installs Homebrew

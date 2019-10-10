@@ -4,6 +4,7 @@ title: Handling Errors in Express
 description: How to handle Express errors
 slug: express-errors
 cover: "/images/2019/express-errors/cover.png"
+coverAlt: "Handling Express Errors"
 tags:
   - node
   - express
@@ -100,7 +101,7 @@ Express will stop using its default error handler once you create a custom error
 
 A valid HTTP status code depends on what happened. Here's a list of common errors you should prepare for:
 
-1. **400 Bad Request Error: **
+1. **400 Bad Request Error:**
 	- Used when user fails to include a field (like no credit card information in a payment form)
 	- Also used when user enters incorrect information (Example: Entering different passwords in a password field and password confirmation field).
 2. **401 Unauthorized Error:** Used when user enters incorrect login information (like username, email or password).

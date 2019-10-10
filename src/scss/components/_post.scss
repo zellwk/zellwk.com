@@ -1,7 +1,9 @@
 .l-post__content {
   @include l-article__text;
   margin-top: vr(1.25);
-  @include bp(mega) { margin-top: vr(2); }
+  @include bp(mega) {
+    margin-top: vr(2);
+  }
 
   > .l-post__date {
     @include bp(large) {
@@ -22,7 +24,7 @@
   > p:first-of-type {
     @include l-content;
     @include tp-sans1;
-    margin-top: 0;
+    margin-top: 1rem;
     margin-right: 0;
 
     > code {
@@ -30,5 +32,7 @@
     }
   }
 
-  iframe + p:first-of-type { margin-top: vr(0.75); }
+  iframe + p:first-of-type {
+    margin-top: vr(0.75);
+  }
 }
