@@ -30,7 +30,9 @@ module.exports = eleventyConfig => {
   // Published posts are posts that are older than today (when eleventy runs)
   const isPublished = item => item.date <= new Date()
 
-  // Collections
+  // Published Posts
+  // Used for Blog template
+  // Used for previous/next post link
   eleventyConfig.addCollection('publishedPosts', collection => {
     return collection.getFilteredByGlob('./src/posts/*.md')
       .filter(isPublished)
@@ -126,39 +128,6 @@ module.exports = eleventyConfig => {
       : ''
     return `${path.join(dir, basename + sizePath + ext)} ${size}w`
   }
-
-  eleventyConfig.addShortcode('imageWithPerf', (fpath, alt, caption) => {
-    const { width } = sizeOf(path.join(__dirname, 'src', fpath))
-    const ext = path.extname(fpath)
-    const basename = path.basename(fpath, ext)
-    const dir = path.dirname(fpath)
-    const imageSizes = [400, 900, 1300]
-
-    // Get all available sizes
-    // Orig file itself is the largest size
-    const sizes = imageSizes.filter(size => size < width)
-    if (sizes[sizes.length - 1] !== width) sizes.push(width)
-
-    // Create a map of paths.
-    // Includes webP and non webp...
-    const nonWebp = sizes
-      .map(size => getSrcSet(width, size, dir, basename, ext))
-      .join()
-
-    const webp = sizes
-      .map(size => getSrcSet(width, size, dir, basename, '.webp'))
-      .join()
-
-    return `<figure>
-  <picture>
-    <source srcset="${webp}" sizes="100vw"/>
-    <img srcset="${nonWebp}" sizes="100vw"
-      src="${fpath}" alt="${alt}"
-    />
-    ${caption ? `<figcaption>${caption}</figcaption>` : ''}
-  </picture>
-</figure>`
-  })
 
   // Dates
   eleventyConfig.addFilter('readableDate', value => {

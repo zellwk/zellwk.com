@@ -2,7 +2,6 @@ require('isomorphic-fetch')
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
-const expressValidator = require('express-validator')
 const favicon = require('serve-favicon')
 const routes = require('./routes')
 const { camelKeys } = require('./middlewares')
@@ -24,7 +23,6 @@ if (isProduction) {
 // ======================================
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(expressValidator())
 app.use(camelKeys)
 
 // ======================================

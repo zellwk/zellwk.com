@@ -129,3 +129,39 @@ table {
     padding: 0.25em;
   }
 }
+
+.article-nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: -0.5em;
+  margin-top: 1em;
+  > * {
+    display: flex;
+    align-items: center;
+  }
+
+  > *:first-child {
+    margin-right: 1em;
+  }
+
+  svg {
+    position: relative;
+    top: 0.1em;
+    font-size: 0.65em;
+  }
+
+  svg + *,
+  * + svg {
+    margin-left: 0.25em;
+  }
+
+  // Matches color from start of hover-text
+  [data-link-to="previous-post"] {
+    align-self: flex-start;
+  }
+
+  [data-link-to="next-post"] {
+    align-self: flex-end;
+  }
+}

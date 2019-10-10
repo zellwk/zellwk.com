@@ -220,7 +220,7 @@ db.on('error', err => {
 
 <figure><img src="/images/2019/local-mongodb/connect-mongoose.png" alt="Connected to local MongoDB through Mongoose."></figure>
 
-[1]:	https://treehouse.github.io/installation-guides/mac/mongo-mac.html "Treehouse — Install MongoDB on Mac"
+[1]:	/blog/install-mongodb "Install MongoDB on Mac"
 [2]:	https://treehouse.github.io/installation-guides/windows/mongo-windows.html "Treehouse — Install MongoDB on Windows"
 [3]:	https://docs.mongodb.com/compass/master/install/ "MongoDB Compass"
 [4]:	https://www.npmjs.com/package/mongodb "MongoDB driver"

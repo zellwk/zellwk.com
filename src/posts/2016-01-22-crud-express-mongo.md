@@ -5,9 +5,11 @@ slug: crud-express-mongodb
 tags:
  - best
  - node
- - mongo
+ - mongodb
+  - express
  - javascript
 newsletter: jsr
+series: crud
 ---
 
 If you know me, you know that I started learning about the web without having gone through any computing courses in university previously. I didn't dare to venture into server-side programming for a long time because of my background.
