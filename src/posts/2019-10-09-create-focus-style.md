@@ -227,4 +227,4 @@ I combined the different methods onto one demo for you to play with. Here it is:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-[1]:	/blog/create-focus-style "Designing a focus style"
+[1]:	/blog/design-focus-style "Designing a focus style"
