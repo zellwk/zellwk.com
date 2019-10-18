@@ -280,10 +280,10 @@ In the situation above, you can easily break `.comments__comment` down into `.co
 <section class="comments">
   <h2 class="comments__title"></h2>
   <article class="comment">
-    <h3 class="comment-title"></h3>
+    <h3 class="comment__title"></h3>
   </article>
   <article class="comment">
-    <h3 class="comment-title"></h3>
+    <h3 class="comment__title"></h3>
   </article>
   <!-- ... -->
 </section>
