@@ -39,7 +39,7 @@ The question is, how should you write the CSS code? Here are a few possible answ
 4. Add `margin` to `.main-nav a` and `background-color` a `.main-nav .button`.
 5. Add `margin` to `.main-nav a` and `background-color` a `button--modifier`.
 
-Which makes one makes sense? How do you ensure every developer on your project feels the same way?
+Which one makes sense? How do you ensure every developer on your project feels the same way?
 
 Even if all your developers are clones of you (and therefore think the same way), how do you know if you did not introduce a side effect (that broke another part of the site)? 😱😱😱.
 
