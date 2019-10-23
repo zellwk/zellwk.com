@@ -238,6 +238,6 @@ But if you think there's not enough affordance, you'd want to style `:hover`, `:
 That's it! Hope you learned something today! 
 
 [1]:	/blog/inconsistent-button-behavior "Inconsistent button behavior across browsers"
-[2]:	/blog/design-focus-style "Design your focus"
+[2]:	/blog/design-focus-style "Design your own focus"
 [3]:	/blog/creating-focus-style "Creating a custom focus style"
 [4]:	/blog/inconsistent-button-behavior "Inconsistent button behavior across browsers"
