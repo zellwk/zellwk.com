@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mongoose 101: Working with subdocuments"
-description: What are subdocuments and how to create, find, update, and delete Mongoose subdocuments.
+description: Learn what are Mongoose subdocuments, and how to create, find, update, and delete subdocuments.
 slug: mongoose-subdocuments
 tags:
   - javascript
@@ -11,7 +11,7 @@ tags:
 series: mongoose
 ---
 
-You learned how to use Mongoose on a basic level to create, read, update, and delete documents in the [previous tutorial](). In this tutorial, we'll go a step further into subdocuments
+You learned how to use Mongoose on a basic level to create, read, update, and delete documents in the [previous tutorial][1]. In this tutorial, we'll go a step further into subdocuments
 
 <!-- more -->
 
@@ -296,3 +296,4 @@ console.log(updated)
 
 <figure role="figure"><img src="/images/2019/mongoose-subdocuments/ryu-3.png" alt="Ryu document with Dejin Hadoken."></figure>
 
+[1]:	/blog/mongoose
