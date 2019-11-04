@@ -143,7 +143,7 @@ Consider your bedroom. How's the furniture arranged? For my bedroom, my:
 - Wardrobe is placed in the south-eastern corner 
 - door is at the south-west corner
 
-On a website, we don't have north/east/south/west directions. But we can still say where things are with top/ring/bottom/left. 
+On a website, we don't have north/east/south/west directions. But we can still say where things are with top/right/bottom/left. 
 
 Let's say my bed is placed in the top-right corner of the room. This is what I might write: 
 
