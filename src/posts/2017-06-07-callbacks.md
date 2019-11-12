@@ -128,7 +128,7 @@ button.addEventListener('click', (event) => {
 
 Phew! That's the basic idea for callbacks! Just remember the keyword: **passing a function into another function** and you'll recall the mechanics I mentioned above.
 
-(Side note: This ability to pass functions around is a big thing. It's so big that functions in JavaScript are considered *higher order functions*. Higher order functions are also a big thing that in a programming paradigm called Functional Programming).
+(Side note: This ability to pass functions around is a big thing. It's so big that functions in JavaScript are considered *higher order functions*. Higher order functions are also a big thing in a programming paradigm called Functional Programming).
 
 But that's a topic for another day. Now, I'm sure you're beginning to see what callbacks are and how they're used. But why? Why do you need callbacks?
 
