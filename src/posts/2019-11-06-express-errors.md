@@ -325,6 +325,6 @@ app.use((error, req, res, next) => {
 
 That's all I know for now! :)
 
-[1]:	%60
+[1]:	/blog/express-errors/
 [2]:	/blog/async-await-express
 [3]:	https://www.npmjs.com/package/http-errors "Http errors package"
