@@ -41,7 +41,7 @@ After you sourced the file (or restarted the terminal), type `echo $helloworld` 
 echo $helloworld
 ```
 
-<figure role="figure"><img src="/images/2019/dotenv/env-vars.png" alt="Echoing the environment variable."></figure>
+<figure role="figure"><img src="/images/2019/dotenv/env-var.png" alt="Echoing the environment variable."></figure>
 
 ## Using environment variables
 
