@@ -40,6 +40,10 @@ MongoDB is now installed on your computer. To use MongoDB, you need to create th
 sudo mkdir -p /data/db
 ```
 
+If you are running MacOS Catalina you will need to create the data directory in `/System/Volumes/Data` due to security measures in that OS (namely SIP - System Integrity Protection). Then set the db path for Mongo:
+
+`mongod --dbpath /users/<username>/data/db/`
+
 You also need to give permissions to use it:
 
 ```js
