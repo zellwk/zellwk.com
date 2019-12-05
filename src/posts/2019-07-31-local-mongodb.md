@@ -47,7 +47,7 @@ To make it easier to understand, you can think of MongoDB as a building. It cont
 
 **Each room is a database**. Each database is responsible for storing information about one application. You can store as much information as you want.
 
-You'll an unlimited supply of **boxes** in each room. Each box is a  **collection**. Each collection can only contain one type of data.
+You'll [have] an unlimited supply of **boxes** in each room. Each box is a  **collection**. Each collection can only contain one type of data.
 
 For example, one collection can be used for books, one collection for users, one collection for toys, and so on.
 
@@ -63,7 +63,7 @@ mongo
 
 Note: Make sure you keep the `mongod` window open! You won't be able to interact with the Mongo Shell if you close the `mongod` window.
 
-First, we need a database to work with. You can see the currently selected database with the `db` command. (By default, you should on the `test` database).
+First, we need a database to work with. You can see the currently selected database with the `db` command. (By default, you should [be, test, work, experiment] on the `test` database).
 
 ```bash
 > db
@@ -81,7 +81,7 @@ For this article, we'll create a database called `game-of-thrones`. You can use 
 
 <figure><img src="/images/2019/local-mongodb/switch-db.png" alt="Switch to a database named game-of-thrones."></figure>
 
-We're going to add a character into the `game-of-thrones`. Here, we need to put the character into a collection. We'll use `characters` as the name of the collection.
+We're going to add characters into the `game-of-thrones`. Here, we need to put characters into a collection. We'll use `characters` as the name of the collection.
 
 To add an item to a collection, you can pass a JavaScript object into `db.<collectionName>.insertOne()`.
 
@@ -91,7 +91,7 @@ db.characters.insertOne({ name: 'Jon Snow' })
 
 <figure><img src="/images/2019/local-mongodb/insert-1.png" alt="Added 'Jon Snow' into the 'characters' collection."></figure>
 
-Let's add one character into the database before we continue.
+Let's add another character into the database before we continue.
 
 ```js
 db.characters.insertOne({ name: 'Arya Stark' })
