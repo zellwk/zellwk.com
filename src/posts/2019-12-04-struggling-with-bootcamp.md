@@ -55,7 +55,7 @@ Both are valid options. What you need depends on your current state. I won’t b
 
 **Whatever you choose, don’t give up coding.** Continue to learn. Everyone can code. You too.
 
-If you need help with JavaScript, I got a step-by-step course you will be interested in. https://learnjavascript.today.
+If you need help with JavaScript, I have a step-by-step course you will be interested in. https://learnjavascript.today.
 
 All the best :)
 
