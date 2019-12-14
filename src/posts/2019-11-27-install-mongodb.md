@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Installing MongoDB with Homebrew
+title: Installing MongoDB with Homebrew (Catalina and non-Catalina)
 description: Updated steps to install MongoDB on a Mac.
 slug: install-mongodb
 tags:
@@ -34,7 +34,15 @@ brew tap mongodb/brew
 brew install mongodb-community
 ```
 
-MongoDB is now installed on your computer. To use MongoDB, you need to create the `/data/db` folder with this command:
+MongoDB is now installed on your computer. 
+
+## Using MongoDB 
+
+If you want to use MongoDB, you need to create a `/data/db` folder on your computer. 
+
+### Before MacOS Catalina 
+
+To use MongoDB, you need to create the `/data/db` folder with this command:
 
 ```js
 sudo mkdir -p /data/db
@@ -48,6 +56,27 @@ sudo chown -R `id -un` /data/db
 
 Now you can follow the rest of [the article][3] to set up your MongoDB connection.
 
+## Update for MacOS Catalina
+
+[Apple created a new Volume in Catalina][4] for security purposes. If you're on Catalina, you need to create the `/data/db` folder in `System/Volumes/Data`.
+
+Use this command:   
+
+```js
+sudo mkdir -p /System/Volumes/Data/data/db
+```
+
+Then, use this command to give permissions: 
+
+```js
+sudo chown -R `id -un` /System/Volumes/Data/data/db
+```
+
+Once you do this you should be able to run `mongod` as usual.
+
+
+
 [1]:	/blog/local-mongodb/ "Setting up a local MongoDB connection"
 [2]:	/blog/homebrew "Understanding Homebrew"
 [3]:	/blog/local-mongodb/ "Setting up a local MongoDB connection"
+[4]:	https://support.apple.com/en-us/HT210650
