@@ -38,8 +38,6 @@ Express's default error handler will:
 
 <figure role="figure"><img src="/images/2019/express-errors/sync-error.png" alt="Error returns to the client"></figure>
 
-<figure role="figure"><img src="/images/2019/express-errors/sync-error-log.png" alt="Error logged to the console."></figure>
-
 ## Handling asynchronous errors
 
 If you want to handle an asynchronous error, you need to send the error into an express error handler through the `next` argument.
