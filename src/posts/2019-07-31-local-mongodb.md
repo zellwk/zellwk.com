@@ -47,7 +47,7 @@ To make it easier to understand, you can think of MongoDB as a building. It cont
 
 **Each room is a database**. Each database is responsible for storing information about one application. You can store as much information as you want.
 
-You'll an unlimited supply of **boxes** in each room. Each box is a  **collection**. Each collection can only contain one type of data.
+You have an unlimited supply of **boxes** in each room. Each box is a  **collection**. Each collection can only contain one type of data.
 
 For example, one collection can be used for books, one collection for users, one collection for toys, and so on.
 
@@ -63,7 +63,7 @@ mongo
 
 Note: Make sure you keep the `mongod` window open! You won't be able to interact with the Mongo Shell if you close the `mongod` window.
 
-First, we need a database to work with. You can see the currently selected database with the `db` command. (By default, you should on the `test` database).
+First, we need a database to work with. You can see the currently selected database with the `db` command. (By default, you should be on the `test` database).
 
 ```bash
 > db
