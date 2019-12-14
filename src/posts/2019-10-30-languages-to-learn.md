@@ -135,10 +135,10 @@ For example. Let's say you logged into Twitter. How does Twitter know you're you
 
 When it comes to databases, there are two main types: 
 
-1. Sequel Databases 
-2. No-sequel Databases 
+1. SQL Databases 
+2. No-SQL Databases 
 
-Note: Sequel can be abbreviated to SQL. When people say SQL, they mean Sequel. Same thing. 
+Note: SQL can be spoken as "sequel". When people say "sequel", they mean SQL. Same thing. 
 
 Again, both types of databases work. You don't want to learn both types when you're starting out. **Pick one and go.** Doesn't matter which you pick. **Don't worry about pros and cons** (you're won't know enough to evaluate the differences at this stage). 
 

@@ -37,7 +37,7 @@ You will probably remain confused. And you may think you learned nothing while y
 
 For example, let's say you joined a Bootcamp that teaches you to become a Full Stack developer. In the Bootcamp, they teach you how to use Express and MongoDB to create a backend. You don't remember much of this.
 
-Let's say you feel ready to build apps a year after the Bootcamp. At this point, you know (roughly) what to use. You'll reach for Express and MongoDB straightaway. This shaves off a huge amount of time [choosing a language]().
+Let's say you feel ready to build apps a year after the Bootcamp. At this point, you know (roughly) what to use. You'll reach for Express and MongoDB straightaway. This shaves off a huge amount of time [choosing a language][1].
 
 You'll also know the basics of the language. You'll roughly know how to structure your code. This takes off a huge amount of time from browsing online tutorials.
 
@@ -55,7 +55,8 @@ Both are valid options. What you need depends on your current state. I won’t b
 
 **Whatever you choose, don’t give up coding.** Continue to learn. Everyone can code. You too.
 
-If you need help with JavaScript, I got a step-by-step course you will be interested in. https://learnjavascript.today.
+If you need help with JavaScript, I have a step-by-step course you will be interested in. https://learnjavascript.today.
 
 All the best :)
 
+[1]: https://zellwk.com/blog/languages-to-learn/

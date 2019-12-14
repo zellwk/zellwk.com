@@ -283,7 +283,7 @@ app.use((req, res, next) => {
 
 Don't panic if you see an error that says "Cannot set headers after they're sent to the server".
 
-<figure role="figure"><img src="/images/2019/express-errors/http-headers-error.png" alt="Error: Cannot set headers after they're sent."></figure>
+<figure role="figure"><img src="/images/2019/express-errors/http-errors.png" alt="Error: Cannot set headers after they're sent."></figure>
 
 This error happens because the code ran methods that set response headers more than once in the same handler. These are the methods that set a response headers for you:
 
@@ -325,6 +325,6 @@ app.use((error, req, res, next) => {
 
 That's all I know for now! :)
 
-[1]:	%60
+[1]:	/blog/express-errors/
 [2]:	/blog/async-await-express
 [3]:	https://www.npmjs.com/package/http-errors "Http errors package"
