@@ -61,7 +61,7 @@ VS Code keeps tracks of folders you opened automatically. Each folder is a works
 
 ### Opening the terminal
 
-VS Code has a built-in terminal that navigates to the project's folder. To open the terminal, use `command` + `\``.
+VS Code has a built-in terminal that navigates to the project's folder. To open the terminal, use `command` + <code>`</code>.
 
 I tend to use the VS code terminal for simple one-off commands. When I need a dedicated terminal, I switch over to my iTerm. My shortcut to bring up iTerm is `option` + `space`.
 
