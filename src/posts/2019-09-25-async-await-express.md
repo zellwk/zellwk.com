@@ -214,7 +214,7 @@ const asyncHandler = require('express-async-handler')
 app.post('/signup', asyncHandler(async(req, res) => {
     await firstThing()
     await secondThing()
-})
+}))
 ```
 
 I don't like to write `asyncHandler`. It's quite long. My obvious solution is to abbreviate `asyncHandler` to `ash`.
