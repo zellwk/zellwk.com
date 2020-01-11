@@ -10,7 +10,7 @@
     "restart": "pm2 restart zellwk.com --update-env",
     "server": "nodemon start.js --ignore 'src/**/*.js' --ignore 'dev/**/*' --ignore 'dist/**/*'",
     "dev": "NODE_ENV=development gulp",
-    "eleventy": "rm -rf dist && eleventy --watch",
+    "eleventy": "rm -rf dist && eleventy --watch --quiet",
     "eleventy-debug": "DEBUG=Eleventy* eleventy",
     "build": "NODE_ENV=production gulp build",
     "observe": "NODE_ENV=production npm run server & gulp serve",
