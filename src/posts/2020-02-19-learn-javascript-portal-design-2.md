@@ -218,9 +218,7 @@ This message can be easily changed to a failure message if the login fails.
   <img src="/images/2020/ljs-portal-2/login-error-message.png" alt="Example of the login error message.">
 </figure>
 
-That's all the considerations I made for the login page. 
-
-Next week, I'll end the series with the Accounts and Components page. I'll also share some of my learnings from this experience. 
+That's all the considerations I made for the login page. Next week, I'll end the series with the Accounts and Components page. I'll also share some of my learnings from this experience. 
 
 [4]:	https://pjrvs.com/ "Paul Jarvis"
 [5]:	https://chimpessentials.com/ "Chimp Essentials"
