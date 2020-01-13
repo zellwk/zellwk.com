@@ -31,7 +31,8 @@
   }
 
   // image
-  figure > img {
+  figure > img,
+  figure > video {
     border: 1px solid #ccc;
   }
 
