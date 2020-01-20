@@ -36,7 +36,9 @@ h6 {
   display: block;
 }
 
-a:focus { outline: none; }
+a:focus {
+  outline: none;
+}
 
 // Removes all decimals and discs from li
 li {
@@ -63,3 +65,6 @@ button {
   }
 }
 
+video {
+  display: block;
+}
