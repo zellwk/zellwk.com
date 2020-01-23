@@ -50,7 +50,7 @@ We can provide an angle to `linear-gradient` to change the angle of the gradient
 ```css
 .gradient-text {
   background: linear-gradient(120deg, #ab4e19, #c99a2e);
-  -webkit-backgfile:///.file/id=6571367.14572989round-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 ```
