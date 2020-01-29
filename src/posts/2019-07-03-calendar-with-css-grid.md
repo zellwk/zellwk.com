@@ -67,7 +67,7 @@ The first way is to merge elements within `.day-of-week` and `.date-grid` into o
 </div>
 ```
 
-I discourage this method because the HTML loses its structural meaning. I prefer keeping `.day-of-week` and `date-grid` as separate elements if possible. This makes it easy for me to read/understand the code I've written. 
+I discourage this method because the HTML loses its structural meaning. I prefer keeping `.day-of-week` and `.date-grid` as separate elements if possible. This makes it easy for me to read/understand the code I've written. 
 
 Here's the HTML structure i chose to go with: 
 
@@ -119,7 +119,7 @@ With CSS Grid, this part is easy.
 
 CSS Grid has placement algorithm that kinda follows the following rules (if you didn't set `grid-auto-flow` to `dense`): 
 
-1. Place items that has explicit `grid-column` or `grid-row` first
+1. Place items that have explicit `grid-column` or `grid-row` first
 2. Fill in the rest according to the last-placed item 
 
 What this means is: 
