@@ -122,7 +122,7 @@ In the article, Chris talks about a `:placeholder-shown` pseudo-class. It can be
 The idea is:
 
 1. You add a placeholder to your input
-2. If the input is hidden, it means the user typed something into the field
+2. If the placeholder is hidden, it means the user typed something into the field
 3. Proceed with validation (or invalidation)
 
 Here's the CSS (simplified version. For the complete version, check out [Chris's article][2])
