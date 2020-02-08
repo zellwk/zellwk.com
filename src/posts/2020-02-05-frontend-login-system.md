@@ -66,7 +66,7 @@ async function basiclogin(email, password) {
   const response = await zlFetch.post(/*...*/);
   const { token } = response.body;
 
-  localStorage.setItem("token", token);
+  localStorage.setItem('token', token);
 }
 ```
 
@@ -76,7 +76,7 @@ To check whether a student is logged in, I check the `localStorage` for the toke
 
 ```js
 async function isLoggedIn() {
-  const token = store.get("token");
+  const token = store.get('token');
   if (!token) return false;
 }
 ```
@@ -86,8 +86,8 @@ If the student is not logged in, I redirect them to the login page.
 ```js
 async function autoRedirect() {
   const validLogin = await isLoggedIn();
-  if (!validLogin && location.pathname !== "/login/") redirect("/login");
-  if (validLogin && location.pathname === "/login/") redirect("/");
+  if (!validLogin && location.pathname !== '/login/') redirect('/login');
+  if (validLogin && location.pathname === '/login/') redirect('/');
 }
 ```
 
@@ -99,7 +99,7 @@ async function isLoggedIn() {
   // Checks validity of token
   const response = await zlFetch.post(loginEndpoint, {
     auth: token,
-    body: { course: "learn-javascript" }
+    body: { course: 'learn-javascript' }
   });
 }
 ```
@@ -111,7 +111,7 @@ async function isLoggedIn() {
   // ...
   // Saves token into localStorage again
   const { token } = response.body;
-  localStorage.setItem("token", token);
+  localStorage.setItem('token', token);
 
   return true;
 }
@@ -155,7 +155,7 @@ Two birds with one stone!
 function isLoggedIn() {
   // ...
   const { token, user } = response.body;
-  localStorage.setItem("user", user);
+  localStorage.setItem('user', user);
 }
 ```
 
@@ -165,8 +165,8 @@ It's simple to logout. We just have to clear the items we placed in `localStorag
 
 ```js
 function logout() {
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
 }
 ```
 
@@ -187,7 +187,7 @@ To prevent people from turning off their JavaScript to view lessons, I added a `
 I remove this `no-js` class when there's JavaScript.
 
 ```js
-document.documentElement.classList.remove("no-js");
+document.documentElement.classList.remove('no-js');
 ```
 
 And I hide the main content if the user turns off JavaScript.
