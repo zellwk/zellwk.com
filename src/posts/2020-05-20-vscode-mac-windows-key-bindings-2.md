@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Customised (and effective) Visual Studio Code keyboard shortcuts for Mac and Windows (Part 2)
-description: "Customised shortcuts to make the Integrated Terminal easy to use."
+description: "Customised Visual Studio Code shortcuts to make the Integrated Terminal easy to use."
 slug: mac-and-windows-vscode-keybindings-2
 series: windows-web-dev
 tags:
@@ -10,7 +10,7 @@ tags:
   - windows
 ---
 
-I talked about the key bindings I used to switch between tabs and panels last week. This week, I'm going to share some wicked shortcuts I use for the Integrated Terminal.
+I talked about the key bindings I used to switch between tabs and panels last week. This week, I want to share some wicked shortcuts I use for the Integrated Terminal.
 
 They're really sweet. 😘.
 
