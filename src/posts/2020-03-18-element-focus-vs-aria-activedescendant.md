@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Element.focus vs aria-activedescendant."
+title: Element.focus vs aria-activedescendant
 description: I did in-depth research on these two methods and I'd like to share my findings in this article. In the end, I recommend you use element.focus over aria-activedescendant
 slug: element-focus-vs-aria-activedescendant
 tags:
@@ -655,12 +655,11 @@ I created a collection of pens (one for each test) if you'd like to run the expe
 
 There is only one reliable method for managing focus: `element.focus` + roving `tabindex`. 
 
-Don't use `aria-activedescendant`. It doesn't work on `grid` and `combobox` with Voiceover. I did not know how `aria-activedescendant` works with other composite widgets since I didn't test them. If you decide to use `aria-activedescendant`, make sure you test your code with screen readers before putting it into production. 
+Don't use `aria-activedescendant`. It doesn't work on `grid` and `combobox` with Voiceover. I don't know how `aria-activedescendant` works with other composite widgets since I didn't test them. If you decide to use `aria-activedescendant`, make sure you test your code with screen readers before putting it into production. 
 
 I don't see the benefits of using `aria-activedescendant` since the amount of code required for `element.focus` + roving `tabindex` is similar to the amount of code required for `aria-activedescendant`. 
 
-After my experiments, I can't help but think `aria-activedescendant` is poop (just like how Heydon Pickering considers `aria-controls` [poop]()). 
-
+After my experiments, I can't help but think `aria-activedescendant` is poop (just like how Heydon Pickering considers `aria-controls` [poop]()). Of course, if I'm wrong about my conclusions, please reach out and educate me! Thanks! 
 
 [1]:	https://www.w3.org/TR/wai-aria-1.1/#widget_roles "WAI ARIA Widget roles"
 [2]:	https://www.w3.org/TR/wai-aria-1.1/#aria-activedescendant "WAI ARIA spec"

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Overcoming my panic towards accessibility
-description: I've been afraid of touching accessibility for a few years now. This fear magnified when I began writing the accessibility lessons for Learn JavaScript. Today, I want to share with you why I became afraid of accessibility, and how I overcame this fear.   
+description: I've been afraid of touching accessibility for a few years now. This fear magnified when I began writing the accessibility lessons for Learn JavaScript. Today, I want to share with you why I became afraid of accessibility, and how I overcame this fear.  
 slug: overcoming-panic-towards-accessibility
 tags:
   - accessibility
@@ -155,7 +155,7 @@ Yes. I still get panic attacks when I think about accessibility. Heck, I even ge
 
 But I moved on. I'm at a better place compared to where I was a few months ago. I'm more confident. I became a better developer and a better teacher. 
 
-## Why I'm writing this? 
+## Why I'm writing this?
 
 I felt like writing an extremely righteous message here (like saying it's for you to break out of your panic attacks towards code).
 

@@ -2,7 +2,7 @@
 // Based on https://github.com/chriskempson/tomorrow-theme
 // @author Rose Pritchard
 
-[class*='language-'] {
+[class*="language-"] {
   background: color(mine);
   color: color(iron);
   text-align: left;
@@ -11,17 +11,18 @@
 }
 
 // Code blocks
-:not(pre) > [class*='language-'],
-[class*='language-'] {
+:not(pre) > [class*="language-"],
+[class*="language-"] {
   background: #2d2d2d;
 }
 
+// Colors
 .token.comment,
 .token.block-comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: color(aluminium);
+  color: #999;
 }
 
 .token.punctuation {
@@ -78,7 +79,6 @@
 .token.bold {
   font-weight: bold;
 }
-
 .token.italic {
   font-style: italic;
 }
@@ -88,5 +88,15 @@
 }
 
 .token.inserted {
-  color: #008000;
+  color: green;
+}
+
+.token.deleted-sign {
+  display: block;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.token.inserted-sign {
+  display: block;
+  background-color: rgba(0, 255, 128, 0.2);
 }
