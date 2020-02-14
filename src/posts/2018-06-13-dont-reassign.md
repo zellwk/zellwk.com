@@ -145,7 +145,7 @@ if (today === 'Monday') {
 }
 ```
 
-The best way to handle many `if/else` statements (or even a `switch`) statement is to contain the `if/else` logic in a function.
+The best way to handle many `if/else` statements (or even a `switch` statement) is to contain the `if/else` logic in a function.
 
 Here's a start (where we simply wrap a function around the above code):
 
