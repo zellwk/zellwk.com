@@ -60,3 +60,22 @@ article.rf-post > p:first-of-type {
   //   margin-top: vr(0.75);
   // }
 }
+
+// TODO: Remove .l-post__content after refactoring blog layout
+.l-post__content {
+  @include l-article__text;
+  margin-top: vr(1.25);
+  @include bp(mega) {
+    margin-top: vr(2);
+  }
+
+  > .l-post__date {
+    @include bp(large) {
+      width: vr(2.5);
+      margin-top: 0.8em;
+      margin-left: vr(0.75);
+      float: left;
+      text-align: right;
+    }
+  }
+}
