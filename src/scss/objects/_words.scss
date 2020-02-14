@@ -1,10 +1,23 @@
-@mixin o-words {
-  * + h2 {
+.o-words,
+.o-words--nosc {
+  // Default space between elements
+  > * + * {
+    margin-top: vr(0.75);
+  }
+
+  :empty {
+    margin-top: 0;
+  }
+
+  // Headings
+  h2 {
     margin-top: vr(1.5);
   }
-  * + h3 {
+
+  h3 {
     margin-top: vr(1.5);
   }
+
   h3 + p {
     margin-top: vr(0.25);
   }
@@ -30,7 +43,7 @@
     font-feature-settings: "liga" 1, "lnum" 1;
   }
 
-  // image
+  // Images
   figure > img,
   figure > video {
     border: 1px solid #ccc;
@@ -57,12 +70,4 @@
       background-size: 1px 1px;
     }
   }
-}
-
-.o-words {
-  @include o-words;
-}
-
-.o-words--nosc {
-  @include o-words;
 }

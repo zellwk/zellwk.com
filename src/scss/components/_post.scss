@@ -1,5 +1,10 @@
 .rf-post {
+  display: grid;
+  grid-template-columns: vr(2.5) 50ch 16ch;
+  grid-column-gap: vr(0.75);
+
   h1 {
+    grid-column: 1 / -1;
     @include bp(large) {
       margin-right: vr(3);
     }
@@ -8,12 +13,6 @@
       margin-right: 0;
     }
   }
-}
-
-.rf-post__content {
-  display: grid;
-  grid-template-columns: vr(2.5) 50ch;
-  grid-column-gap: vr(0.75);
 
   // First child is post date.
   // Date is on column 1
@@ -28,21 +27,6 @@
   // Second child onwards, align to column two.
   > * {
     grid-column: 2;
-    margin-top: vr(0.75);
-  }
-
-  // First paragraph
-  > *:nth-child(2) {
-    @include tp-sans1;
-
-    > code {
-      font-size: 0.6em;
-    }
-
-    // TODO: Check for articles that contain videos.
-    // iframe + p:first-of-type {
-    //   margin-top: vr(0.75);
-    // }
   }
 
   // For figcaptions
@@ -55,6 +39,28 @@
       border-left: 3px solid #ccc;
     }
   }
+}
+
+// .rf-post__content {
+//   display: grid;
+//   grid-template-columns: vr(2.5) 50ch;
+//   grid-template-columns: subgrid;
+//   grid-column-gap: inherit;
+
+// }
+
+// First paragraph in article
+article.rf-post > p:first-of-type {
+  @include tp-sans1;
+
+  > code {
+    font-size: 0.6em;
+  }
+
+  // TODO: Check for articles that contain videos.
+  // iframe + p:first-of-type {
+  //   margin-top: vr(0.75);
+  // }
 }
 
 // .l-post__content {
