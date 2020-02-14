@@ -10,13 +10,6 @@
 
   h1 {
     grid-column: 1 / -1;
-    @include bp(large) {
-      margin-right: vr(3);
-    }
-
-    @include bp(mega) {
-      margin-right: 0;
-    }
   }
 
   // First child is post date.
