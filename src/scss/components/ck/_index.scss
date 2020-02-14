@@ -1,54 +1,4 @@
 @import "reset";
-
-// ======================================
-// # Layouts for Convertkit form
-// ======================================
-@mixin l-ck--standard {
-  margin: vr(2) 0 vr(2) -25vw;
-  padding: vr(2.5) vr(3.5) vr(2.5) 25vw;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  @include bp(max large) {
-    margin-right: vr(-0.75);
-    padding-right: vr(1);
-  }
-
-  .ck_form {
-    @include bp(large) {
-      margin-left: vr(3.75);
-    }
-  }
-
-  .ck_form_content p,
-  .ck_description > div,
-  .ck_subscribe_form {
-    @include bp(med) {
-      margin-right: vr(2.25);
-    }
-    @include bp(large) {
-      margin-right: vr(6);
-    }
-  }
-
-  // Fucked up hack because CK creates some divs instead of p
-  .ck_description > div {
-    margin-top: vr(0.75);
-  }
-}
-
-// CK Form in post and articles
-// Extra specificity required to overwrite props
-// when l-ck--standard is used directly in l-post__content
-.l-ck--standard,
-.l-post__content.l-post__content .l-ck--standard {
-  @include l-ck--standard;
-}
-
-// === End Layouts for Convertkit form
-
 // ======================================
 // # Convertkit Form styles
 // ======================================
@@ -72,6 +22,7 @@
     color: color(mine);
     @include tp-text2;
     font-feature-settings: "liga" 1;
+    margin-bottom: vr(0.75);
   }
 
   // Allow ck image to float left and push words to right.
@@ -141,3 +92,68 @@
 }
 
 // === End Convertkit Form styles
+
+// ======================================
+// # Layouts for Convertkit form
+// ======================================
+.ck-layout {
+  grid-column: 2 / -1;
+
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-columns: 50ch 16ch;
+  grid-gap: inherit;
+
+  margin: vr(2) 0 vr(2) -25vw;
+  padding: vr(2.5) vr(3.5) vr(2.5) 25vw;
+
+  > * {
+    grid-column-gap: 1;
+  }
+}
+
+@mixin l-ck--standard {
+  margin: vr(2) 0 vr(2) -25vw;
+  padding: vr(2.5) vr(3.5) vr(2.5) 25vw;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include bp(max large) {
+    margin-right: vr(-0.75);
+    padding-right: vr(1);
+  }
+
+  .ck_form {
+    @include bp(large) {
+      margin-left: vr(3.75);
+    }
+  }
+
+  .ck_form_content p,
+  .ck_description > div,
+  .ck_subscribe_form {
+    @include bp(med) {
+      margin-right: vr(2.25);
+    }
+    @include bp(large) {
+      margin-right: vr(6);
+    }
+  }
+
+  // Fucked up hack because CK creates some divs instead of p
+  .ck_description > div {
+    margin-top: vr(0.75);
+  }
+}
+
+// CK Form in post and articles
+// Extra specificity required to overwrite props
+// when l-ck--standard is used directly in l-post__content
+.l-ck--standard,
+.l-post__content.l-post__content .l-ck--standard {
+  @include l-ck--standard;
+}
+
+// === End Layouts for Convertkit form

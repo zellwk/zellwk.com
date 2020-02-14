@@ -1,4 +1,5 @@
 .o-words,
+.o-content,
 .o-words--nosc {
   // Default space between elements
   > * + * {
@@ -26,12 +27,15 @@
   ul li {
     list-style-type: disc;
   }
+
   ol li {
     list-style-type: decimal;
   }
+
   li + li {
     margin-top: vr(0.125);
   }
+
   li > ul,
   li > ol {
     margin-top: vr(0.125);

@@ -18,6 +18,7 @@
   // Date is on column 1
   .rf-post__date {
     grid-column: 1;
+    @include tp-condensed2;
     @include bp(large) {
       margin-top: 2em;
       text-align: right;
@@ -80,7 +81,3 @@ article.rf-post > p:first-of-type {
 //     }
 //   }
 // }
-
-.c-post__date {
-  @include tp-condensed2;
-}

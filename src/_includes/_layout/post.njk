@@ -5,7 +5,7 @@ newsletter: better-fed
 footer: true
 ---
 <div class="l-wrap">
-  <article class="o-words rf-post">
+  <article class="o-content rf-post">
     <h1 class="l-article__header">{{title | markdownInline}}</h1>
     <span class="rf-post__date c-post__date">{{page.date | readableDate }}</span>
 
@@ -60,7 +60,7 @@ footer: true
       {% endfor -%}
     </nav>
 
-    <section class="c-ck l-ck--standard jsCkForm">
+    <section class="o-content c-ck ck-layout jsCkForm">
       {%- include 'convertkit.njk' -%}
     </section>
   </article>
@@ -68,7 +68,7 @@ footer: true
 
 <div class="l-wrap">
   <aside class="rf-post">
-    <div class="o-words rf-post__content">
+    <div class="o-content rf-post__content">
       {%- markdown -%}
         ## Comments are closed
 
