@@ -5,10 +5,10 @@ newsletter: better-fed
 footer: true
 ---
 <div class="l-wrap">
-  <article class="c-post l-post">
+  <article class="rf-post">
   <h1 class="l-article__header">{{title | markdownInline}}</h1>
-    <div class="o-words c-post__content l-post__content jsPostContent">
-      <span class="c-post__date l-post__date">{{page.date | readableDate }}</span>
+    <div class="o-words rf-post__content jsPostContent">
+      <span class="rf-post__date c-post__date">{{page.date | readableDate }}</span>
 
       {%- if cover %}
       <figure role="figure">

@@ -1,38 +1,80 @@
-.l-post__content {
-  @include l-article__text;
-  margin-top: vr(1.25);
-  @include bp(mega) {
-    margin-top: vr(2);
-  }
-
-  > .l-post__date {
+.rf-post {
+  h1 {
     @include bp(large) {
-      width: vr(2.5);
-      margin-top: 0.8em;
-      margin-left: vr(0.75);
-      float: left;
-      text-align: right;
+      margin-right: vr(3);
+    }
+
+    @include bp(mega) {
+      margin-right: 0;
     }
   }
 }
 
-.c-post__date {
-  @include tp-condensed2;
-}
+.rf-post__content {
+  display: grid;
+  grid-template-columns: vr(2.5) 50ch;
+  grid-column-gap: vr(0.75);
 
-.c-post__content {
-  > p:first-of-type {
-    @include l-content;
+  // First child is post date.
+  // Date is on column 1
+  .rf-post__date {
+    grid-column: 1;
+    @include bp(large) {
+      margin-top: 2em;
+      text-align: right;
+    }
+  }
+
+  // Second child onwards, align to column two.
+  > * {
+    grid-column: 2;
+    margin-top: vr(0.75);
+  }
+
+  // First paragraph
+  > *:nth-child(2) {
     @include tp-sans1;
-    margin-top: 1rem;
-    margin-right: 0;
 
     > code {
       font-size: 0.6em;
     }
+
+    // TODO: Check for articles that contain videos.
+    // iframe + p:first-of-type {
+    //   margin-top: vr(0.75);
+    // }
   }
 
-  iframe + p:first-of-type {
-    margin-top: vr(0.75);
+  // For figcaptions
+  > figure {
+    position: relative;
+
+    figcaption {
+      margin-top: vr(0.375);
+      padding-left: vr(0.25);
+      border-left: 3px solid #ccc;
+    }
   }
+}
+
+// .l-post__content {
+//   @include l-article__text;
+//   margin-top: vr(1.25);
+//   @include bp(mega) {
+//     margin-top: vr(2);
+//   }
+
+//   > .l-post__date {
+//     @include bp(large) {
+//       width: vr(2.5);
+//       margin-top: 0.8em;
+//       margin-left: vr(0.75);
+//       float: left;
+//       text-align: right;
+//     }
+//   }
+// }
+
+.c-post__date {
+  @include tp-condensed2;
 }

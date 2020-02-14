@@ -17,9 +17,9 @@ html {
 // ---------------
 // Note to self: Don't use Lobotomozied like this.
 // It's quite hard to control
-* + * {
-  margin-top: vr(0.75);
-}
+// * + * {
+//   margin-top: vr(0.75);
+// }
 
 div,
 section,
@@ -72,7 +72,6 @@ noscript {
   margin-top: vr(0.75);
   margin-bottom: vr(0.75);
 }
-
 
 .kaomoji {
   display: inline-block;

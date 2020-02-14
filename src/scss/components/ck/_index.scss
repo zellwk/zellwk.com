@@ -1,14 +1,15 @@
-@import 'reset';
+@import "reset";
 
 // ======================================
 // # Layouts for Convertkit form
 // ======================================
-
 @mixin l-ck--standard {
   margin: vr(2) 0 vr(2) -25vw;
   padding: vr(2.5) vr(3.5) vr(2.5) 25vw;
 
-  &:last-child { margin-bottom: 0; }
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   @include bp(max large) {
     margin-right: vr(-0.75);
@@ -16,14 +17,20 @@
   }
 
   .ck_form {
-    @include bp(large) { margin-left: vr(3.75); }
+    @include bp(large) {
+      margin-left: vr(3.75);
+    }
   }
 
   .ck_form_content p,
   .ck_description > div,
   .ck_subscribe_form {
-    @include bp(med) { margin-right: vr(2.25); }
-    @include bp(large) { margin-right: vr(6); }
+    @include bp(med) {
+      margin-right: vr(2.25);
+    }
+    @include bp(large) {
+      margin-right: vr(6);
+    }
   }
 
   // Fucked up hack because CK creates some divs instead of p
@@ -54,7 +61,9 @@
 // CK Form styles
 .ck_form.ck_form.ck_form {
   background-color: transparent;
-  .ck_powered_by { display: none; }
+  .ck_powered_by {
+    display: none;
+  }
 }
 
 .ck_form.ck_form .ck_form_content {
@@ -62,7 +71,7 @@
   h3 {
     color: color(mine);
     @include tp-text2;
-    font-feature-settings: 'liga' 1;
+    font-feature-settings: "liga" 1;
   }
 
   // Allow ck image to float left and push words to right.
