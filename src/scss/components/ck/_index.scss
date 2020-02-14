@@ -100,18 +100,26 @@
   grid-column: 2 / -1;
 
   display: grid;
+  grid-template-columns:
+    minmax(0, 50ch)
+    minmax(0, 1fr);
   grid-template-columns: subgrid;
-  grid-template-columns: 50ch 16ch;
   grid-gap: inherit;
 
   margin: vr(2) 0 vr(2) -25vw;
   padding: vr(2.5) vr(3.5) vr(2.5) 25vw;
+
+  @include mappy-bp(max large) {
+    margin-right: vr(-0.75);
+    padding-right: vr(0.75);
+  }
 
   > * {
     grid-column-gap: 1;
   }
 }
 
+// TODO: Remove other instances of .l-ck--standard
 @mixin l-ck--standard {
   margin: vr(2) 0 vr(2) -25vw;
   padding: vr(2.5) vr(3.5) vr(2.5) 25vw;

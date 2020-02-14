@@ -1,7 +1,12 @@
 .rf-post {
-  display: grid;
-  grid-template-columns: vr(2.5) 50ch 16ch;
-  grid-column-gap: vr(0.75);
+  @include mappy-bp(med) {
+    display: grid;
+    grid-template-columns:
+      vr(2.5)
+      minmax(0, 50ch)
+      minmax(0, 1fr);
+    grid-column-gap: vr(0.75);
+  }
 
   h1 {
     grid-column: 1 / -1;
@@ -18,10 +23,10 @@
   // Date is on column 1
   .rf-post__date {
     grid-column: 1;
+    text-align: right;
     @include tp-condensed2;
-    @include bp(large) {
+    @include bp(med) {
       margin-top: 2em;
-      text-align: right;
     }
   }
 
@@ -42,14 +47,6 @@
   }
 }
 
-// .rf-post__content {
-//   display: grid;
-//   grid-template-columns: vr(2.5) 50ch;
-//   grid-template-columns: subgrid;
-//   grid-column-gap: inherit;
-
-// }
-
 // First paragraph in article
 article.rf-post > p:first-of-type {
   @include tp-sans1;
@@ -63,21 +60,3 @@ article.rf-post > p:first-of-type {
   //   margin-top: vr(0.75);
   // }
 }
-
-// .l-post__content {
-//   @include l-article__text;
-//   margin-top: vr(1.25);
-//   @include bp(mega) {
-//     margin-top: vr(2);
-//   }
-
-//   > .l-post__date {
-//     @include bp(large) {
-//       width: vr(2.5);
-//       margin-top: 0.8em;
-//       margin-left: vr(0.75);
-//       float: left;
-//       text-align: right;
-//     }
-//   }
-// }
