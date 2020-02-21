@@ -5,28 +5,34 @@ newsletter: better-fed
 footer: true
 ---
 <div class="l-wrap">
-  <article class="o-content rf-post">
+  <article class="o-content post-layout">
     <h1>{{title | markdownInline}}</h1>
-    <span class="rf-post__date">{{page.date | readableDate }}</span>
+    <span class="post-layout__date">{{page.date | readableDate }}</span>
 
     {# Hero images if any #}
     {%- if cover %}
-    <figure role="figure">
-      <img src="{{cover}}" alt="{{coverAlt}}">
-    </figure>
+      <figure role="figure">
+        <img src="{{cover}}" alt="{{coverAlt}}">
+      </figure>
     {% endif %}
 
     {# Podcast is for old simplecast format #}
     {# Podcast2 is for new simplecast format #}
-    {%- if video %} {%- youtube video -%} {% endif %}
-    {%- if podcast %} {%- audio podcast -%} {% endif %}
-    {%- if podcast2 %} {%- audio2 podcast2 -%} {% endif %}
+    {%- if video %}
+      {%- youtube video -%}
+    {% endif %}
+    {%- if podcast %}
+      {%- audio podcast -%}
+    {% endif %}
+    {%- if podcast2 %}
+      {%- audio2 podcast2 -%}
+    {% endif %}
 
     {{- content | safe -}}
 
     {%- markdown -%}
-      {% set link = '/blog/' + slug + '/'%}
-      {%- shareArticle {
+    {% set link = '/blog/' + slug + '/'%}
+    {%- shareArticle {
         siteURL: site.url,
         title: title,
         permalink: link
@@ -59,16 +65,17 @@ footer: true
         {% endif -%}
       {% endfor -%}
     </nav>
-
-    <section class="o-content c-ck ck-layout jsCkForm">
-      {%- include 'convertkit.njk' -%}
-    </section>
   </article>
+  <section class="post-layout">
+    <div class="o-content c-ck ck-layout jsCkForm">
+      {%- include 'convertkit.njk' -%}
+    </div>
+  </section>
 </div>
 
 <div class="l-wrap">
-  <aside class="rf-post">
-    <div class="o-content rf-post__content">
+  <aside class="post-layout">
+    <div class="o-content post-layout__content">
       {%- markdown -%}
         ## Comments are closed
 
