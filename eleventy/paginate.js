@@ -64,10 +64,10 @@ const paginate = (
     ? link('Next Page', nextPageHref)
     : ''
 
+  // TODO: Propertly remove first and last page pagination
   const firstPage = pageNumber > threshold
     ? link('First page', pagination.firstPageHref)
     : ''
-
   const lastPage = pageNumber + threshold < pagination.hrefs.length
     ? link('Last page', pagination.lastPageHref)
     : ''

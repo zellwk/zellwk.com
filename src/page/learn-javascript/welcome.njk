@@ -5,49 +5,47 @@ blockRobots: true
 newsletter: ''
 footer: blank
 ---
-{# This is a thank-you page for buying Learn JavaScript. To prompt people to tell me why they bought the course #}
-<h1 class="l-article__header"> {% markdown %} Welcome to Learn JavaScript!{% endmarkdown %} </h1>
 
-<div class="l-article__text">
-  {% markdown %}
-  I am thrilled you decided to join the course!
+{% markdown %}
+# Welcome to Learn JavaScript!
 
-  **Learn JavaScript is going to be one of the best investments you made** this year. It’ll help you *build anything from scratch*, *remember JavaScript* for life, and *code without copy-pasting* from google.
+I am thrilled you decided to join the course!
 
-  I can't wait to help you learn JavaScript.
+**Learn JavaScript is going to be one of the best investments you made** this year. It’ll help you *build anything from scratch*, *remember JavaScript* for life, and *code without copy-pasting* from google.
 
-  First things first.
+I can't wait to help you learn JavaScript.
 
-  **I want to to understand where you're at**, so I know how to best help you. Please take some time and tell me why you joined Learn JavaScript.
-  {% endmarkdown %}
+First things first.
 
-  {%- form {
-    redirect: 'https://learnjavascript.today/thanks',
-    spreadsheet: '1cXkx761DJvThlQo1NJGLtdKtdMB21ZQq7wdf2VRYpKE',
-    subject: 'Why I joined Learn JavaScript',
-    initialMessage: "Great to hear from you! Let me get back to you in a few days. Super excited to teach you JavaScript. <br><br> Watch out for another email from me regarding course access! ",
-    finalMessage: "That's it!"
+**I want to to understand where you're at**, so I know how to best help you. Please take some time and tell me why you joined Learn JavaScript.
+{% endmarkdown %}
+
+{%- form {
+  redirect: 'https://learnjavascript.today/thanks',
+  spreadsheet: '1cXkx761DJvThlQo1NJGLtdKtdMB21ZQq7wdf2VRYpKE',
+  subject: 'Why I joined Learn JavaScript',
+  initialMessage: "Great to hear from you! Let me get back to you in a few days. Super excited to teach you JavaScript. <br><br> Watch out for another email from me regarding course access! ",
+  finalMessage: "That's it!"
+} -%}
+
+  {%- formTextarea {
+    name: 'why',
+    label: "Why did you join in Learn JavaScript?",
+    helpText: "Are there any obstacles that could have prevented you from joining the course? If so, what are they? Why did you decide to enroll in the end?",
+    required: true
   } -%}
 
-    {%- formTextarea {
-      name: 'why',
-      label: "Why did you join in Learn JavaScript?",
-      helpText: "Are there any obstacles that could have prevented you from joining the course? If so, what are they? Why did you decide to enroll in the end?",
-      required: true
-    } -%}
+  {%- formTextarea {
+    name: 'wishlist',
+    label: "What do you wish to achieve by the end of this course?",
+    helpText: "Be as crazy as you want with this wishlist! 😉",
+    required: true
+  } -%}
 
-    {%- formTextarea {
-      name: 'wishlist',
-      label: "What do you wish to achieve by the end of this course?",
-      helpText: "Be as crazy as you want with this wishlist! 😉",
-      required: true
-    } -%}
-
-    {%- formTextarea {
-      name: 'questions',
-      label: "What JavaScript questions do you have?",
-      helpText: "List all your JavaScript questions here. I'll try to answer them in the course.",
-      required: true
-    } -%}
-  {% endform %}
-</div>
+  {%- formTextarea {
+    name: 'questions',
+    label: "What JavaScript questions do you have?",
+    helpText: "List all your JavaScript questions here. I'll try to answer them in the course.",
+    required: true
+  } -%}
+{% endform %}

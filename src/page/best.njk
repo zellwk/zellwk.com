@@ -3,20 +3,20 @@ layout: _layout/page
 title: My best articles
 ---
 
-<h1 class="l-article__header">My best articles</h1>
+<h1>My best articles</h1>
 
-<div class="l-article__text">
-  {%- markdown %}
-  Here's a list of the best/most important articles in reverse-chronological order. Feel free to read anything you're interested in!
-  {% endmarkdown -%}
+{%- markdown %}
+Here's a list of the best/most important articles in reverse-chronological order. Feel free to read anything you're interested in!
+{% endmarkdown -%}
 
-  <ol>
+<ol>
   {%- for post in collections.best | reverse %}
-    <li><a href="{{post.url | url}}">{{post.data.title}}</a></li>
+    <li>
+      <a href="{{post.url | url}}">{{post.data.title}}</a>
+    </li>
   {%- endfor %}
-  </ol>
+</ol>
 
-  {% markdown %}
-  If you have a question about frontend development, feel free to [contact me](/blog). I'll try to answer your question in a future article.
-  {% endmarkdown %}
-</div>
+{% markdown %}
+If you have a question about frontend development, feel free to [contact me](/blog). I'll try to answer your question in a future article.
+{% endmarkdown %}

@@ -1,7 +1,7 @@
 .c-pagination {
+  grid-column: 1 / -1;
   margin-top: vr(2);
-  @include l-content;
-  font-feature-settings: 'liga' 1, 'lnum' 1;
+  font-feature-settings: "liga" 1, "lnum" 1;
 
   > * {
     @include tp-sans2;
@@ -10,9 +10,7 @@
   }
 
   > a {
-    transition:
-      background-color 0.15s ease-in-out,
-      color 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
     background-color: color(gallery);
     color: color(monsoon);
 

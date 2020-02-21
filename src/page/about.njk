@@ -1,76 +1,78 @@
 ---
-layout: _layout/page
+layout: _layout/html
 title: About Zell
+permalink: /{{ page.inputPath | pagePathOverride }}/
+newsletter: better-fed
+footer: true
 ---
+<div class="l-wrap">
+  <h1>Hello! I'm Zell.</h1>
 
-<section class="o-words l-about--initial">
-  <figure class="c-about__headshot l-about__headshot">
-    <img src="/images/zell-profile-pic.jpg" alt="A picture of Zell smiling :)">
-  </figure>
-  <h1>Hello! <span class="l-about__title-break">I&rsquo;m Zell.</span></h1>
-  {%- markdown -%}
-  Welcome to my little place on the internet. I'm a *designer*, *developer*, *speaker* and *writer* from Singapore.
+  <article class="o-words about-layout">
+    {%- markdown -%}
+    <figure class="about__headshot">
+      <img src="/images/zell-profile-pic.jpg" alt="A picture of Zell smiling :)">
+    </figure>
 
-  I've been doing this web design and development thing for a while now. So far, I had the privilege to:
+    Welcome to my little place on the internet. I'm a *designer*, *developer*, *speaker* and *writer* from Singapore.
 
-  1. Help over 30,000 developers a month through [articles](/blog) I wrote.
-  2. Produce in-depth courses like [Learning Susy](https://learnsusy.zellwk.com), [Automating Your Workflow](https://automateyourworkflow.com) with Gulp and [Mastering Responsive Typography](https://mastering-responsive-typography.com) amongst others.
-  3. Conduct conference talks and workshops in lands far away from my small country.
-  {%- endmarkdown -%}
-</section>
+    I've been doing this web design and development thing for a while now. So far, I had the privilege to:
 
-<section class="o-words l-about">
-  <div class="o-featured l-about__featured">
-    <div class="o-featured__seen">As seen in</div>
-    {% include "_svgs/featured.svg" -%}
-  </div>
-{%- markdown -%}
-## Here's a little story of how I got started.
+    1. Help over 30,000 developers a month through [articles](/blog) I wrote.
+    2. Produce in-depth courses like [Learning Susy](https://learnsusy.zellwk.com), [Automating Your Workflow](https://automateyourworkflow.com) with Gulp and [Mastering Responsive Typography](https://mastering-responsive-typography.com) amongst others.
+    3. Conduct conference talks and workshops in lands far away from my small country.
 
-Many people think you need a design or CS degree before you can become a great designer/developer.
+    <div class="about__featured">
+      <span>I've been featured in</span>
+      {% include "_svgs/featured.svg" -%}
+    </div>
 
-I have neither. I came from a Finance background.
+    ## Here's a little story of how I got started.
 
-I only started this web development thing at the age of 25 because I desperately needed some skills for creating a startup. Having only finance skills wasn't enough. After 10 months of self-taught design and development education, I found myself a freelance job and I've been freelancing ever since.
+    Many people think you need a design or CS degree before you can become a great designer/developer.
 
-{%- include "_quotes/louis.md" %}
+    I have neither. I came from a Finance background.
 
-## That's crazy!
+    I only started this web development thing at the age of 25 because I desperately needed some skills for creating a startup. Having only finance skills wasn't enough. After 10 months of self-taught design and development education, I found myself a freelance job and I've been freelancing ever since.
 
-Yeah. I know. Before I started, I thought development was insanely hard. It's something I'll never be able to get good at even if I died trying. Likewise for design. But this story just proves that you're much better than you believe you are.
+    {%- include "_quotes/louis.md" %}
 
-- Think you can't become a good developer? Think again.
-- Think you can't become a good designer? Think again.
-- Think you can't make a living freelancing? Think again.
+    ## That's crazy!
 
-But of course, there are real challenges to become good at something and make a living out of it. I can help you if you're interested.
+    Yeah. I know. Before I started, I thought development was insanely hard. It's something I'll never be able to get good at even if I died trying. Likewise for design. But this story just proves that you're much better than you believe you are.
 
-## How I can help you.
+    - Think you can't become a good developer? Think again.
+    - Think you can't become a good designer? Think again.
+    - Think you can't make a living freelancing? Think again.
 
-Do you want real techniques from a professional in the industry?
+    But of course, there are real challenges to become good at something and make a living out of it. I can help you if you're interested.
 
-Do you feel pressured to keep up with the latest technology, but seem to fall hopelessly behind every time?
+    ## How I can help you.
 
-Do you feel that tutorials out there, although useful, are usually either too beginner-ish or too advanced for your learning?
+    Do you want real techniques from a professional in the industry?
 
-If you said yes to any these, I can help you.
+    Do you feel pressured to keep up with the latest technology, but seem to fall hopelessly behind every time?
 
-**First, I know a lot about the web** since I've worked on in for a couple of years now. I constantly reinvent my techniques as new technology appears, and I'm more than happy to share battle-tested techniques I use with you.
+    Do you feel that tutorials out there, although useful, are usually either too beginner-ish or too advanced for your learning?
 
-**Second, I'm insanely practical.** I only teach techniques and frameworks that are definitely game-changing. If you're worried about keeping up, just stay along with me and I'll help filter the important stuff from the fluff.
+    If you said yes to any these, I can help you.
 
-**Third, I write pretty good tutorials** that are concise and clear. I explain all fundamental concepts and jargons you need to know. I'll help you bridge the beginner-advanced gap so you level up enough to explore the advanced zone without feeling lost and intimidated.
+    **First, I know a lot about the web** since I've worked on in for a couple of years now. I constantly reinvent my techniques as new technology appears, and I'm more than happy to share battle-tested techniques I use with you.
 
-<figure>
-  <img src="/images/about/tutorials.png" alt="">
-  <figcaption>I help you bridge the beginner-advanced gap</figcaption>
-</figure>
+    **Second, I'm insanely practical.** I only teach techniques and frameworks that are definitely game-changing. If you're worried about keeping up, just stay along with me and I'll help filter the important stuff from the fluff.
 
-If this sounds any interesting, I invite you to leave your name and email below.
+    **Third, I write pretty good tutorials** that are concise and clear. I explain all fundamental concepts and jargons you need to know. I'll help you bridge the beginner-advanced gap so you level up enough to explore the advanced zone without feeling lost and intimidated.
 
-{%- include "_quotes/amarender.md" -%}
+    <figure>
+      <img src="/images/about/tutorials.png" alt="">
+      {# <figcaption>I help you bridge the beginner-advanced gap</figcaption> #}
+    </figure>
 
-{%- endmarkdown -%}
-</section>
+    If this sounds any interesting, I invite you to leave your name and email below.
 
+    {%- include "_quotes/amarender.md" -%}
 
+    {%- endmarkdown -%}
+
+  </article>
+</div>

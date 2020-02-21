@@ -2,7 +2,6 @@
 layout: _layout/page
 title: Join Zell's Newsletter
 blockRobots: true
-blockAfterNewsletter: true
 pagination:
   data: site.newsletters
   size: 1
@@ -10,20 +9,19 @@ pagination:
 permalink: /newsletter/{{site | slug}}/index.html
 ---
 
-<h1 class="l-article__header">Hey there, fellow {{site}} reader :)</h1>
-<div class="l-article__text">
-  {% markdown %}
-  Welcome!
+<h1>Hey there, fellow {{site}} reader :)</h1>
 
-  I noticed you came over from an article I wrote for {{site}}. Have I caught your attention with a clear, concise and detailed article? 🙂
+{% markdown %}
+Welcome!
 
-  If you love to get your hands on quality articles like the one you've just read, I got lots more coming your way! To get them, just **leave your name and email below**, and I'll send you a new article each week as they're published.
+I noticed you came over from an article I wrote for {{site}}. Have I caught your attention with a clear, concise and detailed article? 🙂
 
-  No spam, no nonsense. Just pure, useful content delivered straight into your inbox, week after week.
+If you love to get your hands on quality articles like the one you've just read, I got lots more coming your way! To get them, just **leave your name and email below**, and I'll send you a new article each week as they're published.
 
-  Here's to becoming better developers together. 🍻
+No spam, no nonsense. Just pure, useful content delivered straight into your inbox, week after week.
 
-  {%- include "_quotes/martjnbokma.md" -%}
+Here's to becoming better developers together. 🍻
 
-  {% endmarkdown %}
-</div>
+{%- include "_quotes/martjnbokma.md" -%}
+
+{% endmarkdown %}

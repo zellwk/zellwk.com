@@ -6,7 +6,7 @@
     margin-top: vr(0.75);
   }
 
-  :empty {
+  > :empty {
     margin-top: 0;
   }
 

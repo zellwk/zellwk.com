@@ -10,19 +10,19 @@ pagination:
 permalink: /tags/{{ tag | slug}}/
 noIndex: true
 ---
-<h1 class="l-article__header">Tagged with “{{ tag }}”</h1>
+<h1>Tagged with “{{ tag }}”</h1>
 
-<div class="l-article__text">
-  {% markdown %}
-  Here are all articles tagged with {{tag}}. Enjoy!
-  {%- endmarkdown %}
-  <ol>
+{% markdown %}
+Here are all articles tagged with {{tag}}. Enjoy!
+{%- endmarkdown %}
+<ol>
   {%- set taglist = collections[ tag ] -%}
 
   {%- for post in taglist | reverse %}
-  {%- isPublished post.date %}
-    <li><a href="{{ post.url | url }}">{{ post.data.title | markdownInline }}</a></li>
-  {%- endisPublished %}
+    {%- isPublished post.date %}
+    <li>
+      <a href="{{ post.url | url }}">{{ post.data.title | markdownInline }}</a>
+    </li>
+    {%- endisPublished %}
   {%- endfor %}
-  </ol>
-</div>
+</ol>

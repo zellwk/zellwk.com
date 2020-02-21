@@ -5,23 +5,22 @@ newsletter: ''
 footer: blank
 ---
 
-<h1 class="l-article__header">Contact Zell</h1>
+<h1>Contact Zell</h1>
 
-<div class="l-article__text">
-  {% markdown %}
+{% markdown %}
   Thanks for your interest! Please fill out this form and I'll get back to you as quickly as I can. I usually take 3-4 days to reply. :)
 
   **Please note:** Although I read every email, I don't have the capacity to respond to everyone. I'll only reply if your email aligns with my goals and acknowledge my time and capabilities.
   {% endmarkdown %}
 
-  {%- form {
+{%- form {
     redirect: '/contact-thanks',
     spreadsheet: '1oVVmDNnlGbyV-PEc54XQqKnGXu3TTL8G08EEgtCOpoQ',
     subject: 'Hey Zell!',
     initialMessage: "Thanks for reaching out. **Please note:** Although I read every email, I don't have the capacity to respond to everyone. I'll only reply if your email aligns with my goals.",
     finalMessage: "If I don't get back to you for some reason, please nudge me gently by replying to this email. Thanks! :)"
   } -%}
-    {%- formRadios {
+  {%- formRadios {
       label: 'How can I help you?',
       name: 'how',
       filter: true,
@@ -38,16 +37,15 @@ footer: blank
       }]
     } -%}
 
-    <div id="speaking" class="c-form__group jsFormGroup" hidden aria-hidden>
-      {%- include "_contact/speaking.njk" -%}
-    </div>
+  <div id="speaking" class="c-form__group jsFormGroup" hidden aria-hidden>
+    {%- include "_contact/speaking.njk" -%}
+  </div>
 
-    <div id="workshop" class="c-form__group jsFormGroup" hidden aria-hidden>
-      {%- include "_contact/workshop.njk" -%}
-    </div>
+  <div id="workshop" class="c-form__group jsFormGroup" hidden aria-hidden>
+    {%- include "_contact/workshop.njk" -%}
+  </div>
 
-    <div id="others" class="c-form__group jsFormGroup" hidden aria-hidden>
-      {%- include "_contact/others.njk" -%}
-    </div>
-  {%- endform -%}
-</div>
+  <div id="others" class="c-form__group jsFormGroup" hidden aria-hidden>
+    {%- include "_contact/others.njk" -%}
+  </div>
+{%- endform -%}

@@ -1,14 +1,22 @@
 // ======================================
 // # Form item styles and mods
 // ======================================
-
-.c-form > * + * { margin-top: vr(0.75); }
-
-[class*='c-form__item'] {
-  & + & { margin-top: vr(0.75); }
-  label { display: block; }
+.c-form > * + * {
+  margin-top: vr(0.75);
 }
 
+.c-form__item {
+  & + & {
+    margin-top: vr(0.75);
+  }
+
+  label {
+    display: block;
+  }
+}
+
+// TODO: Remove Eleventy shortcut.
+// Change to Nunjuckts macro instead.
 // Radio buttons
 .c-form__item--radios {
   label {
@@ -22,7 +30,9 @@
     margin-top: vr(0.25);
   }
 
-  [type='radio'] { flex-shrink: 0; }
+  [type="radio"] {
+    flex-shrink: 0;
+  }
 }
 
 // Questions
@@ -30,7 +40,10 @@
   display: block;
   @include tp-condensed1;
 
-  + * { margin-top: vr(0.25); }
+  ~ input,
+  ~ textarea {
+    margin-top: vr(0.25);
+  }
 }
 
 // Help text
@@ -38,7 +51,9 @@
   margin-top: vr(0.125);
   @include tp-sans2;
 
-  + * { margin-top: vr(0.25); }
+  + * {
+    margin-top: vr(0.25);
+  }
 }
 
 .c-form__item.c-form__hidden-item {

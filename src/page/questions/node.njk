@@ -5,44 +5,41 @@ newsletter: ''
 footer: blank
 blockRobots: true
 ---
-<h1 class="l-article__header">
-  {% markdown %} Have questions about building webapps? {% endmarkdown %}
-</h1>
 
-<div class="l-article__text">
-  {% markdown %}
-  I want to help you out! Tell me what you're struggling with—Node, Express, MongoDB, frameworks, etc.—and I'll do my best to make a course appear in future :)
-  {% endmarkdown %}
+{% markdown %}
+# Have questions about building webapps?
 
-  {%- form {
-    redirect: '/ok/filled-form',
-    spreadsheet: '1Yj0yiVKlJvd70rE_WfMHwA2ohQg80HCWyOgklBRji4E',
-    subject: 'Questions about building webapps',
-    initialMessage: "Thanks for your questions! **Please note:** Although I read every email, I don't have the capacity to respond to everyone.",
-    finalMessage: "That's it! :)"
+I want to help you out! Tell me what you're struggling with—Node, Express, MongoDB, frameworks, etc.—and I'll do my best to make a course appear in future :)
+{% endmarkdown %}
+
+{%- form {
+  redirect: '/ok/filled-form',
+  spreadsheet: '1Yj0yiVKlJvd70rE_WfMHwA2ohQg80HCWyOgklBRji4E',
+  subject: 'Questions about building webapps',
+  initialMessage: "Thanks for your questions! **Please note:** Although I read every email, I don't have the capacity to respond to everyone.",
+  finalMessage: "That's it! :)"
+} -%}
+
+  {%- formTextarea {
+    name: 'struggle',
+    label: "What's your #1 struggle with when it comes to building an app?",
+    helpText: "Tell me about your experience building an app. What did you do? What challenges did you face? How did it go?",
+    placeholder: "When I try to make something...",
+    required: true
   } -%}
 
-    {%- formTextarea {
-      name: 'struggle',
-      label: "What's your #1 struggle with when it comes to building an app?",
-      helpText: "Tell me about your experience building an app. What did you do? What challenges did you face? How did it go?",
-      placeholder: "When I try to make something...",
-      required: true
-    } -%}
+  {%- formTextarea {
+    name: 'questions',
+    label: "What questions do you have about building an app?",
+    helpText: "List as many questions as you have. I'll try to answer all of them.",
+    placeholder: "My questions are...",
+    required: true
+  } -%}
 
-    {%- formTextarea {
-      name: 'questions',
-      label: "What questions do you have about building an app?",
-      helpText: "List as many questions as you have. I'll try to answer all of them.",
-      placeholder: "My questions are...",
-      required: true
-    } -%}
-
-    {%- formTextarea {
-      name: 'wand',
-      label: "What will help you learn best?",
-      helpText: "Video? Text? Real-world examples? Step by step instructions? What would help you out the most? Ask for anything; imagine you have a magic wand. Wave it; what will you get?",
-      placeholder: "I always had XXX problems with building an app, so YYY will help me out."
-    } -%}
-  {% endform %}
-</div>
+  {%- formTextarea {
+    name: 'wand',
+    label: "What will help you learn best?",
+    helpText: "Video? Text? Real-world examples? Step by step instructions? What would help you out the most? Ask for anything; imagine you have a magic wand. Wave it; what will you get?",
+    placeholder: "I always had XXX problems with building an app, so YYY will help me out."
+  } -%}
+{% endform %}

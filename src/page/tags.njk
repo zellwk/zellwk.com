@@ -3,18 +3,15 @@ layout: _layout/page
 # permalink: _test/tag/index.html
 ---
 
-<h1 class="l-article__header">A list of tags for this blog. </h1>
+<h1>A list of tags for this blog. </h1>
 
-<div class="l-article__text">
-  {% markdown %}
-  Feel free to browse around. You might find some gems inside the tags you're interested in! 😉
-  {%- endmarkdown %}
+{% markdown %}
+Feel free to browse around. You might find some gems inside the tags you're interested in! 😉
+{%- endmarkdown %}
 
-  <ol>
-    {%- for tag in collections.tagslist %}
-      <li><a href="/tags/{{ tag.name | slug }}/">{{tag.name | capitalize}}</a>: {{ tag.items.length }} articles</li>
-    {%- endfor %}
-  </ol>
-</div>
-
-
+<ol>
+  {%- for tag in collections.tagslist %}
+    <li>
+      <a href="/tags/{{ tag.name | slug }}/">{{tag.name | capitalize}}</a>: {{ tag.items.length }} articles</li>
+  {%- endfor %}
+</ol>

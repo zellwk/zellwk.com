@@ -5,44 +5,41 @@ newsletter: ''
 footer: blank
 blockRobots: true
 ---
-<h1 class="l-article__header">
-  {% markdown %} Have questions about design? {% endmarkdown %}
-</h1>
 
-<div class="l-article__text">
-  {% markdown %}
-  I want to build a course to help frontend developers design and build great-looking sites! Let me know what design questions you have and I'll try to fit it into the course I'm planning :)
-  {% endmarkdown %}
+{% markdown %}
+# Have questions about design?
 
-  {%- form {
-    redirect: '/ok/filled-form',
-    spreadsheet: '1e04jwEV6sfxj5S7s0Yrig9gwAmjRvWFMS3MIZHy7mVc',
-    subject: 'Design questions',
-    initialMessage: "Thanks for your questions! **Please note:** Although I read every email, I don't have the capacity to respond to everyone.",
-    finalMessage: "That's it! :)"
+I want to build a course to help frontend developers design and build great-looking sites! Let me know what design questions you have and I'll try to fit it into the course I'm planning :)
+{% endmarkdown %}
+
+{%- form {
+  redirect: '/ok/filled-form',
+  spreadsheet: '1e04jwEV6sfxj5S7s0Yrig9gwAmjRvWFMS3MIZHy7mVc',
+  subject: 'Design questions',
+  initialMessage: "Thanks for your questions! **Please note:** Although I read every email, I don't have the capacity to respond to everyone.",
+  finalMessage: "That's it! :)"
+} -%}
+
+  {%- formTextarea {
+    name: 'struggle',
+    label: "What's your #1 struggle when it comes to design?",
+    helpText: "Tell me about your experience designing something. What did you do? What challenges did you face? How did it go?",
+    placeholder: "When I try to design...",
+    required: true
   } -%}
 
-    {%- formTextarea {
-      name: 'struggle',
-      label: "What's your #1 struggle when it comes to design?",
-      helpText: "Tell me about your experience designing something. What did you do? What challenges did you face? How did it go?",
-      placeholder: "When I try to design...",
-      required: true
-    } -%}
+  {%- formTextarea {
+    name: 'questions',
+    label: "What questions do you have about design?",
+    helpText: "List as many questions as you have. I'll try to answer all of them.",
+    placeholder: "My questions are...",
+    required: true
+  } -%}
 
-    {%- formTextarea {
-      name: 'questions',
-      label: "What questions do you have about design?",
-      helpText: "List as many questions as you have. I'll try to answer all of them.",
-      placeholder: "My questions are...",
-      required: true
-    } -%}
-
-    {%- formTextarea {
-      name: 'wand',
-      label: "What will help you learn best?",
-      helpText: "Video? Text? Real-world examples? Step by step instructions? What would help you out the most? Ask for anything; imagine you have a magic wand. Wave it; what will you get?",
-      placeholder: "I always had XXX problems with building an app, so YYY will help me out."
-    } -%}
-  {% endform %}
-</div>
+  {%- formTextarea {
+    name: 'wand',
+    label: "What will help you learn best?",
+    helpText: "Video? Text? Real-world examples? Step by step instructions? What would help you out the most? Ask for anything; imagine you have a magic wand. Wave it; what will you get?",
+    placeholder: "I always had XXX problems with building an app, so YYY will help me out."
+  } -%}
+{% endform %}

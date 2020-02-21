@@ -1,4 +1,7 @@
 .post-layout {
+  @include generic-layout();
+
+  // Post layout has a larger left column for dates
   @include mappy-bp(750px) {
     display: grid;
     grid-template-columns:
@@ -8,21 +11,6 @@
     grid-column-gap: vr(0.75);
   }
 
-  h1 {
-    grid-column: 1 / -1;
-    max-width: 25ch;
-  }
-
-  // Allow H1 to be larger than other elements
-  // at a small size
-  > *:not(h1) {
-    max-width: 45ch;
-    @include mappy-bp(750px) {
-      max-width: none;
-    }
-  }
-
-  // First child is post date.
   // Date is on column 1
   .post-layout__date {
     display: block;
@@ -36,33 +24,16 @@
     }
   }
 
-  // Second child onwards, align to column two.
-  > * {
-    grid-column: 2;
-  }
+  p:first-of-type {
+    @include tp-sans1;
 
-  // For figcaptions
-  > figure {
-    position: relative;
-
-    figcaption {
-      margin-top: vr(0.375);
-      padding-left: vr(0.25);
-      border-left: 3px solid #ccc;
+    > code {
+      font-size: 0.6em;
     }
+
+    // TODO: Check for articles that contain videos.
+    // iframe + p:first-of-type {
+    //   margin-top: vr(0.75);
+    // }
   }
-}
-
-// First paragraph in article
-article.post-layout > p:first-of-type {
-  @include tp-sans1;
-
-  > code {
-    font-size: 0.6em;
-  }
-
-  // TODO: Check for articles that contain videos.
-  // iframe + p:first-of-type {
-  //   margin-top: vr(0.75);
-  // }
 }

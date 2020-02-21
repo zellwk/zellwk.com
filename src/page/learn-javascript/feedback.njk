@@ -5,37 +5,36 @@ blockRobots: true
 newsletter: ''
 footer: blank
 ---
-<h1 class="l-article__header"> {% markdown %} {{title}} {% endmarkdown %} </h1>
+{% markdown %}
 
-<div class="l-article__text">
-  {% markdown %}
-  I noticed you didn’t register for Learn JavaScript last week. In case you didn’t remember, Learn JavaScript is a course that helps you learn JavaScript so well that you can build things from scratch without copy-pasting code from google.
+# {{title}}
 
-  It’s okay, I respect you decision for not joining. I’m curious though. Can you tell me why? I work hard to offer you the best resources available, and I want to know how I can better serve you.
-  {% endmarkdown %}
+I noticed you didn’t register for Learn JavaScript last week. In case you didn’t remember, Learn JavaScript is a course that helps you learn JavaScript so well that you can build things from scratch without copy-pasting code from google.
 
-  {%- form {
-    redirect: 'https://learnjavascript.today/thanks',
-    spreadsheet: '',
-    subject: 'Feedback for Learn JavaScript',
-    initialMessage: "",
-    finalMessage: ""
+It’s okay, I respect you decision for not joining. I’m curious though. Can you tell me why? I work hard to offer you the best resources available, and I want to know how I can better serve you.
+{% endmarkdown %}
+
+{%- form {
+  redirect: 'https://learnjavascript.today/thanks',
+  spreadsheet: '',
+  subject: 'Feedback for Learn JavaScript',
+  initialMessage: "",
+  finalMessage: ""
+} -%}
+  {%- formRadios {
+    label: 'Were you at considering Learn JavaScript?',
+    name: 'consider',
+    required: true,
+    choices: [{
+      value: 'Yes'
+    }, {
+      value: 'No'
+    }]
   } -%}
-     {%- formRadios {
-      label: 'Were you at considering Learn JavaScript?',
-      name: 'consider',
-      required: true,
-      choices: [{
-        value: 'Yes'
-      }, {
-        value: 'No'
-      }]
-    } -%}
 
-    {%- formTextarea {
-      name: 'why',
-      label: "Why did you not join Learn JavaScript?",
-      required: true
-    } -%}
-  {% endform %}
-</div>
+  {%- formTextarea {
+    name: 'why',
+    label: "Why did you not join Learn JavaScript?",
+    required: true
+  } -%}
+{% endform %}

@@ -1,3 +1,64 @@
+@mixin generic-layout {
+  @include mappy-bp(750px) {
+    display: grid;
+    grid-template-columns:
+      vr(0.75)
+      minmax(0, 45ch)
+      1fr;
+    grid-column-gap: vr(0.75);
+  }
+
+  @include mappy-bp(large) {
+    grid-template-columns:
+      vr(1.5)
+      minmax(0, 45ch)
+      1fr;
+  }
+
+  h1 {
+    grid-column: 1 / -1;
+    max-width: 25ch;
+  }
+
+  // Allow H1 to be larger than other elements
+  // at a small size
+  > *:not(h1) {
+    max-width: 45ch;
+    @include mappy-bp(750px) {
+      max-width: none;
+    }
+  }
+
+  // Align content to second column
+  > * {
+    grid-column: 2;
+  }
+
+  // For figcaptions
+  > figure {
+    position: relative;
+
+    figcaption {
+      margin-top: vr(0.375);
+      padding-left: vr(0.25);
+      border-left: 3px solid #ccc;
+    }
+  }
+}
+
+.generic-layout {
+  @include generic-layout();
+
+  // Larger left column looks nicer at bigger sizes.
+  @include mappy-bp(large) {
+    grid-template-columns:
+      vr(2)
+      minmax(0, 45ch)
+      1fr;
+  }
+}
+
+// TODO: Refactor away!
 // Article
 // ===============
 

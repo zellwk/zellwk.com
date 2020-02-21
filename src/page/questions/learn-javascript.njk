@@ -5,34 +5,31 @@ newsletter: ''
 footer: blank
 blockRobots: true
 ---
-<h1 class="l-article__header">
-  {% markdown %} Questions for your 1-1 call {% endmarkdown %}
-</h1>
 
-<div class="l-article__text">
-  {% markdown %}
-  I want to make this call as useful for you as possible. Please leave your questions 1 day before our call so I have enough time to prepare.
-  {% endmarkdown %}
+{% markdown %}
+# Questions for your 1-1 call
 
-  {%- form {
-    redirect: '/ok/filled-form',
-    spreadsheet: '1Yj0yiVKlJvd70rE_WfMHwA2ohQg80HCWyOgklBRji4E',
-    subject: 'Questions for the coaching call',
-    initialMessage: "Awesome to hear from you! Let me go through your questions and prepare myself for our call. See you soon!",
-    finalMessage: "That's it! :)"
+I want to make this call as useful for you as possible. Please leave your questions 1 day before our call so I have enough time to prepare.
+{% endmarkdown %}
+
+{%- form {
+  redirect: '/ok/filled-form',
+  spreadsheet: '1Yj0yiVKlJvd70rE_WfMHwA2ohQg80HCWyOgklBRji4E',
+  subject: 'Questions for the coaching call',
+  initialMessage: "Awesome to hear from you! Let me go through your questions and prepare myself for our call. See you soon!",
+  finalMessage: "That's it! :)"
+} -%}
+
+  {%- formTextarea {
+    name: 'questions',
+    label: 'What questions do you have?',
+    helpText: "Please list all the questions you'd like me to answer. We'll tackle these one by one, in the order you list below",
+    required: true
   } -%}
 
-    {%- formTextarea {
-      name: 'questions',
-      label: 'What questions do you have?',
-      helpText: "Please list all the questions you'd like me to answer. We'll tackle these one by one, in the order you list below",
-      required: true
-    } -%}
-
-    {%- formInput {
-      name: 'review',
-      label : 'Are we doing a code review?',
-      helpText: "If yes, please link to the repo you want me to review"
-    } -%}
-  {%- endform -%}
-</div>
+  {%- formInput {
+    name: 'review',
+    label : 'Are we doing a code review?',
+    helpText: "If yes, please link to the repo you want me to review"
+  } -%}
+{%- endform -%}

@@ -9,45 +9,50 @@ newsletter: ''
   </symbol>
 </svg>
 
-<h1 class="l-article__header">Stuff I made</h1>
+<h1>Stuff I made</h1>
 
-<div class="l-article__text">
-  {% markdown %}
-  I grouped the things I made into three categories. Feel free to check them out :)
-  {% endmarkdown %}
+{% markdown %}
+I grouped the things I made into three categories. Feel free to check them out :)
+{% endmarkdown %}
 
-  <ol class="o-text-tab jsTextTab">
-    <li><a href="#library-section">Libraries</a></li>
-    <li><a href="#book-section">Books</a></li>
-    <li><a href="#course-section">Courses</a></li>
-  </ol>
+<ol class="o-text-tab jsTextTab">
+  <li>
+    <a href="#library-section">Libraries</a>
+  </li>
+  <li>
+    <a href="#book-section">Books</a>
+  </li>
+  <li>
+    <a href="#course-section">Courses</a>
+  </li>
+</ol>
 
-  {% include "_quotes/zoran.md" %}
+{% include "_quotes/zoran.md" %}
 
-  <hr/>
-</div>
+<hr/>
 
 <section id="library-section"
-  class="o-words l-article__text jsTextTabTarget jsLibrariesContainer"
-  hidden aria-hidden="true"
+  class="o-words jsTextTabTarget jsLibrariesContainer"
+  hidden
 >
   <p></p>
   <h2>Enjoy these free libraries I made!</h2>
 
   {%- for repo in starredRepos %}
-  <div class="o-lib">
-    <h3 class="o-lib__name">{{repo.name | capitalize}}</h3>
-    <div class="o-lib__stars">
-      (<svg height="16" width="14"><use xlink:href="#star"/></svg> <span>{{repo.stargazers_count}}</span>)
+    <div class="o-lib">
+      <h3 class="o-lib__name">{{repo.name | capitalize}}</h3>
+      <div class="o-lib__stars">
+      (<svg height="16" width="14"><use xlink:href="#star"/></svg>
+        <span>{{repo.stargazers_count}}</span>)
     </div>
-    <p>{{repo.description}}. <a href="{{repo.html_url}}">Check out {{repo.name}}</a>.</p>
-  </div>
+      <p>{{repo.description}}. <a href="{{repo.html_url}}">Check out {{repo.name}}</a>.</p>
+    </div>
   {%- endfor %}
 </section>
 
 <section id="book-section"
-  class="o-words l-article__text jsTextTabTarget jsLibrariesContainer"
-  hidden aria-hidden="true"
+  class="o-words jsTextTabTarget jsLibrariesContainer"
+  hidden
 >
   <p></p>
   <h2>Books. Hmmm. Good stuff. </h2>
@@ -58,7 +63,7 @@ newsletter: ''
       <img class="o-book__img" src="{{book.img}}" alt="">
       <div class="o-book__desc">
         {%- markdown -%}
-          {%- include book.desc -%}
+        {%- include book.desc -%}
         {%- endmarkdown -%}
         <a href="{{book.url}}" class="o-btn--primary">Check out {{book.title}}</a>
       </div>
@@ -67,8 +72,8 @@ newsletter: ''
 </section>
 
 <section id="course-section"
-  class="o-words l-article__text jsTextTabTarget jsLibrariesContainer"
-  hidden aria-hidden="true">
+  class="o-words jsTextTabTarget jsLibrariesContainer"
+  hidden >
   <p></p>
   <h2>Ahhhhh. Courses. </h2>
   {% for course in products.courses %}
@@ -77,11 +82,10 @@ newsletter: ''
       <img class="o-course__img" src="{{course.img}}" alt="">
       <div class="o-course__desc">
         {%- markdown -%}
-          {%- include course.desc -%}
+        {%- include course.desc -%}
         {%- endmarkdown -%}
         <a href="{{course.url}}" class="o-btn--primary">Check out {{course.title}}</a>
       </div>
     </div>
   {% endfor %}
 </section>
-
