@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How I work with arrays Test
+title: How I work with arrays
 description: "There are many ways to work with arrays in JavaScript. In this article, I explain how I work with them."
 slug: how-i-work-with-arrays
 tags:
