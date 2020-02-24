@@ -12,7 +12,7 @@ This is the second article where I explain how I designed Learn JavaScript's cou
 
 <!-- more -->
 
-If you missed the first part, you'll want to [read it first](). 
+If you missed the first part, you'll want to [read it first][1]. 
 
 ## Content page
 
@@ -138,7 +138,7 @@ I decided to go for a solid yellow fill for the primary button.
 
 ### Button hover and focus states
 
-Buttons are interactive elements. They need a hover state and a focus state. Both states [need to be distinct]() because they represent different actions. 
+Buttons are interactive elements. They need a hover state and a focus state. Both states [need to be distinct][2] because they represent different actions. 
 
 For hover, I decided to change the background of the button to the orange-yellow gradient. This reuses another element so it unifies the design even more. 
 
@@ -146,7 +146,7 @@ For hover, I decided to change the background of the button to the orange-yellow
   <img src="/images/2020/ljs-portal-2/button-hover.gif" alt="Hover over button. Background becomes orange-yellow gradient.">
 </figure>
 
-For focus, I added a blue outline around the button. This outline stands out when you Tab onto it. I wrote an article about creating these kinds of outlines. You can find out more about the technique [here](). 
+For focus, I added a blue outline around the button. This outline stands out when you Tab onto it. I wrote an article about creating these kinds of outlines. You can find out more about the technique [here][3]. 
 
 <figure role="figure">
   <img src="/images/2020/ljs-portal-2/focus-buttons.png" alt="Blue outline when button gets focus.">
@@ -204,7 +204,7 @@ Finally, I wanted to emphasize the login button more. It looks receded in the lo
 
 ### Login states
 
-When a user clicks the submit button, I log them into the course with JavaScript. (Read more about the [login process]() here). This can take a while if they're on a slow connection. 
+When a user clicks the submit button, I log them into the course with JavaScript. (Read more about the [login process][6] here). This can take a while if they're on a slow connection. 
 
 I wanted to give users feedback that they're logging into the course. The simplest way to do this is to add a status message that says "Logging in". I decided to add this status message to the bottom of the form. 
 
@@ -220,5 +220,9 @@ This message can be easily changed to a failure message if the login fails.
 
 That's all the considerations I made for the login page. Next week, I'll end the series with the Accounts and Components page. I'll also share some of my learnings from this experience. 
 
+[1]:	/blog/learn-javascript-portal-design
+[2]:	/blog/style-hover-focus-active-states/ "Style focus and hover states differently"
+[3]:	/blog/creating-focus-style/ "Creating a custom focus style"
 [4]:	https://pjrvs.com/ "Paul Jarvis"
 [5]:	https://chimpessentials.com/ "Chimp Essentials"
+[6]:	/blog/frontend-login-system/ "Building a login system with HTML, CSS, and JavaScript"
