@@ -115,7 +115,7 @@ app.post('/signup', async(req, res, next) => {
 })
 ```
 
-If you did not write a custom error handler yet, Express will handle the error for you with its default error handler. (Though I recommend you write a custom error handler. You can learn more about it [here]()).
+If you did not write a custom error handler yet, Express will handle the error for you with its default error handler. (Though I recommend you write a custom error handler. You can learn more about it [here][2]).
 
 Express's default error handler will:
 
@@ -222,6 +222,7 @@ I don't like to write `asyncHandler`. It's quite long. My obvious solution is to
 If you're fancier, you can consider using [@awaitjs/express][5] by [Valeri Karpov][6]. It adds methods like `getAsync` and `postAsync` to Express so you don't have to use `express-async-handler`.
 
 [1]:	/blog/async-await
+[2]:	https://zellwk.com/blog/express-errors/ "Handling express errors"
 [3]:	https://github.com/Abazhenov
 [4]:	https://www.npmjs.com/package/express-async-handler
 [5]:	https://www.npmjs.com/package/@awaitjs/express
