@@ -19,7 +19,7 @@ Today, I'd like to challenge this question seriously, both for my future benefit
 
 <!--more-->
 
-# The relativity of fast
+## The relativity of fast
 
 *What is fast?*
 
@@ -42,7 +42,7 @@ Fast is just a relative term. You will feel that you're fast sometimes. You'll f
 
 Instead of trying to be fast, we should be concerned with learning something well instead.
 
-# Learning well instead of learning fast
+## Learning well instead of learning fast
 
 Have you experienced the frustration when something *should* work, but it didn't?
 
@@ -56,7 +56,7 @@ So, instead of trying to learn fast, I remind myself to learn well. Learning wel
 
 (Josh Waitzkin has a book called "[The Art of Learning](https://smile.amazon.com/Art-Learning-Journey-Pursuit-Excellence-ebook/dp/B000QCQ970/ref=sr_1_1?s=books&ie=UTF8&qid=1471394980&sr=1-1&keywords=art+of+learning)" that speaks about this. I cannot recommend it enough).
 
-# How? Code from scratch
+## How? Code from scratch
 
 *"Don't reinvent the wheel!"*
 
@@ -88,7 +88,7 @@ But as you continue to code from scratch things, you'll learn to recognize princ
 
 Over time, everything you learned will sink into your unconsciousness. You'll use the knowledge without even thinking about them while the rest still search mindlessly on Google for answers.
 
-# What's next?
+## What's next?
 
 In short, forget about learning fast. Speed is just a relative factor that inflates or kills our ego. Learn well instead.
 
