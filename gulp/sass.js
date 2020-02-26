@@ -18,13 +18,12 @@ const sass = cb => {
     .pipe(plumber('Error Running Sass'))
     .pipe(sourcemaps.init())
     .pipe(gulpSass({ includePaths: ['./node_modules'] }))
-    .pipe(autoprefixer({ browsers: ['last 2 versions'], grid: false }))
+    .pipe(autoprefixer())
     .pipe(sourcemaps.write())
-    .pipe(size({ 'title': 'styles' }))
+    .pipe(size({ title: 'styles' }))
     .pipe(gulpIf(isProd, cssnano()))
     .pipe(gulpIf(isProd, rename(fpath => { fpath.basename += '-min' })))
     .pipe(gulp.dest(dest))
 }
 
-exports.src = src
-exports.default = sass
+module.exports = sass

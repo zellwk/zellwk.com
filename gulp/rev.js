@@ -40,5 +40,4 @@ const modifyRev = (cb) => {
     .pipe(gulp.dest(input + '/_data/'))
 }
 
-const reviseAssets = gulp.series(initialRev, modifyRev)
-module.exports = reviseAssets
+module.exports = gulp.series(initialRev, modifyRev)

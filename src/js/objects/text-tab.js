@@ -1,11 +1,11 @@
 /* globals TweenLite Power1 location */
 const activateTab = (e) => {
   if (e.target.tagName.toLowerCase() !== 'a') return false
-  let a = e.target
-  let tabContainer = a.parentNode.parentNode
-  let siblings = tabContainer.querySelectorAll('a')
-  let href = a.getAttribute('href')
-  let target = document.querySelector(href)
+  const a = e.target
+  const tabContainer = a.parentNode.parentNode
+  const siblings = tabContainer.querySelectorAll('a')
+  const href = a.getAttribute('href')
+  const target = document.querySelector(href)
 
   e.preventDefault()
   setAriaSelected(siblings, a)
@@ -35,16 +35,16 @@ const hideOtherTabs = () => {
 }
 
 const scrollToTab = tab => {
-  TweenLite.to(window, 1, {
-    scrollTo: tab,
-    ease: Power1.easeInOut,
-    onComplete () { location.hash = `#${tab.getAttribute('id')}` }
-  })
+  // TweenLite.to(window, 1, {
+  //   scrollTo: tab,
+  //   ease: Power1.easeInOut,
+  //   onComplete () { location.hash = `#${tab.getAttribute('id')}` }
+  // })
 }
 
 const indicateSelected = tabContainer => {
   tabContainer.classList.add('has-selected-tab')
 }
 
-let textTabs = Array.from(document.querySelectorAll('.jsTextTab'))
+const textTabs = Array.from(document.querySelectorAll('.jsTextTab'))
 textTabs.forEach(tab => tab.addEventListener('click', activateTab))

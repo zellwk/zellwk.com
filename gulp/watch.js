@@ -2,23 +2,23 @@ const { input } = require('./_config')
 const { watch, series } = require('gulp')
 const { reload } = require('./browser-sync')
 
-const { src: sassSrc, default: sass } = require('./sass')
-const { src: imgSrc, default: images } = require('./images')
-const { src: jsSrc } = require('./scripts')
+const sass = require('./sass')
+const images = require('./images')
+// const { src: jsSrc } = require('./scripts')
 const eleventy = require('./eleventy')
 
 const watcher = cb => {
-  watch(sassSrc, series(sass, reload))
-  watch(imgSrc, series(images, reload))
-  watch(jsSrc, reload)
+  watch(`${input}/scss/**/*`, series(sass, reload), cb)
+  watch(`${input}/images/**/*`, series(images, reload), cb)
 
   // Eleventy files
   watch([
+    'eleventy.js',
     'eleventy/**/*',
-    `${input}/**/*`,
-    `!${sassSrc}`,
-    `!${jsSrc}`
-  ], series(eleventy, reload))
+    'src/**/*',
+    '!src/scss/**/*',
+    '!src/js/**/*'
+  ], series(eleventy, reload), cb)
 }
 
 module.exports = watcher

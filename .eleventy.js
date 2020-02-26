@@ -131,10 +131,10 @@ module.exports = eleventyConfig => {
 
   // Dates
   eleventyConfig.addFilter('readableDate', value => {
-    return datefns.format(value, 'Do MMM YYYY')
+    return datefns.format(value, 'do MMM yyyy')
   })
   eleventyConfig.addFilter('htmlDateString', value => {
-    return datefns.format(value, 'YYYY-MM-DD')
+    return datefns.format(value, 'yyyy-MM-dd')
   })
 
   return {

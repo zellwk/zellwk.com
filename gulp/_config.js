@@ -12,9 +12,8 @@ module.exports = {
   output: 'dist',
   scssDir: 'scss',
   jsDir: 'js',
-  imageSizes: [400, 900, 1300],
   sync: {
-    staticDest: '/home/zellwk/zellwk.com/dist',
-    secretsDest: '/home/zellwk/zellwk.com/secrets'
+    staticDest: '/var/www/students.learnjavascript.today/dist',
+    secretsDest: '/var/www/students.learnjavascript.today/secrets'
   }
 }

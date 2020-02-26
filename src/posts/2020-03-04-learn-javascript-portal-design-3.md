@@ -12,7 +12,7 @@ This is the third article in the Learn JavaScript design series. Today, I'll tal
 
 <!-- more -->
 
-## Account page 
+## Account page
 
 I gave each student a default password. I want to let them change their password, so I created the Account page.
 

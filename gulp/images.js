@@ -28,20 +28,23 @@ const copySvgToDist = _ => {
     .pipe(dest(imageOutput))
 }
 
-const copyFaviconsToDist = _ => {
-  return src(input + '/favicons/**/*')
-    .pipe(dest(imageOutput + '/favicons'))
-}
-
 const copyVideosToDist = _ => {
   return src(imageInput + '.mp4')
     .pipe(dest(imageOutput))
 }
 
+const copyFaviconsToDist = _ => {
+  return src(input + '/favicons/**/*')
+    .pipe(dest(output + '/favicons'))
+}
+
+const copyImages = _ => {
+  return src(imageInput + '/**/*')
+    .pipe(dest(imageOutput))
+}
+
 const images = series(
-  parallel(minifyImages),
-  parallel(copyImagesToDist, copySvgToDist, copyFaviconsToDist, copyVideosToDist)
+  parallel(copyImages, copySvgToDist, copyFaviconsToDist, copyVideosToDist)
 )
 
-exports.default = images
-exports.src = imageInput
+module.exports = images

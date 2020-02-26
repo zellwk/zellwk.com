@@ -1,11 +1,6 @@
-import 'gsap'
-import 'gsap/ScrollToPlugin'
-import 'isomorphic-fetch'
+import './objects/text-tab'
+import './components/nav'
+import './components/offsite'
+import './components/emailForm'
+import './components/ckForm'
 import './lib/prism'
-// require('./buy')
-
-require('./objects/text-tab')
-require('./components/nav')
-require('./components/offsite')
-require('./components/emailForm')
-require('./components/ckForm')
