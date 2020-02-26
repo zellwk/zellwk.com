@@ -1,4 +1,4 @@
-
+require('dotenv').config({ path: 'secrets/variables.env' })
 const { series, parallel } = require('gulp')
 const clean = require('./gulp/clean')
 const eleventy = require('./gulp/eleventy')
@@ -7,6 +7,7 @@ const { jsDevelopment, jsProduction } = require('./gulp/rollup')
 const images = require('./gulp/images')
 const watch = require('./gulp/watch')
 const { browserSync } = require('./gulp/browser-sync')
+const { syncSecrets, syncFiles } = require('./gulp/sync')
 const rev = require('./gulp/rev')
 
 exports.clean = clean
@@ -30,3 +31,7 @@ exports.build = series(
   rev,
   eleventy
 )
+
+exports.deploy = parallel(syncSecrets, syncFiles)
+exports.deployCI = series(syncFiles)
+exports.deploySecrets = series(syncSecrets)
