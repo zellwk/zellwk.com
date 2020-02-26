@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Two interesting JavaScript books
-description:
 slug: two-interesting-javascript-books
 tags:
   - resources
