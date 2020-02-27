@@ -13,7 +13,7 @@ module.exports = {
   scssDir: 'scss',
   jsDir: 'js',
   sync: {
-    staticDest: '/var/www/students.learnjavascript.today/dist',
-    secretsDest: '/var/www/students.learnjavascript.today/secrets'
+    staticDest: '/home/zellwk/zellwk.com/dist',
+    secretsDest: '/home/zellwk/zellwk.com/secrets'
   }
 }
