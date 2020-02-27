@@ -15,7 +15,7 @@ const app = express()
 app.use(express.static('dist'))
 
 if (isProduction) {
-  app.use(favicon(path.join(__dirname, '../', '/dist/images/favicons/favicon.ico')))
+  app.use(favicon(path.join(__dirname, '../', '/dist/favicons/favicon.ico')))
 }
 
 // ======================================
