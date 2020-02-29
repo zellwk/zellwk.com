@@ -118,6 +118,10 @@
   > * {
     grid-column-gap: 1;
   }
+
+  p + p {
+    margin-top: 1em;
+  }
 }
 
 // TODO: Remove other instances of .l-ck--standard

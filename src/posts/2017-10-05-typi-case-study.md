@@ -5,7 +5,6 @@ slug: typi-case-study
 newsletter: better-fed
 tags:
   - css
-  - sass
   - typography
   - responsive
 description: Typi is a library for responsive typography. This articles goes into detail about how and why I created this library.

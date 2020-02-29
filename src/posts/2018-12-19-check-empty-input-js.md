@@ -5,7 +5,7 @@ slug: check-empty-input-js
 newsletter: better-fed
 tags:
  - css
- - js
+ - javascript
 description: This article shows you how to check if an input is empty with JavaScript
 ---
 

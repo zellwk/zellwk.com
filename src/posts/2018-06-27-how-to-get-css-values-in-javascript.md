@@ -4,7 +4,7 @@ layout: post
 slug: css-values-in-js
 tags:
   - css
-  - js
+  - javascript
 newsletter: jsr
 ---
 

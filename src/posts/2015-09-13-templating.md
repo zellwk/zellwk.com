@@ -5,7 +5,7 @@ slug: nunjucks-with-gulp
 tags:
  - gulp
  - nunjucks
- - templates
+ - html
 newsletter: ayw
 ---
 
