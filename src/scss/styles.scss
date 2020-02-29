@@ -130,39 +130,25 @@ table {
 }
 
 .article-nav {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  margin: -0.5em;
-  margin-top: 1em;
-  margin-bottom: 0;
-  > * {
-    display: flex;
-    align-items: center;
+  margin-top: 1rem;
+
+  > * + * {
+    margin-top: 0.75rem;
   }
 
-  > *:first-child {
-    margin-right: 1em;
+  [data-link-to="next-post"] {
+    text-align: right;
   }
 
   svg {
     position: relative;
-    top: 0.1em;
-    font-size: 0.65em;
+    top: 0.125em;
+    font-size: 0.75rem;
   }
 
   svg + *,
   * + svg {
-    margin-left: 0.25em;
-  }
-
-  // Matches color from start of hover-text
-  [data-link-to="previous-post"] {
-    align-self: flex-start;
-  }
-
-  [data-link-to="next-post"] {
-    align-self: flex-end;
+    margin-left: 0.125rem;
   }
 }
 
@@ -197,4 +183,8 @@ table {
   line-height: 1;
   font-weight: 600;
   font-variant-caps: small-caps;
+}
+
+.series-layout {
+  margin-bottom: 1.5rem;
 }

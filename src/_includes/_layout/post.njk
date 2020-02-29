@@ -30,6 +30,7 @@ footer: true
 
     {{- content | safe -}}
 
+    {# Thanks part #}
     {%- markdown -%}
     {% set link = '/blog/' + slug + '/'%}
     {%- shareArticle {
@@ -39,6 +40,26 @@ footer: true
       } -%}
     {%- endmarkdown %}
 
+    {# Article series. Shows other articles in the same series #}
+    {% if series %}
+      <section class="o-words series-layout">
+        <h2>Articles in this series</h2>
+        <ol>
+          {% for article in collections.seriesContent %}
+            {% if article.data.series == series %}
+              <li>
+                {% if article.url == page.url %}
+                  <span>{{article.data.title}}</span>
+                {% else %}
+                  <a href="{{article.url}}">{{article.data.title | markdownInline}}</a>
+                {% endif %}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ol>
+      </section>
+    {% endif %}
+
     <nav class="article-nav">
       {% for post in collections.publishedPosts -%}
         {% if post.inputPath == page.inputPath -%}
@@ -46,7 +67,7 @@ footer: true
           {%- set previousPost = collections.publishedPosts[loop.index0 + 1] %}
 
           {% if previousPost.url -%}
-            <a href="{{previousPost.url}}" data-link-to="previous-post">
+            <a class="button" data-type="outline" href="{{previousPost.url}}" data-link-to="previous-post">
               <svg height="1em" viewbox="0 0 22 38">
                 <path fill="currentColor" d="M18.9 38l3.1-3.1L6.1 19 22 3.1 18.9 0 0 19z"></path>
               </svg>
@@ -55,7 +76,7 @@ footer: true
           {% endif -%}
 
           {% if nextPost.url -%}
-            <a href="{{nextPost.url}}" data-link-to="next-post">
+            <a class="button" data-type="outline" href="{{nextPost.url}}" data-link-to="next-post">
               <span>{{nextPost.data.title}}</span>
               <svg height="1em" viewbox="0 0 22 38">
                 <path fill="currentColor" d="M3.1 0L0 3.1 15.9 19 0 34.9 3.1 38 22 19z"></path>
@@ -66,6 +87,7 @@ footer: true
       {% endfor -%}
     </nav>
   </article>
+
   <section class="post-layout">
     <div class="o-content c-ck ck-layout jsCkForm">
       {%- include 'convertkit.njk' -%}

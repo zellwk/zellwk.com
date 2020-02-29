@@ -7,6 +7,8 @@ const markdown = require('./eleventy/markdown')
 const paginate = require('./eleventy/paginate')
 const post = require('./eleventy/post')
 const sitewide = require('./eleventy/sitewide')
+const fs = require('fs')
+const fsp = fs.promises
 
 const { input, output } = require('./gulp/_config')
 
@@ -89,6 +91,13 @@ module.exports = eleventyConfig => {
       })
 
     return col
+  })
+
+  // For series content
+  eleventyConfig.addCollection('seriesContent', collection => {
+    return collection.getFilteredByGlob('./src/posts/*.md')
+      .filter(isPublished)
+      .filter(item => item.data.series)
   })
 
   eleventyConfig.addPairedShortcode('isPublished', (content, date, isPublished = true) => {
