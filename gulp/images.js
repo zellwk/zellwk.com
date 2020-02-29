@@ -9,7 +9,7 @@ const tmpOutput = './_tmp/minified'
 const imageOutput = `${output}/images`
 
 const minifyImages = _ => {
-  return src(imageInput + '.{png,jpg,jpeg,gif}')
+  return src(imageInput + '.{png,jpg,jpeg,jpg,gif}')
     .pipe(newer(tmpOutput))
     .pipe(imagemin([
       imagemin.jpegtran({ progressive: true }),
@@ -38,13 +38,9 @@ const copyFaviconsToDist = _ => {
     .pipe(dest(output + '/favicons'))
 }
 
-const copyImages = _ => {
-  return src(imageInput + '/**/*')
-    .pipe(dest(imageOutput))
-}
-
 const images = series(
-  parallel(copyImages, copySvgToDist, copyFaviconsToDist, copyVideosToDist)
+  minifyImages,
+  parallel(copySvgToDist, copyFaviconsToDist, copyImagesToDist, copyVideosToDist)
 )
 
 module.exports = images

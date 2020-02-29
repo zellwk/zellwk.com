@@ -9,7 +9,7 @@
     margin-left: vr(1.5);
   }
 
-  > * {
+  > *:not(section) {
     max-width: vr(20);
   }
 

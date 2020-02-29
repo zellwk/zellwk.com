@@ -7,11 +7,11 @@ footer: true
 <div class="l-wrap">
   <article class="o-words generic-layout">
     {{- content | safe -}}
-  </article>
 
-  {%- if newsletter -%}
-    <section class="o-content c-ck ck-layout jsCkForm">
-      {%- include 'convertkit.njk' -%}
-    </section>
-  {%- endif -%}
+    {%- if newsletter -%}
+      <section class="o-content c-ck ck-layout jsCkForm">
+        {%- include 'convertkit.njk' -%}
+      </section>
+    {%- endif -%}
+  </article>
 </div>
