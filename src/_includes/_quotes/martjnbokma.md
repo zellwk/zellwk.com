@@ -1,5 +1,5 @@
 <blockquote>
-  I really enjoy your newsletters, blog articles and the way how they are written so I can understand. Thank you very much for taking the time to write good stuff. I really appreciate it!
+  I really enjoy your newsletters, blog articles. They're written in a way I can understand. Thank you very much for taking the time to write good stuff!
   <cite>Martjn Bokma</cite>
 </blockquote>
 

@@ -22,10 +22,9 @@
 
   // Allow H1 to be larger than other elements
   // at a small size
-  > *:not(h1) {
-    max-width: 45ch;
-    @include mappy-bp(750px) {
-      max-width: none;
+  > *:not(h1):not(section) {
+    @include mappy-bp(max 750px) {
+      max-width: 45ch;
     }
   }
 

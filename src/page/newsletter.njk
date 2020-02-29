@@ -1,22 +1,38 @@
 ---
-layout: _layout/page
-title: Frontend Wednesday
-description: Frontend Wednesday is exactly what its name suggests. Every Wednesday, I'll send you an article that's guaranteed to help you become a better frontend developer. No unexplained jargons. Just plain good content.
+layout: _layout/html
+permalink: /{{ page.inputPath | pagePathOverride }}/
+title: Newsletter
+description:
+newsletter: better-fed
+footer: true
 ---
 
-<h1>Frontend Wednesday</h1>
-{%- markdown -%}
-Frontend Wednesday is exactly what its name suggests. Every Wednesday, I'll send you an article that's guaranteed to help you become a better frontend developer. No unexplained jargons. Just plain good content.
+<div class="l-wrap">
+  <article class="o-words generic-layout">
+    {%- markdown -%}
+    # {{title}}
 
-Here's what others have said about my articles:
-{%- endmarkdown -%}
+    Want to become a better frontend developer? I'm here to help. Sign up with your email address and you'll get these:
 
-{%- include "_quotes/jerryjones.md" -%}
-{%- include "_quotes/martjnbokma.md" -%}
-{%- include "_quotes/vladimir.md" -%}
+    - An in-depth article about frontend development every Wednesday
+    - Watch me code LIVE every Friday
+    - Links to my best articles
 
-{%- markdown -%}
-Interested in understanding this frontend development thing? I'm here to help. On top of the weekly articles, I'll send you a library of the best articles I've written so far – containing important fundamentals for CSS, JavaScript and even typography.
+    <p></p>
 
-Just fill in your name and email below and I'll be right with you.
-{%- endmarkdown -%}
+    {%- include "_quotes/jerryjones.md" -%}
+
+    <section class="o-content c-ck ck-layout jsCkForm layout__width-override">
+      {%- include 'convertkit.njk' -%}
+    </section>
+
+    {%- include "_quotes/martjnbokma.md" -%}
+    {%- include "_quotes/vladimir.md" -%}
+    {%- include "_quotes/amarender.md" -%}
+
+    {%- endmarkdown -%}
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  </article>
+</div>

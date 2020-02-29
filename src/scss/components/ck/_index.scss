@@ -97,6 +97,7 @@
 // # Layouts for Convertkit form
 // ======================================
 .ck-layout {
+  // max-width: initial;
   grid-column: 2 / -1;
 
   display: grid;
@@ -106,7 +107,7 @@
   grid-template-columns: subgrid;
   grid-gap: inherit;
 
-  margin: vr(2) 0 vr(2) -25vw;
+  margin: vr(2) 0 vr(0.75) -25vw;
   padding: vr(2.5) vr(3.5) vr(2.5) 25vw;
 
   @include mappy-bp(max large) {

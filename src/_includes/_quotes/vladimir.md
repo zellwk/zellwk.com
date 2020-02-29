@@ -1,5 +1,5 @@
 <blockquote>
-  I like your explanation style and ability to split complicated stuff into chewable fragments. The explanation itself does not make me feel a bit stupid. On the contrary, I got it, so I'm able to move forward.
+  I like the way you explain things. You can split complicated things into cheweable fragments. Also, your explanation doesn't make me feel stupid (unlike others). I get what you say and I can move forward.
   <cite>Vladimir</cite>
 </blockquote>
 
