@@ -1,3 +1,5 @@
+import 'gsap'
+
 import './objects/text-tab'
 import './components/nav'
 import './components/offsite'

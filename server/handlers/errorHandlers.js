@@ -1,4 +1,5 @@
 const chalk = require('chalk')
+const path = require('path')
 
 exports.catchErrors = (fn) => {
   return (req, res, next) => {
@@ -8,9 +9,9 @@ exports.catchErrors = (fn) => {
 
 exports.notFound = (req, res, next) => {
   console.log(`Accessing: ${req.originalUrl}`)
-  const err = new Error('Not Found')
-  err.status = 404
-  return res.redirect('/not-found/')
+  return res.status(404).sendFile(
+    path.join(process.cwd(), '/dist/not-found/')
+  )
 }
 
 exports.devErrors = (err, req, res, next) => {
