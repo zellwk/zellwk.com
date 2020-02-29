@@ -59,7 +59,7 @@ const listenForSuccess = target => {
       if (ckForm.dataset.redirect) {
         redirect(ckForm.dataset.redirect)
       } else {
-        redirect('/thanks')
+        redirect('/tell-me-more')
       }
     })
   })
@@ -70,7 +70,7 @@ const ckForms = Array.from(document.querySelectorAll('.jsCkForm'))
 if (ckForms.length) {
   window.addEventListener('load', e => {
     ckForms.forEach(formContainer => {
-      let form = formContainer.querySelector('.ck_subscribe_form')
+      const form = formContainer.querySelector('.ck_subscribe_form')
       form.addEventListener('submit', handleCkSubmit)
     })
   })
