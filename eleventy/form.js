@@ -148,7 +148,7 @@ const form = (content, options) => {
     ${input({
       label: "What's your name?",
       name: 'name',
-      placeholder: 'Your name',
+      placeholder: '',
       required: true
     })}
 
@@ -156,7 +156,7 @@ const form = (content, options) => {
       label: "What's your email address?",
       name: 'email',
       type: 'email',
-      placeholder: 'your-email@gmail.com',
+      placeholder: '',
       required: true
     })}
 

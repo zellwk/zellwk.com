@@ -1,13 +1,15 @@
+# Tools I use
 
 Here's a list of tools I use.
 
-- [For Development Work](#for-development-work)
-- [For Writing](#for-writing)
-- [For Design](#for-design)
-- [For my Business](#for-my-business)
-- [For Streaming](#for-streaming)
-- [File Storage and Backups](#file-storage-and-backups)
-- [Mac Stuff](#mac-stuff)
+- [Tools I use](#tools-i-use)
+  - [For Development Work](#for-development-work)
+  - [For Writing](#for-writing)
+  - [For Design](#for-design)
+  - [For my Business](#for-my-business)
+  - [For Streaming](#for-streaming)
+  - [File Storage and Backups](#file-storage-and-backups)
+  - [Mac Stuff](#mac-stuff)
 
 ## For Development Work
 
