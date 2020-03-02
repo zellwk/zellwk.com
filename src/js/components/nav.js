@@ -1,5 +1,4 @@
-// Mouseover main nav removes active link
-let nav = document.querySelector('.jsNavContainer')
+const nav = document.querySelector('.jsNavContainer')
 
 if (nav) {
   nav.addEventListener('mouseover', e => {

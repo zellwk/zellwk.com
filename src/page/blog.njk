@@ -24,7 +24,7 @@ footer: true
         {%- endif %}
         <h2>
           <a href="{{post.data.slug if post.data.external else post.url}}">
-            {{- post.data.title | markdownInline -}}
+            {{- post.data.title | markdown -}}
           </a>
         </h2>
 

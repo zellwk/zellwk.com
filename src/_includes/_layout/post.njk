@@ -6,7 +6,7 @@ footer: true
 ---
 <div class="l-wrap">
   <article class="o-content post-layout">
-    <h1>{{title | markdownInline}}</h1>
+    <h1>{{title | markdown}}</h1>
     <span class="post-layout__date">{{page.date | readableDate }}</span>
 
     {# Hero images if any #}
@@ -51,7 +51,7 @@ footer: true
                 {% if article.url == page.url %}
                   <span>{{article.data.title}}</span>
                 {% else %}
-                  <a href="{{article.url}}">{{article.data.title | markdownInline}}</a>
+                  <a href="{{article.url}}">{{article.data.title | markdown}}</a>
                 {% endif %}
               </li>
             {% endif %}

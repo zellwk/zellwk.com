@@ -19,7 +19,9 @@ module.exports = eleventyConfig => {
   // Markdown
   eleventyConfig.setLibrary('md', markdown.lib)
   eleventyConfig.addPairedShortcode('markdown', markdown.pairedMarkdown)
-  eleventyConfig.addFilter('markdownInline', markdown.inline)
+  eleventyConfig.addPairedShortcode('markdownFile', markdown.includeMarkdownFile)
+  eleventyConfig.addPairedShortcode('markdown', markdown.inline)
+  eleventyConfig.addFilter('markdown', markdown.inline)
 
   // Pages
   // Override permalink to remove /page prefix

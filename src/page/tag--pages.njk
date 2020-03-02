@@ -21,7 +21,7 @@ Here are all articles tagged with {{tag}}. Enjoy!
   {%- for post in taglist | reverse %}
     {%- isPublished post.date %}
     <li>
-      <a href="{{ post.url | url }}">{{ post.data.title | markdownInline }}</a>
+      <a href="{{ post.url | url }}">{{ post.data.title | markdown }}</a>
     </li>
     {%- endisPublished %}
   {%- endfor %}

@@ -31,7 +31,7 @@ CRUD, Express and MongoDB are big words for a person who has never touched any s
 **[CRUD][3]** is an acronym for Create, Read, Update and Delete. It is a set of operations we get servers to execute (POST, GET, PUT and DELETE respectively). This is what each operation does:
 
 - **Create (POST)** - Make something
-- **Read (GET)**\_- Get something
+- **Read (GET)**- Get something
 - **Update (PUT)** - Change something
 - **Delete (DELETE)**- Remove something
 
@@ -409,7 +409,7 @@ We can create the `quotes` collection by using the string `quotes` while calling
 
 ```javascript
 app.post('/quotes', (req, res) => {
-  db.collection('quotes').save(req.body, (err, result) => {
+  db.collection('quotes').insertOne(req.body, (err, result) => {
     if (err) return console.log(err)
 
     console.log('saved to database')
