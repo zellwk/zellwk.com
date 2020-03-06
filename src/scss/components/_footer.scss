@@ -33,3 +33,32 @@
   background-color: transparent;
   margin-top: vr(2);
 }
+
+.c-footer__nav {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: vr(0.75);
+
+  li {
+    line-height: 1.2;
+  }
+
+  // Nav headers
+  li > span {
+    display: inline-block;
+    @include tp-sans2;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: vr(0.25);
+  }
+
+  // Separator betwene header and content
+  span + ol {
+    margin-top: vr(0.25);
+  }
+
+  li li a {
+    @include tp-sans2;
+    font-weight: 400;
+  }
+}

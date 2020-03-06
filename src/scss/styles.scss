@@ -87,33 +87,6 @@
   margin-top: 0;
 }
 
-.c-footer__nav {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: vr(0.75);
-
-  // Nav headers
-  li > span {
-    @include tp-sans2;
-    font-weight: 600;
-    color: #333;
-  }
-
-  // Separator betwene header and content
-  span + ol {
-    margin-top: vr(0.25);
-  }
-
-  li li {
-    line-height: 1.2;
-  }
-
-  li li a {
-    @include tp-sans2;
-    font-weight: 400;
-  }
-}
-
 // Find a way to style tables properly...
 table {
   border-collapse: collapse;
@@ -187,16 +160,4 @@ table {
 
 .series-layout {
   margin-bottom: 1.5rem;
-}
-
-.sr-only {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: auto; /* new - was 1px */
-  margin: 0; /* new - was -1px */
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap; /* 1 */
 }
