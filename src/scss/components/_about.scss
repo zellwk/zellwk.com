@@ -15,22 +15,6 @@
 
   .about__headshot {
     max-width: vr(8);
-    @include mappy-bp(750px) {
-      margin-right: vr(1);
-      margin-bottom: vr(1);
-      float: left;
-    }
-  }
-
-  @include mappy-bp(750px) {
-    > p:first-of-type {
-      margin-top: 0;
-    }
-
-    // Ensures the list after .about__headshot starts on a brand new line.
-    > ol:first-of-type {
-      margin-top: vr(1.5);
-    }
   }
 }
 
