@@ -4,8 +4,6 @@
   // Text in button feels slightly low. Bumping padding bottom to centralize them
   padding: 0.75em 1.5em 0.85em;
   transition: background-color 0.15s ease-in-out;
-  border: 1px solid transparent; // to balance with input
-  font-size: inherit;
   // Safari inline block has a whitespace bug that causes. nowrap fixes it
   // white-space: nowrap;
   @include tp-condensed;

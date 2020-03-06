@@ -31,8 +31,6 @@ footer: true
         {% import "_macros/media.njk" as media %}
         {{media.youtube(post.data.youtubeHash)}}
 
-        {# TODO: ADD post date #}
-        {# <p>{{post.data.page.date}}</p> #}
         {%- markdown -%}
         {% summary post %}
         {%- endmarkdown -%}

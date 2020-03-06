@@ -7,19 +7,24 @@
   @include tp-sans2;
   color: color(mine);
 
-  &::placholder { color: color(monsoon); }
-  &:focus { border-color: color(monsoon); }
+  &::placholder {
+    color: color(monsoon);
+  }
+  &:focus {
+    border-color: color(monsoon);
+  }
 }
 
-
 // Text input
-[type='text'],
-[type='email'] {
+[type="text"],
+[type="email"] {
   @include input;
 }
 
 // Capitalize all input with the a name of 'name'
-input[name*='name'] { text-transform: capitalize; }
+input[name*="name"] {
+  text-transform: capitalize;
+}
 
 textarea {
   @include input;
@@ -27,7 +32,7 @@ textarea {
 }
 
 // Radio input
-[type='radio'] {
+[type="radio"] {
   // Normal firefox and IE doesn't support appearance none, so hide visually
   @include is-invisible;
   appearance: none;
@@ -42,14 +47,18 @@ textarea {
   }
 
   &:focus {
-    ~ * { color: color(geebung); }
+    ~ * {
+      color: color(geebung);
+    }
   }
 
   &:checked {
-    & ~ * { color: color(geebung); }
+    & ~ * {
+      color: color(geebung);
+    }
 
     & ~ svg path {
-      transition: stroke-dashoffset .3s linear;
+      transition: stroke-dashoffset 0.3s linear;
       stroke-dashoffset: 0;
     }
   }

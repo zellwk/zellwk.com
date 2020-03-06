@@ -24,16 +24,38 @@
     }
   }
 
-  p:first-of-type {
+  > p:first-of-type {
     @include tp-sans1;
 
     > code {
       font-size: 0.6em;
     }
-
-    // TODO: Check for articles that contain videos.
-    // iframe + p:first-of-type {
-    //   margin-top: vr(0.75);
-    // }
   }
+}
+
+.post-nav {
+  margin-top: 1rem;
+
+  > * + * {
+    margin-top: 0.75rem;
+  }
+
+  [data-link-to="next-post"] {
+    text-align: right;
+  }
+
+  svg {
+    position: relative;
+    top: 0.125em;
+    font-size: 0.75rem;
+  }
+
+  svg + *,
+  * + svg {
+    margin-left: 0.125rem;
+  }
+}
+
+.series-layout {
+  margin-bottom: 1.5rem;
 }

@@ -58,21 +58,13 @@
 @import "components/prism";
 @import "components/home";
 @import "components/media";
+@import "components/note";
 
 // Utils
 // -----
 @import "utils";
 
 // Shame
-.home-page main {
-  margin-top: 0;
-}
-
-.home-page .c-footer {
-  margin-top: 0;
-}
-
-// Find a way to style tables properly...
 table {
   border-collapse: collapse;
 
@@ -85,64 +77,4 @@ table {
     border: 1px solid black;
     padding: 0.25em;
   }
-}
-
-.article-nav {
-  margin-top: 1rem;
-
-  > * + * {
-    margin-top: 0.75rem;
-  }
-
-  [data-link-to="next-post"] {
-    text-align: right;
-  }
-
-  svg {
-    position: relative;
-    top: 0.125em;
-    font-size: 0.75rem;
-  }
-
-  svg + *,
-  * + svg {
-    margin-left: 0.125rem;
-  }
-}
-
-// For Notes
-.note {
-  position: relative;
-  margin-top: vr(0.75);
-  padding: vr(0.75);
-  background-color: color(gallery);
-  // border: 1px solid color(monsoon);
-
-  p:first-child {
-    margin-top: 0;
-  }
-
-  a {
-    @include link-shadow(color(gallery));
-  }
-}
-
-.note::before {
-  content: "note";
-  position: absolute;
-  top: -0.5em;
-  background-image: linear-gradient(
-    white,
-    white 50%,
-    color(gallery) 50%,
-    color(gallery) 100%
-  );
-  color: color(monsoon);
-  line-height: 1;
-  font-weight: 600;
-  font-variant-caps: small-caps;
-}
-
-.series-layout {
-  margin-bottom: 1.5rem;
 }

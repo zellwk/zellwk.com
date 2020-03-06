@@ -95,12 +95,15 @@ button * {
  Easy responsive for media elements
  ***********************************/
 img,
-svg,
 iframe,
 video,
 object,
 embed {
   display: block;
+  max-width: 100%;
+}
+
+svg {
   max-width: 100%;
 }
 

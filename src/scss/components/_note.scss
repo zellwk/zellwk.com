@@ -1,0 +1,19 @@
+// For Notes
+.note {
+  position: relative;
+  margin-top: vr(0.75);
+  padding: vr(0.75);
+  border: 2px solid color(gallery);
+}
+
+.note::before {
+  content: "note";
+  position: absolute;
+  top: -0.7em;
+  padding: 0 0.25em;
+  line-height: 1;
+  font-weight: 600;
+  font-variant-caps: small-caps;
+  background-color: #fff;
+  color: color(monsoon);
+}

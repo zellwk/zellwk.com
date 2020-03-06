@@ -44,7 +44,7 @@ footer: true
       </section>
     {% endif %}
 
-    <nav class="article-nav">
+    <nav class="post-nav">
       {% for post in collections.publishedPosts -%}
         {% if post.inputPath == page.inputPath -%}
           {%- set nextPost = collections.publishedPosts[loop.index0 - 1] %}
