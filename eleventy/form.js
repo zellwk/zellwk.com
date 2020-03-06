@@ -163,7 +163,7 @@ const form = (content, options) => {
     ${hidden('final-message', options.finalMessage)}
 
     <div class="c-form__item">
-      <button class="o-btn--secondary" type="submit">Send my answers</button>
+      <button class="button" data-type="secondary" type="submit">Send my answers</button>
     </div>
   </form>`
 }

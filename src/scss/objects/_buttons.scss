@@ -1,13 +1,36 @@
-@mixin o-btn {
+// Primary Button
+// --------------
+@mixin button {
   display: inline-block;
   position: relative;
   // Text in button feels slightly low. Bumping padding bottom to centralize them
   padding: 0.75em 1.5em 0.85em;
   transition: background-color 0.15s ease-in-out;
+  border: 0;
   // Safari inline block has a whitespace bug that causes. nowrap fixes it
   // white-space: nowrap;
   @include tp-condensed;
   @include remove-link-underline;
+
+  &:hover,
+  &:active,
+  &:focus {
+    @include remove-link-underline;
+  }
+}
+
+.button {
+  @include button;
+}
+
+// Secondary button
+// --------------
+// Convertkit signup form uses secondary button
+// Need mixin to overwrite default styles
+@mixin secondary-button {
+  @include button;
+  background-color: color(malachite);
+  color: color(w);
 
   &:hover,
   &:active,
@@ -18,40 +41,14 @@
   }
 }
 
-.o-btn,
-a.o-btn {
-  @include o-btn;
+.button[data-type="secondary"] {
+  @include secondary-button;
 }
 
-// ======================================
-// # Button modifiers
-// ======================================
-.o-btn--primary,
-a.o-btn--primary {
-  @include o-btn;
-  background-color: var(--theme-color);
-  color: color(w);
-}
-
-@mixin o-btn--secondary {
-  @include o-btn;
-  background-color: color(malachite);
-  color: color(w);
-}
-
-.o-btn--secondary,
-a.o-btn--secondary {
-  @include o-btn--secondary;
-}
-
-.o-btn--flat,
-a.o-btn--flat {
-  padding: 0.35em 0.5em;
-}
-
+// Ghost button
+// --------------
 .button[data-type="outline"] {
   display: block;
-  @include tp-condensed;
   font-size: inherit;
   padding: 0.75rem 1rem 0.85rem;
   border: 2px solid color(radred);

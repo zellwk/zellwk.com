@@ -31,10 +31,9 @@
     left: 0;
     width: 100%;
     height: 3px;
-    transition: transform 0.15s ease-in-out,
-                opacity 0.15s ease-in-out;
+    transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
     background-color: color(radred);
-    content: '';
+    content: "";
   }
 
   &:hover,
@@ -44,10 +43,14 @@
     @include active-link;
   }
 
-  & + * { margin-left: vr(0.75); }
+  & + * {
+    margin-left: vr(0.75);
+  }
 
   &:nth-child(-n + 4) {
-    @include bp(max med) {display: none;}
+    @include bp(max med) {
+      display: none;
+    }
   }
 }
 
@@ -57,4 +60,10 @@
   color: rgba(color(w), 0.9);
   @include tp-sans;
   text-align: center;
+}
+
+.main-nav {
+  .button {
+    padding: 0.35em 0.5em;
+  }
 }

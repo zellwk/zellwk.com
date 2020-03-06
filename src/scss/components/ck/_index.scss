@@ -77,7 +77,7 @@
   }
 
   button {
-    @include o-btn--secondary;
+    @include secondary-button;
     justify-self: flex-start;
     grid-column: span 2;
   }
