@@ -140,27 +140,27 @@ Lots of stuff here.
 [11]:	https://www.mongodb.com/products/compass
 [12]:	https://m.do.co/c/64daa7a7a455
 [13]:	https://www.netlify.com
-[14]:	https://ulysses.app
+[14]:	https://setapp.sjv.io/c/2100771/344477/5114 "Ulysses"
 [15]:	https://ia.net/writer
 [16]:	https://code.visualstudio.com
-[17]:	https://go.setapp.com/invite/zell1
+[17]:	https://setapp.sjv.io/c/2100771/344537/5114 "Setapp"
 [18]:	https://matthewpalmer.net/rocket/
 [19]:	http://www.hemingwayapp.com
 [20]:	https://www.grammarly.com
-[22]:	https://go.setapp.com/invite/zell1
-[26]:	https://go.setapp.com/invite/zell1
+[22]:	https://setapp.sjv.io/c/2100771/344537/5114 "Setapp"
+[26]:	https://setapp.sjv.io/c/2100771/344537/5114 "Setapp"
 [27]:	https://www.sketch.com
 [28]:	https://www.figma.com
 [29]:	https://www.designcuts.com/?ref=zellliew
 [30]:	https://fontba.se
-[31]:	https://www.google.com/search?client=safari&rls=en&q=typeface+app&ie=UTF-8&oe=UTF-8
-[32]:	https://go.setapp.com/invite/zell1
-[33]:	https://sipapp.io
-[34]:	https://go.setapp.com/invite/zell1
+[31]:	https://setapp.sjv.io/c/2100771/507348/5114 "Typeface App"
+[32]:	https://setapp.sjv.io/c/2100771/344537/5114 "Setapp"
+[33]:	https://setapp.sjv.io/c/2100771/344463/5114 "Sip"
+[34]:	https://setapp.sjv.io/c/2100771/344537/5114 "Setapp"
 [35]:	https://refactoringui.com/previews/building-your-color-palette/
 [36]:	https://superdevresources.com/tools/color-shades#deac38
-[37]:	https://getpixelsnap.com
-[38]:	https://go.setapp.com/invite/zell1
+[37]:	https://setapp.sjv.io/c/2100771/689691/5114 "Pixel Snap"
+[38]:	https://setapp.sjv.io/c/2100771/344537/5114 "Setapp"
 [39]:	http://mbsy.co/clb2r
 [40]:	https://gumroad.com
 [41]:	https://transferwise.com/invite/u/weel16
@@ -170,22 +170,22 @@ Lots of stuff here.
 [46]:	https://amzn.to/39g6kvE
 [47]:	https://amzn.to/38jLF8Z
 [48]:	https://amzn.to/2wiuFCv
-[49]:	https://setapp.com/apps/switchem
-[50]:	https://go.setapp.com/invite/zell1
+[49]:	https://setapp.sjv.io/c/2100771/406331/5114 "Switchem"
+[50]:	https://setapp.sjv.io/c/2100771/344537/5114 "Setapp"
 [51]:	https://db.tt/VsPxOidO
 [52]:	https://www.google.com/drive/download/
 [53]:	https://www.google.com/drive/download/
 [54]:	https://secure.backblaze.com/r/00d523
-[55]:	https://setapp.com/apps/enduranc
-[56]:	https://go.setapp.com/invite/zell1
-[57]:	https://setapp.com/apps/tripmode
-[58]:	https://go.setapp.com/invite/zell1
-[59]:	https://setapp.com/apps/cleanmymac
-[60]:	https://go.setapp.com/invite/zell1
-[61]:	https://setapp.com/apps/bartender
-[62]:	https://go.setapp.com/invite/zell1
+[55]:	https://setapp.sjv.io/c/2100771/486898/5114 "Endurance"
+[56]:	https://setapp.sjv.io/c/2100771/344537/5114 "Setapp"
+[57]:	https://setapp.sjv.io/c/2100771/383992/5114 "Trip Mode"
+[58]:	https://setapp.sjv.io/c/2100771/344537/5114 "Setapp"
+[59]:	https://setapp.sjv.io/c/2100771/344326/5114 "Clean my Mac"
+[60]:	https://setapp.sjv.io/c/2100771/344537/5114 "Setapp"
+[61]:	https://setapp.sjv.io/c/2100771/443665/5114 "Bartender"
+[62]:	https://setapp.sjv.io/c/2100771/344537/5114 "Setapp"
 [63]:	https://www.alfredapp.com
-[64]:	https://setapp.com/apps/busycal
-[65]:	https://go.setapp.com/invite/zell1
+[64]:	https://setapp.sjv.io/c/2100771/471907/5114 "Busycal"
+[65]:	https://setapp.sjv.io/c/2100771/344537/5114 "Setapp"
 [66]:	https://manytricks.com/moom/
-[67]:	https://www.google.com/search?client=safari&rls=en&q=mosiac+setapp&ie=UTF-8&oe=UTF-8
+[67]:	https://setapp.sjv.io/c/2100771/354736/5114 "Mosaic"
