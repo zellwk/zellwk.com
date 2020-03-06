@@ -3,11 +3,9 @@ title: How to review and edit a pull request
 layout: post
 slug: edit-pull-request
 newsletter: better-fed
-video: UpBpb0j7IKA
-podcast: d70cb651
+youtubeHash: UpBpb0j7IKA
 tags:
  - video
- - podcast
  - git
 description: Collaborators can decide whether to accept or reject your pull request. They may also request for some changes. This video shows you what process looks like.
 ---

@@ -3,11 +3,9 @@ title: Semantic Versioning
 layout: post
 slug: semantic-versioning
 newsletter: better-fed
-video: rTZ35Subk9U
-podcast: 80d7b4a9
+youtubeHash: rTZ35Subk9U
 tags:
  - video
- - podcast
  - git
 description: When we use Semantic versioning, we let developers know whether a change will break their code. This video explains what Semantic Versioning is and how to use it.
 ---

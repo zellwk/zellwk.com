@@ -3,7 +3,7 @@ title: Which JavaScript framework should you learn?
 layout: post
 slug: which-framework-to-learn
 newsletter: jsr
-video: Z-dNtfq39zQ
+youtubeHash: Z-dNtfq39zQ
 tags:
  - video
  - mindset

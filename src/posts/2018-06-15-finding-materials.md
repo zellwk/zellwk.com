@@ -3,7 +3,7 @@ title: Finding the right materials to learn
 layout: post
 slug: finding-materials-to-learn
 newsletter: better-fed
-video: olJKuwvoWwI
+youtubeHash: olJKuwvoWwI
 tags:
  - video
  - mindset

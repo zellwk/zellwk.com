@@ -6,7 +6,7 @@ newsletter: better-fed
 tags:
  - video
  - mindset
-video: HRpmVV8KSV8
+youtubeHash: HRpmVV8KSV8
 ---
 
 I'm going to be honest with you. This video is probably going to suck. Why? Because I'm experimenting with something new.

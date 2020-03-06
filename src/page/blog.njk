@@ -28,7 +28,9 @@ footer: true
           </a>
         </h2>
 
-        {%- youtube post.data.video -%}
+        {% import "_macros/media.njk" as media %}
+        {{media.youtube(post.data.youtubeHash)}}
+
         {# TODO: ADD post date #}
         {# <p>{{post.data.page.date}}</p> #}
         {%- markdown -%}

@@ -3,7 +3,7 @@ title: Results of the restructure
 layout: post
 slug: restructure-results
 newsletter: better-fed
-video: tRoMiyKdZMs
+youtubeHash: tRoMiyKdZMs
 tags:
  - video
  - mindset

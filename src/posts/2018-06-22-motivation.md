@@ -3,7 +3,7 @@ title: Finding motivation
 layout: post
 slug: finding-motivation
 newsletter: better-fed
-video: tlEB85OXuUU
+youtubeHash: tlEB85OXuUU
 tags:
   - video
   - mindset

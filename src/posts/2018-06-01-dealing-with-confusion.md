@@ -3,7 +3,7 @@ title: Dealing with confusion
 layout: post
 slug: dealing-with-confusion
 newsletter: better-fed
-video: yFhWf9nwMNE
+youtubeHash: yFhWf9nwMNE
 tags:
  - video
  - mindset

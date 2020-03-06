@@ -3,7 +3,7 @@ title: Why I switched from Sublime Text to Visual Studio Code
 layout: post
 slug: sublime-to-vscode
 newsletter: better-fed
-video: 6GFJBgTnqnE
+youtubeHash: 6GFJBgTnqnE
 tags:
  - video
  - tools

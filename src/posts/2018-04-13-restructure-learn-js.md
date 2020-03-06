@@ -3,7 +3,7 @@ title: Why I restructured Learn JavaScript
 layout: post
 slug: restructured-learn-javascript
 newsletter: better-fed
-video: T5X2P_l1r4s
+youtubeHash: T5X2P_l1r4s
 tags:
  - video
  - javascript

@@ -6,7 +6,7 @@ newsletter: jsr
 tags:
  - javascript
  - video
-video: rBHzRjJSQbI
+youtubeHash: rBHzRjJSQbI
 ---
 
 When you write Javascript, you're bound to be unsure of something in your code somewhere. That's a normal thing.

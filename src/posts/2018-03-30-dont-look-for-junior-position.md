@@ -3,7 +3,7 @@ title: Job search protip—don't look for a junior position
 layout: post
 slug: dont-look-for-a-junior-position
 newsletter: better-fed
-video: Lr312DGmPWQ
+youtubeHash: Lr312DGmPWQ
 tags:
  - video
  - mindset

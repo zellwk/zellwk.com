@@ -7,7 +7,7 @@ shareText: "How to you make interactive components? Here's the answer:"
 tags:
  - javascript
  - video
-video: dTyVuBk5eIg
+youtubeHash: dTyVuBk5eIg
 
 ---
 

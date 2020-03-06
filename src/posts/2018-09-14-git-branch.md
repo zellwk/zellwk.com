@@ -3,12 +3,10 @@ title: What is a branch in Git?
 layout: post
 slug: git-branch
 newsletter: better-fed
-video: yARRMa9zssw
-podcast: b1cdf6ce
+youtubeHash: yARRMa9zssw
 tags:
  - video
  - git
- - podcast
 description: Imagine there are parallel worlds. We have. 1) A world where I have created this video, and you're watching it. 2) A world where I have created this video, but you're not watching it. 3) A world where I did not create this video. With this concept, a Git branch is a parallel world.
 ---
 

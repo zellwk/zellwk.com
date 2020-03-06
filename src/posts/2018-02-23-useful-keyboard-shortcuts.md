@@ -3,7 +3,7 @@ title: Useful VS Code keyboard shortcuts
 layout: post
 slug: useful-vscode-keyboard-shortcuts
 newsletter: better-fed
-video: Ng5EtzuD0AE
+youtubeHash: Ng5EtzuD0AE
 tags:
  - video
  - vscode

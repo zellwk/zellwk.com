@@ -3,7 +3,7 @@ title: Finding mentors
 layout: post
 slug: finding-mentors
 newsletter: better-fed
-video: vn6Qt70wBrs
+youtubeHash: vn6Qt70wBrs
 tags:
  - video
  - mindset

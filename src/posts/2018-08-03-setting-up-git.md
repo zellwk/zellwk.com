@@ -3,12 +3,10 @@ title: Setting up a Git Client
 layout: post
 slug: setting-up-git
 newsletter: better-fed
-video: 0z2vRogzbMQ
-podcast: d492393b
+youtubeHash: 0z2vRogzbMQ
 tags:
  - video
  - git
- - podcast
 description: Git is like a save-point system in games. You can use Git to save and load your work. The easiest way to start with Git is to use a Git application. And the easiest application to start with is Git-Fork.
 ---
 

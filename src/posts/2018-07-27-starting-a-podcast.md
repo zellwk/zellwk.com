@@ -3,11 +3,9 @@ title: Starting a podcast
 layout: post
 slug: starting-a-podcast
 newsletter: better-fed
-video: bG0WqKeWDa4
-podcast: 04f0c0a5
+youtubeHash: bG0WqKeWDa4
 tags:
  - video
- - podcast
 description: I'm going to start a podcast. Here's why.
 ---
 

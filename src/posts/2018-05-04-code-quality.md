@@ -3,7 +3,7 @@ title: Is your code good enough?
 layout: post
 slug: code-quality
 newsletter: better-fed
-video: FMIwiHCe-xc
+youtubeHash: FMIwiHCe-xc
 tags:
  - video
  - mindset

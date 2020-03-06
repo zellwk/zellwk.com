@@ -3,11 +3,9 @@ title: How to submit a pull request
 layout: post
 slug: submit-pull-request
 newsletter: better-fed
-video: D9CfagSgdVo
-podcast: 337a8be9
+youtubeHash: D9CfagSgdVo
 tags:
  - video
- - podcast
  - git
 description: When you want to contribute to a repository, you need to submit a pull request. This video explains what a pull request is, and how to submit one.
 ---

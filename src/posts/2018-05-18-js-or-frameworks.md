@@ -3,7 +3,7 @@ title: Which should you learn first? Frameworks or JavaScript?
 layout: post
 slug: frameworks-vs-javascript
 newsletter: jsr
-video: BqvrSNGu-pw
+youtubeHash: BqvrSNGu-pw
 tags:
  - video
  - mindset

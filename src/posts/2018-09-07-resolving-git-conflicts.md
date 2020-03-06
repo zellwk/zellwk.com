@@ -3,12 +3,10 @@ title: Resolving Git conflicts
 layout: post
 slug: resolving-git-conflicts
 newsletter: better-fed
-video: qLFj3H0j998
-podcast: 9a737698
+youtubeHash: qLFj3H0j998
 tags:
  - video
  - git
- - podcast
 description: A Git conflict happens when Git has no idea whether the remote version or the local version is the correct version. You'll learn how to resolve a Git conflict today.
 ---
 

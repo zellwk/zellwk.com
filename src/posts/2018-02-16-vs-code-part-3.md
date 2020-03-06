@@ -3,7 +3,7 @@ title: Setting up Visual Studio Code (Part 3)—Extensions
 layout: post
 slug: vscode-3
 newsletter: better-fed
-video: o6HiFpxL1-0
+youtubeHash: o6HiFpxL1-0
 tags:
  - video
  - vscode

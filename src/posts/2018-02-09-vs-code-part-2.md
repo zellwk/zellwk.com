@@ -3,7 +3,7 @@ title: Setting up Visual Studio Code (Part 2)—HTML, CSS and JavaScript setting
 layout: post
 slug: vscode-2
 newsletter: better-fed
-video: Hv8FgxJyI9Y
+youtubeHash: Hv8FgxJyI9Y
 tags:
  - video
  - vscode

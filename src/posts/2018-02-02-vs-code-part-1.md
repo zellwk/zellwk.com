@@ -4,7 +4,7 @@ layout: post
 slug: vscode-1
 newsletter: better-fed
 shareText: "Setting up Visual Studio Code (Part 1)—appearances"
-video: xzAOWzG7A7c
+youtubeHash: xzAOWzG7A7c
 tags:
  - post
  - video

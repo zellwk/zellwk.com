@@ -6,7 +6,7 @@ newsletter: jsr
 tags:
  - javascript
  - video
-video: B6EZIEqO15w
+youtubeHash: B6EZIEqO15w
 shareText: "It's normal for you to make errors when you code. I get error messages all the time. When I have bad days, I get more error messages! Here's how to fix errors:"
 ---
 

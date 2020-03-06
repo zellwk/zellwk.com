@@ -57,28 +57,13 @@
 @import "components/offsite";
 @import "components/prism";
 @import "components/home";
+@import "components/media";
 
 // Utils
 // -----
 @import "utils";
 
 // Shame
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-
-  figcaption {
-    margin-top: vr(0.25);
-  }
-}
-
-.youtube {
-  width: 100%;
-  border: 0;
-  height: vr(17.5);
-}
-
 .home-page main {
   margin-top: 0;
 }

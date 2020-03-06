@@ -9,24 +9,8 @@ footer: true
     <h1>{{title | markdown}}</h1>
     <span class="post-layout__date">{{page.date | readableDate }}</span>
 
-    {# Hero images if any #}
-    {%- if cover %}
-      <figure role="figure">
-        <img src="{{cover}}" alt="{{coverAlt}}">
-      </figure>
-    {% endif %}
-
-    {# Podcast is for old simplecast format #}
-    {# Podcast2 is for new simplecast format #}
-    {%- if video %}
-      {%- youtube video -%}
-    {% endif %}
-    {%- if podcast %}
-      {%- audio podcast -%}
-    {% endif %}
-    {%- if podcast2 %}
-      {%- audio2 podcast2 -%}
-    {% endif %}
+    {% import "_macros/media.njk" as media %}
+    {{media.youtube(youtubeHash)}}
 
     {{- content | safe -}}
 

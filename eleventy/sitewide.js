@@ -7,17 +7,10 @@ const entities = new HtmlEntities()
 module.exports = {
   youtube (hash) {
     if (!hash) return ''
-    return `<iframe class="youtube" src="https://www.youtube.com/embed/${hash}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>`
-  },
-
-  audio (hash) {
-    if (!hash) return ''
-    return `<iframe frameborder='0' height='200px' scrolling='no' seamless src=https://embed.simplecast.com/${hash}?color=f5f5f5' width="100%"></iframe>`
-  },
-
-  audio2 (hash) {
-    if (!hash) return ''
-    return `<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/${hash}?dark=false"></iframe>`
+    return `<div class="media">
+      <iframe class="youtube" src="https://www.youtube.com/embed/${hash}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+    </div>
+    `
   },
 
   decode (content) {

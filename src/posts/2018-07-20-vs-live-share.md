@@ -3,7 +3,7 @@ title: Visual Studio Live Share
 layout: post
 slug: vs-live-share
 newsletter: better-fed
-video: vq5FzSPmu-I
+youtubeHash: vq5FzSPmu-I
 tags:
  - video
  - vscode

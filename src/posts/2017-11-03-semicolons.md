@@ -3,7 +3,7 @@ title: Should you use semicolons in JavaScript?
 layout: post
 slug: semicolons
 newsletter: jsr
-video: TODFjRDfosk
+youtubeHash: TODFjRDfosk
 tags:
  - javascript
  - video

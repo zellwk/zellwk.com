@@ -3,11 +3,9 @@ title: What not to save into a Git repository
 layout: post
 slug: what-not-to-save-into-a-git-repo
 newsletter: better-fed
-video: grKh2Sl35bE
-podcast: 1270426d
+youtubeHash: grKh2Sl35bE
 tags:
  - video
- - podcast
  - git
 description: You already know Git is like a save point system. What you've done so far is to learn to save. But how do you undo, and go back to a previous state? That's what we're going to cover
 ---

@@ -4,12 +4,10 @@ title: Your first Git commit
 description: We're going to talk about how to make your first Git commit.
 slug: your-first-git-commit
 newsletter: better-fed
-video: nsORVjJTkeI
-podcast: 78fee8d4
+youtubeHash: nsORVjJTkeI
 tags:
   - video
   - git
-  - podcast
 ---
 
 Note: This the second video in the Git for beginners series. [Watch the first video here][1].
