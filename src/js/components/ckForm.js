@@ -59,7 +59,7 @@ const listenForSuccess = target => {
       if (ckForm.dataset.redirect) {
         redirect(ckForm.dataset.redirect)
       } else {
-        redirect('/tell-me-more')
+        redirect('/bonus')
       }
     })
   })

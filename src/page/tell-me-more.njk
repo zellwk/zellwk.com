@@ -5,22 +5,20 @@ blockRobots: true
 newsletter: ''
 footer: blank
 ---
-<h1>Welcome!</h1>
-
 {% markdown %}
-I'm excited you want to hear more from me. Make sure you check your inbox in a few minutes. I sent you a few sweet 😘 links.
+# Hey there! 😉
 
 Can you tell me more about you? This would help me understand where you are on your journey, so I can write stuff that helps you!
+
 {% endmarkdown %}
 
 {%- form {
-  redirect: '/bonus',
+  redirect: '/thanks/tell-me-more',
   spreadsheet: '1q5pS7Ombp6wrtzJjS0LSZRTEk2V9VrAbBe4DVh4L3aA',
   subject: "Hey Zell, here's more about me :)",
   initialMessage: "Thanks for telling me more about you! **Please note:** Although I read every email, I don't have the capacity to respond to everyone.",
   finalMessage: "That's it! :)"
 } -%}
-
   {%- formTextarea {
     name: 'yourself',
     label: "Can you tell me more about yourself?",
@@ -34,19 +32,12 @@ Can you tell me more about you? This would help me understand where you are on y
 
   {%- formTextarea {
     name: 'challenge',
-    label: "What's your biggest struggle with frontend development over the last month?",
-    placeholder: "I've been struggling with..."
-  } -%}
-
-  {%- formTextarea {
-    name: 'help',
-    label: 'How can I help?',
-    placeholder: "The best way you can help me is..."
+    label: "What's your #1 struggle with frontend development?",
+    placeholder: "[Insert stuff here] is SO HARD!"
   } -%}
 
   {%- formTextarea {
     name: 'me',
-    label: "How did you find out about me?",
-    placeholder: "I found you through..."
+    label: "How did you find out about me?"
   } -%}
 {%- endform -%}
