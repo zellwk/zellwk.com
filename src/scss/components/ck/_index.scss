@@ -6,6 +6,11 @@
 .c-ck {
   border-top: vr(0.25) solid var(--theme-color);
   background-color: color(alabaster);
+
+  p + *,
+  * + p {
+    margin-top: 1em;
+  }
 }
 
 // CK Form styles
@@ -97,7 +102,6 @@
 // # Layouts for Convertkit form
 // ======================================
 .ck-layout {
-  // max-width: initial;
   grid-column: 2 / -1;
 
   display: grid;
@@ -117,11 +121,6 @@
 
   > * {
     grid-column-gap: 1;
-  }
-
-  p + *,
-  * + p {
-    margin-top: 1em;
   }
 }
 

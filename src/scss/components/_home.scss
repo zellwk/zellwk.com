@@ -65,17 +65,138 @@
   }
 }
 
-.c-home__ck {
-  .ck_form_content p,
-  .ck_subscribe_form {
-    max-width: vr(17);
-  }
-}
-
 .home-page main {
   margin-top: 0;
 }
 
+.ck-layout--home {
+  max-width: vr(17);
+  background: transparent;
+  border-top: 0;
+}
+
 .home-page .c-footer {
   margin-top: 0;
+}
+
+.home-social {
+  background-color: #f6f6f6;
+}
+
+.home-social__content {
+  grid-column: 1 / -1;
+  max-width: 50rem;
+  margin: auto;
+  padding: 3rem 0;
+
+  h2 {
+    @include mappy-bp(med) {
+      text-align: center;
+    }
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(8rem, 1fr));
+    grid-column-gap: 2rem;
+    grid-row-gap: 1rem;
+    margin-top: 2rem;
+
+    @include mappy-bp(med) {
+      grid-template-columns: repeat(4, auto);
+      align-content: center;
+      justify-items: center;
+      align-items: center;
+    }
+
+    @include mappy-bp(wide) {
+      grid-column-gap: 4rem;
+      grid-gap: 2rem;
+    }
+
+    li {
+      opacity: 0.8;
+    }
+  }
+}
+
+.home-testimonials {
+  grid-column: 1 / -1;
+  max-width: 50rem;
+  margin: auto;
+  padding: 3rem 0;
+
+  h2 {
+    @include mappy-bp(med) {
+      text-align: center;
+    }
+  }
+
+  ul {
+    margin-top: 2rem;
+  }
+
+  li {
+    max-width: 30rem;
+    margin: auto;
+    margin-top: 1rem;
+  }
+
+  > p {
+    margin-top: 1rem;
+  }
+
+  @include mappy-bp(med) {
+    --image-size: 9.5rem;
+
+    li {
+      margin-top: 2rem;
+      max-width: 32rem;
+    }
+
+    blockquote {
+      position: relative;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      min-height: var(--image-size);
+      padding: 0;
+      border: 0;
+    }
+
+    blockquote img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      max-width: var(--image-size);
+      // border-radius: 2rem;
+      border-radius: 0;
+      border-width: 2px;
+    }
+
+    blockquote p,
+    blockquote cite span {
+      margin-left: calc(var(--image-size) + 2rem);
+    }
+
+    blockquote p {
+      font-size: calc(1rem * 1.2);
+      line-height: 1.35;
+    }
+
+    blockquote cite span {
+      margin-top: 0.125rem;
+    }
+
+    // Read the blog button
+    > p {
+      max-width: 32rem;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 2rem;
+      > a {
+        margin-left: calc(var(--image-size) + 2rem);
+      }
+    }
+  }
 }

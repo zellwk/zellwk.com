@@ -6,7 +6,7 @@ html {
   @include tp-sans;
   color: color(mine);
   text-rendering: optimizeLegibility;
-  font-feature-settings: 'liga' 1;
+  font-feature-settings: "liga" 1;
 }
 
 h1 {
@@ -26,7 +26,7 @@ a {
 }
 
 strong {
-  @include fw('sans', 600);
+  @include fw("sans", 600);
 }
 
 em {
@@ -60,6 +60,19 @@ blockquote {
     color: var(--theme-color);
     font-style: normal;
     text-transform: none;
+    display: flex;
+    align-items: center;
+
+    img {
+      max-width: 3.5rem;
+      border-radius: 100%;
+      margin-top: vr(0.125);
+      border: 1px solid #777;
+    }
+
+    img + span {
+      margin-left: 0.5rem;
+    }
   }
 }
 
