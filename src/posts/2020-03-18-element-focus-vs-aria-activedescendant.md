@@ -11,7 +11,7 @@ tags:
 When you build JavaScript components, you need to manage focus for both keyboard users and screen readers. The WAI-ARIA specs say there are two ways to manage focus: 
 
 1. Using `element.focus` and `tabindex`
-2. Using `aria-activedesecndant`
+2. Using `aria-activedescendant`
 
 Which should you use and why? 
 
@@ -659,8 +659,9 @@ Don't use `aria-activedescendant`. It doesn't work on `grid` and `combobox` with
 
 I don't see the benefits of using `aria-activedescendant` since the amount of code required for `element.focus` + roving `tabindex` is similar to the amount of code required for `aria-activedescendant`. 
 
-After my experiments, I can't help but think `aria-activedescendant` is poop (just like how Heydon Pickering considers `aria-controls` [poop]()). Of course, if I'm wrong about my conclusions, please reach out and educate me! Thanks! 
+After my experiments, I can't help but think `aria-activedescendant` is poop (just like how Heydon Pickering considers `aria-controls` [poop][4]). Of course, if I'm wrong about my conclusions, please reach out and educate me! Thanks! 
 
 [1]:	https://www.w3.org/TR/wai-aria-1.1/#widget_roles "WAI ARIA Widget roles"
 [2]:	https://www.w3.org/TR/wai-aria-1.1/#aria-activedescendant "WAI ARIA spec"
-[3]:	https://codepen.io/collection/AerMbE "Codepen collection. Series of pens for element.focus vs aria-activedesecndant"
+[3]:	https://codepen.io/collection/AerMbE "Codepen collection. Series of pens for element.focus vs aria-activedescendant"
+[4]:	https://www.google.com/search?client=safari&rls=en&q=aria+controls+is+poop&ie=UTF-8&oe=UTF-8 "Aria Controls is Poop"
