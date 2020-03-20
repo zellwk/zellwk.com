@@ -23,7 +23,7 @@ I’m into the fourth email in this course and I’m totally loving it.
 
 Dan talks about his way of understanding JavaScript. He shares his mental model (which is very different from mine). And I’m having fun looking at JavaScript in a different way.
 
-Highly recommended if you already know some JavaScript. (If you don't JavaScript, I think this would confuse you more...).
+Highly recommended if you already know some JavaScript. (If you don't know JavaScript, I think this would confuse you more...).
 
 Finally, if you need help with JavaScript, consider [Learn JavaScript](https://learnjavascript.today) by yours truly :)
 
