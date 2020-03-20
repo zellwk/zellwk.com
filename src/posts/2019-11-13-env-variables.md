@@ -53,7 +53,9 @@ const variable = process.env.helloworld
 console.log(variable)
 ```
 
-<figure role="figure"><img src="/images/2019/dotenv/env-in-node.png" alt="Terminal shows Hello world! when we run the server.js file.></figure>
+<figure role="figure">
+  <img src="/images/2019/dotenv/env-in-node.png" alt="Terminal shows Hello world! when we run the server.js file.">
+</figure>
 
 ## A better way to use environment variables
 
