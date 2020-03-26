@@ -16,7 +16,7 @@ You're totally missing out if you never heard of Refactoring UI. It's one of the
 
 I used many of the concepts from Refactoring UI in my nowadays. I even picked out a color theme from their palette [when I designed Learn JavaScript's student portal][2]! 
 
-## [Learn UI Design by Eric Kennedy][3]
+## [Learn UI Design by Erik Kennedy][3]
 
 This one is expensive ($1000 when I bought it), but it's one of the best resources for learning design. Erik talks about the design process completely differently from Steve. 
 
@@ -51,7 +51,7 @@ I never took Design for Developers, but I'd like to give this course a shoutout.
 
 [1]:	https://refactoringui.com
 [2]:	https://zellwk.com/blog/learn-javascript-portal-design/
-[3]:	https://learnui.design
+[3]:	https://app.learnui.design/a/aff_1tdkp34d/external?affcode=70335_dlmxp26f
 [4]:	https://learnjavascript.today
 [5]:	https://radicaldesigncourse.com
 [6]:	https://laracon.us/
