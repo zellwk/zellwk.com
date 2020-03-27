@@ -6,6 +6,7 @@ slug: async-await-in-loops
 series: async-await
 tags:
   - javascript
+newsletter: CUAsyncAwaitLoops
 ---
 
 Basic `async` and `await` is simple. Things get a bit more complicated when you try to use `await` in loops.
