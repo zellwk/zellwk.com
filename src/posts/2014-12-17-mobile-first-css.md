@@ -51,7 +51,6 @@ This approach uses `max-width` media queries.
 Here's a quick example:
 
 ~~~scss
-// This applies from 600px onwards
 body {
   background: green;
 }
