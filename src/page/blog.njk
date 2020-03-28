@@ -5,6 +5,7 @@ pagination:
   size: 10
   alias: posts
 permalink: /blog{{'/page-' + (pagination.pageNumber + 1) if pagination.pageNumber}}/
+title: Page {{pagination.pageNumber + 1}}
 footer: true
 ---
 {% include "_svgs/guest-sites.svg" %}
