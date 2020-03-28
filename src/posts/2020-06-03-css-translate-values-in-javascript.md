@@ -14,7 +14,7 @@ Turns out, you need to read transform matrices. But it can be quite easy.
 
 <!-- more -->
 
-## Matrices 
+## Matrices
 
 Browsers turn `transform` values into `2d` or `3d` matrices depending on what transformations you applied. 
 
@@ -50,11 +50,11 @@ Let's have a look at some examples:
   <img src="/images/2020/translate-in-javascript/three-d.png" alt="3d transformation matrix">
 </figure>
 
-## 2d vs 3d matrices 
+## 2d vs 3d matrices
 
 Pay attention to the matrix values above. You may notice this: 
 
-### 2d Matrix 
+### 2d Matrix
 
 A 2d matrix has `6` values. 
 
@@ -65,7 +65,7 @@ A 2d matrix has `6` values.
   <img src="/images/2020/translate-in-javascript/two-d.png" alt="2d transformation matrix">
 </figure>
 
-### 3d Matrix 
+### 3d Matrix
 
 A 3d matrix has `16` values.
 
@@ -77,7 +77,7 @@ A 3d matrix has `16` values.
   <img src="/images/2020/translate-in-javascript/three-d.png" alt="3d transformation matrix">
 </figure>
 
-## Getting the translate values 
+## Getting the translate values
 
 Once we know the pattern, extracting the values is easy. First, we need to know which matrix we're dealing with. 
 
@@ -223,7 +223,7 @@ But watch what happens if you `rotate` first.
 
 Just take note of this! 
 
-## Getting other transform values in JavaScript 
+## Getting other transform values in JavaScript
 
 I haven't had the chance to deal with `scale`, `skew`, and `rotate` yet, but I was curious. So I googled and found some answers: 
 
@@ -235,7 +235,7 @@ I believe the calculations work with individual transforms. I'm not so sure they
 
 Keep it simple, I guess! 
 
-## Useful JavaScript Snippets repository 
+## Useful JavaScript Snippets repository
 
 I added this code to a Github repository that contains JavaScript snippets I found useful. You may be interested in [checking it out][4]. 
 
