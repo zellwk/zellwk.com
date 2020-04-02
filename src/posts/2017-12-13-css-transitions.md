@@ -74,7 +74,7 @@ You can also trigger CSS transitions through JavaScript by adding or removing a 
 }
 
 .button.is-active {
-  color: #1ce;
+  background-color: #1ce;
 }
 ```
 
