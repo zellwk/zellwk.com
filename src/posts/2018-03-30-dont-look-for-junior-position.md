@@ -24,7 +24,7 @@ This advice may sound counterintuitive. How can you become a frontend developer 
 
 To answer this question, you want to consider what you want and what the company want when you look for a job.
 
-## What you want vs what companies what.
+## What you want vs what companies want.
 
 When you look for a junior role, what you want is to:
 
