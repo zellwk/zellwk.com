@@ -329,7 +329,7 @@ When you use `await` in a `filter` callback, the callback always a promise. Sinc
 
 ```js
 // Everything passes the filter...
-const filtered = array.filter(true)
+const filtered = array.filter(() => true)
 ```
 
 There are three steps to use `await` and `filter` properly:
