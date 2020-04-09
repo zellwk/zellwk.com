@@ -1,5 +1,6 @@
 ---
 title: Building a Simple CRUD app with Node, Express, and MongoDB
+description: Mega walkthrough on what CRUD, Express, MongoDB are. And how to use them to build a simple web application.
 layout: post
 slug: crud-express-mongodb
 tags:
