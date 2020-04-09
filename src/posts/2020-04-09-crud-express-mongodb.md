@@ -52,7 +52,7 @@ Let's build a simple application that lets you track a list of quotes from Star 
 Free free to check out the [demo][5] before continuing with this tutorial.
 
 :::note
-This article is LONG! Remember to grab the source code by leaving your name and email address in [this form][6]. I'll also send you this article in PDF so you can read it at your leisure.
+This article is LONG! Remember to **grab the source code by leaving your name and email address in [this form][6]**. I'll also send you this article in PDF so you can read it at your leisure.
 :::
 
 By the way, I'm not going to focus on the styles since we're focusing on learning Crud, Express, and MongoDB in this tutorial.

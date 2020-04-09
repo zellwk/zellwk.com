@@ -4,7 +4,7 @@ layout: post
 slug: looping-through-js-objects
 tags:
  - javascript
-newsletter: CULoopThroughObjects
+newsletter: better-fed
 ---
 
 Once in a while, you may need to loop through Objects in JavaScript. The only way to do so before ES6 is with a `for...in` loop.
