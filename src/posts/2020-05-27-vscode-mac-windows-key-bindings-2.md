@@ -72,7 +72,7 @@ I fell in love with the Integrated Terminal when I was forced to use Visual Stud
 
 The shortcut for opening and closing the Integrated Terminal on Windows (`Ctrl` + <code>\`</code>) was extremely accessible to me. This is because I switched the positions of `Ctrl` and `Alt`. My left thumb is on the spacebar most of the time. `Ctrl` is next right next to it.
 
-([Here's how I switched `Ctrl` and `Alt`](/blog/dvorak-qwerty#changing-the-locations-of-ctrl-and-alt))
+([Here's how I switched `Ctrl` and `Alt`][1])
 
 I love it so much, I wanted to toggle the Integrated Terminal on Mac with `Command` + <code>\`</code>. But I can't do this because Mac uses `Command` + <code>\`</code> to switch windows of the same application.
 
@@ -91,10 +91,10 @@ We can split the terminal into two with the *Split Terminal* action.
 **The default shortcuts are:**
 
 - Mac:
-    - `Command` + `\\`
-    - `Control` + `Shift` + `5`
+	- `Command` + `\\`
+	- `Control` + `Shift` + `5`
 - Windows:
-    - `Ctrl` + `Shift` + `S`
+	- `Ctrl` + `Shift` + `S`
 
 **I changed them to:**
 
@@ -116,7 +116,7 @@ I already toggle the terminal with `Command` + `Option` + <code>\`</code>. I wan
 The easiest way, I thought, would be to add another modifier. Here, I used the `Control` modifier for Mac (or `Win` for Windows).
 
 :::note
-I added another shortcut: `Command` + `D` because [iTerm2](https://iterm2.com) uses that shortcut. I'm used to it.
+I added another shortcut: `Command` + `D` because [iTerm2][2] uses that shortcut. I'm used to it.
 :::
 
 ## Creating terminals
@@ -192,7 +192,7 @@ Look for *"focus terminal at index"* in the keyboard shortcuts panel. You should
 
 **Why this change?**
 
-If you remember from [the previous article](/blog/mac-and-windows-vscode-keybindings/), here are the shortcuts I used:
+If you remember from [the previous article][3], here are the shortcuts I used:
 
 1. Switch Tabs: `Command` + Number key
 2. Switch code panels: `Option` + Number key
@@ -359,3 +359,6 @@ Creating another combination with a memory hook to <code>\`</code> is easier tha
 
 That's it for today. I'll share more shortcuts next week.
 
+[1]:	/blog/dvorak-qwerty#changing-the-locations-of-ctrl-and-alt
+[2]:	https://iterm2.com
+[3]:	/blog/mac-and-windows-vscode-keybindings/
