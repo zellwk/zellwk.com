@@ -116,7 +116,7 @@ module.exports = eleventyConfig => {
 
   // Posts
   eleventyConfig.addShortcode('summary', post.summary)
-  eleventyConfig.addShortcode('shareArticle', post.share)
+  eleventyConfig.addShortcode('twitterLink', post.twitterLink)
 
   // Forms
   eleventyConfig.addShortcode('formHidden', form.hidden)

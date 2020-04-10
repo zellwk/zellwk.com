@@ -4,8 +4,9 @@
 // ======================================
 
 .c-ck {
-  border-top: vr(0.25) solid var(--theme-color);
-  background-color: color(alabaster);
+  // border-top: vr(0.25) solid var(--theme-color);
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
 
   p + *,
   * + p {

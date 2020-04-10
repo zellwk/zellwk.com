@@ -1,8 +1,3 @@
-const getLink = (text, { siteURL, title, permalink }) => {
-  const link = `https://twitter.com/share?text=${encodeURIComponent(title)} by @zellwk 👇 &url=${siteURL}${permalink}`
-  return `<a href="${link}" target="_blank" rel="noopener">${text}</a>`
-}
-
 module.exports = {
   summary (post) {
     // Note: Eleventy runs twice. It contains the templateContent only in the second run.
@@ -30,7 +25,8 @@ module.exports = {
     return replaced
   },
 
-  share (opts = {}) {
-    return `Thanks for reading. Did this article help you out? If it did, I hope you consider ${getLink('sharing it', opts)}. You might help someone else out. Thanks so much!`
+  twitterLink (title, url) {
+    const link = `https://twitter.com/share?text=${encodeURIComponent(title)} by @zellwk 👇 &url=${url}`
+    return `<a href="${link}" target="_blank" rel="noopener">Twitter</a>`
   }
 }

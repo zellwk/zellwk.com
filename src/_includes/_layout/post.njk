@@ -16,34 +16,43 @@ footer: true
 
     {# Thanks part #}
     {%- markdown -%}
-    {% set link = '/blog/' + slug + '/'%}
-    {%- shareArticle {
-        siteURL: site.url,
-        title: title,
-        permalink: link
-      } -%}
+    {% set link = site.url + page.url %}
+
+    If you enjoyed this article, please tell a friend about it! Share it on {% twitterLink title,
+    link %}. If you spot a typo, I'd appreciate if you can correct [it on GitHub](https://github.com/zellwk/zellwk.com/blob/master/{{ page.inputPath }}). Thank you!
+
     {%- endmarkdown %}
+  </article>
 
-    {# Article series. Shows other articles in the same series #}
-    {% if series %}
-      <section class="o-words series-layout">
-        <h2>Articles in this series</h2>
-        <ol>
-          {% for article in collections.seriesContent %}
-            {% if article.data.series == series %}
-              <li>
-                {% if article.url == page.url %}
-                  <span>{{article.data.title}}</span>
-                {% else %}
-                  <a href="{{article.url}}">{{article.data.title | markdown}}</a>
-                {% endif %}
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ol>
-      </section>
-    {% endif %}
+  <div class="post-layout">
+    <section id="convertkit" class="o-content c-ck ck-layout jsCkForm">
+      {%- include 'convertkit.njk' -%}
+    </section>
+  </div>
 
+  {# Article series. Shows other articles in the same series #}
+  {% if series %}
+    <section class="o-words series-layout">
+      <h2>Other articles in this series</h2>
+      <ol>
+        {% for article in collections.seriesContent %}
+          {% if article.data.series == series %}
+            <li>
+              {% if article.url == page.url %}
+                <span>{{article.data.title}}</span>
+              {% else %}
+                <a href="{{article.url}}">{{article.data.title | markdown}}</a>
+              {% endif %}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+    </section>
+  {% endif %}
+</div>
+
+<div class="l-wrap">
+  <div class="post-layout">
     <nav class="post-nav">
       {% for post in collections.publishedPosts -%}
         {% if post.inputPath == page.inputPath -%}
@@ -70,25 +79,5 @@ footer: true
         {% endif -%}
       {% endfor -%}
     </nav>
-  </article>
-
-  <div class="post-layout">
-    <section id="convertkit" class="o-content c-ck ck-layout jsCkForm">
-      {%- include 'convertkit.njk' -%}
-    </section>
   </div>
-</div>
-
-<div class="l-wrap">
-  <aside class="post-layout">
-    <div class="o-content post-layout__content">
-      {%- markdown -%}
-        ## Comments are closed
-
-        Please [contact me](/contact) if you want to talk to me about this article.
-
-        If you spot a typo, I'd appreciate if you can correct [this page on GitHub](https://github.com/zellwk/zellwk.com/blob/master/{{ page.inputPath }}). Thank you!
-      {%- endmarkdown -%}
-    </div>
-  </aside>
 </div>
