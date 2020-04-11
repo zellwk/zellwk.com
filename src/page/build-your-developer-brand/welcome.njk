@@ -1,0 +1,46 @@
+---
+layout: _layout/page
+title: Build Your Developer Brand
+blockRobots: true
+newsletter: ''
+footer: blank
+---
+
+{% markdown %}
+# {{title}}
+
+Welcome! I'm thrilled you decided to join the workshop! I'm so excited I finally get a chance to help you learn to market and brand yourself better.
+
+To make the workshop actionable and useful for you, I need to understand where you're at. Please take some time and tell me why you joined this worksohp.
+
+{% endmarkdown %}
+
+{%- form {
+  redirect: '/build-your-developer-brand/thanks',
+  spreadsheet: '1Ub07BmDGctkAK96Dx1sV7IQBK8mezK6OjhOFVFAksxc',
+  subject: 'Why I joined Build Your Developer Brand',
+  initialMessage: "Thanks for telling me why you joined Build Your Developer Brand!",
+  finalMessage: "That"
+} -%}
+
+  {%- formTextarea {
+    name: 'why',
+    label: "Why did you join Build Your Developer Brand?",
+    helpText: "What's going on in your life that made you decide to join the workshop?",
+    required: true
+  } -%}
+
+  {%- formTextarea {
+    name: 'why',
+    label: "What's your #1 challenge in marketing yourself and building your own brand?",
+    helpText: "Tell me the biggest frustration and/or obstacle you faced. Anything goes here!",
+    required: true
+  } -%}
+
+  {%- formTextarea {
+    name: 'help',
+    label: "What do you need help with?",
+    helpText: "Imagine you could ask for all the help in the world. What kind of help would you need? Ask away!",
+    required: true
+  } -%}
+{% endform %}
