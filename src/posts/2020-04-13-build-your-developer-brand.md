@@ -68,7 +68,7 @@ Good.
 You need to learn to market yourself in a way that actually works.
 
 :::note
-TL;DR: I'm holding a FREE workshop to teach you what you need to know about marketing and branding that actually works. [Leave your name and email here](#convertkit) to sign up for the workshop.
+TL;DR: **I'm holding a FREE workshop to teach you what you need to know about marketing and branding that actually works**. [Leave your name and email here](#convertkit) to sign up for the workshop.
 :::
 
 ## Marketing yourself in a way that works
