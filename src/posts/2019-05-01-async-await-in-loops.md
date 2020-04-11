@@ -321,7 +321,7 @@ const filterLoop = _ => {
 'End'
 ```
 
-<figure><img src="/images/2019/async-await-loop/filter.png" alt="Console loggs 'Start', '['apple', 'grape', 'pear']', and 'End' immediately"></figure>
+<figure><img src="/images/2019/async-await-loop/filter.png" alt="Console logs 'Start', '['apple', 'grape', 'pear']', and 'End' immediately"></figure>
 
 Here's why it happens.
 
@@ -365,7 +365,7 @@ End
 
 ## Await with reduce
 
-For this case, let's say you want to find out the total number of fruits in the fruitBastet. Normally, you can use `reduce` to loop through an array and sum the number up.
+For this case, let's say you want to find out the total number of fruits in the fruitBasket. Normally, you can use `reduce` to loop through an array and sum the number up.
 
 ```js
 // Reduce if there's no await
