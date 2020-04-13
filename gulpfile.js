@@ -31,7 +31,8 @@ exports.build = series(
   clean,
   parallel(sass, images, jsProduction, pdfs),
   rev,
-  eleventy
+  eleventy,
+  pdfs
 )
 
 exports.deploy = parallel(syncSecrets, syncFiles)
