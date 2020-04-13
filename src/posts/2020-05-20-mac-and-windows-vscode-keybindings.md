@@ -10,11 +10,11 @@ tags:
   - windows
 ---
 
-Since I code on both Windows and Mac, I want my Visual Studio Code shortcuts to be interchangeable on both systems. 
+Since I code on both Windows and Mac, I want my Visual Studio Code shortcuts to be interchangeable on both systems.
 
-So I dug deep into Visual Studio Code's keyboard shortcuts for both systems and made my personal customisations. 
+So I dug deep into Visual Studio Code's keyboard shortcuts for both systems and made my personal customisations.
 
-I want to share these customisations with you so you can use them to rock at Visual Studio Code too 😃. 
+I want to share these customisations with you so you can use them to rock at Visual Studio Code too 😃.
 
 <!-- more -->
 
@@ -43,19 +43,19 @@ On my Windows PC (which is a Surface Laptop).
   <img src="/images/2020/vscode-keybindings-1/surface-keyboard.jpg" alt="Windows (Surface Laptop 3) keyboard">
 </figure>
 
-I changed modifier locations of my Windows PC with a program called [Auto Hot Key](). Here's what they look like right now:
+I changed modifier locations of my Windows PC with a program called [Auto Hot Key](https://www.autohotkey.com). Here's what they look like right now:
 
 <figure role="figure">
   <img src="/images/2020/vscode-keybindings-1/surface-keyboard-after.jpg" alt="Changed positions of Ctrl, Alt, and Win key on the Window's keyboard.">
 </figure>
 
-You can learn how I changed the modifiers in [this article]().
+You can learn how I changed the modifiers in [this article](/blog/dvorak-qwerty).
 
 ### This guide is Qwerty-friendly
 
 **All keyboard shortcuts in this article are friendly for Qwerty users**.
 
-People who're familiar with me know I use [Dvorak-Qwerty]() on both Mac and Windows.
+People who're familiar with me know I use [Dvorak-Qwerty](/blog/dvorak-qwerty) on both Mac and Windows.
 
 This means:
 
@@ -103,7 +103,7 @@ But my Mac has Sublime Text shortcuts and My Windows PC doesn't. This gets confu
 
 Ok, that's a ton of things you *need* to know before actually diving into the key bindings. I'm sorry you had to read through the preamble, but some of my bindings wouldn't have made sense otherwise.
 
-From now on, **let's jump into the exciting part! **
+From now on, **let's jump into the exciting part!**
 
 ## Go to File
 

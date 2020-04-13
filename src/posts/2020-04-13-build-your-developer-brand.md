@@ -1,6 +1,6 @@
 ---
 title: Free Workshop on Branding and Marketing yourself as a developer
-description: Mega walkthrough on what CRUD, Express, MongoDB are. And how to use them to build a simple web application.
+description: Learn how to brand yourself as an introvert without promoting yourself "shameless" everywhere.
 layout: post
 slug: build-your-developer-brand
 tags:
