@@ -15,6 +15,10 @@ function redirect (oldUrl, newUrl) {
 // ========================
 redirect('/blog/crud-express-and-mongodb-2', '/blog/crud-express-mongodb')
 redirect('/learnjs', 'https://learnjavascript.today')
+redirect('/bydb-guided', 'https://gum.co/bydb-guided')
+redirect('/bydb-guided-3', 'https://gum.co/bydb-guided-3')
+redirect('/bydb-group', 'https://gum.co/bydb-group')
+redirect('/bydb-group-3', 'https://gum.co/bydb-group-3')
 
 // Affiliate Links
 redirect('/convertkit', 'https://convertkit.com?lmref=yfs9CA')
