@@ -6,8 +6,8 @@ const router = express.Router()
  * @param {String} oldUrl
  * @param {String} newUrl
  */
-function redirect (oldUrl, newUrl) {
-  router.get(oldUrl, (req, res) => res.redirect(301, newUrl))
+function redirect (oldUrl, newUrl, statusCode = 301) {
+  router.get(oldUrl, (req, res) => res.redirect(statusCode, newUrl))
 }
 
 // ========================
@@ -21,6 +21,7 @@ redirect('/bydb-group', 'https://gum.co/bydb-group')
 redirect('/bydb-group-3', 'https://gum.co/bydb-group-3')
 
 // Affiliate Links
-redirect('/convertkit', 'https://convertkit.com?lmref=yfs9CA')
+redirect('/convertkit', 'https://convertkit.com?lmref=yfs9CA', 302) // Convertkit
+redirect('/ctcc', 'https://gumroad.com/a/862221427', 302) // Crack the coding career by Shawn Wang
 
 module.exports = router
