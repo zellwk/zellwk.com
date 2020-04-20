@@ -1,0 +1,69 @@
+---
+layout: _layout/page
+title: Feedback for Build Your Developer Brand
+blockRobots: true
+newsletter: ''
+footer: blank
+---
+
+{% markdown %}
+# {{title}}
+
+Can you share your thoughts on Build Your Developer Brand with me? I'd love to get your feedback since it's the first time I'm running it. It'll also help me learn to structure workshops better in future.
+
+Thanks!
+{% endmarkdown %}
+
+{%- form {
+  redirect: '/build-your-developer-brand/feedback-thanks',
+  spreadsheet: '1N210AyIGeYWW2KBpFNMm6q_4jy_OtX_BFPZR64zib_w',
+  subject: 'BYDB Feedback',
+  initialMessage: "Thanks for sharing your feedback with me!",
+  finalMessage: ""
+} -%}
+
+  {%- formRadios {
+    label: 'Did you watch Build Your Developer Brand?',
+    name: 'watch',
+    required: true,
+    choices: [{
+      target: 'Yes',
+      value: 'Yes'
+    }, {
+      target: 'No',
+      value: 'No'
+    }]
+  } -%}
+
+  {%- formRadios {
+    label: 'Did you find the workshop useful??',
+    name: 'useful',
+    required: true,
+    choices: [{
+      target: 'Yes',
+      value: 'Yes'
+    }, {
+      target: 'No',
+      value: 'No'
+    }]
+  } -%}
+
+  {%- formTextarea {
+    name: 'helped',
+    label: "What helped you most in this workshop?",
+    required: true
+  } -%}
+
+  {%- formTextarea {
+    name: 'improve',
+    label: "What do you think can be improved?",
+    helpText: "Was there anything that was confusing or unclear?",
+    required: true
+  } -%}
+
+  {%- formTextarea {
+    name: 'add',
+    label: "Any further thoughts?",
+    helpText: "Please feel free to share your thoughts with me! I read every response."
+  } -%}
+{% endform %}
