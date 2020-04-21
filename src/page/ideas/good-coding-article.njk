@@ -1,0 +1,48 @@
+---
+layout: _layout/page
+title: How to write a good coding article
+blockRobots: true
+newsletter: ''
+footer: blank
+---
+
+{% markdown %}
+# {{title}}
+Hello! 👋. In this workshop, I'm thinking about teaching you how to write a good coding article. You'll come out with an article you're proud to publish.
+
+I'd love to create this workshop for you if enough people show interest. Please let me know about your questions by filling up the following form. I read every response.
+{% endmarkdown %}
+
+{%- form {
+  redirect: '/ideas/thanks',
+  spreadsheet: '1d8xfWGN85Gxt3lkYspDGb9ayrv1vz5KQyI1TgbVzFRM',
+  subject: "Interest in: " + title,
+  initialMessage: "Thanks for telling me why you joined Build Your Developer Brand!",
+  finalMessage: "That"
+} -%}
+
+  {%- formHidden {
+    name: 'idea',
+    value: 'Interest in: ' + title
+  } -%}
+
+  {%- formTextarea {
+    name: 'why',
+    label: "What's going on in your life that made you want to join this workshop?",
+    required: true
+  } -%}
+
+  {%- formTextarea {
+    name: 'challenge',
+    label: "What's your #1 challenge in writing coding articles?",
+    helpText: "Tell me the biggest frustration and/or obstacle you faced. Anything goes here!",
+    required: true
+  } -%}
+
+  {%- formTextarea {
+    name: 'help',
+    label: "What do you need help with?",
+    helpText: "Imagine you could ask for all the help in the world. What kind of help would you need? Ask away!",
+    required: true
+  } -%}
+{% endform %}

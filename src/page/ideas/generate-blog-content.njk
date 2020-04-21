@@ -1,0 +1,48 @@
+---
+layout: _layout/page
+title: How to generate content for your blog
+blockRobots: true
+newsletter: ''
+footer: blank
+---
+
+{% markdown %}
+# {{title}}
+Hello! 👋. In this workshop I intend to share with you how I generate content for my blog. I also want to give you some strategies you can use.
+
+I'd love to create this workshop for you if enough people show interest. Please let me know about your questions by filling up the following form. I read every response.
+{% endmarkdown %}
+
+{%- form {
+  redirect: '/ideas/thanks',
+  spreadsheet: '1d8xfWGN85Gxt3lkYspDGb9ayrv1vz5KQyI1TgbVzFRM',
+  subject: "Interest in: " + title,
+  initialMessage: "Thanks for telling me why you joined Build Your Developer Brand!",
+  finalMessage: "That"
+} -%}
+
+  {%- formHidden {
+    name: 'idea',
+    value: 'Interest in: ' + title
+  } -%}
+
+  {%- formTextarea {
+    name: 'why',
+    label: "What's going on in your life that made you want to join this workshop?",
+    required: true
+  } -%}
+
+  {%- formTextarea {
+    name: 'challenge',
+    label: "What's your #1 challenge in generating content for your blog?",
+    helpText: "Tell me the biggest frustration and/or obstacle you faced. Anything goes here!",
+    required: true
+  } -%}
+
+  {%- formTextarea {
+    name: 'help',
+    label: "What do you need help with?",
+    helpText: "Imagine you could ask for all the help in the world. What kind of help would you need? Ask away!",
+    required: true
+  } -%}
+{% endform %}
