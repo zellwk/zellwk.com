@@ -229,6 +229,14 @@ The major learning for me this time was to reduce scope. When I journaled about 
 
 I'm not sure if I'd run any of them. If you are interested, click on the links and tell me more. I'll create a workshop if there's enough interest.
 
+## One last thing
+
+When I created the workshop, I wanted to give a way for students to work more on the content. So I added a paid program.
+
+Unforutnately, I overextended myself in terms of commitment, which meant I created something that's too pricey for most people (especially in these times).
+
+This is one of the things I regret doing.
+
 ## Final words
 
 I'm glad I delivered this workshop. There were huge learnings from my part. They will inform how I create courses and workshops going forward into the future.
