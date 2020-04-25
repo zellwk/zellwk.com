@@ -24,5 +24,6 @@ redirect('/bydb-group-3', 'https://gum.co/bydb-group-3')
 redirect('/convertkit', 'https://convertkit.com?lmref=yfs9CA', 302) // Convertkit
 redirect('/ctcc', 'https://gumroad.com/a/862221427', 302) // Crack the coding career by Shawn Wang
 redirect('/dracula', 'https://gumroad.com/l/dracula-pro') // Dracula Pro (Not shared yet)
+redirect('/waim', 'https://wanderingaimfully.com/join/ref/26/') //
 
 module.exports = router
