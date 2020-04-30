@@ -28,5 +28,11 @@ module.exports = {
   twitterLink (title, url) {
     const link = `https://twitter.com/share?text=${encodeURIComponent(title)} by @zellwk 👇 &url=${url}`
     return `<a href="${link}" target="_blank" rel="noopener">Twitter</a>`
+  },
+
+  youtube (hash) {
+    return `<div class="media">
+  <iframe class="youtube" src="https://www.youtube.com/embed/{{hash}}?rel=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+</div>`
   }
 }

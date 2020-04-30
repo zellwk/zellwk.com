@@ -13,7 +13,7 @@ import { redirect, readyModal, LaunchModal } from './modal'
 
 // const beforeCloneText = (cloneLocation) => {
 //   const p = document.createElement('p')
-//   const text = `(Before we move on, here’s a quick signup form if you'd like to read similar articles from me every Wednesday).`
+//   const text = '(Before we move on, here’s a quick signup form if you\'d like to read similar articles from me every Wednesday).'
 //   p.innerHTML = cloneLocation.dataset.text || text
 //   return p
 // }

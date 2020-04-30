@@ -31,18 +31,18 @@
     margin-bottom: vr(0.75);
   }
 
-  // Allow ck image to float left and push words to right.
-  // Works only for books. Not courses, so not ideal.
-  // Might need a JS Solution. Have to think about it in future.
   .ck_image {
-    margin: 0;
-    float: none;
-  }
+    all: unset;
+    display: block;
 
-  .ck_image > * {
-    margin-top: vr(0.25);
-    margin-right: vr(0.75);
-    float: left;
+    > * {
+      all: unset;
+      margin-bottom: 1rem;
+      @include mappy-bp(med) {
+        float: left;
+        margin-right: 2rem;
+      }
+    }
   }
 }
 
@@ -146,7 +146,6 @@
   }
 
   .ck_form_content p,
-  .ck_description > div,
   .ck_subscribe_form {
     @include bp(med) {
       margin-right: vr(2.25);
@@ -154,11 +153,6 @@
     @include bp(large) {
       margin-right: vr(6);
     }
-  }
-
-  // Fucked up hack because CK creates some divs instead of p
-  .ck_description > div {
-    margin-top: vr(0.75);
   }
 }
 
