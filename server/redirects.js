@@ -14,6 +14,7 @@ function redirect (oldUrl, newUrl, statusCode = 301) {
 // Redirects
 // ========================
 redirect('/blog/crud-express-and-mongodb-2', '/blog/crud-express-mongodb')
+redirect('/blog/think', '/blog/think-like-a-programmer/')
 redirect('/learnjs', 'https://learnjavascript.today')
 redirect('/bydb-guided', 'https://gum.co/bydb-guided')
 redirect('/bydb-guided-3', 'https://gum.co/bydb-guided-3')
