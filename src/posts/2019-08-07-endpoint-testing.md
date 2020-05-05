@@ -225,7 +225,7 @@ it('gets the test endpoint', async done => {
 
 If you want to find out more about Supertest, you can read its documentation [here][3]. 
 
-In the next article, I'll show you how to to do a POST request and how to connect to Mongoose in your test file. 
+In the next article, I'll show you how to do a POST request and how to connect to Mongoose in your test file. 
 
 
 [1]:	https://egghead.io/lessons/javascript-use-jest-s-interactive-watch-mode "Use Jest's Interactive Watch Mode"
