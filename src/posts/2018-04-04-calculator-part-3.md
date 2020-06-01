@@ -229,7 +229,7 @@ Next, we can convert the  `if/else` statement to a ternary operator:
 
 ```js
 const createResultString = () => {
-  if (action!) {
+  if (!action) {
     return displayedNum === '0' ||
       previousKeyType === 'operator' ||
       previousKeyType === 'calculate'
@@ -249,7 +249,7 @@ const createResultString = () => {
   // 3. previousKeyType
   // 4. action
 
-  if (action!) {
+  if (!action) {
     return displayedNum === '0' ||
       previousKeyType === 'operator' ||
       previousKeyType === 'calculate'
