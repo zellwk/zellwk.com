@@ -281,7 +281,7 @@ If you use `filter` normally (without await), you'll use it like this:
 const filterLoop = _ => {
   console.log('Start')
 
-  const moreThan20 = await fruitsToGet.filter(fruit => {
+  const moreThan20 = fruitsToGet.filter(fruit => {
     const numFruit = fruitBasket[fruit]
     return numFruit > 20
   })
@@ -302,11 +302,11 @@ You would expect `moreThan20` to contain only apples because there are 27 apples
 `await` in `filter` doesn't work the same way. In fact, it doesn't work at all. You get the unfiltered array back...
 
 ```js
-const filterLoop = _ => {
+const filterLoop = async _ => {
   console.log('Start')
 
   const moreThan20 = await fruitsToGet.filter(async fruit => {
-    const numFruit = getNumFruit(fruit)
+    const numFruit = await getNumFruit(fruit)
     return numFruit > 20
   })
 
