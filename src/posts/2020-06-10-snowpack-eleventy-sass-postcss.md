@@ -5,6 +5,7 @@ description: "Sharing how I combined these tools together to create websites."
 slug: eleventy-snowpack-sass-postcss
 tags:
   - tooling
+  - snowpack
 ---
 
 I was able to create an Eleventy + Snowpack + Sass + PostCSS setup that works pretty well. I want to share this setup with you in this article.
