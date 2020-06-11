@@ -197,7 +197,7 @@ JavaScript does this because `forEach` is not promise-aware. It cannot support `
 
 ## Await with map
 
-If you use `await` in a `map`, `map` will always return an array of promise. This is because asynchronous functions always return promises.
+If you use `await` in a `map`, `map` will always return an array of promises. This is because asynchronous functions always return promises.
 
 ```js
 const mapLoop = async _ => {
@@ -325,7 +325,7 @@ const filterLoop = async _ => {
 
 Here's why it happens.
 
-When you use `await` in a `filter` callback, the callback always a promise. Since promises are always truthy, everything item in the array passes the filter. Writing `await` in a `filter` is like writing this code:
+When you use `await` in a `filter` callback, the callback always returns a promise. Since promises are always truthy, everything item in the array passes the filter. Writing `await` in a `filter` is like writing this code:
 
 ```js
 // Everything passes the filter...
