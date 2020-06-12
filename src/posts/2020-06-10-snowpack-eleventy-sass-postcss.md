@@ -147,7 +147,7 @@ I set four options for the dev server:
 "devOptions": {
   "port": 3000,
   "open": "none",
-  "bundle": false
+  "bundle": false,
   "out": "dist"
 }
 ```
