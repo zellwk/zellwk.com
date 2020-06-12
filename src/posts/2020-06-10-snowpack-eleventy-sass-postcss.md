@@ -124,7 +124,7 @@ Let's run snowpack:
 npx snowpack dev
 ```
 
-You should see this log. A browser will also open up. This browser directs you to ``http://localhost:8080`` (which is where the Snowpack's dev server is hosted).
+You should see this log. A browser will also open up. This browser directs you to `http://localhost:8080` (which is where the Snowpack's dev server is hosted).
 
 <figure role="figure">
   <img src="/images/2020/snowpack-eleventy/snowpack-dev.png" alt="">
