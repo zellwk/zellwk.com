@@ -129,7 +129,7 @@ If I need to remove only 1 or 2 items, then I consider `pop`. This is friendlier
 ```js
 const array = [1, 2, 3]
 const result = array.slice()
-array.pop()
+result.pop()
 
 console.log(result) // [1, 2]
 ```
