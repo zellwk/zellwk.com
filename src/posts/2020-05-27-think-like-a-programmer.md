@@ -185,10 +185,10 @@ Let's answer each of the questions:
 
 **What is the markup of this button?**
 
-The markup is an `<a>` tag with a class of `.button`.
+The markup is an `<a>` tag with a class of `.btn`.
 
 ```html
-<a href="#" class="button">Click me</a>
+<a href="#" class="btn">Click me</a>
 ```
 
 **How should this button look?**
