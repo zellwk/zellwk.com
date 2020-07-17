@@ -4,7 +4,6 @@ const { reload } = require('./browser-sync')
 
 const sass = require('./sass')
 const images = require('./images')
-// const { src: jsSrc } = require('./scripts')
 const eleventy = require('./eleventy')
 
 const watcher = cb => {

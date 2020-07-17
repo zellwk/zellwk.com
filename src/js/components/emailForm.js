@@ -12,8 +12,8 @@ import { redirect, readyModal, LaunchModal } from './modal'
  */
 const constructEntriesArray = (items) => {
   return items.map(item => {
-    let question = getQuestion(item)
-    let { name, answer } = getValues(item)
+    const question = getQuestion(item)
+    const { name, answer } = getValues(item)
 
     return {
       question,
@@ -29,7 +29,7 @@ const constructEntriesArray = (items) => {
  * @return {String}    - question text (or undefined if node not found)
  */
 const getQuestion = (item = '') => {
-  let question = item.querySelector('.jsFormQuestion')
+  const question = item.querySelector('.jsFormQuestion')
   return question ? question.innerHTML : undefined
 }
 
@@ -39,14 +39,14 @@ const getQuestion = (item = '') => {
  * @return {Object}    - {name, answer}
  */
 const getValues = item => {
-  let input = item.querySelector('input') || item.querySelector('textarea')
-  let type = input.getAttribute('type')
+  const input = item.querySelector('input') || item.querySelector('textarea')
+  const type = input.getAttribute('type')
   if (type === 'radio' || type === 'checkbox') return getRadioValues(item)
   return getInputValues(input)
 }
 
 const getRadioValues = item => {
-  let input = item.querySelector(':checked')
+  const input = item.querySelector(':checked')
   return getInputValues(input)
 }
 
@@ -130,7 +130,7 @@ const submitHandler = e => {
     .then(r => redirect(form.dataset.redirect))
     .catch(e => {
       console.log(e)
-      window.alert(`Uh. Something went wrong. Can you email me at zell@zellwk.com instead? I'm on it to fix the error`)
+      window.alert('Uh. Something went wrong. Can you email me at zell@zellwk.com instead? I\'m on it to fix the error')
     })
 }
 

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Bounding Box Helper
-description: A helper for getting horizontal and vertical centers of an element
-slug: bounding-box-helper
+title: Getting the horizontal and vertical centers of an element
+description: A function for getting horizontal and vertical centers of an element
+slug: horizontal-and-vertical-centers-of-an-element
 tags:
   - javascript
 newsletter: jsSnippets
