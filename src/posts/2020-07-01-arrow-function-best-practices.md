@@ -36,7 +36,7 @@ Let's build a `Human` with a `sayHi` method. `sayHi` says `Hi!`, then proceeds t
 We can use a `getFullname` method that returns the full name of the person inside `sayHi`.
 
 ```js
-function Human (firstname, lastName) {
+function Human (firstName, lastName) {
   this.firstName = firstName
   this.lastName = lastName
 }
