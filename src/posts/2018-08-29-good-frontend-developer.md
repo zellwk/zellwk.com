@@ -60,7 +60,7 @@ The point is, everyone is different.
 
 We need to understand that people are not like us. And even if they're different from us, we still provide them with a great experience.
 
-"It doesn't work on my computer" is not an excuse we can get away with. If it doesn't work for someone else, we'll dig deep and figure out what's wrong, and we'll fix it.
+"It works on my computer" is not an excuse we can get away with. If it doesn't work for someone else, we'll dig deep and figure out what's wrong, and we'll fix it.
 
 ### Code
 
@@ -86,7 +86,7 @@ Design is important.
 
 When I talk about design, I mean both visual design and interaction design.
 
-**We're the best person to work on design because we know how the web works**. We know what can be done and what cannot be done. We also know how people use the web. And we care enough to keep ourselves updated.
+**We're the best people to work on design because we know how the web works**. We know what can be done and what cannot be done. We also know how people use the web. And we care enough to keep ourselves updated.
 
 **We are not here to take over a designer's job**. They have their skill set, and we have ours. We augment each other.
 
