@@ -101,13 +101,13 @@ function volumeCuboid (length, breadth, height) {
 }
 
 function volumeCube (length) {
-  return volumeCubion(length, length, length)
+  return volumeCuboid(length, length, length)
 }
 
 
 // Overloading happens here
 function calculateVolume (...args) {
-  if (args.length === 3) return volumeCubiod(...args)
+  if (args.length === 3) return volumeCuboid(...args)
   return volumeCube(args[0])
 }
 ```
