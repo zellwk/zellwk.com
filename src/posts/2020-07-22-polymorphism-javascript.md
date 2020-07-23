@@ -286,7 +286,7 @@ const tim = new Designer('Tim')
 
 zell.sayHi() // Hi! My name is Zell.
 vincy.sayHi() // Hi! My name is Vincy. I am a developer.
-zell.sayHi() // Hi! My name is Tim. I am a designer.
+tim.sayHi() // Hi! My name is Tim. I am a designer.
 ```
 
 That's it!
