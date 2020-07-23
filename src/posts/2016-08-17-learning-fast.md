@@ -78,11 +78,11 @@ To learn something well, you have to discard the notion that reinventing the whe
 
 Want to make responsive websites? It's not that hard. The fundamentals to excellent responsive websites are *(1) relative units* and *(2) media queries*. Master them both, and you'll build something without Bootstrap or Foundation any day.
 
-Want to learn React? Then learn react. Don't complicate yourself with all the other baggage that comes together with it. Learn Redux, webpack etc. later. You can pick them up slowly, one by one, after you internalize the fundamentals.
+Want to learn React? Then learn React. Don't complicate yourself with all the other baggage that comes together with it. Learn Redux, webpack, etc., later. You can pick them up slowly, one by one, after you internalize the fundamentals.
 
-Want to build a blog? Decide which platform you want to build it on. Wordpress? Great! Learn Wordpress. A static site generator instead? Great too! Learn that.
+Want to build a blog? Decide which platform you want to build it on. WordPress? Great! Learn WordPress. A static site generator instead? Also great! Learn that.
 
-Yes, you will not build something as magnificent as what there is out there in 2 days. Your code is going to be shitty. I guarantee that.
+Sure, you will not build something as magnificent as what there is out there in 2 days. Your code is going to be shitty. I guarantee that.
 
 But as you continue to code from scratch things, you'll learn to recognize principles, patterns, and logic. You learn what to do and what not to do. You'll get better. Your code will improve.
 
