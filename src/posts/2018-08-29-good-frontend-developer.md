@@ -60,7 +60,7 @@ The point is, everyone is different.
 
 We need to understand that people are not like us. And even if they're different from us, we still provide them with a great experience.
 
-"It doesn't work on my computer" is not an excuse we can get away with. If it doesn't work for someone else, we'll dig deep and figure out what's wrong, and we'll fix it.
+"It works on my computer" is not an excuse we can get away with. If it doesn't work for someone else, we'll dig deep and figure out what's wrong, and we'll fix it.
 
 ### Code
 
