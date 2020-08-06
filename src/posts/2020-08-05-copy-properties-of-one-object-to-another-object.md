@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Copying properties from one object to another (including Getters and Setters)
-description: What it takes to copy properties from one object to another. Also, how to copy accessors from one object to another. 
+description: What it takes to copy properties from one object to another. Also, how to copy accessors from one object to another.
 slug: copy-properties-of-one-object-to-another-object
 tags:
   - javascript
@@ -52,24 +52,24 @@ Try logging `two` and `three` in a Node environment. Accessors will be logged cl
 
 ### Object.getOwnPropertyDescriptor
 
-`Object.getOwnPropertyDescriptor` tells you more information about a property. This information includes: 
+`Object.getOwnPropertyDescriptor` tells you more information about a property. This information includes:
 
 1. `value`: Value of the property (if any)
 2. `get`: Getter function (if any)
 3. `set`: Setter function (if any)
 4. `writable`: Whether the property can be edited
 5. `configurable`: Whether the property can be edited and deleted
-6. `enumerable`: Whether the property can be enumerated 
+6. `enumerable`: Whether the property can be enumerated
 
-We don't need to use advanced features like `writable`, `configurable`, and `enumerable` normally. So there's no need to use `getPropertyDescriptor` much in practice. 
+We don't need to use advanced features like `writable`, `configurable`, and `enumerable` normally. So there's no need to use `getPropertyDescriptor` much in practice.
 
-Syntax: 
+Syntax:
 
 ```js
 const descriptor = Object.getOwnPropertyDescriptor(object, 'property')
 ```
 
-If you grab a normal property, you'll see a `value` key. 
+If you grab a normal property, you'll see a `value` key.
 
 ```js
 const object = {
@@ -81,7 +81,7 @@ console.log(descriptor)
 ```
 
 ```js
-// Output 
+// Output
 // {
 //   value: 'hello world',
 //   writable: true,
@@ -94,7 +94,7 @@ console.log(descriptor)
   <img src="/images/2020/normal-prop.png" alt="Descriptor of a normal property.">
 </figure>
 
-If you log the descriptor of an accessor, you'll see `get` and `set` keys. 
+If you log the descriptor of an accessor, you'll see `get` and `set` keys.
 
 ```js
 let count = 0
@@ -113,24 +113,24 @@ console.log(descriptor)
 
 ### Object.getDefineProperty
 
-`Object.defineProperty` lets you create a property. It lets you configure the same 6 values you find in `Object.getOwnPropertyDescriptor`. 
+`Object.defineProperty` lets you create a property. It lets you configure the same 6 values you find in `Object.getOwnPropertyDescriptor`.
 
 1. `value`: Value of the property (if any)
 2. `get`: Getter function (if any)
 3. `set`: Setter function (if any)
 4. `writable`: Whether the property can be edited
 5. `configurable`: Whether the property can be edited and deleted
-6. `enumerable`: Whether the property can be enumerated 
+6. `enumerable`: Whether the property can be enumerated
 
-`Object.defineProperty` can only be used after the object is created. 
+`Object.defineProperty` can only be used after the object is created.
 
-Syntax: 
+Syntax:
 
 ```js
 Object.defineProperty(object, property, desciptor)
 ```
 
-Example: 
+Example:
 
 ```js
 const object = {}
@@ -139,7 +139,7 @@ Object.defineProperty(object, 'normalProperty', { value: 'Hello world'})
 console.log(object) // { normalProperty: 'Hello world' }
 ```
 
-There's no need to use `Object.defineProperty` for normal properties, unless you want to change the `writable`, `configurable`, or `enumerable` settings. 
+There's no need to use `Object.defineProperty` for normal properties, unless you want to change the `writable`, `configurable`, or `enumerable` settings.
 
 If you simply need to create a property with a value, you can use notation we're used to:
 
@@ -149,7 +149,7 @@ const object = {}
 object.normalProperty = 'Hello world'
 ```
 
-`Object.defineProperty` is useful when you need to create accessors AFTER an object is created. This is because accessor shorthands can only be used when you create the object. They cannot be used afterwards. 
+`Object.defineProperty` is useful when you need to create accessors AFTER an object is created. This is because accessor shorthands can only be used when you create the object. They cannot be used afterwards.
 
 ```js
 // Creating a `count` getter function with Accessor shorthands
@@ -163,21 +163,21 @@ If you want to add an accessor to a defined object , you need `Object.defineProp
 ```js
 // Same result as above
 const object = {}
-Object.defineProperty(object, 'count', { 
-  get function () { 
+Object.defineProperty(object, 'count', {
+  get function () {
     return count
-  } 
+  }
 }
 ```
 
 ### Copying accessors
 
-If we want to copy an accessor from one object to another, we can: 
+If we want to copy an accessor from one object to another, we can:
 
 1. Get the descriptor with `Object.getOwnPropertyDescriptor`
 2. Create the property with `Object.defineProperty`
 
-Here's an example: 
+Here's an example:
 
 ```js
 let count
@@ -268,7 +268,7 @@ console.log('mixed:', mixed)
   <img src="/images/2020/copy-accessors/mix-simple.png" alt="Combined properties and accessors into a new object with mix">
 </figure>
 
-The great part is `mix` doesn't mutate objects. You don't have o pass in an empty object. 
+The great part is `mix` doesn't mutate objects. You don't have o pass in an empty object.
 
 ```js
 // Produces the same result as above
@@ -376,9 +376,9 @@ console.log('three:', three)
 
 ### Deep Merging that includes Accessors
 
-I couldn't find a library that lets you perform a deep merge while copying accessors. I don't know why people haven't created it yet 😢. 
+I couldn't find a library that lets you perform a deep merge while copying accessors. I don't know why people haven't created it yet 😢.
 
-So I went ahead and created one. It's called `mix`. [Here's the code for mix](). (I'll explain how I created `mix` in the next article, which should be fun!). 
+So I went ahead and created one. It's called `mix`. [Here's the code for mix](https://github.com/zellwk/javascript/tree/master/mix). (I'll explain how I created `mix` in the next article, which should be fun!).
 
 Let me tell you what `mix` is capable of.
 
