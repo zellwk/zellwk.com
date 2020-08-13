@@ -8,7 +8,7 @@ tags:
 newsletter: jsr
 ---
 
-Getter and Setter functions are collectively known as accessor functions. In my previous two articles, I talked about how I created [`mix`](https://github.com/zellwk/javascript/tree/master/mix) because I wanted to use Getter and Setter functions. 
+Getter and Setter functions are collectively known as accessor functions. In my previous two articles, I talked about how I created [`mix`][1] because I wanted to use Getter and Setter functions. 
 
 But why do we even use Getters and Setters in the first place? 
 
@@ -21,7 +21,9 @@ I have two reasons.
 1. Syntax reasons 
 2. Encapsulation 
 
-## Syntax reasons 
+<!-- more -->
+
+## Syntax reasons
 
 When you try to get the length of an array, you write `array.length`. This `length` property acts like a Getter function. It returns values to you in real-time. 
 
@@ -104,7 +106,7 @@ When you use Getter and Setters, it becomes easier to see whether that line of c
 
 Yes, it's a small thing. But small things add up. When it adds up, it saves major brainpower. 
 
-## Encapsulation 
+## Encapsulation
 
 The second reason is the ability to create safe code. 
 
@@ -182,3 +184,5 @@ In short, I like Getter and Setter functions because of two reasons:
 
 That's it! 
 
+
+[1]:	https://github.com/zellwk/javascript/tree/master/mix

@@ -1,0 +1,39 @@
+---
+layout: post
+title: A JavaScript Utility... Library?
+description: Introduction to a collection useful JavaScript code
+slug: javascript-library
+tags: [ #javascript ]
+---
+
+I complied a list of useful JavaScript stuff into a [Github repository](https://github.com/zellwk/javascript). 
+
+This repository includes code for functions like: 
+
+- [Mix](https://zellwk.com/blog/creating-a-deep-assign-library/) (Deep assign library that works with accessors). 
+- [Getting translate values](https://zellwk.com/blog/css-translate-values-in-javascript/)
+- [Getting keyboard focusable elements](https://zellwk.com/blog/keyboard-focusable-elements/)
+- [Normalizing button inconsistencies](https://zellwk.com/blog/inconsistent-button-behavior/)
+
+And many others. 
+
+<!-- more -->
+
+You can install the entire library with npm.
+
+```bash
+npm install @zellwk/javascript
+```
+
+## Why this format? 
+
+I prefer publishing JavaScript stuff into one repository instead of splitting them into many small ones because: 
+
+1. It's easier for me to maintain – everything is in one place 
+2. It's easier for me to install – again, everything is in one place. No need to `npm` install a bajillion amount of libraries. 
+
+I was hesitant about releasing this library at first. It felt stupid. I thought nobody wouldn't use this collection anyway. I thought people prefer the current way where we install one small package each time with npm. 
+
+But [Shawn Wang](https://twitter.com/swyx) convinced me otherwise. He said it's okay as long as the library is treeshakable. Which makes sense. Shawn also told me Rich Harris had a similar thing called [Yootils](https://github.com/Rich-Harris/yootils). 
+
+This idea gave me the permission to release this repository publicly, which is why I'm sharing this with you today. If you find this collection useful, please also give some credit to Shawn for expanding my thoughts. 

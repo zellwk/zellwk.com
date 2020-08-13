@@ -350,6 +350,14 @@ Of course, with any library creation, it's important to write tests to ensure th
   <img src="/images/2020/create-deep-assign-library/mix-test-final.png" alt="">
 </figure>
 
+## Update: Preventing Prototype Pollution
+
+Kyle Wilson asked how I was preventing Prototype Pollution. I had complete no idea what he was talked about, so I did a search.
+
+Turns out, Prototype Pollution was a serious issue that used to be present in jQuery and Lodash. It may still be present in many libraries today! You can read more about it [here](https://medium.com/node-modules/what-is-prototype-pollution-and-why-is-it-such-a-big-deal-2dd8d89a93c).
+
+Without going into too much details, I just want to let you know I [fixed this issue](https://github.com/zellwk/javascript/releases/tag/v1.0.1).
+
 ## Final mix function
 
 That's it! [Here's the final `mix` function I created][8].
