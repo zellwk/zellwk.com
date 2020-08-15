@@ -217,7 +217,7 @@ Next, let's change `server.js` so we serve up an `index.html` page back to the b
 ```javascript
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
-  // Note: __dirname is directory current directory you're in. Try logging it and see what you get!
+  // Note: __dirname is the current directory you're in. Try logging it and see what you get!
   // Mine was '/Users/zellwk/Projects/demo-repos/crud-express-mongo' for this app.
 })
 ```
