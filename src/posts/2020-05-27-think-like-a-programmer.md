@@ -6,7 +6,6 @@ slug: think-like-a-programmer
 tags:
  - javascript
  - best
-newsletter: thinkLikeDev
 ---
 
 "I don't get JavaScript. I can't make components from scratch. My mind goes blank when I stare at a blank JavaScript file. I guess I can't do it because I don't know how to think like a programmer".

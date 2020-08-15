@@ -53,7 +53,16 @@ First, I searched online to see if anyone created a library I needed. I found se
 
 So I had to make something.
 
-In the process, I discovered I can use a combination of Lodash's `assign` and `deepClone` functions to achieve what I want easily. But I didn't want to use Lodash in my projects. It was too heavy for me. I wanted something light and without dependencies.
+In the process, I discovered I can use a combination of Lodash's `assign` and `deepClone` functions to achieve what I want easily.
+
+Update: Mitch Neverhood shared that Lodash has a `merge` function that was deep. If we wanted an immutable merge, we could do this:
+
+```js
+import { cloneDeep, merge } from 'lodash';
+export const immutableMerge = (a, b) => merge(cloneDeep(a), b);
+```
+
+But Lodash was too heavy for me. I don't want to include such a big library in my projects. I wanted something light and without dependencies.
 
 So I made a library.
 
