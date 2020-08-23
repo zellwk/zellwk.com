@@ -166,7 +166,7 @@ function Car () {
   return {
     get fuel () { return fuel } 
     set fuel (value) {
-      fuel = 50
+      fuel = value
       if (value > 100) fuel = 100
     }
   }
