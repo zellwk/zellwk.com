@@ -164,7 +164,7 @@ If you used a Setter function for `fuel`, you can create a safeguard for the pos
 function Car () {
   let fuel = 50
   return {
-    get fuel () { return fuel } 
+    get fuel () { return fuel }, 
     set fuel (value) {
       fuel = value
       if (value > 100) fuel = 100
