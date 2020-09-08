@@ -184,7 +184,7 @@ It can be a chore to write `calc` and `var` every time you create a rhythm value
 ```scss
 // rvr stands for responsive vertical rhythm
 @function rvr($multiple) {
-  @return calc(var(--baseline) * $multiple * 1rem);
+  @return calc(var(--baseline) * #{$multiple} * 1rem);
 }
 ```
 
