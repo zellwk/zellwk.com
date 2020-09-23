@@ -170,7 +170,7 @@ A simple way is to change the `try/catch` into a promise. This feels more friend
 
 ```js
 app.post('/signup', async(req, res, next) => {
-  function runAsync () {
+  async function runAsync () {
     await firstThing()
     await secondThing()
   }

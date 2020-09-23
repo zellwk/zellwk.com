@@ -121,7 +121,7 @@ I packed this up into a nice function for us to use.
  */
 function getTranslateValues (element) {
   const style = window.getComputedStyle(element)
-  const matrix = style.transform || style.webkitTransform || style.mozTransform
+  const matrix = style['transform'] || style.webkitTransform || style.mozTransform
 
   // No transform property. Simply return 0 values.
   if (matrix === 'none') {

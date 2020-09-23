@@ -25,7 +25,7 @@ A **callback** is a *function* that is *passed into another function* as an *arg
 
 They're so common in JavaScript that you probably used callbacks yourself without knowing they're called callbacks.
 
-One example of a function that accepts a callback is `addEventLisnter`:
+One example of a function that accepts a callback is `addEventListener`:
 
 ```js
 const button = document.querySelector('button')
@@ -244,7 +244,7 @@ But to really understand what's happening during asynchronous operations, we nee
 
 To envision the event loop, imagine JavaScript is a butler that carries around a **todo-list**. This list contains everything you told it to do. JavaScript will then go through the list, one by one, in the order you gave it.
 
-Let's say you give JavaScript five commands as follows:
+Let's say you give JavaScript six commands as follows:
 
 ```js
 const addOne = (n) => n + 1
@@ -254,6 +254,7 @@ addOne(2) // 3
 addOne(3) // 4
 addOne(4) // 5
 addOne(5) // 6
+addOne(6) // 7
 ```
 
 This is what would appear on JavaScript's todo-list.

@@ -320,7 +320,7 @@ html {
 }
 ```
 
-Indrek has been kind enough to put up a Codepen demo for this at http://codepen.io/indrekpaas/pen/VarLaJ. Check it out!
+Indrek has been kind enough to put up a Codepen demo for this at [http://codepen.io/indrekpaas/pen/VarLaJ](http://codepen.io/indrekpaas/pen/VarLaJ). Check it out!
 
 ## Wrapping Up
 
