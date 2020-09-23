@@ -5,6 +5,7 @@ description: Introduction to a collection useful JavaScript code
 slug: javascript-library
 tags:
   - javascript
+newsletter: jsSnippets
 ---
 
 I complied a list of useful JavaScript stuff into a [Github repository](https://github.com/zellwk/javascript).

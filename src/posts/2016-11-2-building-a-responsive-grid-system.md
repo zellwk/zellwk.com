@@ -199,8 +199,6 @@ So far so good. We've made a grid that works great at a viewport larger than 114
   <figcaption>Grid breaks below 1140px</figcaption>
 </figure>
 
-This means we can't use pixels as the unit for our columns. We need a unit knows what
-
 This means we can't use pixels as our measurement. We need a unit that can resize according to the width of the container. The only unit that does that is per cent (`%`). So, we write width in percentages:
 
 ```css
