@@ -6,7 +6,7 @@
     "name": "Zell Liew",
     "twitter": "@zellwk",
     "email": "zellwk@gmail.com",
-    "gplus": "https://plus.google.com/u/0/107981139229061135975"
+    "url": "https://zellwk.com/"
   },
   "feed": {
     "filename": "feed.xml",
@@ -14,9 +14,6 @@
     "url": "https://zellwk.com/feed/feed.xml",
     "id": "https://zellwk.com/"
   },
-  "newsletters": [
-    "CSS Tricks",
-    "Smashing Mag",
-    "Scotch"
-  ]
+  "newsletters": ["CSS Tricks", "Smashing Mag", "Scotch"],
+  "socialImage": "/images/zell-profile-pic.jpg"
 }

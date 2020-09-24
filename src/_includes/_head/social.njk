@@ -1,24 +1,11 @@
-<!-- For Facebook -->
-<meta property="og:site_name" content="{{- site.title -}}"/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="{{site.url}}"/>
-<meta property="og:email" content="{{site.author.email}}">
-<meta property="og:title" content="{{- pageTitle | decode -}}"/>
-<meta name="og:description" content="{{- pageDesc -}}" />
+{% if site.socialImage or socialImage %}
+  {% set image = socialImage or site.socialImage %}
+  <meta property="og:image" content="{{site.url}}{{ image }}"/>
+  <meta name="twitter:image" content="{{site.url}}{{ image }}"/>
+  <meta property="og:image:alt" content="Page image for {{ pageTitle }}"/>
+  <meta name="twitter:image:alt" content="Page image for {{ pageTitle }}"/>
+{% endif %}
 
-<!-- For Twitter -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="{{- site.author.twitter }}">
-<meta name="twitter:creator" content="{{- site.author.twitter }}">
-<meta name="twitter:title" content="{{- pageTitle | decode -}}" />
-<meta name="twitter:description" content="{{- pageDesc -}}" />
-
-<!-- For Google plus -->
-<link rel="author" href="{{site.author.gplus}}">
-
-<!-- Social media images
-  Facebook: 1200x630
-  Twitter: 1200x600
--->
-{# <meta property="og:image" content="{{site.social.facebook}}"/> #}
-{# <meta name="twitter:image" content="{{site.social.twitter}}"> #}
+{% if site.author.twitter %}
+  <meta name="twitter:creator" content="@{{ site.author.twitter | replace('@', '') }}"/>
+{% endif %}
