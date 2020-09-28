@@ -86,7 +86,7 @@ When you don't have qualitative feedback from others, you can produce more work.
 
 There's a study where a group of photography students were spilt into two. One group were told to take the best photo they can. The second group were told to take as many pictures as they can. 
 
-When they submitted their assignments at the ent of the term, photos from the second group consistently outperformed photos from the first group. 
+When they submitted their assignments at the end of the term, photos from the second group consistently outperformed photos from the first group. 
 
 Why? Because the second group has the chance to see the results of their work and correct any errors they see. Plus point: when they have more photos, they can get more feedback from people. 
 
