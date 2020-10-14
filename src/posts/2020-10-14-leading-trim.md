@@ -72,7 +72,7 @@ So we should align text to the baseline grid if possible.
 
 Initially, I felt this was important too. I even tried using solutions like [Sassline](https://sassline.com) in my early days. Unfortunately, the CSS created from these approaches (as I mentioned above) is too complicated and bloated for me. I wrote [an article about this](https://zellwk.com/blog/web-typography-broken/) too. 
 
-I ended up using fundamental design principles (like [repetition](https://zellwk.com/blog/why-vertical-rhythms/)) to improve Web Typography as much as I can. I complied my practices into a course – [Mastering Responsive Typography](https://mastering-responsive-typography.com) – if you're keen to hear more. 
+I ended up using fundamental design principles (like [repetition](https://zellwk.com/blog/why-vertical-rhythms/)) to improve Web Typography as much as I can. I compiled my practices into a course – [Mastering Responsive Typography](https://mastering-responsive-typography.com) – if you're keen to hear more. 
 
 But `leading-trim` and `text-edge` change the ENTIRE story! We will be able to make text align to the baseline PLUS make the code easy to read when those two properties are implemented by major browsers. 
 
