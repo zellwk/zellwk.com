@@ -42,7 +42,7 @@ I'll argue that frontend developers need to master four different skills.
 
 What is a great experience?
 
-We won't know unless we understand who are users are.
+We won't know unless we understand who our users are.
 
 **On the internet, we serve a huge variety of users.** And they're different from us.
 
