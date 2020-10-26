@@ -173,11 +173,13 @@ I realised each `performance.now` and `Date.now` resulted in different values. I
 (I did the same to `perfDate` too). 
 
 ```js
-function perf (message, callback, loops = 1, rounds = 10) {
+function perf (message, callback, rounds = 10) {
   const results = []
 
   while (rounds) {
     const startTime = performance.now()
+
+    let loops = 1
 
     while (loops) {
       callback()
