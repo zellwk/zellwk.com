@@ -209,7 +209,7 @@ When you write transition properties in the triggering (pseudo) class, the trans
 
 So, in the example above, when you hover on the button, the background color takes 2 seconds to change from `#33ae74` to `#1ce`.
 
-When you hover out from the button, the background color only takes 0.5s to change back to `#1ce` because the `transition-duration` of 2s no longer exists.
+When you hover out from the button, the background color only takes 0.5s to change back from `#1ce` to `#33ae74` because the `transition-duration` of 2s no longer exists.
 
 <p data-height="400" data-theme-id="7929" data-slug-hash="GOLLyR" data-default-tab="result" data-user="zellwk" data-embed-version="2" data-pen-title="CSS Transition (different transition speeds when transitioning in and out)" class="codepen">See the Pen <a href="https://codepen.io/zellwk/pen/GOLLyR/">CSS Transition (different transition speeds when transitioning in and out)</a> by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
