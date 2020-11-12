@@ -63,9 +63,9 @@ API is short for Application Programming Interface. (Again, the interface keywor
 - Web APIs
 - Rest APIs
 
-[Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) lets you interact with browsers – You write code on your computer and the correct thing will happen magically on a user's browser.
+[Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) let you interact with browsers – You write code on your computer and the correct thing will happen magically on a user's browser.
 
-Rest APIs lets browsers (and servers) interact with other browsers and servers – Browser A sends a request, and Server B responds. Browser A magically knows how to interpret this response.
+Rest APIs let browsers (and servers) interact with other browsers and servers – Browser A sends a request, and Server B responds. Browser A magically knows how to interpret this response.
 
 For all this magic to happen, you need to follow a specific set of instructions laid out in API documentation.
 
@@ -111,6 +111,6 @@ So it's interfaces all the way down. It's a rabbit hole. 🕳️🐇
 **Just two points to sum up:**
 
 - Interfaces are the wrapper object you're provided with.
-- Application Programming Interfaces is a set of rules you need to follow to use the thing you want to use.
+- Application Programming Interfaces are a set of rules you need to follow to use the thing you want to use.
 
 That's it! I hope this clears things up for you.
