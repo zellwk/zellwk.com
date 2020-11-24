@@ -1263,7 +1263,7 @@ app.delete('/quotes', (req, res) => {
 MongoDB Collections has a method called `deleteOne`. It lets us remove a document from the database. It takes in two parameters: `query` and `options`.
 
 ```javascript
-quotesCollection.remove(
+quotesCollection.deleteOne(
   query,
   options
 )
@@ -1274,7 +1274,7 @@ quotesCollection.remove(
 `query` works like `query` in `findOneAndUpdate`. It lets us filter the collection to the entries we're searching for. In this case, we can set `name` to Darth Vadar.
 
 ```javascript
-quotesCollection.remove(
+quotesCollection.deleteOne(
   { name: 'Darth Vadar' },
   options
 )
@@ -1286,7 +1286,7 @@ However, since we already pass the name `Darth Vadar` from Fetch, we don't need 
 
 ```js
 app.delete('/quotes', (req, res) => {
-  quotesCollection.remove(
+  quotesCollection.deleteOne(
     { name: req.body.name },
     options
   )
