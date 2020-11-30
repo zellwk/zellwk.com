@@ -191,7 +191,7 @@ If your working directory is dirty, you'll get this error:
 
 If you haven't pushed to the Git remote at least once, `np` will just hang and do nothing.
 
-### Using npm
+### Using np
 
 To use `np`, you run the `np` command.
 

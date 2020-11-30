@@ -72,7 +72,7 @@ getSomethingWithPromise()
   .catch(err => {/* handle the error */})
 ```
 
-Now, you know how a promise work. Let's dive in further and examine how to construct a promise.
+Now, you know how a promise works. Let's dive in further and examine how to construct a promise.
 
 ## Constructing a promise
 

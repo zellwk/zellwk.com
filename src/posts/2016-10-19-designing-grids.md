@@ -239,7 +239,7 @@ By now, you might have noticed that **both buzzword-filled approaches suck**. So
 
 <!-- Show content + sidebar components + the grid-->
 <figure><img src="/images/2016/designing-grids/grid-hybrid.gif" alt="Hyrid Grid">
-  <figcaption>Hyrid Grid</figcaption>
+  <figcaption>Hybrid Grid</figcaption>
 </figure>
 
 Recalculating the number of columns at different breakpoints can be difficult if you're creating your grid from scratch. Susy can help you make things easier, like this:
