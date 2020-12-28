@@ -44,7 +44,7 @@ There are two main types of ergonomic keyboards: **Joined and Split.**
 
 **Joined keyboards** have a curve within the keyboard. It lets you reduce the strain on the wrists by rotating and opening up your shoulders. I feel this rotation strains the body in a different way, so I prefer split keyboards.
 
-The [Logitech Ergo K860](https://www.amazon.com/Logitech-Wireless-Ergonomic-Keyboard-Wrist/dp/B07ZWK2TQT/ref=sr_1_3?dchild=1&keywords=ergonomic+keyboard&qid=1607573501&sr=8-3) is an example of a joined keyboard.
+The [Logitech Ergo K860](https://www.amazon.com/Logitech-Wireless-Ergonomic-Keyboard-Wrist/dp/B07ZWK2TQT/ref=sr_1_3?dchild=1&amp;keywords=ergonomic+keyboard&amp;qid=1607573501&amp;sr=8-3&_encoding=UTF8&tag=zellwk0a-20&linkCode=ur2&linkId=a67a29bf65d7b4d82fe1175218039314&camp=1789&creative=9325) is an example of a joined keyboard.
 
 <figure role="figure">
   <img src="/images/2020/ergonomic-keyboard/joined.jpg" alt="Logitech Ergo K860">

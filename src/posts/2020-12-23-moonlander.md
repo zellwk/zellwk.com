@@ -79,8 +79,6 @@ Instead, I recommend setting the tilt according to your hands (like what I showe
 
 If you end up not using the thumb cluster much for normal typing, then so be it. (I don't use it much for normal typing either).
 
-
-
 ## Configuring the keyboard
 
 ZSA allows you to configure the Moonlander through a software called Oryx. [You can find the configuration link here](https://configure.ergodox-ez.com).
