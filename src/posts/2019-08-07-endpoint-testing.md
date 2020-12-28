@@ -111,7 +111,7 @@ it('Testing to see if Jest works', () => {
 
 <figure><img src="/images/2019/endpoint-testing/test-pass.png" alt="Output from Terminal. Test successful."></figure>
 
-This is the most basic of tests. It's not useful at all because we haven't testing anything real yet. 
+This is the most basic of tests. It's not useful at all because we haven't tested anything real yet. 
 
 ## Asynchronous tests
 
