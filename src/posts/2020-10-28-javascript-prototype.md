@@ -20,12 +20,12 @@ First of all, **do not let the word "Prototype" mislead you**. The "prototype" i
 
 Instead, prototype in JavaScript is simply a word that means absolutely nothing. We can replace prototype with oranges and it can mean the same thing.
 
-For example, think of Apple. Before Apple Computers became popular, you'll probably think of Apple as the red color fruit. "Apple" in Apple Computers doesn't have a meaning initially – but it does now.
+For example, think of Apple. Before Apple Computers became popular, you'd probably be thinking of Apple as the red colored fruit. "Apple" in Apple Computers didn't have a meaning initially – but it does now.
 
 In JavaScript's case, prototype refers to a system. This system allows you to define properties on objects that can be accessed via the object's instances.
 
 :::note
-Prototype is closely related to Object Oriented Programming. It wouldn't make sense if you don't understand what Object Oriented Programming is about.
+Prototype is closely related to Object Oriented Programming. It won't make sense if you don't understand what Object Oriented Programming is about.
 
 I suggest you familiarise yourself with [this introductory series on Object Oriented Programming](https://css-tricks.com/the-flavors-of-object-oriented-programming-in-javascript/) before going further.
 :::
@@ -61,7 +61,7 @@ Because these methods are located in the Array's prototype. You can expand the `
 </figure>
 
 :::note
-Both `__proto__` in Chrome and `<prototype>` in Firefox points to the Prototype object. They're just written differently in different browsers.
+Both `__proto__` in Chrome and `<prototype>` in Firefox point to the Prototype object. They're just written differently in different browsers.
 :::
 
 When you use `map`, JavaScript looks for `map` in the object itself. If `map` is not found, JavaScript tries to look for a Prototype. If JavaScript finds a prototype, it continues to search for `map` in that prototype.
@@ -191,7 +191,7 @@ Performance between the two methods doesn't matter much – unless your app requ
 
 We can use `performance.now` to log a timestamp before running any operations. After running the operations, we will use `performance.now` to log the timestamp again.
 
-We'll then get the difference in timestamps to measure how long it the operations took.
+We'll then get the difference in timestamps to measure how long the operations took.
 
 ```js
 const start = performance.now()
