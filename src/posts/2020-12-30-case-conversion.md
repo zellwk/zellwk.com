@@ -7,11 +7,11 @@ tags:
   - javascript
 ---
 
-I got fed-up searching Google for case conversion utilities. The useful ones I found ([Voca](https://vocajs.com) and [change-case](https://www.npmjs.com/package/change-case)) both require an environment that allows me to use npm.   
+I got fed up searching Google for case conversion utilities. The useful ones I found ([Voca](https://vocajs.com) and [change-case](https://www.npmjs.com/package/change-case)) both require an environment that allows me to use npm.   
 
 But I was using Vanilla JavaScript. I did not want to include any toolchains in this project, and I'm reluctant to send an asynchronous request to download a module just for case-conversion. 
 
-So I decided to write a set of conversion utilities myself. 
+So, I decided to write a set of conversion utilities myself.
 
 It's simpler than I thought.   
 
@@ -27,7 +27,7 @@ I don't use these two cases, but I know they exist.
   - `snake_case`  
   - `PascalCase`  
 
-So far, I've relied on simple functions that convert from one case to another. But I was fed-up with writing things like `camelToTitle` or `camelToKebab`. It's much nicer to have a function that converts all cases to the one I need. 
+So far I've relied on simple functions that convert from one case to another. But I was fed up with writing things like `camelToTitle` or `camelToKebab`. It's much nicer to have a function that converts all cases to the one I need. 
 
 ## Converting any case to kebab-case   
 
@@ -46,9 +46,9 @@ Converting `snake_case`, `Sentence case` and `Title Case` into `kebab-case` is e
   1. Lowercase everything
   2. Replace `_` and spaces with `-`  
 
-But I cannot begin by lowercasing everything if I wanted to support case conversion from `camelCase` and `PascalCase`. I would lose the word-break point.   
+But I coud not begin by lowercasing everything if I wanted to support case conversion from `camelCase` and `PascalCase`. I would lose the word-break point.   
 
-So I had to begin by searching for the capital letters which denote the start of a new word (for `camelCase` and `PascalCase`). The easiest way is to loop through each letter and run a simple `/[A-Z]/` regex. This regex searches for any letter that's between A and Z.   
+So I had to begin by searching for the capital letters which denote the start of a new word (for `camelCase` and `PascalCase`). The easiest way was to loop through each letter and run a simple `/[A-Z]/` regex. This regex searches for any letter that's between A and Z.   
 
 ```javascript
 function toKebab (string) {
@@ -80,7 +80,7 @@ function toKebab (string) {
 }
 ```  
 
-Note: I'm pretty sure there's a regex that can do these three steps in one. It probably uses capturing groups and substitution, which I'm not familiar with. I didn't try it since I didn't have the time nor energy to research further. If you know a good regex for this, let me know!   
+Note: I'm pretty sure there's a regex that can do these three steps in one. It probably uses capturing groups and substitution, which I'm not familiar with. I didn't try it since I didn't have the time nor energy to research further. If you know of a good regex for this, let me know!   
 
 This step converts the cases into the following:   
 
@@ -158,7 +158,7 @@ At first, I dreaded the thought of finding the similarities between all 6 cases 
 
 But I realized I can use my `toKebab` function to convert everything into `kebab-case` first. This takes advantage of the work I've already done.   
 
-I was against this idea at first because it seems like a "waste of resources" to run another function first from a performance standpoint. But I realized I was being idealistic. From a practical standpoint, it doesn't have much impact on performance since the operations are really fast.   
+Initially, I was against this idea because, from a performance standpoint, it seemed like a "waste of resources" to run another function first. But I realized I was being idealistic. From a practical standpoint, it doesn't have much impact on performance since the operations are really fast.   
 
 ```javascript
 // Starting with toKebab
@@ -167,9 +167,9 @@ function toTitle (string) {
 }
 ```  
 
-Now I just need to convert `kebab-case` to `Title Case`.   
+Now I just needed to convert `kebab-case` to `Title Case`.   
 
-Here, I only need to do the following:  
+Here, I only needed to do the following:  
 
   1. Split the string at `-`. This gives me an array of words.   
   2. Capitalize the first letter of each word.   
@@ -248,4 +248,4 @@ Simple as that!
 
 ## Case Conversion Library  
 
-I placed added these case-conversion utilities into [my JavaScript repository](https://github.com/zellwk/javascript/tree/master/convert-case). You can grab them if you want them :)
+I have added the case-conversion utilities into [my JavaScript repository](https://github.com/zellwk/javascript/tree/master/convert-case). You can grab them if you want them :)
