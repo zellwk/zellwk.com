@@ -23,7 +23,7 @@ I bought the Moonlander (an ergonomic keyboard) and I've been playing with it fo
 
 The Moonlander is an excellent keyboard if you have a permanent work station. I wouldn't recommend taking it out every day even though it comes with a travel case for you to move it around. Why? Because it takes some time to get the optimal tilt/tent position for your hands. (I'll talk about how in a bit).
 
-It has a nice columnar layout, which means keys are arranged vertically in a column as opposed to the diagonal-ish layout that most keyboards have. This columnar layout can be hard to get used to at first. I'm still trying to get used to it and I'm still hitting the wrong keys occasionally.
+It has a nice columnar layout, which means keys are arranged vertically in a column as opposed to the diagonal-ish layout that most keyboards have. This columnar layout can be hard to get used to at first. I'm still trying to get used to it, and I'm still hitting the wrong keys occasionally.
 
 <figure role="figure">
   <img src="/images/2020/moonlander/columnar.png" alt="Columnar layout.">
@@ -163,7 +163,7 @@ You may also notice I added another Enter key at the bottom right corner as well
 
 The backspace key is located two keys away from zero on a normal keyboard. In this case, we only have one after zero, which is a serious problem. This means both symbols and backspace need to be located elsewhere.
 
-Originally, added backspace to the right command key (as a dual-function key) since I use the backspace more often than Enter. But I needed backspace to repeat frequently, which cannot be done on a Dual-function key. So backspace needs to have a dedicated key by itself.
+Originally, I added backspace to the right command key (as a dual-function key) since I use the backspace more often than Enter. But I needed backspace to repeat frequently, which cannot be done on a Dual-function key. So backspace needs to have a dedicated key by itself.
 
 The closest and most comfortable place for me is the top piano key in the right thumb cluster. So I added backspace there.
 
@@ -181,7 +181,7 @@ Unfortunately, this movement is impossible because the Moonlander requires most 
   <img src="/images/2020/moonlander/qwerty-arrow.png" alt="Possible placement of arrow keys on a QWERTY keyboard. ">
 </figure>
 
-Unfortunately, I can't do this because has a Z key in the / location. After much deliberation, I chose to put the arrow keys on a second layer. I then access this layer by changing the keyboards.
+Unfortunately, I can't do this because the Z key is in the / location. After much deliberation, I chose to put the arrow keys on a second layer. I then access this layer by changing the keyboards.
 
 <figure role="figure">
   <img src="/images/2020/moonlander/arrow.png" alt="My arrow placement on the Nav layer.">
@@ -199,9 +199,9 @@ I'm going to refrain from talking about symbol keys much because Dvorak and Qwer
 
 ### Layer Change Keys
 
-Initially I added layer change keys to the bottom row, near the two corners. I thought it was a good idea because the bottom row are rarely accessed with norma because the bottom row
+Initially I added layer change keys to the bottom row, near the two corners. I thought it was a good idea because the bottom row is rarely accessed.
 
-I discovered later that it was easy to trigger these keys accidentally when I tried to pressed keys on the first or second row. It changed my entire keyboard and messes up the typing.
+I discovered later that it was easy to trigger these keys accidentally when I tried to pressed keys on the first or second row. It changed my entire keyboard and messed up the typing.
 
 <figure role="figure">
   <img src="/images/2020/moonlander/layer-change.png" alt="My initial layer change keys.">

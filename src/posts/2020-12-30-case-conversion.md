@@ -1,4 +1,4 @@
----
+  ---
 layout: post
 title: Case Conversion in JavaScript
 description: How to convert any string in JavaScript into kebab case, camel case, sentence case, or title case.
@@ -7,7 +7,7 @@ tags:
   - javascript
 ---
 
-I got fed-up searching Google for case conversion utilities. The useful ones I found ([Voca](https://vocajs.com) and [change-case](https://www.npmjs.com/package/change-case)) both require an environment that allows me to use npm.   
+I got fed up searching Google for case conversion utilities. The useful ones I found ([Voca](https://vocajs.com) and [change-case](https://www.npmjs.com/package/change-case)) both require an environment that allows me to use npm.   
 
 But I was using Vanilla JavaScript. I did not want to include any toolchains in this project, and I'm reluctant to send an asynchronous request to download a module just for case-conversion. 
 
@@ -27,7 +27,7 @@ I don't use these two cases, but I know they exist.
   - `snake_case`  
   - `PascalCase`  
 
-So far, I've relied on simple functions that convert from one case to another. But I was fed-up with writing things like `camelToTitle` or `camelToKebab`. It's much nicer to have a function that converts all cases to the one I need. 
+So far, I've relied on simple functions that convert from one case to another. But I was fed up with writing things like `camelToTitle` or `camelToKebab`. It's much nicer to have a function that converts all cases to the one I need. 
 
 ## Converting any case to kebab-case   
 
@@ -140,7 +140,7 @@ export function toKebab (string) {
 }
 ```  
 
-That gives me the this:   
+That gives me this:   
 
   - `camel-case`  
   - `pascal-case`  
@@ -248,4 +248,4 @@ Simple as that!
 
 ## Case Conversion Library  
 
-I placed added these case-conversion utilities into [my JavaScript repository](https://github.com/zellwk/javascript/tree/master/convert-case). You can grab them if you want them :)
+I added these case-conversion utilities into [my JavaScript repository](https://github.com/zellwk/javascript/tree/master/convert-case). You can grab them if you want them :)

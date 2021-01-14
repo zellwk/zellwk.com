@@ -18,9 +18,9 @@ Today I'm going to explain what Prototypes are, what you need to know, and how t
 
 First of all, **do not let the word "Prototype" mislead you**. The "prototype" in JavaScript isn't the same thing as "prototype" in English. It doesn't mean an initial version of a product that was quickly put together.
 
-Instead, prototype in JavaScript is simply a word that means absolutely nothing. We can replace prototype with oranges and it can mean the same thing.
+Instead, prototype in JavaScript is simply a word that means absolutely nothing. We can replace prototype with oranges, and it can mean the same thing.
 
-For example, think of Apple. Before Apple Computers became popular, you'll probably think of Apple as the red color fruit. "Apple" in Apple Computers doesn't have a meaning initially – but it does now.
+For example, think of Apple. Before Apple Computers became popular, you'd probably think of Apple as the red color fruit. "Apple" in Apple Computers doesn't have a meaning initially – but it does now.
 
 In JavaScript's case, prototype refers to a system. This system allows you to define properties on objects that can be accessed via the object's instances.
 
@@ -72,7 +72,7 @@ So the correct **definition for Prototype** is: **An object where instances can 
 
 Here’s what JavaScript does when you access a property:
 
-**Step 1**: JavaScript checks if the property available inside the object. If yes, JavaScript uses the property straight away.
+**Step 1**: JavaScript checks if the property is available inside the object. If yes, JavaScript uses the property straight away.
 
 **Step 2**: If the property is NOT inside the object, JavaScript checks if there’s a Prototype available. If there is a Prototype, repeat Step 1 (and check if the property is inside the prototype).
 
@@ -191,7 +191,7 @@ Performance between the two methods doesn't matter much – unless your app requ
 
 We can use `performance.now` to log a timestamp before running any operations. After running the operations, we will use `performance.now` to log the timestamp again.
 
-We'll then get the difference in timestamps to measure how long it the operations took.
+We'll then get the difference in timestamps to measure how long the operations took.
 
 ```js
 const start = performance.now()
@@ -298,6 +298,6 @@ The verdict: It doesn't matter whether you use Class or Factory functions. It's 
 
 ### Conclusion about performance tests
 
-You can use Classes or Factory functions. You choose to use Prototypes, or you can choose not to. It's really up to you.
+You can use Classes or Factory functions. Whether you choose to use Prototypes or not is really up to you.
 
 There's no need to worry about performance.
