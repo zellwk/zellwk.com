@@ -16,7 +16,7 @@ Hello! I want to begin the year with a year-end review again. I like doing these
 
 ### Website Growth
 
-There's a 30% increase in users (1.04mil to 1.36 mil) from Jan 2020 to Jan 2021. It's nice to know that my website is attracting more people and it's doing well in terms of traffic.
+There's a 30% increase in users (1.04mil to 1.36 mil) from Jan. 2020 to Jan. 2021. It's nice to know that my website is attracting more people and it's doing well in terms of traffic.
 
 <figure role="figure">
   <img src="/images/2021/review/analytics.png" alt="">
@@ -24,13 +24,13 @@ There's a 30% increase in users (1.04mil to 1.36 mil) from Jan 2020 to Jan 2021.
 
 What's funny to me is I didn't know what I was doing.
 
-I didn't have a content plan. I was mostly writing tutorials about stuff that I worked on and found it helpful to share with others. Many of my top posts came from Node/Express/Backend related articles — which I spent a considerable amount of time playing with this year.
+I didn't have a content plan. I was mostly writing tutorials about stuff that I worked on and found it helpful to share with others. Many of my top posts came from Node/Express/Backend-related articles — which I spent a considerable amount of time playing with this year.
 
 <figure role="figure">
   <img src="/images/2021/review/top-articles.png" alt="">
 </figure>
 
-This confirms a pain point I have experienced while researching on Node — there are not enough guides to help people build a solid backend in a step-by-step manner. Maybe I should do a Node course or a MongoDB course? 🤔.
+This confirms a pain point I experienced while researching on Node — there are not enough guides to help people build a solid backend in a step-by-step manner. Maybe I should do a Node course or a MongoDB course? 🤔.
 
 ### Investments
 
@@ -46,7 +46,7 @@ Because of this success, I decided to start putting some money into Bitcoins thi
 
 I'll report the results again next year to see what came out of these investments.
 
-By the way, I'm happy to share who I copied and what I did to get this 30% increase over this year. Are you interested to know? Let me know!
+By the way, I'm happy to share who I copied and what I did to get this 30% increase over this year. Interested in how I achieved this result? Let me know!
 
 ### Vitality and introspection
 
@@ -80,7 +80,7 @@ I also tend to bite off more than I can chew. When I do this, I get paralyzed an
 
 When I fall short of my goals, I feel bad about it as well.
 
-These negative emotion doesn't forward me in the direction I want to move, so I'm not going to set goals anymore. Instead, I'm going to work on a theme this year. This helps me by creating fewer expectations for myself and gives me more room to manouvre.
+These negative emotions don't push me in the direction I want to move in, so I'm not going to set goals anymore. Instead, I'm going to work on a theme this year. This helps me by creating fewer expectations for myself and gives me more room to manoeuvre.
 
 ### Subscriber growth
 
@@ -106,11 +106,11 @@ The coaching program didn't end up well though. My revenue numbers stayed consta
 
 This experience taught me not to panic when it comes to money. There are things that I can do, but I won't be able to do anything when I'm panicking and spreading myself too thin.
 
-## What can be improved
+## What can be improved?
 
 ### Hopes and Expectations
 
-Most of my frustrations came from hoping that something will happen. It's a force of habit to hope for things — but hope itself is an expectation. When expectations don't materialize, I get disappointed and frustrated.
+Most of my frustrations came from hoping that something would happen. It's a force of habit to hope for things — but hope itself is an expectation. When expectations don't materialize, I get disappointed and frustrated.
 
 So I'm going to stop saying "let's hope" and begin saying "let's see how this unfolds". I'm doing this to prevent myself from putting expectations onto myself or others unconsciously.
 
@@ -118,11 +118,11 @@ So I'm going to stop saying "let's hope" and begin saying "let's see how this un
 
 I get distracted easily when my energies are low. I often find myself scrolling through Facebook, Twitter, Mangas for hours. This is not productive and I intend to stop.
 
-I know better ways to recover my energies. For me, it's about being willing to take care of myself and set aside time to recharge — even though I "should" be doing something.
+I know better ways to recover my energies. For me, it's about being willing to take care of myself and setting aside time to recharge — even though I "should" be doing something.
 
 ### Teams and relationships
 
-Both Max and Michiko were great. But they were busy and we couldn't work together closer in various areas. This eventually meant I started to put hours back into admin related stuff, which left less time for the creation of things.
+Both Max and Michiko were great. But they were busy and we couldn't work together closer in various areas. This eventually meant I started to put hours back into admin-related stuff, which left less time for the creation of things.
 
 This year, I intend to work closely with a new assistant. I'm excited to see what magic unfolds from this new relationship.
 
@@ -147,7 +147,7 @@ Connection here refers to a connection with myself. Also connection my family, t
 
 Creation here refers to two things:
 
-- Creation and manifestation of a truer version of myself — having the courage to be who I am, say what I believe, live my values. I'm also going to work on discarding unhelpful personas that don't forward me.
-- Creation of new stuff. I've been itching to create some Saas apps for a while. I don't know if they're going to work or make money, but money is not the point here. I want to scratch the itch of making something useful for myself.
+- Creation and manifestation of a truer version of myself — having the courage to be who I am, say what I believe, and live my values. I'm also going to work on discarding unhelpful personas that don't improve me.
+- Creation of new stuff. I've been itching to create some SaaS apps for a while. I don't know if they're going to work or make money, but money is not the point here. I want to scratch the itch of making something useful for myself.
 
 Plans? Who knows. I do have some directions for the year, but I have nothing concrete planned out yet. I don't want to give myself any expectations in the form of hopes by declaring my plans at this point.
