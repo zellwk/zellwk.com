@@ -18,12 +18,14 @@ It's simpler than I thought.
 ## The Common Cases  
 
 I usually use these cases when writing HTML, CSS, and JavaScript:   
+
   - `camelCase`  
   - `kebab-case`  
   - `Sentence case`  
   - `Title Case`  
 
-I don't use these two cases, but I know they exist.   
+I don't use these two cases, but I know they exist.  
+ 
   - `snake_case`  
   - `PascalCase`  
 
