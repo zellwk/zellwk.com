@@ -10,22 +10,22 @@ newsletter: jsr
 
 JavaScript is said to be a Prototype-based language. So "prototypes" must be an important concept, right?
 
-Today I'm going to explain what Prototypes are, what you need to know, and how to use Prototypes effectively.
+Today I'm going to explain what Prototypes are, why they're important, and how to use them effectively.
 
 <!-- more -->
 
 ## What are prototypes?
 
-First of all, **do not let the word "Prototype" mislead you**. The "prototype" in JavaScript isn't the same thing as "prototype" in English. It doesn't mean an initial version of a product that was quickly put together.
+First of all, **do not let the word "Prototype" mislead you**. A "prototype" in JavaScript isn't the same thing as a "prototype" in English. It doesn't mean an early version of a new product that was put together quickly.
 
-Instead, prototype in JavaScript is simply a word that means absolutely nothing. We can replace prototype with oranges and it can mean the same thing.
+Instead, "prototype" in JavaScript is simply a word that means absolutely nothing. We can replace prototype with oranges and it would do the same thing.
 
-For example, think of Apple. Before Apple Computers became popular, you'll probably think of Apple as the red color fruit. "Apple" in Apple Computers doesn't have a meaning initially – but it does now.
+For example, think of Apple. Before Apple Computers became popular, you'd probably think of an apple, as in the red colored fruit. "Apple" in Apple Computers didn't have a meaning initially – but it does now.
 
-In JavaScript's case, prototype refers to a system. This system allows you to define properties on objects that can be accessed via the object's instances.
+In JavaScript's case, prototype refers to a system. This system allows you to define properties of objects that can be accessed via the object's instances.
 
 :::note
-Prototype is closely related to Object Oriented Programming. It wouldn't make sense if you don't understand what Object Oriented Programming is about.
+Prototype is closely related to Object Oriented Programming. But that won't make sense if you don't understand what Object Oriented Programming is all about.
 
 I suggest you familiarise yourself with [this introductory series on Object Oriented Programming](https://css-tricks.com/the-flavors-of-object-oriented-programming-in-javascript/) before going further.
 :::
@@ -40,7 +40,7 @@ console.log(array)
 const array = new Array('one', 'two', 'three')
 ```
 
-If you `console.log` this array, you don't see any methods. But yet, you can use methods like `concat`, `slice`, `filter`, and `map`!
+If you `console.log` this array, you don't see any methods. Yet, you can use methods like `concat`, `slice`, `filter`, and `map`!
 
 <figure role="figure">
   <img src="/images/2020/prototype/array.png" alt="Array doesn't contain method.">
@@ -64,7 +64,7 @@ Because these methods are located in the Array's prototype. You can expand the `
 Both `__proto__` in Chrome and `<prototype>` in Firefox points to the Prototype object. They're just written differently in different browsers.
 :::
 
-When you use `map`, JavaScript looks for `map` in the object itself. If `map` is not found, JavaScript tries to look for a Prototype. If JavaScript finds a prototype, it continues to search for `map` in that prototype.
+When you use the `map` method, JavaScript looks for `map` in the object itself. If `map` is not found, JavaScript tries to look for a Prototype. If JavaScript finds a prototype, it continues to search for `map` in that prototype.
 
 So the correct **definition for Prototype** is: **An object where instances can access** when they're trying to look for a property.
 
@@ -72,7 +72,7 @@ So the correct **definition for Prototype** is: **An object where instances can 
 
 Here’s what JavaScript does when you access a property:
 
-**Step 1**: JavaScript checks if the property available inside the object. If yes, JavaScript uses the property straight away.
+**Step 1**: Checks if the property is available inside the object. If yes, then JavaScript uses the property straight away.
 
 **Step 2**: If the property is NOT inside the object, JavaScript checks if there’s a Prototype available. If there is a Prototype, repeat Step 1 (and check if the property is inside the prototype).
 
@@ -81,7 +81,7 @@ Here’s what JavaScript does when you access a property:
 - Returns `undefined` (if you tried to access a property).
 - Throws an error (if you tried to call a method).
 
-Diagrammatically, here’s how the process looks like:
+Diagrammatically, here’s what the process looks like:
 
 <figure role="figure">
   <img src="/images/2020/prototype/prototype-chain.jpg" alt="Prototype chain.">
@@ -89,9 +89,9 @@ Diagrammatically, here’s how the process looks like:
 
 ### Prototype Chain example
 
-Let's say we have a `Human` class. We also have a `Developer` Subclass that inherits from `Human`. `Human`s have a `sayHello` method and `Developers` have a `code` method.
+Let's say we have a `Human` class. We also have a `Developer` Subclass that inherits from `Human`. `Human`'s have a `sayHello` method and `Developers` have a `code` method.
 
-Here's the code for `Human`
+Here's the code for the `Human` class
 
 ```js
 class Human {
@@ -107,9 +107,9 @@ class Human {
 ```
 
 :::note
-`Human` (and `Developer` below) can be written with Constructor functions. If we use Constructor functions, the `prototype` becomes clearer, but creating Subclasses becomes harder. That's why I'm showing an example with Classes. (See [this article]() for the 4 different ways to use Object Oriented Programming).
+`Human` (and `Developer` below) can be written with Constructor functions. If we use Constructor functions, the `prototype` becomes clearer, but creating Subclasses becomes more difficult. That's why I'm showing you an example with Classes. (See [this article]() for the 4 different ways to use Object Oriented Programming).
 
-Here's how you would write `Human` if you used a Constructor instead.
+Here's how you would code `Human` if you used a Constructor instead.
 
 ```js
 function Human (firstName, lastName) {
@@ -141,7 +141,7 @@ zell.sayHello() // Hi, I'm Zell
 zell.code('website') // Zell coded website
 ```
 
-If you `console.log` the instance, you can see the methods in the prototype chain.
+If you `console.log` the instance, you'll see the methods in the prototype chain.
 
 <figure role="figure">
   <img src="/images/2020/prototype/prototype-chain-eg.png" alt="`code` and `sayHello` in the prototype chain.">
@@ -191,7 +191,7 @@ Performance between the two methods doesn't matter much – unless your app requ
 
 We can use `performance.now` to log a timestamp before running any operations. After running the operations, we will use `performance.now` to log the timestamp again.
 
-We'll then get the difference in timestamps to measure how long it the operations took.
+We'll then measure the difference in timestamps to see how long the operations took.
 
 ```js
 const start = performance.now()
@@ -238,7 +238,7 @@ perf('In Object', _ => { instance.inObject() }, count)
 perf('In Prototype', _ => { instance.inPrototype() }, count)
 ```
 
-The average results are summarised in this table as follows:
+The average results are summarised as follows:
 
 | Test          | 1,000,000 ops  | 10,000,000 ops |
 |:-----------|:--------------|:---------------|
@@ -251,7 +251,7 @@ The verdict: It doesn't matter whether you use Prototypes or not. It's not going
 
 ### Experiment #2: Classes vs Factory Functions
 
-I had to run this test since I recommend using Prototypes when you use Classes, and not using prototypes when you use Factory functions.
+I had to run this test since I recommend using Prototypes with Classes, and not using prototypes when you use Factory functions.
 
 I needed to test whether creating Factory functions was significantly slower than creating classes.
 
@@ -287,7 +287,7 @@ perf('Class', _ => { new HumanClass('Zell', 'Liew') }, count)
 perf('Factory', _ => { HumanFactory('Zell', 'Liew') }, count)
 ```
 
-The average results are summarised in the table as follows:
+The average results are summarised as follows:
 
 | Test          | 1,000,000 ops  | 10,000,000 ops |
 |:-----------|:--------------|:---------------|
@@ -298,6 +298,6 @@ The verdict: It doesn't matter whether you use Class or Factory functions. It's 
 
 ### Conclusion about performance tests
 
-You can use Classes or Factory functions. You choose to use Prototypes, or you can choose not to. It's really up to you.
+You can use Classes or Factory functions. You can choose to use Prototypes, or you can choose not to. It's really up to you.
 
 There's no need to worry about performance.
