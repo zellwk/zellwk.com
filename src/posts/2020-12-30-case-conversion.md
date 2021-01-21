@@ -9,7 +9,7 @@ tags:
 
 I got fed-up searching Google for case conversion utilities. The useful ones I found ([Voca](https://vocajs.com) and [change-case](https://www.npmjs.com/package/change-case)) both require an environment that allows me to use npm.   
 
-But I was using Vanilla JavaScript. I did not want to include any toolchains in this project, and I'm reluctant to send an asynchronous request to download a module just for case-conversion. 
+But I'm using Vanilla JavaScript. I do not want to include additional toolchains in this project, and I'm reluctant to send an asynchronous request to download a module just for case-conversion. 
 
 So I decided to write a set of conversion utilities myself. 
 
@@ -29,13 +29,15 @@ I don't use these two cases, but I know they exist.
   - `snake_case`  
   - `PascalCase`  
 
-So far, I've relied on simple functions that convert from one case to another. But I was fed-up with writing things like `camelToTitle` or `camelToKebab`. It's much nicer to have a function that converts all cases to the one I need. 
+To date, I've relied on simple functions that convert one case type to another. But I'm fed-up with writing things like `camelToTitle` or `camelToKebab`. It's a better idea to have a function that converts all cases to the one I want. 
+
+Here's how I do it.
 
 ## Converting any case to kebab-case   
 
-I started converting stuff into `kebab-case` because that was what I needed when I searched for case conversion utilities.   
+I start by converting text into `kebab-case`, because that's what I needed when I searched for case conversion utilities.   
 
-To convert all cases into `kebab-case`, I had to consider the possible cases. Here are the cases once again:   
+To convert any case into `kebab-case`, I have to consider all the possible cases. Here they are once again:   
 
   - `camelCase`  
   - `PascalCase`  
@@ -43,14 +45,14 @@ To convert all cases into `kebab-case`, I had to consider the possible cases. He
   - `Sentence case`  
   - `Title Case`  
 
-Converting `snake_case`, `Sentence case` and `Title Case` into `kebab-case` is easy. I only need to do two things:   
+Converting `snake_case`, `Sentence case` and `Title Case` into `kebab-case` is easy. All I need to do is two things:   
 
-  1. Lowercase everything
-  2. Replace `_` and spaces with `-`  
+  1. Lowercase everything.
+  2. Replace `_` and spaces with `-`.  
 
-But I cannot begin by lowercasing everything if I wanted to support case conversion from `camelCase` and `PascalCase`. I would lose the word-break point.   
+But if I want to support case conversion from `camelCase` and `PascalCase` as well, then I cannot start by turning everything to lowercase, otherwise I will lose the word-break points.   
 
-So I had to begin by searching for the capital letters which denote the start of a new word (for `camelCase` and `PascalCase`). The easiest way is to loop through each letter and run a simple `/[A-Z]/` regex. This regex searches for any letter that's between A and Z.   
+Instead, I start by searching for the capital letters which denote the start of a new word (for `camelCase` and `PascalCase`). I do this by looping through each letter and running a simple `/[A-Z]/` regex. This regex finds any letter between A and Z.   
 
 ```javascript
 function toKebab (string) {
@@ -66,7 +68,7 @@ function toKebab (string) {
 }
 ```  
 
-Then I lowercased the capital letters and added a space in front of them. (It doesn't matter whether I add space or `_`, both are fine since I'm going to replace them with `-` later).   
+Then, I lowercase the capital letters and add a space in front of them. It doesn't matter whether I add a space or `_`, both are fine since I'm going to replace them with a `-` later.   
 
 ```javascript
 function toKebab (string) {
@@ -82,17 +84,18 @@ function toKebab (string) {
 }
 ```  
 
-Note: I'm pretty sure there's a regex that can do these three steps in one. It probably uses capturing groups and substitution, which I'm not familiar with. I didn't try it since I didn't have the time nor energy to research further. If you know a good regex for this, let me know!   
+Note: I'm pretty sure there's a regex that can do these three steps in one. It probably uses `capturing groups` and `substitution`, which I'm not familiar with. I didn't try it though because I don't have the time, nor energy, to research it further. If you know the regex I'm talking about, please let me know!   
 
 This step converts the cases into the following:   
 
   - `camel case`  
-  - ` pascal case`  
+  - `pascal case`  
   - `snake_case`  
-  - ` sentence case`  
-  - ` title  case `  
+  - `sentence case`  
+  - `title case` 
 
-There's a space at the start of some cases. I removed them with 
+
+There's a space at the start of some cases. I remove them with 
 `trim`.   
 
 ```javascript
@@ -116,12 +119,12 @@ This gives me the following:
   - `pascal case`  
   - `snake_case`  
   - `sentence case`  
-  - `title  case `  
+  - `title case`
 
 I can now replace both `_` and spaces with `-`. This can be done with two `replace` calls like this:   
 
-  - 1. First replace uses `/_/g` to replace all occurences of `_`.   
-  - 2. Second replace uses `/\s+/` to replace all spaces into `-`. The `+` indicates "one or more", so it matches the two spaces in `title  case`.   
+  1. First `replace` uses `/_/g` to replace all occurences of `_`.   
+  2. Second `replace` uses `/\s+/` to replace all spaces into `-`. The `+` indicates "one or more", so it matches the two spaces in `title  case`.   
 
 ```javascript
 export function toKebab (string) {
@@ -142,7 +145,7 @@ export function toKebab (string) {
 }
 ```  
 
-That gives me the this:   
+Now I have this:   
 
   - `camel-case`  
   - `pascal-case`  
@@ -154,13 +157,13 @@ It even works for complicated mixed cases too. For example, if you try `case_Wit
 
 ## Converting anything to Sentence case  
 
-I worked on this utility next since I wanted to convert `camelCase` into `Sentence case`.   
+I worked on this utility next since I want to convert `camelCase` into `Sentence case`.   
 
 At first, I dreaded the thought of finding the similarities between all 6 cases again. It felt like a lot of work. 
 
 But I realized I can use my `toKebab` function to convert everything into `kebab-case` first. This takes advantage of the work I've already done.   
 
-I was against this idea at first because it seems like a "waste of resources" to run another function first from a performance standpoint. But I realized I was being idealistic. From a practical standpoint, it doesn't have much impact on performance since the operations are really fast.   
+Initially, I was against this idea because it seems like a "waste of resources" from a performance standpoint to run another function first. But I realized I was being idealistic. From a practicality standpoint, it doesn't have much of an impact on performance since the operations are really fast.   
 
 ```javascript
 // Starting with toKebab
@@ -171,11 +174,11 @@ function toTitle (string) {
 
 Now I just need to convert `kebab-case` to `Title Case`.   
 
-Here, I only need to do the following:  
+To do so, I only need to do the following:  
 
-  1. Split the string at `-`. This gives me an array of words.   
+  1. Split the string at `-` (giving me an array of words).   
   2. Capitalize the first letter of each word.   
-  3. Join the array with space.  
+  3. Join the array with spaces.  
 
 ```javascript
 export function toTitle (string) {
@@ -192,7 +195,7 @@ And I'm done!
 
 ## Converting anything into Sentence Case   
 
-It's equally easy to convert all cases into Sentence case. Once again, I started by converting things into `kebab-case`.   
+It's just as easy to convert all cases into `Sentence case`. Once again, I start by converting the text into `kebab-case`.   
 
 ```javascript
 export function toSentence (string) {
@@ -200,12 +203,12 @@ export function toSentence (string) {
 }
 ```  
 
-Now I only need to convert `kebab-case` into `Sentence case`. There are two things to do:  
+Now I only need to convert `kebab-case` to `Sentence case`. There are two things to do:  
 
-  - Capitalize the first letter   
-  - replace `-` with space.  
+  - Capitalize the first letter.   
+  - Replace `-` with spaces.  
 
-I can do either step first. In this case, I chose to do the `replace` step first since I can chain it after `toKebab`.  
+I can do either step first. In this case, I decided to do the `replace` step first since I can chain it after `toKebab`.  
 
 ```javascript
 export function toSentence (string) {
@@ -217,7 +220,7 @@ export function toSentence (string) {
 
 ## Convert anything into camelCase  
 
-Finally, I want to be able to convert any string back into camel case.   
+Finally, I want to be able to convert any string back to `camelCase`.   
 
 I start with `toKebab` as usual.  
 
@@ -227,12 +230,12 @@ export function toCamel (string) {
 }
 ```  
 
-At this point, I only need to convert `kebab-case` into `camelCase`.   
+At this point, I only need to convert `kebab-case` to `camelCase`.   
 
 I can do this by:   
 
 1. Splitting the word at each `-`. This creates an array of words.   
-2. Loop through the array and capitalize the first letter if it's not the first word.   
+2. Loop through the array and capitalize the first letter (not including the first word).   
 
 ```javascript
 function toCamel (string) {
