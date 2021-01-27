@@ -20,7 +20,7 @@ There's a 30% increase in users (1.04mil to 1.36 mil) from Jan 2020 to Jan 2021.
 
 <figure role="figure">
   <img src="/images/2021/review/analytics.png" alt="">
-</figure>
+</figure> 
 
 What's funny to me is I didn't know what I was doing.
 
