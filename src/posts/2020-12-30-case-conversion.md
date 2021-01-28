@@ -50,7 +50,7 @@ Converting `snake_case`, `Sentence case` and `Title Case` into `kebab-case` is e
   1. Lowercase everything
   2. Replace `_` and spaces with `-`
 
-But I cannot begin by lowercasing everything if I wanted to support case conversion from `camelCase` and `PascalCase`. I would lose the word-break point.
+But I cannot begin by lowercasing everything if I want to support case conversion from `camelCase` and `PascalCase`. I would lose the word-break point.
 
 So I had to begin by searching for the capital letters which denote the start of a new word (for `camelCase` and `PascalCase`). The easiest way is to loop through each letter and run a simple `/[A-Z]/` regex. This regex searches for any letter that's between A and Z.
 
@@ -122,8 +122,8 @@ This gives me the following:
 
 I can now replace both `_` and spaces with `-`. This can be done with two `replace` calls like this:
 
-  - 1. First replace uses `/_/g` to replace all occurences of `_`.
-  - 2. Second replace uses `/\s+/` to replace all spaces into `-`. The `+` indicates "one or more", so it matches the two spaces in `title  case`.
+  - 1. First, replace uses `/_/g` to replace all occurrences of `_`.
+  - 2. Second, replace uses `/\s+/` to replace all spaces into `-`. The `+` indicates "one or more", so it matches the two spaces in `title  case`.
 
 ```javascript
 export function toKebab (string) {
@@ -144,7 +144,7 @@ export function toKebab (string) {
 }
 ```
 
-That gives me the this:
+That gives me this:
 
   - `camel-case`
   - `pascal-case`
@@ -162,7 +162,7 @@ At first, I dreaded the thought of finding the similarities between all 6 cases 
 
 But I realized I can use my `toKebab` function to convert everything into `kebab-case` first. This takes advantage of the work I've already done.
 
-I was against this idea at first because it seems like a "waste of resources" to run another function first from a performance standpoint. But I realized I was being idealistic. From a practical standpoint, it doesn't have much impact on performance since the operations are really fast.
+I was against this idea at first because from a performance standpoint, it seemed like a "waste of resources" to run another function first. But I realized I was being idealistic. From a practical standpoint, it doesn't have much impact on performance since the operations are really fast.
 
 ```javascript
 // Starting with toKebab
@@ -192,7 +192,7 @@ export function toTitle (string) {
 
 And I'm done!
 
-## Converting anything into Sentence Case
+## Converting anything into Sentence case
 
 It's equally easy to convert all cases into Sentence case. Once again, I started by converting things into `kebab-case`.
 
@@ -234,7 +234,7 @@ At this point, I only need to convert `kebab-case` into `camelCase`.
 I can do this by:
 
 1. Splitting the word at each `-`. This creates an array of words.
-2. Loop through the array and capitalize the first letter if it's not the first word.
+2. Loop through the array and capitalize the first letter, if it's not the first word.
 
 ```javascript
 function toCamel (string) {
