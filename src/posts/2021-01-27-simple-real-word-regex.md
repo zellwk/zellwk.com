@@ -1,16 +1,18 @@
 ---
 layout: post
-title: How to use simple regular expressions in the real world
+title: How to write super simple (and useful) regular expressions for real world challenges
 description:
 slug: simple-real-world-regex
 tags:
-  - thoughts
-  - review
+  - javascript
+  - regex
 ---
 
-In this article today, I want to show you how to use regular expressions in a real example. It's actually simpler than you think, and we don't need the complicated regular expression stuff you normally see on Stack overflow.
+Regular expressions are HARD! They look so complicated, they're turn me off completely most of the time. Sometimes I wished I was smarter so I can use them more effectively.
 
-I'll walk you through a simple example.
+While working on Learn JavaScript, I noticed that using regular expressions effectively doesn't mean you need to write complicated regex. You can write super simple regex that solves a ton of problems.
+
+I'm going to show you a real example.
 
 <!-- more -->
 
