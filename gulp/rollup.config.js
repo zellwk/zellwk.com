@@ -1,4 +1,4 @@
-const resolve = require('@rollup/plugin-node-resolve')
+const { nodeResolve } = require('@rollup/plugin-node-resolve')
 const commonjs = require('@rollup/plugin-commonjs')
 const babel = require('rollup-plugin-babel')
 const replace = require('@rollup/plugin-replace')
@@ -10,7 +10,7 @@ const inputOptions = {
     replace({
       ENV: JSON.stringify(process.env.NODE_ENV || 'development')
     }),
-    resolve(),
+    nodeResolve(),
     commonjs(),
     babel({
       exclude: 'node_modules/**', // only transpile our source code

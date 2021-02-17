@@ -4,7 +4,7 @@ const clean = require('./gulp/clean')
 const eleventy = require('./gulp/eleventy')
 const sass = require('./gulp/sass')
 const { jsDevelopment, jsProduction } = require('./gulp/rollup')
-const images = require('./gulp/images')
+const imagemin = require('./gulp/imagemin')
 const pdfs = require('./gulp/pdfs')
 const watch = require('./gulp/watch')
 const { browserSync } = require('./gulp/browser-sync')
@@ -16,20 +16,20 @@ exports.eleventy = eleventy
 exports.sass = sass
 exports.jsdev = jsDevelopment
 exports.jsprod = jsProduction
-exports.images = images
+exports.imagemin = imagemin
 exports.pdfs = pdfs
 exports.serve = browserSync
 exports.rev = rev
 
 exports.default = series(
   clean,
-  parallel(sass, eleventy, images),
+  parallel(sass, eleventy, imagemin),
   parallel(jsDevelopment, browserSync, watch)
 )
 
 exports.build = series(
   clean,
-  parallel(sass, images, jsProduction, pdfs),
+  parallel(sass, imagemin, jsProduction, pdfs),
   rev,
   eleventy,
   pdfs

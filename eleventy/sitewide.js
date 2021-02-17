@@ -1,8 +1,6 @@
 const fs = require('fs')
 const frontMatter = require('front-matter')
-
-const HtmlEntities = require('html-entities').AllHtmlEntities
-const entities = new HtmlEntities()
+const { decode } = require('html-entities')
 
 module.exports = {
   youtube (hash) {
@@ -14,7 +12,7 @@ module.exports = {
   },
 
   decode (content) {
-    return entities.decode(content)
+    return decode(content)
   },
 
   getDescription (page, desc, siteDesc) {
