@@ -3,7 +3,7 @@ const { watch, series } = require('gulp')
 const { reload } = require('./browser-sync')
 
 const sass = require('./sass')
-const images = require('./images')
+const images = require('./imagemin')
 const eleventy = require('./eleventy')
 
 const watcher = cb => {
