@@ -3,7 +3,7 @@ jobs:
   build-and-deploy:
     # pre-built images: https://circleci.com/docs/2.0/circleci-images/
     docker:
-      - image: circleci/node:11.3.0-browsers
+      - image: cimg/node:15.8.0
     steps:
       - checkout
       - restore_cache:
