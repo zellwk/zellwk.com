@@ -13,7 +13,7 @@ jobs:
       - run:
           name: Install files
           #
-          command: npm install rsync && npm install
+          command: npm install
       - save_cache:
           key: npm-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
@@ -35,8 +35,9 @@ jobs:
           command: ssh-keyscan 192.241.199.177 >> ~/.ssh/known_hosts
       - run:
           name: Deploy static site
+          # DeployCI requires rsync
           command: |
-            sudo apt-get install rsync # DeployCI requires rsync
+            sudo apt-get install rsync
             npm run deployCI
       - run:
           name: Restart node server
