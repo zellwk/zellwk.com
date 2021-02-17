@@ -3,7 +3,7 @@ jobs:
   build-and-deploy:
     # pre-built images: https://circleci.com/docs/2.0/circleci-images/
     docker:
-      - image: cimg/node:15.8.0-browsers
+      - image: cimg/python:3.9.1-node
     steps:
       - checkout
       - restore_cache:
@@ -12,6 +12,7 @@ jobs:
             - tmp-images-{{ .Branch }}-
       - run:
           name: Install files
+          #
           command: npm install node-sass && npm install
       - save_cache:
           key: npm-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
