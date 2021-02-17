@@ -12,7 +12,7 @@ jobs:
             - tmp-images-{{ .Branch }}-
       - run:
           name: Install files
-          command: npm install
+          command: npm install -g node-sass && npm install
       - save_cache:
           key: npm-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
