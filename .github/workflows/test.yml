@@ -23,8 +23,11 @@ jobs:
       - run: npm install
       - run: npm run build
 
-      - name: Deploy
-        env:
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-        run: npm run deployCI
+      - name: Create env file
+        run: |
+          touch secrets/variables.env
+          cd secrets
+          echo SSH_USER=${{ secrets.SSH_USER }} >> variables.env
+          echo SSH_HOST=${{ secrets.SSH_HOST }} >> variables.env
+
+      - run: npm run deployCI
