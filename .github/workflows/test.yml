@@ -1,9 +1,5 @@
 name: test-action
-on:
-  push:
-  schedule:
-    # Everyday at 12am UTC
-    - cron '0 0 * * *'
+on: [push]
 jobs:
   run-something:
     runs-on: ubuntu-latest
