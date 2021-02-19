@@ -1,0 +1,10 @@
+name: test-action
+on: [push]
+jobs:
+  run-something:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install -g bats
+      - run: bats -v
