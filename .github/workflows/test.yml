@@ -28,10 +28,11 @@ jobs:
           mkdir secrets
           cd secrets
           touch variables.env
-          echo SSH_USER=1234567 >> variables.env
+          echo SSH_USER=${{ secrets.SSH_USER }} >> variables.env
           echo SSH_HOST=${{ secrets.SSH_HOST }} >> variables.env
 
       - name: Deploy
-        run: |
+        run: echo "${{secrets.SSH_PRIVATE_KEY}}" >> ~/.ssh/id_rsa
 
-          npm run deployCI
+      - run: chmod 600 ~/.ssh/id_rsa
+      - run: npm run deployCI
