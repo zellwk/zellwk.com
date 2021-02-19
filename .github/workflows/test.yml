@@ -36,7 +36,7 @@ jobs:
           mkdir ~/.ssh
           cd ~/.ssh
           touch id_rsa
-          printf "${{secrets.SSH_PRIVATE_KEY}}" >> ~/.ssh/id_rsa
+          echo "${{secrets.SSH_PRIVATE_KEY}}" >> ~/.ssh/id_rsa
 
       - run: chmod 600 ~/.ssh/id_rsa
       - run: npm run deployCI
