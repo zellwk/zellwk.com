@@ -85,7 +85,7 @@ Some time later, I received an email saying I breached the fair use policy.
   <img src="/images/2021/netlify-vercel-and-digital-ocean/vercel-email-fair-usage.png" alt="vercel email fair usage">
 </figure>
 
-I was shocked — I breached a policy?! I always try to abide by the rules and ace in good faith. Being told I breached feels VERY uncomfortable.
+I was shocked — I breached a policy?! I always try to abide by the rules and act in good faith. Being told I breached feels VERY uncomfortable.
 
 After asking further, I discovered that Vercel's free tier has a cap at 100GB Bandwidth too. This information is hidden inside a Fair-Use Policy page (not on the pricing page).
 
