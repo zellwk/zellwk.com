@@ -33,5 +33,4 @@ jobs:
 
       - name: Deploy
         run: |
-          echo "${{ secrets.DO_PUBLIC_KEY }}" > ~/.ssh/known_hosts
           npm run deployCI
