@@ -31,4 +31,7 @@ jobs:
           echo SSH_USER=${{ secrets.SSH_USER }} >> variables.env
           echo SSH_HOST=${{ secrets.SSH_HOST }} >> variables.env
 
-      - run: npm run deployCI
+      - name: Deploy
+        run: |
+          echo "${{ secrets.DO_PUBLIC_KEY }}" > ~/.ssh/known_hosts
+          npm run deployCI
