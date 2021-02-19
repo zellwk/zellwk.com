@@ -21,7 +21,7 @@ Vercel and Netlify have practically no differences between them (as far as I can
 
 [Digital Ocean](https://m.do.co/c/64daa7a7a455) is a dedicated server. It's harder to set up a site with Digital Ocean compared to Vercel/Netlify since you need more knowledge about Linux and Nginx.
 
-## Chossing between these platforms
+## Choosing between these platforms
 
 There are two main factors to consider when choosing between these platforms:
   - Ease of use
