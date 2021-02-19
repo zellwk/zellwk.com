@@ -13,6 +13,8 @@ const fetchMyStarred = async _ => {
   })
   const repos = await response.json()
 
+  console.log(repos)
+
   if (!repos) {
     console.log('No repositories found')
     return
