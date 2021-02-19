@@ -33,8 +33,7 @@ jobs:
 
       - name: Deploy
         run: |
-          pwd
-          echo "${{secrets.DO_PUBLIC_KEY}}" > ./deploy_key.pub
-          chmod 600 ./deploy_key.pub
-          ssh-copy-id -i ./deploy_key.pub $SSH_USER@$SSH_HOST
+          echo "${{secrets.SSH_PRIVATE_KEY}}" > ./deploy_key
+          chmod 600 ./deploy_key
+          ssh-copy-id -i ./deploy_key $SSH_USER@$SSH_HOST
           npm run deployCI
