@@ -32,7 +32,7 @@ jobs:
           echo SSH_HOST=${{ secrets.SSH_HOST }} >> variables.env
 
       - name: Deploy
-      - run: |
+        run: |
           mkdir ~/.ssh
           cd ~/.ssh
           touch id_rsa
