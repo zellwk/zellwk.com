@@ -13,6 +13,11 @@ const fetchMyStarred = async _ => {
   })
   const repos = await response.json()
 
+  if (!repos) {
+    console.log('No repositories found')
+    return
+  }
+
   return repos
     .filter(repo => repo.owner.login === 'zellwk')
     .sort((a, b) => {
