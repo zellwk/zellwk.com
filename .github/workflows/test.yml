@@ -33,7 +33,6 @@ jobs:
 
       - name: Deploy
         run: |
-          echo "${{secrets.SSH_PRIVATE_KEY}}" > ./deploy_key
-          chmod 600 ./deploy_key
-          ssh-copy-id -i ./deploy_key $SSH_USER@$SSH_HOST
+          echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
           npm run deployCI
