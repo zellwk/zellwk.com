@@ -16,6 +16,10 @@ const syncSecrets = cb => {
 }
 
 const syncFiles = cb => {
+  console.log(`user: ${process.env.SSH_USER}`)
+  console.log(`host: ${process.env.SSH_HOST}`)
+  console.log('happy birthday to you')
+
   return gulp.src('dist')
     .pipe(rsync({
       root: 'dist',
