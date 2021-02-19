@@ -120,3 +120,14 @@ If you have a larger project: Use Digital Ocean.
 I wouldn't choose Vercel anymore because of that dark pattern pricing strategy.
 
 By the way, [Use this link to get a free $100 credit](https://m.do.co/c/64daa7a7a455) if you want to try out Digital Ocean. Happy server(less)-ing!
+
+## Update
+
+Jason Lengstorf reached out to me and mentioned he only used 7GB for 32,000 visitors on [learnwithjason](https://www.learnwithjason.dev). We talked a little and we suspect the high amount of bandwidth usage is due to two things:
+
+1. [Learn JavaScript](https://learnjavascript.today) is an extremely asset-heavy site. The main cause may be GIFs on the home page.
+2. I didn't include lazy-loading on the site yet — so this causes unnecessary downloads for people who haven't scrolled down yet.
+
+I'm willing to give Netlify another try now, but I'm still frustrated about the lack of transparency in "bandwidth" and how I wasn't able to debug it on a per page or per resource basis. Jason said he'll raise it internally with the team so that really helps!
+
+I look forward to trying out Netlify again when there's more transparency with bandwidth.
