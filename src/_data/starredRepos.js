@@ -6,29 +6,31 @@ const token = process.env.GH_TOKEN
 
 // TODO: Somehow zlFetch doesn't work here. I don't know why!
 const fetchMyStarred = async _ => {
-  const response = await fetch('https://api.github.com/users/zellwk/starred', {
-    headers: {
-      Authorization: 'Bearer ' + token
-    }
-  })
-  const repos = await response.json()
+  return []
 
-  console.log(repos)
+  // const response = await fetch('https://api.github.com/users/zellwk/starred', {
+  //   headers: {
+  //     Authorization: 'Bearer ' + token
+  //   }
+  // })
+  // const repos = await response.json()
 
-  if (!repos) {
-    console.log('No repositories found')
-    return
-  }
+  // console.log(repos)
 
-  return repos
-    .filter(repo => repo.owner.login === 'zellwk')
-    .sort((a, b) => {
-      if (a.stargazers_count < b.stargazers_count) {
-        return 1
-      } else {
-        return -1
-      }
-    })
+  // if (!repos) {
+  //   console.log('No repositories found')
+  //   return
+  // }
+
+  // return repos
+  //   .filter(repo => repo.owner.login === 'zellwk')
+  //   .sort((a, b) => {
+  //     if (a.stargazers_count < b.stargazers_count) {
+  //       return 1
+  //     } else {
+  //       return -1
+  //     }
+  //   })
 }
 
 module.exports = function () {
