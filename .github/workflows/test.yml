@@ -25,8 +25,9 @@ jobs:
 
       - name: Create env file
         run: |
-          touch secrets/variables.env
+          mkdir secrets
           cd secrets
+          touch variables.env
           echo SSH_USER=${{ secrets.SSH_USER }} >> variables.env
           echo SSH_HOST=${{ secrets.SSH_HOST }} >> variables.env
 
