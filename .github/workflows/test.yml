@@ -32,7 +32,7 @@ jobs:
           echo SSH_HOST=${{ secrets.SSH_HOST }} >> variables.env
 
       - name: Deploy
-        run: echo "${{secrets.SSH_PRIVATE_KEY}}" >> ~/.ssh/id_rsa
+        run: printf "${{secrets.SSH_PRIVATE_KEY}}" >> /.ssh/id_rsa
 
-      - run: chmod 600 ~/.ssh/id_rsa
+      - run: chmod 600 /.ssh/id_rsa
       - run: npm run deployCI
