@@ -22,5 +22,5 @@ jobs:
 
 
       - name: Deploy with rsync
-        run: rsync -avzn ./dist ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/zellwk/zellwk.com/dist"
+        run: rsync -avzn ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/zellwk/zellwk.com/dist/"
 
