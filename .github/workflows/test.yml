@@ -7,36 +7,16 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
 
-      - name: Cache node modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
       - run: npm install
       - run: npm run build
 
-      - name: Create env file
-        run: |
-          mkdir secrets
-          cd secrets
-          touch variables.env
-          echo SSH_USER=${{ secrets.SSH_USER }} >> variables.env
-          echo SSH_HOST=${{ secrets.SSH_HOST }} >> variables.env
+      - name: Deploy with Rsync
+        uses: shimataro/ssh-key-action@v2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: avzn
+          SOURCE: "./dist"
+          TARGET: "/home/zellwk/zellwk.com/dist"
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
 
-      - name: Deploy
-        run: |
-          mkdir ~/.ssh
-          cd ~/.ssh
-          touch id_rsa
-          echo "${{secrets.SSH_PRIVATE_KEY}}" >> ~/.ssh/id_rsa
-
-      - run: chmod 600 ~/.ssh/id_rsa
-      - run: npm run deployCI
