@@ -11,7 +11,7 @@ jobs:
       - run: npm run build
 
       - name: Deploy with Rsync
-        uses: shimataro/ssh-key-action@v2
+        uses: easingthemes/ssh-deploy@v2.1.5
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: avzn
