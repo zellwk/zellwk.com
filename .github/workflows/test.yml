@@ -7,8 +7,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
 
-      - run: npm install
-      - run: npm run build
+      # - run: npm install
+      # - run: npm run build
 
       # run: echo ${{secrets.SSH_USER }} | sed 's/./& /g'
       - name: Install SSH Key
@@ -22,5 +22,5 @@ jobs:
 
 
       - name: Deploy with rsync
-        run: rsync -avzn ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/zellwk/zellwk.com/dist/
+        run: rsync -avzn ./src/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/zellwk/zellwk.com/dist/
 
