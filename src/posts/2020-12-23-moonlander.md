@@ -199,7 +199,7 @@ I'm going to refrain from talking about symbol keys much because Dvorak and Qwer
 
 ### Layer Change Keys
 
-Initially, I added layer change keys to the bottom row, near the two corners. I thought it was a good idea because the bottom rows are rarely accessed with norma because the bottom row **INCOMPLETE/INCORRECT SENTENCE**
+Initially, I added layer change keys to the bottom row, near the two corners. I thought it was a good idea because the bottom rows are rarely accessed.
 
 I discovered later that it was easy to trigger these keys accidentally when I tried to press keys on the first or second row. It changed my entire keyboard and messed up the typing.
 
