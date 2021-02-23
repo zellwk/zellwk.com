@@ -1,4 +1,4 @@
-name: test-action
+name: deploy
 on:
   push:
   schedule:
