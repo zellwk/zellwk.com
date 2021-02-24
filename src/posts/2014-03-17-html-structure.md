@@ -87,6 +87,7 @@ While the footer is something like this, very similar to main
 Now we have a basic structure to the website
 
 ## Making the Code Better
+
 There are a few improvements if we wanted to make the code above a little better.
 
 1. The header content area is actually a navigation, hence we should give either a nav element or a nav class
