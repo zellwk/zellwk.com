@@ -76,7 +76,7 @@ textarea {
 input,
 textarea,
 button {
-  border: 1px solid gray;
+  border: 2px solid #666;
 }
 
 /* Some defaults for one-liner buttons */
@@ -116,27 +116,21 @@ table {
 }
 
 /*******************
- The hidden attribute
+ Accessibility
  *******************/
 [hidden] {
   opacity: 0;
   visibility: hidden;
 }
 
-/*******************
- Noscript
- *******************/
+[tabindex="-1"] {
+  outline: none !important;
+}
+
 noscript {
   display: block;
   margin-bottom: 1em;
   margin-top: 1em;
-}
-
-/*******************
- Tabindex
- *******************/
-[tabindex="-1"] {
-  outline: none !important;
 }
 
 /*******************
