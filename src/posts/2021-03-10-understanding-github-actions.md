@@ -57,7 +57,7 @@ This action runs when you `push` something into your Github repository.
 You can view the Github Action in the Actions tab.   
 
 <figure role="figure">
-  <img src="/images/2021/github-actions-tab.png" alt="github actions tab location">
+  <img src="/images/2021/understanding-github-actions/github-actions-tab.png" alt="github actions tab location">
 </figure>
   
 Once you're in this actions tab, you'll see the name of your actions on the left sidebar. This corresponds to the `name` field you used for the action file.  
@@ -65,7 +65,7 @@ Once you're in this actions tab, you'll see the name of your actions on the left
 On the right, you'll see a list of times where the action ran. In this case, I have one commit that ran the action.   
 
 <figure role="figure">
-  <img src="/images/2021/github-actions-location.png" alt="github run actions location">
+  <img src="/images/2021/understanding-github-actions/github-actions-location.png" alt="github run actions location">
 </figure>
 
 Note: Workflows and actions mean the same thing here — I guess Github use the term Workflows because having the term "actions" everywhere makes things confusing.   
@@ -73,20 +73,20 @@ Note: Workflows and actions mean the same thing here — I guess Github use the 
 If you click into the workflow that ran, you'll see a summary of what happened. This is is where your `job` and action file name shows up.   
 
 <figure role="figure">
-  <img src="/images/2021/action-job-and-file-name.png" alt="job and action file name">
+  <img src="/images/2021/understanding-github-actions/action-job-and-file-name.png" alt="job and action file name">
 </figure>
 
 If you click into the job, you will see a page that logs what happened during this workflow. (You can click on either of the `write-to-console` buttons here, they both link you to the same page).   
 
 <figure role="figure">
-  <img src="/images/2021/github-write-to-console.png" alt="write to console buttons">
+  <img src="/images/2021/understanding-github-actions/github-write-to-console.png" alt="write to console buttons">
 </figure>
  
 
 You can then click on any item to see more details. For example, here's what happens when I click on `Run echo 'Hello world!'`.   
 
 <figure role="figure">
-  <img src="/images/2021/github-view-action-item.png" alt="view action item">
+  <img src="/images/2021/understanding-github-actions/github-view-action-item.png" alt="view action item">
 </figure>
 
 Now you know how to view your actions, we can look at the range of possible events next.   
@@ -102,7 +102,7 @@ on: [push]
 You can find a list of the possible events to run on the "[Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)" page. The list of possible events is shown on the right hand corner. Feel free to click on any item to read more details about the event.   
 
 <figure role="figure">
-  <img src="/images/2021/events-that-trigger-workflows.png" alt="events that triffer workflows">
+  <img src="/images/2021/understanding-github-actions/events-that-trigger-workflows.png" alt="events that triffer workflows">
 </figure>
 
 Of this list of events, I suspect most people would use `push` and `schedule` the most. I'll talk about `schedule` in a later article.  
@@ -144,7 +144,7 @@ jobs:
 ```  
 
 <figure role="figure">
-  <img src="/images/2021/job-name-change.png" alt="job ID name change">
+  <img src="/images/2021/understanding-github-actions/job-name-change.png" alt="job ID name change">
 </figure>
 
 
@@ -165,7 +165,7 @@ Each Job runs on a specific operating system. You can choose from Windows, Mac o
 You can find the updated list of supported operating systems [here](https://docs.github.com/en/actions/reference/specifications-for-github-hosted-runners#supported-runners-and-hardware-resources).   
 
 <figure role="figure">
-  <img src="/images/2021/github-supported-runners.png" alt="github supported runners">
+  <img src="/images/2021/understanding-github-actions/github-supported-runners.png" alt="github supported runners">
 </figure>
  
 If we wish to run on Ubuntu, we simply add `ubuntu` to `runs-on`.   
@@ -218,11 +218,11 @@ Pay attention to these two types of actions:
 These actions would thus be more stable than anything else you'll find on the marketplace.   
 
 <figure role="figure">
-  <img src="/images/2021/marketplace-actions-team.png" alt="marketplace actions by github actions team">
+  <img src="/images/2021/understanding-github-actions/marketplace-actions-team.png" alt="marketplace actions by github actions team">
 </figure>
  
 <figure role="figure">
-  <img src="/images/2021/marketplace-verified-actions.png" alt="marketplace verified actions">
+  <img src="/images/2021/understanding-github-actions/marketplace-verified-actions.png" alt="marketplace verified actions">
 </figure>
 
 The most basic action is [checkout](https://github.com/marketplace/actions/checkout), which lets you checkout the Git repository into your runner of choice. You can look at the marketplace page to find out how to use this action.   
@@ -230,7 +230,7 @@ The most basic action is [checkout](https://github.com/marketplace/actions/check
 In this case, the Checkout page says we can use the action with `actions/checkout@v2`.   
 
 <figure role="figure">
-  <img src="/images/2021/actions-checkout.png" alt="checkout page action">
+  <img src="/images/2021/understanding-github-actions/actions-checkout.png" alt="checkout page action">
 </figure>
 
 You can then provide arguments to the action with the `with` keyword.   
@@ -250,7 +250,7 @@ Pay attention to the syntax here:
 The `@v2` part is the version we're using. You can see a list of available versions on the top right hand corner, by click the `latest-version` dropdown.   
 
 <figure role="figure">
-  <img src="/images/2021/latest-version-dropdown.png" alt="latest version dropdown">
+  <img src="/images/2021/understanding-github-actions/latest-version-dropdown.png" alt="latest version dropdown">
 </figure>
 
 I recommend stating the major version number (the first number that comes after v) with all Github Actions because we follow [Semver](https://zellwk.com/blog/semantic-versioning/) here. Doing so will ensure your workflow won't break when the action introduces a breaking change.  
@@ -268,7 +268,7 @@ steps:
 `uses` will simply be logged as a section in the Action log  
 
 <figure role="figure">
-  <img src="/images/2021/items-run-with-uses.png" alt="items run with uses">
+  <img src="/images/2021/understanding-github-actions/items-run-with-uses.png" alt="items run with uses">
 </figure>
 
 ### Running steps with `run`  
@@ -283,7 +283,7 @@ steps:
 ```  
 
 <figure role="figure">
-  <img src="/images/2021/sections-created-with-run.png" alt="sections created with run">
+  <img src="/images/2021/understanding-github-actions/sections-created-with-run.png" alt="sections created with run">
 </figure>
  
 
@@ -305,7 +305,7 @@ steps:
 ```  
 
 <figure role="figure">
-  <img src="/images/2021/changed-labels.png" alt="custome label created with name">
+  <img src="/images/2021/understanding-github-actions/changed-labels.png" alt="custome label created with name">
 </figure>
 
 
@@ -325,7 +325,7 @@ steps:
 ```  
 
 <figure role="figure">
-  <img src="/images/2021/commands-under-one-label.png" alt="multiple commands under a single run command">
+  <img src="/images/2021/understanding-github-actions/commands-under-one-label.png" alt="multiple commands under a single run command">
 </figure>
   
 
