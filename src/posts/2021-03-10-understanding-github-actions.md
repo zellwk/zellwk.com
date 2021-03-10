@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Understanding how to use Github Actions
-description: A walkthrough on Zach Leatherman's list of font-loading strategies and how to implement each of them.  
+description: A guide to understanding and using Github actions  
 slug: understanding-github-actions
 tags: 
   - github actions
