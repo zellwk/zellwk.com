@@ -1,0 +1,336 @@
+---
+layout: post
+title: Understanding how to use Github Actions
+description: A walkthrough on Zach Leatherman's list of font-loading strategies and how to implement each of them.  
+slug: understanding-github-actions
+tags: 
+  - github actions
+  - tooling
+  - DevOps
+---
+Github Actions is a Continuous Integration (CI) + Continuous Deployment (CD) tool by Github.   
+
+CI and CD are bombastic terms, but they simply mean the following:   
+  - Continuous Integration: People push to a Git repository and the code gets tested automatically.   
+  - Continuous Delivery: The pushed code (ideally tested and bug-free) is then pushed into the server so it becomes live for users.   
+
+Although Github Actions is one of the many CI + CD Tools out there, it's probably the simplest one to use (in my experience). Unfortunately, the [Github Actions docs](https://docs.github.com/en/actions) is a complete mess — they keep pointing you to different pages, expecting you to read everything (and understand everything) when you're still trying to set up your first action.   
+
+Today I want to share the basics of using Github Actions so it becomes easy for you to use it.   
+
+<!-- more -->
+
+## Setting Up Your First Github Action   
+
+Github Actions live in a `.github/workflows` folder. You can create any number of actions. Each action is a file. Since Github Actions use the YAML format, make sure you end the file name with a `yml` extension.   
+
+```plain text
+- .github
+  |- workflows
+    |- action1.yml
+    |- action2.yml
+```  
+
+You can name the action file anything you want. These file names will show up in the Actions Tab once the action has run. (I'll show you where in a bit).   
+
+In the Github Action file, you need three properties.   
+  - `name` — name of the Github Action (so you know which action is running)  
+  - `on` — when to run this event.   
+  - `jobs` — what to do when we run this action.   
+
+The minimum configuration looks like this:   
+
+```yaml
+name: first-github-action
+on: [push]
+jobs:
+  write-to-console:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Hello world!'
+```  
+
+This action runs when you `push` something into your Github repository.   
+
+## Viewing the Action  
+
+You can view the Github Action in the Actions tab.   
+
+<figure role="figure">
+  <img src="/images/2021/github-actions-tab.png" alt="github actions tab location">
+</figure>
+  
+Once you're in this actions tab, you'll see the name of your actions on the left sidebar. This corresponds to the `name` field you used for the action file.  
+
+On the right, you'll see a list of times where the action ran. In this case, I have one commit that ran the action.   
+
+<figure role="figure">
+  <img src="/images/2021/github-actions-location.png" alt="github run actions location">
+</figure>
+
+Note: Workflows and actions mean the same thing here — I guess Github use the term Workflows because having the term "actions" everywhere makes things confusing.   
+
+If you click into the workflow that ran, you'll see a summary of what happened. This is is where your `job` and action file name shows up.   
+
+<figure role="figure">
+  <img src="/images/2021/action-job-and-file-name.png" alt="job and action file name">
+</figure>
+
+If you click into the job, you will see a page that logs what happened during this workflow. (You can click on either of the `write-to-console` buttons here, they both link you to the same page).   
+
+<figure role="figure">
+  <img src="/images/2021/github-write-to-console.png" alt="write to console buttons">
+</figure>
+ 
+
+You can then click on any item to see more details. For example, here's what happens when I click on `Run echo 'Hello world!'`.   
+
+<figure role="figure">
+  <img src="/images/2021/github-view-action-item.png" alt="view action item">
+</figure>
+
+Now you know how to view your actions, we can look at the range of possible events next.   
+
+## Github Action Events  
+
+Github Action Events determine when a workflow runs. The most basic event is a `push`, which means the workflow runs whenever something is pushed to the repository.  
+
+```yaml
+on: [push]
+```  
+
+You can find a list of the possible events to run on the "[Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)" page. The list of possible events is shown on the right hand corner. Feel free to click on any item to read more details about the event.   
+
+<figure role="figure">
+  <img src="/images/2021/events-that-trigger-workflows.png" alt="events that triffer workflows">
+</figure>
+
+Of this list of events, I suspect most people would use `push` and `schedule` the most. I'll talk about `schedule` in a later article.  
+
+### Running on a specific branch  
+
+You can only ask Github to run an action only on specific branches if you provide that branch into `push`. Here's what the configuration looks like:  
+
+```yaml
+on: 
+  push: 
+    branches: 
+      # When someone push to `main` branch
+      - main
+      # When someone pushes to `develop` branch
+      - develop
+      # When someone pushes to a branch within the `features` folder
+      - 'features/**'```  
+
+Next let's talk about jobs.   
+
+## Github Action Jobs  
+
+Jobs let you define what to do. Each job begins with a "Job ID". This ID is basically a slug  you use. In this case, we have a `write-to-console` Job id.   
+
+```yaml
+jobs:
+  write-to-console:
+    # ... 
+```  
+
+If you're a bit more perfectionist, you can add a `name` attribute to this job. If you do so, the `name` will show up in the Github Actions page instead of the job ID.   
+
+```yaml
+jobs:
+  write-to-console:
+    name: Write to console
+      # ...
+```  
+
+<figure role="figure">
+  <img src="/images/2021/job-name-change.png" alt="job ID name change">
+</figure>
+
+
+You can list multiple jobs if you wish to.  
+
+```yaml
+jobs:
+  testing:
+    # ...
+  deploy: 
+    # ...
+```   
+
+### Running on a specific operating system  
+
+Each Job runs on a specific operating system. You can choose from Windows, Mac or Ubuntu (Linux) at the time of writing. These servers are called "runners" in Github Actions terminology.   
+
+You can find the updated list of supported operating systems [here](https://docs.github.com/en/actions/reference/specifications-for-github-hosted-runners#supported-runners-and-hardware-resources).   
+
+<figure role="figure">
+  <img src="/images/2021/github-supported-runners.png" alt="github supported runners">
+</figure>
+ 
+If we wish to run on Ubuntu, we simply add `ubuntu` to `runs-on`.   
+
+```yaml
+# ...
+jobs:
+  write-to-console:
+    runs-on: ubuntu-latest
+```  
+
+Next we need to define the steps to run. This is where the bulk of the action occurs.   
+
+## Defining what to do in each job  
+
+`steps` let you define what to run in each job. There are three ways to define steps.   
+  - With `uses`   
+  - With `run`   
+  - With `name`   
+
+Here's an example of what each of these looks like  
+
+```yaml
+# ...
+jobs:
+  write-to-console:
+    # ... 
+    steps: 
+      # Method 1 with Uses
+      - uses: something
+      
+      # Method 2 with Runs
+      - runs: some-cli-command
+
+      # Method 3 with name
+      - name: Label for this step
+        run: some-cli-command
+```  
+
+We'll dive into each possible syntax.   
+
+### Running steps with `uses`  
+
+`uses` let you use Github Actions others have created. You can see a list of possible Github Actions in the [Marketplace](https://github.com/marketplace?type=actions).   
+
+Pay attention to these two types of actions:   
+  - `by actions` — these are created by the Github actions team   
+  - The verified checkmark — these are created by people verified by the Github actions team.   
+
+These actions would thus be more stable than anything else you'll find on the marketplace.   
+
+<figure role="figure">
+  <img src="/images/2021/marketplace-actions-team.png" alt="marketplace actions by github actions team">
+</figure>
+ 
+<figure role="figure">
+  <img src="/images/2021/marketplace-verified-actions.png" alt="marketplace verified actions">
+</figure>
+
+The most basic action is [checkout](https://github.com/marketplace/actions/checkout), which lets you checkout the Git repository into your runner of choice. You can look at the marketplace page to find out how to use this action.   
+
+In this case, the Checkout page says we can use the action with `actions/checkout@v2`.   
+
+<figure role="figure">
+  <img src="/images/2021/actions-checkout.png" alt="checkout page action">
+</figure>
+
+You can then provide arguments to the action with the `with` keyword.   
+
+```yaml
+steps: 
+  - uses: actions/checkout@v2
+    with: 
+      repository: '' 
+      anotherArg: '' 
+```  
+
+Pay attention to the syntax here:   
+  - `uses` has `-` in front of it — this signifies the step.   
+  - `with` does not have `-` in front of it — all other commands under the same step (`with` is within `uses`) should NOT have a `-` prefix.  
+
+The `@v2` part is the version we're using. You can see a list of available versions on the top right hand corner, by click the `latest-version` dropdown.   
+
+<figure role="figure">
+  <img src="/images/2021/latest-version-dropdown.png" alt="latest version dropdown">
+</figure>
+
+I recommend stating the major version number (the first number that comes after v) with all Github Actions because we follow [Semver](https://zellwk.com/blog/semantic-versioning/) here. Doing so will ensure your workflow won't break when the action introduces a breaking change.  
+
+Besides `checkout`, you'll most probably need to setup a Node Environment [with the official action](https://github.com/marketplace/actions/setup-node-js-environment) too.   
+
+```yaml
+steps:
+  - uses: actions/checkout@v2
+  - uses: actions/setup-node@v2
+    with:
+      node-version: '14'
+```  
+
+`uses` will simply be logged as a section in the Action log  
+
+<figure role="figure">
+  <img src="/images/2021/items-run-with-uses.png" alt="items run with uses">
+</figure>
+
+### Running steps with `run`  
+
+`run` is straightforward here. It simply runs a command. Each `run` command will create a dedicated section in the Actions log.   
+
+```yaml
+steps:
+  # ...
+  - run: echo 'Hello World!' 
+  - run: echo "Another section 😉"
+```  
+
+<figure role="figure">
+  <img src="/images/2021/sections-created-with-run.png" alt="sections created with run">
+</figure>
+ 
+
+### Running steps with `name`  
+
+`name` lets you create a custom label for the steps you want to run. Each `name` should come with either a set of commands — typically `with` or `run`.   
+
+```yaml
+steps:
+  # ...
+  
+  # Using Name + uses
+  - name: Setup Node 
+    uses: actions/setup-node@v1
+
+  # Using Name + Run
+  - name: Say Hello 
+    run: echo 'Hello World!' 
+```  
+
+<figure role="figure">
+  <img src="/images/2021/changed-labels.png" alt="custome label created with name">
+</figure>
+
+
+### Running multiple commands within one `run` command  
+
+You can run many lines of commands within a single `run` command. This helps group related things together and makes it easy to view the logs later.   
+
+To do this, you need a `|` character at the start of the `run` command. Then, you write each command on a new line.   
+
+```yaml
+steps:
+  # ...
+  - name: Command Group
+    run: | 
+      echo 'Hello World!' 
+      echo 'Hello again!'
+```  
+
+<figure role="figure">
+  <img src="/images/2021/commands-under-one-label.png" alt="multiple commands under a single run command">
+</figure>
+  
+
+## Wrapping Up 
+
+You now know the very basics of Github Actions. I hope this article clarifies things so you spend less time reading through the docs and configuring what you want to create.   
+
+Next week, we'll dive deeper into Github actions to show you how to deploy a site automatically with SSH into a server. This means we'll also begin to work with Github secrets 😉.   
