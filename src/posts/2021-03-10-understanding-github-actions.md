@@ -70,7 +70,7 @@ On the right, you'll see a list of times where the action ran. In this case, I h
 
 Note: Workflows and actions mean the same thing here — I guess Github use the term Workflows because having the term "actions" everywhere makes things confusing.   
 
-If you click into the workflow that ran, you'll see a summary of what happened. This is is where your `job` and action file name shows up.   
+If you click into the workflow that ran, you'll see a summary of what happened. This is where your `job` and action file name shows up.   
 
 <figure role="figure">
   <img src="/images/2021/understanding-github-actions/action-job-and-file-name.png" alt="job and action file name">
@@ -109,7 +109,7 @@ Of this list of events, I suspect most people would use `push` and `schedule` th
 
 ### Running on a specific branch  
 
-You can only ask Github to run an action only on specific branches if you provide that branch into `push`. Here's what the configuration looks like:  
+You can only ask Github to run an action on specific branches if you provide that branch into `push`. Here's what the configuration looks like:  
 
 ```yaml
 on: 
@@ -134,7 +134,7 @@ jobs:
     # ... 
 ```  
 
-If you're a bit more perfectionist, you can add a `name` attribute to this job. If you do so, the `name` will show up in the Github Actions page instead of the job ID.   
+If you're a bit more of a perfectionist, you can add a `name` attribute to this job. If you do so, the `name` will show up in the Github Actions page instead of the job ID.   
 
 ```yaml
 jobs:
@@ -165,7 +165,7 @@ Each Job runs on a specific operating system. You can choose from Windows, Mac o
 You can find the updated list of supported operating systems [here](https://docs.github.com/en/actions/reference/specifications-for-github-hosted-runners#supported-runners-and-hardware-resources).   
 
 <figure role="figure">
-  <img src="/images/2021/understanding-github-actions/github-supported-runners.png" alt="github supported runners">
+  <img src="/images/2021/understanding-github-actions/github-runners.png" alt="github supported runners">
 </figure>
  
 If we wish to run on Ubuntu, we simply add `ubuntu` to `runs-on`.   
