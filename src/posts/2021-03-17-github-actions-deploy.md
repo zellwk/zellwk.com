@@ -99,7 +99,7 @@ Note: Make sure you use double-right-angled brackets (`>>`) and not single-angle
 Go to your repository on Github and click on "Settings", then "Secrets". You should see a button that says "New repository secret".   
 
 <figure role="figure">
-  <img src="/images/2021/github-actions-deploy/github-settings-location.png.png" alt="github settings navigation location">
+  <img src="/images/2021/github-actions-deploy/github-settings-location.png" alt="github settings navigation location">
 </figure>
 
 <figure role="figure">
