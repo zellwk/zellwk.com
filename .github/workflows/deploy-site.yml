@@ -7,8 +7,6 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{secrets.HELLO_WORLD}}
-      - run: echo ${{secrets.HELLO_WORLD}} | sed 's/./& /g'
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
 
