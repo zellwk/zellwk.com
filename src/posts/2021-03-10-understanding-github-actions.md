@@ -120,7 +120,8 @@ on:
       # When someone pushes to `develop` branch
       - develop
       # When someone pushes to a branch within the `features` folder
-      - 'features/**'```  
+      - 'features/**'
+```  
 
 Next let's talk about jobs.   
 
