@@ -109,7 +109,7 @@ db.characters.find()
 
 This is all you need to know about the Mongo Shell for now.
 
-## Accessing MongDB with MongoDB Compass
+## Accessing MongoDB with MongoDB Compass
 
 MongoDB Compass gives you another way to access MongoDB. It's an app that makes checking (and editing) databases easier if you're not a fan of the command line.
 
