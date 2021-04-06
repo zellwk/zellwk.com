@@ -8,6 +8,7 @@ tags:
   - Creation
   - Learning
 ---
+
 I finally completed my JavaScript course — [Learn JavaScript](https://learnjavascript.today) — two weeks ago. I spent 4 years writing this course (which is a long time!). Today, I want to reflect on this journey and complete it before I move onto the next one.   
 
 If you're interested in hearing the lessons I learned from dedicating 4 years of my life to building one course, then this article is for you!   
