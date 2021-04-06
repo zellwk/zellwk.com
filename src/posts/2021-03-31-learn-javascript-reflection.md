@@ -3,7 +3,7 @@ layout: post
 title: 8 lessons I learned from spending 4 years writing one course — Learn JavaScript
 description: Hard lessons I learned from dedicating lots of time to produce one thing.
 slug: learn-javascript-reflection
-tags: [#reflection, #creation, #learning]
+tags: ['#reflection', '#creation', '#learning']
 ---
 
 I finally completed my JavaScript course — [Learn JavaScript](https://learnjavascript.today) — two weeks ago. I spent 4 years writing this course (which is a long time!). Today, I want to reflect on this journey and complete it before I move onto the next one.   
