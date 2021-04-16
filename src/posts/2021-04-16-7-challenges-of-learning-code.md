@@ -70,7 +70,7 @@ What's the first thing you notice when you see such a roadmap?
 
 If you're reaction is "oh my fucking god", you're not alone. Most people will look at this roadmap and have the same reaction: oh my fucking god! Then _they get overwhelmed by the amount of things they need to do. _  
 
-**Following large roadmaps **like this one **is a surefire way to kill your joy for learning**.   
+**Following large roadmaps** like this one **is a surefire way to kill your joy for learning**.   
 
 For example, most people who start out learning to code don't really know what DNS or HTTP is. They don't really care. They just want to make a website. If you ask them to research what HTTP is, they're going to go "what?". Why do I have to learn that? Simply put, they're not ready to take on this information yet.   
 
@@ -143,15 +143,15 @@ If you're into the programming world, you would know of the debate between decla
 
 Even though the game developer used imperative code, can you say he's a bad developer? No, you can't. He's already producing games that work!   
 
-**Producing stuff with bad quality code makes you a better developer than producing nothing with good quality code. **  
+**Producing stuff with bad quality code makes you a better developer than producing nothing with good quality code.**  
 
 If you want to become better at the craft, you can always [reinvent the wheel](https://zellwk.com/blog/dont-reinvent-the-wheel/) or learn from various experts.   
 
 ## Problem #6: You get distracted easily  
 
 There are many reasons why you can get distracted. But distractions usually fall into two categories:   
-  - 1. You're really tired and you need some rest  
-  - 2. You're afraid of something and you're running away.   
+  1. You're really tired and you need some rest  
+  2. You're afraid of something and you're running away.   
 
 **If you're tired, feel free to take a rest!** Don't feel bad about needing to rest. Even marathon runners need to take a break when they're not running.   
 
@@ -163,7 +163,7 @@ Human beings have two kinds of memories — short-term memories and long-term me
 
 When we learn something, we store what we learn in the short-term memory bank. They only get transferred into the long-term memory bank if we keep using it for a long time. If we don't use the information, we simply discard the information.   
 
-So **it's a given that we will forget something. **  
+So **it's a given that we will forget something.**  
 
 There are three ways to overcome this problem.   
 
@@ -175,7 +175,7 @@ Just be aware that **memory is a skill**. Dedicating time and energy to training
 
 ### Write notes  
 
-Since we forget anyway, why not make notes about everything we learn? **If you forget something, you can always look back at your notes. **  
+Since we forget anyway, why not make notes about everything we learn? **If you forget something, you can always look back at your notes.**  
 
 Don't worry about referring to your notes. Life is not an exam. You won't lose marks for referring to your notes.   
 
@@ -183,7 +183,7 @@ It's always better to **make your own notes** (instead of using other people's n
 
 ### Practice  
 
-Since using of knowledge stored inside short-term memory converts it into long-term memory, the only other way to combat memory loss is to **practice what you learned**.   
+Since usage of knowledge stored inside short-term memory converts it into long-term memory, the only other way to combat memory loss is to **practice what you learned**.   
 
 Don't make practice harder than you think it is. All you have to do is **make stuff whenever you can**.   
 
