@@ -63,7 +63,7 @@ How do you decide what to learn? Most people have this question. When you have s
 And you may have ended up with a huge developer roadmap like this.   
 
 <figure role="figure">
-  <img src="/images/2021/7-challenges-of-learning-to-code/roadmap.png" alt="huge developer roadmap">
+  <img src="/images/2021/seven-challenges-of-learning-code/roadmap.png" alt="huge developer roadmap">
 </figure> 
 
 What's the first thing you notice when you see such a roadmap?   
