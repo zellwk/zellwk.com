@@ -86,7 +86,7 @@ You have to start by throwing away the concept of a roadmap and **focus on the t
 
 For example, when I started out learning web development, I only knew I wanted to be able to code out a design and put it on a website. The first step, is hence, code out the design.   
 
-So that led me to search for videos showing me how to turn a design into a website. Specifically, how to turn PSD into HTML and CS.   
+So that led me to search for videos showing me how to turn a design into a website. Specifically, how to turn PSD into HTML and CSS.
 
 I followed those tutorials and coded along. At the end of a few tutorials, I set myself a challenge to replicate Tutsplus website [which looked like this way back in 2012](https://web.archive.org/web/20120202082032/http://tutsplus.com/).   
 
