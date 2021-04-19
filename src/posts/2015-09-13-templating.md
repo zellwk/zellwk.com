@@ -295,8 +295,6 @@ gulp.task('nunjucks', function() {
 
 Now, try running `gulp nunjucks` in your command line. Gulp would have created an `index.html` and placed it in the `app` folder for you.
 
-Now, try running `gulp nunjucks` in your command line. Gulp would have created an `index.html` and placed it in the `app` folder for you.
-
 ![](/images/2015/09/index-html-by-nunjucks.png)
 
 If you opened up this `index.html` file, you should see the following code:
