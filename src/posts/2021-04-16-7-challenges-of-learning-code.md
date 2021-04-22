@@ -68,7 +68,7 @@ And you may have ended up with a huge developer roadmap like this.
 
 What's the first thing you notice when you see such a roadmap?   
 
-If you're reaction is "oh my fucking god", you're not alone. Most people will look at this roadmap and have the same reaction: oh my fucking god! Then _they get overwhelmed by the amount of things they need to do. _  
+If your reaction is "oh my fucking god", you're not alone. Most people will look at this roadmap and have the same reaction: oh my fucking god! Then _they get overwhelmed by the amount of things they need to do. _  
 
 **Following large roadmaps** like this one **is a surefire way to kill your joy for learning**.   
 
