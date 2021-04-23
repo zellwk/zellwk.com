@@ -25,7 +25,7 @@ The things you need to remember are the things you need to use on a daily basis 
 
 **Don't worry about remembering everything** upfront. You won't be able to remember if you try to quickly cram everything into your brain — remember, **you're not studying for an exam**!   
 
-It's important to **really understand what you're learning**, [so make notes](https://zellwk.com/blog/7-challenges-of-learning-code/problem-%237%3A-you-forget-what-you-learn) and refer to them as you practice. When you practice enough times, the things you constantly use will start to become a part of you.   
+It's important to **really understand what you're learning**, [so make notes](https://zellwk.com/blog/7-challenges-of-learning-code/#problem-%237%3A-you-forget-what-you-learn) and refer to them as you practice. When you practice enough times, the things you constantly use will start to become a part of you.   
 
 So you don't actually "remember" JavaScript. You **keep using what you need to use until it becomes part of you**. You can always refer to the notes you made (which helps you remember stuff much easier).   
 
