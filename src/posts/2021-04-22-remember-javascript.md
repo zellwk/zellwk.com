@@ -3,7 +3,7 @@ layout: post
 title: How to remember JavaScript
 description: What you need to remember vs what you don't need to.
 slug: remember-javascript
-tags: ['Writing', 'JavaScript', 'Learning']
+tags: ['writing', 'javascript', 'learning']
 ---
 JavaScript contains many things — lots of different methods and ways to do things. How do you remember them all?   
 
