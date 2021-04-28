@@ -7,9 +7,7 @@ tags: ['writing', 'vscode', 'tools', javascript]
 ---
 It used to be straightforward to disable languages for Prettier in VSCode. You just added a `prettier.disableLanguages` setting and you were done. 
 
-(Please set to JSON syntax)
-
-```javascript
+```json
 // In settings.json
 [
   "prettier.disableLanguages": [
@@ -34,9 +32,7 @@ There are two methods.
 
 The first option is to enable Prettier for specific languages you use. You can do this with the `editor.defaultFormatter` property. Here's an example where you enable it for CSS. 
 
-(JSON Syntax)
-
-```javascript
+```json
 [
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
