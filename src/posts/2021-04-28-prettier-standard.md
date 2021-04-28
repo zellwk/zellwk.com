@@ -31,7 +31,7 @@ And here's one with Prettier Standard.
 
 For languages that Prettier doesn't support, you can always [overwrite Prettier with a different formatter](https://zellwk.com/blog/prettier-disable-languages#enabling-prettier-globally-but-disabling-it-in-specific-languages), like this: 
 
-```javascript
+```json
 "[nunjucks]": {
   "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
 },
