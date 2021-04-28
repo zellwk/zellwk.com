@@ -62,13 +62,13 @@ So I prefer to enable Prettier globally, but overwrite Prettier in specific lang
 
 We can enable Prettier globally with the `editor.defaultFormatter` property. 
 
-```javascript
+```json
 "editor.defaultFormatter": "esbenp.prettier-vscode",
 ```
 
 If you want to disable Prettier for a specific language, you can set the `editor.defaultFormatter` to `null`. 
 
-```javascript
+```json
 "editor.defaultFormatter": null;
 ```
 
@@ -77,7 +77,7 @@ You can also choose to overwrite a specific formatter for a specific language. I
 Note:
 If you're using Standard for JavaScript, it's much easier to use the [prettier-vscode-standard](https://marketplace.visualstudio.com/items?itemName=numso.prettier-standard-vscode) extension instead. I wrote about this in [another article](/blog/prettier-standard).
 
-```javascript
+```json
 "[javascript]": {
     "editor.defaultFormatter": "chenxsan.vscode-standardjs"
 },
