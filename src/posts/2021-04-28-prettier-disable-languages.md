@@ -42,7 +42,7 @@ The first option is to enable Prettier for specific languages you use. You can d
 
 If you use this method, you need to enable Prettier for every language, which can be tedious. 
 
-```javascript
+```json
 [
   "[html]": {
   	"editor.defaultFormatter": "esbenp.prettier-vscode"
