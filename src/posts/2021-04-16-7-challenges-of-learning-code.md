@@ -3,7 +3,7 @@ layout: post
 title: Overcoming 7 main problems of learning to code (for people who don't have a developer job)
 description: Some tips and tricks to help beginner developers learn how to code
 slug: 7-challenges-of-learning-code
-tags: ["writing", "advice", "systems"]
+tags: ['writing', 'advice', 'systems']
 ---
 
 If you don't have a job as a developer, learning how to code becomes a much bigger challenge for a simple reason — developers can learn to code on the job.
@@ -70,7 +70,7 @@ And you may have ended up with a huge developer roadmap like this.
 
 What's the first thing you notice when you see such a roadmap?
 
-If you're reaction is "oh my fucking god", you're not alone. Most people will look at this roadmap and have the same reaction: oh my fucking god! Then _they get overwhelmed by the amount of things they need to do. _
+If your reaction is "oh my fucking god", you're not alone. Most people will look at this roadmap and have the same reaction: oh my fucking god! Then _they get overwhelmed by the amount of things they need to do. _
 
 **Following large roadmaps** like this one **is a surefire way to kill your joy for learning**.
 
