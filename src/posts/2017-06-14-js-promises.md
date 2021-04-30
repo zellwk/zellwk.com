@@ -3,7 +3,7 @@ title: Promises in JavaScript
 layout: post
 slug: js-promises
 tags:
- - javascript
+  - javascript
 newsletter: jsr
 hash: js
 ---
@@ -18,7 +18,7 @@ In this article, you're going to learn all about JavaScript promises. You'll und
 
 ## So, what is a promise?
 
-A **promise** is an object that will *return a value in future*. Because of this "in future" thing, Promises are well suited for asynchronous JavaScript operations.
+A **promise** is an object that will _return a value in future_. Because of this "in future" thing, Promises are well suited for asynchronous JavaScript operations.
 
 (If you're unsure what asynchronous JavaScript means, you might not be ready for this article. I suggest you go through [this article on callbacks](/blog/callbacks) first before coming back here).
 
@@ -48,8 +48,7 @@ You begin to plan your next steps after talking to Jeff. You realize that you ca
 If Jeff does buy the cake, we say the promise is `resolved` in JavaScript. When a promise gets resolved, you do the next thing in a `.then` call:
 
 ```js
-jeffBuysCake('black forest')
-  .then(partyAsPlanned) // Woohoo! 🎉🎉🎉
+jeffBuysCake('black forest').then(partyAsPlanned) // Woohoo! 🎉🎉🎉
 ```
 
 But if Jeff doesn't buy you the cake, you got to run to the bakery yourself. (Damn you, Jeff!). If this happens, we say the promise is `rejected`.
@@ -68,8 +67,12 @@ In JavaScript, we usually use promises to get or modify a piece of information. 
 
 ```js
 getSomethingWithPromise()
-  .then(data => {/* do something with data */})
-  .catch(err => {/* handle the error */})
+  .then(data => {
+    /* do something with data */
+  })
+  .catch(err => {
+    /* handle the error */
+  })
 ```
 
 Now, you know how a promise works. Let's dive in further and examine how to construct a promise.
@@ -127,7 +130,7 @@ Next, Jeff says he's going to buy the cake in a week. Let's use a `setTimeout` f
 ```js
 const jeffBuysCake = cakeType => {
   return new Promise((resolve, reject) => {
-    setTimeout(()=> {
+    setTimeout(() => {
       // Checks if Jeff buys a black forest cake
     }, 1000)
   })
@@ -141,9 +144,8 @@ If Jeff bought another type of cake, we reject the promise and say `no cake`, wh
 ```js
 const jeffBuysCake = cakeType => {
   return new Promise((resolve, reject) => {
-    setTimeout(()=> {
-      if (cakeType
- === 'black forest') {
+    setTimeout(() => {
+      if (cakeType === 'black forest') {
         resolve('black forest cake!')
       } else {
         reject('No cake 😢')

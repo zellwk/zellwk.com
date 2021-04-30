@@ -1,0 +1,7 @@
+@use 'config/typography' as *;
+
+input {
+  padding: ru(0.125) ru(0.5);
+  background-color: rgba(white, 0.1);
+  border: 1px solid var(--grey-500);
+}

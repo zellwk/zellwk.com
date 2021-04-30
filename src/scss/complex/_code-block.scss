@@ -1,0 +1,113 @@
+@use 'config/typography' as *;
+@use 'config/borders' as *;
+
+// TODO: Include file syntax into code block styles
+pre {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap;
+  background-color: var(--grey-800);
+  color: var(--grey-200);
+  border-radius: $border-radius;
+
+  code {
+    display: block;
+    padding: ru(0.5) ru(0.5);
+  }
+}
+
+[class*='language-'] {
+  text-align: left;
+  hyphens: none;
+  tab-size: 2;
+}
+
+// Uses prism.js to style code blocks.
+// Tomorrow-night eighties theme
+// Based on https://github.com/chriskempson/tomorrow-theme
+
+// Colors
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #999;
+}
+
+.token.punctuation {
+  color: #ccc;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+  color: #e2777a;
+}
+
+.token.function-name {
+  color: #6196cc;
+}
+
+.token.boolean,
+.token.number,
+.token.function {
+  color: #f08d49;
+}
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+  color: #f8c555;
+}
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+  color: #cc99cd;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+  color: #7ec699;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.inserted {
+  color: green;
+}
+
+.token.deleted-sign {
+  display: block;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.token.inserted-sign {
+  display: block;
+  background-color: rgba(0, 255, 128, 0.2);
+}

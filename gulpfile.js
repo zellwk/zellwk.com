@@ -10,6 +10,7 @@ const watch = require('./gulp/watch')
 const { browserSync } = require('./gulp/browser-sync')
 const { syncSecrets, syncFiles } = require('./gulp/sync')
 const rev = require('./gulp/rev')
+const copyFonts = require('./gulp/fonts')
 
 exports.clean = clean
 exports.eleventy = eleventy
@@ -23,13 +24,13 @@ exports.rev = rev
 
 exports.default = series(
   clean,
-  parallel(sass, eleventy, imagemin),
+  parallel(sass, eleventy, imagemin, copyFonts),
   parallel(jsDevelopment, browserSync, watch)
 )
 
 exports.build = series(
   clean,
-  parallel(sass, imagemin, jsProduction, pdfs),
+  parallel(sass, imagemin, jsProduction, pdfs, copyFonts),
   rev,
   eleventy,
   pdfs

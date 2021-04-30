@@ -21,6 +21,10 @@ In this 2-part series, I want to share everything you need to know about asynchr
 Asynchronous functions contains the `async` keyword. You can use it in a normal function declaration:
 
 ```js
+const name = 'Zell'
+```
+
+```js
 async function functionName (arguments) {
   // Do something asynchronous
 }
@@ -29,7 +33,7 @@ async function functionName (arguments) {
 You can also use it in an arrow-function.
 
 ```js
-const functionName = async (arguments) => {
+const functionName = async arguments => {
   // Do something asynchronous
 }
 ```
@@ -58,10 +62,9 @@ const getOne = async _ => {
   return 1
 }
 
-getOne()
-  .then(value => {
-    console.log(value) // 1
-  })
+getOne().then(value => {
+  console.log(value) // 1
+})
 ```
 
 The `await` keyword lets you wait for the promise to resolve. Once the promise is resolved, it returns the parameter passed into the `then` call.
@@ -87,10 +90,9 @@ const test = async _ => {
   return await getOne()
 }
 
-test()
-  .then(value => {
-    console.log(value) // 1
-  })
+test().then(value => {
+  console.log(value) // 1
+})
 ```
 
 ```js
@@ -99,10 +101,9 @@ const test = async _ => {
   return getOne()
 }
 
-test()
-  .then(value => {
-    console.log(value) // 1
-  })
+test().then(value => {
+  console.log(value) // 1
+})
 ```
 
 Note: If you don't need `await`, you don't need to use an async function. The example above can be rewritten as follows:
@@ -113,10 +114,9 @@ const test = _ => {
   return getOne()
 }
 
-test()
-  .then(value => {
-    console.log(value) // 1
-  })
+test().then(value => {
+  console.log(value) // 1
+})
 ```
 
 ## Handling errors
@@ -129,8 +129,7 @@ const getOne = async (success = true) => {
   throw new Error('Failure!')
 }
 
-getOne(false)
-  .catch(error => console.log(error)) // Failure!
+getOne(false).catch(error => console.log(error)) // Failure!
 ```
 
 If you want to handle an error in an asynchronous function, you need to use a `try/catch` call.
@@ -207,10 +206,9 @@ const sleep = ms => {
 ```js
 // Using Sleep
 console.log('Now')
-sleep(1000)
-  .then(v => {
-    console.log('After one second')
-  })
+sleep(1000).then(v => {
+  console.log('After one second')
+})
 ```
 
 <figure><img src="/images/2019/async-await/sleep.gif" alt="Console logs 'now' immediately. One second later, it logs 'After one second'"></figure>
@@ -309,5 +307,5 @@ Note: This article is a modified excerpt from [Learn JavaScript][2]. If you find
 
 Next up, we're going to look at asynchronous functions and its behavior in loops.
 
-[1]:	/blog/js-promises/ "Promises in JavaScript"
-[2]:	https://learnjavascript.today
+[1]: /blog/js-promises/ 'Promises in JavaScript'
+[2]: https://learnjavascript.today

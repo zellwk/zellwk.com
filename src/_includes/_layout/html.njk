@@ -9,23 +9,23 @@ nav: true
 
   <body class="{{bodyClass}}">
     <div class="c-site-container">
-      {%- if nav %}
+      {# {%- if nav %}
         {% include "_partials/nav.njk" -%}
-      {%- endif %}
+      {%- endif %} #}
 
       <main>
         {{- content | safe -}}
       </main>
 
-      {%- if footer == 'blank' -%}
+      {# {%- if footer == 'blank' -%}
         {%- include '_partials/footer-empty.njk' -%}
       {%- elif footer -%}
         {%- include '_partials/footer.njk' -%}
-      {%- endif -%}
+      {%- endif -%} #}
     </div>
 
-    {%- include "_partials/offsite.njk" %}
-    {%- include "_partials/modal.njk" %}
+    {# {%- include "_partials/offsite.njk" %}
+    {%- include "_partials/modal.njk" %} #}
 
     {% if env.isDev %}
       <script module src="/js/main.mjs"></script>

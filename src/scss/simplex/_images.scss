@@ -1,0 +1,12 @@
+@media (prefers-color-scheme: dark) {
+  img {
+    filter: brightness(0.9);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  img,
+  video {
+    border: 1px solid #ccc;
+  }
+}

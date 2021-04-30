@@ -1,29 +1,30 @@
-const gulp = require('gulp')
-const autoprefixer = require('gulp-autoprefixer')
+const { isProd, input, output } = require('./_config')
+const { src, dest } = require('gulp')
+const Fiber = require('fibers')
+const sass = require('gulp-sass')
+sass.compiler = require('sass')
+
+const postcss = require('gulp-postcss')
+const autoprefixer = require('autoprefixer')
+const sourcemaps = require('gulp-sourcemaps')
+
 const cssnano = require('gulp-cssnano')
 const gulpIf = require('gulp-if')
-const gulpSass = require('gulp-sass')
-const size = require('gulp-size')
-const sourcemaps = require('gulp-sourcemaps')
 const rename = require('gulp-rename')
 
-const { isProd, input, output } = require('./_config')
-const plumber = require('./_plumber')
-
-const src = input + '/scss/**/*.{scss,sass}'
-const dest = output + '/css'
-
-const sass = cb => {
-  return gulp.src(src)
-    .pipe(plumber('Error Running Sass'))
+module.exports = function css (cb) {
+  return src(input + '/scss/**/*.{scss,sass}')
     .pipe(sourcemaps.init())
-    .pipe(gulpSass({ includePaths: ['./node_modules'] }))
-    .pipe(autoprefixer())
+    .pipe(
+      sass({
+        includePaths: ['./node_modules'],
+        fiber: Fiber
+      })
+        .on('error', sass.logError)
+    )
+    .pipe(postcss([autoprefixer()]))
     .pipe(sourcemaps.write())
-    .pipe(size({ title: 'styles' }))
     .pipe(gulpIf(isProd, cssnano()))
     .pipe(gulpIf(isProd, rename(fpath => { fpath.basename += '-min' })))
-    .pipe(gulp.dest(dest))
+    .pipe(dest(output + '/css'))
 }
-
-module.exports = sass

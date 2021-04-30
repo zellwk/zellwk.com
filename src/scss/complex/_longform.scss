@@ -1,0 +1,68 @@
+@use 'config/typography' as *;
+@use 'config/borders' as *;
+
+.longform {
+  > :not(h1) {
+    max-width: 30rem;
+  }
+
+  > * + * {
+    margin-top: ru(1);
+  }
+
+  > *:empty {
+    margin-top: 0;
+  }
+
+  // ========================
+  // Headings and text
+  // ========================
+  h2 {
+    margin-top: ru(3);
+  }
+
+  h2 + p {
+    margin-top: ru(0.75);
+  }
+
+  h3 {
+    margin-top: ru(2);
+  }
+
+  h3 + p {
+    margin-top: ru(0.75);
+  }
+
+  // ========================
+  // Lists
+  // ========================
+  ol li::marker {
+    list-style-type: decimal;
+    color: var(--yellow-500);
+    font-weight: $bold;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ul li::marker {
+    color: var(--yellow-500);
+  }
+
+  li + li,
+  li > :is(ul, ol) {
+    margin-top: ru(0.25);
+  }
+
+  li {
+    margin-left: ru(2);
+    list-style-position: outside;
+  }
+
+  img,
+  video,
+  iframe {
+    border-radius: $border-radius;
+  }
+}

@@ -1,0 +1,360 @@
+// TODO: Remove unused font files
+@font-face {
+  font-family: 'Galatea';
+  src: url('/fonts/Galatea-Bold.woff2') format('woff2'),
+    url('/fonts/Galatea-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galatea';
+  src: url('/fonts/Galatea-Black.woff2') format('woff2'),
+    url('/fonts/Galatea-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galatea';
+  src: url('/fonts/Galatea-BoldItalic.woff2') format('woff2'),
+    url('/fonts/Galatea-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galatea Narrow';
+  src: url('/fonts/Galatea-NarrowItalic.woff2') format('woff2'),
+    url('/fonts/Galatea-NarrowItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galatea';
+  src: url('/fonts/Galatea-Medium.woff2') format('woff2'),
+    url('/fonts/Galatea-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galatea Narrow';
+  src: url('/fonts/Galatea-Narrow.woff2') format('woff2'),
+    url('/fonts/Galatea-Narrow.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galatea';
+  src: url('/fonts/Galatea-Regular.woff2') format('woff2'),
+    url('/fonts/Galatea-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galatea';
+  src: url('/fonts/Galatea-ExtraBold.woff2') format('woff2'),
+    url('/fonts/Galatea-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galatea';
+  src: url('/fonts/Galatea-RegularItalic.woff2') format('woff2'),
+    url('/fonts/Galatea-RegularItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galatea';
+  src: url('/fonts/Galatea-MediumItalic.woff2') format('woff2'),
+    url('/fonts/Galatea-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galatea';
+  src: url('/fonts/Galatea-ExtraBoldItalic.woff2') format('woff2'),
+    url('/fonts/Galatea-ExtraBoldItalic.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galatea';
+  src: url('/fonts/Galatea-LightItalic.woff2') format('woff2'),
+    url('/fonts/Galatea-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galatea';
+  src: url('/fonts/Galatea-Light.woff2') format('woff2'),
+    url('/fonts/Galatea-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro';
+  src: url('/fonts/RawsonPro-Black.woff2') format('woff2'),
+    url('/fonts/RawsonPro-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro';
+  src: url('/fonts/RawsonPro-Bold.woff2') format('woff2'),
+    url('/fonts/RawsonPro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro';
+  src: url('/fonts/RawsonPro-Regular.woff2') format('woff2'),
+    url('/fonts/RawsonPro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro ExtraBlack';
+  src: url('/fonts/RawsonPro-ExtraBlack.woff2') format('woff2'),
+    url('/fonts/RawsonPro-ExtraBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro';
+  src: url('/fonts/RawsonPro-ExtraBold.woff2') format('woff2'),
+    url('/fonts/RawsonPro-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro';
+  src: url('/fonts/RawsonPro-Medium.woff2') format('woff2'),
+    url('/fonts/RawsonPro-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro Bold It';
+  src: url('/fonts/RawsonPro-BoldIt.woff2') format('woff2'),
+    url('/fonts/RawsonPro-BoldIt.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro ExtraBold It';
+  src: url('/fonts/RawsonPro-ExtraBoldIt.woff2') format('woff2'),
+    url('/fonts/RawsonPro-ExtraBoldIt.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro Medium It';
+  src: url('/fonts/RawsonPro-MediumIt.woff2') format('woff2'),
+    url('/fonts/RawsonPro-MediumIt.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro SemiBold It';
+  src: url('/fonts/RawsonPro-SemiBoldIt.woff2') format('woff2'),
+    url('/fonts/RawsonPro-SemiBoldIt.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro It';
+  src: url('/fonts/RawsonPro-RegularIt.woff2') format('woff2'),
+    url('/fonts/RawsonPro-RegularIt.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro';
+  src: url('/fonts/RawsonPro-SemiBold.woff2') format('woff2'),
+    url('/fonts/RawsonPro-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro';
+  src: url('/fonts/RawsonPro-Light.woff2') format('woff2'),
+    url('/fonts/RawsonPro-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawson Pro Light It';
+  src: url('/fonts/RawsonPro-LightIt.woff2') format('woff2'),
+    url('/fonts/RawsonPro-LightIt.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fourth';
+  src: url('/fonts/Fourth-Bold.woff2') format('woff2'),
+    url('/fonts/Fourth-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fourth';
+  src: url('/fonts/Fourth-Regular.woff2') format('woff2'),
+    url('/fonts/Fourth-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fourth';
+  src: url('/fonts/Fourth-Medium.woff2') format('woff2'),
+    url('/fonts/Fourth-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fourth';
+  src: url('/fonts/Fourth-Light.woff2') format('woff2'),
+    url('/fonts/Fourth-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Italic.woff2') format('woff2'),
+    url('/fonts/JetBrainsMono-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2'),
+    url('/fonts/JetBrainsMono-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2'),
+    url('/fonts/JetBrainsMono-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Medium.woff2') format('woff2'),
+    url('/fonts/JetBrainsMono-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('/ fonts/FiraCode-Regular.woff2') format('woff2'),
+    url('/ fonts/FiraCode-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('/ fonts/FiraCode-Bold.woff2') format('woff2'),
+    url('/ fonts/FiraCode-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/IBMPlexMono.woff2') format('woff2'),
+    url('/fonts/IBMPlexMono.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/IBMPlexMono-SemiBold.woff2') format('woff2'),
+    url('/fonts/IBMPlexMono-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/IBMPlexMono-Italic.woff2') format('woff2'),
+    url('/fonts/IBMPlexMono-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}

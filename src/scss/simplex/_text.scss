@@ -1,0 +1,111 @@
+@use 'config/typography' as *;
+@use 'mappy-breakpoints/mappy-breakpoints' as *;
+
+%base-text {
+  font-size: 125%;
+  font-family: $font-family;
+  line-height: $line-height;
+  font-weight: 400;
+
+  @media screen and (min-height: 800px) {
+    font-size: 150%;
+  }
+}
+
+%h1 {
+  font-size: fz(3);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--yellow-500);
+  margin-top: ru(5);
+
+  @include mappy-bp(600px) {
+    font-size: fz(5);
+  }
+}
+
+%h2 {
+  font-size: fz(3);
+  font-weight: $bold;
+  line-height: 1.1;
+  color: var(--yellow-500);
+}
+
+%h3 {
+  font-size: fz(1);
+  font-weight: 500;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  background-image: linear-gradient(
+    150deg,
+    #ffc533,
+    #fa7634,
+    #f53641,
+    #ef3889,
+    #ea3acc,
+    #c03ce4,
+    #7e3ede,
+    #4341d8
+  );
+
+  code {
+    padding: 0;
+    letter-spacing: normal;
+    background-color: transparent;
+  }
+}
+
+%bold {
+  font-weight: $bold;
+  color: var(--teal-600);
+}
+
+// TODO: Potentially change away Fourth font to something more readable
+%italics {
+  font-family: 'Fourth';
+  // Adjust font size to match x-height
+  font-size: 1.05em;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--teal-600);
+}
+
+%link {
+  color: var(--aqua-600);
+  &:hover {
+    color: var(--aqua-700);
+  }
+}
+
+// NOTE: Remove letter spacing unless used in paragraphs
+%code {
+  font-family: 'IBM Plex Mono';
+  // Adjust font size to match x-height
+  font-size: 0.85em;
+  letter-spacing: -0.0225em;
+  padding: 0.25em;
+  background-color: var(--purple-800);
+  color: var(--purple-200);
+
+  @at-root strong & {
+    font-weight: 600;
+  }
+
+  @at-root pre & {
+    font-size: 0.75em;
+    letter-spacing: normal;
+    padding: 0;
+    background-color: transparent;
+    color: inherit;
+  }
+}
+
+// NOTE: Change letter-spacing manually as needed depending on text measure
+%small-caps {
+  font-size: fz(-1);
+  font-weight: 400;
+  font-variant-caps: small-caps;
+  font-variant-numeric: oldstyle-nums;
+  letter-spacing: 0.0375em;
+}

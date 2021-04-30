@@ -1,0 +1,122 @@
+@use 'simplex/text';
+@use 'simplex/shapes';
+@use 'complex/longform';
+@use 'config/typography' as *;
+
+// Reset everything problematic stuff
+// CK Form Layout
+.ck_form.ck_form.ck_form {
+  background: transparent;
+  color: var(--grey-200);
+  font-family: inherit;
+  border: none;
+  margin: 0;
+  overflow: visible;
+
+  * {
+    font-size: 1rem;
+    line-height: $line-height;
+    font-family: $font-family;
+  }
+
+  .ck_form_content {
+    padding: 0;
+    width: auto;
+    float: initial;
+    border: none;
+
+    h3 {
+      @extend %h2;
+      -webkit-background-clip: initial;
+      -webkit-text-fill-color: initial;
+      background: transparent;
+      margin-top: ru(3);
+    }
+
+    .ck_description {
+      @extend .longform;
+    }
+  }
+
+  .ck_form_fields {
+    width: auto;
+    padding: 0;
+    float: initial;
+  }
+
+  .ck_subscribe_form {
+    position: relative;
+    margin-top: ru(0.75);
+    margin-bottom: ru(2);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: ru(0.75);
+
+    > * {
+      flex: 1 1 ru(9);
+    }
+
+    .ck_label {
+      @extend %small-caps;
+      display: block;
+      font-size: fz(-1);
+      text-transform: lowercase;
+      margin-bottom: ru(0.125);
+    }
+
+    input {
+      display: block;
+      font: inherit;
+      font-size: fz(-2);
+      padding: ru(0.25) ru(0.375);
+      margin: 0;
+    }
+
+    > button {
+      @extend %small-caps;
+      font-size: fz(-2);
+      text-transform: lowercase;
+      padding: ru(0.225) ru(0.25) ru(0.275);
+      margin: 0;
+
+      flex-basis: auto;
+      width: auto;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      $size: ru(11);
+      @include shapes.kite($size);
+      bottom: -1 * $size/2 + ru(0.5);
+      right: -$size/2;
+      transform: scaleX(-1);
+    }
+
+    .ck_guarantee {
+      display: none;
+    }
+  }
+
+  input[type='text'],
+  input[type='email'] {
+    background-color: var(--grey-900);
+    border: 1px solid var(--purple-400);
+    &:focus {
+      border-color: var(--yellow-600);
+    }
+  }
+
+  button {
+    border: 1px solid var(--purple-500);
+    background-color: var(--purple-500);
+    &:hover,
+    &:focus {
+      outline: none;
+      border: 1px solid var(--yellow-600);
+      background-color: var(--yellow-800);
+    }
+  }
+}

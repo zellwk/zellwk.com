@@ -6,7 +6,11 @@ description:
 newsletter: better-fed
 footer: true
 ---
+<div class="wrap">
+  {%- include 'convertkit.njk' -%}
+</div>
 
+{#
 <div class="l-wrap">
   <article class="o-words generic-layout">
     {%- markdown -%}
@@ -22,9 +26,7 @@ footer: true
 
     {%- include "_quotes/jerryjones.md" -%}
 
-    <section class="o-content c-ck ck-layout jsCkForm layout__width-override">
-      {%- include 'convertkit.njk' -%}
-    </section>
+    <section class="o-content c-ck ck-layout jsCkForm layout__width-override"></section>
 
     {%- include "_quotes/martjnbokma.md" -%}
     {%- include "_quotes/vladimir.md" -%}
@@ -35,4 +37,4 @@ footer: true
     <p>&nbsp;</p>
     <p>&nbsp;</p>
   </article>
-</div>
+</div> #}

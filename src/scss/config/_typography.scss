@@ -1,0 +1,15 @@
+@use 'sass:math';
+@use 'config/font-face';
+
+$scale: 1.2;
+$font-family: 'Galatea';
+$line-height: 1.55;
+$bold: 500;
+
+@function fz($exponent) {
+  @return math.pow($scale, $exponent) * 1rem;
+}
+
+@function ru($num) {
+  @return $line-height * $num * 0.75rem;
+}

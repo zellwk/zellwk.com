@@ -1,0 +1,91 @@
+:root {
+  --grey-100: hsl(240, 90%, 80%);
+  --grey-200: hsl(244, 20%, 87%);
+  --grey-300: hsl(244, 20%, 75%);
+  --grey-400: hsl(244, 13%, 53%);
+  --grey-500: hsl(244, 20%, 55%);
+  --grey-600: hsl(244, 20%, 45%);
+  --grey-700: hsl(244, 20%, 25%);
+  --grey-800: hsl(244, 25%, 8%);
+  --grey-900: hsl(240, 13%, 3%);
+
+  // --purple-100: hsl(241, 100%, 88%);
+  --purple-200: hsl(241, 43%, 73%);
+  --purple-300: hsl(241, 38%, 65%);
+  --purple-400: hsl(240, 40%, 53%);
+  --purple-500: hsl(240, 46%, 46%);
+  // --purple-600: hsl(241, 100%, 38%);
+  --purple-700: hsl(240, 67%, 47%);
+  --purple-800: hsl(241, 65%, 13%);
+  --purple-900: hsl(240, 84%, 8%);
+
+  --yellow-100: hsl(43, 85%, 95%);
+  --yellow-200: hsl(43, 85%, 85%);
+  --yellow-300: hsl(43, 85%, 75%);
+  --yellow-400: hsl(43, 85%, 65%);
+  --yellow-500: hsl(40, 85%, 65%);
+  --yellow-600: hsl(40, 80%, 48%);
+  --yellow-700: hsl(40, 85%, 35%);
+  --yellow-800: hsl(27deg 92% 15%);
+  // --yellow-900: hsl(43, 85%, 10%);
+
+  --teal-100: hsl(163, 70%, 95%);
+  --teal-200: hsl(163, 70%, 85%);
+  --teal-300: hsl(163, 70%, 75%);
+  --teal-400: hsl(163, 70%, 65%);
+  --teal-500: hsl(163, 70%, 55%);
+  --teal-600: hsl(163, 57%, 50%);
+  --teal-700: hsl(163, 70%, 35%);
+  --teal-800: hsl(197, 70%, 20%);
+  --teal-900: hsl(163, 70%, 15%);
+
+  --aqua-100: hsl(183, 93%, 95%);
+  --aqua-200: hsl(183, 93%, 85%);
+  --aqua-300: hsl(183, 93%, 75%);
+  --aqua-400: hsl(183, 93%, 65%);
+  --aqua-500: hsl(183, 93%, 55%);
+  --aqua-600: hsl(183, 93%, 45%);
+  --aqua-700: hsl(183, 93%, 35%);
+  --aqua-800: hsl(183, 93%, 25%);
+  --aqua-900: hsl(183, 93%, 15%);
+
+  --pink-100: hsl(300, 85%, 95%);
+  --pink-200: hsl(300, 85%, 85%);
+  --pink-300: hsl(300, 85%, 75%);
+  --pink-400: hsl(300, 85%, 65%);
+  --pink-500: hsl(300, 85%, 55%);
+  --pink-600: hsl(300, 85%, 45%);
+  --pink-700: hsl(300, 85%, 35%);
+  --pink-800: hsl(300, 85%, 25%);
+  --pink-900: hsl(300, 85%, 15%);
+}
+
+$list: [ 'grey', 'yellow', 'blue-purple', 'aqua', 'teal', 'pink' ];
+
+@each $color in $list {
+  @for $num from 1 to 10 {
+    .#{$color}-#{$num}00 {
+      background-color: var(--#{$color}-#{$num + '00'});
+    }
+  }
+}
+
+.colors-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+
+  > * {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(3rem, 1fr));
+    grid-gap: 1em;
+
+    > * {
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      border-radius: 0.5em;
+      aspect-ratio: 1;
+    }
+  }
+}

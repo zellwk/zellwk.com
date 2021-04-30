@@ -1,0 +1,11 @@
+@use 'config/typography' as *;
+@use 'simplex/text';
+
+.pagination {
+  @extend %small-caps;
+
+  a {
+    text-transform: lowercase;
+    letter-spacing: 0.04em;
+  }
+}

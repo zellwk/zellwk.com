@@ -1,0 +1,17 @@
+@use 'config/typography' as *;
+
+.wrap {
+  position: relative;
+  z-index: 1;
+
+  $min-padding: 0.5rem;
+  display: grid;
+  grid-template-columns:
+    minmax($min-padding, 1fr)
+    minmax(0, 35rem)
+    minmax($min-padding, 5.5fr);
+
+  > * {
+    grid-column: 2;
+  }
+}

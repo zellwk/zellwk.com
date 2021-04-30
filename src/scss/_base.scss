@@ -1,0 +1,45 @@
+@use 'config/typography' as *;
+@use 'simplex/text';
+@use 'mappy-breakpoints/mappy-breakpoints' as *;
+
+html {
+  @extend %base-text;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--purple-900);
+  color: var(--grey-200);
+  padding: 1rem;
+}
+
+h1 {
+  @extend %h1;
+}
+
+h2 {
+  @extend %h2;
+}
+
+h3 {
+  @extend %h3;
+}
+
+strong {
+  @extend %bold;
+}
+
+em {
+  @extend %italics;
+}
+
+a {
+  @extend %link;
+}
+
+code {
+  @extend %code;
+}
+
+// TODO: Style Figcaption
+// Use the 'reduce article' to see an example of figcaptions at work

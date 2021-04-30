@@ -1,0 +1,16 @@
+@use 'config/typography' as *;
+
+$size: ru(10) !default;
+
+@mixin kite($size) {
+  display: block;
+  width: $size * 2;
+  height: $size;
+  background-color: var(--purple-800);
+  clip-path: polygon(25% 0, 100% 50%, 25% 100%, 0 50%);
+}
+
+@mixin kite-skewed($size) {
+  @include kite($size);
+  clip-path: polygon(25% 0, 100% 100%, 25% 100%, 0 50%);
+}
