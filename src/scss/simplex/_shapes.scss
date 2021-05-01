@@ -2,11 +2,16 @@
 
 $size: ru(10) !default;
 
-@mixin kite($size) {
+@mixin square($size, $background: var(--purple-800)) {
   display: block;
-  width: $size * 2;
+  width: $size;
   height: $size;
-  background-color: var(--purple-800);
+  background-color: $background;
+}
+
+@mixin kite($size) {
+  @include square($size);
+  width: $size * 2;
   clip-path: polygon(25% 0, 100% 50%, 25% 100%, 0 50%);
 }
 

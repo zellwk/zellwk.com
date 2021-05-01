@@ -1,6 +1,7 @@
 @use 'config/typography' as *;
 @use 'simplex/shapes';
 @use 'simplex/text';
+@use 'config/borders' as *;
 
 .post header {
   margin-top: ru(6);
@@ -16,6 +17,15 @@
   h1 {
     margin-top: 0;
   }
+
+  // > div:nth-child(2) {
+  //   border: 2px solid var(--yellow-600);
+  //   padding: ru(2);
+  //   border-radius: $border-radius;
+  //   background-color: var(--yellow-900);
+  //   margin-left: ru(-2);
+  //   box-shadow: ru(-0.25) ru(0.375) 0 ru(0.25) rgba(0, 0, 0, 0.75);
+  // }
 
   // TODO: Ask HuiJing about how to handle kite for responsive... exceeding...
   // Simply body overflow hidden?
@@ -40,8 +50,16 @@
   .tags {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 0.25em;
-    row-gap: 0;
+
+    // ========================
+    // Separates tags with a tiny space
+    // Idea solution: .tags { column-gap: 0.25em }
+    // Using this solution because `gap` for flexbox cannot be properly detected
+    // ========================
+    span,
+    li:not(:last-child)::after {
+      margin-right: 0.25em;
+    }
 
     ul {
       display: contents;

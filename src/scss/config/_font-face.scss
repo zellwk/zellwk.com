@@ -358,3 +358,31 @@
   font-style: italic;
   font-display: swap;
 }
+
+// Subsetting ellipses because Galatea doesn't contain ellipses...
+@font-face {
+  font-family: 'Boston';
+  src: url('/fonts/boston_regular-webfont.woff2') format('woff2'),
+    url('boston_regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+2026;
+}
+
+@font-face {
+  font-family: 'Boston';
+  src: url('/fonts/boston_semibold-webfont.woff2') format('woff2'),
+    url('boston_semibold-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  unicode-range: U+2026;
+}
+
+// @font-face {
+//   font-family: 'Boston';
+//   src: url('/fonts/boston_bold-webfont.woff2') format('woff2'),
+//     url('boston_bold-webfont.woff') format('woff');
+//   // font-weight: 500;
+//   font-style: normal;
+//   unicode-range: U+2026;
+// }

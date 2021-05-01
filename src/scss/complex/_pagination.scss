@@ -1,7 +1,12 @@
 @use 'config/typography' as *;
 @use 'simplex/text';
+@use 'config/borders' as *;
 
 .pagination {
+  background: var(--purple-800);
+  border: 2px solid var(--purple-400);
+  padding: ru(0.5);
+  border-radius: $border-radius;
   @extend %small-caps;
 
   a {

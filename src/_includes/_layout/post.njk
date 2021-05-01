@@ -10,7 +10,7 @@ footer: true
     <header>
       <div class="kite"></div>
       <div>
-        <h1>{{title | markdown}}</h1>
+        <h1>{{title | markdown | safe}}</h1>
         <div class="meta">
           <p>Written on: <date datetime="{{page.date}}">{{page.date | readableDate | lower }}</date>
           </p>
@@ -20,7 +20,7 @@ footer: true
             <ul>
               {% for tag in tags %}
                 <li>
-                  <a href="/tags/{{tag}}">#{{tag}}</a>
+                  <a href="/tags/{{tag}}">#{{tag }}</a>
                 </li>
               {% endfor %}
             </ul>
@@ -77,7 +77,7 @@ footer: true
 
         {% if previousPost.url -%}
           <div>
-            <span>Prev Post:</span>
+            <span>Prev article:</span>
             <a href="{{previousPost.url}}">
               {{previousPost.data.title}}
             </a>
@@ -86,7 +86,7 @@ footer: true
 
         {% if nextPost.url -%}
           <div>
-            <span>Next Post:</span>
+            <span>Next article:</span>
             <a href="{{nextPost.url}}">
               {{nextPost.data.title}}
             </a>

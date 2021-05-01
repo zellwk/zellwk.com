@@ -2,7 +2,8 @@
 @use 'config/font-face';
 
 $scale: 1.2;
-$font-family: 'Galatea';
+//TODO: Consider better ellipses instead of Boston
+$font-family: 'Boston', 'Galatea';
 $line-height: 1.55;
 $bold: 500;
 

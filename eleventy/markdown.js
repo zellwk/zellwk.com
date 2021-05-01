@@ -12,10 +12,28 @@ const lib = markdownIt({
       const tag = tokens[idx]
 
       // Opening tag
-      if (tag.info) return '<div class="note">'
+      if (tag.info) {
+        return `
+          <div class="note">
+            <div class="note__content">
+        `
+      }
 
       // Closing tag
-      return '</div>'
+      return `
+          </div>
+          <div class="note__deco" aria-hidden="true">
+            <div class="top"></div>
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="bottom"></div>
+            <div class="top-left"></div>
+            <div class="top-right"></div>
+            <div class="bottom-left"></div>
+            <div class="bottom-right"></div>
+          </div>
+        </div>
+      `
     }
   })
 
@@ -23,7 +41,8 @@ const lib = markdownIt({
 // Trims each line so markdown pair can be used with any indentiation.
 // *Does not work with code blocks*.
 const pairedMarkdown = content => {
-  const formatted = content.split(/\n/)
+  const formatted = content
+    .split(/\n/)
     .map(c => c.trim())
     .join('\n')
   return lib.render(formatted)
