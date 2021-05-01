@@ -3,9 +3,10 @@ layout: post
 title: Disabling languages for Prettier (in VScode)
 description: How to disable Prettier for specific languages.
 slug: prettier-disable-languages
-tags: ['writing', 'vscode', 'tools', javascript]
+tags: ['vscode', 'tools', javascript]
 ---
-It used to be straightforward to disable languages for Prettier in VSCode. You just added a `prettier.disableLanguages` setting and you were done. 
+
+It used to be straightforward to disable languages for Prettier in VSCode. You just added a `prettier.disableLanguages` setting and you were done.
 
 ```json
 // In settings.json
@@ -19,18 +20,18 @@ It used to be straightforward to disable languages for Prettier in VSCode. You j
 ]
 ```
 
-Unfortunately, `prettier.disableLanguages` is deprecated so we can’t do this anymore. Here’s what we can do instead. 
+Unfortunately, `prettier.disableLanguages` is deprecated so we can’t do this anymore. Here’s what we can do instead.
 
 <!-- more -->
 
-There are two methods. 
+There are two methods.
 
-  1. Enable Prettier in specific languages. 
-  2. Enable Prettier globally but disable it in specific languages. 
+1. Enable Prettier in specific languages.
+2. Enable Prettier globally but disable it in specific languages.
 
-## Enabling Prettier in specific languages 
+## Enabling Prettier in specific languages
 
-The first option is to enable Prettier for specific languages you use. You can do this with the `editor.defaultFormatter` property. Here's an example where you enable it for CSS. 
+The first option is to enable Prettier for specific languages you use. You can do this with the `editor.defaultFormatter` property. Here's an example where you enable it for CSS.
 
 ```json
 [
@@ -40,7 +41,7 @@ The first option is to enable Prettier for specific languages you use. You can d
 ]
 ```
 
-If you use this method, you need to enable Prettier for every language, which can be tedious. 
+If you use this method, you need to enable Prettier for every language, which can be tedious.
 
 ```json
 [
@@ -56,26 +57,27 @@ If you use this method, you need to enable Prettier for every language, which ca
 ]
 ```
 
-So I prefer to enable Prettier globally, but overwrite Prettier in specific languages. 
+So I prefer to enable Prettier globally, but overwrite Prettier in specific languages.
 
 ## Enabling Prettier Globally but disabling it in specific languages
 
-We can enable Prettier globally with the `editor.defaultFormatter` property. 
+We can enable Prettier globally with the `editor.defaultFormatter` property.
 
 ```json
 "editor.defaultFormatter": "esbenp.prettier-vscode",
 ```
 
-If you want to disable Prettier for a specific language, you can set the `editor.defaultFormatter` to `null`. 
+If you want to disable Prettier for a specific language, you can set the `editor.defaultFormatter` to `null`.
 
 ```json
 "editor.defaultFormatter": null;
 ```
 
-You can also choose to overwrite a specific formatter for a specific language. In the following example, I use Standard JS instead of Prettier for formatting JavaScript. 
+You can also choose to overwrite a specific formatter for a specific language. In the following example, I use Standard JS instead of Prettier for formatting JavaScript.
 
-Note:
+:::note
 If you're using Standard for JavaScript, it's much easier to use the [prettier-vscode-standard](https://marketplace.visualstudio.com/items?itemName=numso.prettier-standard-vscode) extension instead. I wrote about this in [another article](/blog/prettier-standard).
+:::
 
 ```json
 "[javascript]": {
