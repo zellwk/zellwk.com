@@ -149,7 +149,7 @@ function css () {
 I have no idea what `fibers` does at this point. I haven't figured it out yet. I'm just adding it because the official docs recommend it. ¯\_(ツ)_/¯  
 
 :::note  
-  - Although [Dart Sass is 1.5x slower compared to Libsass](https://sass-lang.com/blog/announcing-dart-sass#:~:text=First%2C%20it's%20really%20fast%E2%80%94the,1.5x%20slower%20than%20LibSass.&text=And%20Dart's%20performance%20continues%20to%20get%20better%20all%20the%20time), there's practically no performance hit unless you're working with a humongous code base. So feel free to switch!   
+  Although [Dart Sass is 1.5x slower compared to Libsass](https://sass-lang.com/blog/announcing-dart-sass#:~:text=First%2C%20it's%20really%20fast%E2%80%94the,1.5x%20slower%20than%20LibSass.&text=And%20Dart's%20performance%20continues%20to%20get%20better%20all%20the%20time), there's practically no performance hit unless you're working with a humongous code base. So feel free to switch!   
 :::
 
 ## Sourcemaps, PostCSS, and extra plugins  
