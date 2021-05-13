@@ -3,7 +3,7 @@ layout: post
 title: Using Gulp with Dart Sass
 description: How to set up Dart Sass with Gulp
 slug: dart-sass-gulp
-tags: ['gulp', 'css', 'tools', 'workflow, 'sass']
+tags: ['gulp', 'css', 'tools', 'workflow', 'sass']
 ---
 
 I'm playing around with Sass again recently and I noticed newer features (like `@use` and `@forward`) are only available on Dart Sass. Upon further inspection, I noticed that [LibSass is now deprecated](https://sass-lang.com/blog/libsass-is-deprecated).   
