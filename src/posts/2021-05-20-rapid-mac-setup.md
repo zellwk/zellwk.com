@@ -118,7 +118,7 @@ I recommend checking out [Setapp](https://setapp.sjv.io/c/2100771/344537/5114) i
 
 In the app store, I basically sign in, view my purchase history and download the things I need.   
 
-The only notable mention here is [Moom](https://manytricks.com/moom/), which I use to tile my windows in various positions. Setapp has an app called [Mosiac](https://setapp.sjv.io/c/2100771/354736/5114) which does the same thing. But I prefer sticking to Moom because I haven't found a need to change the workflow.   
+The only notable mention here is [Moom](https://manytricks.com/moom/), which I use to tile my windows in various positions. Setapp has an app called [Mosaic](https://setapp.sjv.io/c/2100771/354736/5114) which does the same thing. But I prefer sticking to Moom because I haven't found a need to change the workflow.   
 
 ### List of apps 🤔  
 
