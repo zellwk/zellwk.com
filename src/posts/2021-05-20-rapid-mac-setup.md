@@ -135,6 +135,7 @@ But I have a bad habit of storing files on my Desktop (which is how [I lost the 
 <figure role="figure">
 <img src="/images/2021/rapid-mac-setup/twitter-post.png" alt="Zell twitter post">
 </figure> 
+
 I don't keep code projects inside Dropbox/Google Drive for obvious reasons — there's a ton of dependencies with `npm` for each project. Storing `node_modules` in Dropbox or Google Drive is simply a waste of space...   
 
 I don't keep code projects inside Dropbox/Google Drive for obvious reasons — there's a ton of dependencies with `npm` for each project. Storing `node_modules` in Dropbox or Google Drive is simply a waste of space... I version control them with Git instead 🤓. But this means I'll need to build a habit of committing and pushing updates into the Git repository.   
