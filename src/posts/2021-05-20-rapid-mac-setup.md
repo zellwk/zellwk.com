@@ -30,7 +30,7 @@ The first thing I do is increase the tracking speed for both my mouse and trackp
 Then I change the keyboard layout since [I use Dvorak Qwerty](https://zellwk.com/blog/dvorak/) as my main layout.   
 
 <figure role="figure">
-<img src="/images/2021/rapid-mac-setup/keyboard-layout.png" alt="Keyboard layout settings">
+<img src="/images/2021/rapid-mac-setup/keyboard-layout-settings.png" alt="Keyboard layout settings">
 </figure> 
 
 But I don't change the keyboard delay until repeat because I have [a macos script](https://github.com/zellwk/dotfiles/blob/master/mac/macos) that shortens the delay way beyond what the Mac setting can do.   
