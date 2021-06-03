@@ -2,7 +2,7 @@
 layout: post
 title: "Trying Your Best" is really bad advice (and strategy)
 description:
-slug: https://zellwk.com/blog/trying-your-best
+slug: trying-your-best
 tags: ['philosophy', 'learning']
 ---  
 For a while I've been telling myself that it's okay as long as I tried my best. It's been a decent strategy for a long time, but it's not working for me anymore.   
@@ -194,7 +194,7 @@ We can consider two normal distribution curves stacked on top of each other. One
 
 <figure role="figure">
 <img src="/images/2021/trying-your-best/two-distribution-curves.png" alt="normal distribution curve showing your average results vs the worlds average results">
-</figure>  
+</figure>   
 
 So **we can still perform better than average even though we're putting in average effort**. What we need is training in the skills that will streamline our systems and help us get more results. We can continue to improve ourselves consistently and we create more and more results with our average effort.   
 
