@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Trying Your Best" is really bad advice (and strategy)
-description: Why trying my best is no longer working for me
+description: 
 slug: trying-your-best
 tags: ['philosophy', 'learning']
 ---  
