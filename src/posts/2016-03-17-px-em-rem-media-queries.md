@@ -178,7 +178,7 @@ Once again, move on to our final experiment to see if anything unexpected comes 
 
 Well, it'll be awesome if all users exhibit this behavior because we don't have to do this experiment! :)
 
-Unfortunately, there's no data to proof that users don't change their browser's `font-size`s, so **it's still our duty as developers to bake the flexibility into our websites.**
+Unfortunately, there's no data to prove that users don't change their browser's `font-size`s, so **it's still our duty as developers to bake the flexibility into our websites.**
 
 In this experiment, I enlarged the default `font-size` of the four browsers I tested with in the following way (incase you wanted to follow along):
 
