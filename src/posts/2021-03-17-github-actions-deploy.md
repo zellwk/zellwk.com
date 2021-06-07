@@ -85,7 +85,7 @@ We need to add the public key (`github-actions.pub`) to `authorized_keys` so mac
 The easiest way is to use a `cat` command to append `github-actions.pub` into `authorized_keys`. It look like this:
 
 ```shell
-cat github.pub >> authorized_keys
+cat github-actions.pub >> authorized_keys
 ```
 
 Here's what the command does:
