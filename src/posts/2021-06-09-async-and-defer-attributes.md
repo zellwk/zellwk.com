@@ -34,7 +34,7 @@ Here's an example where I deliberately created a script with 20000 lines of `con
   </video>
   </figure> 
 
-Both `async` and `defer` allows the browser load and parse the JavaScript file separately, so the DOM can be showed immediately. This allows users to see content faster.   
+Both `async` and `defer` allows the browser load and parse the JavaScript file separately, so the DOM can be shown immediately. This allows users to see content faster.   
 
 <figure role="figure">
 <video controls autoplay>
