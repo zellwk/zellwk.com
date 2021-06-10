@@ -59,7 +59,7 @@ Some elements (like `button`) can be disabled. Disabled elements are not focusab
 const keyboardfocusableElements = [...document.querySelectorAll(
   'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
 )]
-  .filter(el => !el.hasAttribute('disabled'))
+  .filter(el => !el.disabled)
 ```
 
 ## Turning it into a function
@@ -76,6 +76,6 @@ function getKeyboardFocusableElements (element = document) {
   return [...element.querySelectorAll(
     'a, button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
   )]
-    .filter(el => !el.hasAttribute('disabled'))
+    .filter(el => !el.disabled)
 }
 ```
