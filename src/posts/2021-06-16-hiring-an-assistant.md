@@ -28,7 +28,7 @@ Here are some brief notes about the timeline.
   - I started responding to applicants who caught my eye immediately. They all booked interview slots within the next 3-4 days. (This helps to keep the process tight and manageable).   
   - For applicants that passed an interview, I gave them a 3-hour task (paid) with a deadline of 1 week. All applicants completed the task.   
 
-:::Note
+:::note
 Timings stated here are estimates  
 :::
 
