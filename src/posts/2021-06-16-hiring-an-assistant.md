@@ -5,7 +5,6 @@ description:
 slug: hiring-executive-assistant
 tags: ['hiring', 'management']
 ---  
-# ZP: How I hired an executive assistant that I'm happy with
 I wanted to hire an assistant to help me with the workload for my business. After many failed attempts (and hence lots of paralysis), I'm happy to say I found a person who's a joy to work with. Her name is Jen.   
 
 I want to talk about the hiring process and what I learned about each step — mostly to consolidate my learnings. It'll be a bonus if this helps you work through any kinks when you're in that stage.   
