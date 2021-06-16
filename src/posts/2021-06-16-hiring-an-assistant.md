@@ -9,8 +9,9 @@ I wanted to hire an assistant to help me with the workload for my business. Afte
 
 I want to talk about the hiring process and what I learned about each step — mostly to consolidate my learnings. It'll be a bonus if this helps you work through any kinks when you're in that stage.   
 
-Note: These are my opinions and don't reflect what other hiring managers or employers think.   
-
+:::note
+These are my opinions and don't reflect what other hiring managers or employers think.   
+:::
 <!-- more -->  
 
 ## The Hiring Process  
@@ -27,7 +28,9 @@ Here are some brief notes about the timeline.
   - I started responding to applicants who caught my eye immediately. They all booked interview slots within the next 3-4 days. (This helps to keep the process tight and manageable).   
   - For applicants that passed an interview, I gave them a 3-hour task (paid) with a deadline of 1 week. All applicants completed the task.   
 
-Note: Timings stated here are estimates  
+:::Note
+Timings stated here are estimates  
+:::
 
 ## Writing the Job Description  
 
