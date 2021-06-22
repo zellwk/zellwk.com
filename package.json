@@ -63,6 +63,7 @@
     "modularscale-sass": "^2.1.1",
     "nodemon": "^2.0.2",
     "normalize.css": "^8.0.1",
+    "postcss": "^8.3.5",
     "require-dir": "^1.2.0",
     "rollup": "^2.45.2",
     "rollup-plugin-babel": "^4.3.3",
