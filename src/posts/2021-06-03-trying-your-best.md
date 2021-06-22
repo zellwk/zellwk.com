@@ -1,0 +1,207 @@
+---
+layout: post
+title: Trying Your Best is really bad advice (and strategy)
+description: 
+slug: trying-your-best
+tags: ['philosophy', 'learning']
+---  
+For a while I've been telling myself that it's okay as long as I tried my best. It's been a decent strategy for a long time, but it's not working for me anymore.   
+
+I want to explain why it doesn't work and what pitfalls you might want to watch out for if you use the same strategy in your life.   
+
+<!-- more -->  
+
+## We rarely try our best  
+
+When have you actually tried your best? If you look back at your life, can you honestly tell yourself you've tried your best every time, especially for situations where you've failed? Can you count how many times you tried your best?   
+
+In my case, I only consider that I tried my best if I can be super focused on a piece of work, I get through it in one sitting and I don't stop no matter what challenges I face.   
+
+I have a second version of trying my best — and that's when sometimes I give up and take a break. When I come back, I put in more effort and try to get the work done, but I keep avoiding it. This repeats itself until I stop giving myself excuses and end up being focused.   
+
+In the second version, although I'm still exerting the same amount of effort, I kinda don't feel like I'm trying my best. That's because I'm avoiding my problems and I come back to them afterwards.   
+
+I also have a third version of trying my best — and that's when I do work until I'm completely exhausted. I may take scheduled breaks, but unless I collapse or get giddy from the work, I don't feel I'm doing my best yet. I can still push myself.   
+
+There's a fourth (and more extreme) version — **If someone holds a gun to my head and makes me work, would I work faster and more effectively?** If I would, then I'm never really trying my best, am I?   
+
+The first three versions sound nice and logical. But I really use the fourth version when I'm evaluating whether I actually did my best. Most of the time, I would have to say no. Because if someone pointed a gun at me... I imagine I would forgo all of my obstacles and work like  crazy.   
+
+Here's the stupid part: **I've never actually had someone put a gun to my head and made me work**, so I don't know what it actually feels like, and I don't know how I would work. **But I do have an imagined version where I'm super productive and I use that version as my benchmark.**  
+
+🤦‍♂️  
+
+So even when I exert lots of effort, I don't feel that I'm doing my best still. I feel there's more I can do, even though I'm already exhausted.   
+
+When I get the results of my work, I'm usually dissatisfied. **I'm even dissatisfied when I get good results because I wished I could have put in more work** — and then maybe, just maybe, I could have yielded better results.   
+
+It's _a never-ending rabbit hole_.  
+
+## We won't be able to try our best at everything all at once  
+
+By my definition of trying my best, I would need to spend all my waking hours dedicated to one thing. I wouldn't have tried my best if I did any less.   
+
+But here's the problem: **I have three important things at the top of my priority list** — personal development, work, and family. All three are important and I can't neglect one in favour of others.   
+
+**If I need to spend time on all three priorities, how can I say I'm doing my best in each one?**  
+
+I can, however, say I'm trying my best on everything at once.   
+
+But when I get results from any of these areas, **I can't help but wonder what would have happened if I put in more effort in that one area**, maybe even at the expense of the other two... will I get more results? Maybe. And I'm scared that this is true because it means I'm not going all out yet.   
+
+So I'm always miserable because I feel I'm missing out on what's possible in my life. **I'm perpetually living in FOMO** too.   
+
+## But the fact is we can't be trying our best all the time  
+
+If you studied statistics for a little bit, you know everything falls into a normal distribution curve. The amount of effort we put into our lives also falls into a normal distribution curve.   
+
+<figure role="figure">
+<img src="/images/2021/trying-your-best/distribution-curve.png" alt="normal distribution curve line graph">
+</figure> 
+
+Most of the time we'll spend our days putting in about 50% effort, plus minus ~35%. That means **we spend between 15% and 85% effort on most things.**  
+
+Sometimes we push ourselves harder than normal because that thing is important to us — like when we're rushing for a deadline before a holiday. We go beyond the amount of effort that we would normally put in.   
+
+On rare occasions, the stars align and we find something that's so important to us and that our emotions and motivations all align to the same thing. And we push extra hard. (Or well, perhaps when someone points a gun at my head I'll be this productive, maybe even more productive).   
+
+**Statistics have already told use that we cannot be trying our best all the time. So trying our best is literally a strategy for failure — you can't succeed. It's impossible.**  
+
+Trying your best means putting in effort that's above the 3 sigma level (far right of the curve). In a normal person's life, you'll only put in this amount of effort 0.2% of the time. You won't be able to sustain that effort for a long duration. It's like sprinting at top speed for a 100m race, but ensuring you consistently run at this speed for one month without rest.   
+
+Practically speaking, can you even do it? I know I can't.   
+
+Since we cannot possibly be putting in our best efforts all the time, can you honestly touch your heart and say you've tried your best? That you've given everything you got?   
+
+Unfortunately the answer is a clear no most of the time.   
+
+When no is the answer deep within, we know we haven't done what we intended to do. We slipped. We blame ourselves for not trying our best, which is why we're not getting the kind of results we want. All the blame goes onto us.   
+
+It's unhealthy and detrimental in the long run.   
+
+## You create false upper limits if you fail  
+
+If you believed (on any level) that you've done your best and the results you've achieved is less than what you hope for — then **you would also believe that your (failed) results is the upper limit of what you can achieve**.   
+
+When you hit this upper limit again, you become dispirited and want to give up because you already believed you couldn't get past it — even at your best — so why try again? Why set yourself up for failure again when you know you're going to fail?   
+
+This limit assumes you're already at your best when you tried it before. Thankfully, humans aren't static creatures. We can evolve and grow. We can eventually break the upper limits as long as we continue working towards it.   
+
+But if you have labelled this upper limit as "your best", then **it takes even more effort to break out of this limit** going forward. It would take tremendous courage, faith, and persistence to break any upper-boundaries you've set from the failure.   
+
+If it takes so much effort for you to get there, **how much more effort would it take to go 1% more?** You'll feel dread thinking about pushing for an extra 1% every time.   
+
+So growth doesn't seem very possible. It seems daunting and exhausting. It doesn't seem fun at all. But we know we have to continue growing, so we go through life dreading and cursing at how we're not already good enough.   
+
+## It's impossible to try and relax at the same time  
+
+Trying is the act of applying force while relaxation is the act of removing force (hence removing tension).   
+
+**You can't try to relax. It's an oxymoron**. It's like telling someone to push and pull a door at the same time. So should they push more or should they pull more?  
+
+You're giving confused signals to your body when you're trying to relax. The most likely result is you toss and turn in bed, getting frustrated, never really resting, but wasting a lot of time and energy. What's the point?  
+
+Resting is an important part of sustainable effectiveness. If we cannot rest, we're shortchanging ourselves of the recovery needed for maximum productivity. We can't try to rest. We have to relax and let the rest settle in.   
+
+**We can't work hard, play hard, rest hard.**  
+
+**We need to work hard, play hard, and rest well.**  
+
+## So what's a better alternative?  
+
+I don't have a clear answer, but I'm thinking about the normal distribution curve again.   
+
+<figure role="figure">
+<img src="/images/2021/trying-your-best/distribution-curve.png" alt="normal distribution curve line graph">
+</figure> 
+
+Since we're putting in average amounts of effort most of the time, why don't we surrender ourselves to this fact? Why don't we **allow ourselves to perform at our average** instead?   
+
+I can think of several benefits that I've experienced from consciously trying to use average effort — it all hinges on the space we create for ourselves when we're relaxed.   
+
+### We still get similar results when we're performing with average effort  
+
+Derek Sivers shared a [bike ride experience](https://sive.rs/relax) a while back that resonated with me a lot.   
+
+In his article, Derek mentioned that he was able to cycle 7.5miles in 43 minutes if he pushes himself. One day, he decided to relax and take it easy, and he finished that ride in 45 minutes. Since he was relaxed, he was also able to enjoy the scenery while achieving similar results.   
+
+> So apparently all of that exhausting, red-faced, full-on push-push-push I had been doing had given me only a **4 percent** boost. I could just take it easy and get **96 percent of the results**. — Derek Sivers  
+
+If we get similar results whether we relax or push ourselves, why use the extra effort and create more stress for ourselves?   
+
+### We begin to learn the mechanics of how things work  
+
+If we believe that it's okay as long as we've tried our best, then we believe the effort counts more than the results — we failed; it's okay; we tried.   
+
+**Effort is important, but they don't count. The results matter instead.**   
+
+If you can deliver the same results with minimal effort, nobody will screw you for it. But if you can't deliver results even when you put in your best effort, you're still screwed.   
+
+But when you try your best, push yourself to the limit, and still fail to deliver results, you can't separate the results from your effort — the effort is all you see. You'll automatically blame yourself for not being smart enough, not being fast enough, not working hard enough. This counterforce prevents us from seeing the bigger picture.   
+
+So we continue to get stuck in the effort loop, thinking we need to put in more effort and everything will be solved. But we still can't get the results when we put in effort, so the loop continues.   
+
+This is insanity.   
+
+And in the developing world there's an insanity around tutorial hell that's happening because of this mindset — people pour their hearts into learning through tutorials but they can't seem to code. So they spend more time and energy to look for more tutorials, hoping the next one will be their salvation.   
+
+It doesn't work this way. If these people can pull back a bit, they would be able to see they're lacking the skills to resolve problems step by step — in other words they're lacking the [ability to think like a developer](https://zellwk.com/blog/think-like-a-programmer/) — which can only be learned if they [sit down and figure it out](/blog/figure-it-out/).  
+
+:::note
+A tutorial that guides them through every step of the way certainly helps, but these tutorials are rarely seen. Maybe one of the rare exceptions is this blog? 🤔🥳  
+:::
+
+To pull back, we need to be less invested in the results. To become less invested in the results, we need to reduce the apparent amount of effort we put in.   
+
+**If we work with average effort, we don't care (as much) about what results we create.** We know the results will achieve their maximum potential since we're not putting in maximum effort anyway.   
+
+When we have this distance, **we can look at things with more ease**. **We can begin to see what's actually working vs what's not working** (and the frustrations we have are telltale signs). We can then begin to make improvements or changes based on what we see. This allows us to reorient ourselves constantly so we're moving towards the direction we want to go in.   
+
+When the opportunity arises where it makes sense to go all in — we can still go all in with maximum effort. The important part is to spot this opportunity so our efforts are not wasted.   
+
+There's a balance. **There's a right time to relax and there's a right time to push. We have to find this balance** and we can't find it if we're constantly pushing ourselves.   
+
+We need to build a discipline for maintaining enough relaxation, the discipline for pushing, and also the discipline for looking at the bigger picture. We can't do without any of these disciplines.  
+
+### We have more fun, love, joy, patience, peace, and synchronicity  
+
+**When we're trying our best** — making a beeline for the goal — **we see everything else as obstacles.** We become impatient and angry all the time.   
+
+We get frustrated if someone interrupts us — even if this is a loved one. We might yell at them and destroy our relationships inadvertently. Our loved ones become afraid to bother us when we're working. But that's not love, that's simply fear. What if they had something really important they need to talk about? They would think twice before approaching you.   
+
+We get frustrated when things don't go our way. Sometimes we get frustrated at our code for not working and we desperately try to fix things up by doing something random without figuring out the actual source of the error.   
+
+We panic when we can't find the source of the problems we're suffering from, we feel helpless about it. In our panic, we sometimes lash out at people and things around us.   
+
+**If we allow ourselves to perform at our average effort, we are more relaxed. We allow room for things to happen.**  
+  - We allow for ideas to pop up that may solve the problems we're facing  
+  - We allow loved ones to interrupt us, to play with us, to have fun with us, to share with us what they're concerned about and how we can help. (Try having a kid around when you're trying to work. I guarantee it's a lot of fun 😂).  
+  - We give our colleagues more patience and we walk them through their obstacles instead of blaming them for being stupid.   
+
+**We create lots more joy, love, fun, and laughter** when we don't try so hard. **We can also be more relaxed and take ourselves less seriously.** When we take ourselves less seriously, we can have more fun! 🤪  
+
+### Doing your average doesn't mean you're actually average  
+
+One fear of being the average you is you're going to deliver average results.   
+
+But this fear is unfounded.   
+
+Consider high performing people like Elon Musk and Tony Robbins. Do you think they're constantly at the top of their game, putting in all the effort they can muster into everything they do?  
+
+I don't know them, but it sounds highly impossible too (see above argument). I don't know anyone who doesn't need downtime. I don't know anyone who doesn't need to sleep either. Maybe they can push themselves further than most people, but that's because their internal can handle it — they've trained themselves and built their capabilities so they can run at that speed, even though that's their average performance.   
+
+We can consider two normal distribution curves stacked on top of each other. One is your average results at your average capacity, while the other is the world's average results.   
+
+<figure role="figure">
+<img src="/images/2021/trying-your-best/two-distribution-curves.png" alt="normal distribution curve showing your average results vs the worlds average results">
+</figure>   
+
+So **we can still perform better than average even though we're putting in average effort**. What we need is training in the skills that will streamline our systems and help us get more results. We can continue to improve ourselves consistently and we create more and more results with our average effort.   
+
+## Wrapping up   
+
+In summary, trying your best has its merits, but it's a surefire way to be perpetually impatient, angry and sad. The alternative is to relax a little and perform at your average.   
+
+When you perform at your average, you have distance from the results. You can see clearer. You can respond better. You have room to manoeuvre and reorient yourself towards what matters more to you in life.   
+
+If you're trying your best, I hope you consider relaxing a little and try your average for a week. Let me know how it works out for you!   
