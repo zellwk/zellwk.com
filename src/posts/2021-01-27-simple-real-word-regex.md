@@ -50,7 +50,7 @@ When building Tiny, we added properties into children components via props. Sinc
 Here's an example of such an attribute.
 
 ```html
-<div tiny-props="[count, state.count]"> ... </div>
+<div tiny-props="[count, state.count]">...</div>
 ```
 
 The child component should then get a `count` property which corresponds to the value written inside the parent's `state.count` property.
@@ -59,7 +59,7 @@ The challenge here is to extract `count` and `state.count` separately, so we can
 
 This is simple if we only have one set of props.
 
-- We can `replace `[` and `]` with empty strings
+- We can `replace`[` and `]` with empty strings
 - Then we split the string at `,`
 - Then we trim any unnecessary whitespace.
 
@@ -81,7 +81,7 @@ console.log(props)
 The problem becomes slightly more complicated when we need to pass multiple props. In this case, I chose to separate each prop-value pair with square brackets.
 
 ```html
-<div tiny-props="[count, state.count] [message, state.message]"> ... </div>
+<div tiny-props="[count, state.count] [message, state.message]">...</div>
 ```
 
 We cannot same `replace` code above for this new string. You'll get weird results.
@@ -94,9 +94,7 @@ The culprit becomes obvious when omit the `split` and `trim` parts. You can clea
 
 ```javascript
 const attribute = div.getAttribute('tiny-props')
-const props = attribute
-  .replace('[', '')
-  .replace(']', '')
+const props = attribute.replace('[', '').replace(']', '')
 
 console.log(props)
 ```
@@ -105,15 +103,13 @@ console.log(props)
   <img src="/images/2021/real-world-regex/replaced.png" alt="">
 </figure>
 
-Fixing this is easy. We can use a regular expression with a `g` flag. The `g` flag signifies "global", allows the regular expression to match all occurrences of the specified value.
+Fixing this is easy. We can use a regular expression with a `g` flag. The `g` flag signifies "global" (but I remember it as greedy 😂), allows the regular expression to match all occurrences of the specified value.
 
 In this case, we need to escape `[` and `]` with a `\` because square brackets mean something in regular expressions. The escape character tells the regular expression we're literally searching for `[` and `]` characters.
 
 ```javascript
 const attribute = div.getAttribute('tiny-listener')
-const props = attribute
-  .replace(/\[/g, '')
-  .replace(/\]/g, '')
+const props = attribute.replace(/\[/g, '').replace(/\]/g, '')
 
 console.log(props)
 ```
@@ -140,7 +136,7 @@ console.log(props)
 
 At this point we can loop through the `props` array to get the values we need. Each odd item is the property and each even item is the value needed.
 
-##  Combining the regular expressions
+## Combining the regular expressions
 
 Square brackets symbolizes OR in regular expressions. If we put any character inside square brackets, the regular expression will find the letter inside it.
 
@@ -149,9 +145,7 @@ So if a regular expression says `/[abc]/, it will look for letter a, or letter b
 We can use this behaviour to combine all three `replace` call into a single one.
 
 ```javascript
-const props = attribute
-  .replace(/[\[\],]/g, '')
-  .split(' ')
+const props = attribute.replace(/[\[\],]/g, '').split(' ')
 console.log(string)
 ```
 
@@ -162,7 +156,7 @@ This regular expression looks foreign and scary, but if you can trace back its o
 Users can break the string by adding in unwanted spaces before or after the string. If they do this, we'll end up empty items which throws the array into disarray (Ha! 😂).
 
 ```html
-<div tiny-props=" [count, state.count] [message, state.message] "> ... </div>
+<div tiny-props=" [count, state.count] [message, state.message] ">...</div>
 ```
 
 <figure role="figure">
@@ -187,7 +181,9 @@ console.log(props)
 Users can also break the implementation by adding extra whitespaces between commas or between square brackets.
 
 ```html
-<div tiny-props="[count,    state.count]     [message,     state.message]"> ... </div>
+<div tiny-props="[count,    state.count]     [message,     state.message]">
+  ...
+</div>
 ```
 
 <figure role="figure">
@@ -206,22 +202,23 @@ const props = attribute
   .trim()
   .replace(/[\[\],]/g, '')
   .split(/\s+/)
-  ```
+```
 
 Finally, users can break this implementation (again) by omitting whitespaces between each value.
 
 ```html
-<div tiny-props="[count,state.count][message,state.message]"> ... </div>
+<div tiny-props="[count,state.count][message,state.message]">...</div>
 ```
 
 <figure role="figure">
   <img src="/images/2021/real-world-regex/omit-whitespace.png" alt="">
 </figure>
 
-We can fix this by creating whitespaces intentionally when replacing `[`, `]` and `,`.  This creates extra whitespace in three places:
-  - The front of the string
-  - Between each item
-  - At the back of the string
+We can fix this by creating whitespaces intentionally when replacing `[`, `]` and `,`. This creates extra whitespace in three places:
+
+- The front of the string
+- Between each item
+- At the back of the string
 
 The whitespace between each item can be stripped away with `\s+`. The whitespace in front and behind can be removed by using `trim` before `split`.
 
