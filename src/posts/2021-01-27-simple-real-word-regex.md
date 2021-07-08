@@ -105,7 +105,7 @@ console.log(props)
   <img src="/images/2021/real-world-regex/replaced.png" alt="">
 </figure>
 
-Fixing this is easy. We can use a regular expression with a `g` flag. The `g` flag signifies "greedy", allows the regular expression to match all occurrences of the specified value.
+Fixing this is easy. We can use a regular expression with a `g` flag. The `g` flag signifies "global", allows the regular expression to match all occurrences of the specified value.
 
 In this case, we need to escape `[` and `]` with a `\` because square brackets mean something in regular expressions. The escape character tells the regular expression we're literally searching for `[` and `]` characters.
 
