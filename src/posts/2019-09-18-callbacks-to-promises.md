@@ -159,7 +159,7 @@ You cannot write this:
 // Note: This does not work 
 const growTreesPromise = (...args) => {
   return new Promise((resolve, reject) => {
-    growTrees(...args, (error, location, size) => {
+    growTrees(...args, (err, location, size) => {
       if (err) return reject(err)
       // You can't send two arguments into resolve
       resolve(location, size)
