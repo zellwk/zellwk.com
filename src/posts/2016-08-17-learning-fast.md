@@ -74,7 +74,7 @@ So beginners master the art of Googling for plugins. They build their confidence
 
 Except it's not. There are times where you have to create your solution. But will you be ready if such a situation comes your way?
 
-To learn something well, you have to discard the notion that reinventing the wheel is bad. I implore you to try your hand at building the functionality you need instead of jumping straight towards libraries that others have built. Try it out, but it yourself, at least. So you know the inner workings of what you're using.
+To learn something well, you have to discard the notion that reinventing the wheel is bad. I implore you to try your hand at building the functionality you need instead of jumping straight towards libraries that others have built. Try it out, build it yourself, at least. So you know the inner workings of what you're using.
 
 Want to make responsive websites? It's not that hard. The fundamentals to excellent responsive websites are *(1) relative units* and *(2) media queries*. Master them both, and you'll build something without Bootstrap or Foundation any day.
 
