@@ -18,23 +18,27 @@
     margin-top: 0;
   }
 
-  // > div:nth-child(2) {
-  //   border: 2px solid var(--yellow-600);
-  //   padding: ru(2);
-  //   border-radius: $border-radius;
-  //   background-color: var(--yellow-900);
-  //   margin-left: ru(-2);
-  //   box-shadow: ru(-0.25) ru(0.375) 0 ru(0.25) rgba(0, 0, 0, 0.75);
-  // }
-
-  // TODO: Ask HuiJing about how to handle kite for responsive... exceeding...
-  // Simply body overflow hidden?
   .kite {
     position: relative;
     z-index: -1;
     left: ru(18) * -0.5;
     top: ru(-1);
-    @include shapes.kite-skewed(ru(18));
+    display: block;
+    width: ru(36);
+    height: ru(18);
+    clip-path: polygon(25% 0, 100% 100%, 25% 100%, 0 50%);
+    background-color: var(--purple-400);
+    // background-color: var(--purple-800);
+  }
+
+  .kite-inner {
+    position: absolute;
+    background-color: var(--purple-800);
+    top: 3px;
+    right: 9px;
+    left: 3px;
+    bottom: 3px;
+    clip-path: polygon(25% 0, 100% 100%, 25% 100%, 0 50%);
   }
 }
 

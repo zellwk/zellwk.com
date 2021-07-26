@@ -13,14 +13,19 @@
 }
 
 %h1 {
+  margin-top: ru(5);
   font-size: fz(3);
   font-weight: 500;
   line-height: 1.15;
   color: var(--yellow-500);
-  margin-top: ru(5);
+  $shadowSize: 3px;
+  text-shadow: 0 -$shadowSize 0 var(--yellow-900),
+    $shadowSize 0 0 var(--yellow-900), 0 $shadowSize 0 var(--yellow-900),
+    -$shadowSize 0 0 var(--yellow-900);
 
   @include mappy-bp(600px) {
-    font-size: fz(5);
+    font-size: fz(6);
+    line-height: 1.05;
   }
 }
 

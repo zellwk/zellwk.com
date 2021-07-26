@@ -1,0 +1,101 @@
+@use 'simplex/shapes';
+@use 'config/typography' as *;
+@use 'config/borders' as *;
+
+.note {
+  position: relative;
+  font-size: fz(-1);
+  line-height: 1.45;
+  padding: ru(1.5) ru(0.5) ru(0.5);
+  color: var(--yellow-400);
+  border: 2px solid var(--yellow-600);
+  background-color: var(--yellow-900);
+  border-radius: $border-radius;
+  margin-top: ru(1.25);
+  margin-bottom: ru(1.25);
+
+  &::before {
+    content: 'Note';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 ru(0.5) ru(0.04);
+    background-color: var(--yellow-900);
+    border-bottom: 2px solid var(--yellow-600);
+    border-right: 2px solid var(--yellow-600);
+    border-top-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+
+    @extend %small-caps;
+    text-transform: lowercase;
+  }
+
+  .note__deco {
+    $size: ru(1);
+    $border: 2px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    > * {
+      position: absolute;
+      z-index: -1;
+      @include shapes.square($size, var(--yellow-900));
+      border: 2px solid var(--yellow-600);
+      border-radius: $border-radius;
+      transform: rotate(45deg);
+    }
+
+    .top {
+      top: calc(#{$size}/ 2 * -1 - #{$border}/ 2);
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .left {
+      left: calc(#{$size}/ 2 * -1 - #{$border}/ 2);
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    .right {
+      right: calc(#{$size}/ 2 * -1 - #{$border}/ 2);
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    .bottom {
+      bottom: calc(#{$size}/ 2 * -1 - #{$border}/ 2);
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .top-left {
+      top: calc(#{$size}/ 2 * -1 - #{$border}/ 2);
+      left: calc(#{$size}/ 2 * -1 - #{$border}/ 2);
+    }
+
+    .top-right {
+      top: calc(#{$size}/ 2 * -1 - #{$border}/ 2);
+      right: calc(#{$size}/ 2 * -1 - #{$border}/ 2);
+    }
+
+    .bottom-left {
+      bottom: calc(#{$size}/ 2 * -1 - #{$border}/ 2);
+      left: calc(#{$size}/ 2 * -1 - #{$border}/ 2);
+    }
+
+    .bottom-right {
+      bottom: calc(#{$size}/ 2 * -1 - #{$border}/ 2);
+      right: calc(#{$size}/ 2 * -1 - #{$border}/ 2);
+    }
+  }
+}

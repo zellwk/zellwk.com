@@ -3,11 +3,11 @@
   position: relative;
   margin-top: vr(0.75);
   padding: vr(0.75);
-  border: 2px solid color(gallery);
+  // border: 2px solid color(gallery);
 }
 
 .note::before {
-  content: "note";
+  content: 'note';
   position: absolute;
   top: -0.7em;
   padding: 0 0.25em;

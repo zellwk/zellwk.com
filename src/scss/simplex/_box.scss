@@ -1,0 +1,36 @@
+@use 'simplex/shapes';
+@use 'config/typography' as *;
+@use 'config/borders' as *;
+
+.box {
+  $background-color: var(--yellow-900);
+  $border-color: var(--yellow-600);
+  $color: var(--yellow-400);
+  position: relative;
+  font-size: fz(-1);
+  line-height: 1.45;
+  padding: ru(1.5) ru(0.5) ru(0.5);
+  color: $color;
+  border: 2px solid $border-color;
+  background-color: $background-color;
+  border-radius: $border-radius;
+  margin-top: ru(1.25);
+  margin-bottom: ru(1.25);
+
+  &::before {
+    content: 'Note';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 ru(0.5) ru(0.04);
+    background-color: $background-color;
+    border-bottom: 2px solid $border-color;
+    border-right: 2px solid $border-color;
+    border-top-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+
+    @extend %small-caps;
+    text-transform: lowercase;
+  }
+}

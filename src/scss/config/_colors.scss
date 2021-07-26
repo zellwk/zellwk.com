@@ -60,7 +60,7 @@
   --pink-900: hsl(300, 85%, 15%);
 }
 
-$list: [ 'grey', 'yellow', 'blue-purple', 'aqua', 'teal', 'pink' ];
+$list: [ 'grey', 'yellow', 'purple', 'aqua', 'teal', 'pink' ];
 
 @each $color in $list {
   @for $num from 1 to 10 {
