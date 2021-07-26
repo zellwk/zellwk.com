@@ -19,9 +19,12 @@
   line-height: 1.15;
   color: var(--yellow-500);
   $shadowSize: 3px;
-  text-shadow: 0 -$shadowSize 0 var(--yellow-900),
-    $shadowSize 0 0 var(--yellow-900), 0 $shadowSize 0 var(--yellow-900),
-    -$shadowSize 0 0 var(--yellow-900);
+  $shadowSpread: 3px;
+  $shadowColor: var(--yellow-900);
+  text-shadow: 0 -#{$shadowSize} $shadowSpread $shadowColor,
+    0 $shadowSize $shadowSpread $shadowColor,
+    $shadowSize 0 $shadowSpread $shadowColor,
+    -$shadowSize 0 $shadowSpread $shadowColor;
 
   @include mappy-bp(600px) {
     font-size: fz(6);
