@@ -136,7 +136,7 @@ The result is what you'd expect.
 
 This behaviour works with most loops (like `while` and `for-of` loops)...
 
-But it won't work with loops that require a callback. Examples of such loops that require a fallback include `forEach`, `map`, `filter`, and `reduce`. We'll look at how `await` affects `forEach`, `map`, and `filter` in the next few sections.
+But it won't work with loops that require a callback. Examples of such loops that require a callback include `forEach`, `map`, `filter`, and `reduce`. We'll look at how `await` affects `forEach`, `map`, and `filter` in the next few sections.
 
 ## Await in a forEach loop
 
