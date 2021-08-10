@@ -14,6 +14,8 @@ When I talk about JavaScript performance here, I'm not talking about things like
 
 I discovered we can use two methods to test performance – `performance.now` and `Date.now`. I was curious about the difference between them, so I made some experiments to document my findings. 
 
+<!--more-->
+
 ## The procedure 
 
 The procedure for testing performance is simple. There are three steps: 
