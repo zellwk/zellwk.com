@@ -36,7 +36,7 @@ It's harder to find keyboard-focusable elements if you don't know the content be
 
 After some research, I realised you could only focus on these elements with a keyboard:
 
-1. `<a>`
+1. `<a>` with the `href` attribute
 2. `<button>`
 3. `<input>`
 4. `<textarea>`
@@ -49,17 +49,19 @@ We can get all keyboard-focusable elements with the following `querySelectorAll`
 
 ```js
 const keyboardfocusableElements = document.querySelectorAll(
-  'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+  'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
 )
 ```
 
-Some elements (like `button`) can be disabled. Disabled elements are not focusable. We can remove these elements with `filter`.
+Some elements (like `button`) can be disabled. Disabled elements are not focusable.  
+In some libraries form fields are hidden visually (CSS) and for AT (`aria-hidden="true"`) and replaced by better looking components that should be accessible.   
+We can remove these elements with `filter`.  
 
 ```js
 const keyboardfocusableElements = [...document.querySelectorAll(
-  'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+  'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
 )]
-  .filter(el => !el.hasAttribute('disabled'))
+  .filter(el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'))
 ```
 
 ## Turning it into a function
@@ -74,8 +76,8 @@ This `querySelectorAll` code is hard to read. We can put the entire thing into a
  */
 function getKeyboardFocusableElements (element = document) {
   return [...element.querySelectorAll(
-    'a, button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
+    'a[href], button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
   )]
-    .filter(el => !el.hasAttribute('disabled'))
+    .filter(el => !el.hasAttribute('disabled') && !el.getAttribute("aria-hidden"))
 }
 ```
