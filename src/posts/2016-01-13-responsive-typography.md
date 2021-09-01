@@ -89,7 +89,7 @@ It's difficult to pick the font-size of your typographic elements (`<h1>` to `<h
 It is a sequence of numbers related to each other through a ratio (a number). It can be created by multiplying (or dividing) the font-size of your body copy with the ratio. The resultant number is then multiplied (or divided) again with the ratio.
 
 <figure>
-![](/images/2016/01/modular-scale.png)
+<img src="/images/2016/01/modular-scale.png" alt="Illustration showing modular scale with ratio 1.333 and body copy of 16px">
 <figcaption> A modular scale with ratio 1.333 and body copy of 16px </figcaption>
 </figure>
 
