@@ -36,7 +36,7 @@ If I write this structure into code, it might look something like this:
 </house>
 ```
 
-Each set of **item within angled brackets** (`<` and `>`) **is called a tag**. Here, `<house>` is a tag. It has one `<living-room>`, one `<kitchen>`, and two `<bedroom>`s in it. 
+Each **item within angled brackets** (`<` and `>`) **is called a tag**. Here, `<house>` is a tag. It has one `<living-room>`, one `<kitchen>`, and two `<bedroom>`s in it. 
 
 HTML is similar to the code above. But **HTML requires you to use a predefined list of tags** instead of `<house>` and `<living-room>`. You can find a list of all possible tags on [MDN][1]. Examples of these tags include: 
 
@@ -51,7 +51,7 @@ HTML is similar to the code above. But **HTML requires you to use a predefined l
 
 In HTML, we can't write `<house>` because `<house>` is not a valid HTML tag. We can use `<div>` as a replacement for the `<house>` tag. But we need some way to identify "house". 
 
-**To identify "house", we use a class.** A HTML version of the house looks like this: 
+**To identify "house", we use a class.** An HTML version of the house looks like this: 
 
 ```html
 <div class="house">
@@ -157,7 +157,7 @@ Let's say my bed is placed in the top-right corner of the room. This is what I m
 
 This means: 
 
-1. Set `position` to `absolute` for elements the `bed` class
+1. Set `position` to `absolute` for `bed` class elements
 2. Push it all the way to the top
 3. Push it all the way to the right 
 
@@ -182,7 +182,7 @@ You can find a list of all CSS properties [here][2].
 
 Note: This is a huge list. You might get overwhelmed if you look at it. The good news is, you don't have to learn everything at once. If you're starting out from scratch, I highly suggest reading "[Interneting is hard][3]". It explains the basics of HTML and CSS in a simple manner. 
 
-(I'll work on a step-by-step CSS course to bring you from novice to advance in future. Leave your email [here][4] if you want to ask questions/get updates about this course). 
+(I'm working on a step-by-step CSS course to bring you from novice to advance in future. Leave your email [here][4] if you want to ask questions/get updates about this course). 
 
 ## JavaScript 
 
@@ -212,7 +212,7 @@ You can do a lot more with JavaScript. Examples are:
 4. Create a carousel where people can switch between slides 
 5. Make a calculator
 
-There's so much more about JavaScript than I can say with one blog post. If you're interested in learning JavaScript, I wrote **a course to teach you everything** you need to know **about JavaScript**. It's called [Learn JavaScript][5]. Check it out! You'll also see some inspirations on what you can build :) 
+There's so much more about JavaScript than I can say with one blog post. If you're interested in learning JavaScript, I wrote **a course to teach you everything** you need to know **about JavaScript**. It's called [Learn JavaScript][5]. Check it out! You'll also see some inspiration on what you can build :) 
 
 ## Wrapping up 
 
