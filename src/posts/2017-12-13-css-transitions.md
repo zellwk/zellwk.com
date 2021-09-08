@@ -41,13 +41,13 @@ The `transition` property is a shorthand of four CSS properties, `transition-pro
 
 `transition-duration` refers to the duration of the transition. How long do you want the transition to last? This value is written in seconds with the `s` suffix (like `3s`). It is also required in the `transition` shorthand.
 
-`transition-timing-function` refers to how to transition occurs. You'll learn more about this later.
+`transition-timing-function` refers to how the transition occurs. You'll learn more about this later.
 
 `transition-delay` refers to how long you want to wait before starting the duration. This value is written in seconds with the `s` suffix (like `3s`). `transition-delay` is optional in the `transition` shorthand.
 
 ## Triggering transitions
 
-You can trigger CSS transitions directly with pseudo classes like `:hover` (activates when mouse goes over an element), `:focus` (activates when a user tabs onto an element, or when a user clicks into an input element), or `:active` (activates when user clicks on the element).
+You can trigger CSS transitions directly with pseudo classes like `:hover` (activates when the mouse goes over an element), `:focus` (activates when a user tabs onto an element, or when a user clicks into an input element), or `:active` (activates when user clicks on the element).
 
 ```css
 /* creating transitions directly in CSS */

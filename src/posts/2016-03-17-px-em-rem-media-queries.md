@@ -11,7 +11,7 @@ newsletter: better-fed
 
 Have you wondered if you should use `px`, `em` or `rem` for media queries? I had the same question too, and I never figured it out, not till now.
 
-When I first created the [mappy-breakpoint](https://github.com/zellwk/mappy-breakpoints) library over a year ago, I used `rem` units. Then [after a conversation](https://github.com/at-import/breakpoint/issues/132) with Sam Richard, I quickly switched to `em` instead because I found out there isn't a difference between the two.
+When I first created the [mappy-breakpoint](https://github.com/zellwk/mappy-breakpoints) library, I used `rem` units. Then [after a conversation](https://github.com/at-import/breakpoint/issues/132) with Sam Richard, I quickly switched to `em` instead because I found out there isn't a difference between the two.
 
 In addition to `em` and `rem`, a popular unit of choice for media queries is the good old pixel. I wondered if it's possible to use pixel queries nowadays since px-zooming problem that used to exist was now resolved by all browsers.
 
@@ -141,7 +141,9 @@ Since this behavior only occurs on Safari, I was curious to see if mobile Safari
 
 The second scenario is common as well. If the text on your page isn't large enough, **users may choose to use the zoom function built into their browser to enlarge the text.**
 
-A quick note here: The original idea behind `em` based sizes was due to older browsers not being able to update pixel values when a user zooms. In this regard, testing the difference between media query units when a user zooms will help to answer the question on whether we can use `px` based media queries now.
+:::note
+The original idea behind `em` based sizes was due to older browsers not being able to update pixel values when a user zooms. In this regard, testing the difference between media query units when a user zooms will help to answer the question on whether we can use `px` based media queries now.
+:::
 
 <figure>
 
