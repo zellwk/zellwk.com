@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Trying Your Best is really bad advice (and strategy)
-description: 
 slug: trying-your-best
 tags: ['philosophy', 'learning']
 ---  

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: How I hired an executive assistant that I'm happy with
-description: 
 slug: hiring-executive-assistant
 tags: ['hiring', 'management']
 ---  

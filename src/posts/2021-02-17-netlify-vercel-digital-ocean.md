@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Choosing between Netlify, Vercel and Digital Ocean
-description:
 slug: netlify-vercel-digital-ocean
 tags:
   - Serverless

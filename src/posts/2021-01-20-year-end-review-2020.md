@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Year End Review — 2020
-description:
 slug: year-end-review-2020
 tags:
   - thoughts
