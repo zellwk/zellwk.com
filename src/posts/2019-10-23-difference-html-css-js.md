@@ -3,10 +3,7 @@ layout: post
 title: The difference between HTML, CSS, and JavaScript
 description: In this article, I want to explain the difference between HTML, CSS, and JavaScript with an analogy. I hope it helps you understand what these languages are, and what they do. 
 slug: difference-between-html-css-javascript
-tags:
-  - html
-  - css
-  - javascript
+tags: ['html', 'css', 'javascript']
 ---
 
 In this article, I want to explain the difference between HTML, CSS, and JavaScript with an analogy. I hope it helps you understand what these languages are, and what they do. 
