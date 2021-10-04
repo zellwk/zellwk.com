@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Leading Trim is in the works! 
-description: Introduction to `leading-trim` and why it changes everything we know about Web Typogarphy
+description: Introduction to `leading-trim` and why it changes everything we know about Web Typography
 slug: leading-trim
+newsletter: css
 tags:
   - css
   - typography

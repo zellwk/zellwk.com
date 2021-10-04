@@ -2,9 +2,9 @@
 title: How to organize and edit your CSS painlessly
 layout: post
 slug: css-preprocessors
+newsletter: css
 tags:
  - css
-newsletter: better-fed
 ---
 
 It is very common to have to change CSS codes midway through a design at some point or another. Because of the way most CSS codes are structured, it is usually painful to sieve through the whole code and look for the particular area you would like changed.

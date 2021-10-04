@@ -4,7 +4,7 @@ layout: post
 slug: simple-form-with-css-grid
 tags:
  - css
-newsletter: better-fed
+newsletter: css
 description: CSS Grid can help you create a simple form that contains an email and a submit button easily. I'll show you how in this article.
 ---
 

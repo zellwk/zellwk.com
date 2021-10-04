@@ -3,6 +3,7 @@ layout: post
 title: My CSS reset 
 description: "Here's how I begin writing CSS for all my projects"
 slug: css-reset
+newsletter: css
 tags:
   - css
 ---

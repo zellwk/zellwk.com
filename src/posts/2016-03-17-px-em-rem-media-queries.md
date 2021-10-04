@@ -2,11 +2,11 @@
 title: PX, EM or REM Media Queries?
 layout: post
 slug: media-query-units
+newsletter: css
 tags:
  - responsive
  - css
  - best
-newsletter: better-fed
 ---
 
 Have you wondered if you should use `px`, `em` or `rem` for media queries? I had the same question too, and I never figured it out, not till now.

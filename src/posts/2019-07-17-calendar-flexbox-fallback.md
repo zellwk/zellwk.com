@@ -3,6 +3,7 @@ layout: post
 title: How to add Flexbox fallback to CSS Grid
 description: How to add a flexbox fallback to a calendar built with CSS Grid
 slug: calendar-flexbox-fallback
+newsletter: css
 tags:
   - css
 ---
