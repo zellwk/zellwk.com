@@ -3,6 +3,7 @@ layout: post
 title: Creating a custom focus style
 description: How to create (and change) a focus style easily with CSS. 
 slug: creating-focus-style
+newsletter: css
 tags:
   - accessibility
   - css

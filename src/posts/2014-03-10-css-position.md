@@ -2,10 +2,10 @@
 title: Understanding and Using CSS Positions
 layout: post
 slug: css-positions
+newsletter: css
 tags:
  - css
  - best
-newsletter: better-fed
 ---
 
 CSS Positions allow you to manipulate how elements are positioned to achieve many different visual effects. In this post today, we're going a little deeper to understand CSS positioning.

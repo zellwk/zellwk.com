@@ -2,11 +2,11 @@
 title: How to build a responsive grid system
 layout: post
 slug: responsive-grid-system
+newsletter: css
 tags:
  - grids
  - responsive
  - layout
-newsletter: susy
 date: 2016-11-02
 ---
 

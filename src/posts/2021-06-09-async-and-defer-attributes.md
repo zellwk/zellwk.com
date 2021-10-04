@@ -1,7 +1,6 @@
 ---
 layout: post
 title: How and when to use Async and Defer attributes
-description: 
 slug: javascript-async-and-defer
 tags: ['javascript']
 ---  

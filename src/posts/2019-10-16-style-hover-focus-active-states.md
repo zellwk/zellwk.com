@@ -126,7 +126,7 @@ button:active {
 Two weird things to take note of: 
 
 1. Holding down Space triggers `:active` on buttons, but holding down Enter doesn't.
-2. Enter triggers links but it doesn't create create an active state. Space doesn't trigger links at all. 
+2. Enter triggers links but it doesn't create an active state. Space doesn't trigger links at all. 
 
 ### Default styles for links
 
@@ -144,7 +144,7 @@ When you release the left mouse button, focus remains on the element
 
 **For links:**
 
-1. When you hold down left mouse button: Triggers `:active` and `:focus` state on Firefox and Chrome  Only triggers active on Safari (tested on Mac only)
+1. When you hold down left mouse button: Triggers `:active` and `:focus` state on Firefox and Chrome  Only triggers active on Safari (tested on Mac only) 
 2. When you release left mouse button: `:focus` remains on link (if the link's `href` does not match an `id` on the same page). On Safari, focus goes back to `<body>`. 
 
 **For buttons:**
@@ -202,7 +202,7 @@ For keyboard users:
 Best of both worlds! 
 
 1. **I have not tested the magic combination thoroughly.** This is a proof of concept. I'd appreciate it if you help me with some tests and let me know how it fares.
-2. **If you run tests, don't use Codepen.** Focus states for links are weird on Codepen. If you hover over a link, the focus outline gets removed. Why? I don't know. Sometimes I think it's best to test stuff like these without any fancy tools. Just plain ol' HTML, CSS, JS.
+2. **If you run tests, don't use Codepen.** Focus states for links are weird in Codepen. If you hover over a link, the focus outline gets removed. Why? I don't know. Sometimes I think it's best to test stuff like this without any fancy tools. Just plain ol' HTML, CSS, JS.
 
 ## The non-magic (but might be better) combination
 

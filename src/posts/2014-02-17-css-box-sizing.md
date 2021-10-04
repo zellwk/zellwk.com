@@ -2,10 +2,10 @@
 title: Understanding CSS Box Sizing Property
 layout: post
 slug: understanding-css-box-sizing
+newsletter: css
 tags:
  - css
  - best
-newsletter: better-fed
 ---
 
 The box sizing property is the single most useful property I have found ever since I started making websites. Border-box is the key to most website layouts simpler, to the point that even frameworks like Boostrap, Foundation and Susy use it.

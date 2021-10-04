@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Rapid Mac Setup for Frontend Development
-description:
 slug: rapid-mac-setup
 tags: ['mac', 'tools', 'workflow']
 ---

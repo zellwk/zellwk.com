@@ -55,13 +55,13 @@ This creates a grid with four columns and three rows.
 
 How do you know there are four columns and three rows?
 
-`grid-template-columns` create a new column for each length value you add to it. In the `grid-template-columns` declaration above, we have four `1fr` values. This means four columns.
+`grid-template-columns` creates a new column for each length value you add to it. In the `grid-template-columns` declaration above, we have four `1fr` values. This means four columns.
 
 `grid-template-rows` work the same way. The grid above has three `3em` values, which means it has 3 rows.
 
 `grid-template-columns` and `grid-template-rows` can also take in values like `repeat`, `autofill`, `autofit`, `minmax`. We won't go into these values in this article.
 
-What you need to know now is you can create an explicit grid with two properties:
+What you need to know now is how you can create an explicit grid with two properties:
 
 1. `grid-template-columns`: creates columns
 2. `grid-template-rows`: creates rows
@@ -75,7 +75,7 @@ You can control the position of items in a grid with two properties:
 
 These two properties can only be used on a grid item.
 
-`grid-column` lets you choose which column(s) you want to place your grid item. It is a shorthand for `grid-column-start` and `grid-column-end`.
+`grid-column` lets you choose which column(s) you want to place your grid item in. It is a shorthand for `grid-column-start` and `grid-column-end`.
 
 It works this way: `grid-column-start / grid-columns-end`.
 
@@ -373,7 +373,7 @@ When you don't have enough space in your explicit grid, CSS Grid will help you c
 
 If you want to switch the grid direction, you'll set `grid-auto-flow` to `row`.
 
-This automatically created parts are called the implicit grid.
+This automatically created parts that are called the implicit grid.
 
 You can adjust the automatically created column(s) or row(s) with these two properties:
 

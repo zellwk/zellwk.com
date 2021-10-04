@@ -3,9 +3,9 @@ title: Writing modular CSS (Part 2) — Namespaces
 description: Are you afraid of breaking your website when you change CSS? Here's how to overcome it with namespaces.
 layout: post
 slug: css-architecture-2
+newsletter: css
 tags:
  - css
-newsletter: better-fed
 ---
 
 Last week, I shared how I use BEM to create a sensible CSS architecture. Although BEM is awesome, it's only part of the solution. There's another part I've yet to mention — namespaces.

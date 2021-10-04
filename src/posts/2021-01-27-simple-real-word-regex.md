@@ -1,7 +1,6 @@
 ---
 layout: post
 title: How to write super simple and useful regular expressions for the real world
-description:
 slug: simple-real-world-regex
 tags:
   - javascript

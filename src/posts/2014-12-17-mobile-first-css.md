@@ -2,10 +2,10 @@
 title: How To Write Mobile-first CSS
 layout: post
 slug: how-to-write-mobile-first-css
+newsletter: css
 tags:
  - responsive
  - susy
-newsletter: susy
 ---
 
 Building responsive websites is a must-have skill for front-end developers today. When we speak about responsive websites, the term mobile-first pops into mind immediately.
