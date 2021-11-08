@@ -186,38 +186,10 @@ steps:
     uses: shimataro/ssh-key-action@v2
     with:
       key: {%- raw -%} ${{ secrets.SSH_PRIVATE_KEY }} {% endraw %}
-      known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+      known_hosts: 'github-actions-server'
 ```
 
-##  Step 5: Adding a correct known_hosts value
-
-We can generate the correct `known_hosts` value with a `ssh-keyscan` command. It looks like this:
-
-```shell
-ssh-keyscan -H IP_ADDRESS_OF_HOST
-```
-
-If you replace `IP_ADDRESS_OF_HOST` with the actual ip address of your server, you should get a result like this. (I omitted my ip address but tried to show you everything else).
-
-<figure role="figure">
-  <img src="/images/2021/github-actions-deploy/add-ip-address.png" alt="inserted ip address result">
-</figure>
-
-Once we know this, we can manually add the IP address (which I named as `SSH_HOST`) into the Github Secrets.
-
-<figure role="figure">
-  <img src="/images/2021/github-actions-deploy/add-ip-github-secrets.png" alt="add IP address to github secrets">
-</figure>
-
-Then we can generate the correct information via `ssh-keyscan` and append it to the `known_hosts` file.
-
-```yaml
-steps:
-  # ...
-  - name: Adding Known Hosts
-    run: ssh-keyscan -H {% raw %}${{ secrets.SSH_HOST }}{% endraw%} >> ~/.ssh/known_hosts
-
-```
+The value of known_hosts doesn't actually matter here -- since we can't always know the IP of the SSH host, we'll just ask rsync to ignore this later. Mind that this does introduce the risk of DNS-based attacks.
 
 ## Step 6: Rsync into Server
 
@@ -230,12 +202,13 @@ rsync -flags source user@host:destination
   - `source` is the source file you want to copy from
   - `user@host` is the username and ip address of the your server. These values should be kept as secrets.
   - `destination` is the location of the files you want to copy to.
+  - `-e "ssh -o StrictHostKeyChecking=no"` tells rsync to not check for known_servers.
 
 Here's a real example of what I use to deploy zellwk.com to my server.
 
 ```yaml
 - name: Deploy with rsync
-  run: rsync -avz ./dist/ {% raw %}${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}{% endraw %}:/home/zellwk/zellwk.com/dist/
+  run: rsync -e "ssh -o StrictHostKeyChecking=no" -avz ./dist/ {% raw %}${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}{% endraw %}:/home/zellwk/zellwk.com/dist/
 ```
 
 Since we have the `verbose` flag, you should be able to see a list of resources that are copied via rsync.
