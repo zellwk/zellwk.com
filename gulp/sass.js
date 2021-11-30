@@ -1,8 +1,6 @@
 const { isProd, input, output } = require('./_config')
 const { src, dest } = require('gulp')
-const Fiber = require('fibers')
-const sass = require('gulp-sass')
-sass.compiler = require('sass')
+const sass = require('gulp-sass')(require('sass'))
 
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
@@ -17,14 +15,19 @@ module.exports = function css (cb) {
     .pipe(sourcemaps.init())
     .pipe(
       sass({
-        includePaths: ['./node_modules'],
-        fiber: Fiber
-      })
-        .on('error', sass.logError)
+        includePaths: ['./node_modules']
+      }).on('error', sass.logError)
     )
     .pipe(postcss([autoprefixer()]))
     .pipe(sourcemaps.write())
     .pipe(gulpIf(isProd, cssnano()))
-    .pipe(gulpIf(isProd, rename(fpath => { fpath.basename += '-min' })))
+    .pipe(
+      gulpIf(
+        isProd,
+        rename(fpath => {
+          fpath.basename += '-min'
+        })
+      )
+    )
     .pipe(dest(output + '/css'))
 }
