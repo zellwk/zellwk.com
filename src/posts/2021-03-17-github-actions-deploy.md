@@ -89,7 +89,7 @@ cat github-actions.pub >> authorized_keys
 ```
 
 Here's what the command does:
-  - Grab the contents of `github.pub` with `cat`.
+  - Grab the contents of `github-actions.pub` with `cat`.
   - Append to `authorized_keys` with `>>`.
 
 Note: Make sure you use double-right-angled brackets (`>>`) and not single-angled brackets (`>`). Double means append, while single means overwrite. Be careful!
