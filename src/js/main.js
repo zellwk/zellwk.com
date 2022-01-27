@@ -6,7 +6,3 @@
 // import './components/emailForm'
 // import './components/ckForm'
 import './lib/prism'
-
-document.addEventListener('click', e => {
-  console.log('testing')
-})
