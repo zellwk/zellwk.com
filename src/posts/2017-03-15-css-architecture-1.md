@@ -3,10 +3,10 @@ title: Writing modular CSS (Part 1) — BEM
 description: How to use BEM and namespacing to create a sensible CSS architecture
 layout: post
 slug: css-architecture-1
+newsletter: css
 tags:
  - css
  - best
-newsletter: better-fed
 ---
 
 Have you worked on large websites that spans more than a few pages? If you did, you probably realized the horrors of not conforming to a robust CSS architecture. You probably would also have researched on ways to write maintainable CSS.

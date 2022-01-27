@@ -3,8 +3,8 @@ title: How to Create Off Canvas Layouts with Susy
 layout: post
 slug: off-canvas-layouts-susy
 tags:
- - susy
- - layout
+  - susy
+  - layout
 newsletter: susy
 ---
 
@@ -42,14 +42,14 @@ Things may seem to be a little confusing initially when you code your first off-
 
 Firstly, we know the off-canvas element is definitely going to be wrapped within a separate `<div>` from the main canvas. You might write something like this:
 
-~~~html
+```html
 <div class="off-canvas"></div>
 <div class="main"></div>
-~~~
+```
 
 This is a great start. We can position `.off-canvas` outside of the normal canvas with a negative absolute position to the left.
 
-~~~scss
+```scss
 .off-canvas {
   position: absolute;
   width: 260px;
@@ -57,17 +57,17 @@ This is a great start. We can position `.off-canvas` outside of the normal canva
   top: 0;
   bottom: 0;
 }
-~~~
+```
 
 We are unable to see how `.off-canvas` looks like now, since it has been placed off the canvas. We need to push the element back from the left to view it.
 
 One possible way to move this particular item back is to add a transform property to it.
 
-~~~scss
+```scss
 .off-canvas {
-  transform: translate3d(260px,0,0);
+  transform: translate3d(260px, 0, 0);
 }
-~~~
+```
 
 ![](/images/2014/09/oc-6.png)
 
@@ -77,11 +77,11 @@ The only problem with translating `.off-canvas` alone, is that part of `.main` i
 
 We can resolve this by translating `.main` as well, but we are introducing two different movements with this method, and that's not very ideal. A better way is to translate the body instead.
 
-~~~
+```
 body {
   transform: translate3d(260px, 0, 0);
 }
-~~~
+```
 
 ![off-canvas Step 1](/images/2014/09/oc-1.png)
 
@@ -91,20 +91,20 @@ Users can scroll to the left and right of the screen. If you're on Internet Expl
 
 We need to fix this issue, and one way to fix it, is by adding two extra divs to the markup.
 
-~~~html
+```html
 <div class="container">
   <div class="transformer">
     <div class="off-canvas"></div>
     <div class="main"></div>
   </div>
 </div>
-~~~
+```
 
 These two divs each have their own special purpose. The `.container` will have an `overflow: hidden` property to prevent people from scrolling horizontally while the `.transformer` div will be the one which translates when `.off-canvas` is shown.
 
 We also want to show `.off-canvas` only when the user specifically requests for `off-canvas`. One of the best ways to do so is to use an additional class for this. We will be using the `.is-open` class in this tutorial.
 
-~~~scss
+```scss
 .container {
   overflow: hidden;
 }
@@ -112,11 +112,11 @@ We also want to show `.off-canvas` only when the user specifically requests for 
 .transformer.is-open {
   transform: translate3d(260px, 0, 0);
 }
-~~~
+```
 
 We ensured that `.off-canvas` only shows when `.transformer` has an `.is-open` class in the CSS above. Now, we need a button to let the user choose to show or hide `.off-canvas`.
 
-~~~html
+```html
 <div class="container">
   <div class="transformer">
     <div class="off-canvas"></div>
@@ -124,30 +124,30 @@ We ensured that `.off-canvas` only shows when `.transformer` has an `.is-open` c
       <!-- adding the button in the header -->
       <header>
         <div class="menu">
-          <img src="" alt="" class="menu-toggle">
+          <img src="" alt="" class="menu-toggle" />
         </div>
       </header>
     </div>
   </div>
 </div>
-~~~
+```
 
 The first click on `.menu-toggle` should reveal `.off-canvas` while the next click should hide it.
 
 The simplest way to do so is to use the `toggleClass()` function in jQuery when `.menu-toggle` is clicked on.
 
-~~~js
-jQuery(document).ready(function($) {
+```js
+jQuery(document).ready(function ($) {
   var $transformer = $('.transformer'),
-  $menuToggle = $('.menu-toggle');
+    $menuToggle = $('.menu-toggle')
 
   // Attaches event handler when .menu-toggle is clicked
-  $menuToggle.on('click', function(event) {
-    event.preventDefault();
-    $transformer.toggleClass('is-open');
-  });
-});
-~~~
+  $menuToggle.on('click', function (event) {
+    event.preventDefault()
+    $transformer.toggleClass('is-open')
+  })
+})
+```
 
 That's all we need for an off-canvas layout. Let's do a quick summary before we move onto adding Susy to the mix.
 
@@ -170,7 +170,7 @@ Once again, there are no hard and fast rules for this. Both locations work quite
 
 No matter where you choose to locate the Susy container, you'll still have to set the global settings correctly. Let's set the number of columns to 12 in this case. We're also going to change the [box model](/blog/understanding-css-box-sizing/) to border-box.
 
-~~~scss
+```scss
 $susy: (
   columns: 12,
   global-box-sizing: border-box,
@@ -182,17 +182,17 @@ $susy: (
 );
 
 @include border-box-sizing;
-~~~
+```
 
 ## Off-canvas Layouts With Susy (Example 1)
 
 In this example, we will declare the Susy container on the `.transformer` element.
 
-~~~css
+```css
 .transformer {
   @include container();
 }
-~~~
+```
 
 This method can work very well if you wanted the off-canvas layout to be part of the grid.
 
@@ -200,48 +200,48 @@ The pros of declaring the Susy container on `.transformer` is that both the chil
 
 Let's just say that the off-canvas item takes up 3 of 12 columns. Here's what the code would look like.
 
-~~~scss
+```scss
 .transformer {
   @include container();
   transition: transform 0.3s ease;
   &.is-open {
-    transform: translate3d( span(3 wide), 0, 0);
+    transform: translate3d(span(3 wide), 0, 0);
   }
 }
 .left {
   position: absolute;
-  width:  span(3 wide);
-  left: - span(3 wide);
+  width: span(3 wide);
+  left: -span(3 wide);
   top: 0;
   bottom: 0;
 }
 .main {
   padding: 0 gutter();
 }
-~~~
+```
 
 Since we're repeating `span(3 wide)` 3 times, we can replace it with a variable to make it slightly DRYer.
 
-~~~scss
- $off-canvas-width: span(3 wide);
-  .transformer {
-    @include container();
-    transition: transform 0.3s ease;
-    &.is-open {
-      transform: translate3d($off-canvas-width, 0, 0);
-    }
+```scss
+$off-canvas-width: span(3 wide);
+.transformer {
+  @include container();
+  transition: transform 0.3s ease;
+  &.is-open {
+    transform: translate3d($off-canvas-width, 0, 0);
   }
-  .left {
-    position: absolute;
-    width: $off-canvas-width;
-    left: -$off-canvas-width;
-    top: 0;
-    bottom: 0;
-  }
-  .main {
-    padding: 0 gutter();
-  }
-~~~
+}
+.left {
+  position: absolute;
+  width: $off-canvas-width;
+  left: -$off-canvas-width;
+  top: 0;
+  bottom: 0;
+}
+.main {
+  padding: 0 gutter();
+}
+```
 
 If you noticed, we did not even use the `span` mixin while building the off-canvas layout. This is because we didn't need the extra `float` and `margin` properties created by the `span` mixin. We only used the `span` function to calculate the width of the off-canvas item.
 
@@ -261,13 +261,13 @@ The difference here is that we will be adding the Susy container to `.main`, and
 
 You can also optionally include paddings in `.main` to provide some breathing space for the text.
 
-~~~css
+```css
 .main {
   @include container();
   padding-left: gutter();
   padding-right: gutter();
 }
-~~~
+```
 
 We get the exact same layout as example 1. The only exception is that the off-canvas item now has a fixed width.
 
@@ -275,18 +275,18 @@ We get the exact same layout as example 1. The only exception is that the off-ca
 
 The full Sass code for example 2 is:
 
-~~~scss
+```scss
 $off-canvas-width-2: 300px;
 
 .container {
   overflow: hidden;
 }
 // .transformer {
-  @include trans-prep;
-  transition: transform 0.3s ease;
-  &.is-open {
-    transform: translate3d($off-canvas-width-2, 0, 0);
-  }
+@include trans-prep;
+transition: transform 0.3s ease;
+&.is-open {
+  transform: translate3d($off-canvas-width-2, 0, 0);
+}
 // }
 .left {
   position: absolute;
@@ -300,7 +300,7 @@ $off-canvas-width-2: 300px;
   padding-left: gutter();
   padding-right: gutter();
 }
-~~~
+```
 
 From this point onwards, you could treat `.main` as your usual Susy container and create your layout as you normally would.
 
@@ -320,7 +320,7 @@ Let's take a look at what we're making for example 3 before we dive in.
 
 The very first thing to notice in example 3 is that the off-canvas item occupies 50% of the viewport when opened up. The width that we have to translate here is hence 50% of the viewport.
 
-~~~scss
+```scss
 $off-canvas-width-3: 50%;
 
 .transformer.is-open {
@@ -334,7 +334,7 @@ $off-canvas-width-3: 50%;
   top: 0;
   bottom: 0;
 }
-~~~
+```
 
 With a simple change in percentage, we managed to get the off-canvas item to occupy 50% of the viewport when it is opened.
 
@@ -342,7 +342,7 @@ With a simple change in percentage, we managed to get the off-canvas item to occ
 
 Since there is a grid for both on and off-canvas, we can declare a Susy container on each of them.
 
-~~~scss
+```scss
 .off-canvas {
   @include container();
 }
@@ -351,26 +351,23 @@ Since there is a grid for both on and off-canvas, we can declare a Susy containe
   @include container();
   margin: 0 gutter();
 }
-~~~
+```
 
 Once we have the container, you may begin to output the navigation items on the off-canvas item just as you would normally do when using Susy. It would be quite clear that each item takes up 6 columns in our case.
 
-~~~scss
+```scss
 .off-canvas {
   li {
     @include gallery(6);
   }
 }
-~~~
+```
 
 And that's it!
 
 ![Complex layout](/images/2014/09/oc-5.png)
 
 Feel free to view the demo and grab the source codes for this layout :)
-
-<a href="http://labs.zellwk.com/off-canvas/index.html" class="btn">View Demo</a>
-<a href="http://labs.zellwk.com/off-canvas/off-canvas.zip" class="btn">Download Source Codes</a>
 
 ## Conclusion
 

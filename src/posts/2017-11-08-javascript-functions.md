@@ -79,7 +79,7 @@ You can choose to indent with 2 spaces or with a tab key. Some people prefer spa
 
 ## Parameters
 
-Most functions take in parameters. It is a **comma-separated list of variables** to you wish to declare for your function.
+Most functions take in parameters. It is a **comma-separated list of variables** you wish to declare for your function.
 
 You can have any number of parameters.
 

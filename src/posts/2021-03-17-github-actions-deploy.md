@@ -89,7 +89,7 @@ cat github-actions.pub >> authorized_keys
 ```
 
 Here's what the command does:
-  - Grab the contents of `github.pub` with `cat`.
+  - Grab the contents of `github-actions.pub` with `cat`.
   - Append to `authorized_keys` with `>>`.
 
 Note: Make sure you use double-right-angled brackets (`>>`) and not single-angled brackets (`>`). Double means append, while single means overwrite. Be careful!
@@ -254,6 +254,6 @@ Here are the steps to summarize everything:
 3. Add the private key as a Github secret
 4. Use Shimataro's [Install SSH Key](https://github.com/marketplace/actions/install-ssh-key) action to generate a SSH Key in the runner.
 5. Append the correct `known_hosts` configuration with `ssh-keyscan`
-6. Deploy with Rysnc via SSH
+6. Deploy with Rsync via SSH
 
 Done! :)

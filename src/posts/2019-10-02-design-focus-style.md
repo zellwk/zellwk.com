@@ -3,6 +3,7 @@ layout: post
 title: Designing a focus style
 description: Problem with the default focus style + inspirations to design your own focus style. 
 slug: design-focus-style
+newsletter: css
 tags:
   - design
   - accessibility

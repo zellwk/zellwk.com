@@ -3,9 +3,9 @@ title: Writing modular CSS (Part 3) — CSS file structure
 description: Can't find your Sass or JavaScript component files? Well, here's a way to organize them properly :)
 layout: post
 slug: css-architecture-3
+newsletter: css
 tags:
  - css
-newsletter: better-fed
 ---
 
 We've already talked about writing Modular CSS with BEM and namespaces in the past two articles. In this article, I want to veer away from the process of writing CSS selectors into the mystical art of file structure and organization.

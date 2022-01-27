@@ -1,6 +1,9 @@
 name: deploy
 on:
   push:
+    branches:
+      - main
+      - master
   schedule:
     - cron: '0 0 * * *' # Everyday at 12am
 jobs:
@@ -24,4 +27,3 @@ jobs:
 
       - name: Deploy with rsync
         run: rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/zellwk/zellwk.com/dist/
-

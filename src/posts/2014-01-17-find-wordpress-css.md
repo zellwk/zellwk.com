@@ -2,10 +2,10 @@
 title: How to find the Wordpress CSS File
 layout: post
 slug: find-wordpress-css
+newsletter: css
 tags:
  - css
  - wordpress
-newsletter: better-fed
 ---
 
 A theme bought off the marketplace can never be 100% what you intended your website to look like. There are always small things that you want to change.

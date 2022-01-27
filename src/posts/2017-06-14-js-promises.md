@@ -24,7 +24,7 @@ A **promise** is an object that will _return a value in future_. Because of this
 
 The concept of a JavaScript promise is better explained through an analogy, so let's do just that to help make the concept clearer.
 
-Imagine you're preparing for a birthday party for your niece next week. As you speak about the party, you friend, Jeff, offered to help. Delighted, you asked him to buy a black forest birthday cake. Jeff said okay.
+Imagine you're preparing for a birthday party for your niece next week. As you speak about the party, your friend, Jeff, offered to help. Delighted, you asked him to buy a black forest birthday cake. Jeff said okay.
 
 Here, Jeff has given you his word that he'll buy you a black forest birthday cake. It's a promise. In JavaScript, a promise works the same way as a promise in real life. The JavaScript version of scenario can be written in the following way:
 

@@ -89,7 +89,7 @@ It's difficult to pick the font-size of your typographic elements (`<h1>` to `<h
 It is a sequence of numbers related to each other through a ratio (a number). It can be created by multiplying (or dividing) the font-size of your body copy with the ratio. The resultant number is then multiplied (or divided) again with the ratio.
 
 <figure>
-![](/images/2016/01/modular-scale.png)
+<img src="/images/2016/01/modular-scale.png" alt="Illustration showing modular scale with ratio 1.333 and body copy of 16px">
 <figcaption> A modular scale with ratio 1.333 and body copy of 16px </figcaption>
 </figure>
 
@@ -526,7 +526,7 @@ p + p {
 
 Notice how we used `1.4rem` on the `margin` property instead of `0.3991em`? The **rem unit makes calculations** with vertical rhythms **much simpler**.
 
-**This doesn't mean you should switch blindly to the `rem` unit** though. Rems and em units are both useful, and they should be used for different purposes. I'll write about this topic another day. For now, let's come back to vertical rhythms.
+**This doesn't mean you should switch blindly to the `rem` unit** though. Rem and em units are both useful, and they should be used for different purposes. I'll write about this topic another day. For now, let's come back to vertical rhythms.
 
 Now that we've converted our vertical rhythms into relative units, let's take a look at how it fares when we combine it with practice one (`font-sizes` and `line-heights` should change when screen sizes change).
 
@@ -571,8 +571,6 @@ p + p {
 
 Ugh. We might have to add 20,000 media queries to change `margin` and `line-height` of all our elements with just this one change in the `line-height` property on `<html>`. We haven't even talked about `padding` or `border` properties yet!
 
-(╯°□°）╯︵ ┻━┻
-
 So, here's what I realized. **It's impossible to apply perfect responsive vertical rhythms across different browsers**. At least not with the current technology.
 
 What we can do instead is:
@@ -580,7 +578,7 @@ What we can do instead is:
 1. We can make do with `line-height` properties of major typographic elements by eyeballing and using Typi.
 2. Try not to change the `line-height` property of your body copy if you can. Things will become easier when [CSS variables](http://caniuse.com/#search=css%20var) are finally supported in  all major browsers.
 
-## Practice 5: Keep text measures between 45 - 75 characters
+## Practice 5: Keep text measurements between 45 - 75 characters
 
 Oh, this one is easy. Just remember this: one character is approximately 0.5em. A text measure between 45 - 75 characters means the width of your text element must be between 22.5em and 37.5em.
 
