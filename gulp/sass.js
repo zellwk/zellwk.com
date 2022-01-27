@@ -11,7 +11,7 @@ const gulpIf = require('gulp-if')
 const rename = require('gulp-rename')
 
 module.exports = function css (cb) {
-  return src(input + '/scss/*_/_.{scss,sass}')
+  return src(input + '/scss/**/*.{scss,sass}')
     .pipe(sourcemaps.init())
     .pipe(
       sass({

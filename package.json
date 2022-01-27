@@ -75,7 +75,8 @@
     "standard-loader": "^7.0.0",
     "standard-reporter": "^1.0.5",
     "through2": "^4.0.2",
-    "to-camel-case": "^1.0.0"
+    "to-camel-case": "^1.0.0",
+    "typi": "^3.2.0"
   },
   "dependencies": {
     "body-parser": "^1.19.1",
