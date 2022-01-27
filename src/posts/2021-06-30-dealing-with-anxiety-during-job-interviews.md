@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Dealing with anxiety during job interviews
-description: 'Four ways to reduce anxiety'
 slug: dealing-with-anxiety-during-job-interviews
 tags: ['Interviews', 'Beginners']
 ---
@@ -19,7 +18,7 @@ I propose four ways to work through your anxiousness
 
 ## Be pessimistic about the interview
 
-**If you apply to a job via the standard channel** (applying through job ad), **your odds of being selected is very low. ** You have to understand this fact and **treat job search as a numbers game**.
+**If you apply to a job via the standard channel** (applying through job ad), **your odds of being selected is very low.** You have to understand this fact and **treat job search as a numbers game**.
 
 Most people don't want to admit that their chances are low and they try to "be their best self" in an interview. Unfortunately, [being your best self is a bad strategy](/blog/trying-your-best/) and it sets you up for failure.
 
