@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Year End Review — 2021
+title: Year end review — 2021
 slug: year-end-review-2021
-tags: ['Review']
+tags: ['review']
 ---
 
 Hello! It's a tradition for me to write a review for the year. I'm going to do it again this year even though I haven't been blogging for a couple of months.
