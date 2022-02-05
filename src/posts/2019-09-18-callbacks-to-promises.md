@@ -128,7 +128,7 @@ Let's say you have an API that returns `data` as the first argument and `err` as
 ```js
 const shootPeasPromise = (...args) => {
   return new Promise((resolve, reject) => {
-    // This is a not a Node styled callback. 
+    // This is not a Node styled callback. 
     // 1. data is the first argument 
     // 2. err is the second argument
     shootPeas(...args, (data, err) => {
