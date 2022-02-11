@@ -118,11 +118,9 @@ I don't know how much bandwidth I'm using, but that doesn't matter since Digital
 
 ## Verdict
 
-If you have a small project: Go with netlify.
+If you have a small project: Go with Netlify or Vercel. They're pretty much the same to me.
 
 If you have a larger project: Use Digital Ocean.
-
-I wouldn't choose Vercel anymore because of that dark pattern pricing strategy.
 
 By the way, [Use this link to get a free \$100 credit](https://m.do.co/c/64daa7a7a455) if you want to try out Digital Ocean. Happy server(less)-ing!
 
