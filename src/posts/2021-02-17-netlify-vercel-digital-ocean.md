@@ -93,7 +93,7 @@ After asking further, I discovered that Vercel's free tier has a cap at 100GB Ba
 
 At this point, I gave up on serverless architecture completely and went back to good old Digital Ocean.
 
-UPDATE: Vercel has now updated their pricing pages to be more transparent. Thank you Steven for letting me know.
+UPDATE: Vercel has now updated their pricing pages to be more transparent — the 100GB limit is now listed. Thank you Steven for letting me know.
 
 ### Digital Ocean Pricing
 
