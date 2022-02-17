@@ -3,8 +3,8 @@ title: Creating a clean and simple website (Part 1 – HTML)
 layout: post
 slug: creating-a-clean-and-simple-website-part-1-html
 tags:
- - design
- - css
+  - design
+  - css
 newsletter: better-fed
 ---
 
@@ -12,29 +12,31 @@ After getting to know the structure of the website look like, its time to create
 
 <!--more-->
 
-## What you need ##
+## What you need
+
 All you need is just a simple text editor. If you have not gotten one yet, I suggest checking out here and just grab a recommended one. Whip out your text editor and lets get started!
 
-## Identifying Elements, IDs and Classes ##
+## Identifying Elements, IDs and Classes
+
 There are a total of 3 different was for CSS documents to target HTML documents. These methods have to be included while writing the HTML in order for you to play around with the design at a later stage.
 
 The 3 methods are:
 
 1. Targeting with the HTML element. These include things like `<div>, <h1>, <p>`
-3. Targeting with a Class. Classes are given to areas where there is duplicated content. They are referenced in css with a dot, like: `.class`
-4. Targeting with an ID. IDs are given to areas where there is no duplication and are referenced in CSS with a # like this: `#id`.
+2. Targeting with a Class. Classes are given to areas where there is duplicated content. They are referenced in css with a dot, like: `.class`
+3. Targeting with an ID. IDs are given to areas where there is no duplication and are referenced in CSS with a # like this: `#id`.
 
 The preferred order is to target the HTML element whenever possible, followed by classes and IDs
 
+## Writing the HTML
 
-## Writing the HTML ##
 When writing HTML, always go in this direction:
 
 1. Left to right
 2. Top to bottom
 
 Before taking a dive into the HTML, lets take a step back and revisit how our website strucutre look like. If this is new to you, I recommend starting from the previous article over
- [here][1].
+[here][1].
 
 Here's a quick view of the structure that we're working with.
 ![Full Website Layout][i1]
@@ -142,7 +144,8 @@ Finally, the footer of the website:
         </div>
     </div>
 
-## Wrapping it up ##
+## Wrapping it up
+
 HTML, as you can see, is a series of tags and text. It's not exceptionally difficult to grasp and I'd recommend you to sign up for my newsletter and grab the getting ebook on how to get started if you're having difficulties. It'll make things much clearer.
 
 This example is also a tad more complicated because I wanted to give you a clearer picture of how a website would look like. If it is too complicated, let me know in the comments and I'll make a shorter one instead.
@@ -151,7 +154,6 @@ In the next post, I'll break down how to style the HTML that we have created usi
 
 Finally, [click here][2] for the full code that we have created together
 
-[i1]: /images/2013/04/website.jpg "Full Website Layout"
-
-[1]: http://www.zell-weekeat.com/layouts-of-a-website  "Layout of your website"
-[2]: /images/2013/04/Website-HTML.html "HTML Codes"
+[i1]: /images/2013/04/website.jpg 'Full Website Layout'
+[1]: /blog/layouts-of-a-website 'Layout of your website'
+[2]: /images/2013/04/Website-HTML.html 'HTML Codes'

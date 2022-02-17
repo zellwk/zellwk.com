@@ -3,7 +3,7 @@ title: Why I started learning about web design and how you can do it too
 layout: post
 slug: why-i-started-learning-about-web-design-and-how-you-can-do-it-too
 tags:
- - updates
+  - updates
 newsletter: better-fed
 ---
 
@@ -38,6 +38,7 @@ I felt this whole programming thing was too hard and not my cup of tea. I quited
 Instead of trying to learn everything under the sun all at once, <strong>I decided to focus</strong> on the basic aspects: HTML and CSS first, and I plowed on to this day. The results from that process my current blog theme.
 
 And that is the story of how I got to where I am today.
+
 <h2>The purpose of this blog</h2>
 My purpose of starting this blog is simple.
 
@@ -53,4 +54,4 @@ If you want to find out more, I invite you to join my community and fill in your
 
 Till then!
 
-P.S. I'd love to hear your questions, comments and feedback below. If you want to keep the conversation private instead, <a href="http://www.zell-weekeat.com/contact/">feel free to the use the contact form</a>. I’ll read everything and reply as soon as I can.
+P.S. I'd love to hear your questions, comments and feedback below. If you want to keep the conversation private instead, <a href="/blog/contact/">feel free to the use the contact form</a>. I’ll read everything and reply as soon as I can.
