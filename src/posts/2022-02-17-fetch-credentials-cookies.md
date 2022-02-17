@@ -3,6 +3,7 @@ layout: post
 title: How Fetch's credentials option handles cookies
 slug: how-fetch-credentials-handles-cookies
 tags: ['fetch', 'javascript', 'async', 'cookies', 'ssl', 'express', 'node']
+status: draft
 ---
 
 Fetch has a `credentials` option that can be used to send credentials to servers. It has three possible values — `omit`, `same-origin`, and `include`.
