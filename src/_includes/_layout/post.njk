@@ -13,22 +13,28 @@ footer: true
     {% import "_macros/media.njk" as media %}
     {{media.youtube(youtubeHash)}}
 
+    {%- if status == 'draft' and not isReady %}
+      {%- include '_partials/not-ready.njk' %}
+    {%- endif %}
+
     {{- content | safe -}}
 
     {# Thanks part #}
-    {%- markdown -%}
-    {% set link = site.url + page.url %}
-
-    If you enjoyed this article, please tell a friend about it! Share it on {% twitterLink title,
-    link %}. If you spot a typo, I'd appreciate if you can correct [it on GitHub](https://github.com/zellwk/zellwk.com/blob/master/{{ page.inputPath }}). Thank you!
-
+    {% if status != 'draft' %}
+      {% set link = site.url + page.url %}
+      {%- markdown -%}
+      If you enjoyed this article, please support me by sharing this article {% twitterLink title,
+      link %} or [buying me a coffee](https://zellwk-com.ck.page/products/zell) 😉. If you spot a typo, I'd appreciate if you can [correct it on GitHub](https://github.com/zellwk/zellwk.com/blob/master/{{ page.inputPath }}). Thank you!
     {%- endmarkdown %}
+    {% endif %}
   </article>
 
-  <div class="post-layout">
-    <section id="convertkit" class="o-content c-ck ck-layout jsCkForm">
-      {%- include 'convertkit.njk' -%}
-    </section>
+  <div class="ck-unsubcribed-content">
+    <div class="post-layout">
+      <section id="convertkit" class="o-content c-ck ck-layout jsCkForm">
+        {%- include 'convertkit.njk' -%}
+      </section>
+    </div>
   </div>
 
   {# Article series. Shows other articles in the same series #}

@@ -19,7 +19,10 @@ module.exports = eleventyConfig => {
   // Markdown
   eleventyConfig.setLibrary('md', markdown.lib)
   eleventyConfig.addFilter('markdown', markdown.inline)
-  eleventyConfig.addPairedShortcode('markdownFile', markdown.includeMarkdownFile)
+  eleventyConfig.addPairedShortcode(
+    'markdownFile',
+    markdown.includeMarkdownFile
+  )
   eleventyConfig.addPairedShortcode('markdown', markdown.pairedMarkdown)
 
   // Pages
@@ -37,14 +40,16 @@ module.exports = eleventyConfig => {
   // Used for Blog template
   // Used for previous/next post link
   eleventyConfig.addCollection('publishedPosts', collection => {
-    return collection.getFilteredByGlob('./src/posts/*.md')
+    return collection
+      .getFilteredByGlob('./src/posts/*.md')
       .filter(isPublished)
       .reverse()
   })
 
   // Collections
   eleventyConfig.addCollection('algolia', collection => {
-    return collection.getFilteredByGlob('./src/posts/*.md')
+    return collection
+      .getFilteredByGlob('./src/posts/*.md')
       .filter(isPublished)
       .reverse()
       .map(post => {
@@ -57,12 +62,12 @@ module.exports = eleventyConfig => {
   })
 
   eleventyConfig.addCollection('best', collection => {
-    return collection.getFilteredByTag('best')
-      .filter(isPublished)
+    return collection.getFilteredByTag('best').filter(isPublished)
   })
 
   eleventyConfig.addCollection('tagslist', collection => {
-    const col = collection.getFilteredByGlob('./src/posts/*.md')
+    const col = collection
+      .getFilteredByGlob('./src/posts/*.md')
       .filter(isPublished)
       .reduce((collated, item) => {
         let tags = item.data.tags
@@ -96,21 +101,25 @@ module.exports = eleventyConfig => {
 
   // For series content
   eleventyConfig.addCollection('seriesContent', collection => {
-    return collection.getFilteredByGlob('./src/posts/*.md')
+    return collection
+      .getFilteredByGlob('./src/posts/*.md')
       .filter(isPublished)
       .filter(item => item.data.series)
   })
 
-  eleventyConfig.addPairedShortcode('isPublished', (content, date, isPublished = true) => {
-    if (
-      (isPublished && new Date() > date) ||
-      ((!isPublished && new Date() < date))
-    ) {
-      return content
-    }
+  eleventyConfig.addPairedShortcode(
+    'isPublished',
+    (content, date, isPublished = true) => {
+      if (
+        (isPublished && new Date() > date) ||
+        (!isPublished && new Date() < date)
+      ) {
+        return content
+      }
 
-    return ''
-  })
+      return ''
+    }
+  )
 
   eleventyConfig.addShortcode('paginate', paginate)
 
@@ -134,9 +143,7 @@ module.exports = eleventyConfig => {
   eleventyConfig.addShortcode('getDesc', sitewide.getDescription)
 
   const getSrcSet = (width, size, dir, basename, ext) => {
-    const sizePath = size === width
-      ? `-${size}`
-      : ''
+    const sizePath = size === width ? `-${size}` : ''
     return `${path.join(dir, basename + sizePath + ext)} ${size}w`
   }
 
@@ -155,6 +162,7 @@ module.exports = eleventyConfig => {
       includes: '_includes'
     },
     templateFormats: ['njk', 'md'],
+    // markdownTemplateEngine: 'njk'
     passthroughFileCopy: true
   }
 }

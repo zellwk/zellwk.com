@@ -1,0 +1,23 @@
+{# Check CK: If subscriber ID then don't need to worry about it. It will be sent to you. Change the wording accordingly. #}
+
+{%- markdown %}
+This is so embarrassing — I'm not done writing the article yet. I linked to this page because I want to speed up my writing process.
+
+Sorry I wasted your time clicking onto this link. I promise I'm working on this article as we speak and you'll receive it soon.
+{%- endmarkdown %}
+
+<!-- If not subscribed -->
+<div class="ck-unsubcribed-content o-content">
+  {%- markdown %}
+  Please fill in your email below so I can contact you when the article is published. In the meantime, I also send you my [newsletter](/newsletter) so you will receive other articles that may be worth your time.
+
+  If you dislike subscribing to my newsletter at this point, don't feel pressured to enter your email below. Feel free to check this page from time to time instead. I'll update it soon.
+  {%- endmarkdown %}
+</div>
+
+<!-- If CK Subscriber -->
+<div class="ck-subscriber-content" hidden>
+  {%- markdown %}
+  I'll let you know as soon as I publish this article.
+  {%- endmarkdown %}
+</div>
