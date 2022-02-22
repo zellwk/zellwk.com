@@ -19,6 +19,10 @@ Today, I want to share how to use async/await in an Express request handler.
 
 Note: Before you continue, you need to know what Async/await is. If you don't know, you can read [this article][1] for more information.
 
+Update: [Express 5.0 baked the handling of async errors into the framework](https://expressjs.com/en/guide/migrating-5.html#rejected-promises) itself — the error will be sent to the error handling middleware even if the Promise rejects. This means the rest of this article is obselete once Express 5 comes out of beta.
+
+I'll update this article again Express 5 is out of beta.
+
 ## Using Async/await with a request handler
 
 To use Async/await, you need to use the `async` keyword when you define a request handler. (Note: These request handlers are known as called "controllers". I prefer calling them request handlers because request handlers are more explicit).
@@ -33,7 +37,7 @@ Once you have the `async` keyword, you can `await` something immediately in your
 
 ```js
 app.post('/testing', async (req, res) => {
-  const user = await User.findOne({email: req.body.email})
+  const user = await User.findOne({ email: req.body.email })
 })
 ```
 
@@ -46,11 +50,11 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
+    unique: true
   },
   firstName: {
     type: String,
-    required: true,
+    required: true
   }
 })
 ```
@@ -58,7 +62,7 @@ const userSchema = new Schema({
 Here's your request handler:
 
 ```js
-app.post('/signup', async(req, res) => {
+app.post('/signup', async (req, res) => {
   const { email, firstName } = req.body
   const user = new User({ email, firstName })
   const ret = await user.save()
@@ -85,7 +89,7 @@ This request results in an error. Unfortunately, Express will not be able to han
 To handle an error in an asynchronous function, you need to catch the error first. You can do this with `try/catch`.
 
 ```js
-app.post('/signup', async(req, res) => {
+app.post('/signup', async (req, res) => {
   try {
     const { email, firstName } = req.body
     const user = new User({ email, firstName })
@@ -102,7 +106,7 @@ app.post('/signup', async(req, res) => {
 Next, you pass the error into an Express error handler with the `next` argument.
 
 ```js
-app.post('/signup', async(req, res, next) => {
+app.post('/signup', async (req, res, next) => {
   try {
     const { email, firstName } = req.body
     const user = new User({ email, firstName })
@@ -132,7 +136,7 @@ Express's default error handler will:
 If you need to handle two `await` statements, you might write this code:
 
 ```js
-app.post('/signup', async(req, res, next) => {
+app.post('/signup', async (req, res, next) => {
   try {
     await firstThing()
   } catch (error) {
@@ -152,7 +156,7 @@ This is unnecessary. If `firstThing` results in an error, the request will be se
 This means: Only one error will be sent to the error handler. It also means we can wrap all `await` statements in ONE `try/catch` statement.
 
 ```js
-app.post('/signup', async(req, res, next) => {
+app.post('/signup', async (req, res, next) => {
   try {
     await firstThing()
     await secondThing()
@@ -169,14 +173,13 @@ It sucks to have a `try/catch` statement in each request handler. They make the 
 A simple way is to change the `try/catch` into a promise. This feels more friendly.
 
 ```js
-app.post('/signup', async(req, res, next) => {
+app.post('/signup', async (req, res, next) => {
   async function runAsync () {
     await firstThing()
     await secondThing()
   }
 
-  runAsync()
-    .catch(next)
+  runAsync().catch(next)
 })
 ```
 
@@ -211,19 +214,22 @@ Using it in your app:
 ```js
 const asyncHandler = require('express-async-handler')
 
-app.post('/signup', asyncHandler(async(req, res) => {
+app.post(
+  '/signup',
+  asyncHandler(async (req, res) => {
     await firstThing()
     await secondThing()
-}))
+  })
+)
 ```
 
 I don't like to write `asyncHandler`. It's quite long. My obvious solution is to abbreviate `asyncHandler` to `ash`.
 
 If you're fancier, you can consider using [@awaitjs/express][5] by [Valeri Karpov][6]. It adds methods like `getAsync` and `postAsync` to Express so you don't have to use `express-async-handler`.
 
-[1]:	/blog/async-await
-[2]:	https://zellwk.com/blog/express-errors/ "Handling express errors"
-[3]:	https://github.com/Abazhenov
-[4]:	https://www.npmjs.com/package/express-async-handler
-[5]:	https://www.npmjs.com/package/@awaitjs/express
-[6]:	https://twitter.com/code_barbarian
+[1]: /blog/async-await
+[2]: https://zellwk.com/blog/express-errors/ 'Handling express errors'
+[3]: https://github.com/Abazhenov
+[4]: https://www.npmjs.com/package/express-async-handler
+[5]: https://www.npmjs.com/package/@awaitjs/express
+[6]: https://twitter.com/code_barbarian
