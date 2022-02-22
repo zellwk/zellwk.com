@@ -203,6 +203,8 @@ app.post('/signup', runAsyncWrapper(async(req, res) => {
 
 You don't have to write `runAsyncWrapper` code each time you write an express app either. [Alexei Bazhenov][3] has created a package called [express-async-handler][4] that does the job in a slightly more robust way. (It ensures `next` is always the last argument).
 
+Update: I found another package that's much easier to use compared to express-async-handler. More on this [below](#express-async-errors).
+
 To use `express-async-handler`, you have to install it first:
 
 ```bash
@@ -226,6 +228,25 @@ app.post(
 I don't like to write `asyncHandler`. It's quite long. My obvious solution is to abbreviate `asyncHandler` to `ash`.
 
 If you're fancier, you can consider using [@awaitjs/express][5] by [Valeri Karpov][6]. It adds methods like `getAsync` and `postAsync` to Express so you don't have to use `express-async-handler`.
+
+## Express Async Errors
+
+There's a package called [express-async-errors](https://www.npmjs.com/package/express-async-errors) that makes Express errors much easier to handle. You just have to require it once and it'll take care of the rest.
+
+Installing it:
+
+```shell
+npm install express-async-errors -S
+```
+
+Using it:
+
+```js
+const express = require('express')
+require('express-async-errors')
+```
+
+That's it!
 
 [1]: /blog/async-await
 [2]: https://zellwk.com/blog/express-errors/ 'Handling express errors'
