@@ -3,7 +3,7 @@ layout: post
 title: Understanding sameSite Cookies
 slug: samesite-cookies
 tags: ['cookies', 'javascript', 'express', 'node']
-status: draft
+draft: true
 isReady: false
 blockRobots: true
 ---

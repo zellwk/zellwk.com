@@ -2,7 +2,7 @@
 layout: post
 title: How Fetch's credentials option handles cookies
 slug: how-fetch-credentials-handles-cookies
-tags: ['fetch', 'javascript', 'async', 'cookies', 'ssl', 'express', 'node']
+tags: ['fetch', 'javascript', 'async', 'cookies', 'express', 'node']
 draft: true
 ---
 
@@ -26,7 +26,7 @@ Here's a quick summary of what I found:
 
 If you don't understand the difference between 1st party and 3rd party servers — including how to set them — consider reading [my article on the sameSite attribute](/blog/samesite-cookies). where I dive deeper into this topic.
 
-Note: Fetch always sends `Authorization` headers if you include it (assuming `Access-Control-Allowed-Headers` contains `Authorization`). The `credentials` value doesn't affect whether Fetch sends authorization headers (unlike what is mentioned on MDN).
+Note: Fetch always sends `Authorization` headers if you include it (assuming `Access-Control-Allowed-Headers` contains `Authorization`). The `credentials` value doesn't affect whether Fetch sends authorization headers ([unlike what is mentioned on MDN](https://github.com/mdn/content/issues/13063#issuecomment-1046550394)).
 
 ## Sites vs Origins<!-- omit in toc -->
 
