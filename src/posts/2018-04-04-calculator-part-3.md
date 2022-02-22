@@ -1046,7 +1046,7 @@ Here's what the event listener looks like at the end:
 
 ```js
 keys.addEventListener('click', e => {
-  if (e.target.matches('button')) return
+  if (!e.target.matches('button')) return
   const key = e.target
   const displayedNum = display.textContent
 
