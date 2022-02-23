@@ -65,8 +65,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 // Listen with SSL
 const server = https.createServer(
   {
-    key: await fs.readFile(`${__dirname}/certs/key.pem`, 'utf8'),
-    cert: await fs.readFile(`${__dirname}/certs/cert.pem`, 'utf8')
+    key: fs.readFileSync(`${__dirname}/certs/key.pem`, 'utf8'),
+    cert: fs.readFileSync(`${__dirname}/certs/cert.pem`, 'utf8')
   },
   app
 )

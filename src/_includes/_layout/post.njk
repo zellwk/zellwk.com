@@ -13,7 +13,7 @@ footer: true
     {% import "_macros/media.njk" as media %}
     {{media.youtube(youtubeHash)}}
 
-    {%- if status == 'draft' and not isReady %}
+    {%- if status == 'draft' %}
       {%- include '_partials/not-ready.njk' %}
     {%- endif %}
 

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: How Fetch's credentials option handles cookies
-slug: how-fetch-credentials-handles-cookies
+title: Handling cookies with Fetch's credentials
+slug: handling-cookies-with-fetchs-credentials
 tags: ['fetch', 'javascript', 'async', 'cookies', 'express', 'node']
 draft: true
 ---

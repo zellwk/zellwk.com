@@ -14,27 +14,29 @@ footer: true
     <h1>Articles</h1>
 
     {%- for post in pagination.items %}
-      <article class="o-words">
-        {% if post.data.external -%}
-          <div class="article__external-logo">
-            <svg viewbox="0 0 80 80">
-              <use xlink:href="#{{post.data.external | slug}}"></use>
-            </svg>
-          </div>
-        {%- endif %}
-        <h2>
-          <a href="{{post.data.slug if post.data.external else post.url}}">
-            {{- post.data.title | markdown -}}
-          </a>
-        </h2>
+      {%- if post.data.status != 'draft' %}
+        <article class="o-words">
+          {% if post.data.external -%}
+            <div class="article__external-logo">
+              <svg viewbox="0 0 80 80">
+                <use xlink:href="#{{post.data.external | slug}}"></use>
+              </svg>
+            </div>
+          {%- endif %}
+          <h2>
+            <a href="{{post.data.slug if post.data.external else post.url}}">
+              {{- post.data.title | markdown -}}
+            </a>
+          </h2>
 
-        {% import "_macros/media.njk" as media %}
-        {{media.youtube(post.data.youtubeHash)}}
+          {% import "_macros/media.njk" as media %}
+          {{media.youtube(post.data.youtubeHash)}}
 
-        {%- markdown -%}
-        {% summary post %}
-        {%- endmarkdown -%}
-      </article>
+          {%- markdown -%}
+          {% summary post %}
+          {%- endmarkdown -%}
+        </article>
+      {%- endif %}
     {%- endfor -%}
 
     {%- paginate pagination, page, 7 -%}
