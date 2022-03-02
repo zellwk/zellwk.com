@@ -4,9 +4,9 @@ layout: post
 slug: responsive-grid-system
 newsletter: css
 tags:
- - grids
- - responsive
- - layout
+  - grids
+  - responsive
+  - layout
 date: 2016-11-02
 ---
 
@@ -51,7 +51,7 @@ One faction writes grid classes in the HTML (this is how Bootstrap and Foundatio
 
 The second faction creates their grids in CSS. I call these **CSS Grid systems**.
 
-The *HTML for CSS grid systems are simpler* compared to the HTML for HTML grid systems. You need lesser markup for the same thing you create. You also don't need to remember what the grid classes are:
+The _HTML for CSS grid systems are simpler_ compared to the HTML for HTML grid systems. You need lesser markup for the same thing you create. You also don't need to remember what the grid classes are:
 
 ```html
 <div class="content-sidebar">
@@ -60,7 +60,7 @@ The *HTML for CSS grid systems are simpler* compared to the HTML for HTML grid s
 </div>
 ```
 
-On the flipside, the *CSS for CSS grid systems is more complex*. You need to think through to reach a simple solution (if you haven't created one before).
+On the flipside, the _CSS for CSS grid systems is more complex_. You need to think through to reach a simple solution (if you haven't created one before).
 
 **What would I choose?**
 
@@ -78,9 +78,9 @@ Anyway, that's the three things you need to know before you can build your grid 
 
 We can only move forward if we have these prerequisites. For the rest of this article, here's what we're going to do:
 
-1. The grid has a maximum *width of 1140px*, with *12 columns of 75px* and *gutters of 20px*. (Read [this article](/blog/designing-grids/) for hints on how to get these numbers)
-2. When the viewport is resized, the columns should resize proportionally while *gutters remain fixed* at 20px. (Read [this article](/blog/designing-grids/) for why I choose this behavior).
-3. I'm going to use *CSS grid systems* (Read [this article](/blog/migrating-from-bootstrap-to-susy/) for why I recommend them).
+1. The grid has a maximum _width of 1140px_, with _12 columns of 75px_ and _gutters of 20px_. (Read [this article](/blog/designing-grids/) for hints on how to get these numbers)
+2. When the viewport is resized, the columns should resize proportionally while _gutters remain fixed_ at 20px. (Read [this article](/blog/designing-grids/) for why I choose this behavior).
+3. I'm going to use _CSS grid systems_ (Read [this article](/blog/migrating-from-bootstrap-to-susy/) for why I recommend them).
 
 With that, let's begin!
 
@@ -101,7 +101,7 @@ Most of these eight steps are relatively straightforward once you go through the
 
 ## Step 1: Choose a spec
 
-Are you using *CSS Grid*, *Flexbox*, or plain old *floats* to create your grid? Your considerations and implementation details will be different for each spec.
+Are you using _CSS Grid_, _Flexbox_, or plain old _floats_ to create your grid? Your considerations and implementation details will be different for each spec.
 
 CSS Grid is by far the best tool for creating grids (because grids 😎) of all three specs. Unfortunately, support for CSS grid leaves more to be desired right now. Every browser hides the CSS Grid Layout behind a flag, which is why we're not going to touch it in this article. I highly suggest checking out [Rachel Andrew's work](http://gridbyexample.com) if you're interested in CSS Grid.
 
@@ -113,7 +113,7 @@ If you choose to go with Flexbox though, bear in mind that there are slight nuan
 
 The `box-sizing` property alters the default CSS Box model that's used by browsers to calculate `width` and `height` properties. By altering `box-sizing` to `border-box`, we make it much easier to calculate column and gutter sizes. (You'll see why later).
 
-Here's an image that summarizes how `width` is  calculated at different `box-sizing` values.
+Here's an image that summarizes how `width` is calculated at different `box-sizing` values.
 
 <figure><img src="/images/2016/building-grid-systems/box-sizing.jpg" alt="Box sizing property and how it affects width calculations">
   <figcaption>Box sizing property and how it affects width calculations</figcaption>
@@ -202,7 +202,7 @@ So far so good. We've made a grid that works great at a viewport larger than 114
 This means we can't use pixels as our measurement. We need a unit that can resize according to the width of the container. The only unit that does that is per cent (`%`). So, we write width in percentages:
 
 ```css
-.three-col-grid .grid-item  {
+.three-col-grid .grid-item {
   width: 33.33333%;
   float: left;
 }
@@ -243,7 +243,9 @@ If you use a preprocessor like Sass, you can convert this into a mixin, which al
 }
 
 // Usage
-.three-col-grid { @include clearfix; }
+.three-col-grid {
+  @include clearfix;
+}
 ```
 
 Once we're done with the columns, the next step is to create some gutters.
@@ -254,10 +256,10 @@ So far, we know we should create gutters either with `margin` or `padding` prope
 
 If you sketch around for a bit, you'll quickly notice that you have four possible ways to create these gutters.
 
-1. Gutters can be placed on *one side*, as *margins*
-2. Gutters can be placed on *one side*, as *paddings*
-3. Gutters can be split equally on *both sides*, as *margins*
-4. Gutters can be split equally on *both sides*, as *paddings*
+1. Gutters can be placed on _one side_, as _margins_
+2. Gutters can be placed on _one side_, as _paddings_
+3. Gutters can be split equally on _both sides_, as _margins_
+4. Gutters can be split equally on _both sides_, as _paddings_
 
 <figure><img src="/images/2016/building-grid-systems/combi.png" alt="4 possible ways to create columns and gutters">
   <figcaption>4 possible ways to create columns and gutters</figcaption>
@@ -277,7 +279,7 @@ For the purpose of this article, let's say you chose to put your gutters on the 
 
 ```css
 .grid-item {
-  /* Need to recalculate width property */;
+  /* Need to recalculate width property */
   margin-right: 20px;
   float: left;
 }
@@ -289,7 +291,7 @@ Then, you recalculate your column-width according to this image:
   <figcaption>One-sided gutters using margins</figcaption>
 </figure>
 
-You can see from the image above that *1140px* is equal to *three columns* and *two gutters*.
+You can see from the image above that _1140px_ is equal to _three columns_ and _two gutters_.
 
 And we have a problem here... We need columns to be written in percentages, but our gutters are fixed at 20px. We can't do math with two different units at once!
 
@@ -341,7 +343,7 @@ What we need to do is to remove the right margin from the rightmost item in ever
 
 ```css
 /* For a 3-column grid */
-.grid-item:nth-child(3n+3) {
+.grid-item:nth-child(3n + 3) {
   margin-right: 0;
   float: right;
 }
@@ -458,13 +460,13 @@ This is because background is shown on padding properties. This image should exp
 
 ### What would I use?
 
-When I started to code grids about two years ago, I mostly coded grids that are designed with the [top-down approach](/blog/designing-grids/#how-big-should-columns-and-gutters-be-) and built with a [hybrid system](how-the-grid-responds-to-different-viewports). In that approach/system, *I used percentages for both width and gutter values*.
+When I started to code grids about two years ago, I mostly coded grids that are designed with the [top-down approach](/blog/designing-grids/#how-big-should-columns-and-gutters-be-) and built with a [hybrid system](how-the-grid-responds-to-different-viewports). In that approach/system, _I used percentages for both width and gutter values_.
 
 At that time, I loved the simplicity of setting gutters on one side of the grid. There was less cognitive overload for me because I'm pretty bad with math. The extra `gutters ÷ 2` calculation turned me off quickly.
 
 I'm thankful I went that route. Although the CSS seems more complicated than split gutters, I was forced to learn [nth-child properly](https://css-tricks.com/examples/nth-child-tester/). I also learned the importance of writing [mobile-first CSS](https://zellwk.com/blog/how-to-write-mobile-first-css/), both which are still major impediments to both young and experienced developers, as far as I can tell.
 
-However, if you ask me to choose now, **I'll go for split gutters** instead of single-sided ones, because the CSS is so much simpler. Also, **I prefer using margin for gutters** instead of padding because of the cleaner markup. (But *padding is easier to calculate*, so I'll continue the rest of the article with padding).
+However, if you ask me to choose now, **I'll go for split gutters** instead of single-sided ones, because the CSS is so much simpler. Also, **I prefer using margin for gutters** instead of padding because of the cleaner markup. (But _padding is easier to calculate_, so I'll continue the rest of the article with padding).
 
 ## Step 6: Create a debug grid
 
@@ -573,9 +575,15 @@ You probably find that there's a lot of code repetition about now. We can make i
 }
 
 .l-guest-article {
-  .l-guest { width: percentage(2/12);}
-  .l-main { width: percentage(7/12);}
-  .l-sidebar { width: percentage(3/12); }
+  .l-guest {
+    width: percentage(2/12);
+  }
+  .l-main {
+    width: percentage(7/12);
+  }
+  .l-sidebar {
+    width: percentage(3/12);
+  }
 }
 ```
 
@@ -591,13 +599,15 @@ The final step is to make your layouts responsive. Let's say our guest article l
 
 The markup of our guest article shouldn't change. What we have is the most accessible layout we can possible have. So, the changes should entirely be in CSS.
 
-When writing the CSS for our responsive guest layout, I highly recommend you write [mobile first css](/blog/mobile-first-css/) because it makes your code simpler and neater. We can begin by writing CSS for the mobile layout first.
+When writing the CSS for our responsive guest layout, I highly recommend you write [mobile first css](/blog/how-to-write-mobile-first-css) because it makes your code simpler and neater. We can begin by writing CSS for the mobile layout first.
 
 Here's the code:
 
 ```scss
 .l-guest-article {
-  .l-guest { /* nothing goes here */ }
+  .l-guest {
+    /* nothing goes here */
+  }
   .l-main {
     margin-top: 20px;
   }
@@ -703,7 +713,7 @@ Wow. This is a long article. I think I died three times writing it. (Thanks for 
 
 As you can see in this article, the steps to creating a responsive grid system are relatively straightforward. The parts that most people get mixed up are steps 5 (determining gutter position) and 8 (making layouts responsive).
 
-Step 5 is simple when you think through all the possible methods, and we've thought them through together. Step 8, on the other hand, is solvable easily once you have enough practice with writing [mobile first css](/blog/mobile-first-css/)
+Step 5 is simple when you think through all the possible methods, and we've thought them through together. Step 8, on the other hand, is solvable easily once you have enough practice with writing [mobile first css](/blog/how-to-write-mobile-first-css)
 
 I hope this article has given you the knowledge to build your own responsive grid system, and I hope to see you build a custom grid for your next project.
 
