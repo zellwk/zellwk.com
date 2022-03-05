@@ -8,7 +8,6 @@ const imagemin = require('./gulp/imagemin')
 const pdfs = require('./gulp/pdfs')
 const watch = require('./gulp/watch')
 const { browserSync } = require('./gulp/browser-sync')
-const { syncSecrets, syncFiles } = require('./gulp/sync')
 const rev = require('./gulp/rev')
 
 exports.clean = clean
@@ -34,7 +33,3 @@ exports.build = series(
   eleventy,
   pdfs
 )
-
-exports.deploy = parallel(syncSecrets, syncFiles)
-exports.deployCI = series(syncFiles)
-exports.deploySecrets = series(syncSecrets)
