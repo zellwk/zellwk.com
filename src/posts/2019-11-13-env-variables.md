@@ -121,7 +121,7 @@ This command syncs everything in the `./secrets` folder into your destination fo
 
 Unfortunately, you need to enter `user` and `host` into the rsync command. This means the user and hostname of your server gets exposed (if you synced the command).
 
-A better way is to run `rsync` in Node...
+A better way is to run `rsync` in Node.
 
 ### Node Rsync
 
