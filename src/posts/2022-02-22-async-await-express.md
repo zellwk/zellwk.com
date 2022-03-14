@@ -196,7 +196,8 @@ function runAsyncWrapper (callback) {
 app.post('/signup', runAsyncWrapper(async(req, res) => {
     await firstThing()
     await secondThing()
-})
+  })
+)
 ```
 
 ## Express Async Handler
