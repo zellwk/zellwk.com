@@ -2,7 +2,7 @@
 layout: post
 title: Rsync with Github actions when using a a custom port
 slug: rsync-with-github-actions-when-using-a-custom-port
-tags: ['devops', 'shell', 'github-actions']
+tags: ['DevOps', 'shell', 'github actions']
 ---
 
 If you want to rsync with a custom port in a GitHub action, you need to do three steps:

@@ -2,7 +2,7 @@
 layout: post
 title: Rsync with a custom port
 slug: rsync-with-custom-port
-tags: ['devops', 'shell']
+tags: ['DevOps', 'shell']
 ---
 
 You can rsync with a different port by adding `-e "ssh --port"` into the `rsync` command.

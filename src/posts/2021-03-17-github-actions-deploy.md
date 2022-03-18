@@ -3,10 +3,7 @@ layout: post
 title: Deploying to a server via SSH and Rsync in a Github Action
 description: The hardest part is installing the SSH key and getting it to work. I'm going to show you how so you can do this easily.
 slug: github-actions-deploy
-tags:
-  - github actions
-  - tooling
-  - DevOps
+tags: ['github actions', 'tooling', 'DevOps']
 ---
 
 I wanted to use Github Actions to deploy [zellwk.com](https://zellwk.com) — when I push a commit into Github, I want Github Actions to build my site and deploy to my Digital Ocean server.
