@@ -1,0 +1,262 @@
+---
+layout: post
+title: Using Cookies vs Local Storage for storing access tokens
+slug: cookies-vs-localstorage-for-storing-access-tokens
+tags: ['web-security', 'javascript', 'node', 'express']
+status: draft
+isReady: false
+blockRobots: true
+---
+
+Many people have voiced strong opinions about whether one should use Cookies or localStorage to store credentials like access tokens.
+
+The common argument is cookies are more secure, but localStorage is easier to use.
+
+From my research, I believe neither argument is correct.
+
+- They're equally risky
+- They're equally easy (or not easy) to use.
+
+In this article, I want to share with you my findings on this topic after hours of research, pondering, and testing.
+
+By the end of this article, you would have knowledge and clarity about the security and implementation of both methods. You would also have confidence know which method — cookies or localStorage — is superior for your use-case, and you would be able to back up your choice with solid reasoning.
+
+<!-- more -->
+
+We’ll begin by talking about implementation.
+
+## Using Cookies
+
+We're going to assume you obtain your credentials (access tokens, etc) from a server that's what happens most of the time.
+
+If you use Cookies, you can save the access token directly from your server. Here's what you would do if you use Express.
+
+```js
+app.get('auth/provider/callback_url', async (req, res) => {
+  // Use code to exchange for access token
+  const response = await fetch('...')
+  const { access_token } = await response.json()
+
+  // Saves access token in a cookie
+  res.cookie('access_token', access_token)
+
+  // Redirect user to logged-in page after saving the access token
+  res.redirect('/')
+})
+```
+
+When you save the access token as a cookie, I highly recommend adding the `secure`, `httpOnly`, and `sameSite` attributes. (I'll explain why I recommend these attributes in the security section later).
+
+So the cookie looks like this:
+
+```js
+app.get('/', async (req, res) => {
+  res.cookie('access_token', access_token, {
+    secure: true,
+    httpOnly: true,
+    sameSite: 'strict'
+  })
+})
+```
+
+### Expiring cookies
+
+If your access token has an expiry date, you can set an expiry value with the `maxAge` property. This allows the browser to delete the cookie when the cookie expires.
+
+```js
+app.get('auth/provider/callback_url', async (req, res) => {
+  // ...
+  res.cookie('access_token', access_token, {
+    secure: true,
+    httpOnly: true,
+    sameSite: 'strict',
+    maxAge: expires_in * 1000 // Converts seconds to milliseconds
+  })
+  // ...
+})
+```
+
+If you want to read the cookie's expiry date from a server, you cannot use the `maxAge` property. You have to either [use a JSON cookie](/blog/getting-cookie-expiry-on-a-server/#creating-a-cookie-with-a-json-value) or [set a new token for the expiry date](/blog/getting-cookie-expiry-on-a-server/#ccreating-another-cookie-to-store-the-expiry).
+
+Here's what it looks like:
+
+```js
+// Setting a JSON cookie
+const value = JSON.stringify({
+  access_token: access_token,
+  expiry: Date.now() + expires_in * 1000
+})
+
+res.cookie('access_token', `j: ${value}`)
+```
+
+## Reading cookie values from a server
+
+Each cookie is registered under a Site. You can see the Site value if you check the cookie in your browser's developer tools.
+
+- For Chrome: Applications > Cookies
+- For Firefox: Storage > Cookies
+
+<figure role="figure" aria-label="Url-decoded cookie in Chrome">
+  <img src="/images/2022/cookie-vs-localstorage/json-cookie.png" alt="" loading="lazy">
+  <figcaption>Url-decoded cookie in Chrome</figcaption>
+</figure>
+
+If the frontend lives on the same Site as the backend, cookies will passed to the backend automatically when the browser sends a GET or POST request. (Same Site here means the frontend and backend have the [same domain or subdomain](https://developer.mozilla.org/en-US/docs/Glossary/Site)).
+
+If you use Express, you can read the cookie values easily with the [cookie-parser](https://www.google.com/search?client=safari&rls=en&q=cookie+parser&ie=UTF-8&oe=UTF-8) library.
+
+```js
+// Reading the cookie
+import cookieParser from 'cookie-parser'
+
+app.use(cookieParser())
+
+app.get('/', (req, res) => {
+  const { access_token } = req.cookies
+})
+```
+
+If your frontend lives on a different Site from the server, you cannot use cookies, since cookies will only be sent to servers on the same Site. This applies unless you set your cookie's `sameSite` attribute to `none`, which is not a good practice for security. (Cookies with `sameSite: none` are used for 3rd party cookies; it shouldn't be used for authentication).
+
+You can read more about sameSite cookies [here](/blog/samesite-cookies).
+
+Fun aside: Notice I say GET and POST requests above? Well, that's because browsers can't send PUT or DELETE requests through a form. If you need to send cookies for PUT and DELETE requests, you have to [hack a `method` value](https://stackoverflow.com/questions/8054165/using-put-method-in-html-form) or use [Fetch with `credentials`](/blog/fetch-credentials).
+
+## Using localStorage
+
+Saving an access token in localStorage is more complex because you have to fulfill two steps:
+
+1. You have to find a way to pass the token from the server to the frontend
+2. You have to save the token to localStorage
+
+There are [various ways](/blog/passing-access-token-from-server-to-browser) to pass a token from the server to the frontend. Each method has their own pros and cons, so I'd recommend you check the article out for more details.
+
+Once you get the access token into the frontend, you can use the `setItem` method to save the value into localStorage.
+
+```js
+localStorage.setItem('access_token', access_token)
+```
+
+### Expiring tokens in localStorage
+
+Like cookies, you can only store string values in localStorage. If you want to store the expiry date of a token, you can either use a JSON entry or you can create a new localStorage entry.
+
+```js
+// Using JSON with localStorage
+const entry = JSON.stringify({
+  value: access_token,
+  expiry: Date.now() + expires_in * 1000
+})
+
+localStorage.setItem(access_token, value)
+```
+
+```js
+// Using another localStorage entry to store expiry
+const expiry = Date.now() + expires_in * 1000
+localStorage.setItem('access_token', access_token)
+localStorage.setItem('access_token_expiry', expiry)
+```
+
+Browsers do not handle expiry values for you in localStorage, so you have to clear them manually if you want to keep things clean.
+
+```js
+// Deleting values from localstorage
+localStorage.deleteItem('access_token')
+```
+
+Of course, you can make things simpler [with a library](/blog/localstore) if you wish to.
+
+### Using values stored in localStorage
+
+You can get a value from localStorage with the `getItem` method.
+
+```js
+const access_token = localStorage.getItem('access_token')
+```
+
+After getting the token value, you can send it to the server with Fetch. This token is sent under an `Authorization` header.
+
+```js
+// Sends the access token to the server
+fetch('/server', {
+  headers: {
+    Authorization: `Bearer ${access_token}`
+  }
+})
+```
+
+You can access the `access_token` in the server like this:
+
+```js
+app.get('/server', (req, res) => {
+  const access_token = req.headers.authorization.split(' ')[1]
+})
+```
+
+That’s all the implementation details you need to know. Let's talk about security next.
+
+## Cookie security
+
+Cookies, by default, are not secure. Since cookies are sent to the server automatically, authentication done via cookies can be susceptible to [CSRF attacks](/blog/understanding-csrf-attacks).
+
+Setting the cookie's `sameSite` attribute to `strict` prevents most CSRF attacks. But we still need to use [CSRF tokens](/blog/understanding-csrf-attacks#csrf-prevention-methods) to protect against [Login CSRF](/blog/understanding-csrf-attacks#login-csrf).
+
+You can increase a cookie's security by adding the `secure` attribute. This ensures the cookie can only be served in a HTTPS connection, which prevents man-in-the-middle attacks. But the `secure` attribute is kinda moot in this day and age where HTTPS is the de-facto connection.
+
+You can further increase security by adding the `httpOnly` attribute. This prevents frontend JavaScript from reading the cookie, which prevents anyone from stealing the access token if your site gets an XSS attack.
+
+In case you’re wondering, you cannot send a cookie from one Site to another Site. It's impossible because the technology doesn't allow it. So a `httpOnly` cookie can never be stolen.
+
+## Security for localStorage
+
+localStorage is more secure than cookies by default since you cannot get a CSRF attack.
+
+You cannot get CSRFed because CSRF attacks originate from an external site. If your tokens are stored in localStorage, the attacker needs to find a way to access your localStorage values from an external website, which is impossible since only your JavaScript can access localStorage.
+
+Your only concern when using localStorage is an XSS attack — where the attacker someone finds a way to insert JavaScript onto your site. If they managed to insert JavaScript on your website, they can write code to steal the access token.
+
+Many security professionals get fiery because there's a possibility where access tokens may be stolen. We need to talk a bit more about XSS since that seems to be the determining security factor between cookies and localStorage.
+
+### A note about XSS Attacks
+
+An XSS attack happens when someone manages to inject JavaScript into your website. These attacks can come from [many places](https://owasp.org/www-community/attacks/xss/).
+
+Common prevent techniques involve sanitizing user-generated content before storing them in the database, or before using them in the HTML.
+
+XSS attacks can also come from libraries you may be using since any resources on the Internet has the possibility to be compromised. Unless you can ensure you write every line of code in-house, it's almost impossible to completely guard against XSS attacks with the way we code nowadays.
+
+[You can read more about XSS attacks here](/blog/xss-attacks)
+
+XSS attacks are a big deal since credentials can be stolen if they're stored in localStorage.
+
+But credentials saved in cookies aren't safe either. Attackers can still send authenticated request by using Fetch with the `credentials` option if they XSS your site. These requests would be treated as authenticated requests since a server has no way to check whether the request is actually coming from the real user.
+
+Here's another question that was raised during my research — why would anyone steal credentials if they can already make authenticated requests? In other words, why would you want to steal a bank's access code if you already have access to a bank's vault? It makes no sense.
+
+So it doesn't matter whether you save your credentials in cookies or localStorage. If you actually get an XSS attack, you're screwed either way. This means the possibility of an XSS shouldn't be used as the determining factor between cookies and localStorage.
+
+## Other determining factors
+
+So far we have established the fact that both Cookies and localStorage have similar security features (when correctly implemented), so security shouldn't be a big determining factor when deciding between these two options. (Unless you're working on an app where security is paramount, of course).
+
+Another major determining factor is whether your frontend site lives on the same domain as your backend. If the frontend lives on a different domain, you have no choice but to use localStorage. If your frontend lives on the same site as the server, you have the flexibility to choose between the two options. In this case, cookies may be preferable since cookies have a small advantaged over localStorage (since tokens cannot be stolen).
+
+## Quick summary
+
+Security wise:
+
+- Cookies are susceptible to both CSRF at XSS attacks. Make sure you protect against both kinds of attacks.
+- localStorage is only susceptible to XSS attacks. Again, make sure you protect against XSS attacks as much as you can.
+
+Implementation wise:
+
+- Cookies are easier to implement since there are lesser steps involved. But you have to make sure to set `sameSite` and `httpOnly` attributes. You also have to make sure your frontend and backend are served on the same Site.
+- localStorage is harder to implement since you need to [send access tokens to the frontend](/blog/passing-access-token-from-server-to-browser) before you can save them in localStorage. But this method gives you the flexibility to implement a [frontend-only login system](/blog/frontend-login-system) on a different domain.
+
+That's it!
+
+I hope this clarifies any doubt you have about saving credentials in cookies or localStorage.
+
+Note: This article is written as a background knowledge for [Understanding Async JavaScript](https://asyncjs.today) because it’s really important to know how to save credentials you received through APIs 😉.

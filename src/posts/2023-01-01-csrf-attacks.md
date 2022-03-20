@@ -4,6 +4,7 @@ title: Understanding CSRF Attacks
 slug: understanding-csrf-attacks
 tags: ['web-security', 'node', 'express', 'javascript']
 status: draft
+blockRobots: true
 ---
 
 I went about researching web security recently as I was writing [Understanding Asynchronous JavaScript](https://asyncjs.today) — I wanted to make sure my recommendations were secure and I'm not doing any of my students a disservice with my recommendations.
