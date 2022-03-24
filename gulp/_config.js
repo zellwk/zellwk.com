@@ -3,6 +3,9 @@ const isDev = env === 'development'
 const isProd = env === 'production'
 const isTest = env === 'test'
 
+// TODO: Update to use rsync straight instead of gulp-rsync.
+// Because WAY FASTER.
+
 module.exports = {
   env,
   isDev,
@@ -13,7 +16,7 @@ module.exports = {
   scssDir: 'scss',
   jsDir: 'js',
   sync: {
-    staticDest: '/home/zellwk/zellwk.com/dist',
-    secretsDest: '/home/zellwk/zellwk.com/secrets'
+    staticDest: '/var/www/zellwk.com/dist',
+    secretsDest: '/var/www/zellwk.com/secrets'
   }
 }

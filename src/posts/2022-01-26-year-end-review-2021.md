@@ -291,19 +291,31 @@ And **I discovered there were things I'm really happy to work on**:
 
 ### I have more than what I think I have
 
-- I'm a fortunate person.
-- I have many things that I love.
-- I have a business that lets me lead the life I want — I can wake up anytime, have the flexibility to work anytime, plan my day without disruptions (except when my daughter refuses to go to school).
-- I have lots of flexibility and freedom — I can choose how I spend my time. I can take a day off anytime, or even go for an occasional break like I did without much consequences.
-- I have the people who matter to me — my wife, my daughter, my parents, and me.
-- I have the freedom to express what I want and need.
-- I have people who are willing to read what I write.
-- I have people who value my work
-- I'm really fortunate.
-- And I am alive.
-- I tend to forget I have these things when the going gets tough. But **I'm grateful for remembering these every now and then**, because they are things I truly enjoy.
-- I'm lucky to be able to write this blog post.
-- **I'm lucky to that you're reading this.**
+I'm a fortunate person.
+
+I have many things that I love.
+
+I have a business that lets me lead the life I want — I can wake up anytime, have the flexibility to work anytime, plan my day without disruptions (except when my daughter refuses to go to school).
+
+I have lots of flexibility and freedom — I can choose how I spend my time. I can take a day off anytime, or even go for an occasional break like I did without much consequences.
+
+I have the people who matter to me — my wife, my daughter, my parents, and me.
+
+I have the freedom to express what I want and need.
+
+I have people who are willing to read what I write.
+
+I have people who value my work
+
+I'm really fortunate.
+
+And I am alive.
+
+I tend to forget I have these things when the going gets tough. But **I'm grateful for remembering these every now and then**, because they are things I truly enjoy.
+
+I'm lucky to be able to write this blog post.
+
+**I'm lucky to that you're reading this.**
 
 ## 2022
 

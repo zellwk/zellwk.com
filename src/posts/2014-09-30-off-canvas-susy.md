@@ -32,7 +32,7 @@ Before we move into building off-canvas layouts with Susy, we have to start off 
 
 ![Image of final result](/images/2014/09/oc-demo.png)
 
-<a href="http://www.zell-weekeat.com/labs/off-canvas/index.html" class="btn">View Demo</a>
+<a href="/blog/labs/off-canvas/index.html" class="btn">View Demo</a>
 
 Let's begin.
 

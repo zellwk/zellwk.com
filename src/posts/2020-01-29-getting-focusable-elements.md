@@ -53,15 +53,18 @@ const keyboardfocusableElements = document.querySelectorAll(
 )
 ```
 
-Some elements (like `button`) can be disabled. Disabled elements are not focusable.  
-In some libraries form fields are hidden visually (CSS) and for AT (`aria-hidden="true"`) and replaced by better looking components that should be accessible.   
-We can remove these elements with `filter`.  
+Some elements (like `button`) can be disabled. Disabled elements are not focusable.
+
+In some libraries form fields are hidden visually (CSS) and for At (`aria-hidden="true"`) and replaced by better looking components that should be accessible.
+
+We can remove these elements with `filter`.
 
 ```js
-const keyboardfocusableElements = [...document.querySelectorAll(
-  'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
-)]
-  .filter(el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'))
+const keyboardfocusableElements = [
+  ...document.querySelectorAll(
+    'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+  )
+].filter(el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'))
 ```
 
 ## Turning it into a function
@@ -75,9 +78,16 @@ This `querySelectorAll` code is hard to read. We can put the entire thing into a
  * @returns {Array}
  */
 function getKeyboardFocusableElements (element = document) {
-  return [...element.querySelectorAll(
-    'a[href], button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
-  )]
-    .filter(el => !el.hasAttribute('disabled') && !el.getAttribute("aria-hidden"))
+  return [
+    ...element.querySelectorAll(
+      'a[href], button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
+    )
+  ].filter(
+    el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden')
+  )
 }
 ```
+
+Update: Lauren contacted me and asked about `display:none`. Certainly these elements won't be focusable so we have to filter them out too. I also included a list of other elements that I never thought about before — `embed`, `object`, `iframe`, etc.
+
+I updated the code in my Github repository — you can get the updated code if you sign up below.

@@ -3,7 +3,7 @@ title: How to structure HTML for an actual website (Part 2)
 layout: post
 slug: html-structure-2
 tags:
- - html
+  - html
 newsletter: better-fed
 ---
 
@@ -14,6 +14,7 @@ This is a continuation of the series on learning to write HTML for an actual web
 [The first part can be found here][1]
 
 ## The Micro Details
+
 Micro Details refer to the smaller pieces on the web and how they are placed. One example of such a smaller piece is the navigation while another is an article.
 
 As you may have imagined, navigations and articles are wildly different, and they require very different markups. You'll also realize that this applies to every other group of elements as well!
@@ -21,7 +22,6 @@ As you may have imagined, navigations and articles are wildly different, and the
 The question is: **How should you write markup for whatever you're trying to create?**
 
 ## The Answer
-
 
 There are really no hard and fast rules to this question. You can use HTML to markup things in anyway you like, as long as they seem reasonable.
 
@@ -66,7 +66,6 @@ Here are the two ways in code form.
       <div><a href="#">Contact</a></div>
     </div>
 
-
 Both ways work, and there is no right or wrong answer.
 
 If you go with semantics, option 2 is preferred because `<a>` tags are usually meant for inline elements, and `<div>` are for layouts.
@@ -103,14 +102,13 @@ Yes and no.
 
 If you are comfortable writing your own HTML. I would suggest to be as semantic as possible, because it helps alot when you're trying to debug your own code.
 
-However, if you're just starting out, don't worry too much about semantics. Almost everything can be replaced with a `<div>`, and  HTML was like that in the past.
+However, if you're just starting out, don't worry too much about semantics. Almost everything can be replaced with a `<div>`, and HTML was like that in the past.
 
 A `<nav>` works and functions exactly the same as a `<div>`. If you're confused about HTML, there's no point trying to dig a deep hole into semantics yet. Work on understanding layouts and making them appear the way you want it with CSS first.
 
 When you feel that you're comfortable learning more, view other people's source codes and try renaming some of your HTML stuff into more semantic blocks.
 
-[1]:  http://www.zell-weekeat.com/html-structure/ "HTML Structure for an actual website"
-[2]:  http://html5doctor.com/lets-talk-about-semantics/
-
-[image-1]:  /images/2014/03/11.png "picture of a navigation area"
-[image-2]:  /images/2014/03/21.png "Navigation breakdown"
+[1]: /blog/html-structure/ 'HTML Structure for an actual website'
+[2]: http://html5doctor.com/lets-talk-about-semantics/
+[image-1]: /images/2014/03/11.png 'picture of a navigation area'
+[image-2]: /images/2014/03/21.png 'Navigation breakdown'

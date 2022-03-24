@@ -69,7 +69,7 @@ So 100GB is very little after all, since 200 GB only supports approximately 2,70
   <img src="/images/2021/netlify-vercel-and-digital-ocean/netlify-bill.png" alt="netlify bill">
 </figure>
 
-I pulled the plug on Netlify at this point, as I'm paying too much for it. I only pay $10 on Digital Ocean for way more visitors!
+I pulled the plug on Netlify at this point, as I'm paying too much for it. I only pay \$10 on Digital Ocean for way more visitors!
 
 ### Vercel Pricing
 
@@ -93,6 +93,8 @@ After asking further, I discovered that Vercel's free tier has a cap at 100GB Ba
 
 At this point, I gave up on serverless architecture completely and went back to good old Digital Ocean.
 
+UPDATE: Vercel has now updated their pricing pages to be more transparent — the 100GB limit is now listed. Thank you Steven for letting me know.
+
 ### Digital Ocean Pricing
 
 Digital Ocean's pricing seems complicated at first glance because there are many factors involved.
@@ -107,7 +109,7 @@ For Digital Ocean, you can imagine you're renting a computer and the factors sta
 
 You don't need a super fast computer for servers. The $5 or $10 plan is going to be good enough most of the time.
 
-For example, I'm running the following two sites on one $10 plan, and I don't see any problems with it so far.
+For example, I'm running the following two sites on one \$10 plan, and I don't see any problems with it so far.
 
 - This website — 103,112 visitors per month
 - Learn JavaScript's marketing site — 5,101 visitors per month
@@ -116,13 +118,11 @@ I don't know how much bandwidth I'm using, but that doesn't matter since Digital
 
 ## Verdict
 
-If you have a small project: Go with netlify.
+If you have a small project: Go with Netlify or Vercel. They're pretty much the same to me.
 
 If you have a larger project: Use Digital Ocean.
 
-I wouldn't choose Vercel anymore because of that dark pattern pricing strategy.
-
-By the way, [Use this link to get a free $100 credit](https://m.do.co/c/64daa7a7a455) if you want to try out Digital Ocean. Happy server(less)-ing!
+By the way, [Use this link to get a free \$100 credit](https://m.do.co/c/64daa7a7a455) if you want to try out Digital Ocean. Happy server(less)-ing!
 
 ## Update
 

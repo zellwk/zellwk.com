@@ -3,8 +3,8 @@ layout: post
 title: Handling Errors in Express
 description: How to handle Express errors
 slug: express-errors
-cover: "/images/2019/express-errors/cover.png"
-coverAlt: "Handling Express Errors"
+cover: '/images/2019/express-errors/cover.png'
+coverAlt: 'Handling Express Errors'
 tags:
   - node
   - express
@@ -55,17 +55,23 @@ If you're using Async/await in an Express app, you want to use a wrapper functio
 ```js
 const asyncHandler = require('express-async-handler')
 
-app.post('/testing', asyncHandler(async (req, res, next) => {
-  // Do something
-}))
+app.post(
+  '/testing',
+  asyncHandler(async (req, res, next) => {
+    // Do something
+  })
+)
 ```
 
 Once you wrapped the request handler with `express-async-handler`, you can `throw` the error as before, and it'll be handled with an Express error handler.
 
 ```js
-app.post('/testing', asyncHandler(async (req, res, next) => {
-  throw new Error('Something broke yet again! 😱')
-}))
+app.post(
+  '/testing',
+  asyncHandler(async (req, res, next) => {
+    throw new Error('Something broke yet again! 😱')
+  })
+)
 ```
 
 <figure role="figure"><img src="/images/2019/express-errors/async-handler-error-log.png" alt=""></figure>
@@ -89,7 +95,9 @@ app.put(/*...*/)
 app.delete(/*...*/)
 
 // Place your error handler after all other middlewares
-app.use((error, req, res, next) => { /* ... */ })
+app.use((error, req, res, next) => {
+  /* ... */
+})
 ```
 
 Express will stop using its default error handler once you create a custom error handler. To handle an error, you need to communicate with the frontend that's requesting the endpoint. This means you need to:
@@ -100,8 +108,10 @@ Express will stop using its default error handler once you create a custom error
 A valid HTTP status code depends on what happened. Here's a list of common errors you should prepare for:
 
 1. **400 Bad Request Error:**
-	- Used when user fails to include a field (like no credit card information in a payment form)
-	- Also used when user enters incorrect information (Example: Entering different passwords in a password field and password confirmation field).
+
+- Used when user fails to include a field (like no credit card information in a payment form)
+- Also used when user enters incorrect information (Example: Entering different passwords in a password field and password confirmation field).
+
 2. **401 Unauthorized Error:** Used when user enters incorrect login information (like username, email or password).
 3. **403 Forbidden Error:** Used when user is not allowed access the endpoint.
 4. **404 Not Found Error:** Used when the endpoint cannot be found.
@@ -148,13 +158,16 @@ When you create the error, you want to:
 2. Send a message that says "User not found". You send this as the second parameter.
 
 ```js
-app.put('/testing', asyncHandler(async (req, res) => {
-  const { email } = req.body
-  const user = await User.findOne({ email })
+app.put(
+  '/testing',
+  asyncHandler(async (req, res) => {
+    const { email } = req.body
+    const user = await User.findOne({ email })
 
-  // Throws error if user not found
-  if (!user) throw createError(400, `User '${email}' not found`)
-}))
+    // Throws error if user not found
+    if (!user) throw createError(400, `User '${email}' not found`)
+  })
+)
 ```
 
 You can get the status code with `error.status` and the error message with `error.message`.
@@ -195,7 +208,6 @@ app.use((error, req, res, next) => {
     stack: error.stack
   })
 })
-
 ```
 
 ### Fallback status code
@@ -298,7 +310,7 @@ For example, if you run `res.render` and `res.json` in the same response handler
 ```js
 app.get('/testing', (req, res) => {
   res.render('new-page')
-  res.json({ message: '¯\_(ツ)_/¯' })
+  res.json({ message: '¯_(ツ)_/¯' })
 })
 ```
 
@@ -323,6 +335,6 @@ app.use((error, req, res, next) => {
 
 That's all I know for now! :)
 
-[1]:	/blog/express-errors/
-[2]:	/blog/async-await-express
-[3]:	https://www.npmjs.com/package/http-errors "Http errors package"
+[1]: /blog/express-errors/
+[2]: /blog/async-await-express
+[3]: https://www.npmjs.com/package/http-errors 'Http errors package'

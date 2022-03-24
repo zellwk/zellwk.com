@@ -3,8 +3,7 @@ layout: post
 title: Case Conversion in JavaScript
 description: How to convert any string in JavaScript into kebab case, camel case, sentence case, or title case.
 slug: case-conversion
-tags:
-  - javascript
+tags: ['javascript']
 ---
 
 I got fed-up searching Google for case conversion utilities. The useful ones I found ([Voca](https://vocajs.com) and [change-case](https://www.npmjs.com/package/change-case)) both require an environment that allows me to use npm.
@@ -21,15 +20,15 @@ It's simpler than I thought.
 
 I usually use these cases when writing HTML, CSS, and JavaScript:
 
-  - `camelCase`
-  - `kebab-case`
-  - `Sentence case`
-  - `Title Case`
+- `camelCase`
+- `kebab-case`
+- `Sentence case`
+- `Title Case`
 
 I don't use these two cases, but I know they exist.
 
-  - `snake_case`
-  - `PascalCase`
+- `snake_case`
+- `PascalCase`
 
 So far, I've relied on simple functions that convert from one case to another. But I was fed-up with writing things like `camelToTitle` or `camelToKebab`. It's much nicer to have a function that converts all cases to the one I need.
 
@@ -39,16 +38,16 @@ I started converting stuff into `kebab-case` because that was what I needed when
 
 To convert all cases into `kebab-case`, I had to consider the possible cases. Here are the cases once again:
 
-  - `camelCase`
-  - `PascalCase`
-  - `snake_case`
-  - `Sentence case`
-  - `Title Case`
+- `camelCase`
+- `PascalCase`
+- `snake_case`
+- `Sentence case`
+- `Title Case`
 
 Converting `snake_case`, `Sentence case` and `Title Case` into `kebab-case` is easy. I only need to do two things:
 
-  1. Lowercase everything
-  2. Replace `_` and spaces with `-`
+1. Lowercase everything
+2. Replace `_` and spaces with `-`
 
 But I cannot begin by lowercasing everything if I want to support case conversion from `camelCase` and `PascalCase`. I would lose the word-break point.
 
@@ -88,11 +87,11 @@ Note: I'm pretty sure there's a regex that can do these three steps in one. It p
 
 This step converts the cases into the following:
 
-  - `camel case`
-  - ` pascal case`
-  - `snake_case`
-  - ` sentence case`
-  - ` title  case `
+- `camel case`
+- `pascal case`
+- `snake_case`
+- `sentence case`
+- `title case`
 
 There's a space at the start of some cases. I removed them with
 `trim`.
@@ -114,23 +113,25 @@ function toKebab (string) {
 
 This gives me the following:
 
-  - `camel case`
-  - `pascal case`
-  - `snake_case`
-  - `sentence case`
-  - `title  case `
+- `camel case`
+- `pascal case`
+- `snake_case`
+- `sentence case`
+- `title case`
 
 I can now replace both `_` and spaces with `-`. This can be done with two `replace` calls like this:
 
-  - 1. First, replace uses `/_/g` to replace all occurrences of `_`.
-  - 2. Second, replace uses `/\s+/` to replace all spaces into `-`. The `+` indicates "one or more", so it matches the two spaces in `title  case`.
+- 1. First, replace uses `/_/g` to replace all occurrences of `_`.
+- 2. Second, replace uses `/\s+/` to replace all spaces into `-`. The `+` indicates "one or more", so it matches the two spaces in `title case`.
 
 ```javascript
 export function toKebab (string) {
-  return string
-    // ...
-    .replace(/_/g, '-')
-    .replace(/\s+/g, '-')
+  return (
+    string
+      // ...
+      .replace(/_/g, '-')
+      .replace(/\s+/g, '-')
+  )
 }
 ```
 
@@ -138,19 +139,21 @@ I can combine both `replace` calls into a single regex with `[]`. The square bra
 
 ```javascript
 export function toKebab (string) {
-  return string
-    // ...
-    .replace(/[_\s]+/g, '-')
+  return (
+    string
+      // ...
+      .replace(/[_\s]+/g, '-')
+  )
 }
 ```
 
 That gives me this:
 
-  - `camel-case`
-  - `pascal-case`
-  - `snake-case`
-  - `sentence-case`
-  - `title-case`
+- `camel-case`
+- `pascal-case`
+- `snake-case`
+- `sentence-case`
+- `title-case`
 
 It even works for complicated mixed cases too. For example, if you try `case_With-long name` you'll get `case-with-long-name`.
 
@@ -175,9 +178,9 @@ Now I just need to convert `kebab-case` to `Title Case`.
 
 Here, I only need to do the following:
 
-  1. Split the string at `-`. This gives me an array of words.
-  2. Capitalize the first letter of each word.
-  3. Join the array with space.
+1. Split the string at `-`. This gives me an array of words.
+2. Capitalize the first letter of each word.
+3. Join the array with space.
 
 ```javascript
 export function toTitle (string) {
@@ -204,15 +207,14 @@ export function toSentence (string) {
 
 Now I only need to convert `kebab-case` into `Sentence case`. There are two things to do:
 
-  - Capitalize the first letter
-  - replace `-` with space.
+- Capitalize the first letter
+- replace `-` with space.
 
 I can do either step first. In this case, I chose to do the `replace` step first since I can chain it after `toKebab`.
 
 ```javascript
 export function toSentence (string) {
-  const interim = toKebab(string)
-    .replace(/-/g, ' ')
+  const interim = toKebab(string).replace(/-/g, ' ')
   return interim.slice(0, 1).toUpperCase() + interim.slice(1)
 }
 ```
@@ -252,4 +254,4 @@ Simple as that!
 
 ## Case Conversion Library
 
-I placed added these case-conversion utilities into [my JavaScript repository](https://github.com/zellwk/javascript/tree/master/convert-case). You can grab them if you want them :)
+I placed added these case-conversion utilities into [my JavaScript repository](https://github.com/zellwk/javascript/tree/master/src/utils/convert-case). You can grab them if you want them :)

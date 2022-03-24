@@ -3,16 +3,14 @@ layout: post
 title: Deploying to a server via SSH and Rsync in a Github Action
 description: The hardest part is installing the SSH key and getting it to work. I'm going to show you how so you can do this easily.
 slug: github-actions-deploy
-tags:
-  - github actions
-  - tooling
-  - DevOps
+tags: ['github actions', 'tooling', 'DevOps']
 ---
+
 I wanted to use Github Actions to deploy [zellwk.com](https://zellwk.com) — when I push a commit into Github, I want Github Actions to build my site and deploy to my Digital Ocean server.
 
 The hardest part of this process is deploying to the server with SSH and rsync. I tried various Github actions like [SSH Deploy](https://github.com/marketplace/actions/ssh-deploy) and [SSH Action](https://github.com/appleboy/ssh-action), but I couldn't get the permissions to work for A LONG TIME.
 
-I found most articles about Github actions and SSH didn't help me much.  I got stuck with debugging for a few days before I finally figured out how to make the process work.
+I found most articles about Github actions and SSH didn't help me much. I got stuck with debugging for a few days before I finally figured out how to make the process work.
 
 Today, I want to share the exact steps to deploy via rsync and SSH. This process works for any server, even if you don't use Digital Ocean.
 
@@ -89,12 +87,13 @@ cat github-actions.pub >> authorized_keys
 ```
 
 Here's what the command does:
-  - Grab the contents of `github-actions.pub` with `cat`.
-  - Append to `authorized_keys` with `>>`.
+
+- Grab the contents of `github-actions.pub` with `cat`.
+- Append to `authorized_keys` with `>>`.
 
 Note: Make sure you use double-right-angled brackets (`>>`) and not single-angled brackets (`>`). Double means append, while single means overwrite. Be careful!
 
-## Step 3: Adding the private key to your repository's  secrets
+## Step 3: Adding the private key to your repository's secrets
 
 Go to your repository on Github and click on "Settings", then "Secrets". You should see a button that says "New repository secret".
 
@@ -176,7 +175,7 @@ The `known_hosts` value is a weird hashed value. If you open up a `known_hosts` 
   <img src="/images/2021/github-actions-deploy/known-hosts-file.png" alt="opened known hosts file">
 </figure>
 
-We're supposed to add ONE of these values into a Github Actions secret. How do we even get this value in the first place?! Unfortunately, none of the Github Actions showed me how to do this, so I had to google around for a while -_-.
+We're supposed to add ONE of these values into a Github Actions secret. How do we even get this value in the first place?! Unfortunately, none of the Github Actions showed me how to do this, so I had to google around for a while -\_-.
 
 Thankfully, we can use a command to generate this weird hashed value. I'll talk about this command in the next step. For now, we simply have to add a random value to `known_hosts` so Shimataro's Install SSH Key won't give us an error.
 
@@ -189,7 +188,7 @@ steps:
       known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
 ```
 
-##  Step 5: Adding a correct known_hosts value
+## Step 5: Adding a correct known_hosts value
 
 We can generate the correct `known_hosts` value with a `ssh-keyscan` command. It looks like this:
 
@@ -216,7 +215,6 @@ steps:
   # ...
   - name: Adding Known Hosts
     run: ssh-keyscan -H {% raw %}${{ secrets.SSH_HOST }}{% endraw%} >> ~/.ssh/known_hosts
-
 ```
 
 ## Step 6: Rsync into Server
@@ -226,10 +224,11 @@ We can finally rsync via SSH into the server. To do this, you need to know your 
 ```shell
 rsync -flags source user@host:destination
 ```
-  - `flags` are the flags you would like to rsync with. We commonly use `avz` which stands for `archive`, `verbose`, and `compress`. If you're rsync-ing for the first time, I recommend using the `n` flag for `dry-run` as well.
-  - `source` is the source file you want to copy from
-  - `user@host` is the username and ip address of the your server. These values should be kept as secrets.
-  - `destination` is the location of the files you want to copy to.
+
+- `flags` are the flags you would like to rsync with. We commonly use `avz` which stands for `archive`, `verbose`, and `compress`. If you're rsync-ing for the first time, I recommend using the `n` flag for `dry-run` as well.
+- `source` is the source file you want to copy from
+- `user@host` is the username and ip address of the your server. These values should be kept as secrets.
+- `destination` is the location of the files you want to copy to.
 
 Here's a real example of what I use to deploy zellwk.com to my server.
 
@@ -244,11 +243,14 @@ Since we have the `verbose` flag, you should be able to see a list of resources 
   <img src="/images/2021/github-actions-deploy/list-of-resources.png" alt="list of resources copied via rsync">
 </figure>
 
+Note: There are a few extra steps if you need to use rsync with a custom port. Please read [this article](/blog/rsync-with-github-actions-when-using-a-custom-port) for more information.
+
 That's it!
 
 ## Wrapping up
 
 Here are the steps to summarize everything:
+
 1. Generate a SSH Keyphrase using the standard RSA format
 2. Add the public key to `authorized_keys`
 3. Add the private key as a Github secret

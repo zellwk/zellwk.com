@@ -109,7 +109,7 @@ console.log(variable)
 
 ## Syncing the .env file into the server
 
-You can use [rsync][1] to sync the `.env` file into your server. (I use [Digital Ocean][2] if you're curious. Use this link to get $50 credit).
+You can use [rsync][1] to sync the `.env` file into your server. (I use [Digital Ocean][2] if you're curious. Use this link to get \$50 credit).
 
 To use rsync, you can run a command like this:
 
@@ -146,7 +146,9 @@ const rsync = new Rsync()
   .flags('avz') // Tells rsync to use `a`, `v`, and `z` options. (Archive, Verbose, and Compress).
   .flags('n') // This is for dryrun. Test before syncing! :)
   .source('./secrets') // The folder you want to sync
-  .destination(`${process.env.SSH_USER}@${process.env.SSH_HOST}:/path-to-destination`) // The destination
+  .destination(
+    `${process.env.SSH_USER}@${process.env.SSH_HOST}:/path-to-destination`
+  ) // The destination
 ```
 
 Notice I used `SSH_USER` and `SSH_HOST` environment variables in the `rsyrc` object? This allows me to access the server on any computer via SSH. (Provided the computer has a valid SSH private key).
@@ -172,7 +174,8 @@ rsync.output(
     // do things like parse progress
     const string = Buffer.from(data).toString()
     console.log(string)
-  }, function (data) {
+  },
+  function (data) {
     // do things like parse error output
     console.log(data)
   }
@@ -224,5 +227,5 @@ updateEnv('./secrets/.env')
 
 That's it!
 
-[1]:	https://linux.die.net/man/1/rsync
-[2]:	https://m.do.co/c/64daa7a7a455 "Digital Ocean"
+[1]: https://linux.die.net/man/1/rsync
+[2]: https://m.do.co/c/64daa7a7a455 'Digital Ocean'

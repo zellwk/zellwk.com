@@ -3,8 +3,8 @@ title: A Complete Tutorial to Susy
 layout: post
 slug: a-complete-tutorial-to-susy
 tags:
- - css
- - susy
+  - css
+  - susy
 newsletter: susy
 ---
 
@@ -19,9 +19,11 @@ In this tutorial, we are going to install Susy, set up Susy defaults and underst
 <!--more-->
 
 ## Important Update
+
 Susy 2 is now released, which makes this tutorial obsolete. Head over <a href="https://zellwk.com/blog/susy2-tutorial/">here</a> to find the latest article on Susy 2 instead.
 
 ## Installing Susy
+
 Susy requires Sass and Compass.
 
 This tutorial assumes that you already have Sass and Compass installed. If not, I suggest you check out some awesome video tutorials at [LevelUpTuts][1] for [Sass][2] and [Compass][3].
@@ -42,7 +44,6 @@ Once you have Sass and Compass installed, go ahead and install Susy from the com
     sudo gem install compass --pre
     sudo gem install susy --pre
 
-
 The process to use Susy in a project is to add a line of code in the config.rb found in the compass.
 
     # in config.rb
@@ -51,6 +52,7 @@ The process to use Susy in a project is to add a line of code in the config.rb f
 Now, we can get into the very basics of using Susy.
 
 ## Setting up Susy
+
 The very first step of using Susy in your project is to import Susy in your sass file and set its defaults.
 
     @import "_normalize.scss";
@@ -88,6 +90,7 @@ This is what we are going to obtain by the end of the tutorial
 ![Susy Example AG 1 - AG 10][image-1]
 
 ### The HTML
+
 The HTML for the grid test is as follows.
 
     <div class="container">
@@ -141,11 +144,13 @@ Simply speaking, whenever something is found within another div, you should nest
 In our case, AG 3 to AG 7 will be nested under AG 2 while AG 8, AG 9 and AG 10 are nested under AG 7.
 
 ### The Sass
+
 We're going give each ag a color like the one on Susy's main webpage.
 
     /**
-   Styles for AG grids & Container
-     */
+
+Styles for AG grids & Container
+\*/
 
     .container {
       background-color: #fbeecb;
@@ -176,19 +181,23 @@ We're going give each ag a color like the one on Susy's main webpage.
     }
 
     /**
-   Text Styles
-     */
-    h2 {
-      text-align: center;
-      font-size: 1rem;
-      font-weight: normal;
-      padding-top: 1.8rem;
-      padding-bottom: 1.8rem;
-    }
+
+Text Styles
+\*/
+h2 {
+text-align: center;
+font-size: 1rem;
+font-weight: normal;
+padding-top: 1.8rem;
+padding-bottom: 1.8rem;
+}
+
 ## Susy Mixins and Functions
+
 Before diving into writing susy mixins, I hope you wont mind if I explained how they work.
 
 ### Container
+
 Container establishes the grid containing element for the webpage. Given our html, the container mixin will be applied to the container class. This tells Susy where to start all the calculations from.
 
     .container {
@@ -198,6 +207,7 @@ Container establishes the grid containing element for the webpage. Given our htm
 If were are to use Susy with responsive design, we have to pass some arguments into container. This will be elaborated on in part 2 of the tutorial.
 
 ### Span Columns
+
 The Span Column mixin is probably the one used most while using Susy. It allows you to align an element to the grid you would like defined.
 
 The span column mixin takes a minimum of 1 argument and has the potential to accept a few more to customize to your needs.
@@ -206,14 +216,13 @@ The span column mixin takes a minimum of 1 argument and has the potential to acc
 
 The most important arguments to be included here in span-columns are $columns, omega and $context. The rest of the explanation can be viewed on the [Susy Reference page.][5]
 
-- **$columns** means the number of columns you would like the particular element to take up.
+- **\$columns** means the number of columns you would like the particular element to take up.
 
 - **omega** is an optional flag to tell Susy that this is the final element in a row.
 
-- **$context** tells Susy the current nesting context. It defaults to the total number of columns you specified within the container. In our case, it is 10.
+- **\$context** tells Susy the current nesting context. It defaults to the total number of columns you specified within the container. In our case, it is 10.
 
 Since we're clear of the two basic mixins used, we can start applying them to create the grid.
-
 
 ## Using Susy for the AG Grid Test
 
@@ -282,10 +291,9 @@ Although this doesn't seem like much right now, you will see that its extremely 
 
 Let's proceed to complete the rest of the grids that are within AG 2.
 
-
 ## Creating Elements Within AG 2.
 
-Here, we have to be very careful with the $context because $context defaults to the $total-columns, which was declared right at the top of our Sass file.
+Here, we have to be very careful with the $context because $context defaults to the \$total-columns, which was declared right at the top of our Sass file.
 
 If left untouched, Susy will use 10 columns to calculate the width of everything within AG 2.
 
@@ -349,22 +357,22 @@ And we're done!
 
 Feel free to grab the source code and view the demo:
 
-<a href="http://www.zell-weekeat.com/zellwk/susy/" class="btn">View Demo</a>
+<a href="/blog/zellwk/susy/" class="btn">View Demo</a>
 <a href="/images/2013/09/Susy-Example.zip" class="btn">Download Source</a>
 
 ## Wrapping Up the First Part
+
 I hope this quick tutorial has given you the opportunity to familiarize yourself with Susy and to understand how span columns and containers are used.
 
 In the next part of the tutorial next week, we will cover the use of Susy with responsonsive designs, altering the AG grid at various sizes. We will also look into using some of Susy's helper mixins that provides additional padding or magin to really make our design fully customized.
 
-[1]:  http://leveluptuts.com "Level Up Tuts"
-[2]:  http://leveluptuts.com/tutorials/sass-tutorials "Sass Tutorials"
-[3]:  http://leveluptuts.com/tutorials/compass-tutorials "Compass Tutorials"
-[4]:  http://css-tricks.com/box-sizing/ "Border Box"
-[5]:  http://susydocs.oddbird.net "Susy Documentation"
-[6]:  http://css-tricks.com/snippets/css/clear-fix/ "Clearfix"
-
-[image-1]:  /images/2013/09/ag1-10.png "Susy Example AG 1 - AG 10"
-[image-2]:  /images/2013/09/ag1-3.png "AG 1 to AG 3"
-[image-3]:  /images/2013/09/ag1-7.png "AG 1 - 7"
-[image-4]:  /images/2013/09/ag1-10.png "Susy Example AG 1 - AG 10"
+[1]: http://leveluptuts.com 'Level Up Tuts'
+[2]: http://leveluptuts.com/tutorials/sass-tutorials 'Sass Tutorials'
+[3]: http://leveluptuts.com/tutorials/compass-tutorials 'Compass Tutorials'
+[4]: http://css-tricks.com/box-sizing/ 'Border Box'
+[5]: http://susydocs.oddbird.net 'Susy Documentation'
+[6]: http://css-tricks.com/snippets/css/clear-fix/ 'Clearfix'
+[image-1]: /images/2013/09/ag1-10.png 'Susy Example AG 1 - AG 10'
+[image-2]: /images/2013/09/ag1-3.png 'AG 1 to AG 3'
+[image-3]: /images/2013/09/ag1-7.png 'AG 1 - 7'
+[image-4]: /images/2013/09/ag1-10.png 'Susy Example AG 1 - AG 10'
