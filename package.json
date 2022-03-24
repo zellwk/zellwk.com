@@ -19,7 +19,9 @@
     "test": "jest --watch"
   },
   "standard": {
-    "ignore": ["**/prism.js"]
+    "ignore": [
+      "**/prism.js"
+    ]
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
@@ -62,6 +64,7 @@
     "modularscale-sass": "^2.1.1",
     "nodemon": "^2.0.15",
     "normalize.css": "^8.0.1",
+    "postcss": "^8.4.5",
     "require-dir": "^1.2.0",
     "rollup": "^2.69.1",
     "rollup-plugin-babel": "^4.3.3",

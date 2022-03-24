@@ -27,7 +27,8 @@
     border-top-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
 
-    @extend %small-caps;
+    // TODO: Fix Small Caps
+    // @extend %small-caps;
     text-transform: lowercase;
   }
 
