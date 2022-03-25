@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Don't be ashamed of the tutorial hell
+title: Don't be ashamed of tutorial hell
 slug: dont-be-ashamed-of-tutorial-hell
 tags: ['learning', 'advice']
 ---
@@ -82,7 +82,7 @@ This is the point where you should stop reading tutorials and begin making somet
 
 **It's ok to go back and read tutorials again**. This time, you're reading for specific knowledge, not the general understanding of things.
 
-No learning is complete without applying the information you acquired through experiments and usage. [You have to sit down and figure it out](/blog/sit-down-and-figure-it-out). Nobody can help you with that.
+No learning is complete without applying the information you acquired through experiments and usage. [You have to sit down and figure it out](/blog/figure-it-out/). Nobody can help you with that.
 
 Once you can use that knowledge, your brain frees up energy from trying to hold the structure in place. It has become stable, and you are freed to pick up another piece of information, to read more tutorials, to gain more knowledge in a different domain.
 
