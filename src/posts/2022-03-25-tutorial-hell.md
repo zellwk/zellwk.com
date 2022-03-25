@@ -9,6 +9,8 @@ Many people are trapped in tutorial hell — they hop from one tutorial to anoth
 
 Don't be ashamed of tutorial hell.
 
+<!-- more -->
+
 You go through tutorials for many reasons:
 
 - To learn to build something you don't know how to
