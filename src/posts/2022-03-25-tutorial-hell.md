@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Don't be ashamed of the tutorial hell
-slug: don't-be-ashamed-of-tutorial-hell
+slug: dont-be-ashamed-of-tutorial-hell
 tags: ['learning', 'advice']
 ---
 
