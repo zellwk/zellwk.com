@@ -13,7 +13,7 @@ Don't be ashamed of tutorial hell.
 
 You go through tutorials for many reasons:
 
-- To learn to build something you don't know how to
+- To learn to build something you don't know how to build
 - To gain knowledge — both breadth and depth
 - To gain expertise
 - To learn thinking patterns
@@ -26,7 +26,7 @@ Tutorials expand your mind to create possibilities. All these would not happen i
 
 **It takes more than one try to understand information**. You don't understand everything in one go — unless you are already proficient or know the material.
 
-You will miss things out. **The first time will be confusing**. You will be irritated that you're confused, and annoyed that you're not good enough to understand the information presented.
+You will miss things. **The first time will be confusing**. You will be irritated that you're confused, and annoyed that you're not good enough to understand the information presented.
 
 That's ok. **Accept that you're not good enough** to understand it because you are not good enough yet.
 
@@ -62,7 +62,7 @@ It's like compound interest. You have to begin adding knowledge into your knowle
 
 Each piece of knowledge is a node that works for you inside. Each node allows you to hook onto another new piece of knowledge, so your knowledge network grows as you learn. **It gets easier and easier to understand new knowledge in a related field.**
 
-Be aware of this: As the surface area of your knowledge grows, the perimeter of your ignorance grows as well. You will be exposed to more things that you don't. You may feel insignificant in the vast amount of knowledge out there.
+Be aware of this: As the surface area of your knowledge grows, the perimeter of your ignorance grows as well. You will be exposed to more things that you don't know. You may feel insignificant in the vast amount of knowledge out there.
 
 Don't feel pressured. It's classic [Dunning Kruger effect](https://en.wikipedia.org/wiki/Dunning–Kruger_effect).
 
@@ -78,7 +78,7 @@ You know it **when you don't want to read anymore**. You want to make something.
 
 This is the point where you should stop reading tutorials and begin making something. Not before this point — because you're still trying to figure out what you need.
 
-**When you try to build something, you may become confused again**, because you missed out certain pieces of information, or you forgot something, or you realize you don't understand something enough.
+**When you try to build something, you may become confused again**, because you missed certain pieces of information, or you forgot something, or you realize you don't understand something enough.
 
 **It's ok to go back and read tutorials again**. This time, you're reading for specific knowledge, not the general understanding of things.
 
@@ -115,7 +115,7 @@ It depends on the intention of the creator — did they create it to help you or
 
 All creators would say their courses are good. All creators would promote their own products. You have to do your homework and due diligence. **You have to decide whether to take a leap of faith to invest money into buying a course, and time into consuming the course.**
 
-And I guess that's what blogs and videos do — they give you an understanding on the creator operates, so you have an idea whether they're doing good, or bad, whether they're trying to teach you, or scam you, and whether their way of teaching would help you.
+And I guess that's what blogs and videos do — they give you an understanding of how the creator operates, so you have an idea whether they're doing good, or bad, whether they're trying to teach you, or scam you, and whether their way of teaching would help you.
 
 ## Final Words
 
