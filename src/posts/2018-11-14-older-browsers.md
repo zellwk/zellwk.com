@@ -1,13 +1,12 @@
 ---
-title: Supporting older browsers
+title: Supporting older browsers with Polyfills
 layout: post
 slug: older-browsers
 newsletter: better-fed
 tags:
- - best practice
- - best
+  - best practice
+  - best
 description: "You don't have to worry much about supporting older browsers today. They've been decent ever since Internet Explorer 8 died. But the question remains: How should you go about supporting Internet Explorer 9 and other browsers?"
-draft: true
 ---
 
 You don't have to worry much about supporting older browsers today. They've been decent ever since Internet Explorer 8 died.
@@ -97,7 +96,7 @@ Think about it.
 2. What level of support are you giving?
 3. It is worth the resources you've allocated?
 
-In the following two articles, we'll look at supporting CSS  and JavaScript features in older browsers. We'll also talk about what level of support you should provide.
+In the following two articles, we'll look at supporting CSS and JavaScript features in older browsers. We'll also talk about what level of support you should provide.
 
-[1]:	/blog/older-browsers-css
-[2]:	/blog/older-browsers-js "Supporting older browsers—Part 3: JS"
+[1]: /blog/older-browsers-css
+[2]: /blog/older-browsers-js 'Supporting older browsers—Part 3: JS'
