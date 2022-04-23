@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using Async/await in Express
+title: Using async/await in Express
 description: The easiest way to use async/await in Express is use express-async-handler. This article shows you why, and how you can use it.
 slug: async-await-express
 tags:
@@ -11,21 +11,21 @@ tags:
 
 Have you noticed you write a lot of asynchronous code in Express request handlers? This is normal because you need to communicate with the database, the file system, and other APIs.
 
-When you have so much asynchronous code, it helps to use Async/await. It makes your code easier to understand.
+When you have so much asynchronous code, it helps to use async/await. It makes your code easier to understand.
 
 Today, I want to share how to use async/await in an Express request handler.
 
 <!-- more -->
 
-Note: Before you continue, you need to know what Async/await is. If you don't know, you can read [this article][1] for more information.
+Note: Before you continue, you need to know what async/await is. If you don't know, you can read [this article][1] for more information.
 
 Update: [Express 5.0 baked the handling of async errors into the framework](https://expressjs.com/en/guide/migrating-5.html#rejected-promises) itself — the error will be sent to the error handling middleware even if the Promise rejects. This means the rest of this article is obselete once Express 5 comes out of beta.
 
 I'll update this article again Express 5 is out of beta.
 
-## Using Async/await with a request handler
+## Using async/await with a request handler
 
-To use Async/await, you need to use the `async` keyword when you define a request handler. (Note: These request handlers are known as called "controllers". I prefer calling them request handlers because request handlers are more explicit).
+To use async/await, you need to use the `async` keyword when you define a request handler. (Note: These request handlers are also called "controllers". I prefer calling them request handlers because "request handlers" is more explicit).
 
 ```js
 app.post('/testing', async (req, res) => {
@@ -153,7 +153,7 @@ app.post('/signup', async (req, res, next) => {
 
 This is unnecessary. If `firstThing` results in an error, the request will be sent to an error handler immediately. You would not trigger a call for `secondThing`. If `secondThing` results in an error, `firstThing` would not have triggered an error.
 
-This means: Only one error will be sent to the error handler. It also means we can wrap all `await` statements in ONE `try/catch` statement.
+This means only one error will be sent to the error handler. It also means we can wrap all `await` statements in ONE `try/catch` statement.
 
 ```js
 app.post('/signup', async (req, res, next) => {
