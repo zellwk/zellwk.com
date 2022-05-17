@@ -4,8 +4,8 @@ layout: post
 slug: console-log-everything
 newsletter: jsr
 tags:
- - javascript
- - video
+  - javascript
+  - video
 youtubeHash: rBHzRjJSQbI
 ---
 
@@ -37,16 +37,15 @@ So here's how the `for of` loop looks like
 
 ```js
 const people = [
-  {name: 'Zell'},
-  {name: 'Vincy'},
-  {name: 'Huijing'},
-  {name: 'Chris'}
+  { name: 'Zell' },
+  { name: 'Vincy' },
+  { name: 'Huijing' },
+  { name: 'Chris' }
 ]
 
 for (let item of people) {
   // Do stuff here
 }
-
 ```
 
 So, here's the question. What is item?
@@ -61,7 +60,6 @@ You console.log whatever you're unsure of.
 for (let item of people) {
   console.log(item.name)
 }
-
 ```
 
 And if you take a look it the console, you'll immediately see what item is.
@@ -85,4 +83,3 @@ And with this, my friend, you have learned the ultimate skill to learning how to
 If you like this video, you'll love [Learn JavaScript](https://learnJavaScript.today), a course to help you learn Javascript properly and build things from scratch.
 
 With that. Good luck and I'll see you next week.
-
