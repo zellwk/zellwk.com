@@ -17,10 +17,11 @@ const transporter = nodemailer.createTransport(
   })
 )
 
-const getEntry = (entries, item) => entries.find(entry => entry.name === item).answer
-const getName = (entries) => getEntry(entries, 'name')
-const getEmail = (entries) => getEntry(entries, 'email')
-const getSubject = (entries) => getEntry(entries, 'subject')
+const getEntry = (entries, item) =>
+  entries.find(entry => entry.name === item).answer
+const getName = entries => getEntry(entries, 'name')
+const getEmail = entries => getEntry(entries, 'email')
+const getSubject = entries => getEntry(entries, 'subject')
 
 const markdownFilter = (str, stripPara = true) => {
   let text = marked(str).trim()
@@ -28,10 +29,7 @@ const markdownFilter = (str, stripPara = true) => {
   return text
 }
 
-const generateHTML = ({
-  filename,
-  entries
-} = {}) => {
+const generateHTML = ({ filename, entries } = {}) => {
   const env = new nunjucks.Environment(new nunjucks.FileSystemLoader('views'), {
     watch: !isProduction,
     noCache: !isProduction,
@@ -47,7 +45,7 @@ const generateHTML = ({
   return juice(html)
 }
 
-exports.send = async (options) => {
+exports.send = async options => {
   const html = generateHTML(options)
   const { entries } = options
   const email = getEmail(entries)

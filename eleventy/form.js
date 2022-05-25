@@ -7,11 +7,14 @@ const radioSVG = `<svg width="27" height="27" viewBox="0 0 27 27">
   </g>
 </svg>`
 
-const generateUnique = length =>
-  Math.random().toString(36).substring(2, 2 + length)
+function generateUnique (length) {
+  return Math.random()
+    .toString(36)
+    .substring(2, 2 + length)
+}
 
 // Form items
-const hidden = ({ name, value }) => {
+function hidden ({ name, value }) {
   return `<div class="c-form__item jsFormItem c-form__hidden-item">
     <input type="hidden" name="${name}" value="${value}">
   </div>`
@@ -31,12 +34,13 @@ const input = ({
       <div class="c-form__question jsFormQuestion">
         ${markdown.inline(label)}
       </div>
-      ${helpText
-    ? `<div class="c-form__help-text">
+      ${
+        helpText
+          ? `<div class="c-form__help-text">
             ${markdown.inline(helpText)}
           </div>`
-    : ''
-}
+          : ''
+      }
       <div class="c-form__error jsFormError"></div>
       <input
         type="${type}"
@@ -62,12 +66,13 @@ const textarea = ({
       <div class="c-form__question jsFormQuestion">
         ${markdown.inline(label)}
       </div>
-      ${helpText
-    ? `<div class="c-form__help-text">
+      ${
+        helpText
+          ? `<div class="c-form__help-text">
             ${markdown.inline(helpText)}
           </div>`
-    : ''
-}
+          : ''
+      }
       <textarea
         name="${name}"
         id="${name}"
@@ -92,30 +97,28 @@ const radios = ({
     .map(choice => radio(Object.assign({}, choice, { name })))
     .join('')
 
-  return `<div class="c-form__item--radios jsFormItem ${classes} ${filter ? 'jsGroupFilter' : ''}"
+  return `<div class="c-form__item--radios jsFormItem ${classes} ${
+    filter ? 'jsGroupFilter' : ''
+  }"
     role="group"
     aria-labelledby="${unique}"
   >
     <div class="c-form__question jsFormQuestion" id="${unique}">
       ${markdown.inline(label)}
     </div>
-    ${helpText
-    ? `<div class="c-form__help-text">
+    ${
+      helpText
+        ? `<div class="c-form__help-text">
           ${markdown.inline(helpText)}
         </div>`
-    : ''
-}
+        : ''
+    }
     ${radioString}
   </div>
   `
 }
 
-const radio = ({
-  name,
-  value,
-  target,
-  required
-}) => {
+const radio = ({ name, value, target, required }) => {
   return `<label>
     <input
       type="radio"
