@@ -251,7 +251,7 @@ Restart your server and refresh your browser. You should be able to see your HTM
 
 This is how Express handles a **GET** request (**READ** operation) in a nutshell.
 
-At this point, you probably have realized that you need to restart your server whenever you make a change to `server.js`. This is process is incredibly tedious, so let's take a quick detour and streamline it by using a tool called [nodemon][13].
+At this point, you probably have realized that you need to restart your server whenever you make a change to `server.js`. This process is incredibly tedious, so let's take a quick detour and streamline it by using a tool called [nodemon][13].
 
 ## Enter Nodemon
 
@@ -262,16 +262,16 @@ $ npm install nodemon --save-dev
 ```
 
 :::note
-We use a `--save-dev` flag here because we only use Nodemon when we are developing stuff. We won't use Nodemon on an actual server. `--save-dev` here adds Nodeman as a `devDependency` in the `package.json` file.
+We use a `--save-dev` flag here because we only use Nodemon when we are developing stuff. We won't use Nodemon on an actual server. `--save-dev` here adds Nodemon as a `devDependency` in the `package.json` file.
 :::
 
 <figure role="figure">
   <img src="/images/2020/crud/nodemon-dev-dep.png" alt="Saved Nodemon as a dev dependency.">
 </figure>
 
-Nodemod behaves like Node. So you can run `nodemon server.js` and you'd expect to see the same thing. Unfortunately, this only works if you've installed nodemon globally with the `-g` flag (and we didn't do this).
+Nodemon behaves like Node. So you can run `nodemon server.js` and you'd expect to see the same thing. Unfortunately, this only works if you've installed nodemon globally with the `-g` flag (and we didn't do this).
 
-We have other ways to run Nodemon. For example, you can execute Nodemon directly from the `node_modules` folder. This is super unweildy, but it works:
+We have other ways to run Nodemon. For example, you can execute Nodemon directly from the `node_modules` folder. This is super unwieldy, but it works:
 
 ```bash
 ./node_modules/.bin/nodemon server.js
@@ -659,7 +659,7 @@ Try submitting the `<form>` from the browser. You should see a big scary looking
   <img src="/images/2020/crud/post-result.png" alt="Post result.">
 </figure>
 
-If you see this, congratulations! You've successfully add the quote into the database.
+If you see this, congratulations! You've successfully added the quote into the database.
 
 You can check the items inside the database by going to "Collections" in MongoDB Atlas.
 
@@ -751,7 +751,7 @@ Next we want to generate a HTML that contains all our quotes.
 
 ### Rendering the HTML
 
-We cannot serve up the `index.html` file and expect quotes to magically appear because there's no way to add dynamic content to a HTML file.
+We cannot serve up the `index.html` file and expect quotes to magically appear because there's no way to add dynamic content to an HTML file.
 
 What we can do, instead, is to use a template engine to generate the HTML. Popular template engines include [Pug][21], [Embedded JavaScript][22], and [Nunjucks][23].
 
@@ -1321,7 +1321,7 @@ Now, when you click the delete button, the browser will sends *DELETE* request t
 
 ### What if there are no more Darth Vadar quotes?
 
-If there are no more Darth Vadar quotes, `result.deletedCount` will be `0`. We can send a message that says tells the browser that there are no more Darth Vadar quotes to delete.
+If there are no more Darth Vadar quotes, `result.deletedCount` will be `0`. We can send a message that tells the browser that there are no more Darth Vadar quotes to delete.
 
 ```javascript
 app.delete('/quotes', (req, res) => {
