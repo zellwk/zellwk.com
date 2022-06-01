@@ -40,7 +40,7 @@ We are working with sites when we're testing Fetch's `credentials` property. Tak
 
 ## Github Repository<!-- omit in toc -->
 
-I included a [Github repository](https://github.com/zellwk/demos/tree/main/fetch-**credentials**) so you can test the findings below. I'll explain the steps to use the Github repository in each of the tests.
+I included a [Github repository](https://github.com/zellwk/demos/tree/main/fetch-credentials) so you can test the findings below. I'll explain the steps to use the Github repository in each of the tests.
 
 If you open up the Github repository, you will find three folders — Host, Subdomain, and External.
 
