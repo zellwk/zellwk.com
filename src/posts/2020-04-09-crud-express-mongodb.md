@@ -604,7 +604,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
 ### MongoDB and Server
 
-We need the `db` variable from the connection to to access MongoDB. This means we need to put our express request handlers into the MongoClient's `then` call.
+We need the `db` variable from the connection to access MongoDB. This means we need to put our express request handlers into the MongoClient's `then` call.
 
 ```js
 MongoClient.connect(/* ... */)
