@@ -83,13 +83,13 @@ We need to add the public key (`github-actions.pub`) to `authorized_keys` so mac
 The easiest way is to use a `cat` command to append `github-actions.pub` into `authorized_keys`. It look like this:
 
 ```shell
-cat github-actions.pub >> authorized_keys
+cat github-actions.pub >> ~/.ssh/authorized_keys
 ```
 
 Here's what the command does:
 
 - Grab the contents of `github-actions.pub` with `cat`.
-- Append to `authorized_keys` with `>>`.
+- Append to `~/.ssh/authorized_keys` with `>>`.
 
 Note: Make sure you use double-right-angled brackets (`>>`) and not single-angled brackets (`>`). Double means append, while single means overwrite. Be careful!
 
@@ -259,3 +259,8 @@ Here are the steps to summarize everything:
 6. Deploy with Rsync via SSH
 
 Done! :)
+
+## Full example
+
+A full example, used to deploy this blog, can be found
+[here](https://github.com/zellwk/zellwk.com/blob/master/.github/workflows/deploy.yml)
