@@ -896,15 +896,15 @@ We use the **UPDATE** operation when we want to change something. It can be trig
 
 Let's switch things up and use JavaScript since you already know how to use `<form>` elements.
 
-For this update operation, we will create a button that replaces the first quote by Yoda to something written by Darth Vadar.
+For this update operation, we will create a button that replaces the first quote by Yoda to something written by Darth Vader.
 
 To do this, we need to add a `button` into the `index.ejs` file:
 
 ```html
 <div>
-  <h2>Darth Vadar invades!</h2>
+  <h2>Darth Vader invades!</h2>
   <p>
-    Replace first Yoda's quote with a quote written by Darth Vadar
+    Replace first Yoda's quote with a quote written by Darth Vader
   </p>
   <button id="update-button">Replace Yoda's quote</button>
 </div>
@@ -983,7 +983,7 @@ Here's an example of JavaScript data:
 
 ```js
 const data = {
-  name: 'Darth Vadar',
+  name: 'Darth Vader',
   quote: 'I find your lack of faith disturbing.'
 }
 ```
@@ -992,7 +992,7 @@ And what its JSON counterpart looks like. (Notice how everything is wrapped betw
 
 ```js
 {
-  "name": "Darth Vadar",
+  "name": "Darth Vader",
   "quote": "I find your lack of faith disturbing."
 }
 ```
@@ -1016,7 +1016,7 @@ update.addEventListener('click', _ => {
     method: 'put',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      name: 'Darth Vadar',
+      name: 'Darth Vader',
       quote: 'I find your lack of faith disturbing.'
     })
   })
@@ -1043,7 +1043,7 @@ app.put('/quotes', (req, res) => {
   <img src="/images/2020/crud/put-body.png" alt="Put request body">
 </figure>
 
-The next step is to change the Yoda's first quote to this quote by Darth Vadar.
+The next step is to change the Yoda's first quote to this quote by Darth Vader.
 
 ### Changing Yoda's quote
 
@@ -1073,7 +1073,7 @@ quotesCollection.findOneAndUpdate(
 
 `update`, tells MongoDB what to change. It uses MongoDB's [update operators][27] like `$set`, `$inc` and `$push`.
 
-We will use the `$set` operator since we're changing Yoda's quotes into Darth Vadar's quotes:
+We will use the `$set` operator since we're changing Yoda's quotes into Darth Vader's quotes:
 
 ```javascript
 quotesCollection.findOneAndUpdate(
@@ -1092,7 +1092,7 @@ quotesCollection.findOneAndUpdate(
 
 `options` tells MongoDB to define additional options for this update request.
 
-In this case, it's possible that no Yoda quotes exist in the database. We can force MongoDB to create a new Darth Vadar quote if no Yoda quotes exist. We do this by setting `upsert` to `true`. `upsert` means: Insert a document if no documents can be updated.
+In this case, it's possible that no Yoda quotes exist in the database. We can force MongoDB to create a new Darth Vader quote if no Yoda quotes exist. We do this by setting `upsert` to `true`. `upsert` means: Insert a document if no documents can be updated.
 
 ```javascript
 quotesCollection.findOneAndUpdate(
@@ -1129,7 +1129,7 @@ Try clicking the "replace first Yoda quote" button in the browser. You should se
   <img src="/images/2020/crud/put-result.png" alt="Put result.">
 </figure>
 
-If you refresh the browser, you should see Darth Vadar's quote as the first quote.
+If you refresh the browser, you should see Darth Vader's quote as the first quote.
 
 <figure role="figure">
   <img src="/images/2020/crud/put-check.png" alt="Checking the HTML after a PUT request.">
@@ -1199,18 +1199,18 @@ That's it for the **UPDATE** operation! Let's move on to delete.
 
 The **DELETE** operation can be triggered through a **DELETE** request. It's similar to the `UPDATE` request so this should be simple if you understand what we've done above.
 
-For this, let's delete the first quote by Darth Vadar.
+For this, let's delete the first quote by Darth Vader.
 
 First, we need to add a delete button to `index.ejs`.
 
 ```html
 <div>
-  <h2>Remove Darth Vadar!</h2>
+  <h2>Remove Darth Vader!</h2>
   <p>
-    Delete one Darth Vadar's quote. Does nothing if there are no more Darth
-    Vadar's quote
+    Delete one Darth Vader's quote. Does nothing if there are no more Darth
+    Vader's quote
   </p>
-  <button id="delete-button">Delete Darth Vadar's quote</button>
+  <button id="delete-button">Delete Darth Vader's quote</button>
 </div>
 ```
 
@@ -1230,7 +1230,7 @@ deleteButton.addEventListener('click', _ => {
 })
 ```
 
-Since we're deleting a quote by Darth Vadar, we only need to send Darth Vadar's name to the server.
+Since we're deleting a quote by Darth Vader, we only need to send Darth Vader's name to the server.
 
 ```js
 deleteButton.addEventListener('click', _ => {
@@ -1238,7 +1238,7 @@ deleteButton.addEventListener('click', _ => {
     method: 'delete',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      name: 'Darth Vadar'
+      name: 'Darth Vader'
     })
   })
     .then(res => {
@@ -1271,18 +1271,18 @@ quotesCollection.deleteOne(
   .catch(error => console.error(error))
 ```
 
-`query` works like `query` in `findOneAndUpdate`. It lets us filter the collection to the entries we're searching for. In this case, we can set `name` to Darth Vadar.
+`query` works like `query` in `findOneAndUpdate`. It lets us filter the collection to the entries we're searching for. In this case, we can set `name` to Darth Vader.
 
 ```javascript
 quotesCollection.deleteOne(
-  { name: 'Darth Vadar' },
+  { name: 'Darth Vader' },
   options
 )
   .then(result => {/* ... */})
   .catch(error => console.error(error))
 ```
 
-However, since we already pass the name `Darth Vadar` from Fetch, we don't need to hardcode it in Express anymore. We can simply use `req.body.name`.
+However, since we already pass the name `Darth Vader` from Fetch, we don't need to hardcode it in Express anymore. We can simply use `req.body.name`.
 
 ```js
 app.delete('/quotes', (req, res) => {
@@ -1311,7 +1311,7 @@ app.delete('/quotes', (req, res) => {
     { name: req.body.name }
   )
     .then(result => {
-      res.json(`Deleted Darth Vadar's quote`)
+      res.json(`Deleted Darth Vader's quote`)
     })
     .catch(error => console.error(error))
 })
@@ -1319,9 +1319,9 @@ app.delete('/quotes', (req, res) => {
 
 Now, when you click the delete button, the browser will sends *DELETE* request through Fetch to our Express server. Then, the server responds by sending either an error or a message back.
 
-### What if there are no more Darth Vadar quotes?
+### What if there are no more Darth Vader quotes?
 
-If there are no more Darth Vadar quotes, `result.deletedCount` will be `0`. We can send a message that tells the browser that there are no more Darth Vadar quotes to delete.
+If there are no more Darth Vader quotes, `result.deletedCount` will be `0`. We can send a message that tells the browser that there are no more Darth Vader quotes to delete.
 
 ```javascript
 app.delete('/quotes', (req, res) => {
@@ -1330,13 +1330,13 @@ app.delete('/quotes', (req, res) => {
       if (result.deletedCount === 0) {
         return res.json('No quote to delete')
       }
-      res.json(`Deleted Darth Vadar's quote`)
+      res.json(`Deleted Darth Vader's quote`)
     })
     .catch(error => console.error(error))
 })
 ```
 
-If the JavaScript receives a `No quote to delete` response, we can tell the user there's no Darth Vadar quote to delete.
+If the JavaScript receives a `No quote to delete` response, we can tell the user there's no Darth Vader quote to delete.
 
 To do this, let's add an element where we can tell users about this message.
 
@@ -1354,7 +1354,7 @@ deleteButton.addEventListener('click', _ => {
     .then(/* ... */)
     .then(response => {
       if (response === 'No quote to delete') {
-        messageDiv.textContent = 'No Darth Vadar quote to delete'
+        messageDiv.textContent = 'No Darth Vader quote to delete'
       } else {
         window.location.reload(true)
       }
