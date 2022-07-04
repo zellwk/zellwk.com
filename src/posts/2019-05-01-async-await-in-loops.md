@@ -53,8 +53,7 @@ const getNumFruit = fruit => {
   return sleep(1000).then(v => fruitBasket[fruit])
 }
 
-getNumFruit('apple')
-  .then(num => console.log(num)) // 27
+getNumFruit('apple').then(num => console.log(num)) // 27
 ```
 
 Finally, let's say you want to use `await` and `getNumFruit` to get the number of each fruit in asynchronous function.
@@ -193,7 +192,7 @@ The console logs in this order:
 
 <figure><img src="/images/2019/async-await-loop/foreach-1.gif" alt="Console logs 'Start' and 'End' immediately. One second later, it logs 27, 0, and 14."></figure>
 
-JavaScript does this because `forEach` is not promise-aware. It cannot support `async` and `await`. You *cannot* use `await` in `forEach`.
+JavaScript does this because `forEach` is not promise-aware (you can't return values in a `forEach` loop). It cannot support `async` and `await`. You _cannot_ use `await` in `forEach`.
 
 ## Await with map
 
@@ -294,9 +293,8 @@ const filterLoop = _ => {
 You would expect `moreThan20` to contain only apples because there are 27 apples, but there are 0 grapes and 14 pears.
 
 ```js
-'Start'
-['apple']
-'End'
+'Start'['apple']
+;('End')
 ```
 
 `await` in `filter` doesn't work the same way. In fact, it doesn't work at all. You get the unfiltered array back...
@@ -316,9 +314,8 @@ const filterLoop = async _ => {
 ```
 
 ```js
-'Start'
-['apple', 'grape', 'pear']
-'End'
+'Start'[('apple', 'grape', 'pear')]
+;('End')
 ```
 
 <figure><img src="/images/2019/async-await-loop/filter.png" alt="Console logs 'Start', '['apple', 'grape', 'pear']', and 'End' immediately"></figure>
@@ -356,8 +353,7 @@ const filterLoop = async _ => {
 ```
 
 ```js
-Start
-[ 'apple' ]
+Start['apple']
 End
 ```
 
@@ -506,7 +502,6 @@ This version is simple to read and understand, and takes one second to calculate
 2. Don't ever use `await` with `forEach`. Use a for-loop (or any loop without a callback) instead.
 3. Don't `await` inside `filter` and `reduce`. Always `await` an array of promises with `map`, then `filter` or `reduce` accordingly.
 
-
-[1]:	/blog/async-await
-[2]:	/blog/async-await
-[3]:	https://twitter.com/timkevinoxley
+[1]: /blog/async-await
+[2]: /blog/async-await
+[3]: https://twitter.com/timkevinoxley
