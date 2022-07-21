@@ -221,7 +221,7 @@ const fs = require('fs')
 const util = require('util')
 
 // Converts readFile from callbacks to Async/await.
-// Find out how to do this here: https://zellwk.com/blog/callbacks-to-promises
+// Find out how to do this here: https://zellwk.com/blog/converting-callbacks-to-promises/
 const readFilePromise = util.promisify(fs.readFile)
 
 app.get('/testing', asyncHandler(async (req, res, next) => {
