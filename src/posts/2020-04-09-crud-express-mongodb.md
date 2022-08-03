@@ -1317,7 +1317,7 @@ app.delete('/quotes', (req, res) => {
 })
 ```
 
-Now, when you click the delete button, the browser will sends *DELETE* request through Fetch to our Express server. Then, the server responds by sending either an error or a message back.
+Now, when you click the delete button, the browser will send the *DELETE* request through Fetch to our Express server. Then, the server responds by sending either an error or a message back.
 
 ### What if there are no more Darth Vader quotes?
 
