@@ -373,7 +373,7 @@ So, that's how I use BEM in a nutshell. If you paid attention to the criteria I 
 The other two checkboxes aren't fulfilled yet:
 
 2. I must *instantly know if the component uses JavaScript*.
-1. I must *instantly know whether it's safe to edit* a class without interrupting other any other CSS.
+1. I must *instantly know whether it's safe to edit* a class without interrupting any other CSS.
 
 These two checkboxes will be checked in the [next article](/blog/css-architecture-2) when I discuss *namespacing*.
 
