@@ -771,7 +771,7 @@ First, we need to install EJS.
 npm install ejs --save
 ```
 
-Next, we need to set `view engine` to `ejs`. This tells Express we're using EJS as the template engine. You can need to place it before any `app.use`, `app.get` or `app.post` methods.
+Next, we need to set `view engine` to `ejs`. This tells Express we're using EJS as the template engine. You need to place it before any `app.use`, `app.get` or `app.post` methods.
 
 ```javascript
 app.set('view engine', 'ejs')
