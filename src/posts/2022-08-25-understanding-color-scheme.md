@@ -39,3 +39,5 @@ But nope. `color-scheme` is not necessary.
 In fact, I'd argue it's safer to omit `color-scheme` when you're building Light and Dark themes... but that's a topic for another day when I consolidate all the information I found about creating Light and Dark themes.
 
 Just my two cents.
+
+Update: Setting `color-scheme` to would change scrollbar colors. So the property is no longer unnecessary. I'm still hesitant about using it because it may introduce more problems... but I'll leave that conversation for another day.
