@@ -20,7 +20,7 @@ There are three possible values (and it's super easy to understand):
 
 - `light`: Browser will render styles according to the light scheme only
 - `dark`: Browser will render styles according to the dark scheme only
-- `light dark` (or `dark light`): Browser will styles according to the scheme the user prefers
+- `light dark` (or `dark light`): Browser will render styles according to the scheme the user prefers
 
 This means:
 
