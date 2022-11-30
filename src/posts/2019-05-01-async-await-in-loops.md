@@ -339,7 +339,7 @@ There are three steps to use `await` and `filter` properly:
 const filterLoop = async _ => {
   console.log('Start')
 
-  const promises = await fruitsToGet.map(fruit => getNumFruit(fruit))
+  const promises = fruitsToGet.map(fruit => getNumFruit(fruit))
   const numFruits = await Promise.all(promises)
 
   const moreThan20 = fruitsToGet.filter((fruit, index) => {
