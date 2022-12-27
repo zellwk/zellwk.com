@@ -43,3 +43,4 @@ jobs:
             npm install --production
             chown $(whoami) . # PM2 doesn't recognize root user from Github Actions
             npm run restart
+            
