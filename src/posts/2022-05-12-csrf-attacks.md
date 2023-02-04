@@ -5,9 +5,9 @@ slug: understanding-csrf-attacks
 tags: ['web-security', 'node', 'express', 'javascript']
 ---
 
-I went about researching web security recently as I was writing [Understanding Asynchronous JavaScript](https://asyncjs.today) — I wanted to make sure my recommendations were secure and I'm not doing any of my students a disservice with my recommendations.
+I researched web security recently as I was writing [Understanding Asynchronous JavaScript](https://asyncjs.today) — I wanted to make sure my recommendations were secure and that I'm not doing any of my students a disservice with my recommendations.
 
-Unfortunately, articles in the security space were pretty hard to understand. There were many words that trigger lots of fear, uncertainty, and doubt in the articles. I get emotionally panicky when I read these articles — and I worry I may end up doing something wrong — even though the intention of these articles was good!
+Unfortunately, articles in the security space were pretty hard to understand. Many words trigger lots of fear, uncertainty, and doubt in the articles. I get emotionally panicky when I read these articles — and I worry I may end up doing something wrong — even though the intention of these articles was good!
 
 Many articles also don't disclose full details CSRF, how to set up a CSRF Attack, and how to prevent a CSRF Attack, which leaves me doubtful about what I learned. I end up having to figure things out on my own.
 
@@ -28,9 +28,9 @@ We'll discuss the Normal CSRF Attack first, followed by the Login CSRF.
 
 **A CSRF attack is one that tricks a victim into submitting a malicious request** — a request they did not intend to make — **to a website where they are authenticated** (logged in to).
 
-The request must originate from another website, which gives in the name "Cross-Site". This request also impersonates an authenticated user, which gives it the name "Request Forgery".
+The request must originate from another website, which gives it the name "Cross-Site". This request also impersonates an authenticated user, which gives it the name "Request Forgery".
 
-**CSRF Attacks are blind** — which means the attacker doesn't see what happens after the victim submits the request. So CSRF attacks often target a state-change on the server.
+**CSRF Attacks are blind** — which means the attacker doesn't see what happens after the victim submits the request. So CSRF attacks often target a state change on the server.
 
 What is a state change? Basically, anything that modifies the database is a state change. Examples of state changes include:
 
@@ -39,7 +39,7 @@ What is a state change? Basically, anything that modifies the database is a stat
 - Sending fake messages from the user's account
 - Sharing inappropriate images or videos from the user's account
 
-CSRF Attacks take advantage of the fact that browsers automatically send cookies to the server in each request. Without any CSRF protection, the server may assume a request is valid when an authentication cookie is present.
+CSRF Attacks take advantage of the fact that browsers automatically send cookies to the server with each request. Without any CSRF protection, the server may assume a request is valid when an authentication cookie is present.
 
 Authentication cookies may be anything as long as the server uses them to check whether a user is valid. It can be an access token. It can also be a session ID. It depends on how the server handles authentication.
 
@@ -84,7 +84,7 @@ https://bank.com/transfer?account=Attacker&amount=9999
 
 At this point, the attacker can find a way to trigger the link automatically without the user knowing.
 
-One way is to include the link in a 0x0 image in a webpage or an email. If the user visits this webpage or email, the GET request gets triggered automatically since browsers and emails are configured to fetch images automatically.
+One way is to include the link in a 0x0 image on a webpage or an email. If the user visits this webpage or email, the GET request gets triggered automatically since browsers and emails are configured to fetch images automatically.
 
 (Now I understand why email providers disable images from loading as a safety precaution).
 
@@ -98,7 +98,7 @@ One way is to include the link in a 0x0 image in a webpage or an email. If the u
 />
 ```
 
-Another way is to misrepresent what a link does. This works because people don't check links before clicking on them. If the person clicks the link, they would have sent the GET request for the attacker without knowing.
+Another way is to misrepresent what a link does. This works because people don't check links before clicking on them. If the person clicks the link, they would have sent the GET request to the attacker without knowing.
 
 ```html
 <!-- Fake link that triggers the GET request attack -->
@@ -118,7 +118,7 @@ If you click the links above. You'll be able to find examples of real GET reques
 
 ### CSRF Attacks with POST requests
 
-CSRF Attacks with POST requests follow the same pattern — but they cannot be sent through links or image tags. They need to be sent through a form or through JavaScript.
+CSRF Attacks with POST requests follow the same pattern — but they cannot be sent through links or image tags. They need to be sent through a form or JavaScript.
 
 Let's assume we have the same vulnerable endpoint and the attacker simply needs to enter the `account` and `amount` information to trigger the request.
 
@@ -205,7 +205,7 @@ This wouldn't work because of three reasons.
 Access-Control-Allow-Origin: *
 ```
 
-Second, even if you allow all origins to access your server, you still need a `Access-Control-Allow-Credentials` option for browsers to send cookies to the server.
+Second, even if you allow all origins to access your server, you still need an `Access-Control-Allow-Credentials` option for browsers to send cookies to the server.
 
 ```shell
 Access-Control-Allow-Credentials: true
@@ -213,14 +213,14 @@ Access-Control-Allow-Credentials: true
 
 Third, even if you allow cookies to be sent to the server, browsers will only send cookies that have the `sameSite` attribute set to `none`. (These are also called third-party cookies).
 
-If you have no idea what I'm talking about regarding the third point, you're safe — you really have to be a malicious developer who wants to screw your server up if you send authentication cookies as third-party cookies.
+If you have no idea what I'm talking about regarding the third point, you're safe — you have to be a malicious developer who wants to screw your server up if you send authentication cookies as third-party cookies.
 
 This section is huge to take in. I created a few more articles to help you understand exactly what's going on — and why it's so frigging impossibly hard to expose yourself to a `PUT` CSRF Attack:
 
 - [Understanding sameSite cookies](/blog/samesite-cookies)
 - [Understanding Fetch credentials](/blog/handling-cookies-with-fetchs-credentials)
 
-In short — you only have to worry about `POST` CSRF Attacks unless you really screwed up your server.
+In short — you only have to worry about `POST` CSRF Attacks unless you screwed up your server.
 
 ## CSRF Prevention methods
 
