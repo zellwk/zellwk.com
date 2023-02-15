@@ -1,26 +1,66 @@
 ---
 layout: post
-title: Using node_modules in the frontend without bundlers
+title: Using npm packages in the frontend without any bundlers
 slug: node-modules-in-frontend-without-bundlers
 tags: ['npm', 'node', 'javascript', 'esm', 'workflow', 'express']
+updateDate: 2022-09-21
 ---
 
-It is possible to use packages installed in `node_modules` in your frontend without any bundlers today.
+It's possible to use npm packages on your frontend without any bundlers today.
 
-This is amazing because we don't need to create complicated workflows to reuse code — **we can simply download the library from npm and import it**. Our projects can become simpler and more straightforward.
+This is amazing because we don't need to create complicated workflows to reuse code — we can simply retrieve the library from npm.  This makes our projects simpler, more straightforward, and more welcoming for newcomers in our industry!
+
+In this article I'm going to show you two ways to include npm packages without any bundlers. They are:
+
+1. Import the library from a CDN
+2. Serve up your `node_modules` folder
 
 <!-- more -->
 
 ## Prerequisites
 
-Two things:
+You can only use these methods if the library you're using uses ES Modules (ESM).
 
-1. **Your server needs to be able to serve up the `node_modules` folder** (or at least a part of it that you want to expose)
-2. **The library you're using must be ES Modules (ESM) compatible**. It cannot be written in Common JS (CJS)
+The methods I'm mentioning here do not work with Common JS modules.
 
-Although many libraries are still written in CJS today, it shouldn't be a problem going forward with prolific authors like [Sindre Sorheus](https://twitter.com/sindresorhus) supporting a move to [ESM](https://github.com/sindresorhus/meta/discussions/15).
+## Method 1: Import the packgae from a CDN
 
-## Importing the library
+When authors push their library onto npm, CDNs like JSDelivr and unpkg updates their servers with teh latest version of these libraries immediately.
+
+We can import these libraries in our JavaScript file. When you do this, you want to specify the version number — so the CDN can deliver the right version every time.
+
+Here's an example where I import [zlFetch](https://github.com/zellwk/zl-fetch/).
+
+```js
+import zlFetch from 'https://cdn.jsdelivr.net/npm/zl-fetch@4.0.1/src/index.js'
+```
+
+Importing libraries directly from CDNs can be unwieldy especially if you need to import the same library in many files.
+
+A good workaround is to import all the libraries you need into a `lib.js` file. This will be your central place to manage dependencies.
+
+You can then export the libraries and import them from elsewhere.
+
+```js
+// lib.js
+export const zlFetch = (
+  await import('https://cdn.jsdelivr.net/npm/zl-fetch@4.0.1/src/index.js')
+).default
+```
+
+```js
+// fileOne.js
+import { zlFetch } from './lib.js'
+```
+
+```js
+// fileTwo.js
+import { zlFetch } from './lib.js'
+```
+
+### Method 2: Serve it up from your node_modules folder
+
+This can only be done if your server lets you serve up the `node_modules` folder.
 
 Let's assume you have this project structure.
 
@@ -34,105 +74,16 @@ Let's assume you have this project structure.
 
 If your server can serve the `node_modules` folder, importing the library is easy — you simply traverse into the `node_modules`folder and grab the correct javascript file.
 
-Here's how I import a library called [`zlFetch`](https://github.com/zellwk/zl-fetch).
-
 ```js
-import zlFetch from '../node_modules/zl-fetch/dist/index.mjs'
+import zlFetch from '../node_modules/zl-fetch/src/index.js'
 ```
 
-You can test this with [http-server](https://www.npmjs.com/package/http-server) since http-server serves up the `node_modules` folder.
+[http-server](https://www.npmjs.com/package/http-server) is an example of a server that lets you serve up the `node_modules` folder. You can this method working by running the serer.
 
 ```shell
 npx http-server
 ```
 
-## Serving node_modules with Express
+Sadly, you won't be able to use this method if you use Express because Express doesn't expose the `node_modules` folder.
 
-Now let's assume you have a common Express folder structure, like this:
-
-```shell
-- project
-  |- views
-    |- index.html
-  |- public
-    |- js
-      |- main.js
-  |- node_modules
-```
-
-Express doesn't serve up the `node_modules` folder so you have to make slight changes.
-
-```js
-// Doesn't work
-app.use(express.static('node_modules'))
-```
-
-The best way I found is to create a manual route for each library you want to import.
-
-```js
-// Allows browsers to access `node_modules/zl-fetch`
-app.use('/zl-fetch', express.static('node_modules/zl-fetch')
-```
-
-We can now import `zlFetch` like this.
-
-```js
-import zlFetch from `../zl-fetch/dist/index.mjs`
-```
-
-Notice we don't even need to include `node_modules` in the path anymore, which is a much better developer experience (because there are fewer things to write!).
-
-We can improve it further by configuring any necessary paths in Express. In this case, we can include the `dist` path so we don't even need to write it in the frontend.
-
-```js
-// Adds the `/dist` folder
-app.use('/zl-fetch', express.static('node_modules/zl-fetch/dist'))
-```
-
-```js
-import zlFetch from `../zl-fetch/index.mjs`
-```
-
-You notice the import path begins with `../`? We did this because the `main.js` file is in the `js` folder. We can convert `../` to `./` if we include the `js` folder in our Express route.
-
-```js
-// Includes the `/js` folder in the express route
-app.use('/js/zl-fetch', express.static('node_modules/zl-fetch/dist'))
-```
-
-```js
-import zlFetch from `./zl-fetch/index.mjs`
-```
-
-## Using this method with multiple libraries
-
-We can create an object of library–path mappings. Here's an example that would work.
-
-```js
-const libraries = {
-  '@zellwk/javascript': '@zellwk/javascript/lib',
-  'zl-fetch': 'zl-fetch/dist'
-}
-
-Object.entries(libraries).forEach(library => {
-  const [lib, libPath] = library
-  app.use(`/js/${lib}`, express.static(path.join('node_modules', libPath)))
-})
-```
-
-We can import multiple libraries without any problems once we do this. Here's an example:
-
-```js
-import * as localStore from './@zellwk/javascript/localstore.js'
-import zlFetch from './zl-fetch/index.mjs'
-```
-
-## Demo
-
-Here's [a demo](https://github.com/zellwk/demos/tree/main/node-modules-without-bundlers) for you to play with.
-
-## Improving it further?
-
-It's possible to read the `package.json` file to find the correct file to import, so we don't need to create manual mappings. I'm not sure how this would work yet since I haven't tested it out.
-
-If you work on this, let me know!
+That's it!

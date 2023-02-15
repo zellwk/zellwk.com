@@ -14,6 +14,8 @@ You would have heard of the CSS `color-scheme` property if you are interested in
 }
 ```
 
+<!-- more -->
+
 `color-scheme` tells the browser to render user-agent stylesheets according to the user's preferred color scheme (which is set in their operating system).
 
 There are three possible values (and it's super easy to understand):
