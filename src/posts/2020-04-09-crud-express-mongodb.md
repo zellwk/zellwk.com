@@ -592,7 +592,7 @@ Read [this article][20] if you want to learn about promises in JavaScript.
 
 ### Changing the Database
 
-We need to change the database from `test` to something else. You can name it anything you want. I chose name my new database `star-wars-quotes` because it helps me remember what I'm building.
+We need to change the database from `test` to something else. You can name it anything you want. I chose to name my new database `star-wars-quotes` because it helps me remember what I'm building.
 
 ```javascript
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
