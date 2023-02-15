@@ -24,7 +24,7 @@
     ]
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy": "^2.0.0",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@babel/core": "^7.20.12",
     "@babel/plugin-transform-runtime": "^7.19.6",
