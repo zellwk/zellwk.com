@@ -8,6 +8,8 @@
 // An easy way to get colors from the $colors map
 // =====
 
+@use "sass:math";
+
 @function color($color, $map: $colors) {
   @return map-get($map, $color);
 }
@@ -39,7 +41,7 @@
 
 // Strips unit
 @function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
+  @return math.div($num, $num * 0 + 1);
 }
 
 
