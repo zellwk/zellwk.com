@@ -72,7 +72,6 @@
     "rsync": "^0.6.1",
     "run-sequence": "^2.2.0",
     "sass": "^1.58.1",
-    "standard": "^16.0.4",
     "standard-loader": "^7.0.0",
     "standard-reporter": "^1.0.5",
     "through2": "^4.0.2",

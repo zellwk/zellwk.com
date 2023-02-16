@@ -5,7 +5,7 @@ title: What are variables and why use them in JavaScript
 newsletter: jsr
 tags:
   - javascript
-shareText: "Use const over let when declaring variables. No need to use var anymore"
+shareText: 'Use const over let when declaring variables. No need to use var anymore'
 ---
 
 The main purpose of coding is to solve problems. What happens when you click on a button? That's also a problem for us to solve.
@@ -68,9 +68,9 @@ There are four parts you'll want to take note of:
 3. It cannot begin with a number.
 4. It cannot be any of these [reserved keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords)
 
-If you need to use two or more words to name your variable, you should join the words together, but capitalize the first letter of each subsequent word. This weird capitalization is called *camel case*.
+If you need to use two or more words to name your variable, you should join the words together, but capitalize the first letter of each subsequent word. This weird capitalization is called _camel case_.
 
-A good example of a camel cased variable is `applesToBuy`.
+A good example of a camel-cased variable is `applesToBuy`.
 
 ### The value
 
@@ -156,7 +156,7 @@ Understanding whether you should use `const` or `let` is more of an advanced top
 
 When you're starting out, using `let` would be much simpler than using `const`.
 
-However, as you write more programs, you'll slowly realize that you want to refrain from reassigning your variables, and you'll begin to use `const` over `let`.  Why you'll want to do so is a different topic for another day.
+However, as you write more programs, you'll slowly realize that you want to refrain from reassigning your variables, and you'll begin to use `const` over `let`. Why you'll want to do so is a different topic for another day.
 
 Since you're going to use `const` over `let` anyway when you write more advanced programs, it's better to get into the habit of preferring `const` over `let` when you're starting out.
 
