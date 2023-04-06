@@ -117,7 +117,7 @@ You’ll find yourself complaining and sulking a lot. You’ll say things like:
 
 It’s their fault (whoever it may be) for making JavaScript so complicated. There are so many tools out there, so many practices to learn and so many browsers to support.
 
-It’s their fault for not writing good documentation, for not writing courses and tutorials in a way you understand, for not assuming you know things when you don’t.
+It’s their fault for not writing good documentation, for not writing courses and tutorials in a way you understand, for assuming you know things when you don’t.
 
 It’s their fault for requesting insane JavaScript requirements in every job ad you saw.
 
