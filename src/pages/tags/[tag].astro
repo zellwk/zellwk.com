@@ -1,0 +1,46 @@
+---
+import Base from '/src/layouts/Base.astro'
+import { getCollection } from 'astro:content'
+import { gatherTags } from '/src/utils/content.js'
+
+export const prerender = true
+
+export async function getStaticPaths({ paginate }) {
+  const posts = await getCollection('blog')
+  const tags = gatherTags(posts)
+
+  return tags.map(tag => {
+    return {
+      params: { tag: tag.name },
+      props: { posts: tag.items },
+    }
+  })
+}
+
+const { tag } = Astro.params
+const { posts } = Astro.props
+---
+
+<Base>
+  <div class='l-wrap'>
+    <article class='o-words generic-layout'>
+      <h1>Tagged with {tag}</h1>
+
+      <p>
+        Here are all articles tagged with {tag}. Enjoy!
+      </p>
+
+      <ol>
+        {
+          posts.map(post => {
+            return (
+              <li>
+                <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+              </li>
+            )
+          })
+        }
+      </ol>
+    </article>
+  </div>
+</Base>

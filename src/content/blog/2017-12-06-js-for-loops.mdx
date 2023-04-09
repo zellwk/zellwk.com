@@ -1,0 +1,246 @@
+---
+title: Understanding for loops
+slug: js-for-loops
+ckForm: jsr
+tags: [javascript, best]
+
+pubDate: 2017-12-06
+---
+
+Let's say you want to run a function, `bounceBall`, four times. How would you do it? Like this?
+
+```js
+function bounceBall() {
+  // bounce the ball here
+}
+
+bounceBall()
+bounceBall()
+bounceBall()
+bounceBall()
+```
+
+This approach is great if you need to `bounceBall` only for a few times. What happens if you need to `bounceBall` for a hundred times?
+
+The better way is through a `for` loop.
+
+{/* more */}
+
+## The 'for' loop
+
+The `for` loop runs a block of code as many times as you want to. Here's a for loop that runs `bounceBall` ten times:
+
+```js
+for (let i = 0; i < 10; i++) {
+  bounceBall()
+}
+```
+
+It's broken down into four parts – the `initialExpression`, the `condition`, the `incrementalExpression` and the `statement`:
+
+```js
+for (initialExpression; condition; incrementExpression) {
+  statement
+}
+```
+
+Before you loop, you need to have a **statement**. This statement is the block of code you'd like to run multiple times. You can write any number of lines of code here. You can even use functions.
+
+Here's what the `for` loop looks like with `bounceBall` as its statement:
+
+```js
+for (initialExpression; condition; incrementExpression) {
+  bounceBall()
+}
+```
+
+Next, you need an **initial expression** to begin a loop. This is where you declare a variable. For most loops, this variable is called `i`. It's also set to 0.
+
+Here's how it'll look like when you put the `initialExpression` into the `for` loop:
+
+```js
+for (let i = 0; condition; incrementExpression) {
+  bounceBall()
+}
+```
+
+After the statement runs, the variable, `i` is increased or decreased. You increase or decrease the value of `i` in the **increment expression**.
+
+To increase the value of `i` by one, you reassign `i` such that it becomes `i + 1` with `i = i + 1`. The shorthand for this reassignment is `i++`, which is what you'll find in most `for` loops.
+
+To decrease the value of `i` by one, you reassign `i` such that it becomes `i - 1` with `i = i - 1`. The shorthand for this reassignment is `i--`, which is another variation of what you'll find in most `for` loops.
+
+In the `bounceBall` example above, we increased the variable `i` by one each time the code runs:
+
+```js
+for (let i = 0; condition; i++) {
+  bounceBall()
+}
+```
+
+But should you increase or decrease `i`?
+
+The answer lies in the **condition**. This condition statement evaluates either to `true` or `false`. If the statement evaluates to `true`, the statement runs.
+
+When the statement has ran, JavaScript runs the increment expression and checks if the condition evaluates to `true` again. It repeats this process until the condition evaluates to `false`.
+
+Once the condition evaluates to `false`, JavaScript skips the loop and moves on with the rest of your code.
+
+So, if you do not want the loop to run, you can set a condition that evaluates to false immediately:
+
+```js
+// This loop will not run since the condition evaluates to false
+for (let i = 0; i < 0; i++) {
+  bounceBall()
+  const timesBounced = i + 1
+  console.log('The ball has bounced ' + timesBounced + ' times')
+}
+
+// You will only see this
+console.log('next line of code')
+```
+
+<Image src="/images/2017/for-loop/zero-times.png" alt="Next line of code runs immediately since the condition evaluates to false" caption="Next line of code runs immediately since the condition evaluates to false" />
+
+If you want the loop to _run twice_, you change the condition such that it evaluates to false when the increment expression has ran twice.
+
+```js
+// This loop will run twice
+for (let i = 0; i < 2; i++) {
+  bounceBall()
+  const timesBounced = i + 1
+  console.log('The ball has bounced ' + timesBounced + ' times')")
+}
+
+console.log('next line of code')
+```
+
+<Image src="/images/2017/for-loop/two-times.png" alt="The loop runs twice. After two times, the condition evaluates to false. " caption="The loop runs twice. After two times, the condition evaluates to false. " />
+
+If you want the loop to _run ten times_, you change the condition such that it evaluates to false when the increment expression has ran ten times.
+
+```js
+// This loop will run ten times
+for (let i = 0; i < 10; i++) {
+  bounceBall()
+  const timesBounced = i + 1
+  console.log('The ball has bounced ' + timesBounced + ' times')")
+}
+
+console.log('next line of code')
+```
+
+<Image src="/images/2017/for-loop/ten-times.png" alt="The loop runs twice. After ten times, the condition evaluates to false. " caption="The loop runs ten times. After ten times, the condition evaluates to false. " />
+
+## Infinite loops
+
+Infinite loops occur when the _condition_ for your `for` loops always return `true`. Your browser will hang if you run an infinite loop.
+
+To recover from an infinite loop, you need to quit your browser forcefully. On a Mac, this means you right click on your browser icon and select "force quit". On a Window's machine, you open the Windows Task manager with `ctrl` + `alt` + `del`, select your browser, and click "End task".
+
+## Looping through arrays
+
+In practice, you almost never write a loop that runs ten times like in the `bounceBall` example above. You'd always loop through an array or a object.
+
+When you loop (or iterate) through an array, you go through each item in the array once. To do so, you can use the length or the array as a condition:
+
+```js
+const fruitBasket = ['banana', 'pear', 'guava']
+
+// fruitBasket.length is 3
+for (let i = 0; i < fruitBasket.length; i++) {
+  console.log("There's a " + fruitBasket[i] + ' in the basket')
+}
+
+// => There's a banana in the basket
+// => There's a pear in the basket
+// => There's a guava in the basket
+```
+
+The alternate way to write this `for` loop is to use a negative increment expression. This version runs slightly faster than the `for` loop above, but loops the array from the end instead.
+
+```js
+for (let i = fruitBasket.length - 1; i >= 0; i--) {
+  console.log("There's a " + fruitBasket[i] + ' in the basket')
+}
+
+// => There's a guava in the basket
+// => There's a pear in the basket
+// => There's a banana in the basket
+```
+
+## Looping through arrays with "for of"
+
+Yet another (much better) way to loop through an array is to use of `for...of` loop. This is a new loop syntax that comes with ES6. It looks like this:
+
+```js
+const fruitBasket = ['banana', 'pear', 'guava']
+for (let fruit of fruitBasket) {
+  console.log(fruit)
+}
+
+// => There's a banana in the basket
+// => There's a pear in the basket
+// => There's a guava in the basket
+```
+
+The `for...of` loop is preferable to the standard `for` loop because it always loops through the array once. There's no need to write `array.length`, which makes your code much easier to read and maintain.
+
+You can use `for...of` with any iterable object. These are objects that contain the `Symbol.iterator` property. Arrays are one of such objects. If you `console.log` an empty array, you'll see that it has the `Symbol.iterator` as one of its keys (within the Array `__proto__` key):
+
+<Image src="/images/2017/for-loop/iterator.png" alt="Any object that contains the Symbol.iterator key can be iterated through with a for...of loop" caption="Any object that contains the Symbol.iterator key can be iterated through with a for...of loop" />
+
+## Logic in loops
+
+You can use `if/else` or any other logic within a for loop.
+
+For example, let's say you have a list of numbers, and you want to create a second list of numbers that are smaller that 20.
+
+To complete this objective, you first loop through the numbers.
+
+```js
+const numbers = [25, 22, 12, 56, 8, 18, 34]
+
+for (let num of numbers) {
+  // do something here
+}
+```
+
+Here, you want to check if each `num` is smaller than 20.
+
+```js
+const numbers = [25, 22, 12, 56, 8, 18, 34]
+
+for (let num of numbers) {
+  if (num < 20) {
+    // do something
+  }
+}
+```
+
+If `num` is smaller than 20, you want to add it to another array. To do so, you use the `push` method.
+
+```js
+const numbers = [25, 22, 12, 56, 8, 18, 34]
+let smallerThan20 = []
+
+for (let num of numbers) {
+  if (num < 20) {
+    smallerThan20.push(num)
+  }
+}
+
+// smallerThan20 === [12, 8 , 18]
+```
+
+## Wrapping up
+
+A `for` loop is used when you want to execute the same task (or a set of tasks) multiple times.
+
+You would rarely loop through code for exactly ten times. Normally, you'll want to loop through an array instead.
+
+To loop through an array exactly once, you can use the `for...of` loop, which is much easier to write and understand compared to the traditional `for` loop.
+
+Remember, you can write any amount of logic you want in loops. You can use functions, `if/else` statements or even use loops in loops.
+
+If you loved this article, you'll love learn **Learn JavaScript**—a course that helps you learn to **build real components from scratch** with Javascript. [Click here to find out more about Learn JavaScript](https://learnjavascript.today) if you're interested.

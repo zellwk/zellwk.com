@@ -1,0 +1,213 @@
+---
+
+title: Rendering MDX in a Svelte component when using Astro
+slug: render-mdx-svelte-in-astro
+tags: [svelte, astro, mdx, tooling]
+pubDate: 2023-01-04
+---
+
+I like to use both Svelte and MDX when I work with Astro... but I encounter a problem when using all three of them at once — I can import an MDX file directly into Astro, but can I import MDX into Svelte?
+
+Normally, you can't. But there's a way to use MDX with Svelte. And that's what I'm going to share with you today.
+
+{/* more */}
+
+There are two ways to render MDX in Svelte. They are:
+
+1. Render the Markdown in Astro (and pass it to Svelte through a `slot`)
+2. Render the Markdown in Svelte
+
+Let's talk about those two methods.
+
+Before we begin, I'm going to assume you have `mdx` and `svelte` plugins in your astro config. So your `astro.config.js` file should look like this at least:
+
+```js
+import svelte from '@astrojs/svelte'
+import mdx from '@astrojs/mdx'
+
+export default defineConfig({
+  integrations: [svelte(), mdx()],
+})
+```
+
+## Render Markdown in Astro and pass it to Svelte
+
+This method is super easy because Astro supports it by default.
+
+First, you need a Svelte component that has a `<slot>`.
+
+```svelte
+<!-- Super minimal Svelte component -->
+<div>
+  <slot/>
+</div>
+```
+
+You also need markdown content written in an `mdx` file.
+
+```mdx
+This is markdown content with some **Bold** text.
+```
+
+What you do is import both the Svelte component and MDX content into an `.astro` file.
+
+```astro
+---
+import SvelteComponent from './components/Component.svelte'
+import MarkdownContent from './markdown/content.mdx'
+---
+```
+
+Then, you render `<MarkdownContent>` within `<SvelteComponent>`.
+
+```svelte
+<SvelteComponent>
+  <MarkdownContent />
+</SvelteComponent>
+```
+
+That's it!
+
+### Why this works
+
+This works because Astro renders the markdown automatically when you use markdown content as an element, like we did with `<MarkdownContent>`.
+
+Now, this method is easy to use, but it's clunky because you have to create three files — one `.astro` file, one `.svelte` file, and one `.mdx` file... it can be a hassle, especially if you run into situations where you want to render the markdown directly in Svelte.
+
+What if you could skip the `.astro` file and render the markdown directly in Svelte?
+
+Turns out, it's possible! :)
+
+## Render the Markdown directly in Svelte
+
+I want to preface this method by thanking [Otterlord](https://twitter.com/theotterlord) because he (she?) helped me find the solution to this method. Without Otterlord, nobody would have this unique solution.
+
+With that said, let's talk about the method.
+
+First, we need to install a library called [MDSveX](https://mdsvex.com). This library lets us render Markdown directly in Svelte, bypassing the need to handle markdown in Astro.
+
+```shell
+npm install mdsvex -D
+```
+
+We can include MDSveX in astro's config file like this:
+
+```js
+import { mdsvex } from 'mdsvex'
+import mdx from '@astrojs/mdx'
+import svelte from '@astrojs/svelte'
+
+// https://astro.build/config
+export default defineConfig({
+  site: 'https://students.asyncjs.today',
+  integrations: [
+    svelte({
+      extensions: ['.svelte', '.svx'],
+      preprocess: mdsvex({
+        extensions: ['.svx'],
+      }),
+    }),
+    mdx(),
+  ],
+})
+```
+
+Note: Pay attention here because there's a bit of hackery going on in the config.
+
+- First, we're going to include a `.svx` extension (which Otterlord kinda created out of thin air). This is where the magic happens so we'll talk about the extension in a bit.
+- Second, we need to parse both `.svelte` and `.svx` files, so we have to pass them both into the svelte plugin.
+- Third, we're going to write our `mdx` content in `.svx` files. We need to pass `.svx` to `mdsvex` because we want it to process our `mdx` content.
+
+Next, you create a `.svx` file to store your markdown content.
+
+```
+This is markdown content with some **Bold** text.
+```
+
+Then we create a Svelte component. In this component, we will import the `.svx` file and we'll render it directly like a normal component.
+
+```svelte
+<script>
+  // Pay attention! We need to use the .svx extension!
+  import MarkdownContent from '../markdown/content.svx'
+</script>
+
+<MarkdownContent/>
+```
+
+That's it!
+
+### Why we need an SVX extension
+
+Ideally, we should pass `.mdx` to `mdsvex`. When we do this, we should be able to import `.mdx` files directly in Svelte.
+
+```svelte
+<script>
+  // Ideal, but doesn't work (yet)
+  import MarkdownContent from '../markdown/content.mdx'
+</script>
+
+<MarkdownContent/>
+```
+
+This doesn't work because Astro changes how `mdx` is processed when used in an Astro project — and these changes still happen in a Svelte component file.
+
+If you log `MarkdownContent`, you'll notice there are clear signs that Astro hijacked the `mdx` processing and `mdsvex` did nothing.
+
+<Image src="/images/posts/render-mdx-svelte-astro/astro-mdx-log.png" alt="" />
+
+You can also try rendering `<MarkdownContent/>` directly, but you'll get an error that says "`<Markdowncontent>` is not a valid SSR component" if you don't add a `client:only` directive.
+
+But it doesn't work even if you do add a `client:only` directive — nothing will be rendered.
+
+If you dug deeper into the props, you may notice there's a `compiledContent` function. Well, it doesn't work either because you'll get an error that says "MDX does not support compiledContent()".
+
+In our discussion, Otterlord found an [RFC](https://github.com/withastro/rfcs/discussions/419), which if implemented, should fix the issue we faced here. But until that happens, we're stuck.
+
+So we're left with no choice but to create a new extension (`.svx` in this case, but you can use anything you want). And in this new extension, we'll write `mdx` content.
+
+After we found the solution, Otterlord also mentioned that he'll check Astro's code to see if he can raise an issue on where the actual problem happens. So hopefully the `.mdx` extension will work soon! But until then, we're stuck with `.svx` (or any new extension name you prefer).
+
+### Syntax highlighting for SVX
+
+Our `.svx` is just `.mdx` but with a different extension. If you use VS Code, you can treat `.svx` exactly like `.mdx` if you add a `files.association` entry to your settings file.
+
+Easy peasy.
+
+```json
+"files.associations": {
+  "*.mdx": "markdown",
+  "*.svx": "markdown"
+},
+```
+
+### Using SVX with Astro
+
+This is crazy (but it works).
+
+You can treat `.svx` files _exactly_ like `mdx` files. That means you can use `.svx` directly with an `.astro` file — you just import and use the component directly.
+
+```
+---
+import Item from '../markdown/Item.svx'
+---
+
+<Item />
+```
+
+This works because `.svx` is rendered as a Svelte Component. And in Svelte, we preprocess `.svx` (which renders the markdown content).
+
+It's like inception!
+
+## Wrapping up
+
+There are two ways to import MDX content into a Svelte component:
+
+1. Render the Markdown in Astro (and pass it to Svelte through a `slot`)
+2. Render the Markdown in Svelte
+
+Both methods work.
+
+If you want to render Markdown directly in Svelte, we need to use a workaround that relies on a new extension like `.svx` for now.
+
+Maybe Astro will fix this one day, but until then, the solution suggested here works perfectly!

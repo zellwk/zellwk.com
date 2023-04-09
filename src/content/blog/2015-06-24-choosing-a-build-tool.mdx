@@ -1,0 +1,127 @@
+---
+title: Choosing a Build Tool
+slug: choosing-a-build-tool
+tags: [workflow]
+ckForm: ayw
+pubDate: 2015-06-24
+---
+
+Choosing to use one tool over another is one of the largest challenges developers face. Regardless of what you're choosing, be it a code editor, a framework, or even a build tool. It's never an easy decision.
+
+When it comes to build tools, the two most popular options right now are Grunt and Gulp. But are these the only two you should choose from? If not, what other choices do you have?
+
+Let's answer this question.
+
+{/* more */}
+
+## What are build tools and why should you use them?
+
+Build tools are tools that help you automate your development processes. They can potentially help to automate up to four of the [six different parts of a development process](/blog/workflow-overview/).
+
+The 4 parts that can be automated by a build tool are:
+
+1. Development
+2. Testing
+3. Optimization and
+4. Deployment
+
+There are two different kinds of build tools you can choose from. First, we have GUI tools like [Codekit](https://incident57.com/codekit/) and [Prepros](https://prepros.io), that provide a graphical interface for you to choose from various options.
+
+The second kind of build tools are CLI tools like [Grunt](http://gruntjs.com), [Gulp](http://gulpjs.com), [Brunch](http://brunch.io) and even [npm](http://npmjs.com). You can only use these tools by writing code or configurations, and you'll need to use the command line.
+
+So, should you choose GUI tools over CLI tools or vice versa? Let's take a look.
+
+## Why GUI Tools?
+
+GUI tools help you automate your workflow without any complex code configuration, and they're ideal if you're just getting your feet wet with web development.
+
+They help you do things like compiling Sass to CSS, and refreshing the browser when you save a file, which speeds up your development process tremendously.
+
+In addition, GUI tools can also help you test JavaScript code for errors with tools like [JShint](http://jshint.com) and also optimize all your assets for production.
+
+Aside from the common tasks mentioned above, different tools have different functions. For example, Codekit allows you to use [Bower](http://bower.io) while Prepros allows you to deploy through FTP.
+
+One major concern you may have with GUI tools is they may not be updated as quickly as you want them to be. If you find that you need the extra flexibility, you might want to check out CLI tools instead.
+
+## Why CLI tools?
+
+CLI tools are much more powerful and flexible when compared to GUI tools. They allow you to set up workflows that are far more advanced compared to what GUI tools can offer.
+
+You can also harness the power of many tools out there that aren't supported by GUI tools. You can use tools like [browserify](http://browserify.org), which allow you to require modules in the browser like how you would with Node.JS, and HTML templating tools like [Handlebars](http://handlebarsjs.com) and [Swig](https://github.com/paularmstrong/swig) (Note: Swig is no longer maintained).
+
+If you want control over your build processes and don't want to get stuck with any software, then CLI tools are definitely going to be for you.
+
+The only drawback to CLI tools is that they're far more complex to configure. You may have to spend a few hours understanding how a workflow fits together and how you can code it up.
+
+The two major competitors for CLI tools are Grunt and Gulp. You can find many different articles comparing the two of them like [this](http://sixrevisions.com/web-development/grunt-vs-gulp/), [this](http://ponyfoo.com/articles/choose-grunt-gulp-or-npm) and [this](http://markdalgleish.github.io/presentation-build-wars-gulp-vs-grunt/).
+
+You'll also find articles on using [Brunch](http://blog.jetbrains.com/webstorm/2014/06/the-brunch-build-tool/) or [npm](https://www.google.com.sg/search?client=safari&rls=en&q=brunch+vs+gulp&ie=UTF-8&oe=UTF-8&gfe_rd=cr&ei=MzqKVc2wBsbLugSuiIHQAQ) as your build tool instead of Grunt or Gulp.
+
+How should you choose since there's so much conflicting advice out there?
+
+Most articles you'll find online compare the benefits of one tool against another. I thought I'd come from a slightly different angle and share with you how I ended up choosing Gulp as my build tool.
+
+## How I came to choose Gulp
+
+If you're wondering, I didn't start automating with Gulp. I started automating my workflows with Codekit. After a couple of months, I switched over to Grunt and eventually to Gulp.
+
+When I started to automate my workflows, I had just started to learn Sass and Compass. I was petrified by the command line. It went so far that I even avoided using the `compass watch` command if I could help it.
+
+Since I was using a Mac, I bought Codekit and I was happy with it.
+
+A couple of months later, I started playing with Angular JS and I was fascinated by how the [yeoman angular generator](https://github.com/yeoman/generator-angular) could spin up a server with just a single Grunt command.
+
+I loved how simple the command was that I wanted to use Grunt straight away. However, I'm a huge control freak and I couldn't use a tool if I didn't understand how it was built and how to configure it to my liking.
+
+That was when I started playing with Grunt. It took me a couple of weeks to create a semi-decent workflow which could rival what Codekit had to offer. But once I got that working, I stopped using Codekit immediately.
+
+I've never looked back since, and **I swore to myself I would stick with Grunt forever**.
+
+I didn't keep my word six months later :(
+
+I [created an article for a simple Grunt workflow that uses Libsass](/blog/grunt-sass-with-susy/) to compile Sass to CSS, and I show people how to use Susy with the process.
+
+People started requesting for LibSass with Susy using Gulp instead. That's when I forced myself to learn Gulp to [create the same tutorial](/blog/gulp-libsass-with-susy/), this time with Gulp.
+
+I was so surprised that the workflow with Gulp ended up being much easier than the one with Grunt that I decided to switch up my entire workflow to use Gulp.
+
+And that's the story of how I got into Gulp.
+
+Well, so what's my point of sharing this story?
+
+## Just choose whatever that you feel you should use right now.
+
+There's no need to hesitate between the different tools. If you want to automate, and you know what you want to achieve, then you'll know what tool you'll want to use.
+
+Just pick it up and go.
+
+If there comes a time where you'll have to learn another tool, you'll know it when the time comes.
+
+## What if a better tool popped up?
+
+Better tools will always pop up. That's the nature of the web industry.
+
+I first heard about Gulp right after I did the hard work of learning to use Grunt, and it was supposedly a better tool compared to Grunt.
+
+And I decided to stick with Grunt after asking myself two questions:
+
+- How do you want to improve your current build process?
+- Can the new tool help you achieve that?
+
+I couldn't think of ways to improve my build process at the time, hence learning Gulp to craft the same build process was a waste of time and effort that could be better spent elsewhere.
+
+Circumstances changed a few months later after I was forced to learn Gulp. I wanted to improve my processes again, and Gulp came in at the perfect time.
+
+So yes, I was late to the Gulp party because Grunt was satisfactory for me. For now, I'd still stick with Gulp even with all the new methods and tools I discovered since.
+
+Who knows how long I'll stick with Gulp. Maybe someday I'll even [ditch Gulp in preference for using NPM as a build tool](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/).
+
+I'll update you when that happens.
+
+## Wrapping Up
+
+So what I'm trying to say here is this: Pick a tool. Any tool. Go with it if it feels right for you right now.
+
+You might change your tool, or you might not, and you'll know you want to change when the time comes.
+
+If you're thinking about choosing Gulp, but aren't sure where to start, I invite you to sign up for my automation newsletter below as I share more about how I configure Gulp and use several other frontend tools.

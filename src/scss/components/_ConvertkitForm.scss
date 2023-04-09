@@ -1,0 +1,81 @@
+.ConvertkitForm.ConvertkitForm.ConvertkitForm.ConvertkitForm {
+  h2 {
+    margin-top: 0;
+  }
+
+  [data-style='clean'] {
+    padding: 0;
+  }
+
+  .formkit-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: vr(0.75);
+  }
+
+  .formkit-field,
+  .formkit-submit {
+    margin-bottom: 0;
+  }
+
+  .formkit-input {
+    color: inherit !important;
+    border-color: #ccc !important;
+    border-radius: 0 !important;
+    font-weight: inherit !important;
+    background: inherit !important;
+    box-shadow: 0 0 0 0px color(neonblue);
+
+    transition: 0.15s ease-in-out;
+    transition-property: border-color, box-shadow;
+
+    padding: 0.75em;
+    @include tp-sans2;
+
+    // Can improve this a lot by allowing box shadow to fade in, and border color to change through a transition
+    &:focus {
+      border-color: color(neonblue) !important;
+      box-shadow: 0 0 0 1px color(neonblue);
+    }
+
+    &::placeholder {
+      color: inherit !important;
+    }
+  }
+
+  .formkit-submit {
+    justify-self: start;
+    @include tp-condensed;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    border: 2px solid color(malachite);
+    background-color: color(malachite) !important;
+    color: color(w) !important;
+    border-radius: 0 !important;
+    padding: 0.75em 1.5em 0.85em;
+    box-sizing: border-box;
+    transition: 0.15s ease-in-out;
+    transition-property: background-color, border-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: color(geebung) !important;
+      border-color: color(geebung);
+      color: color(w) !important;
+    }
+
+    &:focus {
+      border-color: color(neonblue);
+    }
+  }
+
+  .formkit-submit > span {
+    background-color: transparent !important;
+    padding: 0;
+  }
+
+  .formkit-powered-by-convertkit-container {
+    display: none;
+  }
+}

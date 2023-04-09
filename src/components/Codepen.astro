@@ -1,0 +1,32 @@
+---
+const {
+  height = 300,
+  defaultTab = 'result',
+  user = 'zellwk',
+  author = 'Zell Liew',
+  themeID = 7929,
+  hash,
+  title,
+} = Astro.props
+---
+
+<p
+  class='codepen'
+  data-height={height}
+  data-theme-id={themeID}
+  data-default-tab={defaultTab}
+  data-user={user}
+  data-slug-hash={hash}
+  style=`height: ${height}px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;`
+  data-pen-title={title}
+>
+  <span
+    >See the Pen <a href=`https://codepen.io/${user}/pen/${hash}`>
+      {title}
+    </a>by {author} (<a href={`https://codepen.io/${user}`}>@{user}</a>) on<a
+      href='https://codepen.io'>CodePen</a
+    >.
+  </span>
+
+  <script async src='https://static.codepen.io/assets/embed/ei.js'></script>
+</p>

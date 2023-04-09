@@ -1,35 +1,14 @@
-require('dotenv').config({ path: 'secrets/variables.env' })
-const { series, parallel } = require('gulp')
-const clean = require('./gulp/clean')
-const eleventy = require('./gulp/eleventy')
-const sass = require('./gulp/sass')
-const { jsDevelopment, jsProduction } = require('./gulp/rollup')
-const imagemin = require('./gulp/imagemin')
-const pdfs = require('./gulp/pdfs')
-const watch = require('./gulp/watch')
-const { browserSync } = require('./gulp/browser-sync')
-const rev = require('./gulp/rev')
+import gulp from 'gulp'
+import zipSourceCode, { zipSourceCodeWatcher } from './gulp/zip-source-code.js'
+import optimizeAssets, { assetWatcher } from './gulp/optimize-assets.js'
 
-exports.clean = clean
-exports.eleventy = eleventy
-exports.sass = sass
-exports.jsdev = jsDevelopment
-exports.jsprod = jsProduction
-exports.imagemin = imagemin
-exports.pdfs = pdfs
-exports.serve = browserSync
-exports.rev = rev
+const { series, parallel } = gulp
 
-exports.default = series(
-  clean,
-  parallel(sass, eleventy, imagemin),
-  parallel(jsDevelopment, browserSync, watch)
-)
+export function watch () {
+  zipSourceCodeWatcher()
+  assetWatcher()
+}
 
-exports.build = series(
-  clean,
-  parallel(sass, imagemin, jsProduction, pdfs),
-  rev,
-  eleventy,
-  pdfs
-)
+export const zip = zipSourceCode
+export const dev = series(parallel(optimizeAssets, zipSourceCode), watch)
+export const build = parallel(optimizeAssets, zipSourceCode)

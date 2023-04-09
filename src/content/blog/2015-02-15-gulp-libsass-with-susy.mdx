@@ -1,0 +1,238 @@
+---
+title: Configuring Gulp to use LibSass with Susy
+slug: gulp-libsass-with-susy
+tags: [css, gulp, workflow]
+ckForm: ayw
+pubDate: 2015-02-15
+---
+
+I wrote about configuring Grunt to use LibSass with Susy in the last article and feedback has been amazing. There were multiple requests for me to write another article to use LibSass with Gulp instead, so here it is :)
+
+In case you never heard of Gulp, it is another Javascript task runner that helps you automate your development workflow. It was created slightly later than Grunt and aims to resolve issues that Grunt has.
+
+{/* more */}
+
+## Prerequisites
+
+This article assumes that you have Node JS, Bower and Gulp JS installed. You can find the instructions to install these tools from the following links if you don't have them installed already.
+
+- Node JS - [http://nodejs.org](http://nodejs.org)
+- Bower - [http://bower.io](http://bower.io)
+- Gulp Js - [http://gulpjs.com](http://gulpjs.com)
+
+Once you have the tools installed, open up a new folder and let's begin to setup your project.
+
+## Setting Up The Project
+
+Since we are using Gulp and Bower in this project, we can set the project up to easily add or manage both node and bower dependencies for the project.
+
+To do so, we require the `package.json` and `bower.json` files.
+
+We can use the `npm init` command to create the `package.json` file and the `bower init` command to create the `bower.json` file.
+
+```bash
+$ npm init
+```
+
+<Image src='/images/2015/02/npminit1.png' alt='NPM Init' />
+
+```bash
+$ bower init
+```
+
+<Image src='/images/2015/02/bowerinit1.png' alt='Bower Init' />
+
+These two files combined will allow you to easily add or manage dependencies in your project. Your folder structure should now be:
+
+<Image src='/images/2015/02/gulp-folder-1.png' alt='Folder Structure' />
+
+We can proceed on to install the gulp packages we need to run LibSass with Susy.
+
+## Installing Gulp Packages
+
+We have to install the `gulp` package to run Gulp in a project. Let's begin by installing that.
+
+```bash
+$ npm install gulp --save-dev
+```
+
+Next, we need to install the `gulp-sass` package in order to use LibSass to compile Sass into CSS.
+
+```bash
+$ npm install gulp-sass --save-dev
+```
+
+Since we're compiling Sass into CSS, we should also include a source map for debugging purposes. You have to install the `gulp-sourcemaps` package in order to use sourcemaps with Gulp.
+
+```bash
+$ npm install gulp-sourcemaps --save-dev
+```
+
+Your project structure should now be:
+
+<Image src='/images/2015/02/gulp-folder-2.png' alt='Folder Structure' />
+
+We now have the necessary packages to compile Sass into CSS with LibSass. Let's move on to installing our front-end dependencies with Bower.
+
+## Installing Bower Packages
+
+The only bower package we need to install in this article is Susy.
+
+```bash
+bower install susy --save
+```
+
+Your folder structure should now be:
+
+<Image src='/images/2015/02/gulp-folder-3.png' alt='Folder Structure 3' />
+
+Remember to add your HTML, SCSS and CSS folders into the project.
+
+<Image src='/images/2015/02/gulp-folder-4.png' alt='Folder Structure 4' />
+
+We have to import Susy into the stylesheets to use it. This is how you import Susy if you have the same folder structure as the picture above.
+
+```scss
+@import '../bower_components/susy/sass/susy';
+```
+
+Optionally, you may also want breakpoint-sass if you want to use the breakpoint mixin. Susy doesn’t depend on breakpoint-sass anymore since version 2.2.2 so you can safely omit it if you don't use it. I still use the breakpoint mixin heavily in my workflow though.
+
+```bash
+# Note! This is optional!
+bower install breakpoint-sass --save
+```
+
+If you do install breakpoint-sass, you’ll have to import it in your stylesheets as well.
+
+```scss
+@import '../bower_components/breakpoint-sass/stylesheets/breakpoint';
+```
+
+Now we have all the necessary libraries for this setup to work properly. Let's proceed with writing the Gulpfile – the heart of the process.
+
+## Writing the Gulpfile
+
+We begin writing the Gulpfile by creating the a `gulpfile.js` and add that into your the project.
+
+<Image src='/images/2015/02/gulp-folder-5.png' alt='Folder Structure 5' />
+
+You start off by requiring all the packages that are installed.
+
+```js
+var gulp = require('gulp')
+var sass = require('gulp-sass')
+var sourcemaps = require('gulp-sourcemaps')
+```
+
+Next, we have to create a task for Gulp to run. The basic syntax for a task is:
+
+```js
+gulp.task('taskName', function () {
+  // ...
+})
+```
+
+Let's create the `sass` task so we can compile Sass into CSS.
+
+```js
+gulp.task('sass', function () {
+  // gulp.src locates the source files for the process.
+  // This globbing function tells gulp to use all files
+  // ending with .scss or .sass within the scss folder.
+  gulp
+    .src('./scss/**/*.{scss,sass}')
+    // Converts Sass into CSS with Gulp Sass
+    .pipe(sass())
+    // Outputs CSS files in the css folder
+    .pipe(gulp.dest('./css'))
+})
+```
+
+This is the basic `sass` task. We can enhance it by adding sourcemaps like we mentioned above. We need to add two lines of code to the `sass` task.
+
+```js
+// Gulp Sass Task
+gulp.task('sass', function () {
+  gulp
+    .src('./scss/**/*.{scss,sass}')
+    // Initializes sourcemaps
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    // Writes sourcemaps into the CSS file
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./css'))
+})
+```
+
+The one tiny irritating thing about Gulp is that it stops the terminal from running whenever you have any errors in your code, and that really disrupts the workflow.
+
+We can resolve that by adding a `errLogToConsole: true` option to the `sass` task.
+
+```js
+// Gulp Sass Task
+gulp.task('sass', function () {
+  gulp
+    .src('./scss/**/*.{scss,sass}')
+    // Initializes sourcemaps
+    .pipe(sourcemaps.init())
+    .pipe(
+      sass({
+        errLogToConsole: true,
+      })
+    )
+    // Writes sourcemaps into the CSS file
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./css'))
+})
+```
+
+We also want to watch the `scss` folder for any changes and run the `sass` task again as necessary. We have to create the `watch` task in Gulp to do so.
+
+```js
+// Watch scss folder for changes
+gulp.task('watch', function () {
+  // Watches the scss folder for all .scss and .sass files
+  // If any file changes, run the sass task
+  gulp.watch('./scss/**/*.{scss,sass}', ['sass'])
+})
+```
+
+Finally, we need to define a task to run both `sass` and `watch` so the Sass is compiled to CSS when the task is run and Gulp will continue watching the scss folders for any further changes.
+
+```js
+// Creating a default task
+gulp.task('default', ['sass', 'watch'])
+```
+
+## Running Gulp
+
+We created a default task in the above step that can be run with the command `gulp default`.
+
+```bash
+$ gulp default
+```
+
+Gulp makes it slightly more simple if you're using the default task. You can omit the word `default` and it will still run the default task:
+
+```bash
+$ gulp
+```
+
+Once the command is given, Gulp should run Sass and begin to watch for changes.
+
+<Image src='/images/2015/02/run-gulp-1.png' alt='Run Gulp' />
+
+Once you save any Sass or Scss files within the scss directory, Gulp will compile the new updates and keep watching the directory.
+
+<Image src='/images/2015/02/run-gulp-2.png' alt='Run Gulp' />
+
+Enjoy your new LibSass compiler :)
+
+Here’s a github repo for the LibSass compiler we just built: [https://github.com/zellwk/gulp-susy-starter](https://github.com/zellwk/gulp-susy-starter).
+
+## Conclusion
+
+We built a basic Gulp setup that allows you to use LibSass with Susy in this short article. Once you get this running, feel free to add more packages to make this starter more robust. Things that come to mind straight away are livereload, autoprefixer and even CSS and JS minification!
+
+Whatever you do, have fun with the process and feel free to let me know if you have any questions via the comments!

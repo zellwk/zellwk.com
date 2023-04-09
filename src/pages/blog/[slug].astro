@@ -1,0 +1,64 @@
+---
+import Base from '/src/layouts/Base.astro'
+import Markdown from '/src/components/Markdown.astro'
+import FormattedDate from '/src/components/FormattedDate.astro'
+import PostNav from '/src/components/PostNav.astro'
+
+import { normalize } from '../../utils/content.js'
+import { CollectionEntry, getCollection } from 'astro:content'
+import ConvertkitForm from '../../components/ConvertkitForm.svelte'
+type Props = CollectionEntry<'blog'>
+
+// TODO: Perhaps put these components into a single file?
+import Image from '/src/components/Image.svelte'
+import Video from '/src/components/Video.svelte'
+import Youtube from '/src/components/Youtube.svelte'
+import Codepen from '/src/components/Codepen.astro'
+import Button from '/src/components/Button.svelte'
+import Callout from '/src/components/Callout.svelte'
+
+const components = { Image, Video, Youtube, Codepen, Button, Callout }
+
+export const prerender = true
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+  const normalized = normalize(posts)
+
+  return normalized.map((post, index) => ({
+    params: { slug: post.slug },
+    props: {
+      posts: {
+        current: post,
+        prev: posts[index - 1],
+        next: posts[index + 1],
+      },
+    },
+  }))
+}
+const { posts } = Astro.props
+const { current: post } = posts
+const { Content } = await post.render()
+---
+
+<Base {...post.data}>
+  <div class='l-wrap'>
+    <article class='o-content post-layout'>
+      <h1><Markdown content={post.data.title} /></h1>
+      <span class='post-layout__date'
+        ><FormattedDate date={post.data.date} />
+      </span>
+
+      <!-- TODO: MEDIA / YOUTUBE / VIMEO / WHATEVER HERE -->
+
+      <Content {components} />
+      <PostNav {posts} />
+    </article>
+  </div>
+
+  <div class='post-layout'>
+    <section class='o-content c-ck ck-layout'>
+      <ConvertkitForm name={post.data.ckForm} />
+    </section>
+  </div>
+</Base>

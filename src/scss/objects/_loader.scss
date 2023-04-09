@@ -1,20 +1,40 @@
 $item-width: 0.8rem;
 
-.c-loader__spinner-container {
+.Loader {
   position: relative;
-  height: $item-width * 5;
-
+  display: grid;
+  place-items: center;
   > * {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
+    grid-row: 1;
+    grid-column: 1/-1;
   }
 }
 
-.c-loader__success-icon {
+.Loader .loadingTitle {
+  font-size: ms(3);
+  text-align: center;
+  margin-bottom: vr(0.75);
+}
+
+.Loader .spinnerContainer {
+  position: relative;
+  height: $item-width * 5;
+  width: $item-width * 5;
+  margin: auto;
+}
+
+.Loader > .successMessage,
+.Loader > .errorMessage {
+  @include tp-condensed;
+  color: color(monsoon);
+  text-align: center;
+
+  > * {
+    opacity: 0;
+  }
+}
+
+.Loader .emoji {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,24 +42,6 @@ $item-width: 0.8rem;
   font-size: ms(6);
   line-height: 1;
   text-align: center;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.c-loader__messages {
-  @include tp-condensed;
-  color: color(monsoon);
-  text-align: center;
-
-  > * {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-.c-loader__messages,
-.c-loader__success-icon {
-  margin-top: vr(-1.75);
 }
 
 // spinner
@@ -50,8 +52,12 @@ $item-width: 0.8rem;
   width: $item-width * 5;
   height: $item-width * 5;
 
-  > :nth-child(2) { align-self: center; }
-  > :nth-child(3) { align-self: flex-end; }
+  > :nth-child(2) {
+    align-self: center;
+  }
+  > :nth-child(3) {
+    align-self: flex-end;
+  }
 }
 
 [class*='o-spinner__item'] {

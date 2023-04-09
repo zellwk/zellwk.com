@@ -1,0 +1,26 @@
+---
+// Super component to convert a markdown string into HTML
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
+
+// Content can either be from props or slot
+const { content } = Astro.props
+const slotContent = await Astro.slots.render('default')
+
+const file = await unified()
+  .use(remarkParse)
+  .use(remarkRehype)
+  .use(rehypeStringify)
+  .process(content || slotContent)
+
+let html = file.toString()
+
+// If content comes from props, we inline the content
+if (content) {
+  html = html.replace('<p>', '').replace('</p>', '')
+}
+---
+
+<Fragment set:html={html} />

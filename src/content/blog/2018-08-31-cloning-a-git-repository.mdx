@@ -1,0 +1,106 @@
+---
+title: Cloning a Git repository
+slug: cloning-a-git-repository
+ckForm: better-fed
+youtubeHash: GYZBxXmrfWU
+tags: [video, git]
+description: A git clone makes it easier to copy the project. It does three things. 1) Initializing a local repository 2) Add the remote URL to your local repository 3) Pull the repository onto your computer.
+pubDate: 2018-08-31
+---
+
+Note: This the fifth video in the Git for beginners series. [Watch the first video here][1].
+
+Let's say you want to work on a project together with a friend. The two of you will be creating commits on the same project.
+
+Let's also say your friend has created the project. They initialized a repository on Github.
+
+What you need to do next is to copy the project from the remote to your computer.
+
+In Git, you can do this through a Git Clone.
+
+{/* more */}
+
+## What is Git Clone
+
+A git clone makes it easier to copy the project. It does three things:
+
+1. Initializing a local repository
+2. Add the remote URL to your local repository
+3. Pull the repository onto your computer.
+
+Note: you can do these three steps manually if you want to.
+
+## Cloning a project
+
+First, you need to go to the project you want to clone.
+
+Let's say we want to clone [Typi](). Typi is a library I made to make Typography easy for you when you're creating websites.
+
+To clone the project, you click on the big green button that says clone or download.
+
+<Image src='/images/2018/git-clone/clone.png' alt='The clone button' />
+
+When you click on clone or download, you'll see a URL.
+
+Copy this URL.
+
+Once again, make sure you clone with SSH. When you use SSH, you don't have to enter your username and password every time you push to a remote or pull from a remote.
+
+<Image src='/images/2018/git-clone/git-url.png' alt='The git URL' />
+
+Then, open up Fork.
+
+You can clone the repository by going into `File`. Select `clone`.
+
+<Image
+  src='/images/2018/git-clone/fork-clone.png'
+  caption='The clone menu in Fork'
+/>
+
+Fork will automatically fill up the URL you copied into the repository URL field.
+
+The parent directory is the folder you want the repository you live in. This is Git in our case. If you want to change the directory, you can change it.
+
+Name will be the name of the project. This name defaults to the name of the project that is stated on the remote repository. You can change it if you want too, but we don't change it usually.
+
+When you click Clone, Fork will get to work to download the project.
+
+<Image src='/images/2018/git-clone/cloned.png' caption='Project cloned' />
+
+## Switching between projects
+
+When you cloned the project, you will be able to see the project in your Git client of choice.
+
+In our case, you can click on the search icon that is on the top-left corner and you'll see "Typi" and "Project".
+
+<Image
+  src='/images/2018/git-clone/switch.png'
+  caption='Switching between projects'
+/>
+
+## Collaborator rights
+
+You can commit to the local repository you cloned, but you will not be able to push your changes onto the remote repository.
+
+This is because you don't have access to write onto the repository yet. It prevents unauthorized people from changing code that belongs to someone else.
+
+If you want to push to the repository, you need collaborator rights. Your friend can give you access to the repository by adding you as a collaborator.
+
+They can add you as a collaborator by going to the Github project. Then, click on settings, followed by collaborator. Next, they'll need to enter your username into the text field and click on add collaborator
+
+<Image
+  src='/images/2018/git-clone/collaborator.png'
+  alt='Adding a collaborator'
+/>
+
+## Wrapping up
+
+Git clone does three things at once:
+
+1. Initializing a local repository
+2. Add the remote URL to your local repository
+3. Pull the repository onto your computer.
+
+If you want to push to a remote repository, you need collaborator rights. Get your friend to give you access to the repo.
+
+[1]: /blog/setting-up-git

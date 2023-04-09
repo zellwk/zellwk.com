@@ -1,0 +1,209 @@
+---
+
+title: How to use Reduce in JavaScript
+description: An in-depth article explaining how the reduce function works.
+slug: reduce
+tags: [javascript]
+pubDate: 2021-02-24
+---
+
+
+`reduce` is an array method that helps you convert an array into a single value. It looks like this:
+
+```js
+const callback = (accumulator, currentValue, index) => {
+  // return something here
+}
+const result = array.reduce(callback, initialValue)
+```
+
+- **initialValue** is the value you want to start with.
+- **accumulator** is the value returned from the previous iteration. It will be `initialValue` for the first iteration.
+- **currentValue** is array item in the current iteration.
+
+Let's go through some examples.
+
+{/* more */}
+
+## Summing numbers
+
+Let's say you have a list of numbers. You want to find the total sum of these numbers.
+
+```js
+const numbers = [1, 2, 3, 4, 5]
+```
+
+Here's the code to sum the numbers.
+
+```js
+const total = numbers.reduce((acc, num) => acc + num, 0)
+console.log(total) // 15
+```
+
+Let's go through what happens, step by step.
+
+First, you pass an `initialValue` to `reduce`. This `initialValue` should be 0 because:
+
+1. We want `accumulator` to be a number.
+2. We don't want the `initialValue` to affect the sum.
+
+<Image src="/images/2021/reduce/sum-flow1.png" caption="Initial value set to 0" />
+
+`accumulator` will be `initialValue` in the first iteration. `currentValue` will be the first array item.
+
+<Image src="/images/2021/reduce/sum-flow2.png" caption="accumulator assigns as 0" />
+
+<Image src="/images/2021/reduce/sum-flow3.png" caption="currentValue is the first item in the array" />
+
+You need to return a value in the callback. This value will be used as the next `accumulator`. Since we want to sum numbers, we return the sum of `accumulator` and `currentValue`.
+
+<Image src="/images/2021/reduce/sum-flow4.png" caption="The next return value is calculated" />
+
+`accumulator` takes on the returned value in the second iteration. `currentValue` will be the second array item.
+
+<Image src="/images/2021/reduce/sum-flow5.png" caption="The previous return value is used as the next accumulator" />
+
+<Image src="/images/2021/reduce/sum-flow6.png" caption="currentValue becomes the second item in the array" />
+
+We return the sum of the two values we have, `accumulator` and `currentValue`. This process goes on until `reduce` loops through the entire array. The final value will be returned to the function call.
+
+<Image src="/images/2021/reduce/sum-flow7.png" caption="The return value is calculated and the process repeats" />
+
+## Reducing an array into an object
+
+We'll create the `reduce` method together for this example.
+
+Let's say we have an array of fruits. We want to know the number of each type of fruit.
+
+```js
+const fruits = ['apple', 'apple', 'banana', 'banana', 'orange', 'pear', 'apple']
+
+// What you want
+// {
+//   apple: 3,
+//   banana: 2,
+//   orange: 1,
+//   pear: 1
+// }
+```
+
+First, we should pass an empty object as the `initialValue` because we want to create an object.
+
+```js
+const tally = fruits.reduce((accumulator, fruit) => {
+  // Do something
+}, {})
+```
+
+In the first iteration, `accumulator` will be `{}`. `fruit` will be `apple`.
+
+In this first iteration, we know the accumulator doesn't have the fruit yet. (`{}` doesn't contain `apple`). Here, we want to add `apple` to `accumulator`. While adding `apple` to `accumulator`, we set the number of apples to 1.
+
+```js
+const tally = fruits.reduce((accumulator, fruit) => {
+  return accumulator[fruit] = 1
+}, {})
+```
+
+In the second iteration, `accumulator` takes on the previously returned value. `fruit` is another apple:
+
+- `accumulator`: `{ apple: 1 }`
+- `fruit`: `apple`
+
+Here, we want to increase the number of apples in the `accumulator`. To do so, we need to check if the `apple` property exists in `accumulator`. If it does, we increase its value by 1.
+
+```js
+const tally = fruits.reduce((accumulator, fruit) => {
+  if (accumulator[fruit]) {
+    accumulator[fruit] = accumulator[fruit] + 1
+  } else {
+    accumulator[fruit] = 1
+  }
+
+  return accumulator
+}, {})
+```
+
+That's it! The process repeats for other fruits. If you log `tally`, you'll see the object we wanted.
+
+```js
+{
+  apple: 3,
+  banana: 2,
+  orange: 1,
+  pear: 1
+}
+```
+
+Let's clean up the reduce function next. We can do so with ternary operators.
+
+```js
+const tally = fruits.reduce((accumulator, fruit) => {
+  const fruitCount = accumulator[fruit]
+  fruitCount
+    ? accumulator[fruit] = fruitCount + 1
+    : accumulator[fruit] = 1
+  return accumulator
+}, {})
+```
+
+## Flattening an array
+
+Let's say we have an array that contains arrays. We want to convert this array of arrays into a single array that contains all values. This process is called flattening.
+
+```js
+const array = [
+  [1, 2, 3, 4, 5],
+  [6, 7, 8, 9, 10]
+]
+
+// What we want:
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+To flatten the array, we need to start the `reduce` with an array. This is because we want the output to be an array.
+
+```js
+const flattened = array.reduce((accumulator, item) => {
+  // Do something
+}, [])
+```
+
+In the first iteration, `accumulator` will be an empty array. `item` will be an array that contains five items.
+
+- `accumulator`: `[]`
+- `item`: `[1, 2, 3, 4, 5]`
+
+We want to merge `item` into `accumulator`. We can use `concat` to do so.
+
+```js
+const a1 = []
+const a2 = [1, 2, 3, 4, 5]
+const merged = a1.concat(a2)
+console.log(merged) // [1, 2, 3, 4, 5]
+```
+
+This method works even if accumulator contains values.
+
+```js
+const a1 = [1, 2, 3]
+const a2 = [4, 5]
+const merged = a1.concat(a2)
+console.log(merged) // [1, 2, 3, 4, 5]
+```
+
+The `reduce` code looks like this:
+
+```js
+const flattened = array.reduce((accumulator, item) => {
+  return accumulator.concat(item)
+}, [])
+```
+
+If you want to make it shorter, you can use the array spread operator.
+
+```js
+const flattened = array.reduce(
+  (accumulator, item) => [...accumulator, ...item], []
+)
+```

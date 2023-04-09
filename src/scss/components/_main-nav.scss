@@ -14,5 +14,7 @@
 }
 
 .c-main-nav__toggle {
-  @include bp(med) { display: none; }
+  @include bp(med) {
+    display: none;
+  }
 }

@@ -1,0 +1,264 @@
+---
+title: Testing JavaScript Performance
+description: The difference between `Date.now` and `performance.now`. Plus an interesting finding on Chrome!
+slug: performance-now
+tags: [javascript]
+ckForm: jsr
+pubDate: 2020-10-21
+---
+
+I was curious about testing JavaScript performance and did some research on it.
+
+When I talk about JavaScript performance here, I'm not talking about things like time-to-first-byte, time-to-interaction, etc.. I'm talking about raw computing speed – how long does function X run compared to function Y.
+
+I discovered we can use two methods to test performance – `performance.now` and `Date.now`. I was curious about the difference between them, so I made some experiments to document my findings.
+
+{/* more */}
+
+## The procedure
+
+The procedure for testing performance is simple. There are three steps:
+
+1. Check the current timestamp
+2. Run some operations
+3. Check the timestamp again
+
+The difference between the two timestamps will be the amount of time needed to run the operations.
+
+Here's what this process looks like in code:
+
+```js
+const start = performance.now()
+// Do stuff
+const end = performance.now()
+
+const elapsed = end - start
+console.log(elapsed)
+```
+
+## Performance.now vs Date.now
+
+`performance.now` is said to generate a [Dom high-res timestamp](https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp), which means it's going to be more accurate than `Date.now`.
+
+Unfortunately, browsers have to round off this timestamp because of security issues, so it doesn't make much of a difference in the end (according to my findings).
+
+To help with the tests, I created a `perf` function.
+
+```js
+function perf(message, callback, loops = 1) {
+  const startTime = performance.now()
+  while (loops) {
+    callback()
+    loops = loops - 1
+  }
+  const endTime = performance.now()
+  const elapsed = endTime - startTime
+  console.log(message, elapsed)
+}
+```
+
+I also created a `Date.now` equivalent and I named it `perfDate`
+
+```js
+function perfDate(message, callback, loops = 1) {
+  const startTime = Date.now()
+  while (loops) {
+    callback()
+    loops = loops - 1
+  }
+  const elapsed = Date.now() - startTime
+  console.log(message, elapsed)
+}
+```
+
+## Experiments and Findings
+
+I tested both `performance.now` and `Date.now` with a simple operation:
+
+```js
+function test() {
+  return 1 + 1
+}
+```
+
+While testing, I realised there's no point in testing one operation because of two reasons.
+
+First, `performance.now` can measure operations in microseconds but `Date.now` can't. So we won't be able to see the differences between them.
+
+<Image
+  src='/images/2020/performance/oneop-chrome.png'
+  caption='Time taken for one operation in Chrome'
+/>
+
+Second, `performance.now` gets rounded off to the nearest millisecond in Safari and Firefox. So there's no point comparing anything that takes less than 1ms.
+
+<Image
+  src='/images/2020/performance/oneop-firefox.png'
+  caption='Firefox rounds performance.now values to nearest millisecond'
+/>
+
+I had to increase the tests to 10 million operations before the numbers begin to make sense.
+
+<Image
+  src='/images/2020/performance/manyops-firefox.png'
+  alt='10 million operations.'
+/>
+
+### Finding #1: Performance.now vs Date.now
+
+I ran this code:
+
+```js
+const count = 10000000
+perf(
+  'Performance',
+  _ => {
+    return 1 + 1
+  },
+  count
+)
+perfDate(
+  'Performance',
+  _ => {
+    return 1 + 1
+  },
+  count
+)
+```
+
+<Image src='/images/2020/performance/initial.png' alt='Initial test' />
+
+Here, I found no major difference between `performance.now` and `Date.now`.
+
+However, `performance.now` seems slower on Safari and Firefox. `performance.now` also gets rounded to the nearest millisecond on Safari and Firefox.
+
+### Finding #2: Chrome takes time to define functions
+
+I tried stacking `perf` and `perfDate` functions to see if there were any differences. The results startled me.
+
+```js
+const count = 10000000
+
+perf(
+  'Performance',
+  _ => {
+    return 1 + 1
+  },
+  count
+)
+perf(
+  'Performance',
+  _ => {
+    return 1 + 1
+  },
+  count
+)
+perf(
+  'Performance',
+  _ => {
+    return 1 + 1
+  },
+  count
+)
+
+perfDate(
+  'Date',
+  _ => {
+    return 1 + 1
+  },
+  count
+)
+perfDate(
+  'Date',
+  _ => {
+    return 1 + 1
+  },
+  count
+)
+perfDate(
+  'Date',
+  _ => {
+    return 1 + 1
+  },
+  count
+)
+```
+
+<Image src='/images/2020/performance/stacked.png' alt='Stacked test.' />
+
+Second and Third tests on Chrome for both `perf` and `perfDate` jumped from 8ms to 80ms. That's a 10x increase. I thought I was doing something wrong!
+
+I discovered this increase was caused by defining functions on the fly. If I used a predefined function, the numbers reduced back to 8ms.
+
+```js
+function test() {
+  return 1 + 1
+}
+
+const count = 10000000
+
+perf('Performance', test, count)
+perf('Performance', test, count)
+perf('Performance', test, count)
+
+perfDate('Date', test, count)
+perfDate('Date', test, count)
+perfDate('Date', test, count)
+```
+
+<Image
+  src='/images/2020/performance/stacked-2.png'
+  alt='Stacked results when using predefined function.'
+/>
+
+Note: I also found out that Node's `performance.now` has the same behaviour as Chrome's `performance.now`.
+
+### Finding #3: It's impossible to get an average result
+
+I realised each `performance.now` and `Date.now` resulted in different values. I wanted to get an average of the results, so I added another loop to `perf`.
+
+(I did the same to `perfDate` too).
+
+```js
+function perf(message, callback, loops = 1, rounds = 10) {
+  const results = []
+
+  while (rounds) {
+    const startTime = performance.now()
+
+    while (loops) {
+      callback()
+      loops = loops - 1
+    }
+
+    const endTime = performance.now()
+    const elapsed = endTime - startTime
+
+    results.push(elapsed)
+    rounds = rounds - 1
+  }
+
+  const average = results.reduce((sum, curr) => curr + sum, 0) / results.length
+  console.log(message)
+  console.log('Average', average)
+  console.log('Results', results)
+}
+```
+
+But the results were strange: the elapsed timing for the second loop onwards dropped to zero. This happened for both `perf` and `perfDate`.
+
+<Image src='/images/2020/performance/results-chrome.png' alt='' />
+
+It also happened for all three browsers!
+
+<Image src='/images/2020/performance/results-all.png' alt='' />
+
+I'm not sure what's wrong here. If you know why, please tell me!
+
+Update: Dylan pointed out the possibility that the `loop` variable may have been reduced to 0 from the first runthrough in first round, We could fix it by resetting `loop` back to the original value.
+
+## Conclusion
+
+Both `performance.now` and `Date.now` can be used to test for JavaScript performance. There isn't a major difference between these two methods though.
+
+When testing on Chrome, make sure you use predefined functions. Don't define functions on the fly or you'll get inaccurate tests.

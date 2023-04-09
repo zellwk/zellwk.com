@@ -1,0 +1,266 @@
+---
+title: Mappy Breakpoints, A Breakpoint Mixin that uses Sass Maps
+slug: mappy-breakpoints
+tags: [css, responsive]
+ckForm: better-fed
+pubDate: 2015-03-26
+---
+
+I have been using [Breakpoint](http://breakpoint-sass.com/) to handle my media queries for a long time and I have been happy with it. However, during my previous project, I discovered that I needed something more.
+
+Since I was working on rebuilding my starter template for Learning Susy, I went about hacking my own breakpoint mixin that satisfied all my needs. I thought you'd be interested to hear what I came up with :)
+
+{/* more */}
+
+## What Is Breakpoint?
+
+If you haven't heard of Breakpoint, you're really missing out on a superb breakpoint mixin that helps you handle most media queries effortlessly. Let's first explore what Breakpoint has to offer.
+
+Breakpoint provides you with a `breakpoint()` mixin that accepts several arguments. It then translates the information you give into a media query.
+
+Breakpoint will create a `min-width` query if one query is given to it. It creates a `min-width` and `max-width` query if two queries are given to it. It also has the capability to create a `max-width` query if you gave it a `max-width` string and a query.
+
+```scss
+// Min Width Query
+// ---------------
+@include breakpoint(600px) {
+  // stuff
+}
+
+// Translates into
+@media (min-width: 600px) {
+  // stuff
+}
+
+// Min Width And Max Width Query
+// -----------------------------
+@include breakpoint(600px 900px) {
+  // stuff
+}
+
+// Translates into
+@media (min-width: 600px) and (max-width: 900px) {
+  // stuff
+}
+
+// Max Width Query
+// ---------------
+@include breakpoint(max-width 900px) {
+  // stuff
+}
+
+// Translates into
+@media (max-width: 900px) {
+  // stuff
+}
+```
+
+I have written extensively about these three types of media queries and [how they can be used to write mobile first css](/blog/how-to-write-mobile-first-css/).
+
+## What's Lacking For Me in Breakpoint
+
+Breakpoint had been perfect for a long time, until I decided to refactor my Sass starter to use Sass Maps to hold my breakpoints.
+
+I wanted three things that were missing from Breakpoint.
+
+1. I wanted the ability to use a map key from a Sass map immediately in my breakpoint mixin
+2. I wanted to be able to subtract one pixel from the max-width argument to prevent queries from overlapping.
+3. I wanted to write in pixels but output in a relative width (ems or rems).
+
+First, I wanted the ability to use a map key from a Sass map immediately in my breakpoint mixin because I store all my breakpoints in a Sass map named `$breakpoints`.
+
+```scss
+$breakpoints: (
+  'small': 320px,
+  'med': 640px,
+  'large': 920px,
+  'wide': 1200px,
+  'mega': 1400px,
+  // ...
+);
+```
+
+I needed to get the map key within the breakpoint mixin in order to get my values. I had to use a semi-complex query to get a min-width and max-width query.
+
+```scss
+@include breakpoint(map-get($breakpoints, small) map-get($breakpoints, large)) {
+  // stuff
+}
+```
+
+It would have been much cleaner if I had the ability to write map keys instead.
+
+```scss
+@include breakpoint(small large) {
+  // stuff
+}
+```
+
+This factor was a deal breaker and it prompted me to write my own breakpoint mixin.
+
+Second, I wanted to be able to subtract one pixel from the max-width argument to prevent queries from overlapping, which caused me a lot of heartache in a recent project that I had done.
+
+Here's an example.
+
+```scss
+.query {
+  @include breakpoint(800px) {
+    // stuff
+  }
+}
+
+.query.with.more.weight {
+  @include breakpoint(max-width 800px) {
+    // stuff
+  }
+}
+```
+
+There were cases where I wanted styles within `.query` to trigger at 800px.
+
+The actual styles at 800px was however, overwritten by the second selector because it had more specificity. This issue would have been mitigated if my max-width selector stopped at 799px instead of 800px.
+
+Third, I wanted to write in pixels but output in a relative width (rems). Brad Frost spoke about using relative width units in his article on [7 habits of highly effective media queries](http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/#relative).
+
+Since I'm already ditching pixels in favor of rems for all my Sass units, why not bring it up a notch and use rems for media queries as well?
+
+Unfortunately, I needed to calculate these relative widths manually if I was using Breakpoint, which kind of defeats the purpose of using Sass to automate the process.
+
+```scss
+$breakpoints: (
+  'small': 20rem,
+  // 320px
+  'med': 40rem,
+  // 640px
+  'large': 57.5rem,
+  // 920px
+  // ...,,,,,,
+);
+```
+
+Another plus from this practice as Brad mentioned is that it allows browsers to adjust the design based on the user zoom level, allowing a more accessible experience if the user decides to zoom in.
+
+As you can see, I wanted something super specific that had the ability to simplify a lot of things for me. So I went ahead and hacked my own breakpoint mixin that does all of the above!
+
+## Introducing Mappy Breakpoints
+
+Uhh.. I decided to call it mappy breakpoints since it uses a map for the breakpoint mixin. If you have a better name for it, please throw it up! All suggestions are welcome!
+
+Let's get down to what it does.
+
+Mappy breakpoints does all of the 3 things I mentioned above. It creates `min-width`, `min-width` and `max-width` and `max-width` queries easily, just like how Breakpoint does it.
+
+While doing so, it also converts pixels to rems and subtracts one pixel from the eventual rem value for every `max-width` query.
+
+This breakpoint mixin also integrates with Compass vertical rhythm and uses the `$base-font-size` variable to determine the value used to convert into rems.
+
+```scss
+$base-font-size: 16px;
+
+$breakpoints: (
+  'small': 320px,
+  'med': 640px,
+  'large': 920px,
+  'wide': 1200px,
+  'mega': 1400px,
+  // ...
+);
+
+// Min Width Query
+// ---------------
+@include mappy-bp(small) {
+  // stuff
+}
+
+// Translates into
+@media all and (min-width: 20rem) {
+  // stuff
+}
+
+// Min Width And Max Width Query
+// -----------------------------
+@include mappy-bp(small large) {
+  // stuff
+}
+
+// Translates into
+@media all and (min-width: 20rem) and (max-width: 57.4375rem) {
+  //stuff
+}
+
+// Max Width Query
+// ---------------
+
+// You can also use `max` instead of `max-width`
+@include mappy-bp(max-width small) {
+  // stuff
+}
+
+// Translates into
+@media all and (max-width: 19.9375rem) {
+  // stuff
+}
+```
+
+In addition to using maps, Mappy breakpoints also retains the original feature in Breakpoint where you can turn any value given to it into a query.
+
+```scss
+@include mappy-bp(small 920px) {
+  // stuff
+}
+
+// Translates into
+@media all and (min-width: 20rem) and (max-width: 57.4375rem) {
+  //stuff
+}
+```
+
+Mappy breakpoints also respond to height queries in the same way as width queries. You just have to tell it that you're trying to detect height.
+
+```scss
+// You could also use the `h` identifier instead of `height`
+@include mappy-bp(height 480px large) {
+  // stuff
+}
+
+// Translates into
+@media all and (min-height: 30rem) and (max-height: 57.4375rem) {
+  // stuff
+}
+```
+
+Finally, Mappy breakpoints allows you to have any other query pair simply by writing them one after another without commas and parentheses.
+
+```scss
+@include mappy-bp(orientation portrait) {
+  // stuff
+}
+
+// Translates into
+@media all and (orientation: portrait) {
+  // stuff
+}
+```
+
+## There's More!
+
+Mappy breakpoints give you the ability to control two more things.
+
+1. Media type
+2. Provide a fallback class for browsers that don't support media queries.
+
+Just add these two as the second and third argument to the `mappy-bp()` mixin.
+
+```scss
+@include mappy-bp($query, $media-type, $fallback-query) {
+  // stuff
+}
+```
+
+## Check Out Mappy Breakpoints
+
+If you work a lot with Sass maps and want some additional map-like functionality to your breakpoints then definitely [check out Mappy Breakpoints](https://github.com/zellwk/mappy-breakpoints).
+
+I'm sure you'll enjoy it as much as I do :)
+
+What do you think of Mappy Breakpoints? I'd love to hear them in the comments!

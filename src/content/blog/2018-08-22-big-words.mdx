@@ -1,0 +1,141 @@
+---
+title: Stop using big words and industry jargons (and what to do instead)
+slug: big-words
+tags: [teaching, writing]
+ckForm: better-fed
+description: People don't understand us because we use jargons and big words. Here are three ways to simplify your big words.
+pubDate: 2018-08-22
+---
+
+Let's say you want to teach a person something. Why does the person not understand what you're saying?
+
+One of the main reasons is because we like to use big words and industry jargons. These jargons may mean something to us, but they mean nothing to the people we're trying to teach.
+
+The next time you try to teach programming, watch out for the words you use.
+
+{/* more */}
+
+## Three types of big words
+
+Jargons can be divided into three categories:
+
+1. Those that can be explained in a few words
+2. Those that cannot be explained with simple words
+3. Those that can mean different things in different contexts.
+
+When you teach, you should always watch out for these three types of words.
+
+## Jargons that can be explained in a few words.
+
+If the jargon can be explained in a few words, you want to **use those words instead of the jargon.**
+
+Interoperability is one example of a such a word.
+
+It sounds scary and complicated, but it can be explained in a few simple words.
+
+If you searched for the meaning of interoperability, you'll come across definitions like these:
+
+From Wikipedia: "_Interoperability is a characteristic of a product or system, whose interfaces are completely understood, to work with other products or systems, at present or in the future, in either implementation or access, without any restrictions._"
+
+From Dictionary.com: "_Interoperability is the ability to share data between different computer systems, especially on different machines._"
+
+If we put it in simple terms, "interoperability" means the "ability to share data".
+
+See how it makes the language barrier much lower?
+
+If you can replace such jargons with simple words, why do you stick to the difficult word?
+
+## Jargons that mean different things in different contexts
+
+Some jargons have different meanings when they're used in different contexts.
+
+One example of such a jargon is encapsulation.
+
+To encapsulate something means to enclose that thing with something else. If you wrap a potato with a cloth, you can say the cloth encapsulates the potato.
+
+Developers love the word encapsulation. They use it all the time.
+
+The first way is to wrap variables and other code inside a function. In this case, the function encapsulates the code within.
+
+```js
+function someFunction() {
+  const variableName = 'I am a variable!'
+}
+```
+
+The second way is to contain an object's individuality. For example, if you have a Human object, and you create two humans from the human object, these two humans should not be the same.
+
+In this case, each object encapsulates its own data.
+
+```js
+function Human(name) {
+  this.name = name
+}
+
+const zell = new Human('Zell')
+const vincy = new Human('Vincy')
+
+zell.name === vincy.name // false
+```
+
+The third way is for information hiding. In JavaScript, we can create private variables. These private variables are enclosed by the object.
+
+In this case, the object encapsulates the private variable. You cannot access the private variable. In this case, encapsulation is used to mean something slightly different from the second case.
+
+```js
+function Human() {
+  const privateVariable = 'private'
+  this.publicVariable = 'public'
+}
+```
+
+So what do you understand by Encapsulation?
+
+You can't be sure.
+
+There should be no ambiguity when you communicate. If there is ambiguity, communication breaks down, and students don't learn.
+
+It is best to **ditch the jargon if the jargon means different things in different contexts.**
+
+## Jargons that cannot be explained with simple words
+
+Some jargons cannot be explained with simple words. These jargons are often used to talk about abstract concepts, which is why simple words may not be enough.
+
+One example of such a word is "mutation".
+
+Mutation comes from the word mutate. To mutate means to change in form or nature. In JavaScript, mutation happens underneath the hood without you noticing.
+
+In this case, change is not enough to explain mutation. It lacks depth and detail. Plus, change is still too abstract.
+
+You feel that a concept is abstract because you cannot imagine it. You cannot see, hear, feel, touch, or taste it. To make an abstract concrete, we need to appeal to a human's five senses.
+
+**To explain an abstract concept, you can use analogies.** When you use analogies, you can describe an object or a scenario in a way where people can see, hear, or feel what you mean.
+
+For example, [I used X-men as my analogy when I explained mutation][1].
+
+I asked students to imagine a friend growing fur and turning blue in front of their eyes. Anyone can imagine what it means to grow fur and turn blue, even if they don't know who Beast is.
+
+If you want to expand the analogy to cater to more people, you can appeal to more senses. For example, to get blind people to imagine mutation, you can also tell them to imagine their friend growled like a beast.
+
+The key here is a change that goes undetected. Nobody knows whether a person is a mutant until they show their powers. On the same front, nobody knows that a JavaScript object has changed until it, well, changed.
+
+I emphasized this point to draw a link back to mutation in JavaScript.
+
+Mutation becomes a concrete once the link gets established. When I say mutation, students who read the article can picture their friend turning blue, growing fur, and growling like a beast.
+
+Once you turn an abstract jargon into a concrete concept, you can use the jargon as normal. Students will understand what you mean.
+
+I wrote an article about [creating good analogies][2] if you're interested in learning this skill.
+
+## Wrapping up
+
+Pay attention to the words you use when you teach programming. If you use difficult words that don't mean anything to your student, they won't be able to get what you mean.
+
+Replace difficult words with words that are simpler and easier to understand if you can.
+
+Avoid using jargons that can mean different things in different contexts. These jargons make things ambiguous and confusing.
+
+Finally, use analogies to turn abstract concepts into concrete concepts.
+
+[1]: https://alistapart.com/article/why-mutation-can-be-scary
+[2]: /blog/creating-good-analogies

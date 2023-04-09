@@ -1,0 +1,101 @@
+---
+title: Your first Git commit
+description: We're going to talk about how to make your first Git commit.
+slug: your-first-git-commit
+ckForm: better-fed
+youtubeHash: nsORVjJTkeI
+tags: [video, git]
+pubDate: 2018-08-10
+---
+
+Note: This the second video in the Git for beginners series. [Watch the first video here][1].
+
+Today we're going to talk about how to make your first Git commit.
+
+{/* more */}
+
+If you open up Fork from where we left off previously, you'll see the project screen. If you click on changes, the screen will split into two parts.
+
+On the left of the screen, you'll see a section that says unstaged files. Below this section, you'll see another another section that says staged files.
+
+To the right, you'll see a placeholder that shows Fork's icon. At the bottom, you'll see a few fields:
+
+1. A commit message field
+2. A description field
+3. An ammend checkbox
+4. A commit button
+
+This place is called the **staging area**. This is where you decide what files you want to save into Git.
+
+<Image
+  src='/images/2018/your-first-commit/staging-area.png'
+  caption='The staging area'
+/>
+
+## Staging a file
+
+Before you save anything, you need to make a change in the Git repository.
+
+Open up your Git project in a text editor like VS Code. Create a file called `index.html` and give it some HTML to start with.
+
+Once you save this file, you'll see this file in the staging area. It should appear in the unstaged files section of the staging area.
+
+<Image
+  src='/images/2018/your-first-commit/unstaged-file.png'
+  caption='Files that have been changed will appear in the unstaged area'
+/>
+
+**An unstaged file is a file that has been changed since you last committed into the Git repository.**
+
+If you want to commit a file (in this case, the `index.html` file), you can click on the file and click on stage. This file will be moved from the unstaged files section into the staged files section.
+
+<Image
+  src='/images/2018/your-first-commit/staged-file.png'
+  caption='Files that have been staged will appear in the staged area'
+/>
+
+**When you have a file in the staged file section**, what you're saying is **you want to save that file when you make a commit**.
+
+If you click on the file, you'll see the lines of code (in green) that will be saved into the repository.
+
+## Creating a commit
+
+To create a commit, you write your commit message at the bottom right corner, then click the "create commit" button.
+
+<Image
+  src='/images/2018/your-first-commit/creating-a-commit.png'
+  caption='Creating a commit'
+/>
+
+Once you click on the commit button, the staged files will disappear from the staging area. This is because the files are saved; there are no more new changes for the file in the repository.
+
+## Committing more than one file
+
+You can commit many files at the same time. To do so, you need to change many files.
+
+In this example, I added a CSS file and a JavaScript file to the repository. I also added code to the `index.html` file to point to the CSS and JavaScript files.
+
+If you go back into Fork now, you should see the folders and files that are changed.
+
+<Image
+  src='/images/2018/your-first-commit/staging-area-multiple.png'
+  alt='Files and folders that are changed in the staging area. This shows a CSS folder, a styles.css file, a JS folder, a main.js file and an index.html file. '
+  caption='You can see all files and folders that are changed in the staging area'
+/>
+
+To commit all three files at once, you select the files and click the stage button. Then, you write your commit message and commit the files.
+
+<Image
+  src='/images/2018/your-first-commit/commit-multi.png'
+  caption='Committing multiple files at once'
+/>
+
+## Checking the Git History
+
+If you click on All Commits in the sidebar, you'll see the commits you have made so far. In some Git clients, this is called Git History.
+
+## Exercise
+
+Try to make a few commits into your Git repository with Fork. In the next video, I'll show you how to push to a git remote and how to pull from a git remote.
+
+[1]: /blog/setting-up-git

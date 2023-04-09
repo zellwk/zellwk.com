@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro'
+import Testimonial from '../components/Testimonial.astro'
+import ConvertkitForm from '../components/ConvertkitForm.svelte'
+import SVG from '../components/SVG.svelte'
+
+export const prerender = true
+---
+
+<Base bodyClass='home-page' showNav={false}>
+  <div class='c-site-container'>
+    <div class='c-home'>
+      <div class='c-home__content o-words'>
+        <section class='c-ck ck-layout--home'>
+          <ConvertkitForm name='javascript' client:load />
+        </section>
+      </div>
+    </div>
+
+    <section class='home-social'>
+      <div class='l-wrap'>
+        <div class='home-social__content'>
+          <h2>Zell has been featured in</h2>
+          <div>
+            <ul>
+              <li><SVG name='a-list-apart' /></li>
+              <li><SVG name='css-tricks' /></li>
+              <li><SVG name='smashing-mag' /></li>
+              <li><SVG name='sitepoint' /></li>
+              <li><SVG name='css-weekly' /></li>
+              <li><SVG name='javascript-weekly' /></li>
+              <li><SVG name='free-code-camp' /></li>
+              <li><SVG name='devto' /></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class='l-wrap'>
+        <div class='home-testimonials'>
+          <h2>What others are saying</h2>
+          <div>
+            <ul>
+              <li><Testimonial name='veerle-pieters' /></li>
+              <li><Testimonial name='jerry-jones' /></li>
+              <li><Testimonial name='chen-hui-jing' /></li>
+              <li><Testimonial name='zoran-jambor' /></li>
+            </ul>
+          </div>
+
+          <p>
+            <a class='button' data-type='secondary' href='/blog/1'
+              >Read the blog</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>

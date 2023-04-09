@@ -1,0 +1,381 @@
+---
+
+title: Creating a deep-assign library
+description: A case study on the process of creating a library
+slug: creating-a-deep-assign-library
+tags: [javascript]
+ckForm: jsSnippets
+pubDate: 2020-08-12
+---
+
+
+I created a [library][1] to merge objects last week. It's called `mix`. `mix` lets you perform a deep merge between two objects.
+
+The difference between `mix` and other deep merging libraries is: `mix` lets you copy accessors while others don't.
+
+[You can find out more about `mix` in last week's article.][2]
+
+I thought it'll be fun to share the process (and pains) while building the library. So here it is.
+
+{/* more */}
+
+## It started with solving a problem I had
+
+I started playing with accessor functions recently. One day, I noticed accessors don't work when they're copied via `Object.assign`. Since I wanted to copy accessors, `Object.assign` didn't work for me anymore.
+
+I need another method.
+
+I did some research and discovered I can create an `Object.assign` clone that supports the copying of accessors quite easily.
+
+```js
+// First version, shallow merge.
+function mix (...sources) {
+  const result = {}
+  for (const source of sources) {
+    const props = Object.keys(source)
+    for (const prop of props) {
+      const descriptor = Object.getOwnPropertyDescriptor(source, prop)
+      Object.defineProperty(result, prop, descriptor)
+    }
+  }
+  return result
+}
+```
+
+I explained the creation process for this simple `mix` function in [my previous article][3], so I won't say the same thing again today. Go read that one if you're interested to find out more.
+
+This simple `mix` function was okay. But it wasn't enough.
+
+I wanted a way to make merge objects without worrying about mutation since [mutation can be a source of hard-to-find bugs][4]. This meant I needed a way to recursively clone objects.
+
+## Researching other libraries
+
+First, I searched online to see if anyone created a library I needed. I found several options that copied objects, but none of them allowed copying of accessors.
+
+So I had to make something.
+
+In the process, I discovered I can use a combination of Lodash's `assign` and `deepClone` functions to achieve what I want easily.
+
+Update: Mitch Neverhood shared that Lodash has a `merge` function that was deep. If we wanted an immutable merge, we could do this:
+
+```js
+import { cloneDeep, merge } from 'lodash';
+export const immutableMerge = (a, b) => merge(cloneDeep(a), b);
+```
+
+But Lodash was too heavy for me. I don't want to include such a big library in my projects. I wanted something light and without dependencies.
+
+So I made a library.
+
+## A journey into deep cloning objects
+
+When I started, I thought it's easy to create deep clones of an object. All I had to do was
+
+1. Loop through properties of an object
+2. If the property is an object, create a new object
+
+Cloning object properties (even for accessors) are simple enough. I can replace the property's descriptor value with a new object via Object spread.
+
+```js
+const object = { /* ... */ }
+const copy = {}
+const props = Object.keys(object)
+
+for (const prop of props) {
+  const descriptor = Object.getOwnPropertyDescriptor(object, prop)
+  const value = descriptor.value
+  if (value) descriptor.value = { ...value }
+  Object.defineProperty(copy, prop, descriptor)
+}
+```
+
+This wasn't enough because Object spread creates a shallow clone.
+
+I needed recursion. So I created a function to clone objects. I call it `cloneDescriptorValue` (because I was, in fact, cloning the descriptor's value).
+
+```js
+// Creates a deep clone for each value
+function cloneDescriptorValue (value) {
+  if (typeof value === 'object) {
+    const props = Object.keys(value)
+    for (const prop of props) {
+      const descriptor = Object.getOwnPropertyDescriptor(value, prop)
+      if (descriptor.value) descriptor.value = cloneDescriptorValue(descriptor.value)
+      Object.defineProperty(obj, prop, descriptor)
+    }
+    return obj
+  }
+
+  // For values that don't need cloning, like primitives for example
+  return value
+}
+```
+
+I used `cloneDescriptorValue` like this:
+
+```js
+const object = { /* ... */ }
+const copy = {}
+const props = Object.keys(object)
+
+for (const prop of props) {
+  const descriptor = Object.getOwnPropertyDescriptor(object, prop)
+  const value = descriptor.value
+  if (value) descriptor.value = cloneDescriptorValue(value)
+  Object.defineProperty(copy, prop, descriptor)
+}
+```
+
+This clones objects (including accessors) recursively.
+
+But we're not done.
+
+### Cloning arrays
+
+Although Arrays are objects, they're special. I cannot treat them like normal objects. So I had to devise a new way.
+
+First, I needed to differentiate between Arrays and Objects. JavaScript has an `isArray` method that does this.
+
+```js
+// Creates a deep clone for each value
+function cloneDescriptorValue (value) {
+  if (Array.isArray(value)) {
+    // Handle arrays
+  }
+
+  if (typeof value === 'object) {
+    // Handle objects
+  }
+
+  // For values that don't need cloning, like primitives for example
+  return value
+}
+```
+
+Arrays can contain any kind of value. If the array contained another array, I must clone the nested array. I did this by running every value through `cloneDescriptorValue` again.
+
+This takes care of recursion.
+
+```js
+// Creates a deep clone for each value
+function cloneDescriptorValue (value) {
+  if (Array.isArray(value)) {
+    const array = []
+    for (let v of value) {
+      v = cloneDescriptorValue(v)
+      array.push(v)
+    }
+    return array
+  }
+
+  // ...
+}
+```
+
+I thought I was done. But I wasn't 😢.
+
+### Cloning functions...?
+
+The next day, I wondered if it's possible to clone functions. We don't want functions to mutate either, don't we?
+
+I wasn't sure whether I should do this. I wasn't sure whether it was possible to clone functions too.
+
+A google search brought me to [this deep-cloning article][5] where I was reminded about other Object types like `Date`, `Map`, `Set`, and `RegExp`. (More work to do). It also talked about Circular references (which I did not handle in my library).
+
+I forgot all about cloning functions at this point. I went into the rabbit hole and tried to find ways to deep clone objects without writing each type of object individually. (I'm lazy).
+
+While searching, I discovered a thing known as the [Structured Clone Algorithm][6]. This sounds good. It's exactly what I wanted! But even though the algorithm exists, there's no way to actually use it. I couldn't find its source anywhere.
+
+Then, I chanced upon [Das Surma's journey into deep-copying][7] which talks about the Structured Clone Algorithm and how to use it. Surma explained we can use this Structured Clone Algorithm via three methods:
+
+1. MessageChannel API
+2. History API
+3. Notification API
+
+All three API exist in browsers only. I wanted my utility to work both in Browsers and in Node. I couldn't use any of these methods. I had to look for something else.
+
+The next day, I thought of Lodash. So I did a quick search. Lodash didn't have a deep merge method. But I could clobber something together with `_.assign` and `_.cloneDeep` if I wanted.
+
+In its documentations, Lodash explained `_.cloneDeep` (which recursively uses `_.clone`) was loosely based on the Structured Clone Algorithm. I was intrigued and dove into the source code.
+
+<Image src="/images/2020/create-deep-assign-library/lodash.png" alt="" />
+
+Long story short, I wasn't able to use Lodash's source code directly since it was such a complicated library. But I managed to find a piece of gem that looked like this:
+
+```js
+var argsTag = '[object Arguments]',
+    arrayTag = '[object Array]',
+    boolTag = '[object Boolean]',
+    dateTag = '[object Date]',
+    errorTag = '[object Error]',
+    funcTag = '[object Function]',
+    genTag = '[object GeneratorFunction]',
+    mapTag = '[object Map]',
+    numberTag = '[object Number]',
+    objectTag = '[object Object]',
+    regexpTag = '[object RegExp]',
+    setTag = '[object Set]',
+    stringTag = '[object String]',
+    symbolTag = '[object Symbol]',
+    weakMapTag = '[object WeakMap]';
+
+var arrayBufferTag = '[object ArrayBuffer]',
+    dataViewTag = '[object DataView]',
+    float32Tag = '[object Float32Array]',
+    float64Tag = '[object Float64Array]',
+    int8Tag = '[object Int8Array]',
+    int16Tag = '[object Int16Array]',
+    int32Tag = '[object Int32Array]',
+    uint8Tag = '[object Uint8Array]',
+    uint8ClampedTag = '[object Uint8ClampedArray]',
+    uint16Tag = '[object Uint16Array]',
+    uint32Tag = '[object Uint32Array]';
+
+/** Used to identify `toStringTag` values supported by `_.clone`. */
+var cloneableTags = {};
+cloneableTags[argsTag] = cloneableTags[arrayTag] =
+cloneableTags[arrayBufferTag] = cloneableTags[dataViewTag] =
+cloneableTags[boolTag] = cloneableTags[dateTag] =
+cloneableTags[float32Tag] = cloneableTags[float64Tag] =
+cloneableTags[int8Tag] = cloneableTags[int16Tag] =
+cloneableTags[int32Tag] = cloneableTags[mapTag] =
+cloneableTags[numberTag] = cloneableTags[objectTag] =
+cloneableTags[regexpTag] = cloneableTags[setTag] =
+cloneableTags[stringTag] = cloneableTags[symbolTag] =
+cloneableTags[uint8Tag] = cloneableTags[uint8ClampedTag] =
+cloneableTags[uint16Tag] = cloneableTags[uint32Tag] = true;
+cloneableTags[errorTag] = cloneableTags[funcTag] =
+cloneableTags[weakMapTag] = false;
+```
+
+This piece tells me two things:
+
+1. How to determine different types of objects like (RegExp, Map, Set, etc).
+2. What objects are clone-able, and what objects aren't.
+
+I can see that functions cannot be cloned, which makes sense, so I stopped trying to clone functions.
+
+```js
+// Part that tells me functions cannot be cloned
+cloneableTags[errorTag] = cloneableTags[funcTag] =
+cloneableTags[weakMapTag] = false;
+```
+
+## Cloning other types of objects
+
+The problem remains: I still need to recursively create clones for other types of objects. I started by refactoring my code to detect other object types.
+
+```js
+function cloneDescriptorValue (value) {
+  if (objectType(value) === '[object Array]') {
+    // Handle Arrays
+  }
+
+  if (objectType(value) === '[object Object]') {
+    // Handle pure objects
+  }
+
+  // Other values that don't require cloning
+  return
+}
+
+function objectType (value) {
+  return Object.prototype.toString.call(value)
+}
+```
+
+Then I started working on the simplest object type: Dates.
+
+### Cloning Dates
+
+Dates are simple. I can create a new `Date` value that contains the same timestamp as the original Date.
+
+```js
+function cloneDescriptorValue (value) {
+  // Handle Arrays and Objects
+
+  if (objectType(value) === '[object Date]') {
+    return new Date(value.getTime())
+  }
+
+  // ...
+}
+```
+
+I tackled Maps next.
+
+### Deep Cloning Map
+
+`Map` is like `Object` with a few differences.
+
+One of them is: You can use objects as keys. If you used an object as a key, you won't be able to retrieve the key's values if I created a new object.
+
+So I opt to create clones only for map values.
+
+```js
+function cloneDescriptorValue (value) {
+  // ...
+  if (objectType(value) === '[object Map]') {
+    const map = new Map()
+    for (const entry of value) {
+      map.set(entry[0], cloneDescriptorValue(entry[1]))
+    }
+    return map
+  }
+  // ...
+}
+```
+
+I didn't clone WeakMaps because we cannot iterate through WeakMaps. It's was technically impossible to create a clone.
+
+### Deep Cloning Set
+
+Sets are like arrays, but they contain unique values only. I decided to create a new reference for values in Sets because Lodash does it as well.
+
+```js
+function cloneDescriptorValue (value) {
+  // ...
+  if (objectType(value) === '[object Set]') {
+    const set = new Set()
+    for (const entry of value.entries()) {
+      set.add(cloneDescriptorValue(entry[0]))
+    }
+    return set
+  }
+  // ...
+}
+```
+
+### More types...
+
+I decided to stop working on other types because I don't use them at all. I didn't want to write extra code that I won't use (especially if no one else uses the library)
+
+## Tests
+
+Of course, with any library creation, it's important to write tests to ensure the library functions correctly. I wrote a couple of them while creating this project. 😎
+
+<Image src="/images/2020/create-deep-assign-library/mix-test-final.png" alt="" />
+
+## Update: Preventing Prototype Pollution
+
+Kyle Wilson asked how I was preventing Prototype Pollution. I had complete no idea what he was talked about, so I did a search.
+
+Turns out, Prototype Pollution was a serious issue that used to be present in jQuery and Lodash. It may still be present in many libraries today! You can read more about it [here](https://medium.com/node-modules/what-is-prototype-pollution-and-why-is-it-such-a-big-deal-2dd8d89a93c).
+
+Without going into too much details, I just want to let you know I [fixed this issue](https://github.com/zellwk/javascript/releases/tag/v1.0.1).
+
+## Final mix function
+
+That's it! [Here's the final `mix` function I created][8].
+
+I hope this article gives you an experience of the roller coaster ride when I experienced when creating the library. It's not easy to create a library. I deeply appreciate people out there who have done the work and shared it with others.
+
+
+[1]:	https://github.com/zellwk/javascript/blob/master/mix
+[2]:	/blog/copy-properties-of-one-object-to-another-object
+[3]:	/blog/copy-properties-of-one-object-to-another-object
+[4]:	https://alistapart.com/article/why-mutation-can-be-scary/
+[5]:	https://medium.com/javascript-in-plain-english/write-a-better-deep-clone-function-in-javascript-d0e798e5f550
+[6]:	https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
+[7]:	https://dassur.ma/things/deep-copy/
+[8]:	https://github.com/zellwk/javascript/blob/master/mix

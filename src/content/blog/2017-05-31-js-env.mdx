@@ -1,0 +1,196 @@
+---
+title: How to set up your development environment to learn JavaScript
+slug: js-env
+tags: [javascript]
+ckForm: jsr
+hash: js
+pubDate: 2017-05-31
+---
+
+Have you encountered any of these three problems when learning JavaScript?
+
+You get confused with the JavaScript syntax. It's unfamiliar to you. There are so many variations you don't even know what is what.
+
+You keep getting errors whenever you write JavaScript because of stupid typo mistakes.
+
+You cannot remember what methods are available. You need to search google even for something as simple as `addEventListener`.
+
+You'd love today's article if you had these problems. I'll show you how to tackle them all in one swoop by setting up your development environment.
+
+{/* more */}
+
+## Make syntax easy with a syntax highlighter
+
+A syntax highlighter is a tool that differentiates keywords and types of content through colors.
+
+Here's an example of a text that's not highlighted:
+
+<Image
+  src='/images/2017/jsenv/no-highlight.png'
+  alt="Code that's not highlighted"
+  caption="Code that's not highlighted"
+/>
+
+Compare this version with one that's highlighted:
+
+<Image
+  src='/images/2017/jsenv/highlight.png'
+  alt='Highlighted code is easier to read'
+  caption='Highlighted code is easier to read'
+/>
+
+Which is easier to read?
+
+At first, syntax highlighting may throw you off. You may not get used to the dizzying number of colors. But once you get used to it, syntax highlighting helps you make lesser mistakes.
+
+For example, I know at a glance that `const` is a keyword since it's _purple_ in color, `sayText` is a function since it's _blue_ in color, and `Hello world` is a string since it's _green_ in color.
+
+So, **your first step** to learning JavaScript is to **pick a code editor** that supports decent JavaScript syntax highlighting. If you're unsure what to go for, I highly recommend either [Sublime Text](https://www.sublimetext.com) or [Atom](https://atom.io).
+
+One more thing. You can customize the theme your text editor comes with. There are many popular themes out there, including:
+
+1. Monokai
+2. Tomorrow
+3. Cobalt
+
+If you're thinking about choosing a theme, remember that no theme is better than others. Different people have different sensitivity to colors and would hence prefer different themes.
+
+For instance, [Wes Bos](http://wesbos.com), a developer I actively follow and respect, uses _Cobalt_. On the other hand, I'll go bonkers if I used _Cobalt_. So far, the best theme I found for myself is _Tomorrow night eighties_. That's what I used for my code editor (Sublime Text) and the code snippets on this blog.
+
+The key idea here is to get syntax highlighting setup. Don't worry about choosing a theme if it stresses you out.
+
+Next, I'm going to show you how to install a theme with Sublime Text. (If you use Atom, google for similar instructions out there).
+
+### Installing a theme with sublime text
+
+The easiest way to install anything in Sublime Text is to first install [Package Control](https://packagecontrol.io). Package Control is a Sublime Text plugin that helps you find and install Sublime plugins easily.
+
+To install Package Control, you need to go to `view > console` and paste the following code in (if you use Sublime Text 3).
+
+```python
+import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+```
+
+If the above code doesn't work for some reason, you can refer to [Package Control's installation page](https://packagecontrol.io/installation#st3) for up-to-date details.
+
+Note: It's super worth it to install Package Control, because you'll be using it to install almost everything you use with Sublime Text.
+
+Moving on, here are the steps to install a theme with Sublime Text:
+
+1. Bring up Package Control by typing `cmd + shift + p`. (For windows users, I believe it's `ctrl + shift + p`)
+2. Type install package
+3. Type the theme you want to install
+4. Select the theme from `Sublime Text > Preferences > Color Scheme > your theme`
+
+Here's a little video to help you through the steps. (Note: I typed `cmd + shift + L` in the video below because I used the Dvorak keyboard with Qwerty shorcuts).
+
+<iframe
+  src='https://player.vimeo.com/video/219461142'
+  width='640'
+  height='400'
+  frameborder='0'
+  webkitallowfullscreen
+  mozallowfullscreen
+  allowfullscreen
+></iframe>
+
+Next, let's make your text editor better by setting up a linter to catch typos.
+
+## Catch typos with a linter
+
+A linter is a tool that tells you if certain parts of your code looks wrong. For example, the linter would let you know immediately if you missed a closing parenthesis in your code. It helps you catch errors before they make it to the browser.
+
+Here's an example of a linter at work:
+
+<Image
+  src='/images/2017/jsenv/lint.png'
+  alt='The linter shows something is wrong with my code'
+  caption='The linter shows something is wrong with my code'
+/>
+
+Once you've your linter to work properly, you can even tell it to highlight areas where code formatting can be improved.
+
+For example, in the picture below, I have setup the linter tell me when the code indentation is off, and when there are too many spaces before a closing parenthesis.
+
+<Image
+  src='/images/2017/jsenv/lint-format.png'
+  alt='Linters can point out formatting errors in your code'
+  caption='Linters can point out formatting errors in your code'
+/>
+
+There are many linters in the history of JavaScript. The most popular one right now is [ES Lint](http://eslint.org).
+
+If you're totally new to ES Lint, just looking at the configuration options can be overwhelming. You can pick and choose from over 200 [rules](http://eslint.org/docs/rules/) 😱.
+
+So instead of going with ESLint and choosing rules yourself, I highly recommend you use a widely-used style guide like [Standard](https://www.npmjs.com/package/standard). In fact, Standard is so popular right now that it's really easy to set up Standard with your text editor.
+
+(You can also choose from multiple other [style guides](http://eslint.org/docs/user-guide/migrating-from-jscs#converting-presets) with ESLint if you desire).
+
+### Setting up a standard in sublime text
+
+To set up Standard with Sublime Text, you need to have Node installed. If you haven't done so already, the easiest way is to download the installer from [this page](https://nodejs.org/en/) and run it.
+
+Once you're done with installing Node, fire up your Terminal and run the following command. It installs Standard into your system through Node's package manager, npm:
+
+```bash
+# Installs Standard with npm
+$ sudo npm -g install standard
+```
+
+(Note: sudo is only required for Mac users).
+
+Once you have standard installed, go ahead and install [SublimeLinter](http://www.sublimelinter.com) and [SublimeLinter-contrib-standard](https://github.com/Flet/SublimeLinter-contrib-standard) from Sublime Text's Package Control.
+
+You may have to restart Sublime Text after installing the linters, but you should be able rewarded with a linted error whenever you make a mistake now :)
+
+By the way, here's one good news if you're on a newer version of Sublime Text 3. You can hover over any error and you'll see what's wrong immediately:
+
+<Image
+  src='/images/2017/jsenv/lint-hover.png'
+  alt="You can hover on linted areas to see what's wrong"
+  caption="You can hover on linted areas to see what's wrong"
+/>
+
+### Fixing formatting issues automatically
+
+Now, wouldn't it be nice if Sublime Text could help you fix code formatting issues like indentation automatically?
+
+Good news: it can! You just have to install [Standard Format](https://packagecontrol.io/packages/StandardFormat) through the package control.
+
+<Image
+  src='/images/2017/jsenv/lint-formatting.gif'
+  alt='Autoformatting syntax issues with Standard Format'
+  caption='Autoformatting syntax issues with Standard Format'
+/>
+
+Now, let's move on to the final issue: remembering methods easily.
+
+## Remember methods easily with snippets
+
+The human memory works in a simple way – the more you see or use something, the more you'll remember it. So, the quickest solution to remembering what you can do with JavaScript is to use more JavaScript. 😎
+
+But typing JavaScript isn't the problem here. What if you could only remember part of a method, but not the other half? You'd probably have to google for the method, which is 💩.
+
+Let's say you wanted to add an event listener to an element. The correct method is `addEventListener`. Unfortunately, you could only remember the terms `add` and `listener` 😞.
+
+The good news is, snippets are here to the rescue. In this below example, I've only entered `addl` (part of typing add listener) and `addEventListener` pops out!
+
+<Image
+  src='/images/2017/jsenv/snippets.png'
+  alt='Snippets can help recall methods and also write faster'
+  caption='Snippets can help recall methods and also write faster'
+/>
+
+Yay :)
+
+You snippet I used above is called [JavaScript Completions](https://packagecontrol.io/packages/JavaScript%20Completions). You can install it through Sublime Text's package control. (Note: this package doesn't contain 100% of all available methods, but its much better than have no snippets at all :))
+
+If you run into a situation where no packages out there contains snippets of a piece of code you consistently write, it may be beneficial for you to create your own snippet. But I'll leave that for another day.
+
+(Finally, when you get better at coding, you might want to consider Wes Bos's book on [Sublime Text](https://sublimetextbook.com) to help you 🚀 your coding efficiency).
+
+## Wrapping up
+
+Learning JavaScript isn't going to be as hard as you think it is from now on. You've already set up necessary measures to help you cope with stupid typos and errors that may slip out of your fingers. So, here's to you becoming better at JavaScript 🍺.
+
+What did you think of this article? Did it help? I'd love to hear your comments below :)

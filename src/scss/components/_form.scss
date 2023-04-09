@@ -1,22 +1,29 @@
 // ======================================
 // # Form item styles and mods
 // ======================================
-.c-form > * + * {
+.Form > astro-slot > * {
   margin-top: vr(0.75);
 }
 
-.c-form__item {
-  & + & {
-    margin-top: vr(0.75);
+.FormItem {
+  label,
+  .label {
+    display: block;
   }
 
-  label {
-    display: block;
+  .label {
+    @include tp-condensed1;
+  }
+
+  * + * {
+    margin-top: vr(0.25);
   }
 }
 
-// TODO: Remove Eleventy shortcut.
-// Change to Nunjuckts macro instead.
+.FormItem + .FormItem {
+  margin-top: vr(0.75);
+}
+
 // Radio buttons
 .c-form__item--radios {
   label {
@@ -30,19 +37,8 @@
     margin-top: vr(0.25);
   }
 
-  [type="radio"] {
+  [type='radio'] {
     flex-shrink: 0;
-  }
-}
-
-// Questions
-.c-form__question {
-  display: block;
-  @include tp-condensed1;
-
-  ~ input,
-  ~ textarea {
-    margin-top: vr(0.25);
   }
 }
 

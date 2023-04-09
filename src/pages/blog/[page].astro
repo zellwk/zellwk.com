@@ -1,0 +1,57 @@
+---
+import Base from '/src/layouts/Base.astro'
+import { getCollection } from 'astro:content'
+import FormattedDate from '/src/components/FormattedDate.astro'
+import Markdown from '/src/components/Markdown.astro'
+import Pagination from '/src/components/Pagination.svelte'
+import { normalize } from '../../utils/content.js'
+
+export const prerender = true
+
+// TODO: Remove pubDate from blog content file name — because it doesn't make sense to have to manually update the file name when date changes.
+export async function getStaticPaths({ paginate }) {
+  const posts = await getCollection('blog')
+  const normalized = normalize(posts)
+  return paginate(normalized, { pageSize: 20 })
+}
+
+const { page } = Astro.props
+---
+
+<!-- TODO: Change Exceprts so they all have ... to encourage more reading --><!-- TODO: Add Read More button -->
+<Base>
+  <div class='l-wrap'>
+    <section class='generic-layout'>
+      <h1>Articles</h1>
+      {
+        page.data.map(post => {
+          const excerpt = post.body.split('{/* more */}')[0]
+          // TODO: Don't show drafts here
+          // TODO: Include Media and tags on posts
+          return (
+            <div class='o-words'>
+              <h2 style='font-size: 1.44rem'>
+                <a href={`/blog/${post.slug}/`}>
+                  <Markdown content={post.data.title} />
+                </a>
+              </h2>
+              <span style='display: inline-block; font-size: 0.83333rem; color: #666; margin-top: 1em;'>
+                <span>
+                  Published on: <FormattedDate date={post.data.pubDate} />
+                </span>
+                {post.data.updateDate && (
+                  <span>
+                    , Updated on: <FormattedDate date={post.data.updateDate} />
+                  </span>
+                )}
+              </span>
+              <Markdown>{excerpt}</Markdown>
+            </div>
+          )
+        })
+      }
+    </section>
+
+    <Pagination {page} />
+  </div>
+</Base>

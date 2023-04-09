@@ -1,0 +1,39 @@
+---
+import Base from '/src/layouts/Base.astro'
+import { getCollection } from 'astro:content'
+import { gatherTags } from '../../utils/content.js'
+import { toTitle } from '@zellwk/javascript/utils/convert-case.js'
+
+export const prerender = true
+
+const posts = await getCollection('blog')
+const tags = gatherTags(posts)
+---
+
+<Base>
+  <div class='l-wrap'>
+    <article class='o-words generic-layout'>
+      <h1>A list of tags for this blog</h1>
+
+      <p>
+        Feel free to browse around. You might find some gems inside the tags
+        you're interested in! 😉
+      </p>
+
+      <ol>
+        {
+          tags.map(tag => {
+            return (
+              <li>
+                <span>
+                  <a href={`tags/${tag.name}`}>{toTitle(tag.name)}</a>:
+                  {tag.items.length} articles
+                </span>
+              </li>
+            )
+          })
+        }
+      </ol>
+    </article>
+  </div>
+</Base>

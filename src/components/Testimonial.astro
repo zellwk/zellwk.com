@@ -1,0 +1,30 @@
+---
+// TODO: Probably need to rework this Testimonial component later to make it work for all testimonials — even those without images
+import Image from './Image.svelte'
+import { toTitle } from '@zellwk/javascript/utils/convert-case.js'
+import { getEntryBySlug } from 'astro:content'
+const { name } = Astro.props
+
+const entry = await getEntryBySlug('testimonial', name)
+const { slug, render, data } = entry
+const { Content } = await render()
+
+const normalizedName = toTitle(slug)
+---
+
+<blockquote>
+  <Content />
+  <cite>
+    <!-- TODO: Implement an automatic check to check whether the picture exists -->
+    <!-- TODO: Create fallback for PNG files and other formats too... -->
+    {
+      data.hasImage && (
+        <Image
+          src={`/images/quotes/${slug}.jpg`}
+          alt={'Picture of ' + normalizedName}
+        />
+      )
+    }
+    <span>{normalizedName}, {data.jobTitle}</span>
+  </cite>
+</blockquote>

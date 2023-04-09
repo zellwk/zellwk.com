@@ -1,0 +1,62 @@
+---
+title: How to use a linter
+slug: linter
+ckForm: better-fed
+tags: [video, javascript]
+youtubeHash: cUTWqapA0Ao
+pubDate: 2018-03-02
+---
+
+Today we're going to talk about linters.
+
+When you use a linter, you will see red squiggly underlines all over your code. If you're not used to using a linter yet, it's hard not to feel like you're doing something wrong!
+
+You don't have to feel that way.
+
+A linter is there to help you write better code. There are reasons for the red squiggly underlines. Once you know what brings these underlines out, you'll know what to ignore and what not to.
+
+{/* more */}
+
+To make things simple, you can divide the red squiggly underlines into three kinds of error messages:
+
+1. Unused variables
+2. Parsing errors
+3. Formatting errors
+
+If you use VS Code, you can hover over the error message to see what it's about. For example this red squiggly line says "'button' is assigned a value but never used. (no-unused-vars)".
+
+That's the first category of errors, unused variables.
+
+## No Unused variables
+
+This error is there to let you know that you've created a variable, but you haven't used it yet.
+
+You can ignore this error message most of the time when you're creating code because it's common to create variables you have not used yet.
+
+But you want to pay attention to this error when you touching up your code. This helps ensure that you don't have extra variables in your code that are left unused.
+
+## Parsing errors
+
+The second type of errors you see is parsing errors. These would usually say: `Parsing error: Unexpected token )`.
+
+When you spot parsing errors, you must correct them immediately because it means your code has an error that prevents JavaScript from executing.
+
+If you don't fix these errors, you'll get an error in your console anyway. Just fix them when you see them.
+
+## Formatting errors.
+
+The third type of errors are formatting errors. Formatting errors focuses things like spaces, empty lines and indentation.
+
+These errors can be corrected automatically if you have set up a formatter for your linter. I have already set mine up, so when I save a file that's filled with formatted errors, the errors go away automatically.
+
+If you want to see how I set mine up, you will want to watch Part two of the vs code setup series.
+
+## Wrapping up
+
+That's it!
+
+Linters aren't scary once you get used to the type of errors they product and how to handle them.
+
+I hope you learned something useful today. If you like this video, I hope hit the subscribe button below so I can send you more videos like this every Friday. Or better yet, I hope you subscribe to my blog at https://zellwk.com. If you do so, I'll send you one article and one video every week to help you become a better frontend developer.
+
+Thanks for watching. Have a good Friday and see you next week.

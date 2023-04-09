@@ -1,0 +1,26 @@
+---
+import Base from './Base.astro'
+import ConvertkitForm from '../components/ConvertkitForm.svelte'
+const props = Astro.props.content
+
+const { title, ckForm, showCkForm = true } = props
+const layoutClass = props.layoutClass || 'generic-layout'
+---
+
+<Base {...props}>
+  <div class='l-wrap'>
+    <article class={`o-words ${layoutClass}`}>
+      <h1>{title}</h1>
+
+      <slot />
+
+      {
+        showCkForm && (
+          <section class='o-content c-ck ck-layout'>
+            <ConvertkitForm name={ckForm} client:load />
+          </section>
+        )
+      }
+    </article>
+  </div>
+</Base>

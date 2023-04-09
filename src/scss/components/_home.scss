@@ -9,7 +9,7 @@
       rgba(#000, 0) 75%,
       rgba(#000, 0.25)
     ),
-    url("/images/home/hero-med.jpg");
+    url('/images/home/hero-med.jpg');
   background-repeat: no-repeat;
   background-position: 75% top;
   background-size: cover;
@@ -22,7 +22,7 @@
         rgba(#000, 0) 75%,
         rgba(#000, 0.25)
       ),
-      url("/images/home/hero.jpg");
+      url('/images/home/hero.jpg');
   }
 
   // Changing padding top
@@ -169,6 +169,7 @@
       left: 0;
       top: 0;
       max-width: var(--image-size);
+      height: auto;
       // border-radius: 2rem;
       border-radius: 0;
       border-width: 2px;

@@ -1,0 +1,37 @@
+{
+  "extends": [
+    "standard",
+    "plugin:svelte/recommended",
+    "plugin:astro/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "comma-dangle": ["error", "only-multiline"]
+  },
+
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "extends": ["standard", "plugin:astro/recommended", "prettier"],
+
+      "rules": {
+        "comma-dangle": ["error", "only-multiline"],
+        "import/no-absolute-path": "off"
+      }
+    },
+    {
+      "files": ["*.svelte"],
+      "extends": [
+        "standard",
+        "plugin:astro/recommended",
+        "plugin:svelte/recommended",
+        "prettier"
+      ],
+
+      "rules": {
+        "comma-dangle": ["error", "only-multiline"],
+        "prefer-const": "off"
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+---
+import '../scss/styles.scss'
+import Head from './Base/Head.astro'
+import Nav from '../components/Nav.svelte'
+import Footer from '../partials/Footer.mdx'
+const { bodyClass, showNav = true, ...props } = Astro.props
+---
+
+<html lang='en'>
+  <head>
+    <Head {...props} />
+  </head>
+
+  <body class={bodyClass}>
+    <div class='c-site-container'>
+      {
+        showNav && (
+          <header>
+            <Nav client:load />
+          </header>
+        )
+      }
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

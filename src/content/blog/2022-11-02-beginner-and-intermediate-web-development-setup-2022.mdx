@@ -1,0 +1,154 @@
+---
+
+title: Setting up Visual Studio Code for Web Development — For Beginners and Intermediate Developers
+description: Here's how to set up a perfect web development environment for writing JavaScript with Prettier, Standard, and ESLint.
+slug: beginner-and-intermediate-web-development-setup-2022
+tags: [vscode, web development, javascript, tools]
+pubDate: 2022-11-02
+---
+
+
+The coding environment is one of the most important things for a developer.
+
+If you set up your coding environment with the right Linters and Formatters, coding will be very simple. If you don't, coding will be a nightmare. Why? Because linters and formatters help you catch many errors and speed up the development process (and also, _remove a lot of headache you will face from your constant typos_)!
+
+Now you know the importance of the environment, the next step is to configure this environment such that it works for you. This is a difficult task because there are so many options available today.
+
+The good news is: You don't have to do any of that difficult work because I've narrowed down the best configuration possible (in my opinion) for you.
+
+I'm going to tell you what the configuration is and how to set it up.
+
+{/* more */}
+
+## The gist
+
+We're going to use Prettier, Standard, and ESLint.
+
+- **We use Prettier because Prettier is the de-factor code formatter** in the industry. Many language formatters build on top of prettier.
+- **We use Standard because Standard has great JavaScript syntax suggestions** — it contains only the essentials (and without any frills).
+- **We use ESLint because Standard uses it under the hood** — and it's worth a mention because _we have to use it_ for advanced development setup (which I will cover in a future article).
+
+Today, we're going to talk about a basic setup — one which is super useful for a beginner or intermediate web developers.
+
+When I say beginner or intermediate, I'm assuming you will only use HTML, CSS, and JavaScript in your web development process. You're not using frameworks like Astro, React, Vue, Svelte, MDX, etc. when you code.
+
+## Setting Up Visual Studio Code With Prettier
+
+You will need two VSCode extensions so go ahead and download them:
+
+1. [Prettier Standard](https://marketplace.visualstudio.com/items?itemName=numso.prettier-standard-vscode)
+2. [Standard](https://marketplace.visualstudio.com/items?itemName=standard.vscode-standard)
+
+### Using Prettier Standard
+
+Prettier Standard lets you format your code according to both Prettier and Standard. It's super easy to use.
+
+After you install the extension, you need to set 3 options:
+
+- Set the `defaultFormatter` to this extension.
+- Remove the VS Code's default javascript formatter so it doesn't interfere with Prettier Standard
+- Set `formatOnSave` to `true` so VS Code formats your file when you save it.
+
+```json
+"editor.defaultFormatter": "numso.prettier-standard-vscode",
+"javascript.format.enable": false,
+"editor.formatOnSave": true,
+```
+
+When you save your code, the code should now format automatically.
+
+<Video gifReplacement src="/images/2022/vscode-beginner/format.mp4" />
+
+### Linting with Standard
+
+Linting code with Standard means you allow Standard to notify you of possible code errors — very much like how you see red squiggly underlines when you misspell a word on your computer. This saves you a lot of time when debugging.
+
+<Image src="/images/2022/vscode-beginner/lint.png" alt="Red Squiggly lines under code that denote errors" loading="lazy" />
+
+Now, Standard doesn't lint your code automatically. If you want Standard to lint your, you need to add Standard to your project with `npm`. You can do this easily by installing the `standard` package.
+
+```shell
+npm install standard --save-dev
+```
+
+<Callout>
+The above assumes you have a `package.json` file in your project already. If you don't have it yet, simply type `npm init` and npm will create one for you.
+
+If you don't know what npm is, npm is a package manager that comes with Node. You can get it by installing Node. Here's [the best way to install and keep Node up to date](/blog/install-node/).
+</Callout>
+
+## Bonus: Linting both HTML and JavaScript Files
+
+The above setup assumes you only need to lint JavaScript files — which is the common scenario for most beginner and intermediate developers... but there are occasions where you are forced to write JavaScript in HTML, like this:
+
+```html
+<body>
+  <script>
+    function sayHello(name) {
+      console.log(`Hello ${name}!`)
+    }
+  </script>
+</body>
+```
+
+If you need to work with JavaScript in HTML, you cannot lint with Standard. You need to lint with ESLint.
+
+So install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) before you continue.
+
+### Linting JavaScript Files with ESLint
+
+Like Standard, ESLint doesn't work automatically so you need to:
+
+1. Install ESLint configs and plugins you want to use.
+2. Include a `.eslintrc` file in your project.
+3. Include the plugins in the `.eslintrc` file.
+
+Since we are using Standard, we can install and use the `eslint-config-standard` config.
+
+```bash
+npm install eslint-config-standard --save-dev
+```
+
+Then we create an `.eslintrc` file and the package we just installed as part of our configuration.
+
+```json
+// .eslintrc
+{
+  "extends": ["standard"]
+}
+```
+
+You should see squiggly red undelines in your JavaScript files at this point.
+
+<Image src="/images/2022/vscode-beginner/lint.png" alt="Red Squiggly lines under code that denote errors" loading="lazy" />
+
+<Callout>
+You cannot use a global `.eslintrc` file to make the linter work across all your projects. I tried 😢. It doesn't work, because ESLint stopped allowing plugins in global config files since version 6. At the time of writing, ESLint is at version 8.
+</Callout>
+
+### Linting JavaScript in HTML Files with ESLint
+
+If you want to lint JavaScript in HTML files, you can add the `eslint-plugin-html` plugin to your project. This enables the linting of JavaScript in the HTML file.
+
+Here's how you install the plugin:
+
+```shell
+npm install eslint-plugin-html --save-dev
+```
+
+And how you include the plugin in your `.eslintrc` file.
+
+```json
+{
+  "extends": ["standard"],
+  "plugins": ["html"]
+}
+```
+
+<Image src="/images/2022/vscode-beginner/lint-html.png" alt="Red Squiggly lines in a script tag" loading="lazy" />
+
+## That's it!
+
+This simple setup will save you _hundreds and maybe even thousands of hours_ as you write code. And this article should have also saved you _hours (from googling, trying to set up something nice)_.
+
+I'll share more about the advanced setup with Frameworks like Astro, React, Vue, Svelte, MDX, etc. in a future article.

@@ -1,0 +1,1203 @@
+---
+title: Introduction to commonly used ES6 features
+slug: es6
+tags: [javascript, best]
+ckForm: jsr
+pubDate: 2017-05-10
+---
+
+
+JavaScript has progressed a ton in the recent years. If you're learning JavaScript in 2017 and you haven't touched ES6, you're missing out on an easier way to read and write JavaScript.
+
+Don't worry if you're not a master at JavaScript yet. You don't need to be awesome at JavaScript to take advantage of the added bonuses ES6 gives you. In this article, I want to share with you eight ES6 features I use daily as a developer to help you ease into the new syntax.
+
+{/* more */}
+
+## A list of ES6 features
+
+First off, ES6 is a huge update to JavaScript. Here's a [big list of features](https://github.com/lukehoban/es6features) if you're curious about what's new, thanks to [Luke Hoban](https://twitter.com/lukehoban?lang=en):
+
+- Arrows
+- Classes
+- Enhanced object literals
+- Template strings
+- Destructuring
+- Default + rest + spread
+- Let + const
+- Iterators + for..of
+- Generators
+- Unicode
+- Modules
+- Module loaders
+- Map + set + weakmap + weakset
+- Proxies
+- Symbols
+- Subclassable built-ins
+- Promises
+- Math + number + string + array + object apis
+- Binary and octal literals
+- Reflect api
+- Tail calls
+
+Don't let this big list of features scare you away from ES6. You don't need to know everything right away. I'm going to share with you eight of these features that I use on a daily basis. They are:
+
+1. [Let and const](#let-and-const)
+2. [Arrow functions](#arrow-functions)
+3. [Default parameters](#default-parameters)
+4. [Destructuring](#destructuring)
+5. [Rest parameter and spread operator](#the-rest-parameter-and-spread-operator)
+6. [Enhanced object literals](#enhanced-object-literals)
+7. [Template literals](#template-literals)
+8. [Promises](/blog/js-promises)
+
+We'll go through the eight features in the follow sections. For now, I'll go through the first five features. I'll add the rest as I go along in the next couple of weeks.
+
+By the way, browser support for ES6 is amazing. [Almost everything is supported natively](https://kangax.github.io/compat-table/es6/) if you code for the latest browsers (Edge, and latest versions of FF, Chrome and Safari).
+
+You don't need fancy tooling like Webpack if you wanted to write ES6. If browser support is lacking in your case, you can always fall back on polyfills created by the community. Just google them :)
+
+With that, let's jump into the first feature.
+
+## Let and const
+
+In ES5 (the old JavaScript), we're used to declaring variables with the `var` keyword. In ES6, this `var` keyword can be replaced by `let` and `const`, two powerful keywords that make developing simpler.
+
+Let's first look at the difference between `let` and `var` to understand why `let` and `const` are better.
+
+### Let vs var
+
+Let's talk about `var` first since we're familiar with it.
+
+First of all, we can declare variables with the `var` keyword. Once declared, this variable can be used anywhere in the current scope.
+
+```js
+var me = 'Zell'
+console.log(me) // Zell
+```
+
+In the example above, I've declared `me` as a global variable. This global `me` variable can also be used in a function, like this:
+
+```js
+var me = 'Zell'
+function sayMe () {
+  console.log(me)
+}
+
+sayMe() // Zell
+```
+
+However, the reverse is not true. If I declare a variable in a function, I cannot use it outside the function.
+
+```js
+function sayMe() {
+  var me = 'Zell'
+  console.log(me)
+}
+
+sayMe() // Zell
+console.log(me) // Uncaught ReferenceError: me is not defined
+```
+
+So, we can say that `var` is **function-scoped**. This means whenever a variable is created with `var` in a function, **it will only exist within the function**.
+
+If the variable is created outside of the function, it'll exist in the outer scope.
+
+```js
+var me = 'Zell' // global scope
+
+function sayMe () {
+  var me = 'Sleepy head' // local scope
+  console.log(me)
+}
+
+sayMe() // Sleepy head
+console.log(me) // Zell
+```
+
+`let`, on the other hand, is **block-scoped**. This means whenever a variable is created with `let`, it will only exist within its block.
+
+But wait, what's a block?
+
+A block in JavaScript is anything within a pair of curly braces. The following are examples of blocks.
+
+```js
+{
+  // new scope block
+}
+
+if (true) {
+  // new scope block
+}
+
+while (true) {
+  // new scope block
+}
+
+function () {
+  // new block scope
+}
+```
+
+The difference between block-scope and function-scoped variables are huge. When you use a function-scoped variable, you may accidentally overwrite a variable without intending to do so. Here's an example:
+
+```js
+var me = 'Zell'
+
+if (true) {
+  var me = 'Sleepy head'
+}
+
+console.log(me) // 'Sleepy head'
+```
+
+In this example, you can see that `me` becomes `Sleepy head` after running through the `if` block. This example will likely not cause any problems for you since you probably won't be declaring variables with the same name.
+
+But anyone who works with `var` in a `for` loop situation may run into some weirdness because of the way variables are scoped. Consider the following code that logs the variable `i` four times, then logs `i` again with a `setTimeout` function.
+
+```js
+for (var i = 1; i < 5; i++) {
+  console.log(i)
+  setTimeout(function () {
+    console.log(i)
+  }, 1000)
+};
+```
+
+What would you expect this code to do? Here's what actually happens
+
+<Image src="/images/2017/es6/loop-wrong.png" alt="i was logged as 5 four times in the timeout function" caption="i was logged as 5 four times in the timeout function" />
+
+How the heck did `i` become `5` for four times inside the timeout function? Well, turns out, because `var` is function-scoped, the value of `i` became `4` even before the timeout function runs.
+
+To get the correct `i` value within `setTimeout`, which executes later, we need to create another function, say `logLater`, to ensure the `i` value doesn't get changed by the `for` loop before `setTimeout` executes:
+
+```js
+function logLater (i) {
+  setTimeout(function () {
+    console.log(i)
+  })
+}
+
+for (var i = 1; i < 5; i++) {
+  console.log(i)
+  logLater(i)
+};
+```
+
+<Image src="/images/2017/es6/loop-right.png" alt="i was correctly logged as 1, 2 3 and 4" caption="i was correctly logged as 1, 2 3 and 4" />
+
+(By the way, this is called a closure).
+
+The good news is, function-scoped weirdness like the for loop example I've just shown you doesn't happen with `let`. The same timeout example we've written earlier could be written as this, and it'll work right out of the box without writing additional functions:
+
+```js
+for (let i = 1; i < 5; i++) {
+  console.log(i)
+  setTimeout(function () {
+    console.log(i)
+  }, 1000)
+};
+```
+
+<Image src="/images/2017/es6/loop-right.png" alt="i was correctly logged as 1, 2 3 and 4" caption="i was correctly logged as 1, 2 3 and 4" />
+
+As you can see, **block-scoped** variables make development much simpler by removing common gotchas with **function-scoped** variables. To make life simple, I recommend you use `let` over `var` whenever you declare JavaScript variables from now on. (ES6 is the new JavaScript already 😎).
+
+Now we know what `let` does, let's move on to the difference between `let` and `const`.
+
+### Let vs const
+
+Like `let`, `const` is also **blocked-scoped**. The difference is that `const` cannot be reassigned once declared.
+
+```js
+const name = 'Zell'
+name = 'Sleepy head' // TypeError: Assignment to constant variable.
+
+let name1 = 'Zell'
+name1 = 'Sleepy head'
+console.log(name1) // 'Sleepy head'
+```
+
+Since `const` cannot be reassigned, they're **good for variables would not change**.
+
+Let's say I have a button that launches a modal on my website. I know that there's only going to be one button, and it wouldn't change. In this case, I can use `const`.
+
+```js
+const modalLauncher = document.querySelector('.jsModalLauncher')
+```
+
+When declaring variables, I always **prefer** `const` **over** `let` whenever possible because I receive the extra cue that the variable would not get reassigned. Then, I use `let` for **all other situations**.
+
+Next, let's move on and talk about arrow functions.
+
+## Arrow Functions
+
+Arrow functions are denoted by the fat arrow (`=>`) you see everywhere in ES6 code. It's a shorthand to make anonymous functions. They can be used anywhere the `function` keyword is used. For example:
+
+```js
+let array = [1,7,98,5,4,2]
+
+// ES5 way
+var moreThan20 = array.filter(function (num) {
+  return num > 20
+})
+
+// ES6 way
+let moreThan20 = array.filter(num => num > 20)
+```
+
+Arrow functions are pretty cool. They help make code shorter, which gives fewer room for errors to hide. They also help you write code that's easier to understand once you get used to the syntax.
+
+Let's dive into the nitty-gritty of arrow functions so you learn to recognize and use them.
+
+### The nitty-gritty of arrow functions
+
+First off, let's talk about creating functions. In JavaScript, you're probably used to creating functions this way:
+
+```js
+function namedFunction() {
+  // Do something
+}
+
+// using the function
+namedFunction()
+```
+
+There's a second method to create functions. You can create an anonymous function and assign it to a variable. To create an anonymous function, we leave its name out of the function declaration.
+
+```js
+var namedFunction = function() {
+  // Do something
+}
+```
+
+A third way to create functions is to create them directly as an argument to another function or method. This third use case is the most common one for anonymous functions. Here's an example:
+
+```js
+// Using an anonymous function in a callback
+button.addEventListener('click', function() {
+  // Do something
+})
+```
+
+Since ES6 arrow functions are shorthand for anonymous functions, you can substitute arrow functions anywhere you create an anonymous function.
+
+Here's what it looks like:
+
+```js
+// Normal Function
+const namedFunction = function (arg1, arg2) { /* do your stuff */}
+
+// Arrow Function
+const namedFunction2 = (arg1, arg2) => {/* do your stuff */}
+
+// Normal function in a callback
+button.addEventListener('click', function () {
+  // Do something
+})
+
+// Arrow function in a callback
+button.addEventListener('click', () => {
+  // Do something
+})
+```
+
+See the similarity here? Basically, you remove the `function` keyword and replace it with `=>` at a slightly different location.
+
+But what's the big deal with arrow functions? Aren't we just substituting `function` with `=>`?
+
+Well, it turns out that we're not just substituting `function` with `=>`. An arrow function's syntax can change depending on two factors:
+
+1. The **number of arguments** required
+2. Whether you'd like an **implicit return**.
+
+The **first factor** is the **number of arguments** supplied to the arrow function. If you only supply one argument, you can remove the parenthesis that surrounds the arguments. If no arguments are required, you can substitute the parenthesis (`()`) for an underscore (`_`).
+
+All of the following are valid arrow functions.
+
+```js
+const zeroArgs = () => {/* do something */}
+const zeroWithUnderscore = _ => {/* do something */}
+const oneArg = arg1 => {/* do something */}
+const oneArgWithParenthesis = (arg1) => {/* do something */}
+const manyArgs = (arg1, arg2) => {/* do something */}
+```
+
+The **second factor** for arrow functions is whether you'd like an **implicit return**. Arrow functions, by default, automatically create a `return` keyword if the **code only takes up one line**, and is **not enclosed in a block**.
+
+So, these two are equivalent:
+
+```js
+const sum1 = (num1, num2) => num1 + num2
+const sum2 = (num1, num2) => { return num1 + num2 }
+```
+
+These two factors are the reason why you can write shorter code like the `moreThan20` you've seen above:
+
+```js
+let array = [1,7,98,5,4,2]
+
+// ES5 way
+var moreThan20 = array.filter(function (num) {
+  return num > 20
+})
+
+// ES6 way
+let moreThan20 = array.filter(num => num > 20)
+```
+
+In summary, arrow functions are pretty cool. They take a bit of time to get used to, so give it a try and you'll be using it everywhere pretty soon.
+
+But before you jump onto the arrow functions FTW bandwagon, I want to let you know about another nitty-gritty feature of the ES6 arrow function that cause a lot of confusion – **the lexical** `this`.
+
+### The lexical this
+
+`this` is a unique keyword whose value changes depending on how it is called. When it's called **outside of any function**, `this` defaults to the `Window` object in the browser.
+
+```js
+console.log(this) // Window
+```
+
+<Image src="/images/2017/es6/window.png" alt="This defaults to window object in browsers" caption="This defaults to window object in browsers" />
+
+When `this` is called in a **simple function call**, `this` is set to the global object. In the case of browsers, `this` will always be `Window`.
+
+```js
+function hello () {
+  console.log(this)
+}
+
+hello() // Window
+```
+
+JavaScript always sets `this` to the window object within a simple function call. This explains why the `this` value within functions like `setTimeout` is always `Window`.
+
+When `this` is called in an **object method**, `this` would be the object itself:
+
+```js
+let o = {
+  sayThis: function() {
+    console.log(this)
+  }
+}
+
+o.sayThis() // o
+```
+
+<Image src="/images/2017/es6/object.png" alt="This refers to the object when the function is called in an object method." caption="This refers to the object when the function is called in an object method." />
+
+When the function is called as a **constructor**, `this` refers to the **newly constructed object**.
+
+```js
+function Person (age) {
+  this.age = age
+}
+
+let greg = new Person(22)
+let thomas = new Person(24)
+
+console.log(greg) // this.age = 22
+console.log(thomas) // this.age = 24
+```
+
+<Image src="/images/2017/es6/constructor.png" alt="This refers to the constructed object called with the new keyword or Object.create()." caption="This refers to the constructed object called with the new keyword or Object.create()." />
+
+When used in an event listener, `this` is set to the element that fired the event.
+
+```js
+let button = document.querySelector('button')
+
+button.addEventListener('click', function() {
+  console.log(this) // button
+})
+```
+
+As you can see in the above situations, the value of `this` is set by the function that calls it. Every function defines it's own `this` value.
+
+In **fat arrow functions**, `this` **never gets bound to a new value**, no matter how the function is called. `this` will always be the same `this` value as its surrounding code. (By the way, lexical means relating to, which I guess, is how the lexical `this` got its name).
+
+Okay, that sounds confusing, so let's go through a few real examples.
+
+First, you **never want to use arrow functions to declare object methods**, because you can't reference the object with `this` anymore.
+
+```js
+let o = {
+  // Don't do this
+  notThis: () => {
+    console.log(this) // Window
+    this.objectThis() // Uncaught TypeError: this.objectThis is not a function
+  },
+  // Do this
+  objectThis: function () {
+    console.log(this) // o
+  }
+  // Or this, which is a new shorthand
+  objectThis2 () {
+    console.log(this) // o
+  }
+}
+```
+
+Second, you *may not* want to use arrow functions to create event listeners because `this` no longer binds to the element you attached your event listener to.
+
+However, you can always get the right `this` context with `event.currentTarget`. Which is why I said *may not*.
+
+```js
+button.addEventListener('click', function () {
+  console.log(this) // button
+})
+
+button.addEventListener('click', e => {
+  console.log(this) // Window
+  console.log(event.currentTarget) // button
+})
+```
+
+Third, you **may want** to use the lexical `this` in places where the `this` **binding changes without you wanting it to**. An example is the timeout function, so you never have to deal with the `this`, `that` or `self` nonsense.
+
+```js
+let o = {
+  // Old way
+  oldDoSthAfterThree: function () {
+    let that = this
+    setTimeout(function () {
+      console.log(this) // Window
+      console.log(that) // o
+    })
+  },
+  // Arrow function way
+  doSthAfterThree: function () {
+    setTimeout(() => {
+      console.log(this) // o
+    }, 3000)
+  }
+}
+```
+
+This use case is particularly helpful if you needed to add or remove a class after some time has elapsed:
+
+```js
+let o = {
+  button: document.querySelector('button')
+  endAnimation: function () {
+    this.button.classList.add('is-closing')
+    setTimeout(() => {
+      this.button.classList.remove('is-closing')
+      this.button.classList.remove('is-open')
+    }, 3000)
+  }
+}
+```
+
+Finally, feel free to use the fat arrow function anywhere else to help make your code neater and shorter, like the `moreThan20` example we had above:
+
+```js
+let array = [1,7,98,5,4,2]
+let moreThan20 = array.filter(num => num > 20)
+```
+
+Let's move on.
+
+## Default Parameters
+
+Default parameters in ES6... well, gives us a way to specify default parameters when we define functions. Let's go through an example and you'll see how helpful it is.
+
+Let's say we're creating a function that announces the name of a player from a team. If you write this function in ES5, it'll be similar to the following:
+
+```js
+function announcePlayer (firstName, lastName, teamName) {
+  console.log(firstName + ' ' + lastName + ', ' + teamName)
+}
+
+announcePlayer('Stephen', 'Curry', 'Golden State Warriors')
+// Stephen Curry, Golden State Warriors
+```
+
+At first glance, this code looks ok. But what if we had to announce a player that's unaffiliated with any team?
+
+The current code fails embarrassingly if we left `teamName` out:
+
+```js
+announcePlayer('Zell', 'Liew')
+// Zell Liew, undefined
+```
+
+I'm pretty sure undefined isn't a team 😉.
+
+If the player is unaffiliated, announcing `Zell Liew, unaffiliated` would make more sense that `Zell Liew, undefined`. Don't you agree?
+
+To get `announcePlayer` to announce `Zell Liew, unaffiliated`, we one way is to pass the `unaffiliated` string as the `teamName`:
+
+```js
+announcePlayer('Zell', 'Liew', 'unaffiliated')
+// Zell Liew, unaffiliated
+```
+
+Although this works, we can do better by refactoring `unaffiliated` into `announcePlayer` by checking if `teamName` is defined.
+
+In the ES5 version, you can refactor the code to something like this:
+
+```js
+function announcePlayer (firstName, lastName, teamName) {
+  if (!teamName) {
+    teamName = 'unaffiliated'
+  }
+  console.log(firstName + ' ' + lastName + ', ' + teamName)
+}
+
+announcePlayer('Zell', 'Liew')
+// Zell Liew, unaffiliated
+
+announcePlayer('Stephen', 'Curry', 'Golden State Warriors')
+// Stephen Curry, Golden State Warriors
+```
+
+Or, if you're savvier with ternary operators, you could have chosen a terser version:
+
+```js
+function announcePlayer (firstName, lastName, teamName) {
+  var team = teamName ? teamName : 'unaffiliated'
+  console.log(firstName + ' ' + lastName + ', ' + team)
+}
+```
+
+In ES6, with default parameters, we can add an equal sign (`=`) whenever we define a parameter. If we do so, ES6 automatically defaults to that value when the parameter is undefined.
+
+So, in this code below, when `teamName` is undefined, it defaults to `unaffiliated`:
+
+```js
+const announcePlayer = (firstName, lastName, teamName = 'unaffiliated') => {
+  console.log(firstName + ' ' + lastName + ', ' + teamName)
+}
+
+announcePlayer('Zell', 'Liew')
+// Zell Liew, unaffiliated
+
+announcePlayer('Stephen', 'Curry', 'Golden State Warriors')
+// Stephen Curry, Golden State Warriors
+```
+
+Pretty cool, isn't it? :)
+
+One more thing. If you want to invoke the default value, you can pass in `undefined` manually. This manual passing in of `undefined` helps when your default parameter isn't the last argument of a function.
+
+```js
+announcePlayer('Zell', 'Liew', undefined)
+// Zell Liew, unaffiliated
+```
+
+That's all you need to know about default parameters. It's simple and very useful :)
+
+## Destructuring
+
+Destructuring is a **convenient way to get values out of arrays and objects**. There are minor differences between destructuring array and objects, so let's talk about them separately.
+
+### Destructuring objects
+
+Let's say you have the following object:
+
+```js
+const Zell = {
+  firstName: 'Zell',
+  lastName: 'Liew'
+}
+```
+
+To get the `firstName` and `lastName` from `Zell`, you had to create two variables, then assign each variable to a value, like this:
+
+```js
+let firstName = Zell.firstName // Zell
+let lastName = Zell.lastName // Liew
+```
+
+With destructuring, you can create and assign these variables with a single line of code. Here's how you destructure objects:
+
+```js
+let { firstName, lastName } = Zell
+
+console.log(firstName) // Zell
+console.log(lastName) // Liew
+```
+
+See what happened here? By adding **curly brackets** (`{}`) while declaring variables, we're telling JavaScript to create the aforementioned variables, then assign `Zell.firstName` to `firstName` and `Zell.lastName` to `lastName` respectively.
+
+This is what's going under the hood:
+
+```js
+// What you write
+let { firstName, lastName } = Zell
+
+// ES6 does this automatically
+let firstName = Zell.firstName
+let lastName = Zell.lastName
+```
+
+Now, if a variable name is already used, we cannot declare the variable again (especially if you use `let` or `const`).
+
+The following fails to work:
+
+```js
+let name = 'Zell Liew'
+let course = {
+  name: 'JS Fundamentals for Frontend Developers'
+  // ... other properties
+}
+
+let { name } = course // Uncaught SyntaxError: Identifier 'name' has already been declared
+```
+
+If you run into situations like the above, you can **rename variables while destructuring with a colon** (`:`).
+
+In this example below, I'm creating a `courseName` variable and assigning `course.name` to it.
+
+```js
+let { name: courseName } = course
+
+console.log(courseName) // JS Fundamentals for Frontend Developers
+
+// What ES6 does under the hood:
+let courseName = course.name
+```
+
+One more thing.
+
+Don't worry if you try to destructure a variable that's not contained within an object. It will just return `undefined`.
+
+```js
+let course = {
+  name: 'JS Fundamentals for Frontend Developers'
+}
+
+let { package } = course
+
+console.log(package) // undefined
+```
+
+But wait, that's not all. Remember [default parameters](#default-parameters)?
+
+You can write default parameters for your destructured variables as well. The syntax is the same as that when you define functions.
+
+```js
+let course = {
+  name: 'JS Fundamentals for Frontend Developers'
+}
+
+let { package = 'full course' } = course
+
+console.log(package) // full course
+```
+
+You can even rename variables while providing defaults. Just combine the two. It'll look a little funny at the beginning, but you'll get used to it if you use it often:
+
+```js
+let course = {
+  name: 'JS Fundamentals for Frontend Developers'
+}
+
+let { package: packageName = 'full course' } = course
+
+console.log(packageName) // full course
+```
+
+That's it for destructuring objects. Let's move on and talk about destructuring arrays 😄.
+
+### Destructuring arrays
+
+Destructuring arrays and destructuring objects are similar. We use **square brackets** (`[]`) instead of curly brackets (`{}`).
+
+When you destructure an array,
+
+- Your *first variable* is the *first item* in the array.
+- Your *second variable* is the *second item* in the array.
+- and so on...
+
+```js
+let [one, two] = [1, 2, 3, 4, 5]
+console.log(one) // 1
+console.log(two) // 2
+```
+
+It is possible to destructure so many variables that you exceed the number of items in the given array. When this happens, the extra destructured variable will just be `undefined`.
+
+```js
+let [one, two, three] = [1, 2]
+console.log(one) // 1
+console.log(two) // 2
+console.log(three) // undefined
+```
+
+When destructuring arrays, we often destructure only the variables we need. If you need the rest of the array, you can use the rest operator (`...`), like this:
+
+```js
+let scores = ['98', '95', '93', '90', '87', '85']
+let [first, second, third, ...rest] = scores
+
+console.log(first) // 98
+console.log(second) // 95
+console.log(third) // 93
+console.log(rest) // [90, 87, 85]
+```
+
+We'll talk more about [rest operators in the following section](#rest-and-spread-operators). But for now, let's talk about a unique ability you get with destructured arrays – swapping variables.
+
+### Swapping variables with destructured arrays
+
+Let's say you have two variables, `a` and `b`.
+
+```js
+let a = 2
+let b = 3
+```
+
+You wanted to swap these variables. So `a = 3`  and `b = 2`. In ES5, you need to use a temporary third variable to complete the swap:
+
+```js
+let a = 2
+let b = 3
+let temp
+
+// swapping
+temp = a // temp is now 2
+a = b // a is now 3
+b = temp // b is now 2
+```
+
+Although this works, the logic can be fuzzy and confusing, especially with the introduction of a third variable.
+
+Now watch how you'll do it the ES6 way with destructured arrays:
+
+```js
+let a = 2
+let b = 3; // semicolon required because next line begins with a square bracket
+
+// Swapping with destructured arrays
+[a, b] = [b, a]
+
+console.log(a) // 3
+console.log(b) // 2
+```
+
+💥💥💥. So much simpler compared to the previous method of swapping variables! :)
+
+Next, let's talk about destructuring arrays and objects in a function.
+
+### Destructuring arrays and objects while declaring functions
+
+The coolest thing about destructuring is that you can use them anywhere. Literally. You can even destructure objects and arrays in functions.
+
+Let's say we have a function that takes in an array of scores and returns an object with the top three scores. This function is similar to what we've done while destructuring arrays.
+
+```js
+// Note: You don't need arrow functions to use any other ES6 features
+function topThree (scores) {
+  let [first, second, third] = scores
+  return {
+    first: first,
+    second: second,
+    third: third
+  }
+}
+```
+
+An alternate way to write this function is to destructure `scores` while declaring the function. In this case, there's one less line of code to write. At the same time, we know we're taking in an array.
+
+```js
+function topThree ([first, second, third]) {
+  return {
+    first: first,
+    second: second,
+    third: third
+  }
+}
+```
+
+Super cool, isn't it? 😄.
+
+**Now, here's a quick little quiz for you**. Since we can combine default parameters and destructuring while declaring functions, what does the following say?
+
+```js
+function sayMyName ({
+  firstName = 'Zell',
+  lastName = 'Liew'
+} = {}) {
+ console.log(firstName + ' ' + lastName)
+}
+```
+
+This is a tricky one. We're combining a few features together.
+
+**First**, we can see that this function takes in *one argument*, an object. This object is *optional* and *defaults to* `{}` when undefined.
+
+**Second**, we attempt to destructure `firstName` and `lastName` variables from the given object. If these properties are found, use them.
+
+**Finally**, if `firstName` or `lastName` is undefined in the given object, we set it to `Zell` and `Liew` respectively.
+
+So, this function produces the following results:
+
+```js
+sayMyName() // Zell Liew
+sayMyName({firstName: 'Zell'}) // Zell Liew
+sayMyName({firstName: 'Vincy', lastName: 'Zhang'}) // Vincy Zhang
+```
+
+Pretty cool to combine destructuring and default parameters in a function declaration eh? 😄. I love this.
+
+Next, let's take a look at rest and spread.
+
+## The rest parameter and spread operator
+
+The rest parameter and spread operator look the same. They're both signified with three dots (`...`).
+
+What they do is different depending on what they're used for. That's why they're named differently. So, let's take a look at the rest parameter and spread operator separately.
+
+### The rest parameter
+
+Loosely translated, the **rest parameter** means **take the rest of the stuff and pack it into an array**. It *converts a comma separated list of arguments into an array*.
+
+Let's take a look at the rest parameter in action. Imagine we have a function, `add`, that sums up its arguments:
+
+```js
+sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) // 55
+```
+
+In ES5, we depended on the `arguments` variable whenever we had to deal with a function that takes in an unknown number of variables. This `arguments` variable is an array-like `Symbol`.
+
+```js
+function sum () {
+  console.log(arguments)
+}
+
+sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+```
+
+<Image src="/images/2017/es6/arguments.png" alt="Arguments is a Symbol, not an array" caption="Arguments is a Symbol, not an array" />
+
+One way to calculate this sum of arguments is to convert it into an Array with `Array.prototype.slice.call(arguments)`, then, loop through each number with an array method like `forEach` or `reduce`.
+
+I'm sure you can do `forEach` on your own, so here's the `reduce` example:
+
+```js
+// ES5 way
+function sum () {
+  let argsArray = Array.prototype.slice.call(arguments)
+  return argsArray.reduce(function(sum, current) {
+    return sum + current
+  }, 0)
+}
+```
+
+With the ES6 rest parameter, we could **pack all comma separated arguments straight into an array**.
+
+```js
+// ES6 way
+const sum = (...args) => args.reduce((sum, current) => sum + current, 0)
+
+// ES6 way if we didn't shortcut it with so many arrow functions
+function sum (...args) {
+  return args.reduce((sum, current) => sum + current, 0)
+}
+```
+
+Much cleaner? 🙂.
+
+Now, we briefly encountered the rest parameter earlier in the [destructuring](#destructuring) section. There, we tried to destructure an array of scores into the top three scores:
+
+```js
+let scores = ['98', '95', '93', '90', '87', '85']
+let [first, second, third] = scores
+
+console.log(first) // 98
+console.log(second) // 95
+console.log(third) // 93
+```
+
+If we wanted the rest of the scores, we could do so by **packing the rest of the scores into an array** with the rest parameter.
+
+```js
+let scores = ['98', '95', '93', '90', '87', '85']
+let [first, second, third, ...restOfScores] = scores
+
+console.log(restOfScores) // [90, 87, 85]
+```
+
+If you're ever confused, just remember this — the **rest parameter packs everything into an array**. It appears in function parameters and while destructuring arrays.
+
+Next, let's move on to spread.
+
+### The spread operator
+
+The spread operator behaves in the opposite way compared to the rest parameter. Loosely put, it **takes an array and spreads it** (like jam) **into a comma separated list of arguments**.
+
+```js
+let array = ['one', 'two', 'three']
+
+// These two are exactly the same
+console.log(...array) // one two three
+console.log('one', 'two', 'three') // one two three
+```
+
+The spread operator is often used to help concatenate arrays in a way that's easier to read and understand.
+
+Say for example, you wanted to concatenate the following arrays:
+
+```js
+let array1 = ['one', 'two']
+let array2 = ['three', 'four']
+let array3 = ['five', 'six']
+```
+
+The ES5 way of concatenating these two arrays is to use the `Array.concat` method. You can chain multiple `Array.concat` to concatenate any number of arrays, like this:
+
+```js
+// ES5 way
+let combinedArray = array1.concat(array2).concat(array3)
+console.log(combinedArray) // ['one', 'two', 'three', 'four', 'five', 'six']
+```
+
+With ES6 spread operator, you could spread the arrays into a new array, like this, which is slightly easier to read once you get used to it:
+
+```js
+// ES6 way
+let combinedArray = [...array1, ...array2, ...array3]
+console.log(combinedArray) // ['one', 'two', 'three', 'four', 'five', 'six']
+```
+
+The spread operator can also be used to remove an item from an array without mutating the array. This method is commonly used in Redux. I highly recommend you watch [this video by Dan Abramov](https://egghead.io/lessons/javascript-redux-avoiding-array-mutations-with-concat-slice-and-spread) if you're interested in seeing how it works out.
+
+That's it for spread :)
+
+## Enhanced object literals
+
+Objects should be a familiar thing to you since you're writing JavaScript. Just in case you don't know about them, they look something like this:
+
+```js
+const anObject = {
+  property1: 'value1',
+  property2: 'value2',
+  property3: 'value3',
+}
+```
+
+ES6 enhanced object literals brings three sweet upgrades to the objects you know and love. They are:
+
+1. Property value shorthands
+2. Method shorthands
+3. The ability to use computed property names
+
+Let's look at each one of them. I promise this will be quick :)
+
+### Property value shorthands
+
+Have you noticed that you sometimes assign a variable that has the same name as an object property? You know, something like this:
+
+```js
+const fullName = 'Zell Liew'
+
+const Zell = {
+  fullName: fullName
+}
+```
+
+Well, wouldn't you wish you could write this in a shorter way, since the property (`fullName`) and value (`fullName`)?
+
+(Oh you spoilt brat 😝).
+
+Here's the good news. You can! :)
+
+ES6 enhances objects with **property value shorthands**. This means: you can write only the variable if your variable name matches your property name. ES6 takes care of the rest.
+
+Here's what it looks like:
+
+```js
+const fullName = 'Zell Liew'
+
+// ES6 way
+const Zell = {
+  fullName
+}
+
+// Underneath the hood, ES6 does this:
+const Zell = {
+  fullName: fullName
+}
+```
+
+Pretty neat, eh? Now, we have less words to write, and we all go home happy.
+
+<Image src="/images/2017/es6/dancing.gif" alt="Happy, dancing star wars figure" caption="Wheeeee! Happy! :)" />
+
+While I dance, please go on and move to more shorthand goodness. I'll join you shortly.
+
+### Method shorthands
+
+Methods are functions that are associated with a property. They're just named specially because they're functions :)
+
+This is an example of a method:
+
+```js
+const anObject = {
+  aMethod: function () { console.log("I'm a method!~~")}
+}
+```
+
+With ES6, we get to write methods with a shorthand. We can remove `: function` from a method declaration and it will work like it used to:
+
+```js
+const anObject = {
+  // ES6 way
+  aShorthandMethod (arg1, arg2) {},
+
+  // ES5 way
+  aLonghandMethod: function (arg1, arg2) {},
+}
+```
+
+With this upgrade, objects already get a shorthand method, so please please don't use arrow functions when you define objects. You'll break the `this` context (see [arrow functions](#arrow-functions) if you can't remember why).
+
+```js
+const dontDoThis = {
+  // Noooo. Don't do this
+  arrowFunction: () => {}
+}
+```
+
+That's it with object method shorthands. Let's move on to the final upgrade we get for objects.
+
+### Computed object property names
+
+Sometimes you need a dynamic property name when you create objects. In the old JavaScript way, you'd have to create the object, then assign your property to in, like this:
+
+```js
+// ES5
+const newPropertyName = 'smile'
+
+// Create an object first
+const anObject = { aProperty: 'a value' }
+
+// Then assign the property
+anObject[newPropertyName] = ':D'
+
+// Adding a slightly different property and assigning it
+anObject['bigger ' + newPropertyName] = 'XD'
+
+// Result
+// {
+//   aProperty: 'a value',
+//   'bigger smile': 'XD'
+//   smile: ':D',
+// }
+```
+
+In ES6, you no longer need to do this roundabout way. You can assign dynamic property names directly when creating your object. The key is to enclose the dynamic property with square brackets:
+
+```js
+const newPropertyName = 'smile'
+
+// ES6 way.
+const anObject = {
+  aProperty: 'a value',
+  // Dynamic property names!
+  [newPropertyName]: ':D',
+  ['bigger ' + newPropertyName]: 'XD',
+}
+
+// Result
+// {
+//   aProperty: 'a value',
+//   'bigger smile': 'XD'
+//   smile: ':D',
+// }
+```
+
+Schweeet! Isn't it? :)
+
+And that's it for enhanced object literals. Didn't I say it'll be quick? :)
+
+Let's move on to another awesome feature I absolutely love: template literals.
+
+## Template literals
+
+Handling strings in JavaScript is an extremely clunky experience. You've experienced it yourself when we created the `announcePlayer` function previously in [default parameters](#default-parameters). There, we created spaces with empty strings and joined them with pluses:
+
+```js
+function announcePlayer (firstName, lastName, teamName) {
+  console.log(firstName + ' ' + lastName + ', ' + teamName)
+}
+```
+
+In ES6, this problem goes away thanks to template literals! (In the specification, they were previously called template strings).
+
+To create a template literal in ES6, you **enclose strings with backticks** (<code>\`</code>). Within backticks, you gain access to a special placeholder (`${}`) where you can use JavaScript normally.
+
+Here's what it looks like in action:
+
+```js
+const firstName = 'Zell'
+const lastName = 'Liew'
+const teamName = 'unaffiliated'
+
+const theString = `${firstName} ${lastName}, ${teamName}`
+
+console.log(theString)
+// Zell Liew, unaffiliated
+```
+
+See that? We can group everything with template literals! Within template literals, it's English as normal. Almost as if we're using a [template engine](/blog/nunjucks-with-gulp/) :)
+
+The best part about template literals is that you can create multi-line strings easily. This works out of the box:
+
+```js
+const multi = `One upon a time,
+In a land far far away,
+there lived a witich,
+who could change night into day`
+```
+
+<Image src="/images/2017/es6/multiline.png" alt="Multi-line strings!" caption="Multi-line strings works! Woot!" />
+
+One neat trick is to use these strings to create HTML elements in JavaScript if you need them. (Note: This may not be best way to make HTML elements, but its still way better than creating them one by one!).
+
+```js
+const container = document.createElement('div')
+const aListOfItems =
+  `<ul>
+    <li>Point number one</li>
+    <li>Point number two</li>
+    <li>Point number three</li>
+    <li>Point number four</li>
+  </ul>`
+
+container.innerHTML = aListOfItems
+
+document.body.append(container)
+```
+
+<p data-height="300" data-theme-id="7929" data-slug-hash="JNzMdb" data-default-tab="result" data-user="zellwk" data-embed-version="2" data-pen-title="Using multi-line strings to create more complicated HTML elements" class="codepen">See the Pen <a href="https://codepen.io/zellwk/pen/JNzMdb/">Using multi-line strings to create more complicated HTML elements</a> by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+Another feature of template literals is called **tags**. Tags are functions that allow you manipulate the template literal, if you wanted to substitute any string.
+
+Here's what it looks like:
+
+```js
+const animal = 'lamb'
+
+// This a tag
+const tagFunction = () => {
+  // Do something here
+}
+
+// This tagFunction allows you to manipulate the template literal.
+const string = tagFunction `Mary had a little ${animal}`
+```
+
+To be honest, even though template tags looks cool, I haven't had a use case for them yet. If you want to learn more about template tags, I suggest you read [this reference](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) on MDN.
+
+That's it for template literals.
+
+## Wrapping up
+
+Woo! That's almost all the awesome ES6 features I use on a regular basis. ES6 is awesome. It's definitely worth it to take a bit of your time and learn about them, so you can understand what everyone else is writing about.
+
+Was this article helpful for you? Let me know in the comments below if you have any questions or thoughts! I'd love to hear them :)

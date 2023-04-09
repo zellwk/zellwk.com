@@ -51,6 +51,7 @@
 @import 'components/comments';
 @import 'components/pagination';
 @import 'components/ck/index';
+@import 'components/ConvertkitForm';
 @import 'components/footer';
 @import 'components/modal';
 @import 'components/offsite';
@@ -75,5 +76,23 @@ table {
   td {
     border: 1px solid black;
     padding: 0.25em;
+  }
+}
+
+.about-social {
+  display: flex;
+  flex-flow: row wrap;
+  margin-inline: auto;
+  align-items: center;
+  margin-top: 0.25rem;
+
+  li {
+    margin: 0 0.5em 0 0 !important;
+    width: auto;
+    list-style: none !important;
+
+    svg {
+      height: 2.75rem;
+    }
   }
 }

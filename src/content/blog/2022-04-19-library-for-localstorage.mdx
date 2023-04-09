@@ -1,0 +1,131 @@
+---
+
+title: A library to make localStorage easier to use
+slug: library-for-localstorage
+tags: [localstorage, javascript, browser_api]
+pubDate: 2022-04-19
+---
+
+
+One of the problems with localStorage is it takes in only string values. If you want to save an object, you have to convert it into JSON with `JSON.stringify`.
+
+When you retrieve objects from localStorage, you need to convert the JSON value back into JavaScript with `JSON.parse`
+
+{/* more */}
+
+```js
+// Saving object to localStorage
+const value = {
+  key: 'value',
+  key2: 'value2'
+}
+
+localStorage.setItem('storage', JSON.stringify(value))
+```
+
+```js
+// Getting object from localStorage
+const storedValue = JSON.parse(localStorage.getItem('storage'))
+```
+
+This process is troublesome because of the extra need to use `JSON.stringify` and `JSON.parse`.
+
+When I use localStorage, I find myself storing objects a lot and I want to have a simpler syntax. So I created a library called [localStore](https://github.com/zellwk/javascript/tree/master/src/browser/localstore).
+
+## localStore simplifies things
+
+Saving and getting items with localStore is simplified — you don't have to use `JSON.stringify` or `JSON.parse`.
+
+```js
+// Saving items with localStore
+const value = {
+  key: 'value',
+  key2: 'value2'
+}
+
+localStore.set(storage, value)
+```
+
+```js
+// Getting items with localStore
+const storedValue = localStore.get('storage')
+```
+
+A bonus: You don't have to remember whether you stored a string value or a JSON object into localStorage.
+
+When you get items, localStore checks whether the value is a string or a JSON object for you. It calls `JSON.parse` for you so you don't have to. No more `JSON.parse` errors! Yay!
+
+```js
+// Saving a string value with localStore
+localStore.set('message', 'Hello world')
+```
+
+```js
+// Getting a string value with localStore
+const storedValue = localStore.get('message')
+```
+
+## Extra features: Saving an expiry value
+
+Access tokens often come with an `expires_in` value. When I save access tokens to localStorage, I have to convert this `expires_in` value into a timestamp manually.
+
+```js
+const token = {
+  value: access_token,
+  expiry: Date.now() + expires_in * 1000
+}
+
+localStorage.setItem('token', JSON.stringify(token))
+```
+
+With localStore, I don't have to worry about converting the `expires_in` value into a timestamp. It gets converted for me automatically if I pass in an `expiresIn` property as an option.
+
+```js
+localStore.set(token, '12345', {
+  expiresIn: 3600
+})
+```
+
+<Image src="/images/2022/localstore/localstore-with-expiry.png" alt="" loading="lazy" />
+
+When you get items with an expiry value using localStore, it will check whether the item has expired.
+
+- If the item has expired, localStore will delete this item from localStorage and return `undefined`. This saves the need to perform any cleanup.
+
+- If you want to keep the item in localStorage beyond its expiry, you can set `deleteWhenExpired` to `false` as you save the item.
+
+```js
+// Prevents localStorage from deleting the stored value when the value expires
+localStorage.set(token, access_token, {
+  expiresIn: expires_in,
+  deleteWhenExpired: false
+})
+```
+
+When you access an expired item with `deleteWhenExpired: false`, localStore adds an `expired: true` so you don't have to compare the expiry value with `Date.now`.
+
+```js
+// Getting expired value
+const token = localStore.get('token')
+console.log(token)
+```
+
+<Image src="/images/2022/localstore/expired-no-delete.png" alt="" loading="lazy" />
+
+## Installing localStore
+
+I added localStore in [JavaScript repository](https://github.com/zellwk/javascript). You can install everything with this command:
+
+```js
+npm install @zellwk/javascript
+```
+
+This library is ES modules compatible. You can import localStore with the following code:
+
+```js
+import * as localStore from '@zellwk/javascript/localstore.js'
+```
+
+That's it!
+
+I hope you find localStore helpful!
