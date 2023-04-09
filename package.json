@@ -6,6 +6,7 @@
     "start": "node pm2.js",
     "dev": "gulp dev & astro dev",
     "build": "gulp build && astro build",
+    "server": "nodemon start.js",
     "deploy": "npm run build && npm run sync",
     "sync": "node sync.js",
     "preview": "astro preview",

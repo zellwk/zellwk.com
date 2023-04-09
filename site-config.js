@@ -12,5 +12,5 @@ function getPort(mode) {
   mode = mode || process.env.NODE_ENV
 
   if (mode === 'production') return 8080
-  if (mode === 'development') return 5555
+  return 5555
 }
