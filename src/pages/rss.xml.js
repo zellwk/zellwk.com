@@ -10,11 +10,14 @@ export const prerender = true
 export async function get(context) {
   const files = await getCollection('blog')
   const normalized = normalize(files)
-  const posts = stripMore(normalized)
 
-  const items = posts.map(async (post, index) => {
+  const items = normalized.map(async (post, index) => {
+    // DO NOT MUTATE THE ORIGINAL POST OBJECT IN ANY WAY
+    // Because it's going to affect the rest of the build.
+    const content = stripMore(post.body)
+
     // Add a content disclaimer to the RSS feed to get people to read the full post on the site for now.
-    post.body = `(Hey, we're having problems showing images in RSS right now, so if you want a better reading experience, consider viewing this article online [here](${context.site}/blog/${post.slug}. We hope to fix this soon!). \n\n ${post.body}`
+    post.rssContent = `(Hey, we're having problems showing images in RSS right now, so if you want a better reading experience, consider viewing this article online [here](${context.site}/blog/${post.slug}. We hope to fix this soon!). \n\n ${content}`
 
     const data = {
       link: `/blog/${post.slug}/`,
@@ -23,7 +26,7 @@ export async function get(context) {
       description: post.data.description,
 
       // Astro doesn't support MDX yet, so we parse the body with a normal markdown parser — this means images and other fancy stuff don't work here yet.
-      content: toHTML(post.body, { sanitizeHTML: false }),
+      content: toHTML(post.rssContent, { sanitizeHTML: false }),
       customData: post.data.tags
         .map(category => `<category>${toSentence(category)}</category>`)
         .join(''),

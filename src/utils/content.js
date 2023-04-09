@@ -72,12 +72,8 @@ export function addDescription(files) {
 }
 
 // Strip the {/* more */} comment from the post body so it doesn't show up in RSS feeds
-export function stripMore(files) {
-  return files.map(file => {
-    file.body.replace()
-    file.body = file.body.replace('{/* more */}', '')
-    return file
-  })
+export function stripMore(content) {
+  return content.replace('{/* more */}', '')
 }
 
 export function gatherTags(files) {
