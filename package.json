@@ -6,6 +6,8 @@
     "dev": "gulp dev & astro dev",
     "start": "astro dev",
     "build": "gulp build && astro build",
+    "deploy": "npm run build && npm run sync",
+    "sync": "node sync.js",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -28,6 +30,7 @@
     "zl-fetch": "^4.1.1"
   },
   "devDependencies": {
+    "@zellwk/devops": "^1.0.0",
     "archiver": "^5.3.1",
     "eslint-config-prettier": "^8.7.0",
     "eslint-config-standard": "^17.0.0",
