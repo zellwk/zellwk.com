@@ -26,6 +26,7 @@
     "omit-empty": "^1.0.0",
     "pm2": "^5.3.0",
     "postmark": "^3.0.15",
+    "vite-plugin-commonjs-externals": "^0.1.1",
     "svelte": "^3.58.0",
     "svelte-markdown": "^0.2.3",
     "zl-fetch": "^4.1.1"
@@ -48,7 +49,6 @@
     "remark-plain-text": "^0.2.0",
     "sanitize-html": "^2.10.0",
     "sass": "^1.61.0",
-    "typi": "^3.2.0",
-    "vite-plugin-commonjs-externals": "^0.1.1"
+    "typi": "^3.2.0"
   }
 }
