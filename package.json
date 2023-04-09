@@ -22,7 +22,7 @@
     "astro": "^2.2.1",
     "camelcase-keys": "^8.0.2",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2",
+    "express": "^5.0.0-beta.1",
     "gsap": "^3.11.5",
     "node-html-parser": "^6.1.5",
     "omit-empty": "^1.0.0",
