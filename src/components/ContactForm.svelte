@@ -6,8 +6,8 @@
   import Modal from './Modal.svelte'
   import ModalLoader from './ModalLoader.svelte'
 
-  // export let action = 'https://api.zellwk.com/email'
-  export let action = 'http://localhost:4000/api/v1/email'
+  export let action = 'https://api.zellwk.com/api/v1/email'
+  // export let action = 'http://localhost:4000/api/v1/email'
   export let method = 'post'
   export let template = 'contact-form'
   export let redirectTo
