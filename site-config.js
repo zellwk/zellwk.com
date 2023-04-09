@@ -5,7 +5,7 @@ export default {
   siteUrl: 'https://zellwk.com',
 
   port: getPort(),
-  syncDestination: '/var/www/zellwk.com/dist',
+  syncDestination: '/var/www/zellwk.com',
 }
 
 function getPort(mode) {
