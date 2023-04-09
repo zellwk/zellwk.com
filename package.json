@@ -17,7 +17,7 @@
     "@astrojs/rss": "^2.3.1",
     "@astrojs/sitemap": "^1.2.1",
     "@astrojs/svelte": "^2.1.0",
-    "@zellwk/javascript": "file:../@zellwk/javascript",
+    "@zellwk/javascript": "^3.2.4",
     "astro": "^2.1.9",
     "camelcase-keys": "^8.0.2",
     "dotenv": "^16.0.3",
