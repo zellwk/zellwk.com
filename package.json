@@ -30,6 +30,8 @@
     "postmark": "^3.0.15",
     "svelte": "^3.58.0",
     "svelte-markdown": "^0.2.3",
+    "remark-plain-text": "^0.2.0",
+    "sanitize-html": "^2.10.0",
     "vite-plugin-commonjs-externals": "^0.1.1",
     "zl-fetch": "^4.1.1"
   },
@@ -48,8 +50,6 @@
     "mappy-breakpoints": "^0.2.4",
     "modularscale-sass": "^2.1.1",
     "normalize.css": "^8.0.1",
-    "remark-plain-text": "^0.2.0",
-    "sanitize-html": "^2.10.0",
     "sass": "^1.61.0",
     "typi": "^3.2.0"
   }
