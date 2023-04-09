@@ -3,8 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "start": "node pm2.js",
     "dev": "gulp dev & astro dev",
-    "start": "astro dev",
     "build": "gulp build && astro build",
     "deploy": "npm run build && npm run sync",
     "sync": "node sync.js",
