@@ -25,16 +25,18 @@ export async function getStaticPaths() {
   const posts = await getCollection('blog')
   const normalized = normalize(posts)
 
-  return normalized.map((post, index) => ({
-    params: { slug: post.slug },
-    props: {
-      posts: {
-        current: post,
-        prev: posts[index - 1],
-        next: posts[index + 1],
+  return normalized.map((post, index) => {
+    return {
+      params: { slug: post.slug },
+      props: {
+        posts: {
+          current: post,
+          prev: normalized[index + 1],
+          next: normalized[index - 1],
+        },
       },
-    },
-  }))
+    }
+  })
 }
 const { posts } = Astro.props
 const { current: post } = posts
