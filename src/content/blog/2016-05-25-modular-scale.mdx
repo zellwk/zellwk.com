@@ -2,10 +2,9 @@
 title: Everything about the Modular Scale Sass Libary and Modular Scale with Typi
 slug: modular-scale
 tags: [typography, design, responsive]
-ckForm: mrt-simplicity
+ckForm: mwt
 pubDate: 2016-05-25
 ---
-
 
 Previously, I shared the theory about adjusting your Modular Scale scale to size your headers for different devices. I also covered how you can do it with the Modular Scale plugin for the 4th method.
 
@@ -18,19 +17,31 @@ Today, I want to share more about the Modular Scale library so you can learn to 
 It's quite common to see developers use the [Modular Scale calculator](http://modularscale.com) to calculate the `font-size` for their text elements when Modular Scale is used. They inevitably resort to copy-and-pasting values from the calculator to their CSS files, like this:
 
 ```css
-h1 { font-size: 3.157em; }
-h2 { font-size: 2.369em; }
+h1 {
+  font-size: 3.157em;
+}
+h2 {
+  font-size: 2.369em;
+}
 ```
 
 If the `font-size` has to change at a specific breakpoint, these developers usually copy-paste another value from the calculator into their CSS, like this:
 
 ```css
-h1 { font-size: 3.157em; }
-h2 { font-size: 2.369em; }
+h1 {
+  font-size: 3.157em;
+}
+h2 {
+  font-size: 2.369em;
+}
 
 @media all and (min-width: 25em) {
-  h1 { font-size: 4.209em; }
-  h2 { font-size: 3.157em; }
+  h1 {
+    font-size: 4.209em;
+  }
+  h2 {
+    font-size: 3.157em;
+  }
 }
 ```
 
@@ -40,7 +51,7 @@ First, **they look like magic numbers**. There's no easy way for a developer joi
 
 Second, **it's a lot of work to copy-paste numbers**. What if you had to change the scale? Or the base? I can already sense the dread...
 
-The [Modular Scale Sass Library](https://github.com/modularscale/modularscale-sass) is a library that [Scott Kellum](http://scottkellum.com),  [Adam Stacoviak](http://adamstacoviak.com) and [Mason Wendell](http://thecodingdesigner.com) developed to help ease the two pain points I mentioned.
+The [Modular Scale Sass Library](https://github.com/modularscale/modularscale-sass) is a library that [Scott Kellum](http://scottkellum.com), [Adam Stacoviak](http://adamstacoviak.com) and [Mason Wendell](http://thecodingdesigner.com) developed to help ease the two pain points I mentioned.
 
 To use the Modular Scale library, you first have to download it via `bower`, `npm` or hitting the download button on Github.
 
@@ -57,7 +68,10 @@ Modular Scale gives you a `ms()` function to calculate the `font-size` you wante
 
 It takes in a number, the nth-step you want your font-size to be. By step, I mean the font-size is the number nth on your scale, like this:
 
-<Image src="/images/2016/everything-about-ms/modular-scale-steps.png" caption="Modular Scale Steps"/>
+<Image
+  src='/images/2016/everything-about-ms/modular-scale-steps.png'
+  caption='Modular Scale Steps'
+/>
 
 Here's how you use the function:
 
@@ -104,7 +118,10 @@ $ms2: ms(2); // => 1.618em
 $ms3: ms(3); // => 1.777em
 ```
 
-<Image src="/images/2016/everything-about-ms/double-ratio.png" caption="Steps for a double-ratio scale"/>
+<Image
+  src='/images/2016/everything-about-ms/double-ratio.png'
+  caption='Steps for a double-ratio scale'
+/>
 
 Likewise, you can also change the base `font-size` of the Modular Scale by setting the `$ms-base` property. The default `font-size` used is `1em`.
 
@@ -128,7 +145,10 @@ $ms2: ms(2); // => 1.61803em
 $ms3: ms(3); // => 2em
 ```
 
-<Image src="/images/2016/everything-about-ms/double-base-scale.png" caption="Steps for a double-base scale"/>
+<Image
+  src='/images/2016/everything-about-ms/double-base-scale.png'
+  caption='Steps for a double-base scale'
+/>
 
 Finally, Modular Scale gives you a `ms-respond` mixin that allows you to the change ratio of your Scale at different breakpoints. I've went in-depth into this on a [separate article](/blog/changing-modular-scale).
 
@@ -147,7 +167,7 @@ If you familiar with Typi, you'll know that you need to create font-maps to hold
 ```scss
 $h1: (
   null: 2.369em,
-  small: 3.157em
+  small: 3.157em,
 );
 ```
 
@@ -157,7 +177,7 @@ You can use Modular Scale directly with Typi by writing the `ms()` function as t
 $ms-ratio: 1.333;
 $h1-map: (
   null: ms(3),
-  small: ms(4)
+  small: ms(4),
 );
 ```
 
@@ -168,8 +188,9 @@ $ms-base: 1.5em;
 $ms-ratio: 1.25;
 
 $h1-map: (
-  null: ms(3), // 2.92969em
-  small: ms(4) // 3.66211em
+  null: ms(3),
+  // 2.92969em
+  small: ms(4) // 3.66211em,
 );
 ```
 
@@ -179,7 +200,7 @@ Things however, change slightly when you want to change the Modular Scale ratio 
 $typi-ms: (
   null: 1.2,
   small: 1.333,
-  large: 1.618
+  large: 1.618,
 );
 ```
 
@@ -193,9 +214,10 @@ Once the `$typi-ms` map is created, you can modify your font-maps such that the 
 
 ```scss
 $h1-map: (
-  null: 2, // 2nd step
+  null: 2,
+  // 2nd step
   small: 3 // 3rd step
-  large: 4 // 4th step
+  large: 4 // 4th step,
 );
 ```
 
@@ -233,7 +255,7 @@ $typi-ms: (
 
 $h1: (
   null: 2,
-  small: 3
+  small: 3,
 );
 ```
 
@@ -293,11 +315,28 @@ Additionally, if you want to, you can use multiple bases or multiple ratios toge
 
 ```scss
 $typi-ms: (
-  null: 1.2, // Single ratio of 1.2
-  small: 1.2 1.5, // Two ratios, 1.2 and 1.5
-  med: (1em, 1.5), // Single base of 1em and single ratio of 1.5
-  large: (1em 2em, 1.618), // Double bases and a single ratio
-  dont-do-this: (1em 2em, 1.333 1.618) // Double bases and double ratios
+  null: 1.2,
+  // Single ratio of 1.2
+  small: 1.2 1.5,
+  // Two ratios, 1.2 and 1.5
+  med:
+    (
+      1em,
+      1.5,
+    ),
+  // Single base of 1em and single ratio of 1.5
+  large:
+    (
+      1em 2em,
+      1.618,
+    ),
+  // Double bases and a single ratio
+  dont-do-this:
+    (
+      1em 2em,
+      1.333 1.618,
+    )
+    // Double bases and double ratios,
 );
 ```
 
@@ -307,8 +346,8 @@ And that's everything about using Modular Scale with Typi :)
 
 In this article, we reviewed the basics of Modular Scale plugin, and learned how to use:
 
--  a double-base modular scale
--  a double-ratio modular scale
+- a double-base modular scale
+- a double-ratio modular scale
 
 Then, we talked about how to do the same with Typi.
 

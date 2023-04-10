@@ -2,10 +2,9 @@
 title: An In-depth Tutorial to Typi
 slug: typi
 tags: [typography, responsive, typi]
-ckForm: mrt-simplicity
+ckForm: mwt
 pubDate: 2016-04-13
 ---
-
 
 Typi is a library I've created to help make responsive Typography easy. I first talked about Typi when I released the article on [responsive typography](/blog/responsive-typography) in January 2016. Since then, I've added new functionalities to Typi to make it even better.
 
@@ -46,7 +45,7 @@ You have to set up two Sass maps in order to use Typi. **The first map is a `$br
 ```scss
 $breakpoints: (
   small: 600px,
-  large: 1200px
+  large: 1200px,
 );
 ```
 
@@ -56,9 +55,12 @@ What this means is that when Typi looks for a `small` key, it will create a medi
 
 ```scss
 $typi: (
-  null: (16px, 1.4),
+  null: (
+    16px,
+    1.4,
+  ),
   small: 18px,
-  large: 20px
+  large: 20px,
 );
 ```
 
@@ -90,9 +92,12 @@ From the current `$typi` map, we see that there are `null`, `small` and `large` 
 
 ```scss
 $typi: (
-  null: (16px, 1.4),
+  null: (
+    16px,
+    1.4,
+  ),
   small: 18px,
-  large: 20px
+  large: 20px,
 );
 ```
 
@@ -111,14 +116,20 @@ html {
 Since the `small` key has a value of `600px` while the large key has a value of `1200px`, the CSS produced by Typi is equivalent to the following:
 
 ```css
-html { /* props here */ }
+html {
+  /* props here */
+}
 
 @media all and (min-width: 600px) {
-  html { /* props here */ }
+  html {
+    /* props here */
+  }
 }
 
 @media all and (min-width: 1200px) {
-  html { /* props here */ }
+  html {
+    /* props here */
+  }
 }
 ```
 
@@ -172,7 +183,7 @@ html {
 }
 ```
 
-*Note: Typi creates media queries in px by default. You can use mappy-breakpoint or breakpoint-sass to convert it into em queries. More on that in the next article.*
+_Note: Typi creates media queries in px by default. You can use mappy-breakpoint or breakpoint-sass to convert it into em queries. More on that in the next article._
 
 That's the basics to using Typi.
 
@@ -202,8 +213,14 @@ In Typi, what you'll do is to create a font-map that contains these `font-size` 
 
 ```scss
 $h1-font-map: (
-  null: (2em, 1.2),
-  small: (3em, 1.3)
+  null: (
+    2em,
+    1.2,
+  ),
+  small: (
+    3em,
+    1.3,
+  ),
 );
 ```
 
@@ -215,14 +232,13 @@ h1 {
 }
 ```
 
-*Note: if you changed the `$breakpoints` or `$typi` map in  `typi-base`, you have to change them in every `typi` mixin as well*:
+_Note: if you changed the `$breakpoints` or `$typi` map in `typi-base`, you have to change them in every `typi` mixin as well_:
 
 ```scss
 h1 {
   @include typi(
     $h1-font-map,
-    $breakpoints: $some-breakpoint-map
-    $typi: $some-typi-map
+    $breakpoints: $some-breakpoint-map $typi: $some-typi-map
   );
 }
 ```
@@ -269,7 +285,7 @@ This means that we have two rules to follow:
 1. Set the **vertical white space between elements** to a **multiple of the baseline**.
 2. Set the **line-height of all text elements** to a **multiple of the baseline**.
 
-*Note: [check this post out](/blog/why-vertical-rhythms) if you want to find out more about Vertical Rhythm.*
+_Note: [check this post out](/blog/why-vertical-rhythms) if you want to find out more about Vertical Rhythm._
 
 **Calculating Vertical Rhythm is a chore.**
 
@@ -309,7 +325,10 @@ There's only one prerequisite for using Typi to create Vertical Rhythm. You need
 
 ```scss
 $typi: (
-  null: (16px, 1.4)
+  null: (
+    16px,
+    1.4,
+  ),
 );
 ```
 

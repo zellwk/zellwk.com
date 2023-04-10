@@ -60,7 +60,7 @@ const { Content } = await post.render()
 
   <div class='post-layout'>
     <section class='o-content c-ck ck-layout'>
-      <ConvertkitForm name={post.data.ckForm} />
+      <ConvertkitForm name={post.data.ckForm} client:load />
     </section>
   </div>
 </Base>

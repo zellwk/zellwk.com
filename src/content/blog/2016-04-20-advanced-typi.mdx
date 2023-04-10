@@ -2,10 +2,9 @@
 title: Advanced Usage with Typi
 slug: advanced-typi
 tags: [typography, responsive, typi]
-ckForm: mrt-simplicity
+ckForm: mwt
 pubDate: 2016-04-20
 ---
-
 
 Last week, I wrote a tutorial to show you how to use the mixins and functions of Typi, a library I’ve created for responsive typography. There’s a lot more to Typi that I can cover in one article. So, this week, I’m going to show you some advanced tips that I use with Typi so you can use them as well.
 
@@ -33,8 +32,9 @@ Moving on, there are two ways to make Typi create `em` media queries. The first 
 
 ```scss
 $breakpoints: (
-  small: 25em, // 400px
-  large: 50em // 800px
+  small: 25em,
+  // 400px
+  large: 50em // 800px,
 );
 ```
 
@@ -46,11 +46,15 @@ html {
   line-height: 1.4;
 }
 @media all and (min-width: 25em) {
-  html { font-size: 112.5%; }
+  html {
+    font-size: 112.5%;
+  }
 }
 
 @media all and (min-width: 50em) {
-  html {font-size: 125%; }
+  html {
+    font-size: 125%;
+  }
 }
 ```
 
@@ -103,11 +107,15 @@ html {
   line-height: 1.4;
 }
 @media all and (min-width: 25em) {
-  html { font-size: 112.5%; }
+  html {
+    font-size: 112.5%;
+  }
 }
 
 @media all and (min-width: 50em) {
-  html {font-size: 125%; }
+  html {
+    font-size: 125%;
+  }
 }
 ```
 
@@ -131,7 +139,7 @@ We can take this syntax and put it straight into the `$breakpoints` map:
 
 ```scss
 $breakpoints: (
-  small: 400px 800px
+  small: 400px 800px,
 );
 ```
 
@@ -142,12 +150,16 @@ The only difference is that Mappy Breakpoints subtracts 1px from the `max-width`
 ```css
 /* Output from Mappy Breakpoints */
 @media all and (min-width: 25em) and (max-width: 49.9375em) {
-  html {font-size: 112.5%; }
+  html {
+    font-size: 112.5%;
+  }
 }
 
 /* Output from Breakpoint */
 @media (min-width: 25em) and (max-width: 50em) {
-  html {font-size: 112.5%; }
+  html {
+    font-size: 112.5%;
+  }
 }
 ```
 
@@ -163,7 +175,7 @@ In Mappy Breakpoints, you specify a `height` keyword, followed by the min-height
 
 ```scss
 $breakpoints: (
-  small: 400px height 400px
+  small: 400px height 400px,
 );
 ```
 
@@ -171,7 +183,10 @@ In Breakpoint, you need to create a list with `()` and specify the query you wan
 
 ```scss
 $breakpoints: (
-  small: 400px (min-height 400px)
+  small: 400px
+    (
+      min-height 400px,
+    ),
 );
 ```
 
@@ -179,7 +194,9 @@ In both cases, you'll get the same output:
 
 ```css
 @media all and (min-width: 25em) and (min-width: 25em) {
-  html {font-size: 112.5%; }
+  html {
+    font-size: 112.5%;
+  }
 }
 ```
 
@@ -196,19 +213,31 @@ When modular scale is concerned, it’s quite common to see people either use th
 No matter which of the above methods you choose, you still have to input the values manually after getting the right sizes, like this:
 
 ```css
-h1 { font-size: 3.157em; }
-h2 { font-size: 2.369em; }
+h1 {
+  font-size: 3.157em;
+}
+h2 {
+  font-size: 2.369em;
+}
 ```
 
 If you choose to change your `font-size` at different media queries, then, this is what you’ll do:
 
 ```css
-h1 { font-size: 3.157em; }
-h2 { font-size: 2.369em; }
+h1 {
+  font-size: 3.157em;
+}
+h2 {
+  font-size: 2.369em;
+}
 
 @media all and (min-width: 25em) {
-  h1 { font-size: 4.209em; }
-  h2 { font-size: 3.157em; }
+  h1 {
+    font-size: 4.209em;
+  }
+  h2 {
+    font-size: 3.157em;
+  }
 }
 ```
 
@@ -217,16 +246,20 @@ In Typi, we can create these CSS by using a font-map. (Yep, Typi font maps can t
 ```scss
 $h1-map: (
   null: 3.157em,
-  small: 4.209em
+  small: 4.209em,
 );
 
 $h2-map: (
   null: 2.369em,
-  small: 3.157em
+  small: 3.157em,
 );
 
-h1 { @include typi($h1-map); }
-h2 { @include typi($h2-map); }
+h1 {
+  @include typi($h1-map);
+}
+h2 {
+  @include typi($h2-map);
+}
 ```
 
 There's only one problem with this approach. It's difficult to change the values of your modular scale.
@@ -273,7 +306,7 @@ The good news is, since Typi takes in a `em` based font-size, it integrates with
 ```scss
 $h1: (
   null: ms(4),
-  small: ms(5)
+  small: ms(5),
 );
 ```
 
@@ -289,11 +322,19 @@ In the [previous article](/blog/typi), I showed you how to create `line-height` 
 
 ```scss
 $typi: (
-  null: (16px, 1.5) // Line height of 1.5
+  null: (
+    16px,
+    1.5,
+  )
+  // Line height of 1.5,
 );
 
 $h1-map: (
-  null: (ms(3), 1.2) // Line height of 1.2
+  null: (
+    ms(3),
+    1.2,
+  )
+  // Line height of 1.2,
 );
 ```
 
@@ -325,7 +366,10 @@ So, if you want to simplify the calculation, you can use this `vr()` function di
 
 ```scss
 $h1: (
-  null: (ms(4), vr(2.5))
+  null: (
+    ms(4),
+    vr(2.5),
+  ),
 );
 
 h1 {

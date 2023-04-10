@@ -3,7 +3,7 @@ title: Building a Simple CRUD app with Node, Express, and MongoDB
 description: Mega walkthrough on what CRUD, Express, MongoDB are. And how to use them to build a simple web application.
 slug: crud-express-mongodb
 tags: [best, node, mongodb, express, javascript]
-ckForm: CUCrud
+ckForm: crud
 pubDate: 2020-04-09
 ---
 
@@ -30,7 +30,7 @@ CRUD, Express and MongoDB are big words for a person who has never touched any s
 
 If we put CRUD, Express and MongoDB together into a single diagram, this is what it would look like:
 
-<Image src="/images/2020/crud/crud-express-mongo.png" alt=""/>
+<Image src='/images/2020/crud/crud-express-mongo.png' alt='' />
 
 Does CRUD, Express and MongoDB makes more sense to you now?
 
@@ -40,12 +40,17 @@ Great. Let's move on.
 
 Let's build a simple application that lets you track a list of quotes from Star Wars Characters. Here's what it looks like:
 
-<Image src="/images/2020/crud/looks.png" alt="Add CSS to make the app look better." />
+<Image
+  src='/images/2020/crud/looks.png'
+  alt='Add CSS to make the app look better.'
+/>
 
 Free free to check out the [demo][5] before continuing with this tutorial.
 
 <Callout>
-This article is LONG! Remember to **grab the source code by leaving your name and email address in [this form][6]**. I'll also send you this article in PDF so you can read it at your leisure.
+  This article is LONG! Remember to **grab the source code by leaving your name
+  and email address in [this form][6]**. I'll also send you this article in PDF
+  so you can read it at your leisure.
 </Callout>
 
 By the way, I'm not going to focus on the styles since we're focusing on learning Crud, Express, and MongoDB in this tutorial.
@@ -63,7 +68,7 @@ To check if you have Node installed, open up your Command Line and run the follo
 $ node -v
 ```
 
-<Image src="/images/2020/crud/node-version.png" alt="Node version" />
+<Image src='/images/2020/crud/node-version.png' alt='Node version' />
 
 You should get a version number if you have Node installed. If you don't, you can install Node either by downloading the installer from [Node's website][9] or downloading it through package managers like [Homebrew][10] (Mac) and [Chocolatey][11] (Windows).
 
@@ -77,7 +82,7 @@ Start by creating a folder for this project. Feel free to call it anything you w
 $ npm init
 ```
 
-<Image src="/images/2020/crud/npm-init.png" alt="npm init." />
+<Image src='/images/2020/crud/npm-init.png' alt='npm init.' />
 
 Just hit enter through everything that appears. I'll talk about the ones you need to know as we go along.
 
@@ -98,7 +103,10 @@ console.log('May Node be with you')
 
 Now, run `node server.js` in your command line and you should see this:
 
-<Image src="/images/2020/crud/node-log.png" alt="Logged May Node be with you."/>
+<Image
+  src='/images/2020/crud/node-log.png'
+  alt='Logged May Node be with you.'
+/>
 
 Great. Node works. The next step is to learn to use Express.
 
@@ -109,33 +117,38 @@ First, we have to install Express. We can do this by running the `npm install` c
 Run `npm install express --save` command in your command line.
 
 <Callout>
-The `--save` flag saves `express` as a `dependency` in `package.json`. It's important to know these dependencies because `npm` can retrieve dependencies with another `npm install` command when you need it later.
+  The `--save` flag saves `express` as a `dependency` in `package.json`. It's
+  important to know these dependencies because `npm` can retrieve dependencies
+  with another `npm install` command when you need it later.
 </Callout>
 
 ```bash
 npm install express --save
 ```
 
-<Image src="/images/2020/crud/exp-dependency.png" alt="Saved express as a dependency"/>
+<Image
+  src='/images/2020/crud/exp-dependency.png'
+  alt='Saved express as a dependency'
+/>
 
 Next, we use express in `server.js` by requiring it.
 
 ```javascript
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 ```
 
 We need to create a server that browsers can connect to. We do this by using the Express's `listen` method.
 
 ```javascript
-app.listen(3000, function() {
+app.listen(3000, function () {
   console.log('listening on 3000')
 })
 ```
 
 Now, run `node server.js` and navigate to `localhost:3000` on your browser. You should see a message that says `cannot get /`.
 
-<Image src="/images/2020/crud/cannot-get.png" alt="Cannot get /."/>
+<Image src='/images/2020/crud/cannot-get.png' alt='Cannot get /.' />
 
 That's a good sign. It means **we can now communicate to our express server through the browser**. This is where we begin CRUD operations.
 
@@ -168,7 +181,7 @@ app.get('/', function (req, res) {
 For now, let's write `Hello World` back to the browser. We do so by using a `send` method that comes with the `response` object:
 
 ```javascript
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.send('Hello World')
 })
 ```
@@ -188,7 +201,7 @@ Now, restart your server by doing the following:
 
 Then, navigate to `localhost:3000` on your browser. You should be able to see a string that says "Hello World".
 
-<Image src="/images/2020/crud/get-hello-world.png" alt=""/>
+<Image src='/images/2020/crud/get-hello-world.png' alt='' />
 
 Great.
 
@@ -213,19 +226,19 @@ Let's put some text in our `index.html` file as well:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>MY APP</title>
-</head>
-<body>
-  <h1> May Node and Express be with you. </h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>MY APP</title>
+  </head>
+  <body>
+    <h1>May Node and Express be with you.</h1>
+  </body>
 </html>
 ```
 
 Restart your server and refresh your browser. You should be able to see your HTML file now.
 
-<Image src="/images/2020/crud/get-index.png" alt="The HTML file."/>
+<Image src='/images/2020/crud/get-index.png' alt='The HTML file.' />
 
 This is how Express handles a **GET** request (**READ** operation) in a nutshell.
 
@@ -240,10 +253,15 @@ $ npm install nodemon --save-dev
 ```
 
 <Callout>
-We use a `--save-dev` flag here because we only use Nodemon when we are developing stuff. We won't use Nodemon on an actual server. `--save-dev` here adds Nodemon as a `devDependency` in the `package.json` file.
+  We use a `--save-dev` flag here because we only use Nodemon when we are
+  developing stuff. We won't use Nodemon on an actual server. `--save-dev` here
+  adds Nodemon as a `devDependency` in the `package.json` file.
 </Callout>
 
-<Image src="/images/2020/crud/nodemon-dev-dep.png" alt="Saved Nodemon as a dev dependency." />
+<Image
+  src='/images/2020/crud/nodemon-dev-dep.png'
+  alt='Saved Nodemon as a dev dependency.'
+/>
 
 Nodemon behaves like Node. So you can run `nodemon server.js` and you'd expect to see the same thing. Unfortunately, this only works if you've installed nodemon globally with the `-g` flag (and we didn't do this).
 
@@ -267,13 +285,16 @@ We can make things simpler by adding ` script` key in the `package.json` file. 
 
 Now, you can run `npm run dev` to trigger `nodemon server.js`.
 
-<Image src="/images/2020/crud/nodemon-server.png" alt="Uses npm run dev to run nodemon server.js" />
+<Image
+  src='/images/2020/crud/nodemon-server.png'
+  alt='Uses npm run dev to run nodemon server.js'
+/>
 
 Back to the main topic. We're going to cover the **CREATE** operation next.
 
 ## CRUD - CREATE
 
-Browsers can only perform a **CREATE** operation if they send **POST**  request to the server. This `POST` request can be triggered through JavaScript or through a `<form>` element.
+Browsers can only perform a **CREATE** operation if they send **POST** request to the server. This `POST` request can be triggered through JavaScript or through a `<form>` element.
 
 Let's figure out how to use a `<form>` element to create new entries for this Star Wars quote application for now. We'll examine how to send requests via JavaScript later.
 
@@ -287,8 +308,8 @@ You need three things on this form element:
 
 ```html
 <form action="/quotes" method="POST">
-  <input type="text" placeholder="name" name="name">
-  <input type="text" placeholder="quote" name="quote">
+  <input type="text" placeholder="name" name="name" />
+  <input type="text" placeholder="quote" name="quote" />
   <button type="submit">Submit</button>
 </form>
 ```
@@ -307,7 +328,10 @@ app.post('/quotes', (req, res) => {
 
 Restart your server (hopefully you've set up Nodemon so it restarts automatically) and refresh your browser. Then, enter something into the `<form>` element and submit the form. Next, look at your command line. You should see `Hellooooooooooooooooo!` in your command line.
 
-<Image src="/images/2020/crud/post-log.png" alt="Logs helloooo in the command line."/>
+<Image
+  src='/images/2020/crud/post-log.png'
+  alt='Logs helloooo in the command line.'
+/>
 
 Great, we know that Express is handling the form for us right now. The next question is, how do we get the input values with Express?
 
@@ -321,20 +345,24 @@ Body-parser is a **middleware**. They help to tidy up the `request` object befor
 
 ```js
 const express = require('express')
-const bodyParser= require('body-parser')
+const bodyParser = require('body-parser')
 const app = express()
 
 // Make sure you place body-parser before your CRUD handlers!
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // All your handlers here...
-app.get('/', (req, res) => {/*...*/})
-app.post('/quotes', (req, res) => {/*...*/})
+app.get('/', (req, res) => {
+  /*...*/
+})
+app.post('/quotes', (req, res) => {
+  /*...*/
+})
 ```
 
 The `urlencoded` method within body-parser tells body-parser to extract data from the `<form>` element and add them to the `body` property in the `request` object.
 
-You should be able to see values from the `<form>` element inside  `req.body`  now. Try doing a `console.log` and see what it is!
+You should be able to see values from the `<form>` element inside `req.body` now. Try doing a `console.log` and see what it is!
 
 ```js
 app.post('/quotes', (req, res) => {
@@ -344,7 +372,10 @@ app.post('/quotes', (req, res) => {
 
 You should see an object similar to the following:
 
-<Image src="/images/2020/crud/post-log-req-body.png" alt="Logs the request body."/>
+<Image
+  src='/images/2020/crud/post-log-req-body.png'
+  alt='Logs the request body.'
+/>
 
 Hmmm.
 
@@ -357,7 +388,9 @@ Enter the database, MongoDB.
 MongoDB is a database. We can store information into this database to remember Yoda's words. Then, we can retrieve this information and display to people who view our app.
 
 <Callout>
-I normally use [Mongoose][15] (which is a framework for MongoDB) when I use MongoDB. I'll teach you how to use basic MongoDB in this article. If you want to learn Mongoose, consider reading [my article on Mongoose][16].
+  I normally use [Mongoose][15] (which is a framework for MongoDB) when I use
+  MongoDB. I'll teach you how to use basic MongoDB in this article. If you want
+  to learn Mongoose, consider reading [my article on Mongoose][16].
 </Callout>
 
 First, we need to install MongoDB via npm.
@@ -381,59 +414,69 @@ MongoClient.connect('mongodb-connection-string', (err, client) => {
 The next part is to get the correct link to our database. Most people store their databases on cloud services like [MongoDB Atlas][17]. We're going to do same as well. (It's free).
 
 <Callout>
-You can also create a database on your computer for development work. Read "[How to setup a local MongoDB Connection][18]" for instructions.
+  You can also create a database on your computer for development work. Read
+  "[How to setup a local MongoDB Connection][18]" for instructions.
 </Callout>
 
 ### Setting up MongoDB Atlas
 
-Go ahead and [create an account on MongoDB Atlas][19]. Once you're done,  you need to create an "Organization". It's sort of like a company name. You can name it anything you want. (You can change it later).
+Go ahead and [create an account on MongoDB Atlas][19]. Once you're done, you need to create an "Organization". It's sort of like a company name. You can name it anything you want. (You can change it later).
 
-<Image src="/images/2020/crud/atlas-create-org.png" alt="Creates an Atlas Organization" />
+<Image
+  src='/images/2020/crud/atlas-create-org.png'
+  alt='Creates an Atlas Organization'
+/>
 
 You also need to select a cloud service. Go ahead with MongoDB Atlas in this case.
 
-<Image src="/images/2020/crud/atlas-select-cloud.png" alt="Selects a cloud service."/>
+<Image
+  src='/images/2020/crud/atlas-select-cloud.png'
+  alt='Selects a cloud service.'
+/>
 
 Next, you need to set permissions for users. MongoDB Atlas will automatically fill up your current email address as the user. So just continue to the next step.
 
 You should end up with a screen that looks like this:
 
-<Image src="/images/2020/crud/atlas-projects.png" alt="Atlas project screen." />
+<Image src='/images/2020/crud/atlas-projects.png' alt='Atlas project screen.' />
 
 Next, you need to create a Database in MongoDB Atlas. There are several steps to do this.
 
 First, you need to create a new Project. You can do this by going under "Context" in the top left hand menu. Click the Dropdown. Then, select New Project.
 
-<Image src="/images/2020/crud/atlas-cp.png" alt="Creating a new project." />
+<Image src='/images/2020/crud/atlas-cp.png' alt='Creating a new project.' />
 
 Next, you will need to name your project. Call it anything you want. I'm going to call this `star-wars`.
 
-<Image src="/images/2020/crud/atlas-cp-name-project.png" alt="Naming the project." />
+<Image
+  src='/images/2020/crud/atlas-cp-name-project.png'
+  alt='Naming the project.'
+/>
 
 Then, you will need to add members. Again, you're already added so go ahead and click "Create Project" to move on.
 
 You should end up with a screen that says Create a Cluster.
 
-<Image src="/images/2020/crud/atlas-cluster.png" alt="Create Cluster Screen." />
+<Image src='/images/2020/crud/atlas-cluster.png' alt='Create Cluster Screen.' />
 
 Click on "Build a Cluster". You should see this screen:
 
-<Image src="/images/2020/crud/atlas-cc.png" alt="Selecting a cluster" />
+<Image src='/images/2020/crud/atlas-cc.png' alt='Selecting a cluster' />
 
 Select the free cluster (left option) and continue. You should now see a screen to configure a cluster. Scroll down. Make sure you see these two things:
 
 1. Cluster Tier is M0 Sandbox
 2. Monthly Estimate is FREE
 
-<Image src="/images/2020/crud/atlas-cc-m0.png" alt="Configured the cluster." />
+<Image src='/images/2020/crud/atlas-cc-m0.png' alt='Configured the cluster.' />
 
 Click on Create cluster next. You should see "Your cluster is being created".
 
-<Image src="/images/2020/crud/atlas-cc-creating.png" alt="Creating cluster." />
+<Image src='/images/2020/crud/atlas-cc-creating.png' alt='Creating cluster.' />
 
 You have to wait for approximately 5 minutes for the cluster creation. When the cluster is ready, you'll see this:
 
-<Image src="/images/2020/crud/atlas-cc-ready.png" alt="Cluster ready" />
+<Image src='/images/2020/crud/atlas-cc-ready.png' alt='Cluster ready' />
 
 Now, we need to connect our Star Wars app with this cluster.
 
@@ -441,27 +484,42 @@ Now, we need to connect our Star Wars app with this cluster.
 
 Click on the Connect button.
 
-<Image src="/images/2020/crud/atlas-connect.png" alt="Connect button." />
+<Image src='/images/2020/crud/atlas-connect.png' alt='Connect button.' />
 
 A modal should pop up.
 
-<Image src="/images/2020/crud/atlas-connect-modal.png" alt="Connection modal." />
+<Image
+  src='/images/2020/crud/atlas-connect-modal.png'
+  alt='Connection modal.'
+/>
 
 You need to whitelist your IP address before you can connect to your cluster. This is a security feature built into MongoDB Atlas. Go ahead and click "Add your Current IP Address".
 
-<Image src="/images/2020/crud/atlas-connect-add-ip.png" alt="Adds IP address." />
+<Image
+  src='/images/2020/crud/atlas-connect-add-ip.png'
+  alt='Adds IP address.'
+/>
 
 Next, you need to create a MongoDB user. This username and password is different from the one you used to login to MongoDB Atlas. This username and password is used ONLY for the database.
 
 Make sure you remember MongoDB user and password. We'll use it to connect to the database.
 
-<Image src="/images/2020/crud/atlas-connect-mongodb-user.png" alt="MongoDB User." />
+<Image
+  src='/images/2020/crud/atlas-connect-mongodb-user.png'
+  alt='MongoDB User.'
+/>
 
 Next, click on choose your connection method. Select "Connect to your application" and copy the connection string.
 
-<Image src="/images/2020/crud/atlas-connect-method.png" alt="Choosing a connection method." />
+<Image
+  src='/images/2020/crud/atlas-connect-method.png'
+  alt='Choosing a connection method.'
+/>
 
-<Image src="/images/2020/crud/atlas-connection-string.png" alt="Copy the connection string." />
+<Image
+  src='/images/2020/crud/atlas-connection-string.png'
+  alt='Copy the connection string.'
+/>
 
 The connection string should look something like this:
 
@@ -475,7 +533,10 @@ You need to replace 2 things here:
 2. Replace `<password>` with the Database user's password
 
 <Callout>
-The `test` in the connection string points to a `test` database. You would need to replace `test` with the name of your database if you use Mongoose. You can leave it as `test` if you use MongoClient like what we're doing in this tutorial.
+  The `test` in the connection string points to a `test` database. You would
+  need to replace `test` with the name of your database if you use Mongoose. You
+  can leave it as `test` if you use MongoClient like what we're doing in this
+  tutorial.
 </Callout>
 
 Put this connection string inside the `MongoClient.connect`.
@@ -497,20 +558,27 @@ MongoClient.connect(connectionString, (err, client) => {
 
 You should see something like this:
 
-<Image src="/images/2020/crud/connected.png" alt="Connected to database." />
+<Image src='/images/2020/crud/connected.png' alt='Connected to database.' />
 
 You can remove the deprecation warning by adding the option into `MongoClient.connect`
 
 ```javascript
-MongoClient.connect(connectionString, {
-  useUnifiedTopology: true
-}, (err, client) => {
-  if (err) return console.error(err)
-  console.log('Connected to Database')
-})
+MongoClient.connect(
+  connectionString,
+  {
+    useUnifiedTopology: true,
+  },
+  (err, client) => {
+    if (err) return console.error(err)
+    console.log('Connected to Database')
+  }
+)
 ```
 
-<Image src="/images/2020/crud/connect-no-deprecation-warnings.png" alt="Connection without deprecation warning." />
+<Image
+  src='/images/2020/crud/connect-no-deprecation-warnings.png'
+  alt='Connection without deprecation warning.'
+/>
 
 MongoDB supports promises. If you want to use promises instead of callbacks, you can write `MongoClient.connect` like this. It behaves exactly like the code above.
 
@@ -523,7 +591,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 ```
 
 <Callout>
-Read [this article][20] if you want to learn about promises in JavaScript.
+  Read [this article][20] if you want to learn about promises in JavaScript.
 </Callout>
 
 ### Changing the Database
@@ -531,11 +599,12 @@ Read [this article][20] if you want to learn about promises in JavaScript.
 We need to change the database from `test` to something else. You can name it anything you want. I chose to name my new database `star-wars-quotes` because it helps me remember what I'm building.
 
 ```javascript
-MongoClient.connect(connectionString, { useUnifiedTopology: true })
-  .then(client => {
+MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(
+  client => {
     console.log('Connected to Database')
     const db = client.db('star-wars-quotes')
-  })
+  }
+)
 ```
 
 ### MongoDB and Server
@@ -567,21 +636,21 @@ We need to create a `collection` before we can store items into a database. Here
 Like Databases, you can name collections anything you want. In this case, let's store quotes into a `quotes` collection. We use `db.collection` to specify the collection.
 
 ```js
-MongoClient.connect(/* ... */)
-  .then(client => {
-    // ...
-    const db = client.db('star-wars-quotes')
-    const quotesCollection = db.collection('quotes')
+MongoClient.connect(/* ... */).then(client => {
+  // ...
+  const db = client.db('star-wars-quotes')
+  const quotesCollection = db.collection('quotes')
 
-    // ...
-  })
+  // ...
+})
 ```
 
 We can use the `insertOne` method to add items into a MongoDB collection.
 
 ```js
 app.post('/quotes', (req, res) => {
-  quotesCollection.insertOne(req.body)
+  quotesCollection
+    .insertOne(req.body)
     .then(result => {
       console.log(result)
     })
@@ -591,21 +660,30 @@ app.post('/quotes', (req, res) => {
 
 Try submitting the `<form>` from the browser. You should see a big scary looking `result` in the Terminal.
 
-<Image src="/images/2020/crud/post-result.png" alt="Post result." />
+<Image src='/images/2020/crud/post-result.png' alt='Post result.' />
 
 If you see this, congratulations! You've successfully added the quote into the database.
 
 You can check the items inside the database by going to "Collections" in MongoDB Atlas.
 
-<Image src="/images/2020/crud/atlas-collections.png" alt="Collections in MongoDB Atlas." />
+<Image
+  src='/images/2020/crud/atlas-collections.png'
+  alt='Collections in MongoDB Atlas.'
+/>
 
 You should see a document in your database. (Each database entry is called a document).
 
-<Image src="/images/2020/crud/atlas-collection-view.png" alt="Documents in MongoDB Atlas." />
+<Image
+  src='/images/2020/crud/atlas-collection-view.png'
+  alt='Documents in MongoDB Atlas.'
+/>
 
 If you go back to the Browser, you'll see it's still trying to load something.
 
-<Image src="/images/2020/crud/post-loading.png" alt="Browser still trying to load a page." />
+<Image
+  src='/images/2020/crud/post-loading.png'
+  alt='Browser still trying to load a page.'
+/>
 
 This happens because the browser expects something back from the server.
 
@@ -613,7 +691,8 @@ In this case, we don't need to send the browser information. Let's ask the brows
 
 ```js
 app.post('/quotes', (req, res) => {
-  quotesCollection.insertOne(req.body)
+  quotesCollection
+    .insertOne(req.body)
     .then(result => {
       res.redirect('/')
     })
@@ -621,7 +700,10 @@ app.post('/quotes', (req, res) => {
 })
 ```
 
-<Image src="/images/2020/crud/post-redirected.png" alt="Redirected. Browser is no longer waiting to load something." />
+<Image
+  src='/images/2020/crud/post-redirected.png'
+  alt='Redirected. Browser is no longer waiting to load something.'
+/>
 
 Yay!
 
@@ -650,13 +732,15 @@ app.get('/', (req, res) => {
 
 The `find` method returns a `cursor` which won't make sense if you tried logging it.
 
-<Image src="/images/2020/crud/cursor.png" alt="Cursor object from MongoDB"/>
+<Image src='/images/2020/crud/cursor.png' alt='Cursor object from MongoDB' />
 
 But this `cursor` object contains all quotes from our database! It has a bunch of method that lets us get our data. For example, we can use `toArray` to convert the data into an array.
 
 ```javascript
 app.get('/', (req, res) => {
-  db.collection('quotes').find().toArray()
+  db.collection('quotes')
+    .find()
+    .toArray()
     .then(results => {
       console.log(results)
     })
@@ -665,7 +749,7 @@ app.get('/', (req, res) => {
 })
 ```
 
-<Image src="/images/2020/crud/mongodb-get.png" alt=""/>
+<Image src='/images/2020/crud/mongodb-get.png' alt='' />
 
 Great! We see the quotes we added! (You see so many of the same quotes because I added them all when writing this tutorial 😆).
 
@@ -681,6 +765,7 @@ What we can do, instead, is to use a template engine to generate the HTML. Popul
 I've wrote extensively about the how and why of template engines in a [separate post][24]. You might want to check it out if you have no idea what template engines are.
 
 I use Nunjucks as my template engine of choice. Feel free to check out the post to find out why.
+
 </Callout>
 
 For this tutorial, we will use [Embedded JavaScript][25] (EJS) as our template engine because it's the easiest to start with. You'll find it familiar from the get-go since you'll be writing HTML and JavaScript.
@@ -746,22 +831,22 @@ Next, we'll use `res.render` to render this `index.ejs` file.
 
 ```javascript
 app.get('/', (req, res) => {
-  db.collection('quotes').find().toArray()
-    .then(/* ... */)
-    .catch(/* ... */)
+  db.collection('quotes').find().toArray().then(/* ... */).catch(/* ... */)
   res.render('index.ejs', {})
 })
 ```
 
 If you refresh the page, you should still see the same thing. Nothing should change, nothing should break.
 
-<Image src="/images/2020/crud/get-ejs.png" alt="Renders an ejs file." />
+<Image src='/images/2020/crud/get-ejs.png' alt='Renders an ejs file.' />
 
 Let's put the quotes into `index.ejs`. To do this, we need to pass the quotes into the `render` method.
 
 ```js
 app.get('/', (req, res) => {
-  db.collection('quotes').find().toArray()
+  db.collection('quotes')
+    .find()
+    .toArray()
     .then(results => {
       res.render('index.ejs', { quotes: results })
     })
@@ -774,37 +859,40 @@ In `index.ejs`, we can use place variables between `<%=` and `%>` tags. Let's tr
 ```html
 <!-- In index.ejs -->
 <body>
-  <h1> ... </h1>
-  <form> ... </form>
+  <h1>...</h1>
+  <form>...</form>
   <%= quotes %>
 </body>
 ```
 
 You should see this:
 
-<Image src="/images/2020/crud/ejs-quotes.png" alt="Rendered quotes in EJS." />
+<Image src='/images/2020/crud/ejs-quotes.png' alt='Rendered quotes in EJS.' />
 
 We see lots of `[object Object]` because each quote inside `results` is a JavaScript object. `ejs` cannot convert that object into HTML automatically.
 
 We need to loop through the quotes. We can do this with a `for` loop. In EJS, we write a for loop like how we write a JavaScript `for` loop. The only difference is we need to put the `for` loop statements between `<%` and `%>`.
 
 ```html
-<h2> Quotes </h2>
+<h2>Quotes</h2>
 
 <ul class="quotes">
   <!-- Loop through quotes -->
   <% for(var i = 0; i < quotes.length; i++) {%>
-    <li class="quote">
-      <!-- Output name from the iterated quote object -->
-      <span><%= quotes[i].name %></span>:
-      <!-- Output quote from the iterated quote object -->
-      <span><%= quotes[i].quote %></span>
-    </li>
+  <li class="quote">
+    <!-- Output name from the iterated quote object -->
+    <span><%= quotes[i].name %></span>:
+    <!-- Output quote from the iterated quote object -->
+    <span><%= quotes[i].quote %></span>
+  </li>
   <% } %>
 </ul>
 ```
 
-<Image src="/images/2020/crud/ejs-rendered-quotes.png" alt="Rendered quotes with EJS." />
+<Image
+  src='/images/2020/crud/ejs-rendered-quotes.png'
+  alt='Rendered quotes with EJS.'
+/>
 
 ## CRUD - UPDATE
 
@@ -819,14 +907,12 @@ To do this, we need to add a `button` into the `index.ejs` file:
 ```html
 <div>
   <h2>Darth Vader invades!</h2>
-  <p>
-    Replace first Yoda's quote with a quote written by Darth Vader
-  </p>
+  <p>Replace first Yoda's quote with a quote written by Darth Vader</p>
   <button id="update-button">Replace Yoda's quote</button>
 </div>
 ```
 
-<Image src="/images/2020/crud/put-ejs.png" alt="Add update section to HTML." />
+<Image src='/images/2020/crud/put-ejs.png' alt='Add update section to HTML.' />
 
 We will also create an external JavaScript file to execute a `PUT` request. According to Express conventions, this JavaScript is kept in a folder called `public`
 
@@ -877,7 +963,9 @@ In this case, let's say we want to send the request to `/quotes`. We'll set `end
 
 ```js
 update.addEventListener('click', _ => {
-  fetch('/quotes', {/* ... */})
+  fetch('/quotes', {
+    /* ... */
+  })
 })
 ```
 
@@ -886,7 +974,7 @@ We need to send a `PUT` request this time. We can do this by setting Fetch's met
 ```js
 update.addEventListener('click', _ => {
   fetch('/quotes', {
-    method: 'put'
+    method: 'put',
   })
 })
 ```
@@ -898,7 +986,7 @@ Here's an example of JavaScript data:
 ```js
 const data = {
   name: 'Darth Vader',
-  quote: 'I find your lack of faith disturbing.'
+  quote: 'I find your lack of faith disturbing.',
 }
 ```
 
@@ -931,8 +1019,8 @@ update.addEventListener('click', _ => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       name: 'Darth Vader',
-      quote: 'I find your lack of faith disturbing.'
-    })
+      quote: 'I find your lack of faith disturbing.',
+    }),
   })
 })
 ```
@@ -953,7 +1041,7 @@ app.put('/quotes', (req, res) => {
 })
 ```
 
-<Image src="/images/2020/crud/put-body.png" alt="Put request body" />
+<Image src='/images/2020/crud/put-body.png' alt='Put request body' />
 
 The next step is to change the Yoda's first quote to this quote by Darth Vader.
 
@@ -962,24 +1050,22 @@ The next step is to change the Yoda's first quote to this quote by Darth Vader.
 MongoDB Collections come with a method called `findOneAndUpdate`. This method lets us find and change one item in the database. It has the following syntax:
 
 ```javascript
-quotesCollection.findOneAndUpdate(
-  query,
-  update,
-  options
-)
-  .then(result => {/* ... */})
+quotesCollection
+  .findOneAndUpdate(query, update, options)
+  .then(result => {
+    /* ... */
+  })
   .catch(error => console.error(error))
 ```
 
 `query` lets us filter the collection with key-value pairs. If we want to filter quotes to those written by Yoda, we can set `{ name: 'Yoda' }` as the query.
 
 ```javascript
-quotesCollection.findOneAndUpdate(
-  { name: 'Yoda' },
-  update,
-  options
-)
-  .then(result => {/* ... */})
+quotesCollection
+  .findOneAndUpdate({ name: 'Yoda' }, update, options)
+  .then(result => {
+    /* ... */
+  })
   .catch(error => console.error(error))
 ```
 
@@ -988,17 +1074,20 @@ quotesCollection.findOneAndUpdate(
 We will use the `$set` operator since we're changing Yoda's quotes into Darth Vader's quotes:
 
 ```javascript
-quotesCollection.findOneAndUpdate(
-  { name: 'Yoda' },
-  {
-    $set: {
-      name: req.body.name,
-      quote: req.body.quote
-    }
-  },
-  options
-)
-  .then(result => {/* ... */})
+quotesCollection
+  .findOneAndUpdate(
+    { name: 'Yoda' },
+    {
+      $set: {
+        name: req.body.name,
+        quote: req.body.quote,
+      },
+    },
+    options
+  )
+  .then(result => {
+    /* ... */
+  })
   .catch(error => console.error(error))
 ```
 
@@ -1007,19 +1096,22 @@ quotesCollection.findOneAndUpdate(
 In this case, it's possible that no Yoda quotes exist in the database. We can force MongoDB to create a new Darth Vader quote if no Yoda quotes exist. We do this by setting `upsert` to `true`. `upsert` means: Insert a document if no documents can be updated.
 
 ```javascript
-quotesCollection.findOneAndUpdate(
-  { name: 'Yoda' },
-  {
-    $set: {
-      name: req.body.name,
-      quote: req.body.quote
+quotesCollection
+  .findOneAndUpdate(
+    { name: 'Yoda' },
+    {
+      $set: {
+        name: req.body.name,
+        quote: req.body.quote,
+      },
+    },
+    {
+      upsert: true,
     }
-  },
-  {
-    upsert: true
-  }
-)
-  .then(result => {/* ... */})
+  )
+  .then(result => {
+    /* ... */
+  })
   .catch(error => console.error(error))
 ```
 
@@ -1037,14 +1129,19 @@ app.put('/quotes', (req, res) => {
 
 Try clicking the "replace first Yoda quote" button in the browser. You should see this result in your command line. This says we changed one of Yoda's quote.
 
-<Image src="/images/2020/crud/put-result.png" alt="Put result." />
+<Image src='/images/2020/crud/put-result.png' alt='Put result.' />
 
 If you refresh the browser, you should see Darth Vader's quote as the first quote.
 
-<Image src="/images/2020/crud/put-check.png" alt="Checking the HTML after a PUT request." />
+<Image
+  src='/images/2020/crud/put-check.png'
+  alt='Checking the HTML after a PUT request.'
+/>
 
 <Callout>
-Does the `findOneAndUpdate` look complicated to you? Well, It IS complicated. This is why I use Mongoose instead of MongoDB. You can find out more about Mongoose in [this article][28].
+  Does the `findOneAndUpdate` look complicated to you? Well, It IS complicated.
+  This is why I use Mongoose instead of MongoDB. You can find out more about
+  Mongoose in [this article][28].
 </Callout>
 
 Finally, we need to respond to the JavaScript that sent the `PUT` request. In this case, we'll simply send the `success` message.
@@ -1064,7 +1161,9 @@ Next, we can handle the response from the server via a `then` object. (We do thi
 Here's what you should do:
 
 ```javascript
-fetch({ /* request */ })
+fetch({
+  /* request */
+})
   .then(res => {
     if (res.ok) return res.json()
   })
@@ -1075,10 +1174,14 @@ fetch({ /* request */ })
 
 You should be able to see a `Success` message from the server in the console.
 
-<Image src="/images/2020/crud/put-response.png" alt="Response from the server." />
+<Image
+  src='/images/2020/crud/put-response.png'
+  alt='Response from the server.'
+/>
 
 <Callout>
-I wrote an [article on the Fetch API][29] if you're wondering why we need two `then` calls. Give it a read! It'll help cement your understanding.
+  I wrote an [article on the Fetch API][29] if you're wondering why we need two
+  `then` calls. Give it a read! It'll help cement your understanding.
 </Callout>
 
 If you are working on a fancy webapp, you can use JavaScript to update the DOM, so users see the new changes immediately.
@@ -1086,7 +1189,9 @@ If you are working on a fancy webapp, you can use JavaScript to update the DOM, 
 However, updating the DOM is out of scope of this article, so we're just going to refresh the browser to see the changes.
 
 ```javascript
-fetch({ /* request */ })
+fetch({
+  /* request */
+})
   .then(res => {
     if (res.ok) return res.json()
   })
@@ -1096,7 +1201,9 @@ fetch({ /* request */ })
 ```
 
 <Callout>
-If you want to learn to use JavaScript to update the DOM, I suggest going through my [Learn JavaScript][30] course. I even teach you how make your interface fast and snappy! (Check the Todolist Component).
+  If you want to learn to use JavaScript to update the DOM, I suggest going
+  through my [Learn JavaScript][30] course. I even teach you how make your
+  interface fast and snappy! (Check the Todolist Component).
 </Callout>
 
 That's it for the **UPDATE** operation! Let's move on to delete.
@@ -1120,7 +1227,10 @@ First, we need to add a delete button to `index.ejs`.
 </div>
 ```
 
-<Image src="/images/2020/crud/delete-ejs.png" alt="Adds delete button to the index.ejs file." />
+<Image
+  src='/images/2020/crud/delete-ejs.png'
+  alt='Adds delete button to the index.ejs file.'
+/>
 
 Then, we'll trigger a **DELETE** request through Fetch when a user clicks the delete button.
 
@@ -1167,22 +1277,22 @@ app.delete('/quotes', (req, res) => {
 MongoDB Collections has a method called `deleteOne`. It lets us remove a document from the database. It takes in two parameters: `query` and `options`.
 
 ```javascript
-quotesCollection.deleteOne(
-  query,
-  options
-)
-  .then(result => {/* ... */})
+quotesCollection
+  .deleteOne(query, options)
+  .then(result => {
+    /* ... */
+  })
   .catch(error => console.error(error))
 ```
 
 `query` works like `query` in `findOneAndUpdate`. It lets us filter the collection to the entries we're searching for. In this case, we can set `name` to Darth Vader.
 
 ```javascript
-quotesCollection.deleteOne(
-  { name: 'Darth Vader' },
-  options
-)
-  .then(result => {/* ... */})
+quotesCollection
+  .deleteOne({ name: 'Darth Vader' }, options)
+  .then(result => {
+    /* ... */
+  })
   .catch(error => console.error(error))
 ```
 
@@ -1190,10 +1300,7 @@ However, since we already pass the name `Darth Vader` from Fetch, we don't need 
 
 ```js
 app.delete('/quotes', (req, res) => {
-  quotesCollection.deleteOne(
-    { name: req.body.name },
-    options
-  )
+  quotesCollection.deleteOne({ name: req.body.name }, options)
 })
 ```
 
@@ -1201,9 +1308,7 @@ In this case, we don't need to change any options, so we can omit `options`.
 
 ```js
 app.delete('/quotes', (req, res) => {
-  quotesCollection.deleteOne(
-    { name: req.body.name }
-  )
+  quotesCollection.deleteOne({ name: req.body.name })
 })
 ```
 
@@ -1211,9 +1316,8 @@ Then, we can send a response back to the JavaScript in the `then` call.
 
 ```javascript
 app.delete('/quotes', (req, res) => {
-  quotesCollection.deleteOne(
-    { name: req.body.name }
-  )
+  quotesCollection
+    .deleteOne({ name: req.body.name })
     .then(result => {
       res.json(`Deleted Darth Vader's quote`)
     })
@@ -1221,7 +1325,7 @@ app.delete('/quotes', (req, res) => {
 })
 ```
 
-Now, when you click the delete button, the browser will send the *DELETE* request through Fetch to our Express server. Then, the server responds by sending either an error or a message back.
+Now, when you click the delete button, the browser will send the _DELETE_ request through Fetch to our Express server. Then, the server responds by sending either an error or a message back.
 
 ### What if there are no more Darth Vader quotes?
 
@@ -1229,7 +1333,8 @@ If there are no more Darth Vader quotes, `result.deletedCount` will be `0`. We c
 
 ```javascript
 app.delete('/quotes', (req, res) => {
-  quotesCollection.deleteOne(/* ... */)
+  quotesCollection
+    .deleteOne(/* ... */)
     .then(result => {
       if (result.deletedCount === 0) {
         return res.json('No quote to delete')
@@ -1267,7 +1372,10 @@ deleteButton.addEventListener('click', _ => {
 })
 ```
 
-<Image src="/images/2020/crud/delete-result.gif" alt="Message if no quotes can be deleted." />
+<Image
+  src='/images/2020/crud/delete-result.gif'
+  alt='Message if no quotes can be deleted.'
+/>
 
 That's it for the **DELETE** operation!
 
@@ -1275,7 +1383,10 @@ That's it for the **DELETE** operation!
 
 The final step is to make the app look a little better by sprinkling some styles!
 
-<Image src="/images/2020/crud/looks.png" alt="Add CSS to make the app look better." />
+<Image
+  src='/images/2020/crud/looks.png'
+  alt='Add CSS to make the app look better.'
+/>
 
 ## Wrapping Up
 
@@ -1299,51 +1410,51 @@ You can grab the source code by leaving your name and email address in [this for
 Here's some further readings if you're interested to continue with the Node, Express, MongoDB journey
 
 - Express articles
-	- [3 useful Express middleware][32]
-	- [Handling Express errors][33]
-	- [JavaScript Async/await][34]
-	- [Using Async/await in Express][35]
+  - [3 useful Express middleware][32]
+  - [Handling Express errors][33]
+  - [JavaScript Async/await][34]
+  - [Using Async/await in Express][35]
 - MongoDB articles
-	- [Mongoose 101][36]
+  - [Mongoose 101][36]
 - Testing related articles
-	- [Endpoint testing with Jest and Supertest][37]
-	- [Connecting Jest and Mongoose][38]
+  - [Endpoint testing with Jest and Supertest][37]
+  - [Connecting Jest and Mongoose][38]
 
-[1]:	https://expressjs.com/
-[2]:	https://nodejs.org/en/
-[3]:	https://www.mongodb.com/
-[4]:	https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
-[5]:	https://crud-demo.zellwk.com
-[6]:	#convertkit
-[7]:	/blog/fear-of-command-line/ "Overcoming fear of the command line"
-[8]:	https://nodejs.org/
-[9]:	https://nodejs.org/
-[10]:	/blog/homebrew/
-[11]:	https://chocolatey.org/
-[12]:	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
-[13]:	https://nodemon.io/
-[14]:	https://www.npmjs.com/package/body-parser
-[15]:	https://mongoosejs.com/
-[16]:	/blog/mongoose
-[17]:	https://www.mongodb.com/cloud/atlas
-[18]:	https://zellwk.com/blog/local-mongodb/
-[19]:	https://www.mongodb.com/download-center
-[20]:	https://zellwk.com/blog/js-promises/ "Promises in JavaScript"
-[21]:	https://pugjs.org/api/getting-started.html "Pug"
-[22]:	https://ejs.co "Embedded JavaScript (EJS)"
-[23]:	https://mozilla.github.io/nunjucks/ "Nunjucks"
-[24]:	/blog/nunjucks-with-gulp/
-[25]:	http://www.embeddedjs.com/
-[26]:	https://developer.mozilla.org/en/docs/Web/API/Fetch_API
-[27]:	https://docs.mongodb.org/manual/reference/operator/update/
-[28]:	/blog/mongoose "Mongoose 101"
-[29]:	https://css-tricks.com/using-fetch/
-[30]:	https://learnjavascript.today
-[31]:	#convertkit
-[32]:	/blog/express-middlewares
-[33]:	/blog/express-errors
-[34]:	/blog/async-await
-[35]:	/blog/async-await-express
-[36]:	/blog/mongoose
-[37]:	/blog/endpoint-testing
-[38]:	/blog/jest-and-mongoose
+[1]: https://expressjs.com/
+[2]: https://nodejs.org/en/
+[3]: https://www.mongodb.com/
+[4]: https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+[5]: https://crud-demo.zellwk.com
+[6]: #convertkit
+[7]: /blog/fear-of-command-line/ 'Overcoming fear of the command line'
+[8]: https://nodejs.org/
+[9]: https://nodejs.org/
+[10]: /blog/homebrew/
+[11]: https://chocolatey.org/
+[12]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+[13]: https://nodemon.io/
+[14]: https://www.npmjs.com/package/body-parser
+[15]: https://mongoosejs.com/
+[16]: /blog/mongoose
+[17]: https://www.mongodb.com/cloud/atlas
+[18]: https://zellwk.com/blog/local-mongodb/
+[19]: https://www.mongodb.com/download-center
+[20]: https://zellwk.com/blog/js-promises/ 'Promises in JavaScript'
+[21]: https://pugjs.org/api/getting-started.html 'Pug'
+[22]: https://ejs.co 'Embedded JavaScript (EJS)'
+[23]: https://mozilla.github.io/nunjucks/ 'Nunjucks'
+[24]: /blog/nunjucks-with-gulp/
+[25]: http://www.embeddedjs.com/
+[26]: https://developer.mozilla.org/en/docs/Web/API/Fetch_API
+[27]: https://docs.mongodb.org/manual/reference/operator/update/
+[28]: /blog/mongoose 'Mongoose 101'
+[29]: https://css-tricks.com/using-fetch/
+[30]: https://learnjavascript.today
+[31]: #convertkit
+[32]: /blog/express-middlewares
+[33]: /blog/express-errors
+[34]: /blog/async-await
+[35]: /blog/async-await-express
+[36]: /blog/mongoose
+[37]: /blog/endpoint-testing
+[38]: /blog/jest-and-mongoose

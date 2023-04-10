@@ -1,7 +1,7 @@
 ---
 title: An introduction to animations with Greensock Animation API (GSAP)
 slug: gsap
-ckForm: better-fed
+
 tags: [javascript, animation]
 pubDate: 2017-12-27
 ---
@@ -112,7 +112,11 @@ const box = document.querySelector('.box')
 TweenMax.to(box, 2, { x: 400 })
 ```
 
-<Image src="/images/2017/gsap/tween-horizontal.gif" alt="Moving a box from left to right over 2 seconds" caption="Moving a box from left to right over 2 seconds" />
+<Image
+  src='/images/2017/gsap/tween-horizontal.gif'
+  alt='Moving a box from left to right over 2 seconds'
+  caption='Moving a box from left to right over 2 seconds'
+/>
 
 Here's another example: let's say you want the box from the bottom to it's current position. The box should be invisible at first; it fades in and becomes fully visible at the end of the animation.
 
@@ -126,7 +130,11 @@ TweenMax.from(box, 2, {
 })
 ```
 
-<Image src="/images/2017/gsap/tween-vertical.gif" alt="Moving a box from bottom up, changing opacity at the same time" caption="Moving a box from bottom up, changing opacity at the same time" />
+<Image
+  src='/images/2017/gsap/tween-vertical.gif'
+  alt='Moving a box from bottom up, changing opacity at the same time'
+  caption='Moving a box from bottom up, changing opacity at the same time'
+/>
 
 ## Timing functions
 
@@ -146,7 +154,11 @@ GSAP provides you with many easing variables like `Power0`, `Power1`, `Power2`, 
 
 If you use Firefox's devtools, you can roughly estimate what `Power0` to `Power4` looks like.
 
-<Image src="/images/2017/gsap/power.png" alt="Power0 to Power4 are similar to the standard, quadratic, cubic and quartic easing values" caption="Power0 to Power4 are similar to the standard, quadratic, cubic and quartic easing values" />
+<Image
+  src='/images/2017/gsap/power.png'
+  alt='Power0 to Power4 are similar to the standard, quadratic, cubic and quartic easing values'
+  caption='Power0 to Power4 are similar to the standard, quadratic, cubic and quartic easing values'
+/>
 
 Besides `Power0` to `Power4`, GSAP gives you other easing variables, like `Bounce` and `Elastic`, that are more powerful than to cubic-bezier curves—they let you create animations that you can't do with cubic-bezier!
 
@@ -176,11 +188,19 @@ One example is a bouncing animation. Click the ball in the codepen below and you
 
 To find the perfect timing-function for your tweens, you can use the [easing visualizer](https://greensock.com/ease-visualizer) that GSAP has created. Here, you'll find a complete list of possible easing variables.
 
-<Image src="/images/2017/gsap/visualizer–easing-vars.png" alt="A complete list of easing variables" caption="A complete list of easing variables" />
+<Image
+  src='/images/2017/gsap/visualizer–easing-vars.png'
+  alt='A complete list of easing variables'
+  caption='A complete list of easing variables'
+/>
 
 You can also customize easing properties and see how it looks like immediately.
 
-<Image src="/images/2017/gsap/visualizer–customize.png" alt="Each easing variable can be further customized by clicking on the underlined items" caption="Each easing variable can be further customized by clicking on the underlined items" />
+<Image
+  src='/images/2017/gsap/visualizer–customize.png'
+  alt='Each easing variable can be further customized by clicking on the underlined items'
+  caption='Each easing variable can be further customized by clicking on the underlined items'
+/>
 
 If you want to create animations that look good, you need to go through different possible timing-functions and find the perfect one. There's no substitute for experimentation here, so experiment away! GSAP has already made it easy for you!
 
@@ -205,7 +225,11 @@ ball.addEventListener('click', e => {
 })
 ```
 
-<Image src="/images/2017/gsap/bounce-and-rotate.gif" alt="Bouncing, moving and rotating at the same time" caption="Bouncing, moving and rotating at the same time" />
+<Image
+  src='/images/2017/gsap/bounce-and-rotate.gif'
+  alt='Bouncing, moving and rotating at the same time'
+  caption='Bouncing, moving and rotating at the same time'
+/>
 
 See [this codepen](https://codepen.io/zellwk/pen/rGRVev) if you want to click on the ball yourself.
 
@@ -217,7 +241,11 @@ TweenMax.to(box, 1, { x: 200 })
 TweenMax.to(box, 1, { y: 200, delay: 1 })
 ```
 
-<Image src="/images/2017/gsap/tween-delay.gif" alt="Delaying a tween with the delay property" caption="Delaying a tween with the delay property" />
+<Image
+  src='/images/2017/gsap/tween-delay.gif'
+  alt='Delaying a tween with the delay property'
+  caption='Delaying a tween with the delay property'
+/>
 
 Setting delay like this is easy if you only use a few tweens. However, it becomes unwieldy quickly.
 
@@ -243,7 +271,11 @@ tl.to(box, 1, { y: 200 })
 
 What you'll notice is, without the delay, the second tween (moving vertically) gets attached to the end of the first tween automatically. Isn't that sweet?!
 
-<Image src="/images/2017/gsap/tween-delay.gif" alt="Chaining tweens with TimelineMax" caption="Chaining tweens with TimelineMax" />
+<Image
+  src='/images/2017/gsap/tween-delay.gif'
+  alt='Chaining tweens with TimelineMax'
+  caption='Chaining tweens with TimelineMax'
+/>
 
 Check [this codepen](https://codepen.io/zellwk/pen/qPgyEb) for a demo.
 

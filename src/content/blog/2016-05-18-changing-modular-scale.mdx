@@ -2,10 +2,9 @@
 title: Changing Modular Scale Ratio at Different Breakpoints
 slug: changing-modular-scale
 tags: [typography, design, responsive]
-ckForm: mrt-simplicity
+ckForm: mwt
 pubDate: 2016-05-18
 ---
-
 
 I spoke about why you may have problems with large font-sizes on the mobile and the four methods to deal with it [in a previous article](/blog/responsive-modular-scale). In this article, we're going to look at implementing the fourth method that was mentioned---changing the Modular Scale ratio at different breakpoints.
 
@@ -25,7 +24,10 @@ Let's assume that you're going to use the following numbers:
 
 Let's also say that your `h1` font-size is set to the 3rd step. When I say the 3rd step, I mean the font-size of your `h1` is the third number on the scale:
 
-<Image src="/images/2016/changing-ms-ratio/modular-scale-steps.png" caption="Modular Scale Steps"/>
+<Image
+  src='/images/2016/changing-ms-ratio/modular-scale-steps.png'
+  caption='Modular Scale Steps'
+/>
 
 Mathematically, you can calculate the size of this step by multiplying the base font-size by the ratio to a power of the step:
 
@@ -36,8 +38,8 @@ If your base font-size is 16px and your ratio is 1.333, these are the steps that
 - Step -2: 16px ÷ 1.333 ÷ 1.333 = `9.005px`
 - Step -1: 16px ÷ 1.333 = `12.003px`
 - **Base (Step 0): `16px`**
-- Step 1: 16px * 1.333 = `21.328px`
-- Step 2: 16px * 1.333 * 1.333 = `28.43px`
+- Step 1: 16px \* 1.333 = `21.328px`
+- Step 2: 16px _ 1.333 _ 1.333 = `28.43px`
 
 So the `h1`, in this case, is set to the following values:
 
@@ -52,7 +54,9 @@ h1 {
 }
 
 @media (min-width: 1000px) {
-  h1 {font-size: 67.773px;}
+  h1 {
+    font-size: 67.773px;
+  }
 }
 ```
 
@@ -71,10 +75,7 @@ Today, we're not going to look at everything in the Modular Scale plugin. **We'r
 To change the ratio across different device widths, **you first need to create a variable called `$ms-range`**. This variable is a list of values that contain two numbers in each argument:
 
 ```scss
-$ms-range:
-  1.2 20em,
-  1.333 30em,
-  1.618 40em
+$ms-range: 1.2 20em, 1.333 30em, 1.618 40em;
 ```
 
 In each argument, **the first number is the ratio** you'll like to use for your Modular Scale. **The second number is the minimum width where the ratio kicks in**. So, the `$ms-range` you see here will produce font-sizes such that:
@@ -113,13 +114,13 @@ h1 {
 
 @media (min-width: 20em) and (max-width: 30em) {
   h1 {
-    font-size: calc( 1.728em + 0.64059 * ( ( 100vw - 20em) / 10 ));
+    font-size: calc(1.728em + 0.64059 * ((100vw - 20em) / 10));
   }
 }
 
 @media (min-width: 30em) and (max-width: 40em) {
   h1 {
-    font-size: calc( 2.36859em + 1.86721 * ( ( 100vw - 30em) / 10 ));
+    font-size: calc(2.36859em + 1.86721 * ((100vw - 30em) / 10));
   }
 }
 
@@ -134,7 +135,10 @@ Calculating viewport-based typography is complicated. I've dove into more detail
 
 Anyway, since the Modular Scale plugin uses viewport based typography, you'll see your `h1` changing sizes whenever you resize your browser between 20em and 40em:
 
-<Image src="/images/2016/changing-ms-ratio/change-ratio.gif" alt="Changing Ratio of Modular Scale"/>
+<Image
+  src='/images/2016/changing-ms-ratio/change-ratio.gif'
+  alt='Changing Ratio of Modular Scale'
+/>
 
 Many people love viewport-based typography because they get to write lesser media queries and their font-sizes changes automatically.
 
@@ -176,8 +180,6 @@ h1 {
   }
 }
 ```
-
-
 
 There, much better. (Maybe I just like CSS that doesn't look messy and overwhelming) :)
 

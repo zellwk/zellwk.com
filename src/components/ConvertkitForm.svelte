@@ -20,22 +20,10 @@
 
   // Event handlers
   function handleMutate(event) {
-    const { node, mutation, observer } = event.detail
+    const { mutation, observer } = event.detail
 
-    // Legacy CK Forms
-    if (id) {
-      if (mutation.target.id === 'ck_success_msg') {
-        modalState = 'open'
-        const form = node.querySelector('form')
-        email = form.elements.email.value.trim()
-        sendLeadEvent()
-        observer.disconnect()
-      }
-      return
-    }
-
-    // Newer CK Forms
-    // CK removes the <form> element from the DOM after submission so we have to grab the email value before they do so. We do this by simply listening to the submit event.
+    // CK removes the <form> element from the DOM after submission so we have to grab the email value before they do so.
+    // We do this by simply listening to the submit event.
     // We don't have to "submit" the form afterwards because CK does it with JavaScript.
     if (
       mutation.type === 'attributes' &&
@@ -53,25 +41,13 @@
       return
     }
 
-    // Newer CK Forms
     const successDiv = mutation.addedNodes[0]
     if (successDiv && successDiv.dataset.element === 'success') {
       modalState = 'open'
       successDiv.style.opacity = 0
-      sendLeadEvent()
+      window.dataLayer.push({ event: 'generate_lead', email })
       observer.disconnect()
     }
-  }
-
-  let leadEventSent = false
-
-  function sendLeadEvent(form) {
-    // We only want to send this event once
-    // We need this because we're detecting old CK forms with mutation observer and it sends over 2 events in quick succession. There's no way to prevent this afaik so we're mitigating it by only sending the event once.
-    if (leadEventSent) return
-    leadEventSent = true
-
-    window.dataLayer.push({ event: 'generate_lead', email })
   }
 
   function activateLoader() {
@@ -104,7 +80,7 @@
   {/if}
 
   {#if uid}
-    <div class="ConvertkitForm">
+    <div class="ConvertkitForm o-content">
       <SvelteMarkdown source={content} />
       <script
         async

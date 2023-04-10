@@ -2,10 +2,8 @@
 title: Faux Subgrid
 slug: faux-subgrid
 tags: [css]
-ckForm: better-fed
 pubDate: 2018-02-14
 ---
-
 
 I was super excited when CSS Grid landed in major browsers back in March/April 2017. I thought CSS Grid was going to change the way we make layouts; it did. We gotta thank [Rachel Andrew](https://twitter.com/rachelandrew) and [Jen Simmons](https://twitter.com/jensimmons) for teaching all of us us about CSS Grid.
 
@@ -21,18 +19,21 @@ When we design websites, we don't often think about how we write HTML. We usuall
 
 Most of the time, the HTML structure is straightforward. Let's say you have a 3x2 grid in a component. You can style your grid this way:
 
-<Image src="/images/2018/faux-subgrid/kats.png" alt="Image that contains 6 cats lined up in a grid"/>
+<Image
+  src='/images/2018/faux-subgrid/kats.png'
+  alt='Image that contains 6 cats lined up in a grid'
+/>
 
 ```html
 <div class="kats">
   <h3>Kats! Kats!</h3>
   <ul class="kats-grid">
-    <li> <!-- ... ---> </li>
-    <li> <!-- ... ---> </li>
-    <li> <!-- ... ---> </li>
-    <li> <!-- ... ---> </li>
-    <li> <!-- ... ---> </li>
-    <li> <!-- ... ---> </li>
+    <li><!-- ... ---></li>
+    <li><!-- ... ---></li>
+    <li><!-- ... ---></li>
+    <li><!-- ... ---></li>
+    <li><!-- ... ---></li>
+    <li><!-- ... ---></li>
   </ul>
 </div>
 ```
@@ -47,7 +48,10 @@ Most of the time, the HTML structure is straightforward. Let's say you have a 3x
 
 But sometimes, your design may call for a complicated nested HTML structure. I ran into one such case when I built [Learn JavaScript](https://learnjavascript.today). Here's the design of the component that I had troubles with:
 
-<Image src="/images/2018/faux-subgrid/learnjavascript.png" alt="A component from learnjavascript.today that requires a nested HTML structure"/>
+<Image
+  src='/images/2018/faux-subgrid/learnjavascript.png'
+  alt='A component from learnjavascript.today that requires a nested HTML structure'
+/>
 
 From the design, you can tell that I need a nested HTML structure that resembles the following.
 
@@ -55,20 +59,24 @@ From the design, you can tell that I need a nested HTML structure that resembles
 <div class="component">
   <h3>The 20 components</h3>
   <div class="grid">
-    <div class="text"> <!-- ... ---> </div>
+    <div class="text"><!-- ... ---></div>
 
     <div class="list-of-components">
-      <ol> <!-- ... --> </ol>
-      <ol> <!-- ... --> </ol>
+      <ol>
+        <!-- ... -->
+      </ol>
+      <ol>
+        <!-- ... -->
+      </ol>
     </div>
 
-    <div class="sneak-peek-text"> <!-- ... --></div>
+    <div class="sneak-peek-text"><!-- ... --></div>
 
     <ul class="examples">
-      <li> <!-- ... --> </li>
-      <li> <!-- ... --> </li>
-      <li> <!-- ... --> </li>
-      <li> <!-- ... --> </li>
+      <li><!-- ... --></li>
+      <li><!-- ... --></li>
+      <li><!-- ... --></li>
+      <li><!-- ... --></li>
     </ul>
   </div>
 </div>
@@ -83,17 +91,21 @@ One way to circumvent the issue is to flatten the HTML. If I did so, my HTML wou
 <div class="component">
   <h3>The 20 components</h3>
   <div class="grid">
-    <div class="text"> <!-- ... ---> </div>
+    <div class="text"><!-- ... ---></div>
 
-    <ol class="list-of-components-1"> <!-- ... --> </ol>
-    <ol class="list-of-components-2"> <!-- ... --> </ol>
+    <ol class="list-of-components-1">
+      <!-- ... -->
+    </ol>
+    <ol class="list-of-components-2">
+      <!-- ... -->
+    </ol>
 
-    <div class="sneak-peek-text"> <!-- ... --></div>
+    <div class="sneak-peek-text"><!-- ... --></div>
 
-    <div class="example-1"> <!-- ... --> </div>
-    <div class="example-2"> <!-- ... --> </div>
-    <div class="example-3"> <!-- ... --> </div>
-    <div class="example-4"> <!-- ... --> </div>
+    <div class="example-1"><!-- ... --></div>
+    <div class="example-2"><!-- ... --></div>
+    <div class="example-3"><!-- ... --></div>
+    <div class="example-4"><!-- ... --></div>
   </div>
 </div>
 ```
@@ -144,9 +156,7 @@ We can then style items in `.list-of-components` and `.examples` as if they're n
 
 Here's a Codepen for you to play with:
 
-<p data-height="500" data-theme-id="7929" data-slug-hash="mXryjP" data-default-tab="result" data-user="zellwk" data-embed-version="2" data-pen-title="Faux subgrid example" class="codepen">See the Pen <a href="https://codepen.io/zellwk/pen/mXryjP/">Faux subgrid example</a> by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<Codepen hash='mXryjP' title='Faux subgrid example' />
 
 ## Automating the "subgrid" creation process
 
@@ -195,7 +205,7 @@ We can rewrite `grid-column: 1 / -1` with a column number for clarity:
 This meant we can use a **faux-subgrid** mixin to create the "subgrid".
 
 ```scss
-@mixin faux-subgrid ($columns) {
+@mixin faux-subgrid($columns) {
   grid-column-end: span $columns;
   display: grid;
   grid-template-columns: repeat($columns, 1fr);
@@ -215,9 +225,7 @@ This meant we can use a **faux-subgrid** mixin to create the "subgrid".
 
 Here's a Codepen to see `faux-subgrid` in action.
 
-<p data-height="300" data-theme-id="7929" data-slug-hash="QQKbLr" data-default-tab="result" data-user="zellwk" data-embed-version="2" data-pen-title="Faux subgrid mixin" class="codepen">See the Pen <a href="https://codepen.io/zellwk/pen/QQKbLr/">Faux subgrid mixin</a> by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<Codepen hash='QQKbLr' title='Faux subgrid mixin' />
 
 ## Positioning "subgrids" with finesse
 
@@ -232,16 +240,17 @@ If you need a smaller subgrid item, like what I needed for `.list-of-components`
 
 Here's a codepen to see this in action. (Pay attention to the two purple items on the right).
 
-<p data-height="300" data-theme-id="7929" data-slug-hash="qxadZO" data-default-tab="result" data-user="zellwk" data-embed-version="2" data-pen-title="Faux subgrid mixin (positioning subgrids with finesse)" class="codepen">See the Pen <a href="https://codepen.io/zellwk/pen/qxadZO/">Faux subgrid mixin (positioning subgrids with finesse)</a> by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<Codepen
+  hash='qxadZO'
+  title='Faux subgrid mixin (positioning subgrids with finesse)'
+/>
 
 ## The faux-subgrid mixin
 
 In case you missed it, here's the `faux-subgrid` mixin again.
 
 ```scss
-@mixin faux-subgrid ($columns) {
+@mixin faux-subgrid($columns) {
   grid-column-end: span $columns;
   display: grid;
   grid-template-columns: repeat($columns, 1fr);
@@ -264,4 +273,3 @@ CSS Grid is awesome; it'll be even more awesome if we had support for subgrid. L
 (I just hope it lands in 2018 or 2019).
 
 In the meantime, try using the `faux-subgrid` mixin I cooked up! :)
-
