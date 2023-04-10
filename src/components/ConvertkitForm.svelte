@@ -6,8 +6,8 @@
   import SvelteMarkdown from 'svelte-markdown'
 
   // Variables
-  export let name = ''
-  export let redirectTo = '/thanks' // Default to /thanks
+  export let name
+  export let redirectTo = '/thanks' // Default to /thanks. Redirection feature not integrated into posts yet.
 
   // States
   let modalState = 'closed' // closed, open
