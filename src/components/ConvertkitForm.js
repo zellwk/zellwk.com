@@ -2,8 +2,6 @@
 // Those with `id` are legacy forms.
 // Those with `uid` are newer forms.
 const IDS = {
-  BYDB: { id: 466715 },
-
   javascript: { uid: '7d716b888b' },
   homepage2: { uid: 'fb9a1a2ebd' },
   betterFED: { uid: '7044f2f370' },
