@@ -13,6 +13,7 @@ const IDS = {
   susy: { uid: 'd9d3e0d98d' },
   css: { uid: 'feec5a376e' },
   devBrand: { uid: '515d821769' },
+  apiMasterclass: { uid: '6a1dcf5321' },
 }
 
 export function getForm(name) {
