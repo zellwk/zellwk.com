@@ -18,16 +18,13 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props
 ---
 
-<!-- TODO: Change Exceprts so they all have ... to encourage more reading --><!-- TODO: Add Read More button -->
 <Base>
   <div class='l-wrap'>
     <section class='generic-layout'>
       <h1>Articles</h1>
       {
         page.data.map(post => {
-          const excerpt = post.body.split('{/* more */}')[0]
-          // TODO: Don't show drafts here
-          // TODO: Include Media and tags on posts
+          // TODO: Include Media and tags on posts?
           return (
             <div class='o-words'>
               <h2 style='font-size: 1.44rem'>
@@ -45,7 +42,7 @@ const { page } = Astro.props
                   </span>
                 )}
               </span>
-              <Markdown>{excerpt}</Markdown>
+              <Markdown>{post.data.excerpt}</Markdown>
             </div>
           )
         })

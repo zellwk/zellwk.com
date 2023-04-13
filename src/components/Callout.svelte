@@ -3,7 +3,7 @@
   let klass = ''
   export { klass as class }
 
-  klass = `${type} ${klass}`
+  klass = `${type} o-words ${klass}`
 </script>
 
 <div class={klass}>

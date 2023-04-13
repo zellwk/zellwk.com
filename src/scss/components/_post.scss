@@ -5,7 +5,7 @@
   @include mappy-bp(750px) {
     display: grid;
     grid-template-columns:
-      vr(2.5)
+      vr(3)
       minmax(0, 45ch)
       1fr;
     grid-column-gap: vr(0.75);
@@ -40,7 +40,7 @@
     margin-top: 0.75rem;
   }
 
-  [data-link-to="next-post"] {
+  [data-link-to='next-post'] {
     text-align: right;
   }
 

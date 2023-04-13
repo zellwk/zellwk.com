@@ -4,6 +4,11 @@ import path from 'path'
 import { handler as ssrHandler } from './dist/server/entry.mjs'
 const app = express()
 
+// Redirects
+app.get('/feed.xml', (req, res) => {
+  res.status(301)
+  res.redirect('/rss.xml')
+})
 // ========================
 // Static Pages
 // ========================

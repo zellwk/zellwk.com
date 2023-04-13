@@ -47,8 +47,19 @@ const { Content } = await post.render()
   <div class='l-wrap'>
     <article class='o-content post-layout'>
       <h1><Markdown content={post.data.title} /></h1>
-      <span class='post-layout__date'
-        ><FormattedDate date={post.data.date} />
+      <span class='post-layout__date'>
+        <div>
+          <strong>Published</strong>
+          <FormattedDate date={post.data.pubDate} />
+        </div>
+        {
+          post.data.updateDate && (
+            <div style='margin-top: 0.5em'>
+              <strong>Updated</strong>{' '}
+              <FormattedDate date={post.data.updateDate} />
+            </div>
+          )
+        }
       </span>
 
       <!-- TODO: MEDIA / YOUTUBE / VIMEO / WHATEVER HERE -->

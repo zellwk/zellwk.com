@@ -1,0 +1,232 @@
+---
+title: Building fancy list items in Astro
+description: This article shows you how to add custom SVG to any markdown list items in Astro, so you don't have to write custom HTML each time you want to make nice lists. 
+slug: astro-fancy-list-item
+cover: /images/blog/astro-fancy-list-item/markdown.png
+tags: ['astro', 'node']
+ckForm: astro
+pubDate: 2023-04-12
+---
+
+You probably saw many websites using cool bullet points instead of plain old-boring ones. How do they do it? **Is there an effective and simple way to create fancy bullets while writing really simple code?** 
+
+The answer is there is — with Astro, it's possible. You can simply write markdown and out comes a nicely formatted bullet you made with SVGs. 
+
+{/* more */}
+
+<Image src="/images/blog/astro-fancy-list-item/markdown.png" alt="List items written like normal markdown" caption="Input: Contains normal markdown" />
+
+<Image src="/images/blog/astro-fancy-list-item/output.png" alt="Output that uses SVGs as the list bullet" caption="Output: Contains an SVG as the list item"/>
+
+
+## Before we begin
+
+I'm going to assume you know how to use Astro and you know how to integrate MDX into Astro. If you don't, don't worry. Just follow through and get the concept of how things work, then go figure out how to use Astro and MDX. 
+
+(I'm going to create a course for it soon because Astro is fantastic — it's the best static site generator I've ever used). 
+
+## Steps
+
+If you've been using Astro, you can probably infer these steps from the example I showed you above. They are: 
+
+1. You create a `<List>` component that takes in your bullets in the `<slot>` content. 
+2. You grab these bullets in the `<List>` component. 
+3. You loop through each list item and prepend an SVG before the bullet. 
+
+Here's what the markup looks like
+
+```astro
+---
+const { bullet } = Astro.props
+---
+<ul class='List'>
+  {
+    listItems.map(item => (
+      <li>
+        <!-- Your SVG here -->
+        <Fragment set:html={item.innerHTML} />
+      </li>
+    ))
+  }
+</ul>
+
+```
+
+The cool thing about this is you can add extra properties like `fill`, `stroke`, and all sorts of things to change the SVG so it renders with enough uniqueness. 
+
+Here are some examples where I changed the SVG `fill` for [Magical Dev School](https://magicaldevschool.com). 
+
+<Image src="/images/blog/astro-fancy-list-item/green-star.png" alt="List items with a green color star" />
+
+<Image src="/images/blog/astro-fancy-list-item/blue-star.png" alt="List items with a blue color star" />
+
+<Image src="/images/blog/astro-fancy-list-item/yellow-star.png" alt="List items with a yellow color star" />
+
+I'm going to show you how to build a simple version that lets you insert an SVG you want. We won't be going through the advanced stuff like adding `fill` and `stroke` and other conditions though!
+
+## Grabbing the bullets in Astro 
+
+Astro lets you get the contents of a `<slot>` element inside your component. 
+
+You can get this content by calling a `render` function. You'll see a `string` that contains the HTML which will be created. 
+
+```astro
+---
+const html = await Astro.slots.render('default')
+console.log(html)
+---
+```
+
+<Image src="/images/blog/astro-fancy-list-item/html-string.png" alt="console.log of the slot content" />
+
+**Next, this is where the magic happens**
+
+You can parse this HTML string and get the list items — just like doing a standard `document.querySelectorAll` with JavaScript. 
+
+To do this, you need to parse the HTML string into a DOM-like structure. 
+
+There are many parsers you can use here. The one I've chosen to use for my projects is [`node-html-parser`](https://www.npmjs.com/package/node-html-parser). (Because it's fast). 
+
+```astro
+---
+import { parse } from 'node-html-parser'
+
+const html = await Astro.slots.render('default')
+const root = parse(html)
+---
+```
+
+After parsing the HTML, you can grab the list items by using `querySelectorAll`. 
+
+```astro
+---
+// ...
+
+const listItems = root.querySelectorAll('li')
+---
+```
+
+You can then map through the list items and build your fancy list. 
+
+```astro
+---
+// ...
+---
+<ul class='List'>
+  {
+    listItems.map(item => (
+      <li>
+        <!-- Your SVG goes here --> 
+        <Fragment set:html={item.innerHTML} />
+      </li>
+    ))
+  }
+</ul>
+```
+
+## Adding SVGs 
+
+The simplest way to add SVGs into the component is to use inline SVGs. 
+
+If you want to switch between different types of list items, you can ask the user to pass in a `bullet` property. Then, you inline a different SVG depending on the `bullet` value. 
+
+```astro
+---
+const { bullet } = Astro.props
+// ...
+---
+
+<ul class='List'>
+  {
+    listItems.map(item => (
+      <li>
+        { bullet === 'green-check' && <svg> ... </svg> }
+        { bullet === 'red-cross' && <svg> ... </svg> }
+        { bullet === 'star' && <svg> ... </svg> }
+        <Fragment set:html={item.innerHTML} />
+      </li>
+    ))
+  }
+</ul>
+```
+
+Of course, this isn't the best way... 
+
+### Better way to add SVGs
+
+The better way is to add an SVG through a component. When you do this, you can simply pass in an SVG and let the SVG component handle the SVG logic. 
+
+```astro
+---
+import SVG from './SVG.astro'
+const { bullet } = Astro.props
+// ...
+---
+
+<ul class='List'>
+  {
+    listItems.map(item => (
+      <li>
+        <SVG name={bullet} />
+        <Fragment set:html={item.innerHTML} />
+      </li>
+    ))
+  }
+</ul>
+```
+
+The simplest way to build this SVG component is to inline SVG code within it, like in the example shown above. 
+
+```astro
+---
+// SVG component
+const { name } = Astro.props
+---
+
+{ bullet === 'green-check' && <svg> ... </svg> }
+{ bullet === 'red-cross' && <svg> ... </svg> }
+{ bullet === 'star' && <svg> ... </svg> }
+```
+
+But this isn't the best way because you still have to use conditional statements... 
+
+And SVG can be notoriously big and complex so you'll end up creating something unwieldy instead...
+
+### The best way to build the SVG component
+
+The best way is to: 
+
+1. Keep the SVG in an `svgs` folder
+2. Grab the SVG from this folder when you pass the `name` into the `<SVG>` component
+
+How to do this is best left for another lesson since we'll go deep into another topic. 
+
+<Callout type="note">
+If you'd like to find out how I build the `SVG` component, along with how I use Astro and Svelte, scroll down and leave your email in the form below. I'd love to share more with you!
+</Callout>
+
+## Fancy Validation
+
+What's pretty cool about this approach is you can even use Astro to validate the type of `bullet` you pass into `<List>`, the `fill`, the `stroke`, and other properties you want. 
+
+Of course, you can do this with Typescript as well. I'm just showing you that you can use normal JS if you want to keep things simple. 
+
+```js
+const validators = {
+  bullet: [{
+    type: 'star', 
+    fill: ['yellow', 'green', 'red', 'blue'],
+    stroke: ['black', 'transparent'],
+  }]
+}
+
+validate({ ...Astro.props })
+
+function validate () {
+  // Check props against validators
+}
+```
+
+That's it! 
+
+Hope you learned something new today!

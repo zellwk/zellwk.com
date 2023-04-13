@@ -7,7 +7,7 @@
 
 {#if caption}
   <figure aria-label={caption} {...$$restProps}>
-    <img {src} alt={caption} {loading} aria-hidden />
+    <img {src} alt={alt || caption} {loading} aria-hidden />
     <figcaption aria-hidden>
       <SvelteMarkdown source={caption} />
     </figcaption>

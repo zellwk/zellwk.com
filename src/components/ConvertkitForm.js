@@ -14,14 +14,19 @@ const IDS = {
   css: { uid: 'feec5a376e' },
   devBrand: { uid: '515d821769' },
   apiMasterclass: { uid: '6a1dcf5321' },
+  astro: { uid: 'b4b20f4f5a' },
 }
 
 export function getForm(name) {
   if (!name) name = 'betterFED'
-  const { id, uid } = IDS[name]
-  if (!id && !uid) {
-    return console.error(`No Convertkit form found with name: ${name}`)
+
+  // Get Form ID and UID
+  const form = IDS[name]
+  if (!form) {
+    return new Error(`No Convertkit form found with name: ${name}`)
   }
+
+  const { id, uid } = form
 
   // Return id for legacy forms
   if (id) return { id }
