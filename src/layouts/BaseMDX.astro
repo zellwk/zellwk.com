@@ -1,6 +1,6 @@
 ---
 import Base from './Base.astro'
-import ConvertkitForm from '../components/ConvertkitForm.svelte'
+import ConvertkitForm from '../components/ConvertkitForm.astro'
 const props = Astro.props.content
 
 const { title, ckForm, showCkForm = true } = props
@@ -17,7 +17,7 @@ const layoutClass = props.layoutClass || 'generic-layout'
       {
         showCkForm && (
           <section class='o-content c-ck ck-layout'>
-            <ConvertkitForm name={ckForm} client:load />
+            <ConvertkitForm name={ckForm} />
           </section>
         )
       }

@@ -24,9 +24,9 @@
 
     const tl = gsap.timeline({
       onComplete() {
-        dispatch('modalOpened') // This event dispatches to the parent component
-        // node.dispatchEvent(new CustomEvent('endintro')) // This event works internally
         // Saving this comment for a blog post or sth
+        dispatch('modal:opened') // This event dispatches to the parent component
+        // node.dispatchEvent(new CustomEvent('endintro')) // This event works internally
       },
     })
 
@@ -51,7 +51,7 @@
       paddingLeft: modalRect.padding.left,
       paddingRight: modalRect.padding.right,
       duration: 0.4,
-      ease: 'power3.easeInOut',
+      ease: 'power2.easeInOut',
     })
     tl.to(node, {
       height: modalRect.height,

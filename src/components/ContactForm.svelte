@@ -69,11 +69,11 @@
     on:escape={() => {
       modalState = 'closed'
     }}
-    on:modalOpened={() => (loaderState = 'playing')}
+    on:modal:opened={() => (loaderState = 'playing')}
   >
     <ModalLoader
       bind:state={loaderState}
-      on:loadingComplete={(window.location.pathname = redirectTo)}
+      on:loaded={(window.location.pathname = redirectTo)}
     >
       <div slot="title">Hold on while I send your message...</div>
       <div slot="error">{errorMessage}</div>

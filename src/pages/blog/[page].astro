@@ -26,24 +26,27 @@ const { page } = Astro.props
         page.data.map(post => {
           // TODO: Include Media and tags on posts?
           return (
-            <div class='o-words'>
-              <h2 style='font-size: 1.44rem'>
-                <a href={`/blog/${post.slug}/`}>
-                  <Markdown content={post.data.title} />
-                </a>
-              </h2>
-              <span style='display: inline-block; font-size: 0.83333rem; color: #666; margin-top: 1em;'>
-                <span>
-                  Published on: <FormattedDate date={post.data.pubDate} />
-                </span>
-                {post.data.updateDate && (
+            <article>
+              <div class='o-words'>
+                <h2 style='font-size: 1.44rem'>
+                  <a href={`/blog/${post.slug}/`}>
+                    <Markdown content={post.data.title} />
+                  </a>
+                </h2>
+                <span style='display: inline-block; font-size: 0.83333rem; color: #666; margin-top: 1em;'>
                   <span>
-                    , Updated on: <FormattedDate date={post.data.updateDate} />
+                    Published on: <FormattedDate date={post.data.pubDate} />
                   </span>
-                )}
-              </span>
-              <Markdown>{post.data.excerpt}</Markdown>
-            </div>
+                  {post.data.updateDate && (
+                    <span>
+                      , Updated on:{' '}
+                      <FormattedDate date={post.data.updateDate} />
+                    </span>
+                  )}
+                </span>
+                <Markdown>{post.data.excerpt}</Markdown>
+              </div>
+            </article>
           )
         })
       }

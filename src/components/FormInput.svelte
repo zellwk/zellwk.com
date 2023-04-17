@@ -1,6 +1,8 @@
 <script>
-  export let type, name
+  export let type
+  export let name = '' // Submit button don't need name
   export let label = '' // Hidden inputs don't need labels
+  export let elem = ''
 </script>
 
 <!-- Text-based form item -->
@@ -8,7 +10,7 @@
   <div class="FormItem">
     <label>
       <div class="label">{label}</div>
-      <input {type} {name} {...$$restProps} />
+      <input {type} {name} {...$$restProps} bind:this={elem} />
     </label>
   </div>
 {/if}
@@ -18,12 +20,18 @@
   <div class="FormItem">
     <label>
       <div class="label">{label}</div>
-      <textarea {name} {...$$restProps} />
+      <textarea {name} {...$$restProps} bind:this={elem} />
     </label>
   </div>
 {/if}
 
 <!-- Hidden  -->
 {#if type === 'hidden'}
-  <input type="hidden" {name} {...$$restProps} />
+  <input type="hidden" {name} {...$$restProps} bind:this={elem} />
+{/if}
+
+{#if type === 'button'}
+  <div class="FormItem">
+    <button type="submit" {...$$restProps} bind:this={elem}><slot /></button>
+  </div>
 {/if}

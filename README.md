@@ -17,7 +17,6 @@ Improvements
   - Small OG Image
 - Tag Manager
   - Figure out how to remove localhost from Tag Manager (or how to disable the events when using it locally).
-  - Determine content_name for FB / Twitter for Lead (if any).
-  - Question is how to send user email over to FB and Twitter so it tracks the people accurately...
-    - For this Twitter is obvious because we can send in email_address.
+  - Determine `content_name` for FB / Twitter for Lead (if any). <-- THIS IS NEXT
+  - Figure out how to send user email over to FB so it tracks the people accurately...
     - FB is not for the Pixel setup.

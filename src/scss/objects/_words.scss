@@ -2,7 +2,8 @@
 .o-content,
 .o-words--nosc {
   // Default space between elements
-  > * + * {
+  > * + *,
+  > astro-slot > * + * {
     margin-top: vr(0.75);
   }
 
@@ -11,7 +12,7 @@
   }
 
   // Headings
-  h2 {
+  * + h2 {
     margin-top: vr(1.5);
   }
 

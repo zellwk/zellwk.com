@@ -1,50 +1,37 @@
-// TODO: Need to cleanup ids and remove those that we no longer use
-// Those with `id` are legacy forms.
-// Those with `uid` are newer forms.
+import localStore from '@zellwk/javascript/browser/localstore.js'
+
 const IDS = {
-  javascript: { uid: '7d716b888b' },
-  homepage2: { uid: 'fb9a1a2ebd' },
-  betterFED: { uid: '7044f2f370' },
-  calculator: { uid: '1d04248439' },
-  crud: { uid: '1f9a851957' },
-  jsr: { uid: '4a58c689d2' },
-  mwt: { uid: '0d8f021e77' },
-  ayw: { uid: 'f3b19e8f7b' },
-  susy: { uid: 'd9d3e0d98d' },
-  css: { uid: 'feec5a376e' },
-  devBrand: { uid: '515d821769' },
-  apiMasterclass: { uid: '6a1dcf5321' },
-  astro: { uid: 'b4b20f4f5a' },
+  javascript: 5015374,
+  homepage2: 5033802,
+  'better-fed': 5033810,
+  calculator: 5033815,
+  crud: 5033822,
+  jsr: 5033848,
+  mwt: 5033864,
+  ayw: 5033877,
+  susy: 5033894,
+  css: 5033906,
+  'dev-brand': 5033972,
+  'api-masterclass': 4987341,
+  astro: 5041204,
 }
 
-export function getForm(name) {
-  if (!name) name = 'betterFED'
+export function getFormID(name) {
+  const id = IDS[name]
+  if (!id) return new Error(`No Convertkit form found with name: ${name}`)
 
-  // Get Form ID and UID
-  const form = IDS[name]
-  if (!form) {
-    return new Error(`No Convertkit form found with name: ${name}`)
-  }
+  return id
+}
 
-  const { id, uid } = form
+export function getCkIDFromQueryParams() {
+  const searchParams = new URLSearchParams(window.location.search)
+  return searchParams.get('ck_subscriber_id')
+}
 
-  // Return id for legacy forms
-  if (id) return { id }
+export function isSubscriber() {
+  return localStore.get('ckSubscriberID')
+}
 
-  // Return uid and content for newer forms
-  const files = import.meta.glob('/src/convertkit/*.mdx', {
-    eager: true,
-    as: 'raw',
-  })
-
-  const file = Object.keys(files).find(file => {
-    // Get the basename of the fie without using the path module because path cannot be used in client code.
-    const basename = file.split('/').pop()
-    return basename === `${name}.mdx`
-  })
-
-  return {
-    uid,
-    content: files[file],
-  }
+export function saveCkID(id) {
+  localStore.set('CKSubscriberID', id)
 }

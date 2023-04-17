@@ -1,102 +1,90 @@
 <script>
-  import { getForm } from './ConvertkitForm'
-  import Modal from './Modal.svelte'
-  import ModalLoader from './ModalLoader.svelte'
-  import mutationObserver from '../actions/mutation-observer'
-  import SvelteMarkdown from 'svelte-markdown'
+  import zlFetch, { toObject } from 'zl-fetch'
+  import delay from '@zellwk/javascript/utils/delay.js'
+  import { saveCkID } from './ConvertkitForm'
 
-  // Variables
-  export let name
-  export let redirectTo = '/thanks' // Default to /thanks. Redirection feature not integrated into posts yet.
+  import Modal from './Modal.svelte'
+  import Loader from './ModalLoader.svelte'
+  import Form from './Form.svelte'
+  import Input from './FormInput.svelte'
+
+  export let redirectTo
+  export let action
+  export let formID
 
   // States
-  let modalState = 'closed' // closed, open
-  let loaderState = 'paused'
-  let containerRef
-  let email = '' // We use this to store the email address for the lead event
+  let modal = {
+    state: 'closed',
+    launcher: undefined,
+  }
+  let loader = {
+    state: 'paused',
+    errorMessage: '',
+  }
 
-  // Get the CK Form
-  const { id, uid, content } = getForm(name)
+  // Event Listeners
+  async function submit(event) {
+    const { form } = event.detail
+    const data = toObject(new FormData(form))
+    const email = data.email
 
-  // Event handlers
-  function handleMutate(event) {
-    const { mutation, observer } = event.detail
+    modal.state = 'open'
+    loader.state = 'playing'
 
-    // CK removes the <form> element from the DOM after submission so we have to grab the email value before they do so.
-    // We do this by simply listening to the submit event.
-    // We don't have to "submit" the form afterwards because CK does it with JavaScript.
-    if (
-      mutation.type === 'attributes' &&
-      mutation.attributeName === 'min-width'
-    ) {
-      const form = mutation.target
-      form.addEventListener(
-        'submit',
-        event => {
-          event.preventDefault()
-          email = form.elements.email_address.value.trim()
-        },
-        { once: true }
-      )
-      return
+    // Just to make sure we have a minimum delay of 2 seconds
+    const promises = await Promise.all([
+      zlFetch.post(action, { body: { ...data, formID }, returnError: true }),
+      delay(2000),
+    ])
+
+    const { response, error } = promises[0]
+
+    if (response) {
+      const subscriberID = response.body.subscriber.id
+      saveCkID(subscriberID)
+
+      // Send analytics information to GTM
+      window.dataLayer.push({ event: 'generate_lead', email })
+      loader.state = 'success'
     }
 
-    const successDiv = mutation.addedNodes[0]
-    if (successDiv && successDiv.dataset.element === 'success') {
-      modalState = 'open'
-      successDiv.style.opacity = 0
-      window.dataLayer.push({ event: 'generate_lead', email })
-      observer.disconnect()
+    if (error) {
+      loader.state = 'error'
+      loader.errorMessage = error.body.message
     }
   }
 
-  function activateLoader() {
-    loaderState = 'playing'
+  async function redirect() {
+    if (loader.state === 'success') {
+      await delay(1000)
+      window.location.pathname = redirectTo
+    }
 
-    // We already know the form is submitted because of handleMutate. So we can just set an arbitary amount of time for the loader to finish.
-    setTimeout(() => {
-      loaderState = 'complete'
-    }, 3000)
+    if (loader.state === 'error') {
+      await delay(2000)
+      modal.state = 'closed'
+    }
   }
 </script>
 
-<div
-  class="CKFormContainer"
-  use:mutationObserver={{
-    attributes: true,
-    childList: true,
-    subtree: true,
-  }}
-  on:mutate={handleMutate}
-  bind:this={containerRef}
->
-  {#if id}
-    <script
-      async
-      id={`_ck_${id}`}
-      src={`https://forms.convertkit.com/${id}?v=7`}
+<div class="ConvertkitForm o-words" style="max-width: 35em">
+  <slot />
+  <Form method="post" on:submit={submit}>
+    <Input type="text" label="First Name" name="first-name" required />
+    <Input type="text" label="Email address" name="email" required />
+    <Input
+      type="button"
+      class="button"
+      data-type="secondary"
+      bind:elem={modal.launcher}>Send message</Input
     >
-    </script>
-  {/if}
-
-  {#if uid}
-    <div class="ConvertkitForm o-content">
-      <SvelteMarkdown source={content} />
-      <script
-        async
-        data-uid={uid}
-        src={`https://zellwk-com.ck.page/${uid}/index.js`}
-      ></script>
-    </div>
-  {/if}
+  </Form>
 </div>
 
-{#if modalState === 'open'}
-  <!-- Not letting anyone escape the loader so are not using the escape event -->
-  <Modal launcher={containerRef} on:modalOpened={activateLoader}>
-    <ModalLoader
-      bind:state={loaderState}
-      on:loadingComplete={(window.location.pathname = redirectTo)}
-    /></Modal
-  >
+{#if modal.state === 'open'}
+  <Modal launcher={modal.launcher}>
+    <Loader bind:state={loader.state} on:loaded={redirect}>
+      <div slot="error">{loader.errorMessage}</div></Loader
+    >
+  </Modal>
 {/if}

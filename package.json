@@ -18,7 +18,7 @@
     "@astrojs/rss": "^2.3.2",
     "@astrojs/sitemap": "^1.2.2",
     "@astrojs/svelte": "^2.1.0",
-    "@zellwk/javascript": "file:../@zellwk/javascript",
+    "@zellwk/javascript": "^3.2.5",
     "astro": "^2.2.1",
     "camelcase-keys": "^8.0.2",
     "date-fns": "^2.29.3",
@@ -34,7 +34,7 @@
     "svelte": "^3.58.0",
     "svelte-markdown": "^0.2.3",
     "vite-plugin-commonjs-externals": "^0.1.1",
-    "zl-fetch": "^4.1.1"
+    "zl-fetch": "^5.0.1"
   },
   "devDependencies": {
     "@zellwk/devops": "^1.0.0",

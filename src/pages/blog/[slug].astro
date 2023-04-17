@@ -3,10 +3,11 @@ import Base from '/src/layouts/Base.astro'
 import Markdown from '/src/components/Markdown.astro'
 import FormattedDate from '/src/components/FormattedDate.astro'
 import PostNav from '/src/components/PostNav.astro'
+import LeadModal from '/src/components/LeadModal.svelte'
 
 import { normalize } from '../../utils/content.js'
 import { CollectionEntry, getCollection } from 'astro:content'
-import ConvertkitForm from '../../components/ConvertkitForm.svelte'
+import ConvertkitForm from '../../components/ConvertkitForm.astro'
 type Props = CollectionEntry<'blog'>
 
 // TODO: Perhaps put these components into a single file?
@@ -55,7 +56,7 @@ const { Content } = await post.render()
         {
           post.data.updateDate && (
             <div style='margin-top: 0.5em'>
-              <strong>Updated</strong>{' '}
+              <strong>Updated</strong>
               <FormattedDate date={post.data.updateDate} />
             </div>
           )
@@ -71,7 +72,11 @@ const { Content } = await post.render()
 
   <div class='post-layout'>
     <section class='o-content c-ck ck-layout'>
-      <ConvertkitForm name={post.data.ckForm} client:load />
+      <ConvertkitForm name={post.data.ckForm} />
     </section>
   </div>
+
+  <LeadModal client:load>
+    <ConvertkitForm name={post.data.ckForm} />
+  </LeadModal>
 </Base>

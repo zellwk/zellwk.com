@@ -7,16 +7,17 @@ showCkForm: false
 export const prerender = true
 
 import ContactForm from '/src/components/ContactForm.svelte'
-import FormInput from '/src/components/FormInput.svelte'
+import Input from '/src/components/FormInput.svelte'
 
 <div>
+
 Hello there! Just fill in this form and I'll get back to you as quickly as I can.
 
 <ContactForm redirectTo="/contact/thanks" client:load>
-  <FormInput type="hidden" name='subject' value="Hey Zell!" />
-  <FormInput type='text' label='First Name' name='first-name' required />
-  <FormInput type='email' label='Email address' name='email' required />
-  <FormInput type='textarea' label='Message' description="Feel free to type as much or as little as you like. "name='message' required />
+  <Input type="hidden" name='subject' value="Hey Zell!" />
+  <Input type='text' label='First Name' name='first-name' required />
+  <Input type='email' label='Email address' name='email' required />
+  <Input type='textarea' label='Message' description="Feel free to type as much or as little as you like. "name='message' required />
 
   <button class="button" type="submit" data-type="secondary">Send message</button>
 </ContactForm>

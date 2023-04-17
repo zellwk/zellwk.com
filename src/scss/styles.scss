@@ -96,3 +96,7 @@ table {
     }
   }
 }
+
+article + article {
+  margin-top: 2em;
+}
