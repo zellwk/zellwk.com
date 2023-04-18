@@ -1,5 +1,4 @@
 <script>
-  import { getForm } from './ConvertkitForm'
   import Modal from './Modal.svelte'
   import ModalLoader from './ModalLoader.svelte'
   import mutationObserver from '../actions/mutation-observer'
@@ -16,7 +15,7 @@
   let email = '' // We use this to store the email address for the lead event
 
   // Get the CK Form
-  const { id, uid, content } = getForm(name)
+  // const {uid, content } = getForm(name)
 
   // Event handlers
   function handleMutate(event) {
@@ -70,15 +69,6 @@
   on:mutate={handleMutate}
   bind:this={containerRef}
 >
-  {#if id}
-    <script
-      async
-      id={`_ck_${id}`}
-      src={`https://forms.convertkit.com/${id}?v=7`}
-    >
-    </script>
-  {/if}
-
   {#if uid}
     <div class="ConvertkitForm o-content">
       <SvelteMarkdown source={content} />

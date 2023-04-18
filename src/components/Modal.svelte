@@ -1,15 +1,17 @@
 <script>
   import gsap from 'gsap'
-  import { boundingBox } from '@zellwk/javascript/browser/dom/elem.js'
+  import { boundingBox } from '@zellwk/javascript/browser/elem.js'
   import { tick, createEventDispatcher } from 'svelte'
-  import { cubicOut } from 'svelte/easing'
+  import { cubicOut, sineOut } from 'svelte/easing'
   import { fade } from 'svelte/transition'
   import trapFocus from '../actions/trap-focus'
   import Portal from './Portal.svelte'
+  import SVG from './SVG.svelte'
 
   export let target = '' // CSS Selector for use with Portal
   export let launcher = '' // HTML Element to launch the Modal
   export let launcherRect = '' // Bounding box of the launcher. Use this if the launcher is in an incorrect position when the transition begins (like Convertkit Form button being positioned outside of the DOM).
+  export let closeable = false // Whether the modal can be closed by a user
 
   const dispatch = createEventDispatcher()
 
@@ -84,11 +86,19 @@
     on:escape
     transition:fade={{ easing: cubicOut }}
   >
-    <div class="l-wrap">
-      <div class="Modal" in:transitionIn>
-        <div class="Modalcontent">
-          <slot />
-        </div>
+    <div class="Modal" in:transitionIn>
+      <div class="Modalcontent">
+        {#if closeable}
+          <button
+            in:fade={{ delay: 1500, easing: sineOut }}
+            on:click={_ => {
+              dispatch('escape')
+            }}
+          >
+            <SVG name="close" />
+          </button>
+        {/if}
+        <slot />
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 /* eslint-env browser */
-import Focusable from '@zellwk/javascript/browser/accessibility/focusable.js'
+import Focusable from '@zellwk/javascript/browser/focusable.js'
 import { tick } from 'svelte'
 
 export default async function trapFocus(node, options) {

@@ -2,7 +2,7 @@
   import { onMount } from 'svelte'
   import { fade, fly } from 'svelte/transition'
   import { cubicOut, sineOut } from 'svelte/easing'
-  import { rem } from '@zellwk/javascript/browser/dom/font-size.js'
+  import { rem } from '@zellwk/javascript/browser/font-size.js'
 
   import SVG from './SVG.svelte'
   import Portal from './Portal.svelte'

@@ -69,6 +69,7 @@
 {#if modal.state === 'open'}
   <Modal
     launcherRect={modal.launcherRect}
+    closeable={true}
     on:escape={() => (modal.state = 'closed')}
   >
     <slot />
