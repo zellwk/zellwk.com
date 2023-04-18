@@ -1,5 +1,6 @@
 <script>
   export let type
+  export let description = '' // Optional helper text
   export let name = '' // Submit button don't need name
   export let label = '' // Hidden inputs don't need labels
   export let elem = ''
@@ -10,6 +11,9 @@
   <div class="FormItem">
     <label>
       <div class="label">{label}</div>
+      {#if description}
+        <div class="description">{description}</div>
+      {/if}
       <input {type} {name} {...$$restProps} bind:this={elem} />
     </label>
   </div>
@@ -20,12 +24,15 @@
   <div class="FormItem">
     <label>
       <div class="label">{label}</div>
+      {#if description}
+        <div class="description">{description}</div>
+      {/if}
       <textarea {name} {...$$restProps} bind:this={elem} />
     </label>
   </div>
 {/if}
 
-<!-- Hidden  -->
+<!-- Hidden -->
 {#if type === 'hidden'}
   <input type="hidden" {name} {...$$restProps} bind:this={elem} />
 {/if}

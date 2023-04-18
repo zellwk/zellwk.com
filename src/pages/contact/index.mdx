@@ -9,17 +9,25 @@ export const prerender = true
 import ContactForm from '/src/components/ContactForm.svelte'
 import Input from '/src/components/FormInput.svelte'
 
-<div>
+import config from '/site-config.js'
+export const apiRoot = config.apiRoot
+export const endpoint = `${apiRoot}/email`
 
 Hello there! Just fill in this form and I'll get back to you as quickly as I can.
 
-<ContactForm redirectTo="/contact/thanks" client:load>
-  <Input type="hidden" name='subject' value="Hey Zell!" />
-  <Input type='text' label='First Name' name='first-name' required />
-  <Input type='email' label='Email address' name='email' required />
-  <Input type='textarea' label='Message' description="Feel free to type as much or as little as you like. "name='message' required />
+<ContactForm action={endpoint} redirectTo='/contact/thanks' template="contact-form" client:load>
+  <Input type='hidden' name='subject' value='Hey Zell!' />
+  <Input type='text' label='First Name' name='first-name'  />
+  <Input type='email' label='Email address' name='email'  />
+  <Input
+    type='textarea'
+    label='Message'
+    description='Let me know how I can help you :)'
+    name='message'
+    
+  />
+  <button class='button' type='submit' data-type='secondary'>
+    Send message
+  </button>
 
-  <button class="button" type="submit" data-type="secondary">Send message</button>
 </ContactForm>
-
-</div>

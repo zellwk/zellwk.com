@@ -76,7 +76,7 @@
       type="button"
       class="button"
       data-type="secondary"
-      bind:elem={modal.launcher}>Send message</Input
+      bind:elem={modal.launcher}>Send it to me</Input
     >
   </Form>
 </div>
