@@ -1,0 +1,20 @@
+---
+title: 'Convertkit API: Using Forms vs Tags'
+description: This article shows you the difference between subscribing people to Forms vs Tags. To make sure things work correctly, you want to subscribe people through Forms, not Tags.
+slug: astro-fancy-list-item
+tags: ['convertkit']
+pubDate: 2023-04-19
+---
+
+When you're subscribing people to Convertkit through the API, you want to use a form over a tag.
+
+{/* more */}
+
+That's because:
+
+- People who are subscribed through a Form will be activated (even if they have unsubscribed before).
+- People who are subscribed through a Tag will remain unsubscribed (if they have unsubscribed before).
+
+If all you need is to add a tag, then the simplest way is to create a dummy form and subscribe people through that form.
+
+It's not ideal, but it works.

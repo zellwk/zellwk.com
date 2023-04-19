@@ -1,0 +1,12 @@
+---
+import Base from './Base.astro'
+const { props } = Astro.props
+---
+
+<Base {props}>
+  <div class='l-wrap'>
+    <div class='o-words'>
+      <slot />
+    </div>
+  </div>
+</Base>

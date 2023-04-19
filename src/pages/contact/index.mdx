@@ -15,6 +15,8 @@ export const endpoint = `${apiRoot}/email`
 
 Hello there! Just fill in this form and I'll get back to you as quickly as I can.
 
+<div>
+
 <ContactForm action={endpoint} redirectTo='/contact/thanks' template="contact-form" client:load>
   <Input type='hidden' name='subject' value='Hey Zell!' />
   <Input type='text' label='First Name' name='first-name'  />
@@ -31,3 +33,4 @@ Hello there! Just fill in this form and I'll get back to you as quickly as I can
   </button>
 
 </ContactForm>
+</div>

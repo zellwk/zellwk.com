@@ -34,7 +34,7 @@
 
 <!-- Hidden -->
 {#if type === 'hidden'}
-  <input type="hidden" {name} {...$$restProps} bind:this={elem} />
+  <input type="hidden" {name} {...$$restProps} />
 {/if}
 
 {#if type === 'button'}

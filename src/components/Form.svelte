@@ -9,6 +9,7 @@
   function submit(event) {
     const form = event.target
     const submitter = event.submitter
+
     // If spam is filled, don't submit
     const spamField = form.elements.spam
     if (spamField.value.trim()) return

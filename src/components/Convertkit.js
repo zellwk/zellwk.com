@@ -14,11 +14,29 @@ const IDS = {
   'dev-brand': 5033972,
   'api-masterclass': 4987341,
   astro: 5041204,
+  operations: 5066125,
+}
+
+const TRIAL_TAGS = {
+  LJS: 3676804,
+  ECSS: 3676805,
+  UAJS: 3676807,
+  MWT: 3676808,
+  GTM4D: '',
+  BAndD: 3676809,
+  APIMasterclass: 3741826,
 }
 
 export function getFormID(name) {
   const id = IDS[name]
   if (!id) return new Error(`No Convertkit form found with name: ${name}`)
+
+  return id
+}
+
+export function getTagID(name) {
+  const id = TRIAL_TAGS[name]
+  if (!id) return new Error(`No Convertkit tag found with name: ${name}`)
 
   return id
 }

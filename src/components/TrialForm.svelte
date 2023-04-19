@@ -10,7 +10,6 @@
 
   export let redirectTo
   export let action
-  export let formID
 
   // States
   let modal = {
@@ -33,18 +32,25 @@
 
     // Just to make sure we have a minimum delay of 2 seconds
     const promises = await Promise.all([
-      zlFetch.post(action, { body: { ...data, formID }, returnError: true }),
+      zlFetch.post(action, {
+        body: { ...data },
+        returnError: true,
+      }),
       delay(2000),
     ])
 
     const { response, error } = promises[0]
 
     if (response) {
-      const subscriberID = response.body.subscriber.id
+      const { subscription } = response.body
+      const subscriberID = subscription.subscriber.id
       saveCkID(subscriberID)
 
       // Send analytics information to GTM
-      window.dataLayer.push({ event: 'generate_lead', email })
+      window.dataLayer.push({
+        event: 'generate_lead',
+        email,
+      })
       loader.state = 'success'
     }
 
@@ -57,7 +63,7 @@
   async function redirect() {
     if (loader.state === 'success') {
       await delay(1000)
-      window.location.pathname = redirectTo
+      // window.location.pathname = redirectTo
     }
 
     if (loader.state === 'error') {
@@ -68,8 +74,8 @@
 </script>
 
 <div class="ConvertkitForm o-words" style="max-width: 35em">
-  <slot />
   <Form method="post" on:submit={submit}>
+    <slot />
     <Input type="text" label="First Name" name="first-name" required />
     <Input type="text" label="Email address" name="email" required />
     <Input
