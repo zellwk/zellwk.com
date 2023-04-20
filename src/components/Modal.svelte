@@ -19,6 +19,8 @@
   // For transitions
   // ========================
   async function transitionIn(node) {
+    // Sometimes need 2 ticks!!!
+    await tick()
     await tick()
     const child = node.firstElementChild
     const modalRect = boundingBox(node)

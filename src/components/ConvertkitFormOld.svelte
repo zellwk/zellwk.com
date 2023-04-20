@@ -86,7 +86,7 @@
   <Modal launcher={containerRef} on:modal:opened={activateLoader}>
     <ModalLoader
       bind:state={loaderState}
-      on:loaded={(window.location.pathname = redirectTo)}
+      on:load:complete={(window.location.pathname = redirectTo)}
     /></Modal
   >
 {/if}

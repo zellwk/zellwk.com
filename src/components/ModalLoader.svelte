@@ -77,7 +77,7 @@
     // Stop animation
     const t2 = gsap.timeline({
       onComplete() {
-        dispatch('loaded', { state })
+        dispatch('load:complete', { state })
       },
     })
 

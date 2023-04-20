@@ -1,25 +1,18 @@
 <script>
   import zlFetch, { toObject } from 'zl-fetch'
   import delay from '@zellwk/javascript/utils/delay.js'
-  import { saveCkID } from './Convertkit'
-
-  import Modal from './Modal.svelte'
-  import Loader from './ModalLoader.svelte'
   import Form from './Form.svelte'
   import Input from './FormInput.svelte'
 
-  export let redirectTo
-  export let action
+  import { saveCkID } from './Convertkit'
+
   export let formID
+  export let action
+  export let redirectTo
 
   // States
-  let modal = {
-    state: 'closed',
-    launcher: undefined,
-  }
   let loader = {
-    state: 'paused',
-    errorMessage: '',
+    tile: 'Hold on while I sign up you...',
   }
 
   // Event Listeners
@@ -27,9 +20,6 @@
     const { form } = event.detail
     const data = toObject(new FormData(form))
     const email = data.email
-
-    modal.state = 'open'
-    loader.state = 'playing'
 
     // Just to make sure we have a minimum delay of 2 seconds
     const promises = await Promise.all([
@@ -53,38 +43,18 @@
       loader.errorMessage = error.body.message
     }
   }
-
-  async function redirect() {
-    if (loader.state === 'success') {
-      await delay(1000)
-      window.location.pathname = redirectTo
-    }
-
-    if (loader.state === 'error') {
-      await delay(2000)
-      modal.state = 'closed'
-    }
-  }
 </script>
 
 <div class="ConvertkitForm o-words" style="max-width: 35em">
   <slot />
-  <Form method="post" on:submit={submit}>
+  <Form
+    method="post"
+    on:submit={submit}
+    {loader}
+    {redirectTo}
+    buttonText={'Send it to me'}
+  >
     <Input type="text" label="First Name" name="first-name" required />
     <Input type="text" label="Email address" name="email" required />
-    <Input
-      type="button"
-      class="button"
-      data-type="secondary"
-      bind:elem={modal.launcher}>Send it to me</Input
-    >
   </Form>
 </div>
-
-{#if modal.state === 'open'}
-  <Modal launcher={modal.launcher}>
-    <Loader bind:state={loader.state} on:loaded={redirect}>
-      <div slot="error">{loader.errorMessage}</div></Loader
-    >
-  </Modal>
-{/if}

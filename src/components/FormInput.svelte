@@ -39,6 +39,8 @@
 
 {#if type === 'button'}
   <div class="FormItem">
-    <button type="submit" {...$$restProps} bind:this={elem}><slot /></button>
+    <button type="submit" class="button" {...$$restProps} bind:this={elem}
+      ><slot /></button
+    >
   </div>
 {/if}
