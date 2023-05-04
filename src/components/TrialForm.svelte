@@ -11,8 +11,6 @@
   export let redirectTo
   export let numFree
 
-  console.log(redirectTo)
-
   let loader = {
     state: 'paused',
     title: `Sending you ${numFree} chapters...`,

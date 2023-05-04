@@ -28,8 +28,6 @@
   modal = Object.assign({}, modalDefaults, modal)
   loader = Object.assign({}, loaderDefaults, loader)
 
-  console.log(loader)
-
   // ========================
   // Event Handlers
   // ========================
