@@ -1,6 +1,7 @@
 .o-words,
 .o-content,
-.o-words--nosc {
+.o-words--nosc,
+.ContentBlock {
   // Default space between elements
   > * + *,
   > astro-slot > * + * {
@@ -16,7 +17,7 @@
     margin-top: vr(1.5);
   }
 
-  h3 {
+  * + h3 {
     margin-top: vr(1.5);
   }
 

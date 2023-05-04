@@ -15,10 +15,10 @@ const IDS = {
   'api-masterclass': 4987341,
   astro: 5041204,
   operations: 5066125,
+  freelance: 5107340,
 }
 
 const TRIAL_TAGS = {
-  LJS: 3676804,
   ECSS: 3676805,
   UAJS: 3676807,
   MWT: 3676808,

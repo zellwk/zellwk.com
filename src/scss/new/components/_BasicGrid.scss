@@ -1,0 +1,112 @@
+@use '../abstracts' as *;
+
+:root {
+  --rhythmUnit: 1;
+}
+
+.Grid {
+  --marginTop: #{rhythm(2)};
+
+  * + &,
+  & + * {
+    margin-top: var(--marginTop);
+  }
+}
+
+.BasicGrid {
+  @extend .Grid;
+  --row-gap: #{rhythm(1)};
+  --gap: #{rhythm(1)};
+}
+
+// ========================
+// Column Modifiers
+// ========================
+@mixin mOneColumn {
+  > * {
+    max-width: rhythm(33);
+  }
+
+  > * + * {
+    margin-top: var(--row-gap);
+  }
+}
+
+.mOneColumn {
+  @include mOneColumn;
+}
+
+.mTwoColumns {
+  @media (width <= 800px) {
+    @include mOneColumn;
+  }
+
+  @media (width > 800px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap);
+
+    > * {
+      grid-column: span 2;
+    }
+  }
+}
+
+.mTwoColumnsAdaptive {
+  @extend .mTwoColumns;
+  @media (width > 800px) {
+    > div:nth-of-type(odd):last-child {
+      grid-column: 2 / span 2;
+    }
+  }
+}
+
+.mThreeColumns {
+  @media (width <= 800px) {
+    @include mOneColumn;
+  }
+
+  @media (width > 800px) {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--gap);
+
+    > * {
+      grid-column: span 2;
+    }
+  }
+}
+
+%mThreeColumnsAdaptive {
+  @extend .mThreeColumns;
+  @media (width > 800px) {
+    // Last 2 items
+    > div:nth-last-child(3):nth-of-type(3n) ~ div {
+      grid-column: span 3;
+    }
+
+    // Last item
+    > div:nth-last-child(1):nth-of-type(3n + 1) {
+      grid-column: 4 / span 4;
+    }
+  }
+}
+
+// ========================
+// Gap Modifiers
+// ========================
+.BasicGrid .mGap2 {
+  --gap: #{rhythm(2)};
+}
+
+.BasicGrid .mGap3 {
+  --gap: #{rhythm(3)};
+}
+
+// ========================
+// Other Modifiers
+// ========================
+
+.mCentered {
+  margin-inline: auto;
+}

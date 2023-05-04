@@ -25,8 +25,10 @@
     errorMessage: '',
   }
 
-  modal = Object.assign({}, modal, modalDefaults)
-  loader = Object.assign({}, loader, loaderDefaults)
+  modal = Object.assign({}, modalDefaults, modal)
+  loader = Object.assign({}, loaderDefaults, loader)
+
+  console.log(loader)
 
   // ========================
   // Event Handlers

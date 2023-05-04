@@ -1,0 +1,77 @@
+@use 'sass:math';
+@use 'sass:string';
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function stripUnit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+
+  @return $number;
+}
+
+/// toUppercase
+/// @param [string] $string
+/// @return [string]
+@function toUppercase($string) {
+  @return string.to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+
+/// toLowercase
+/// @param [string] $string
+/// @return [string]
+@function toLowercase($string) {
+  @return string.to-lower-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+
+/// Capitalize each word in string
+/// @param [string] $string
+/// @return [string]
+@function str-ucwords($string) {
+  $progress: $string;
+  $result: '';
+
+  $running: true;
+
+  @while $running {
+    $index: str-index($progress, ' ');
+    @if $index {
+      $result: $result + capitalize(str-slice($progress, 1, $index));
+      $progress: str-slice($progress, ($index + 1));
+    } @else {
+      $running: false;
+    }
+  }
+
+  @return capitalize($result) + capitalize($progress);
+}
+
+/// toCamel
+/// @param [string] $string
+/// @return [string]
+@function toCamel($string) {
+  $progress: $string;
+  $result: '';
+  $exclude: ' ', '-', '–', '—', '_', ',', ';', ':', '.';
+
+  @while str-length($progress) > 0 {
+    $char: str-slice($progress, 1, 1);
+
+    @if contain($exclude, $char) {
+      $progress: capitalize(str-slice($progress, 2, 2)) +
+        str-slice($progress, 3);
+    } @else {
+      $result: $result + $char;
+      $progress: str-slice($progress, 2);
+    }
+  }
+
+  @return $result;
+}
+
+/// toSeconds (for transitions and animations)
+@function toSeconds($value) {
+  @return calc(stripUnit($value) * 1s);
+}

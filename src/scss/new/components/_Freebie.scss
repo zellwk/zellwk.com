@@ -1,0 +1,78 @@
+@use '../abstracts/' as *;
+
+.Freebie {
+  max-width: rhythm(24);
+  margin-inline: auto;
+
+  .logo {
+    text-align: center;
+    svg {
+      height: rhythm(3.5);
+      width: auto;
+    }
+  }
+
+  .assets .video {
+    display: none;
+  }
+
+  .title {
+    // Temporary using manual colours until we redesign...
+    font-family: fontFamily(primary);
+    font-size: fontStep(8);
+    line-height: 1.2;
+    font-weight: bold;
+    margin-top: rhythm(0.5);
+  }
+
+  .cta {
+    font-size: fontStep(6);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    margin-inline: -0.5rem;
+    > * {
+      margin: 0.5rem;
+    }
+  }
+}
+
+@mixin LargeSize {
+  & {
+    display: grid;
+    grid-template-columns: rhythm(12) 1fr;
+    align-items: center;
+    grid-gap: rhythm(2.5);
+    max-width: 100%;
+
+    .assets > * + * {
+      margin-top: rhythm(1);
+    }
+
+    .assets .video {
+      display: block;
+    }
+
+    .content {
+      max-width: rhythm(30);
+    }
+
+    .cta {
+      justify-content: flex-start;
+    }
+  }
+}
+
+@container (inline-size > 700px) {
+  .Freebie {
+    @include LargeSize;
+  }
+}
+
+// For use with Lead Modal because it uses justify-content
+@media (width > 900px) {
+  .Freebie.mMQ {
+    @include LargeSize;
+  }
+}

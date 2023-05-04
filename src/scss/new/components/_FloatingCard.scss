@@ -1,0 +1,8 @@
+@use '../abstracts' as *;
+
+.FloatingCard {
+  border: 2px solid;
+  border-radius: rhythm(0.25);
+  padding: rhythm(2.5);
+  box-shadow: rhythm(0.25) rhythm(0.25) 0 0 hsla(var(--radred), 0.5);
+}

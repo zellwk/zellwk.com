@@ -1,17 +1,21 @@
 <script>
   import zlFetch, { toObject } from 'zl-fetch'
+
   import delay from '@zellwk/javascript/utils/delay.js'
   import { saveCkID } from './Convertkit'
 
   import Form from './Form.svelte'
   import Input from './FormInput.svelte'
 
-  export let redirectTo
   export let action
+  export let redirectTo
+  export let numFree
+
+  console.log(redirectTo)
 
   let loader = {
     state: 'paused',
-    title: 'Hold on while I sign you up...',
+    title: `Sending you ${numFree} chapters...`,
   }
 
   // Event Listeners
@@ -55,12 +59,13 @@
 <div class="ConvertkitForm o-words" style="max-width: 35em">
   <Form
     method="post"
-    buttonText="Send it to me"
+    buttonText={`Send me the ${numFree} free chapters`}
     {redirectTo}
     on:submit={submit}
+    {loader}
   >
     <slot />
     <Input type="text" label="First Name" name="first-name" required />
-    <Input type="text" label="Email address" name="email" required />
+    <Input type="email" label="Email address" name="email" required />
   </Form>
 </div>

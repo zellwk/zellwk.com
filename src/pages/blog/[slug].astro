@@ -4,6 +4,7 @@ import Markdown from '/src/components/Markdown.astro'
 import FormattedDate from '/src/components/FormattedDate.astro'
 import PostNav from '/src/components/PostNav.astro'
 import LeadModal from '/src/components/LeadModal.svelte'
+import Freebie from '/src/components/Freebie.astro'
 
 import { normalize } from '../../utils/content.js'
 import { CollectionEntry, getCollection } from 'astro:content'
@@ -72,11 +73,21 @@ const { Content } = await post.render()
 
   <div class='post-layout'>
     <section class='o-content c-ck ck-layout'>
-      <ConvertkitForm name={post.data.ckForm} />
+      {
+        post.data.leadModal && (
+          <div class='uInlineSize'>
+            <Freebie name={post.data.leadModal} />
+          </div>
+        )
+      }
+
+      {!post.data.leadModal && <ConvertkitForm name={post.data.ckForm} />}
     </section>
   </div>
 
   <LeadModal client:load>
-    <ConvertkitForm name={post.data.ckForm} />
+    {post.data.leadModal && <Freebie class='mMQ' name={post.data.leadModal} />}
+
+    {!post.data.leadModal && <ConvertkitForm name={post.data.ckForm} />}
   </LeadModal>
 </Base>

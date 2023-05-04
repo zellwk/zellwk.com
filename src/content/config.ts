@@ -13,6 +13,7 @@ const blog = defineCollection({
 
     status: z.string().optional(),
     ckForm: z.string().optional(),
+    leadModal: z.string().optional(),
   }),
 })
 

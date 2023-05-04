@@ -1,0 +1,128 @@
+@use 'sass:map';
+@use 'fns';
+
+$fontSizeMap: (
+  1: 10,
+  2: 11,
+  3: 12,
+  4: 14,
+  5: 16,
+  6: 18,
+  // Originally 21 but I set it to 20 instead for this project
+  7: 20,
+  8: 24,
+  9: 28,
+  10: 36,
+  11: 42,
+  12: 48,
+  // Add this value here because 60 was too big
+  13: 54,
+  14: 60,
+  15: 72,
+);
+
+$baseStep: 7 !default;
+
+$fontMap: (
+  primary: (
+    font: (
+      'freight-sans-pro',
+      'Helvetica Neue',
+      sans-serif,
+    ),
+  ),
+  text: (
+    'freight-text-pro',
+    serif,
+  ),
+  display: (
+    'freight-display-pro',
+    serif,
+  ),
+  condensed: (
+    font: (
+      'freight-sans-condensed-pro',
+      sans-serif,
+    ),
+    sizeDifference: 1,
+  ),
+  code: (
+    font: (
+      'Fira Mono',
+      monospace,
+    ),
+  ),
+  stylish: (
+    font: 'Boston Skyline',
+    sizeDifference: calc(1 / 1.333),
+  ),
+);
+
+/// Get a font size
+/// @param {Number} $step - Font size step
+/// @param {String} $font - Font name
+/// @return {String} - Font size
+/// @require {Map} $fontSizeMap - Map of font size steps to font sizes
+/// @require {Map} $fontMap - Map of font names to font families
+@function fontStep($step, $font: 'primary') {
+  $desiredSize: map.get($fontSizeMap, $step);
+  $baseSize: map.get($fontSizeMap, $baseStep);
+  $value: calc($desiredSize / $baseSize);
+
+  @if ($font == 'primary') {
+    @return $value * 1rem;
+  }
+
+  $sizeDifference: map.get($fontMap, $font, 'sizeDifference');
+  @return $value * $sizeDifference * 1rem;
+}
+
+/// Get a font family
+/// @param {String} $font - Font name
+/// @return {String} - Font family
+/// @require {Map} $fontMap - Map of font names to font families
+@function fontFamily($font) {
+  @return map.get($fontMap, $font, 'font');
+}
+
+/// Calculates the rhythm value
+/// @param {Number} $multiple - Multiple of the rhythm unit
+/// @return {String} - Rhythm value
+@function rhythm($multiple) {
+  $rhythmUnit: var(--rhythmUnit, 1);
+  @return calc($multiple * $rhythmUnit * 1rem);
+}
+
+/// Convert a pixel value to rem
+/// @param {Number} $value - Pixel value
+/// @return {String} - Rem value
+@function toRem($value) {
+  $value: fns.stripUnit($value);
+  @return calc($value / 16) * 1rem;
+}
+
+/// Fluid type function
+/// @param {Number} $minBp - Minimum breakpoint
+/// @param {Number} $maxBp - Maximum breakpoint
+/// @param {Number} $minFontSize - Minimum font size
+/// @param {Number} $maxFontSize - Maximum font size
+/// @return {String} - Fluid type CSS
+@function fluidType(
+  $minBp: 400px,
+  $maxBp: 1200px,
+  $minFontSize: 16px,
+  $maxFontSize: 20px
+) {
+  $min: toRem($minFontSize);
+  $max: toRem($maxFontSize);
+
+  $fontSizeDifference: fns.stripUnit($maxFontSize - $minFontSize);
+  $bpDifference: fns.stripUnit($maxBp - $minBp);
+
+  // https://css-tricks.com/snippets/css/fluid-typography/
+  $fluid: calc(
+    $min + $fontSizeDifference * ((100vw - #{$minBp}) / $bpDifference)
+  );
+
+  @return clamp($min, calc(#{$fluid}), $max);
+}

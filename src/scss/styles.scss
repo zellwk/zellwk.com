@@ -1,4 +1,10 @@
-// Libraries
+@use './new/components/_Wrap';
+@use './new/components/_BasicGrid';
+@use './new/components/_FloatingCard';
+@use './new/components/_Freebie';
+@use './new/_utils';
+
+// Libraries8
 // ---------
 @import 'lib/lib';
 
@@ -100,3 +106,17 @@ table {
 article + article {
   margin-top: 2em;
 }
+
+// ========================
+// For the Trial Stuff
+// ========================
+.Trial {
+  svg {
+    width: 300px;
+    height: auto;
+  }
+}
+
+// ========================
+// New Styles
+// ========================

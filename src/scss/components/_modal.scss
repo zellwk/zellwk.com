@@ -1,5 +1,6 @@
 .ModalContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   position: fixed;
   top: 0;
   right: 0;
@@ -25,7 +26,7 @@
 .Modalcontent {
   overflow: hidden;
   display: grid;
-  place-items: auto;
+  place-items: center;
 }
 
 .Modalcontent > button {

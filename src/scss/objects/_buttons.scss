@@ -9,8 +9,8 @@
   border: 0;
   // Safari inline block has a whitespace bug that causes. nowrap fixes it
   // white-space: nowrap;
-  @include tp-condensed;
   @include remove-link-underline;
+  font-weight: 500;
 
   &:hover,
   &:active,
@@ -41,19 +41,20 @@
   }
 }
 
-.button[data-type="secondary"] {
+.button[data-type='secondary'] {
   @include secondary-button;
 }
 
 // Ghost button
 // --------------
-.button[data-type="outline"] {
+.button[data-type='outline'] {
   display: block;
   font-size: inherit;
-  padding: 0.75rem 1rem 0.85rem;
-  border: 2px solid color(radred);
-  background-color: transparent;
-  color: color(radred);
+  padding: 0.75rem 1rem;
+  border: 2px solid #929191;
+  border-radius: vr(0.5);
+  background-color: #fafafa;
+  color: #333;
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
   @include remove-link-underline;
 
@@ -61,6 +62,25 @@
   &:focus,
   &:active {
     @include remove-link-underline;
-    border-color: color(geebung);
+    border-color: color(radred);
+    color: color(radred);
+  }
+}
+
+.button[data-type='green'] {
+  display: block;
+  padding: 0.75rem 1rem;
+  border: 2px solid #21d348;
+  border-radius: vr(0.5);
+  background-color: #c5fece;
+  color: #094416;
+  @include remove-link-underline;
+
+  &:hover,
+  &:focus,
+  &:active {
+    @include remove-link-underline;
+    background-color: #b0f3bb;
+    color: #094416;
   }
 }

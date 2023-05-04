@@ -1,4 +1,4 @@
-@import "reset";
+@import 'reset';
 // ======================================
 // # Convertkit Form styles
 // ======================================
@@ -27,7 +27,7 @@
   h3 {
     color: color(mine);
     @include tp-text2;
-    font-feature-settings: "liga" 1;
+    font-feature-settings: 'liga' 1;
     margin-bottom: vr(0.75);
   }
 
@@ -121,7 +121,8 @@
   }
 
   > * {
-    grid-column-gap: 1;
+    // grid-column-gap: 1;
+    grid-column: 1 / -1;
   }
 }
 

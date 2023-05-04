@@ -1,0 +1,20 @@
+.uCenter {
+  margin-inline: auto;
+}
+
+.uTextCenter {
+  text-align: center;
+}
+
+.uInlineBlock {
+  display: inline-block;
+}
+
+.uCenterChild {
+  display: grid;
+  place-items: center;
+}
+
+.uInlineSize {
+  container-type: inline-size;
+}
