@@ -1,25 +1,6 @@
 ---
 import Base from '/src/layouts/Base.astro'
-import Testimonial from '/src/components/Testimonial.astro'
-import ConvertkitForm from '/src/components/ConvertkitForm.astro'
-import SVG from '/src/components/SVG.svelte'
-import { getCollection } from 'astro:content'
 import Freebie from '/src/components/Freebie.astro'
-
-let freebies = await getCollection('freebies')
-
-const promises = freebies.map(async freebie => {
-  const { Content } = await freebie.render()
-  return {
-    ...freebie,
-    name: freebie.slug.split('/')[0],
-    Content,
-  }
-})
-freebies = await Promise.all(promises)
-freebies = freebies
-  .filter(freebie => freebie.data.status !== 'draft')
-  .filter(freebie => freebie.slug.includes('lead'))
 
 export const prerender = true
 ---
@@ -40,8 +21,14 @@ export const prerender = true
 
     <div class='uInlineSize'>
       <div class='FloatingCard'>
-        <Freebie name='learn-javascript' useProductName={true} />
+        <Freebie name='learn-javascript' />
       </div>
     </div>
+    <!-- 
+    <div class='uInlineSize'>
+      <div class='FloatingCard'>
+        <Freebie name='async-js' />
+      </div>
+    </div> -->
   </div>
 </Base>

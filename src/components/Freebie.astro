@@ -1,60 +1,13 @@
 ---
-import SVG from '/src/components/SVG.svelte'
-import Markdown from '/src/components/Markdown.astro'
-import Video from '/src/components/Video.svelte'
 import { getEntryBySlug } from 'astro:content'
-const { name, useProductName = false } = Astro.props
-const klass = Astro.props.class
+import Freebie from './Freebie.svelte'
 
+const { name } = Astro.props
 const entry = await getEntryBySlug('freebies', `${name}/lead`)
 
-const { slug, render, data } = entry
-const { Content } = await render()
+const { Content } = await entry.render()
 ---
 
-<div class={`Freebie ${klass}`}>
-  <div class='assets'>
-    {
-      data.svg && (
-        <div class='logo'>
-          <SVG name={data.svg} />
-        </div>
-      )
-    }
-
-    {
-      data.video && (
-        <div class='video'>
-          <Video gifReplacement src={data.video} />
-        </div>
-      )
-    }
-  </div>
-
-  <div class='content ContentBlock'>
-    <h2>
-      <Markdown content={data.title} />
-    </h2>
-
-    <Content />
-
-    <div class='cta'>
-      <a
-        href={data.url.more}
-        target='_blank'
-        class='button'
-        data-type='outline'
-      >
-        Find out more
-      </a>
-      <a
-        href={`/freebies/${name}`}
-        target='_blank'
-        class='button'
-        data-type='green'
-      >
-        Get {data.freeText} for free
-      </a>
-    </div>
-  </div>
-</div>
+<Freebie {name} class={Astro.props.class} {entry} {...Astro.props}>
+  <Content />
+</Freebie>

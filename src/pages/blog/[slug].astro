@@ -76,7 +76,7 @@ const { Content } = await post.render()
       {
         post.data.leadModal && (
           <div class='uInlineSize'>
-            <Freebie name={post.data.leadModal} />
+            <Freebie name={post.data.leadModal} tag='h2' />
           </div>
         )
       }
@@ -86,7 +86,11 @@ const { Content } = await post.render()
   </div>
 
   <LeadModal client:load>
-    {post.data.leadModal && <Freebie class='mMQ' name={post.data.leadModal} />}
+    {
+      post.data.leadModal && (
+        <Freebie class='mMQ' name={post.data.leadModal} tag='h2' />
+      )
+    }
 
     {!post.data.leadModal && <ConvertkitForm name={post.data.ckForm} />}
   </LeadModal>

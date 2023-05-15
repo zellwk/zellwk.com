@@ -6,7 +6,6 @@ const IDS = {
   'better-fed': 5033810,
   calculator: 5033815,
   crud: 5033822,
-  jsr: 5033848,
   mwt: 5033864,
   ayw: 5033877,
   susy: 5033894,
@@ -18,25 +17,9 @@ const IDS = {
   freelance: 5107340,
 }
 
-const TRIAL_TAGS = {
-  ECSS: 3676805,
-  UAJS: 3676807,
-  MWT: 3676808,
-  GTM4D: '',
-  BAndD: 3676809,
-  APIMasterclass: 3741826,
-}
-
 export function getFormID(name) {
   const id = IDS[name]
   if (!id) return new Error(`No Convertkit form found with name: ${name}`)
-
-  return id
-}
-
-export function getTagID(name) {
-  const id = TRIAL_TAGS[name]
-  if (!id) return new Error(`No Convertkit tag found with name: ${name}`)
 
   return id
 }

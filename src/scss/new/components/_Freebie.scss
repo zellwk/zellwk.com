@@ -1,5 +1,6 @@
 @use '../abstracts/' as *;
 
+// TODO: We should probably center the text at small screen together with centering the logo...
 .Freebie {
   max-width: rhythm(24);
   margin-inline: auto;
@@ -12,17 +13,20 @@
     }
   }
 
-  .assets .video {
+  .assets .image {
     display: none;
   }
 
-  .title {
-    // Temporary using manual colours until we redesign...
-    font-family: fontFamily(primary);
-    font-size: fontStep(8);
+  // Title can be h1,h2,h3, etc and div
+  // This simply styles the div version
+  div.title {
+    font-size: fontStep(9);
     line-height: 1.2;
     font-weight: bold;
-    margin-top: rhythm(0.5);
+  }
+
+  .title {
+    text-align: center;
   }
 
   .cta {
@@ -50,8 +54,17 @@
       margin-top: rhythm(1);
     }
 
-    .assets .video {
+    .title {
+      text-align: left;
+    }
+
+    .assets .image {
       display: block;
+    }
+
+    // Overwrite legacy styles from o-words
+    .assets .image img {
+      border: 0;
     }
 
     .content {

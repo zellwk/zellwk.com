@@ -9,11 +9,11 @@
 
   export let action
   export let redirectTo
-  export let numFree
+  export let buttonText
 
   let loader = {
     state: 'paused',
-    title: `Sending you ${numFree} chapters...`,
+    title: `Sending you the chapters...`,
   }
 
   // Event Listeners
@@ -44,6 +44,8 @@
         event: 'generate_lead',
         email,
       })
+
+      // Finish loading
       loader.state = 'success'
     }
 
@@ -55,13 +57,7 @@
 </script>
 
 <div class="ConvertkitForm o-words" style="max-width: 35em">
-  <Form
-    method="post"
-    buttonText={`Send me the ${numFree} free chapters`}
-    {redirectTo}
-    on:submit={submit}
-    {loader}
-  >
+  <Form method="post" {buttonText} {redirectTo} on:submit={submit} {loader}>
     <slot />
     <Input type="text" label="First Name" name="first-name" required />
     <Input type="email" label="Email address" name="email" required />

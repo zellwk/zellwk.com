@@ -1,4 +1,6 @@
 <script>
+  let klass
+  export { klass as class }
   export let src, alt, loading, caption
   import SvelteMarkdown from 'svelte-markdown'
 
@@ -6,7 +8,7 @@
 </script>
 
 {#if caption}
-  <figure aria-label={caption} {...$$restProps}>
+  <figure class={klass} aria-label={caption} {...$$restProps}>
     <img {src} alt={alt || caption} {loading} aria-hidden />
     <figcaption aria-hidden>
       <SvelteMarkdown source={caption} />
@@ -15,7 +17,7 @@
 {/if}
 
 {#if !caption}
-  <figure {...$$restProps}>
+  <figure class={klass} {...$$restProps}>
     <img {src} {alt} {loading} />
   </figure>
 {/if}

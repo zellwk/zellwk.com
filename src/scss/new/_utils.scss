@@ -18,3 +18,10 @@
 .uInlineSize {
   container-type: inline-size;
 }
+
+// Temporary utility to get rid of images in the Freebie component
+.uBorderNone {
+  img {
+    border: 0 !important;
+  }
+}

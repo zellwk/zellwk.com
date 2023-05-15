@@ -27,8 +27,9 @@ const { Content } = await render()
         action={endpoint}
         redirectTo={`/freebies/${name}/welcome`}
         numFree={data.numFree}
+        buttonText={data.buttonText}
       >
-        <Input type='hidden' name='formID' value={getFormID('operations')} />
+        <Input type='hidden' name='formID' value={data.ckFormID} />
         <Input type='hidden' name='tagID' value={data.ckTagID} />
         <Input type='hidden' name='productCode' value={data.code} />
       </TrialForm>
