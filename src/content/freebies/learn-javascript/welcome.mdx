@@ -2,6 +2,8 @@
 title: We're sending you the free chapters right now!
 ---
 
+import FacebookShareButton from '/src/components/ShareButtons/Facebook.svelte'
+import TwitterShareButton from '/src/components/ShareButtons/Twitter.svelte'
 
 Welcome! You have just made a wonderful decision that's going to change everything you know about JavaScript.
 
@@ -35,10 +37,12 @@ See you in the lessons!
 
 We put in a lot of effort to make these lessons as clear and understandable.
 
-We'd love to gift these 3 chapters to as many people as we can.
+We'd love to give these 3 chapters to as many people as we can.
 
 Can you share these chapters with your friends please? You can use the buttons below to help you out. Thank you so much for sharing!
 
 {/* prettier-ignore */}
-{/* TODO: Add Social Media Buttons */}
-
+<p class="uBasicFlexGrid">
+  <FacebookShareButton client:load />
+  <TwitterShareButton client:load shareText="@zellwk is giving away 3 chapters of his JavaScript course! Just click the link below to get these 3 chapters for free!"/> 
+</p>

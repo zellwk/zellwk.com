@@ -1,0 +1,25 @@
+.ShareButton {
+  --share-button-padding: 0.5em 0.75em;
+  // Set this to the line height
+  --base-share-icon-height: 1.5em;
+  // Change this so the icon looks good with the text
+  --share-icon-height: var(--base-share-icon-height);
+
+  font: inherit;
+  display: flex;
+  align-items: center;
+  border: 0;
+  padding: var(--share-button-padding);
+  font-size: 0.8rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.ShareButton svg {
+  width: auto;
+  height: var(--share-icon-height);
+  margin-right: 0.5em;
+  padding-top: calc(
+    (var(--base-share-icon-height) - var(--share-icon-height)) / 2
+  );
+}

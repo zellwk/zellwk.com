@@ -25,3 +25,14 @@
     border: 0 !important;
   }
 }
+
+// Few gotchas in Astro slot — you want to stop writing margin-left and margin-top because Astro randomly inserts style and script tags. Also need a way to handle Astro Slots ond Astro Islands...
+.uBasicFlexGrid {
+  display: flex;
+  flex-flow: row wrap;
+
+  > * + *,
+  > * + :where(astro-slot, astro-island) > *:first-child {
+    margin-right: 1rem;
+  }
+}
