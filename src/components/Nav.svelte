@@ -8,13 +8,13 @@
   import Portal from './Portal.svelte'
   import trapFocus from '../actions/trap-focus.js'
 
-  // List of navigation items — can be put into a JSON or something later
+  // List of navigation items
   const nav = [
     { name: 'Learn JavaScript', link: 'https://learnjavascript.today' },
+    { name: 'Freebies', link: '/freebies' },
     { name: 'About', link: '/about' },
     { name: 'Articles', link: '/blog/1' },
     { name: 'Contact', link: '/contact' },
-    { name: 'Newsletter', link: '/newsletter' },
   ]
 
   let state = 'closed'

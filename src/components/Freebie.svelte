@@ -1,7 +1,6 @@
 <script>
   import SVG from './SVG.svelte'
   import SvelteMarkdown from 'svelte-markdown'
-  import Video from './Video.svelte'
   import Image from './Image.svelte'
 
   let klass
@@ -9,8 +8,10 @@
   export let entry // Entry from Content Collections API
   export let name
   export let tag = 'div'
+  export let titleVersion = '1' // 1 or 2, uses title or title2. This is just a hacky way and we can improve later.
 
   const { data } = entry
+  let title = titleVersion === '1' ? data.title : data.title2
 </script>
 
 {#if entry.status !== 'draft'}
@@ -31,7 +32,7 @@
 
     <div class="content ContentBlock">
       <svelte:element this={tag} class="title">
-        <SvelteMarkdown source={data.title} />
+        <SvelteMarkdown source={title} />
       </svelte:element>
 
       <slot />

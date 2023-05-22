@@ -1,0 +1,382 @@
+---
+title: Overcoming styling frustrations caused by Astro islands and slots
+description: AI can help, but only to certain level of expertise. There will be more noise and less quality, which makes it harder for people to learn. AI will remain useful to many developers, the question is exactly how.
+slug: overcoming-astro-styling-frustrations
+tags: ['astro', 'css']
+pubDate: 2023-05-22
+ckForm: astro
+---
+
+After using Astro for a while, I came to realize that Astro's biggest features — islands and slots — both delight and frustrate me.
+
+Most people already know what the delights are, so I won't bother writing about them in this article. I'll focus on what frustrates me and how I resolve those frustrations.
+
+{/* more */}
+
+First, we need to talk about when Astro creates islands and slots.
+
+## When Astro creates islands and slots
+
+Astro creates an `astro-island` tag, along with `style` and `script` tags when you include a component with client directives.
+
+```astro
+---
+import Component from './components/Component.svelte'
+---
+
+<Component client:load />
+```
+
+<Image src='/images/blog/astro-styling-frustrations/astro-island.png' />
+
+If the component (with client directives) contains a `slot`, Astro will create an `astro-slot` tag. This `astro-slot` will be found within an `astro-island`.
+
+```astro
+---
+import Component from './components/Component.svelte'
+---
+
+<Component client:load>
+  <div>Some Slotted Content</div>
+</Component>
+```
+
+<Image src='/images/blog/astro-styling-frustrations/astro-slots.png' />
+
+Now, if you include a component without client directives, Astro will not create `astro-island` and `astro-slot` tags.
+
+```astro
+---
+import Component from './components/Component.svelte'
+---
+
+<Component>
+  <div>Some Slotted Content</div>
+</Component>
+```
+
+<Image src='/images/blog/astro-styling-frustrations/no-slots.png' />
+
+## What's frustrating about Astro islands and slots
+
+Since Astro only creates these tags when you include client directives, styling components can become unpredictable — because some components will have client directives while others won't.
+
+Problems arise when the DOM contains `astro-island` and `astro-slots`. That's because these tags change the document flow, so you cannot pretend that they don't exist.
+
+To be more specific, I noticed four extremely frustrating things when `astro-island` and `astro-slot` are present in the DOM.
+
+1. Direct descendant selectors no longer work
+2. Lobotomized owls no longer work
+3. CSS Grid positioning no longer works
+4. Nth-child no longer works
+
+I'm going to talk about each one in turn, and how to resolve these frustrations.
+
+## Direct descendant selectors no longer work
+
+Direct descendant selectors no longer work when `astro-island` and `astro-slot` is in the DOM.
+
+This makes sense because the DOM has changed, so direct descendant selectors no longer target the element you wish to target.
+
+Imagine you want to have this HTML
+
+```html
+<div class="Component">
+  <div>Some Content</div>
+</div>
+```
+
+But Astro creates this HTML because it has slots.
+
+```html
+<div class="Component">
+  <astro-slot>
+    <div>Some Content</div>
+  </astro-slot>
+</div>
+```
+
+If you wrote a direct descendant selector, that selector wouldn't work. That's because the direct descendant selector now targets the `astro-slot` level children instead of the one you are aiming for.
+
+```css
+/* No longer works */
+.Component > div {
+  /* Styles here */
+}
+```
+
+### Fixing it
+
+**Fixing direct descendant selectors with slots is simple — all you have to do is add `astro-slot` in the selector chain.**
+
+```css
+/* Works */
+.Component > astro-slot > div {
+  /* Styles here */
+}
+```
+
+<Callout type="note">
+The above code snippets assume you're writing global CSS. If you're using CSS Scoped to the component, you'll have to write the following instead since we're dealing with slots.
+
+```css
+/* Scoped CSS*/
+.Component :global(> astro-slot > div) {
+  /* Styles here */
+}
+```
+
+</Callout>
+
+**Another alternative is simply to use descend selectors instead of direct descendant selectors** if the HTML structure allows for it.
+
+```css
+/* Works */
+.Component div {
+  /* Styles here */
+}
+```
+
+Let's move on.
+
+## Lobotomized owls no longer work
+
+Lobotomized owl is a way to style things with the sibling universal selectors. [It was first coined by Heydon Pickering](https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/) in 2014.
+
+```css
+/* Lobotomized owl selector */
+* + * {
+  /* Your styles here */
+}
+```
+
+The lobotomized owl selector can be used to style children elements easily — giving them margins, paddings, and other properties as necessary.
+
+Here's an example that I commonly use to give some space between elements.
+
+```css
+.Parent > * + * {
+  margin-top: 1rem;
+}
+```
+
+Unfortunately, these styles won't work on `astro-island` and `astro-slot` tags because they use the [`display: content` property](https://bitsofco.de/how-display-contents-works/).
+
+<Image src='/images/blog/astro-styling-frustrations/lobotomized-owl-not-working.png' />
+
+### Fixing it
+
+Elements with `display: contents` will have their styles ignored, so any styles added to these elements will be ignored.
+
+**The easy way to fix this is to add the styles to the elements contained in `astro-island` or `astro-slot`.**
+
+Here's what the CSS looks like.
+
+```css
+.Parent > * + *,
+.Parent > * + :where(astro-island, astro-slot) > *:first-child {
+  margin-top: 1rem;
+}
+```
+
+<Image src='/images/blog/astro-styling-frustrations/lobotomized-owl-working.png' />
+
+## CSS Grid Positioning no longer works
+
+This one is similar to the lobotomized owl one — because Astro islands and slots use `display: contents`, no styles will work on them.
+
+These styles include `grid-column`, `grid-row`. So you will not be able to change the Conponent's positioning with `grid-column`.
+
+Here's an example where we laid all items out in a two-column grid. In this example, trying to use set `grid-column` on the `astro-island` and `astro-slots` will not work.
+
+```astro
+---
+import Component from './Component.svelte'
+---
+
+<div class='Grid'>
+  <Component client:load />
+  <Component client:load />
+  <Component client:load />
+</div>
+
+<style>
+  .Grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
+
+  /* Tries to make all grid items span the full width */
+  .Grid > * {
+    grid-column: 1 / -1;
+  }
+</style>
+```
+
+<Image src='/images/blog/astro-styling-frustrations/grid.png' />
+
+There are two ways to fix this problem.
+
+### Fixing it
+
+**The first way is to bypass `astro-island` and `astro-slot` with the technique mentioned abov**e.
+
+```css
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+/* Tries to make all grid items span the full width */
+.grid > *,
+.grid > :where(astro-island, astro-slot) > *:first-child {
+  grid-column: 1 / -1;
+}
+```
+
+<Image src='/images/blog/astro-styling-frustrations/grid-fixed.png' />
+
+**The second way is to put the components in another element.**
+
+```html
+<div class="Grid">
+  <div><Component client:load /></div>
+  <div><Component client:load /></div>
+  <div><Component client:load /></div>
+</div>
+```
+
+```css
+.Grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+.Grid > * {
+  grid-column: 1 / -1;
+}
+```
+
+<Image src='/images/blog/astro-styling-frustrations/grid-fixed.png' />
+
+## Nth-child no longer works as expected
+
+When Astro adds `astro-island` to the DOM, they also add `style `and `script` tags to the DOM at the same time.
+
+Since `style` and `script` tags are also considered children elements, you cannot depend on the `nth-child` selector to target the right element anymore.
+
+Using the same code examples from above, let's say we have the following HTML.
+
+```html
+<div class="Grid">
+  <Component client:load></Component>
+  <Component client:load></Component>
+  <Component client:load></Component>
+</div>
+```
+
+This produces a DOM that looks like this.
+
+- First element is a `style` tag
+- Second element is a `script` tag
+- Next three elements are `astro-island` tags
+
+<Image src='/images/blog/astro-styling-frustrations/astro-components.png' />
+
+<Callout type='note'>
+  Astro will only include `style` and `script` tags for the components once in
+  the DOM. This is why you see only one `style ` tag and one `script` instead of
+  3 `style` tags and 3 `script` tags.
+</Callout>
+
+If you want to get the first component with `nth-child`, you need to pass in `nth-child(3)` instead of `nth-child(1)`. That's because the first component is now the third element in the DOM tree.
+
+```css
+/* Style the first component, but it's the third child */
+.Grid > *:nth-child(3) > .Component {
+  background-color: red;
+}
+```
+
+<Image src='/images/blog/astro-styling-frustrations/component-red.png' />
+
+Yes, I know it's confusing.
+
+There are two ways to fix this confusing problem
+
+### Fixing it
+
+**The first way is to wrap the components with another element.**
+
+You can then use `nth-child` to style with a descendant selector to style the component.
+
+```html
+<div class="Grid">
+  <div><Component client:load /></div>
+  <div><Component client:load /></div>
+  <div><Component client:load /></div>
+</div>
+```
+
+```css
+/* Tries to make all grid items span the full width */
+.Grid > *:first-child .Component {
+  background-color: red;
+}
+```
+
+<Image src='/images/blog/astro-styling-frustrations/component-red.png' />
+
+**The second way is to stop using `nth-child` and use `nth-of-type` instead.**
+
+```css
+.Grid > astro-island:nth-of-type(1) > .Component {
+  background-color: red;
+}
+```
+
+<Image src='/images/blog/astro-styling-frustrations/component-red.png' />
+
+## A deeper layer of frustrations
+
+Things get a little bit more confusing if you need to pass a component into a slot — especially if both components (the parent one and the one in the slot) need JavaScript functionality.
+
+```astro
+---
+import Component from './components/Component.svelte'
+import Nested from './components/Nested.svelte'
+---
+
+<Component client:load>
+  <Nested client:load />
+</Component>
+```
+
+Astro will create the following layout:
+
+1. `astro-island` in the top level
+2. `astro-slot` in the second level (since `Component` gets content through a slot)
+3. Another `astro-island` after `astro-slot` since `Nested` needs to have JavaScript functionality as well.
+
+<Image src='/images/blog/astro-styling-frustrations/nested-island-and-slots.png' />
+
+I'm not sure whether this level of complexity is necessary though.
+
+Most of the time, I just one layer of `astro-island` and a layer of `astro-slot`. So this should be an edge case more than anything else.
+
+## Wrapping up
+
+I've just shared with you when and how Astro creates `astro-island` and `astro-slot`.
+
+I've also shared with you how to overcome the styling frustrations that happen when `astro-island` and `astro-slot` elements are present in the DOM.
+
+With this, you should now be able to use Astro effectively without encountering further styling issues.
+
+Hope you find this useful in your coding journey.
+
+If you wish to receive more in-depth articles about Astro, Svelte, and other web development topics, feel free to sign up for my newsletter below.
+
+That's it for today. Thanks for reading!
