@@ -1,6 +1,6 @@
 <script>
   import Modal from './Modal.svelte'
-  import ExitIntent from '../actions/exit-intent.js'
+  // import ExitIntent from '../actions/exit-intent.js'
   import ScrollObserver from '../actions/scroll-observer.js'
   import localStore from '@zellwk/javascript/browser/localstore.js'
   import milliseconds from 'date-fns/milliseconds'
@@ -52,22 +52,22 @@
   // Check whether the user has already seen the modal on exit intent.
   // If displayed before, check if the expiry is still valid.
   // If expiry timestamp is still valid, don't show the modal
-  function exitCheck() {
-    // LMEE = Lead Modal on Exit Expiry Timestamp
-    const expiry = localStore.get('LMEE')
-    if (expiry > Date.now()) return false
+  // function exitCheck() {
+  //   // LMEE = Lead Modal on Exit Expiry Timestamp
+  //   const expiry = localStore.get('LMEE')
+  //   if (expiry > Date.now()) return false
 
-    localStore.set('LMEE', Date.now() + milliseconds({ days: 7 }))
-    openModal()
-  }
+  //   localStore.set('LMEE', Date.now() + milliseconds({ days: 7 }))
+  //   openModal()
+  // }
 </script>
 
 <svelte:document
   use:ScrollObserver={{ threshold: 0.5 }}
   on:down:threshold={scrollCheck}
-  use:ExitIntent
-  on:exit={exitCheck}
 />
+<!-- use:ExitIntent
+  on:exit={exitCheck} -->
 
 {#if modal.state === 'open'}
   <Modal
