@@ -1,11 +1,10 @@
 ---
 title: Introduction to commonly used ES6 features
 slug: es6
-tags: [javascript, best]
+tags: [javascript]
 leadModal: learn-javascript
 pubDate: 2017-05-10
 ---
-
 
 JavaScript has progressed a ton in the recent years. If you're learning JavaScript in 2017 and you haven't touched ES6, you're missing out on an easier way to read and write JavaScript.
 
@@ -79,7 +78,7 @@ In the example above, I've declared `me` as a global variable. This global `me` 
 
 ```js
 var me = 'Zell'
-function sayMe () {
+function sayMe() {
   console.log(me)
 }
 
@@ -105,7 +104,7 @@ If the variable is created outside of the function, it'll exist in the outer sco
 ```js
 var me = 'Zell' // global scope
 
-function sayMe () {
+function sayMe() {
   var me = 'Sleepy head' // local scope
   console.log(me)
 }
@@ -160,19 +159,23 @@ for (var i = 1; i < 5; i++) {
   setTimeout(function () {
     console.log(i)
   }, 1000)
-};
+}
 ```
 
 What would you expect this code to do? Here's what actually happens
 
-<Image src="/images/2017/es6/loop-wrong.png" alt="i was logged as 5 four times in the timeout function" caption="i was logged as 5 four times in the timeout function" />
+<Image
+  src='/images/2017/es6/loop-wrong.png'
+  alt='i was logged as 5 four times in the timeout function'
+  caption='i was logged as 5 four times in the timeout function'
+/>
 
 How the heck did `i` become `5` for four times inside the timeout function? Well, turns out, because `var` is function-scoped, the value of `i` became `4` even before the timeout function runs.
 
 To get the correct `i` value within `setTimeout`, which executes later, we need to create another function, say `logLater`, to ensure the `i` value doesn't get changed by the `for` loop before `setTimeout` executes:
 
 ```js
-function logLater (i) {
+function logLater(i) {
   setTimeout(function () {
     console.log(i)
   })
@@ -181,10 +184,14 @@ function logLater (i) {
 for (var i = 1; i < 5; i++) {
   console.log(i)
   logLater(i)
-};
+}
 ```
 
-<Image src="/images/2017/es6/loop-right.png" alt="i was correctly logged as 1, 2 3 and 4" caption="i was correctly logged as 1, 2 3 and 4" />
+<Image
+  src='/images/2017/es6/loop-right.png'
+  alt='i was correctly logged as 1, 2 3 and 4'
+  caption='i was correctly logged as 1, 2 3 and 4'
+/>
 
 (By the way, this is called a closure).
 
@@ -196,10 +203,14 @@ for (let i = 1; i < 5; i++) {
   setTimeout(function () {
     console.log(i)
   }, 1000)
-};
+}
 ```
 
-<Image src="/images/2017/es6/loop-right.png" alt="i was correctly logged as 1, 2 3 and 4" caption="i was correctly logged as 1, 2 3 and 4" />
+<Image
+  src='/images/2017/es6/loop-right.png'
+  alt='i was correctly logged as 1, 2 3 and 4'
+  caption='i was correctly logged as 1, 2 3 and 4'
+/>
 
 As you can see, **block-scoped** variables make development much simpler by removing common gotchas with **function-scoped** variables. To make life simple, I recommend you use `let` over `var` whenever you declare JavaScript variables from now on. (ES6 is the new JavaScript already 😎).
 
@@ -235,7 +246,7 @@ Next, let's move on and talk about arrow functions.
 Arrow functions are denoted by the fat arrow (`=>`) you see everywhere in ES6 code. It's a shorthand to make anonymous functions. They can be used anywhere the `function` keyword is used. For example:
 
 ```js
-let array = [1,7,98,5,4,2]
+let array = [1, 7, 98, 5, 4, 2]
 
 // ES5 way
 var moreThan20 = array.filter(function (num) {
@@ -266,7 +277,7 @@ namedFunction()
 There's a second method to create functions. You can create an anonymous function and assign it to a variable. To create an anonymous function, we leave its name out of the function declaration.
 
 ```js
-var namedFunction = function() {
+var namedFunction = function () {
   // Do something
 }
 ```
@@ -275,7 +286,7 @@ A third way to create functions is to create them directly as an argument to ano
 
 ```js
 // Using an anonymous function in a callback
-button.addEventListener('click', function() {
+button.addEventListener('click', function () {
   // Do something
 })
 ```
@@ -286,10 +297,14 @@ Here's what it looks like:
 
 ```js
 // Normal Function
-const namedFunction = function (arg1, arg2) { /* do your stuff */}
+const namedFunction = function (arg1, arg2) {
+  /* do your stuff */
+}
 
 // Arrow Function
-const namedFunction2 = (arg1, arg2) => {/* do your stuff */}
+const namedFunction2 = (arg1, arg2) => {
+  /* do your stuff */
+}
 
 // Normal function in a callback
 button.addEventListener('click', function () {
@@ -315,6 +330,7 @@ The **first factor** is the **number of arguments** supplied to the arrow functi
 
 All of the following are valid arrow functions.
 
+{/* prettier-ignore */}
 ```js
 const zeroArgs = () => {/* do something */}
 const zeroWithUnderscore = _ => {/* do something */}
@@ -329,13 +345,15 @@ So, these two are equivalent:
 
 ```js
 const sum1 = (num1, num2) => num1 + num2
-const sum2 = (num1, num2) => { return num1 + num2 }
+const sum2 = (num1, num2) => {
+  return num1 + num2
+}
 ```
 
 These two factors are the reason why you can write shorter code like the `moreThan20` you've seen above:
 
 ```js
-let array = [1,7,98,5,4,2]
+let array = [1, 7, 98, 5, 4, 2]
 
 // ES5 way
 var moreThan20 = array.filter(function (num) {
@@ -358,12 +376,16 @@ But before you jump onto the arrow functions FTW bandwagon, I want to let you kn
 console.log(this) // Window
 ```
 
-<Image src="/images/2017/es6/window.png" alt="This defaults to window object in browsers" caption="This defaults to window object in browsers" />
+<Image
+  src='/images/2017/es6/window.png'
+  alt='This defaults to window object in browsers'
+  caption='This defaults to window object in browsers'
+/>
 
 When `this` is called in a **simple function call**, `this` is set to the global object. In the case of browsers, `this` will always be `Window`.
 
 ```js
-function hello () {
+function hello() {
   console.log(this)
 }
 
@@ -376,20 +398,24 @@ When `this` is called in an **object method**, `this` would be the object itself
 
 ```js
 let o = {
-  sayThis: function() {
+  sayThis: function () {
     console.log(this)
-  }
+  },
 }
 
 o.sayThis() // o
 ```
 
-<Image src="/images/2017/es6/object.png" alt="This refers to the object when the function is called in an object method." caption="This refers to the object when the function is called in an object method." />
+<Image
+  src='/images/2017/es6/object.png'
+  alt='This refers to the object when the function is called in an object method.'
+  caption='This refers to the object when the function is called in an object method.'
+/>
 
 When the function is called as a **constructor**, `this` refers to the **newly constructed object**.
 
 ```js
-function Person (age) {
+function Person(age) {
   this.age = age
 }
 
@@ -400,14 +426,18 @@ console.log(greg) // this.age = 22
 console.log(thomas) // this.age = 24
 ```
 
-<Image src="/images/2017/es6/constructor.png" alt="This refers to the constructed object called with the new keyword or Object.create()." caption="This refers to the constructed object called with the new keyword or Object.create()." />
+<Image
+  src='/images/2017/es6/constructor.png'
+  alt='This refers to the constructed object called with the new keyword or Object.create().'
+  caption='This refers to the constructed object called with the new keyword or Object.create().'
+/>
 
 When used in an event listener, `this` is set to the element that fired the event.
 
 ```js
 let button = document.querySelector('button')
 
-button.addEventListener('click', function() {
+button.addEventListener('click', function () {
   console.log(this) // button
 })
 ```
@@ -438,9 +468,9 @@ let o = {
 }
 ```
 
-Second, you *may not* want to use arrow functions to create event listeners because `this` no longer binds to the element you attached your event listener to.
+Second, you _may not_ want to use arrow functions to create event listeners because `this` no longer binds to the element you attached your event listener to.
 
-However, you can always get the right `this` context with `event.currentTarget`. Which is why I said *may not*.
+However, you can always get the right `this` context with `event.currentTarget`. Which is why I said _may not_.
 
 ```js
 button.addEventListener('click', function () {
@@ -470,7 +500,7 @@ let o = {
     setTimeout(() => {
       console.log(this) // o
     }, 3000)
-  }
+  },
 }
 ```
 
@@ -492,7 +522,7 @@ let o = {
 Finally, feel free to use the fat arrow function anywhere else to help make your code neater and shorter, like the `moreThan20` example we had above:
 
 ```js
-let array = [1,7,98,5,4,2]
+let array = [1, 7, 98, 5, 4, 2]
 let moreThan20 = array.filter(num => num > 20)
 ```
 
@@ -505,7 +535,7 @@ Default parameters in ES6... well, gives us a way to specify default parameters 
 Let's say we're creating a function that announces the name of a player from a team. If you write this function in ES5, it'll be similar to the following:
 
 ```js
-function announcePlayer (firstName, lastName, teamName) {
+function announcePlayer(firstName, lastName, teamName) {
   console.log(firstName + ' ' + lastName + ', ' + teamName)
 }
 
@@ -538,7 +568,7 @@ Although this works, we can do better by refactoring `unaffiliated` into `announ
 In the ES5 version, you can refactor the code to something like this:
 
 ```js
-function announcePlayer (firstName, lastName, teamName) {
+function announcePlayer(firstName, lastName, teamName) {
   if (!teamName) {
     teamName = 'unaffiliated'
   }
@@ -555,7 +585,7 @@ announcePlayer('Stephen', 'Curry', 'Golden State Warriors')
 Or, if you're savvier with ternary operators, you could have chosen a terser version:
 
 ```js
-function announcePlayer (firstName, lastName, teamName) {
+function announcePlayer(firstName, lastName, teamName) {
   var team = teamName ? teamName : 'unaffiliated'
   console.log(firstName + ' ' + lastName + ', ' + team)
 }
@@ -599,7 +629,7 @@ Let's say you have the following object:
 ```js
 const Zell = {
   firstName: 'Zell',
-  lastName: 'Liew'
+  lastName: 'Liew',
 }
 ```
 
@@ -639,7 +669,7 @@ The following fails to work:
 ```js
 let name = 'Zell Liew'
 let course = {
-  name: 'JS Fundamentals for Frontend Developers'
+  name: 'JS Fundamentals for Frontend Developers',
   // ... other properties
 }
 
@@ -665,7 +695,7 @@ Don't worry if you try to destructure a variable that's not contained within an 
 
 ```js
 let course = {
-  name: 'JS Fundamentals for Frontend Developers'
+  name: 'JS Fundamentals for Frontend Developers',
 }
 
 let { package } = course
@@ -679,7 +709,7 @@ You can write default parameters for your destructured variables as well. The sy
 
 ```js
 let course = {
-  name: 'JS Fundamentals for Frontend Developers'
+  name: 'JS Fundamentals for Frontend Developers',
 }
 
 let { package = 'full course' } = course
@@ -691,7 +721,7 @@ You can even rename variables while providing defaults. Just combine the two. It
 
 ```js
 let course = {
-  name: 'JS Fundamentals for Frontend Developers'
+  name: 'JS Fundamentals for Frontend Developers',
 }
 
 let { package: packageName = 'full course' } = course
@@ -707,8 +737,8 @@ Destructuring arrays and destructuring objects are similar. We use **square brac
 
 When you destructure an array,
 
-- Your *first variable* is the *first item* in the array.
-- Your *second variable* is the *second item* in the array.
+- Your _first variable_ is the _first item_ in the array.
+- Your _second variable_ is the _second item_ in the array.
 - and so on...
 
 ```js
@@ -749,7 +779,7 @@ let a = 2
 let b = 3
 ```
 
-You wanted to swap these variables. So `a = 3`  and `b = 2`. In ES5, you need to use a temporary third variable to complete the swap:
+You wanted to swap these variables. So `a = 3` and `b = 2`. In ES5, you need to use a temporary third variable to complete the swap:
 
 ```js
 let a = 2
@@ -768,10 +798,10 @@ Now watch how you'll do it the ES6 way with destructured arrays:
 
 ```js
 let a = 2
-let b = 3; // semicolon required because next line begins with a square bracket
+let b = 3 // semicolon required because next line begins with a square bracket
 
 // Swapping with destructured arrays
-[a, b] = [b, a]
+;[a, b] = [b, a]
 
 console.log(a) // 3
 console.log(b) // 2
@@ -789,12 +819,12 @@ Let's say we have a function that takes in an array of scores and returns an obj
 
 ```js
 // Note: You don't need arrow functions to use any other ES6 features
-function topThree (scores) {
+function topThree(scores) {
   let [first, second, third] = scores
   return {
     first: first,
     second: second,
-    third: third
+    third: third,
   }
 }
 ```
@@ -802,11 +832,11 @@ function topThree (scores) {
 An alternate way to write this function is to destructure `scores` while declaring the function. In this case, there's one less line of code to write. At the same time, we know we're taking in an array.
 
 ```js
-function topThree ([first, second, third]) {
+function topThree([first, second, third]) {
   return {
     first: first,
     second: second,
-    third: third
+    third: third,
   }
 }
 ```
@@ -816,17 +846,14 @@ Super cool, isn't it? 😄.
 **Now, here's a quick little quiz for you**. Since we can combine default parameters and destructuring while declaring functions, what does the following say?
 
 ```js
-function sayMyName ({
-  firstName = 'Zell',
-  lastName = 'Liew'
-} = {}) {
- console.log(firstName + ' ' + lastName)
+function sayMyName({ firstName = 'Zell', lastName = 'Liew' } = {}) {
+  console.log(firstName + ' ' + lastName)
 }
 ```
 
 This is a tricky one. We're combining a few features together.
 
-**First**, we can see that this function takes in *one argument*, an object. This object is *optional* and *defaults to* `{}` when undefined.
+**First**, we can see that this function takes in _one argument_, an object. This object is _optional_ and _defaults to_ `{}` when undefined.
 
 **Second**, we attempt to destructure `firstName` and `lastName` variables from the given object. If these properties are found, use them.
 
@@ -836,8 +863,8 @@ So, this function produces the following results:
 
 ```js
 sayMyName() // Zell Liew
-sayMyName({firstName: 'Zell'}) // Zell Liew
-sayMyName({firstName: 'Vincy', lastName: 'Zhang'}) // Vincy Zhang
+sayMyName({ firstName: 'Zell' }) // Zell Liew
+sayMyName({ firstName: 'Vincy', lastName: 'Zhang' }) // Vincy Zhang
 ```
 
 Pretty cool to combine destructuring and default parameters in a function declaration eh? 😄. I love this.
@@ -852,7 +879,7 @@ What they do is different depending on what they're used for. That's why they're
 
 ### The rest parameter
 
-Loosely translated, the **rest parameter** means **take the rest of the stuff and pack it into an array**. It *converts a comma separated list of arguments into an array*.
+Loosely translated, the **rest parameter** means **take the rest of the stuff and pack it into an array**. It _converts a comma separated list of arguments into an array_.
 
 Let's take a look at the rest parameter in action. Imagine we have a function, `add`, that sums up its arguments:
 
@@ -863,14 +890,18 @@ sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) // 55
 In ES5, we depended on the `arguments` variable whenever we had to deal with a function that takes in an unknown number of variables. This `arguments` variable is an array-like `Symbol`.
 
 ```js
-function sum () {
+function sum() {
   console.log(arguments)
 }
 
 sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 ```
 
-<Image src="/images/2017/es6/arguments.png" alt="Arguments is a Symbol, not an array" caption="Arguments is a Symbol, not an array" />
+<Image
+  src='/images/2017/es6/arguments.png'
+  alt='Arguments is a Symbol, not an array'
+  caption='Arguments is a Symbol, not an array'
+/>
 
 One way to calculate this sum of arguments is to convert it into an Array with `Array.prototype.slice.call(arguments)`, then, loop through each number with an array method like `forEach` or `reduce`.
 
@@ -878,9 +909,9 @@ I'm sure you can do `forEach` on your own, so here's the `reduce` example:
 
 ```js
 // ES5 way
-function sum () {
+function sum() {
   let argsArray = Array.prototype.slice.call(arguments)
-  return argsArray.reduce(function(sum, current) {
+  return argsArray.reduce(function (sum, current) {
     return sum + current
   }, 0)
 }
@@ -893,7 +924,7 @@ With the ES6 rest parameter, we could **pack all comma separated arguments strai
 const sum = (...args) => args.reduce((sum, current) => sum + current, 0)
 
 // ES6 way if we didn't shortcut it with so many arrow functions
-function sum (...args) {
+function sum(...args) {
   return args.reduce((sum, current) => sum + current, 0)
 }
 ```
@@ -994,7 +1025,7 @@ Have you noticed that you sometimes assign a variable that has the same name as 
 const fullName = 'Zell Liew'
 
 const Zell = {
-  fullName: fullName
+  fullName: fullName,
 }
 ```
 
@@ -1013,18 +1044,22 @@ const fullName = 'Zell Liew'
 
 // ES6 way
 const Zell = {
-  fullName
+  fullName,
 }
 
 // Underneath the hood, ES6 does this:
 const Zell = {
-  fullName: fullName
+  fullName: fullName,
 }
 ```
 
 Pretty neat, eh? Now, we have less words to write, and we all go home happy.
 
-<Image src="/images/2017/es6/dancing.gif" alt="Happy, dancing star wars figure" caption="Wheeeee! Happy! :)" />
+<Image
+  src='/images/2017/es6/dancing.gif'
+  alt='Happy, dancing star wars figure'
+  caption='Wheeeee! Happy! :)'
+/>
 
 While I dance, please go on and move to more shorthand goodness. I'll join you shortly.
 
@@ -1036,7 +1071,9 @@ This is an example of a method:
 
 ```js
 const anObject = {
-  aMethod: function () { console.log("I'm a method!~~")}
+  aMethod: function () {
+    console.log("I'm a method!~~")
+  },
 }
 ```
 
@@ -1045,7 +1082,7 @@ With ES6, we get to write methods with a shorthand. We can remove `: function` f
 ```js
 const anObject = {
   // ES6 way
-  aShorthandMethod (arg1, arg2) {},
+  aShorthandMethod(arg1, arg2) {},
 
   // ES5 way
   aLonghandMethod: function (arg1, arg2) {},
@@ -1057,7 +1094,7 @@ With this upgrade, objects already get a shorthand method, so please please don'
 ```js
 const dontDoThis = {
   // Noooo. Don't do this
-  arrowFunction: () => {}
+  arrowFunction: () => {},
 }
 ```
 
@@ -1120,7 +1157,7 @@ Let's move on to another awesome feature I absolutely love: template literals.
 Handling strings in JavaScript is an extremely clunky experience. You've experienced it yourself when we created the `announcePlayer` function previously in [default parameters](#default-parameters). There, we created spaces with empty strings and joined them with pluses:
 
 ```js
-function announcePlayer (firstName, lastName, teamName) {
+function announcePlayer(firstName, lastName, teamName) {
   console.log(firstName + ' ' + lastName + ', ' + teamName)
 }
 ```
@@ -1153,14 +1190,17 @@ there lived a witich,
 who could change night into day`
 ```
 
-<Image src="/images/2017/es6/multiline.png" alt="Multi-line strings!" caption="Multi-line strings works! Woot!" />
+<Image
+  src='/images/2017/es6/multiline.png'
+  alt='Multi-line strings!'
+  caption='Multi-line strings works! Woot!'
+/>
 
 One neat trick is to use these strings to create HTML elements in JavaScript if you need them. (Note: This may not be best way to make HTML elements, but its still way better than creating them one by one!).
 
 ```js
 const container = document.createElement('div')
-const aListOfItems =
-  `<ul>
+const aListOfItems = `<ul>
     <li>Point number one</li>
     <li>Point number two</li>
     <li>Point number three</li>
@@ -1172,9 +1212,10 @@ container.innerHTML = aListOfItems
 document.body.append(container)
 ```
 
-<p data-height="300" data-theme-id="7929" data-slug-hash="JNzMdb" data-default-tab="result" data-user="zellwk" data-embed-version="2" data-pen-title="Using multi-line strings to create more complicated HTML elements" class="codepen">See the Pen <a href="https://codepen.io/zellwk/pen/JNzMdb/">Using multi-line strings to create more complicated HTML elements</a> by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<Codepen
+  hash='JNzMdb'
+  title='Using multi-line strings to create more complicated HTML elements'
+/>
 
 Another feature of template literals is called **tags**. Tags are functions that allow you manipulate the template literal, if you wanted to substitute any string.
 
@@ -1189,7 +1230,7 @@ const tagFunction = () => {
 }
 
 // This tagFunction allows you to manipulate the template literal.
-const string = tagFunction `Mary had a little ${animal}`
+const string = tagFunction`Mary had a little ${animal}`
 ```
 
 To be honest, even though template tags looks cool, I haven't had a use case for them yet. If you want to learn more about template tags, I suggest you read [this reference](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) on MDN.

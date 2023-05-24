@@ -1,11 +1,9 @@
 ---
-
 title: Getting a cookie's expiry value on a server
 slug: getting-a-cookies-expiry-value-on-a-server
-tags: [node, cookie]
+tags: [node, express]
 pubDate: 2022-03-20
 ---
-
 
 Browsers handle cookie expiry so they don't pass the cookie's expiry value to the server. You have to make some adjustments if you want to get the cookie's expiry value on the server.
 
@@ -23,7 +21,7 @@ You can create a cookie with a JSON value. It looks like this:
 ```js
 const cookieValue = JSON.stringify({
   value: 'hello world',
-  expiry: Date.now() + 3600 * 1000
+  expiry: Date.now() + 3600 * 1000,
 })
 
 res.cookie('myCookie', cookieValue)
@@ -35,7 +33,7 @@ If you use Express, you can indicate to [cookie-parser](https://www.npmjs.com/pa
 // Setting a JSON cookie for cookie-parser
 const cookieValue = JSON.stringify({
   value: 'hello world',
-  expiry: Date.now() + 3600 * 1000
+  expiry: Date.now() + 3600 * 1000,
 })
 
 res.cookie('myCookie', `j: ${cookieValue}`)

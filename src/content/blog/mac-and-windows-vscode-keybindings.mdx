@@ -2,11 +2,9 @@
 title: Customised (and effective) Visual Studio Code keyboard shortcuts for Mac and Windows
 description: I made customisations to Visual Studio Code shortcuts so I can use the same shortcuts on BOTH Windows and Mac
 slug: mac-and-windows-vscode-keybindings
-series: windows-web-dev
-tags: [vscode, mac, windows]
+tags: [vscode, workstation]
 pubDate: 2020-05-20
 ---
-
 
 Since I code on both Windows and Mac, I want my Visual Studio Code shortcuts to be interchangeable on both systems.
 
@@ -31,15 +29,24 @@ Modifiers on Mac (`Command`, `Option`, `Control`) and modifiers on Windows (`Ctr
 
 Here's where the original modifiers are located on Mac:
 
-<Image src="/images/2020/vscode-keybindings-1/mac-keyboard.jpg" alt="Mac keyboard." />
+<Image
+  src='/images/2020/vscode-keybindings-1/mac-keyboard.jpg'
+  alt='Mac keyboard.'
+/>
 
 On my Windows PC (which is a Surface Laptop).
 
-<Image src="/images/2020/vscode-keybindings-1/surface-keyboard.jpg" alt="Windows (Surface Laptop 3) keyboard" />
+<Image
+  src='/images/2020/vscode-keybindings-1/surface-keyboard.jpg'
+  alt='Windows (Surface Laptop 3) keyboard'
+/>
 
 I changed modifier locations of my Windows PC with a program called [Auto Hot Key](https://www.autohotkey.com). Here's what they look like right now:
 
-<Image src="/images/2020/vscode-keybindings-1/surface-keyboard-after.jpg" alt="Changed positions of Ctrl, Alt, and Win key on the Window's keyboard." />
+<Image
+  src='/images/2020/vscode-keybindings-1/surface-keyboard-after.jpg'
+  alt="Changed positions of Ctrl, Alt, and Win key on the Window's keyboard."
+/>
 
 You can learn how I changed the modifiers in [this article](/blog/dvorak-qwerty).
 
@@ -63,7 +70,7 @@ Visual Studio Code's keyboard shortcut panel gets a little cranky when I tried u
 
 For example.
 
-1. I changed the *"Go To File"* keyboard shortcut to `Ctrl` + `T`
+1. I changed the _"Go To File"_ keyboard shortcut to `Ctrl` + `T`
 2. But the keyboard shortcuts panel shows `Ctrl` + `Y`.
 
 This is likely because of two reasons:
@@ -71,7 +78,7 @@ This is likely because of two reasons:
 1. `Y` holds the position of `T` on a Dvorak keyboard.
 2. Windows doesn't have Dvorak-Qwerty built-in by default
 
-But the keyboard shortcut still works. When I press `Ctrl` + `T`, I still fire the *"Go To File"* action.
+But the keyboard shortcut still works. When I press `Ctrl` + `T`, I still fire the _"Go To File"_ action.
 
 So, if you use Dvorak-Qwerty, I recommend switching to Qwerty to examine keyboard shortcuts in Visual Studio Code. You can always switch back to Dvorak-Qwerty later.
 
@@ -93,15 +100,18 @@ Then, I noticed Sublime Settings Importer doesn't work on my Windows Computer. I
 
 But my Mac has Sublime Text shortcuts and My Windows PC doesn't. This gets confusing quickly. To make my life easier when creating keyboard shortcuts, I decided to uninstall the Sublime Text Keymap and Settings importer extension.
 
-Ok, that's a ton of things you *need* to know before actually diving into the key bindings. I'm sorry you had to read through the preamble, but some of my bindings wouldn't have made sense otherwise.
+Ok, that's a ton of things you _need_ to know before actually diving into the key bindings. I'm sorry you had to read through the preamble, but some of my bindings wouldn't have made sense otherwise.
 
 From now on, **let's jump into the exciting part!**
 
 ## Go to File
 
-The *Go to File* shortcut is my bread-and-butter shortcut. It opens a list box that lets you type a file you want to go to.
+The _Go to File_ shortcut is my bread-and-butter shortcut. It opens a list box that lets you type a file you want to go to.
 
-<Image src="/images/2020/vscode-keybindings-1/go-to-file.gif" alt="Opens the quick open dropdown menu with Command + T." />
+<Image
+  src='/images/2020/vscode-keybindings-1/go-to-file.gif'
+  alt='Opens the quick open dropdown menu with Command + T.'
+/>
 
 **The default shortcut is:**
 
@@ -111,44 +121,53 @@ The *Go to File* shortcut is my bread-and-butter shortcut. It opens a list box t
 **I changed the shortcut to:**
 
 - Mac:
-	- `Command` + `T`
-	- `Command` + `P`
+  - `Command` + `T`
+  - `Command` + `P`
 - Windows:
-	- `Control` + `T`
-	- `Control` + `P`
+  - `Control` + `T`
+  - `Control` + `P`
 
 <Callout>
-`Command` + `T` overwrites *Go to Symbol in Workspace*. I don't mind overwriting this shortcut since I don't use it. I find *Go to Symbol in Workspace* hard to use because the search is too broad. I prefer using *Go to Symbol in File* instead.
+  `Command` + `T` overwrites *Go to Symbol in Workspace*. I don't mind
+  overwriting this shortcut since I don't use it. I find *Go to Symbol in
+  Workspace* hard to use because the search is too broad. I prefer using *Go to
+  Symbol in File* instead.
 </Callout>
 
 **How to change**
 
 First, open up the keyboard settings preferences. There are three ways:
 
-*Method 1:* From the menu
+_Method 1:_ From the menu
 
 - Mac: `Code` -\> `Preferences` -\> `Keyboard Shortcuts`
 - Windows: `File` -\> `Preferences` -\> `Keyboard Shortcuts`
 
-*Method 2:* Use show all Commands
+_Method 2:_ Use show all Commands
 
 - Mac: `Command` + `Shift` + `P`, then type keyboard shortcuts.
 - Windows: `Ctrl` + `Shift` + `P`, then type keyboard shortcuts.
 
-*Method 3:* Use a keyboard shortcut
+_Method 3:_ Use a keyboard shortcut
 
 - Mac: `Command + K`, `Command + S`
 - Windows: `Ctrl + K`, `Ctrl + S`
 
-Search for *Go to file* in the keyboard shortcuts panel. You should see one option from the list box on Mac. Change this to `Command` + `T`. On Windows, you'll see many options. Change the `Ctrl` + `P` one to `Ctrl` + `T`.
+Search for _Go to file_ in the keyboard shortcuts panel. You should see one option from the list box on Mac. Change this to `Command` + `T`. On Windows, you'll see many options. Change the `Ctrl` + `P` one to `Ctrl` + `T`.
 
 This creates a shortcut with `Command` + `T`.
 
-<Image src="/images/2020/vscode-keybindings-1/go-to-file.png" caption="Searched for Go to file (on Mac)" />
+<Image
+  src='/images/2020/vscode-keybindings-1/go-to-file.png'
+  caption='Searched for Go to file (on Mac)'
+/>
 
 Next, I brought back `Command` + `P` as a keyboard shortcut. To do this, open up `keybindings.json` by clicking on the third icon from the top-right corner.
 
-<Image src="/images/2020/vscode-keybindings-1/keybindings.png" alt="Green arrow pointing to an icon that opens the keybindings.json file." />
+<Image
+  src='/images/2020/vscode-keybindings-1/keybindings.png'
+  alt='Green arrow pointing to an icon that opens the keybindings.json file.'
+/>
 
 Look for `workbench.action.quickOpen`. You should find two values:
 
@@ -188,7 +207,10 @@ On Windows, my `Ctrl` key is in the position of the `Alt` key. Since `Ctrl` is i
 
 I open many tabs when I'm coding, so I need a shortcut to switch between tabs.
 
-<Image src="/images/2020/vscode-keybindings-1/select-tab.gif" alt="Changes betwen three tabs with keyboard shortcuts." />
+<Image
+  src='/images/2020/vscode-keybindings-1/select-tab.gif'
+  alt='Changes betwen three tabs with keyboard shortcuts.'
+/>
 
 **The default shortcut is:**
 
@@ -202,9 +224,12 @@ I open many tabs when I'm coding, so I need a shortcut to switch between tabs.
 
 **How to change:**
 
-Look for *openEditorAtIndex* in the keyboard settings panel. You should find 9 entries (both Mac and Windows). Change this to `Command` (or `Ctrl`) + Numbers 1 to 9.
+Look for _openEditorAtIndex_ in the keyboard settings panel. You should find 9 entries (both Mac and Windows). Change this to `Command` (or `Ctrl`) + Numbers 1 to 9.
 
-<Image src="/images/2020/vscode-keybindings-1/open-editor-at-index.png" alt="Searched for Open editor at index. Found 9 entries." />
+<Image
+  src='/images/2020/vscode-keybindings-1/open-editor-at-index.png'
+  alt='Searched for Open editor at index. Found 9 entries.'
+/>
 
 **Why this change?**
 
@@ -223,16 +248,16 @@ It's super helpful to have two (sometimes three) panels to edit code. I use this
 
 For example, I would open a HTML file on one panel. Then, I would open a CSS file on the second panel. Sometimes, I would use a third panel to open a JavaScript file. (But I stick with two panels most of the time).
 
-<Video src="/images/2020/vscode-keybindings-1/create-code-panels.mp4" />
+<Video src='/images/2020/vscode-keybindings-1/create-code-panels.mp4' />
 
-Visual Studio Code offers a variety of ways to split the text editor. I found *focus on editor group* the best shortcut because it:
+Visual Studio Code offers a variety of ways to split the text editor. I found _focus on editor group_ the best shortcut because it:
 
 1. Opens a new panel when there isn't one.
 2. Lets me switch between panels
 
 In this example below, I jump from the second panel to the third panel, then back to the first panel.
 
-<Video src="/images/2020/vscode-keybindings-1/jump-panels.mp4" />
+<Video src='/images/2020/vscode-keybindings-1/jump-panels.mp4' />
 
 **The default shortcut is:**
 
@@ -246,9 +271,12 @@ In this example below, I jump from the second panel to the third panel, then bac
 
 **How to change:**
 
-Look for *focus editor group* in Visual Studio Code's keyboard shortcuts panel. You'll see options that say `workbench.actions.focus[Number]EditorGroup`. (Where `Number` is first, second, third, fourth, and so on).
+Look for _focus editor group_ in Visual Studio Code's keyboard shortcuts panel. You'll see options that say `workbench.actions.focus[Number]EditorGroup`. (Where `Number` is first, second, third, fourth, and so on).
 
-<Image src="/images/2020/vscode-keybindings-1/focus-editor-group.png" alt="Searched for focus editor group in Visual Studio Code keyboard shortcuts panel." />
+<Image
+  src='/images/2020/vscode-keybindings-1/focus-editor-group.png'
+  alt='Searched for focus editor group in Visual Studio Code keyboard shortcuts panel.'
+/>
 
 Change the shortcuts to `Alt` + the corresponding number.
 
@@ -269,17 +297,17 @@ On Windows, my `Alt` is right next to `Ctrl`. It makes sense. I'm pressing the s
 
 ## Move editor into group
 
-What happens I opened a tab from the wrong panel? This is where *Move editor into group* comes in handy. It lets me move a tab from one panel to another.
+What happens I opened a tab from the wrong panel? This is where _Move editor into group_ comes in handy. It lets me move a tab from one panel to another.
 
-<Video src="/images/2020/vscode-keybindings-1/move-panel.mp4" />
+<Video src='/images/2020/vscode-keybindings-1/move-panel.mp4' />
 
-*Move editor into group* also lets me open up a panel if there are none.
+_Move editor into group_ also lets me open up a panel if there are none.
 
-<Video src="/images/2020/vscode-keybindings-1/move-open-panel.mp4" />
+<Video src='/images/2020/vscode-keybindings-1/move-open-panel.mp4' />
 
-You can even create a Vertical + Horizontal split combination with *Move editor into group*!
+You can even create a Vertical + Horizontal split combination with _Move editor into group_!
 
-<Video src="/images/2020/vscode-keybindings-1/move-open-panel-vertical.mp4" />
+<Video src='/images/2020/vscode-keybindings-1/move-open-panel-vertical.mp4' />
 
 You can move panels (which Visual Studio Code calls editor groups) in 8 ways:
 
@@ -301,28 +329,33 @@ No default keyboard shortcuts are assigned to the last four actions 😢.
 **I changed it to:**
 
 - Mac:
-	- Move up: `Command` + `Alt` + `Up`
-	- Move down: `Command` + `Alt` + `Down`
-	- Move left: `Command` + `Alt` + `Left`
-	- Move right: `Command` + `Alt` + `Right`
+  - Move up: `Command` + `Alt` + `Up`
+  - Move down: `Command` + `Alt` + `Down`
+  - Move left: `Command` + `Alt` + `Left`
+  - Move right: `Command` + `Alt` + `Right`
 - Windows:
-	- Move up: `Control` + `Alt` + `Up`
-	- Move down: `Control` + `Alt` + `Down`
-	- Move left: `Control` + `Alt` + `Left`
-	- Move right: `Control` + `Alt` + `Right`
+  - Move up: `Control` + `Alt` + `Up`
+  - Move down: `Control` + `Alt` + `Down`
+  - Move left: `Control` + `Alt` + `Left`
+  - Move right: `Control` + `Alt` + `Right`
 
 **How to change:**
 
-Search for "*Move editor into*" in Visual Studio Code's keyboard shortcuts panel. You should see 8 entries.
+Search for "_Move editor into_" in Visual Studio Code's keyboard shortcuts panel. You should see 8 entries.
 
-<Image src="/images/2020/vscode-keybindings-1/move-editor-into.png" alt="Searched for Move editor into in the keyboarh shortcuts panel." />
+<Image
+  src='/images/2020/vscode-keybindings-1/move-editor-into.png'
+  alt='Searched for Move editor into in the keyboarh shortcuts panel.'
+/>
 
 Change key bindings to the ones I mentioned above.
 
 Then, remove the key bindings for previous and next group by right-clicking and selecting "remove key binding". This ensures there are no conflicts between key bindings.
 
 <Callout>
-`Command + Alt + Up` overrides *Add cursor above* while `Command + Alt + Down` overrides *Add cursor below*. Feel free to remove their key bindings. I find this ok because I use another shortcut to add cursors.
+  `Command + Alt + Up` overrides *Add cursor above* while `Command + Alt + Down`
+  overrides *Add cursor below*. Feel free to remove their key bindings. I find
+  this ok because I use another shortcut to add cursors.
 </Callout>
 
 **Why this change?**
@@ -335,7 +368,10 @@ I find that this makes a lot of sense!
 
 Let's say you create an empty panel by accident. You want to close this panel.
 
-<Image src="/images/2020/vscode-keybindings-1/close.gif" alt="Closes an empty panel." />
+<Image
+  src='/images/2020/vscode-keybindings-1/close.gif'
+  alt='Closes an empty panel.'
+/>
 
 Visual Studio Code lets you close this empty panel with the following shortcuts:
 
@@ -348,7 +384,10 @@ I didn't change this shortcut. I just wanted to tell you about this because I fi
 
 I prefer to split the screen vertically. But when I need code gets long, it makes sense to split things up horizontally. This is especially useful for those pesky JavaScript methods with super long names.
 
-<Image src="/images/2020/vscode-keybindings-1/toggle-split.gif" alt="Toggles split direction of panels" />
+<Image
+  src='/images/2020/vscode-keybindings-1/toggle-split.gif'
+  alt='Toggles split direction of panels'
+/>
 
 Visual Studio Code lets you close this empty panel with the following shortcuts:
 
@@ -359,5 +398,5 @@ I didn't change this shortcut. I just wanted to tell you about this because I fi
 
 That's it for today. I'll share more keyboard shortcuts with you next week.
 
-[4]:	https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings
-[5]:	/blog/sync-mac-windows-vscode
+[4]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings
+[5]: /blog/sync-mac-windows-vscode

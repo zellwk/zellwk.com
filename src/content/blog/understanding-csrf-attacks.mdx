@@ -1,11 +1,9 @@
 ---
-
 title: Understanding CSRF Attacks
 slug: understanding-csrf-attacks
-tags: [web-security, node, express, javascript]
+tags: [security, node, express, javascript]
 pubDate: 2022-05-12
 ---
-
 
 I researched web security recently as I was writing [Understanding Asynchronous JavaScript](https://asyncjs.today) — I wanted to make sure my recommendations were secure and that I'm not doing any of my students a disservice with my recommendations.
 
@@ -247,7 +245,7 @@ What's important is the CSRF Token must be a randomly generated, cryptographical
 ```js
 import crypto from 'crypto'
 
-function csrfToken (req, res, next) {
+function csrfToken(req, res, next) {
   return crypto.randomBytes(32).toString('base64')
 }
 ```
@@ -293,7 +291,7 @@ app.get('/some-url', (req, res) => {
   // Render with Nunjucks.
   // Replace Nunjucks with any other Template Engine you use
   res.render('page.nunjucks', {
-    CSRF_TOKEN: CSRF_TOKEN
+    CSRF_TOKEN: CSRF_TOKEN,
   })
 })
 ```

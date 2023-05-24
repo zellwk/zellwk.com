@@ -1,11 +1,10 @@
 ---
 title: Callbacks in JavaScript
 slug: callbacks
-tags: [javascript, best]
+tags: [javascript]
 leadModal: learn-javascript
 pubDate: 2017-06-07
 ---
-
 
 Have you come across the term "callback" but don't know what it means? Don't worry, you're not alone. Many newcomers to JavaScript find callbacks hard to understand too.
 
@@ -19,7 +18,7 @@ That's what today's article is for! You'll learn what callbacks are, why they're
 
 ## What are callbacks?
 
-A **callback** is a *function* that is *passed into another function* as an *argument* to be *executed later*. (Developers say you "call" a function when you execute a function, which is why callbacks are named callbacks).
+A **callback** is a _function_ that is _passed into another function_ as an _argument_ to be _executed later_. (Developers say you "call" a function when you execute a function, which is why callbacks are named callbacks).
 
 They're so common in JavaScript that you probably used callbacks yourself without knowing they're called callbacks.
 
@@ -27,7 +26,7 @@ One example of a function that accepts a callback is `addEventListener`:
 
 ```js
 const button = document.querySelector('button')
-button.addEventListener('click', function(e) {
+button.addEventListener('click', function (e) {
   // Adds clicked class to button
   this.classList.add('clicked')
 })
@@ -39,7 +38,7 @@ Don't see why this is a callback? What about this then?
 const button = document.querySelector('button')
 
 // Function that adds 'clicked' class to the element
-function clicked (e) {
+function clicked(e) {
   this.classList.add('clicked')
 }
 
@@ -76,7 +75,7 @@ The example below shows you how to write a callback function and a callback-acce
 
 ```js
 // Create a function that accepts another function as an argument
-const callbackAcceptingFunction = (fn) => {
+const callbackAcceptingFunction = fn => {
   // Calls the function with any required arguments
   return fn(1, 2, 3)
 }
@@ -100,7 +99,7 @@ const result = callbackAcceptingFunction(callback)
 You only invoke (call) the callback in the `callbackAcceptingFunction`. When you do so, you can pass any number of arguments that the callback may require:
 
 ```js
-const callbackAcceptingFunction = (fn) => {
+const callbackAcceptingFunction = fn => {
   // Calls the callback with three args
   fn(1, 2, 3)
 }
@@ -119,29 +118,29 @@ That's the anatomy of a callback. Now, you know `addEventListener` contains an `
 
 ```js
 // Now you know where this event object comes from! :)
-button.addEventListener('click', (event) => {
+button.addEventListener('click', event => {
   event.preventDefault()
 })
 ```
 
 Phew! That's the basic idea for callbacks! Just remember the keyword: **passing a function into another function** and you'll recall the mechanics I mentioned above.
 
-(Side note: This ability to pass functions around is a big thing. It's so big that functions in JavaScript are considered *higher order functions*. Higher order functions are also a big thing in a programming paradigm called Functional Programming).
+(Side note: This ability to pass functions around is a big thing. It's so big that functions in JavaScript are considered _higher order functions_. Higher order functions are also a big thing in a programming paradigm called Functional Programming).
 
 But that's a topic for another day. Now, I'm sure you're beginning to see what callbacks are and how they're used. But why? Why do you need callbacks?
 
 ## Why use callbacks?
 
-Callbacks are used in two different ways — in *synchronous* functions and *asynchronous* functions.
+Callbacks are used in two different ways — in _synchronous_ functions and _asynchronous_ functions.
 
 ### Callbacks in synchronous functions
 
-If your code executes in a *top to bottom*, *left to right* fashion, *sequentially*, and *waiting* until one code has *finished* before the next line begins, then your code is **synchronous**.
+If your code executes in a _top to bottom_, _left to right_ fashion, _sequentially_, and _waiting_ until one code has _finished_ before the next line begins, then your code is **synchronous**.
 
 Let's look at an example to make it easier to understand:
 
 ```js
-const addOne = (n) => n + 1
+const addOne = n => n + 1
 addOne(1) // 2
 addOne(2) // 3
 addOne(3) // 4
@@ -150,7 +149,7 @@ addOne(4) // 5
 
 In the example above, `addOne(1)` executes first. Once it's done, `addOne(2)` begins to execute. Once `addOne(2)` is done, `addOne(3)` executes. This process goes on until the last line of code gets executed.
 
-Callbacks are used in **synchronous** functions when you want a part of the code to be *easily swapped* with something else.
+Callbacks are used in **synchronous** functions when you want a part of the code to be _easily swapped_ with something else.
 
 So, back in the `Array.filter` example above, although we filtered the array to contain numbers that are less than five, you could easily reuse `Array.filter` to obtain an array of numbers that are greater than ten:
 
@@ -168,11 +167,11 @@ const moreThanTen = numbers.filter(getMoreThanTen)
 
 This is why you'd use callbacks in a synchronous function. Now, let's move on and look at why we use callbacks in asynchronous functions.
 
-<div class="jsCkClone"></div>
+<div class='jsCkClone'></div>
 
 ### Callbacks in asynchronous functions
 
-**Asynchronous** here means that, if JavaScript needs to wait for something to complete, it will *execute the rest* of the tasks given to it *while waiting*.
+**Asynchronous** here means that, if JavaScript needs to wait for something to complete, it will _execute the rest_ of the tasks given to it _while waiting_.
 
 An example of an asynchronous function is `setTimeout`. It takes in a callback function to execute at a later time:
 
@@ -204,13 +203,13 @@ So, this is what you'll see if you log the above code:
 
 Ugh. Asynchronous operations sound complicated, aren't they? But why do we use them everywhere in JavaScript?
 
-To see why asynchronous operations are important, imagine JavaScript is a robot helper you have in your house. This helper is pretty dumb. It can only do one thing at a time. (This behavior is called *single-threaded*).
+To see why asynchronous operations are important, imagine JavaScript is a robot helper you have in your house. This helper is pretty dumb. It can only do one thing at a time. (This behavior is called _single-threaded_).
 
 Let's say you tell the robot helper to order some pizza for you. But, the robot is so dumb, that after calling the pizza house, the robots sits at your front door and waits for the pizza to be delivered. It can't do anything else in the meantime.
 
 You can't get it to iron clothes, mop the floor, or do anything while it's waiting. You need to wait 20 minutes till the pizza arrives before it's willing to do anything else...
 
-(This behavior is called *blocking*. Other operations are blocked when you wait for something to complete).
+(This behavior is called _blocking_. Other operations are blocked when you wait for something to complete).
 
 ```js
 const orderPizza = flavour => {
@@ -245,7 +244,7 @@ To envision the event loop, imagine JavaScript is a butler that carries around a
 Let's say you give JavaScript six commands as follows:
 
 ```js
-const addOne = (n) => n + 1
+const addOne = n => n + 1
 
 addOne(1) // 2
 addOne(2) // 3
@@ -257,7 +256,11 @@ addOne(6) // 7
 
 This is what would appear on JavaScript's todo-list.
 
-<Image src="/images/2017/callbacks/todo.png" alt="Commands appear synchronously on JavaScript's todo list" caption="Commands appear synchronously on JavaScript's todo list" />
+<Image
+  src='/images/2017/callbacks/todo.png'
+  alt="Commands appear synchronously on JavaScript's todo list"
+  caption="Commands appear synchronously on JavaScript's todo list"
+/>
 
 In addition to a todo-list, JavaScript also keeps a **waiting-list** where it tracks things it needs to wait for. If you tell JavaScript to order a pizza, it will call the pizza shop and adds "wait for pizza to arrive" in the waiting list. Meanwhile, it does other things that are already on the todo-list.
 
@@ -282,19 +285,35 @@ ironClothes()
 
 JavaScript's initial todo-list would be:
 
-<Image src="/images/2017/callbacks/todo2.png" alt="JavaScript's todo list" caption="Order pizza, mop floor and iron clothes! 😄" />
+<Image
+  src='/images/2017/callbacks/todo2.png'
+  alt="JavaScript's todo list"
+  caption='Order pizza, mop floor and iron clothes! 😄'
+/>
 
 Then, while going through `orderPizza`, JavaScript knows it needs to wait for the pizza to arrive. So, it adds "waiting for pizza to arrive" to its waiting list while it tackles the rest of its jobs.
 
-<Image src="/images/2017/callbacks/waiting.png" alt="JavaScript waits for pizza to arrive" caption="JavaScript waits for pizza to arrive" />
+<Image
+  src='/images/2017/callbacks/waiting.png'
+  alt='JavaScript waits for pizza to arrive'
+  caption='JavaScript waits for pizza to arrive'
+/>
 
 When the pizza arrives, JavaScript gets notified by the doorbell and it makes a **mental note** to execute `layTheTable` when it's done with the other chores
 
-<Image src="/images/2017/callbacks/mental-note.png" alt="JavaScript knows it needs to execute layTheTable by adding the command to its mental note" caption="JavaScript knows it needs to execute layTheTable by adding the command to its mental note" />
+<Image
+  src='/images/2017/callbacks/mental-note.png'
+  alt='JavaScript knows it needs to execute layTheTable by adding the command to its mental note'
+  caption='JavaScript knows it needs to execute layTheTable by adding the command to its mental note'
+/>
 
 Then, once it's done with the other chores, JavaScript executes the callback function, `layTheTable`.
 
-<Image src="/images/2017/callbacks/lay-table.png" alt="JavaScript lays the table when everything else is completed" caption="JavaScript lays the table when everything else is completed" />
+<Image
+  src='/images/2017/callbacks/lay-table.png'
+  alt='JavaScript lays the table when everything else is completed'
+  caption='JavaScript lays the table when everything else is completed'
+/>
 
 This, my friend, is called the Event Loop. You can substitute our butler analogy with actual keywords in the Event loop to understand everything:
 
@@ -302,11 +321,21 @@ This, my friend, is called the Event Loop. You can substitute our butler analogy
 - **Waiting-list** -> Web apis
 - **Mental note** -> Event queue
 
-<Image src="/images/2017/callbacks/event-loop.png" alt="JavaScript's event loop" caption="JavaScript's event loop" />
+<Image
+  src='/images/2017/callbacks/event-loop.png'
+  alt="JavaScript's event loop"
+  caption="JavaScript's event loop"
+/>
 
 I highly recommend you watch [Philip Roberts](https://twitter.com/philip_roberts) JSConf talk about event loops if you got 20 mins to spare. It'll help you understand the nitty gritty of event loops.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8aGhZQkoFbQ" frameborder="0" allowfullscreen></iframe>
+<iframe
+  width='560'
+  height='315'
+  src='https://www.youtube.com/embed/8aGhZQkoFbQ'
+  frameborder='0'
+  allowfullscreen
+></iframe>
 
 ## Uhh... So, why are callbacks important again?
 
@@ -331,9 +360,13 @@ document.removeEventListener(button, highlightTheButton)
 
 // Callbacks in jQuery's ajax method
 $.ajax('some-url', {
-  success (data) { /* success callback */ },
-  error (err) { /* error callback */}
-});
+  success(data) {
+    /* success callback */
+  },
+  error(err) {
+    /* error callback */
+  },
+})
 
 // Callbacks in Node
 fs.readFile('pathToDirectory', (err, data) => {
@@ -362,14 +395,19 @@ Here's an example of callback hell:
 ```js
 // Look at three layers of callback in this code!
 app.get('/', function (req, res) {
-  Users.findOne({ _id:req.body.id }, function (err, user) {
+  Users.findOne({ _id: req.body.id }, function (err, user) {
     if (user) {
-      user.update({/* params to update */}, function (err, document) {
-        res.json({user: document})
-      })
+      user.update(
+        {
+          /* params to update */
+        },
+        function (err, document) {
+          res.json({ user: document })
+        }
+      )
     } else {
-      user.create(req.body, function(err, document) {
-        res.json({user: document})
+      user.create(req.body, function (err, document) {
+        res.json({ user: document })
       })
     }
   })
@@ -382,20 +420,25 @@ One solution to overcome callback hell is to break the callback functions into s
 
 ```js
 const updateUser = (req, res) => {
-  user.update({/* params to update */}, function () {
-    if (err) throw err;
-    return res.json(user)
-  })
+  user.update(
+    {
+      /* params to update */
+    },
+    function () {
+      if (err) throw err
+      return res.json(user)
+    }
+  )
 }
 
 const createUser = (req, res, err, user) => {
-  user.create(req.body, function(err, user) {
+  user.create(req.body, function (err, user) {
     res.json(user)
   })
 }
 
 app.get('/', function (req, res) {
-  Users.findOne({ _id:req.body.id }, (err, user) => {
+  Users.findOne({ _id: req.body.id }, (err, user) => {
     if (err) throw err
     if (user) {
       updateUser(req, res)

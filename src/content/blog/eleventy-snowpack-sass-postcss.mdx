@@ -2,10 +2,9 @@
 title: Snowpack + Eleventy + Sass + PostCSS
 description: Sharing how I combined these tools together to create websites.
 slug: eleventy-snowpack-sass-postcss
-tags: [tooling, snowpack]
+tags: [tooling]
 pubDate: 2020-06-10
 ---
-
 
 I was able to create an Eleventy + Snowpack + Sass + PostCSS setup that works pretty well. I want to share this setup with you in this article.
 
@@ -58,8 +57,8 @@ Here, I set `input` to `views` and `output` to `dist`.
 module.exports = function (eleventyConfig) {
   return {
     dir: {
-      input: "views",
-      output: "dist",
+      input: 'views',
+      output: 'dist',
     },
   }
 }
@@ -75,7 +74,7 @@ First, make sure to install Snowpack.
 npm install snowpack --save-dev
 ```
 
-We can run commands for Snowpack inside a `snowpack.config.json` file. Here, I made `dist` the root of Snowpack's server with a  `mount` script.
+We can run commands for Snowpack inside a `snowpack.config.json` file. Here, I made `dist` the root of Snowpack's server with a `mount` script.
 
 ```js
 // snowpack.config.json
@@ -97,7 +96,7 @@ I can access static assets from my Eleventy files like this:
 
 ```html
 <!-- CSS -->
-<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/styles.css" />
 
 <!-- JavaScript -->
 <script src="/js/main.js"></script>
@@ -125,7 +124,7 @@ npx snowpack dev
 
 You should see this log. A browser will also open up. This browser directs you to `http://localhost:8080` (which is where the Snowpack's dev server is hosted).
 
-<Image src="/images/2020/snowpack-eleventy/snowpack-dev.png" alt="" />
+<Image src='/images/2020/snowpack-eleventy/snowpack-dev.png' alt='' />
 
 I eventually set `snowpack dev` as an npm script so I can use `npm run dev`. `npm run dev` is easier for me to write because I have an alias for it.
 
@@ -160,7 +159,10 @@ Try running `snowpack build`. You should see a `dist`. This `dist` folder should
 npx snowpack build
 ```
 
-<Image src="/images/2020/snowpack-eleventy/snowpack-dist.png" alt="Snowpack Dist folder." />
+<Image
+  src='/images/2020/snowpack-eleventy/snowpack-dist.png'
+  alt='Snowpack Dist folder.'
+/>
 
 Again, I used an npm script. I set this to `build`.
 
@@ -174,7 +176,7 @@ Again, I used an npm script. I set this to `build`.
 
 Snowpack lets you import packages from npm out of the box. Here, you need to make sure you save your package as a `dependency`.
 
-For example, let's install a `canvas-confetti`  package that creates confetti (which comes bundled in [Snowpack's examples][4] 😃).
+For example, let's install a `canvas-confetti` package that creates confetti (which comes bundled in [Snowpack's examples][4] 😃).
 
 ```bash
 npm install canvas-confetti --save
@@ -188,20 +190,20 @@ import confetti from 'canvas-confetti'
 
 // Adds a canvas element to the HTML
 const canvas = document.createElement('canvas')
-canvas.style.width = '100vw';
-canvas.style.height = '100vh';
+canvas.style.width = '100vw'
+canvas.style.height = '100vh'
 document.body.appendChild(canvas)
 
 // Makes confetti
 confetti.create(canvas, {
   resize: true,
-  useWorker: true
+  useWorker: true,
 })({ particleCount: 200, spread: 200 })
 ```
 
 When you run `snowpack build`, you should see a `web_modules` folder. This `web_modules` folder contains dependencies we imported.
 
-<Image src="/images/2020/snowpack-eleventy/js.png" alt="Snowpack JavaScript." />
+<Image src='/images/2020/snowpack-eleventy/js.png' alt='Snowpack JavaScript.' />
 
 Snowpack will also point your import statements to this `/web_modules` folder automatically.
 
@@ -239,9 +241,9 @@ module.exports = {
   syntax: 'postcss-scss',
   plugins: [
     require('@csstools/postcss-sass')({
-      includePaths: ['./node_modules']
+      includePaths: ['./node_modules'],
     }),
-  ]
+  ],
 }
 ```
 
@@ -256,10 +258,10 @@ module.exports = {
   syntax: 'postcss-scss',
   plugins: [
     require('@csstools/postcss-sass')({
-      includePaths: ['./node_modules']
+      includePaths: ['./node_modules'],
     }),
-    require('autoprefixer')
-  ]
+    require('autoprefixer'),
+  ],
 }
 ```
 
@@ -369,12 +371,12 @@ Second problem with caching: How do we best cache ESM files? I haven't researche
 
 Anyway, cache-busting is a problem I still struggle with in a Snowpack environment. If you have answers, please let me know how you handle it! My eyes are open :)
 
-[2]:	https://zellwk.com/blog/first-look-at-snowpack
-[3]:	https://zellwk.com/blog/first-look-at-snowpack
-[4]:	https://www.snowpack.dev/#create-snowpack-app-(csa)
-[6]:	https://github.com/jonathantneal/postcss-sass
-[7]:	https://github.com/sass/node-sass
-[8]:	https://github.com/jonathantneal/postcss-sass
-[9]:	https://www.netlify.com/blog/2019/08/05/control-your-asset-optimization-settings-from-netlify.toml/
-[10]:	https://www.netlify.com/blog/2015/09/11/instant-cache-invalidation/
-[11]:	https://css-tricks.com/strategies-for-cache-busting-css/
+[2]: https://zellwk.com/blog/first-look-at-snowpack
+[3]: https://zellwk.com/blog/first-look-at-snowpack
+[4]: https://www.snowpack.dev/#create-snowpack-app-(csa)
+[6]: https://github.com/jonathantneal/postcss-sass
+[7]: https://github.com/sass/node-sass
+[8]: https://github.com/jonathantneal/postcss-sass
+[9]: https://www.netlify.com/blog/2019/08/05/control-your-asset-optimization-settings-from-netlify.toml/
+[10]: https://www.netlify.com/blog/2015/09/11/instant-cache-invalidation/
+[11]: https://css-tricks.com/strategies-for-cache-busting-css/

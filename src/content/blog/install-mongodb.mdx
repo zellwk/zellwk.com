@@ -1,12 +1,10 @@
 ---
-
 title: Installing MongoDB on Mac (Catalina and non-Catalina)
 description: Updated steps to install MongoDB on a Mac.
 slug: install-mongodb
-tags: [mongodb, homebrew]
+tags: [mongodb]
 pubDate: 2020-02-14
 ---
-
 
 I had to reconfigure my Macbook after sending it for repairs. During the reconfiguration period, I noticed the instructions I linked to in ["Setting up a local MongoDB connection"][1] were outdated.
 
@@ -85,10 +83,15 @@ brew services run mongodb-community
 
 MongoDB will start as a background service. Here's what you'll see:
 
-<Image src="/images/2020/install-mongodb/start.png" alt="Started MongoDB with brew services" />
+<Image
+  src='/images/2020/install-mongodb/start.png'
+  alt='Started MongoDB with brew services'
+/>
 
 <Callout>
-You can use `start` instead of `run`. `start` will start MongoDB automatically when you login into your Macbook. I prefer `run` since I don't want MongoDB to be running all the time.
+  You can use `start` instead of `run`. `start` will start MongoDB automatically
+  when you login into your Macbook. I prefer `run` since I don't want MongoDB to
+  be running all the time.
 </Callout>
 
 ### Checking if MongoDB is running
@@ -101,7 +104,10 @@ brew services list
 
 Homebrew will list all running services. If MongoDB is running, `mongodb-community` will have a status set to `started`.
 
-<Image src="/images/2020/install-mongodb/list.png" alt="Mongodb-community has status set to started." />
+<Image
+  src='/images/2020/install-mongodb/list.png'
+  alt='Mongodb-community has status set to started.'
+/>
 
 ### The Mongo Shell
 
@@ -111,7 +117,10 @@ If MongoDB is running, you should be able to access the Mongo shell with the `mo
 mongo
 ```
 
-<Image src="/images/2020/install-mongodb/mongo-shell.png" alt="Starts the Mongo shell." />
+<Image
+  src='/images/2020/install-mongodb/mongo-shell.png'
+  alt='Starts the Mongo shell.'
+/>
 
 ### Stopping MongoDB
 
@@ -123,7 +132,7 @@ brew services stop mongodb-community
 
 Homebrew will stop MongoDB and let you know.
 
-<Image src="/images/2020/install-mongodb/stop.png" alt="Stopped MongoDB" />
+<Image src='/images/2020/install-mongodb/stop.png' alt='Stopped MongoDB' />
 
 ## Aliases to make these easier
 
@@ -141,8 +150,8 @@ alias mongod-stop='brew services stop mongodb-community'
 
 If you haven't already, you should learn [how to set up a local MongoDB connection][5].
 
-[1]:	/blog/local-mongodb/ "Setting up a local MongoDB connection"
-[2]:	/blog/homebrew "Understanding Homebrew"
-[3]:	/blog/local-mongodb/ "Setting up a local MongoDB connection"
-[4]:	https://support.apple.com/en-us/HT210650
-[5]:	/blog/local-mongodb/
+[1]: /blog/local-mongodb/ 'Setting up a local MongoDB connection'
+[2]: /blog/homebrew 'Understanding Homebrew'
+[3]: /blog/local-mongodb/ 'Setting up a local MongoDB connection'
+[4]: https://support.apple.com/en-us/HT210650
+[5]: /blog/local-mongodb/

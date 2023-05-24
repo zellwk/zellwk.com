@@ -2,10 +2,9 @@
 title: First look at Snowpack
 description: Things I learned about Snowpack after tinkering for a few hours.
 slug: first-look-at-snowpack
-tags: [tooling, snowpack]
+tags: [tooling]
 pubDate: 2020-06-03
 ---
-
 
 I was tinkering around with Dynamic Imports this week when I saw Snowpack in the [JavaScript Weekly][1] newsletter. It caught my eye and I gave it a whirl.
 
@@ -85,8 +84,8 @@ Here's an example where you run `eleventy` on watch mode.
 ```js
 // snowpack.config.js
 module.exports = {
-  "run:eleventy": "eleventy",
-  "run:eleventy::watch": "$1 --watch"
+  'run:eleventy': 'eleventy',
+  'run:eleventy::watch': '$1 --watch',
 }
 ```
 
@@ -118,7 +117,7 @@ import confetti from 'canvas-confetti'
 
 ```js
 // Created by Snowpack when you run `snowpack build`
-import confetti from "/web_modules/canvas-confetti.js";
+import confetti from '/web_modules/canvas-confetti.js'
 ```
 
 I'm not sure how Snowpack resolves the differences between CJS and ESM, but I think it does it while copying the module into a `web_modules` folder.
@@ -128,7 +127,7 @@ I'm not sure how Snowpack resolves the differences between CJS and ESM, but I th
 Unfortunately, I could not understand what Snowpack plugins are used for. I had a few questions:
 
 1. What can plugins do?
-2. When do these plugins run? (Only inside `run` script?  Only inside `build` scripts? Or both?)
+2. When do these plugins run? (Only inside `run` script? Only inside `build` scripts? Or both?)
 3. What available plugins are there?
 
 I couldn't find answers to any of these three questions. (Yes, I read the docs multiple times but I didn't understand the plugin section without context).
@@ -141,5 +140,4 @@ Snowpack looks pretty good overall! There are some more kinks I have to work out
 
 If you are an experienced Snowpack user, please get in touch. I have a few questions I want to ask :)
 
-
-[1]:	https://javascriptweekly.com
+[1]: https://javascriptweekly.com

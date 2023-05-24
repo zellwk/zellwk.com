@@ -26,7 +26,7 @@ const tags = gatherTags(posts)
             return (
               <li>
                 <span>
-                  <a href={`tags/${tag.name}`}>{toTitle(tag.name)}</a>:
+                  <a href={`/tags/${tag.name}`}>{toTitle(tag.name)}</a>:
                   {tag.items.length} articles
                 </span>
               </li>

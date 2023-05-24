@@ -1,10 +1,9 @@
 ---
 title: A library to make localStorage easier to use
 slug: library-for-localstorage
-tags: [localstorage, javascript, browser_api]
+tags: [javascript]
 pubDate: 2022-04-19
 ---
-
 
 One of the problems with localStorage is it takes in only string values. If you want to save an object, you have to convert it into JSON with `JSON.stringify`.
 
@@ -16,7 +15,7 @@ When you retrieve objects from localStorage, you need to convert the JSON value 
 // Saving object to localStorage
 const value = {
   key: 'value',
-  key2: 'value2'
+  key2: 'value2',
 }
 
 localStorage.setItem('storage', JSON.stringify(value))
@@ -39,7 +38,7 @@ Saving and getting items with localStore is simplified — you don't have to use
 // Saving items with localStore
 const value = {
   key: 'value',
-  key2: 'value2'
+  key2: 'value2',
 }
 
 localStore.set(storage, value)
@@ -71,7 +70,7 @@ Access tokens often come with an `expires_in` value. When I save access tokens t
 ```js
 const token = {
   value: access_token,
-  expiry: Date.now() + expires_in * 1000
+  expiry: Date.now() + expires_in * 1000,
 }
 
 localStorage.setItem('token', JSON.stringify(token))
@@ -81,11 +80,15 @@ With localStore, I don't have to worry about converting the `expires_in` value i
 
 ```js
 localStore.set(token, '12345', {
-  expiresIn: 3600
+  expiresIn: 3600,
 })
 ```
 
-<Image src="/images/2022/localstore/localstore-with-expiry.png" alt="" loading="lazy" />
+<Image
+  src='/images/2022/localstore/localstore-with-expiry.png'
+  alt=''
+  loading='lazy'
+/>
 
 When you get items with an expiry value using localStore, it will check whether the item has expired.
 
@@ -97,7 +100,7 @@ When you get items with an expiry value using localStore, it will check whether 
 // Prevents localStorage from deleting the stored value when the value expires
 localStorage.set(token, access_token, {
   expiresIn: expires_in,
-  deleteWhenExpired: false
+  deleteWhenExpired: false,
 })
 ```
 
@@ -109,7 +112,11 @@ const token = localStore.get('token')
 console.log(token)
 ```
 
-<Image src="/images/2022/localstore/expired-no-delete.png" alt="" loading="lazy" />
+<Image
+  src='/images/2022/localstore/expired-no-delete.png'
+  alt=''
+  loading='lazy'
+/>
 
 ## Installing localStore
 
