@@ -41,8 +41,7 @@
       fill="currentColor"
     />
   </svg>
-
-  <span>Share on Twitter</span>
+  <span>{buttonText}</span>
 </button>
 
 <style>
