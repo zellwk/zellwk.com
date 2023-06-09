@@ -40,14 +40,14 @@
   // Check whether the user has already seen the modal on scroll.
   // If displayed before, check if the expiry is still valid.
   // If expiry timestamp is still valid, don't show the modal
-  function scrollCheck() {
-    // LMSE = Lead Modal on Scroll Expiry Timestamp
-    const expiry = localStore.get('LMSE')
-    if (expiry > Date.now()) return false
+  // function scrollCheck() {
+  //   // LMSE = Lead Modal on Scroll Expiry Timestamp
+  //   const expiry = localStore.get('LMSE')
+  //   if (expiry > Date.now()) return false
 
-    localStore.set('LMSE', Date.now() + milliseconds({ days: 7 }))
-    openModal()
-  }
+  //   localStore.set('LMSE', Date.now() + milliseconds({ days: 7 }))
+  //   openModal()
+  // }
 
   // Check whether the user has already seen the modal on exit intent.
   // If displayed before, check if the expiry is still valid.
@@ -62,10 +62,10 @@
   // }
 </script>
 
-<svelte:document
+<!-- <svelte:document
   use:ScrollObserver={{ threshold: 0.5 }}
   on:down:threshold={scrollCheck}
-/>
+/> -->
 <!-- use:ExitIntent
   on:exit={exitCheck} -->
 
