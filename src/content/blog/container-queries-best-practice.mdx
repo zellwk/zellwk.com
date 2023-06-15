@@ -42,7 +42,7 @@ Do this instead
 </div> 
 ```
 
-Now, all the three code examples above assumes you’re using an unnamed container, which is sufficient for most use cases.
+Now, all three code examples above assume you’re using an unnamed container, which is sufficient for most use cases.
 
 ```css
 .container {
@@ -56,7 +56,7 @@ Most of the time, I would have preferred the second structure (where the `grid` 
 
 After all, who doesn’t love clean code?
 
-But beyond the obvious benefit (more semantic looking HTML structure), there’s a reason why we have to use the third HTML structure which I recommend.
+But beyond the obvious benefit (more semantic-looking HTML structure), there’s a reason why we have to use the third HTML structure which I recommend.
 
 ```html
 <!-- There’s a reason why we need this structure -->
@@ -75,7 +75,7 @@ Consider this.
 
 If you use the second HTML structure, your `.grid` will be the container.
 
-Since your `.grid` is the container, container query units will be based on the height and width of the `.grid`. This is probably not wah tyou want, because it can produce unintended (huge) sizes like the one you see below.
+Since your `.grid` is the container, container query units will be based on the height and width of the `.grid`. This is probably not what you want, because it can produce unintended (huge) sizes like the one you see below.
 
 <Image
   src='/images/blog/container-query-best-practice/cqi-too-large.png'
@@ -84,9 +84,9 @@ Since your `.grid` is the container, container query units will be based on the 
 
 In this example, I set the image to `25cqi` — which means 25% of the width of the container.
 
-But because the `.grid` is container, `cqi` draws from the width of the `.grid` (which is almost the same as the browser viewport in this case). So `cqi` produced an oversized image.
+But because the `.grid` is the container, `cqi` draws from the width of the `.grid` (which is almost the same as the browser viewport in this case). So `cqi` produced an oversized image.
 
-This blunders can be prevented if we used the HTML structure I recommend — because container query units will draw its width from the grid item instead.
+These blunders can be prevented if we used the HTML structure I recommend — because container query units will draw its width from the grid item instead.
 
 Here’s the corrected version of what I was trying to create:
 

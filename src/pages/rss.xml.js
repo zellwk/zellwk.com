@@ -7,6 +7,8 @@ import { toSentence } from '@zellwk/javascript/utils/convert-case.js'
 
 export const prerender = true
 
+// We may want to use this method to fix RSS: https://scottwillsey.com/rss-pt2/
+
 export async function get(context) {
   const files = await getCollection('blog')
   const normalized = normalize(files)
