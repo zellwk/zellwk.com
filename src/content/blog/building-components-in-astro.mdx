@@ -1,0 +1,70 @@
+---
+title: When building components in Astro, you might not want to use Astro files
+tags: [astro, svelte]
+pubDate: 2023-06-15
+ckForm: astro
+---
+
+"If you're using Astro, you should build components with the `astro` extension".
+
+That was my initial thought when I started using Astro. But after a couple of months building with Astro, my thinking has changed. I no longer build most of my components with `astro` files.
+
+I mostly use Svelte files instead. This article explains why.
+
+{/* more */}
+
+## Three reasons
+
+### Reason 1: I use Svelte as my framework of choice
+
+This reason is pretty obvious — I have to write Svelte files if I want to use Svelte!
+
+I chose Svelte after evaluating the major three frameworks (React, Vue, and Svelte) and I found that Svelte has a better raw developer experience.
+
+I can share more about why that’s the case, but I’ll have to do that in another blog post since that will be a long one.
+
+### Reason 2: the main reason
+
+The main reason is this:
+
+1. Astro can import framework files.
+2. But framework files cannot import Astro files
+
+Many commonly used components can be written in Svelte, so it can be imported into both Astro and Svelte files.
+
+Here are some examples:
+
+- A Button component
+- An SVG component that searches the project for an SVG icon.
+
+If build these components in Astro, we won’t be able to use them inside Svelte files — and this eventually forced me to rewrite these components in Svelte.
+
+### Reason 3: Better syntax
+
+I say better syntax because I find it easier to read Svelte markup over React’s and Vue’s markup — especially when there are if statements or loops.
+
+This might have been because I’ve been using nunjucks for a long time, so the if syntax is much easier for me to read.
+
+Sometimes I choose to write components in Svelte precisely to take advantage of this syntax difference.
+
+## When to use Astro files
+
+I only choose the `Astro` file extension for my component files when I need to use Astro’s API like content collections, which is not available in other frameworks.
+
+## What if a component requires both Astro APIs and JavaScript?
+
+I encountered this a couple of times. When this happens, I typically do two things:
+
+- I build an Astro component that retrieves stuff I need with Astro’s API.
+- And I build a Svelte component that uses this information.
+
+Usually, I would give both components the same name because it helps me remember that they are directly related to each other.
+
+## Wrapping up
+
+Use the following guidelines if you’re deciding which extension when we build components in Astro:
+
+1. Build the component in your framework of choice whenever possible
+2. Only use Astro components when you need Astro’s API (or it’s heavily file-system related)
+
+If you need both Astro’s API and JavaScript, feel free to build components with both extensions. Just remember to give them appropriate names so you know they’re related to each other!

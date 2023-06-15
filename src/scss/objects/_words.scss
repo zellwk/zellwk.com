@@ -12,6 +12,10 @@
     margin-top: 0;
   }
 
+  h1 {
+    text-wrap: balance;
+  }
+
   // Headings
   * + h2 {
     margin-top: vr(1.5);
