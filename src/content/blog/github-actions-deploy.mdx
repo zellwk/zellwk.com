@@ -178,7 +178,7 @@ steps:
   - name: Install SSH Key
     uses: shimataro/ssh-key-action@v2
     with:
-      key: {%- raw -%} ${{ secrets.SSH_PRIVATE_KEY }}
+      key: ${{ secrets.SSH_PRIVATE_KEY }}
 ```
 
 The `known_hosts` value is a weird hashed value. If you open up a `known_hosts` file in the `.ssh` server, you'll see something like this:
@@ -197,7 +197,7 @@ steps:
   - name: Install SSH Key
     uses: shimataro/ssh-key-action@v2
     with:
-      key: {%- raw -%} ${{ secrets.SSH_PRIVATE_KEY }}
+      key: ${{ secrets.SSH_PRIVATE_KEY }}
       known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
 ```
 
@@ -229,7 +229,7 @@ Then we can generate the correct information via `ssh-keyscan` and append it to 
 steps:
   # ...
   - name: Adding Known Hosts
-    run: ssh-keyscan -H ${{ secrets.SSH_HOST }}{% endraw%} >> ~/.ssh/known_hosts
+    run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 ```
 
 ## Step 6: Rsync into Server
