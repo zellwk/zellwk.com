@@ -9,6 +9,7 @@ app.get('/feed.xml', (req, res) => {
   res.status(301)
   res.redirect('/rss.xml')
 })
+
 // ========================
 // Static Pages
 // ========================
