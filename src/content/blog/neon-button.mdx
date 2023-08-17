@@ -1,0 +1,102 @@
+---
+title: Making a nice neon button
+tags: [css]
+pubDate: 2023-10-03
+---
+
+When I was building the [Magical Dev School](https://magicaldevschool.com) website, I accidentally stumbled on a way to make Neon buttons look good.
+
+{/* more */}
+
+<Video gifReplacement src='/images/blog/neon-button/neon.mp4' />
+
+There are three important elements:
+
+1. A little bit of glow around the text
+2. A larger glow around the button
+3. A nice zoom effect
+
+## Making the text glow
+
+The trick here is to use `drop-shadow` instead of `text-shadow` to create the glow effect.
+
+`drop-shadow` works better because it creates a softer and more enveloping blur - very much like how a soft light source would fall into its surroundings.
+
+`text-shadow` is too harsh.
+
+<Image
+  src='/images/blog/neon-button/text-vs-drop-shadow.png'
+  alt='Difference between text shadow and drop shadow.'
+/>
+
+We only want to use `drop-shadow` on the text, so we need to change the markup a little bit to include an extra span element.
+
+```html
+<button>
+  <span class="text">Text goes here </span>
+</button>
+```
+
+And we can include the `drop-shadow` like this:
+
+```css
+.text {
+  filter: drop-shadow(0 0 1px currentcolor);
+}
+```
+
+## Making the larger glow around the button
+
+We can make a larger glow around the button with `drop-shadow` and `box-shadow`. In this case, I prefer `box-shadow` over `drop-shadow` because I can control the spread.
+
+This lets me cast a harsher shadow that accentuates the border.
+
+<Image
+  src='/images/blog/neon-button/drop-vs-box-shadow.jpg'
+  alt='Difference between drop shadow and box shadow'
+/>
+
+The code for `drop-shadow` is simpler because you can attach it directly to the button.
+
+```css
+button {
+  filter: drop-shadow(0 0 1rem var(--purple-300));
+}
+```
+
+The code for `box-shadow` is slightly harder because you'll have to use a pseudo-element to make smooth animation. That's because transitioning `box-shadow` [creates jank](https://web.dev/animations-guide/).
+
+```css
+button {
+  position: relative;
+  z-index: 1;
+  /* ... */
+}
+
+button:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0.6;
+  box-shadow: 0 0 1em 0.5em var(--purple-300);
+}
+```
+
+## A nice zoom effect
+
+The third and final piece is to jell everything together with a little bit of animations.
+
+<Video gifReplacement src='/images/blog/neon-button/zoom.mp4' />
+
+Here, I opted to:
+
+- Change the `background-color`
+- Change the `color`
+- Make the button bigger (as if it's floating outwards)
+- And make the background glow a little bit stronger by changing the `opacity`
+
+## Codepen Link
+
+Here's Codepen for you to play around with this neon button.

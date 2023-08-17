@@ -1,0 +1,150 @@
+---
+title: Quality of life improvements for zlFetch
+tags: [zl-fetch, node, javascript, open-source, asynchronous-js]
+pubDate: 2023-08-29
+---
+
+I silently updated `zlFetch` a couple of months ago with some improvements that make coding much easier — especially if you're using `zlFetch` in Node.
+
+{/* more */}
+
+## What is zlFetch?
+
+Just in case you don't know about it, [zlFetch](https://github.com/zellwk/zl-fetch) is a wrapper over the native Fetch API. I've built `zlFetch` because I wanted to make it easier to use the Fetch API.
+
+Now without further ado, let me talk about the quality of life improvements I've made recently.
+
+## Returning Errors and Debug Mode
+
+`zlFetch` was built to catch and throw HTTP errors, so `zlFetch` is promise-friendly.
+
+```js
+zlFetch('some-url')
+  .then(/* do something when successful */)
+  .catch(/* throw an error when unsuccessful */)
+```
+
+Although this pattern follows the promise spec, it can be very unwieldy when used in an `async` function. Typically, if you want to handle an error, you have to use a `try/catch`pattern.
+
+```js
+try {
+  const response = await zlFetch('some-url')
+  // Do something with the response
+} catch (error) {
+  // Do something with the error
+}
+```
+
+I didn't like this so I added a `returnError` property to `zlFetch`. This allows you to return the error message instead of throwing it.
+
+Then you can use a standard `if/else` conditionals to write your Fetch requests.
+
+```js
+const { response, error } = await zlFetch('some-url', {
+  returnError: true
+})
+
+if (response) // Do something with response
+if (error) // Do something with error
+```
+
+You can make it even easier by [creating an instance of zlFetch](#creating-a-zlfetch-instance) with the options you want to use. More on this later.
+
+## Debug Mode
+
+`zlFetch` now contains a `debug` mode.
+
+This lets you know exactly what you're sending in your request — so you don't have to check the Network Panel to know what you sent over.
+
+Just add the `debug` mode and you can log what you're sending over.
+
+```js
+const { response, debug } = await zlFetch(
+  'https://api.github.com/users/zellwk/repos',
+  {
+    query: { per_page: 100 },
+    debug: true,
+  }
+)
+
+console.log(debug)
+```
+
+<Image
+  src='/images/blog/zl-fetch-improvements/debug.png'
+  alt='Console log that shows the url, headers, method, and request body that is sent out to the server.'
+/>
+
+## Creating a zlFetch Instance
+
+It's now possible to create a `zlFetch` instance that contains the options you wish to use.
+
+You can attach a base URL you wish to use over a couple of APIs...
+
+```js
+import { createZlFetch } from 'zl-fetch'
+
+// Create the instance
+const api = createZlFetch('https://your-api.com/api/v1')
+
+// Using the instance
+const response = await api.post('users', {
+  body: {
+    firstName: 'Zell',
+    lastName: 'Liew',
+    email: 'helloworld@gmail.com',
+  },
+})
+```
+
+...attach options you typically use...
+
+```js
+import { createZlFetch } from 'zl-fetch'
+
+// Create the instance
+const api = createZlFetch({ returnError: true })
+
+// Using the instance
+const { response, error } = await api.post(/* ... */)
+```
+
+... or both!
+
+```js
+import { createZlFetch } from 'zl-fetch'
+
+// Create the instance
+const api = createZlFetch('https://your-api.com/api/v1', {
+  returnError: true,
+})
+
+// Using the instance
+const { response, error } = await api.post('users', {
+  body: {
+    firstName: 'Zell',
+    lastName: 'Liew',
+    email: 'helloworld@gmail.com',
+  },
+})
+```
+
+This feature helps a lot when you have to send many fetch requests in the same file.
+
+One great example is if you create a file to house all requests to a particular API.
+
+Another great example is when you have to send many requests when you test your APIs. (I cover this in more detail in my [Node Workshop](https://magicaldevschool.com/workshops)).
+
+## Removing node-fetch as a dependency.
+
+We have removed the `node-fetch` dependency in `v6.0.0` since Node `v17` contains the Fetch API.
+
+You will still be able to use `zlFetch` as normal — nothing will change — if you're using Node `v17` and above.
+
+If you're using a legacy version of Node, we'll need you to import `node-fetch` into your project before using `zlFetch`.
+
+## That's it for today!
+
+There are a few more qualify of life improvements that I've made, but I think this is big enough of an announcement today.
+
+I'll talk about other features in another newsletter to come.

@@ -1,0 +1,51 @@
+---
+title: Splendid Astro Spacing — A Tailwind Utility for Astro
+tags: [node, caching, splendid-ui]
+pubDate: 2023-09-26
+---
+
+When using Tailwind with Astro, you’ll notice that [Tailwind’s space utilities](https://tailwindcss.com/docs/space) stop working when you use it with Astro Components or Slots .
+
+{/* more */}
+
+```astro
+<!-- Doesn't work when using with Astro components and slots -->
+<div class='space-y-4'>
+  <Component client:load />
+  <Component client:load />
+</div>
+```
+
+The reason is simple. I’ve wrote about the cause in [a previous article](/blog/overcoming-astro-styling-frustrations) and how to fix it.
+
+You can read that article for more information, but the gist is:
+
+1. Astro components and slots wrap it’s contents in a div that has `display: contents`
+2. The `* + *` selector, which Tailwind uses for its space utilities, cannot target the elements within these Astro components and slots
+
+## A simple fix
+
+Fixing this is simple. We just have to modify Tailwind’s space utilities with a plugin — so they can dive one level beyond Astro’s components and slots.
+
+I’ve created this plugin and added it as part of Splendid UI. You can install it Splendid UI like this.
+
+```shell
+npm install splendid-ui
+```
+
+Then you can use the plugin in your Tailwind config file like this:
+
+```js
+module.exports = {
+  plugins: [require('splendid-ui/tailwind/plugins/astro-space.cjs')],
+}
+```
+
+(I know the path looks long and complicated right now. It's something I'll simplify in the future as Splendid UI becomes more mature. For now, just enjoy something that works! 🙃).
+
+That’s it!
+
+## Further Reading
+
+- [Splendid UI](https://splendid-ui.com)
+- [Astro Space Utility documentation]()

@@ -1,0 +1,118 @@
+---
+title: Easy caching on the local file system with Node
+tags: [node, caching, splendid-ui]
+pubDate: 2023-09-19
+---
+
+Today I want to introduce you a utility that will make caching in the local file system extremely easy.
+
+This utility is called `fileCache` and it’s built into [Splendid UI](https://splendid-ui.com).
+
+{/* more */}
+
+```shell
+npm install splendid-ui
+```
+
+To use the utility, import `fileCache` from Splendid UI.
+
+Give it a directory and a file name.
+
+- The directory determines where to store the cached file.
+- The file name determines the name of the file.
+
+```js
+import { fileCache } from 'splendid-ui/node'
+
+const cache = await fileCache({
+  dirname: '.cache',
+  file: `${id}.json`,
+})
+```
+
+When you want to save values into the cache, just use the save method. Values will automatically be converted into JSON.
+
+```js
+const objectToSave = { some: 'value' }
+await cache.save(objectToSave)
+```
+
+When you want to load the cache, use the load method. This method returns a promise.
+
+```js
+cache.load()
+```
+
+## Invalidating the cache
+
+`fileCache` returns the file's `modifiedAt` timestamp. If you're familiar with Node, this is the `mstimeMs` value you get from `fs.stat`.
+
+You can use this `modifiedAt` timestamp to check whether you want to invalidate the cache.
+
+```js
+function getValues () {
+  const cache = await fileCache(/* ... */)
+  const Date = new Date()
+
+  // Load the cache
+  if (cache.modifiedAt > Date.now() + 10000) {
+    return cache.load()
+  }
+
+  // Otherwise, create the cache
+  const obj = { some: 'value'}
+  await cache.save(obj)
+  return obj
+}
+```
+
+### Invalidating the cache when other files change
+
+It's more common for cache files to be created with the content from other files. In this case, if these source files change, you will want to invalidate the cache.
+
+It's easy to do this with the [`getLastModifiedTime`]() utility from Splendid UI.
+
+`getLastModifiedTime` returns the last modified time from a list of files. You can use this to decide whether to invalidate the cache.
+
+It takes in a glob value so you can specify all the files you want to check. This process is extremely quick so you don't have to worry about checking lots of files at once.
+
+```js
+import { getLastModifiedTime } from 'splendid-ui/node'
+
+// Gets the latest modified timestamp of all the files in src/content
+const lastModified = await getLatestModifiedTime('src/content/**/*')
+```
+
+If the latest modified timestamp exceeds that of the cache, you can invalidate the cache and generate a new one.
+
+The process looks like this:
+
+```js
+import { fileCache, getLastModifiedTime } from 'splendid-ui/node'
+
+function getContent () {
+  const cache = await fileCache({ /* ... */ })
+  const lastModified = await getLatestModifiedTime(`src/content/`)
+
+  // Load the cache
+  if (cache.modifiedAt > lastModified) {
+    return cache.load()
+  }
+
+  // Otherwise, create the cache
+  const obj = { some: 'value'}
+  await cache.save(obj)
+  return obj
+}
+```
+
+That's it!
+
+## Further Reading
+
+Check out the documentation for `fileCache` and `getLatestModifiedTime` for more information.
+
+- [fileCache]()
+- [getLatestModifiedTime]()
+
+Lastly, if you enjoyed this, you may also enjoy the utilities I've put together in [Splendid UI](https://splendid-ui.com).

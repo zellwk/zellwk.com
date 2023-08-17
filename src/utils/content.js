@@ -24,6 +24,9 @@ export function getPublished(files) {
       return file
     })
     .filter(file => {
+      // No filter in dev environment
+      if (process.env.NODE_ENV === 'development') return true
+
       // Remove those that aren't published yet
       if (file.data.date > new Date()) return false
       if (file.data.status === 'draft') return false

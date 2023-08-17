@@ -1,0 +1,137 @@
+---
+title: zlFetch now supports FormData!
+tags: [zl-fetch, node, javascript, open-source, asynchronous-js]
+pubDate: 2023-09-12
+---
+
+"Now" is grossly inaccurate because `zlFetch` has supported Form Data since v5.0 (since April) and we’re already at v6.0 🙃.
+
+{/* more */}
+
+Nevertheless, let me share with you what this is all about.
+
+## How `zlFetch` supports Form Data
+
+You can now pass Form Data content into [`zlFetch`](https://github.com/zellwk/zl-fetch) and it will correctly send a `multipart/form-data` encoding to the server.
+
+```js
+form.addEventListener('submit', async event => {
+  const data = new FormData(form)
+
+  const response = await zlFetch('some-url', {
+    body: data,
+  })
+})
+```
+
+This is similar to the rest of our API where `zlFetch` automatically helps you set the `Content-Type` header:
+
+- If you pass in an object, it converts the data into JSON and sends an `application/json` content type.
+- If you pass in a string, it uses the `application/x-www-form-urlencoded` content type.
+
+## Problems with Form Data
+
+I’m not a fan of using Form Data because of two reasons:
+
+1. The backend needs to support it
+2. You can’t tell what’s inside a Form Data easily
+
+### The backend needs to support it
+
+Form Data is more complicated than `json` or `x-www-form-urlencoded` data because it can be sent in multiple parts.
+
+In express, you can support Form Data by adding the `multer` package.
+
+```js
+import multer from 'multer'
+const upload = multer()
+app.use(upload.array())
+```
+
+Most of the time, I prefer to send JSON since there's no need to use `multer` and mess with `multipart/form-data`.
+
+### It’s harder to debug Form Data
+
+You can’t see what’s inside a Form Data easily. If you want to see the contents, you have to loop through the form data and log each entry.
+
+```js
+const data = new FormData(form)
+for (const key, value of data) {
+	console.log(key, value)
+}
+```
+
+<Image src='/images/blog/zl-fetch-form-data/logging-form-data.png' />
+
+This is way too complex for my liking. I prefer to use an Object and see everything at once.
+
+## Converting Form Data into an object
+
+Because I like working with objects more than Form Data, I included a utility in `zlFetch` that lets you convert Form Data into an object.
+
+With this, you no longer need to extract each form element individually. Just use the utility and it’ll handle the data for you.
+
+```js
+import zlFetch, { toObject } from 'zl-fetch'
+
+form.addEventListener('submit', async event => {
+  const formData = new FormData(form)
+  const data = toObject(formData)
+
+  console.log(data)
+})
+```
+
+<Image src='/images/blog/zl-fetch-form-data/logging-to-object.png' />
+
+You can then send this data as JSON over to the server like this:
+
+```js
+import zlFetch, { toObject } from 'zl-fetch'
+
+form.addEventListener('submit', async event => {
+  const formData = new FormData(form)
+  const data = toObject(formData)
+
+  const response = await zlFetch('some-url', {
+    body: data,
+  })
+})
+```
+
+I also added this utility into [Splendid UI](https://splendid-ui.com) 🙃. So you can tell that I’m putting lots of helpful things into Splendid UI as I go along.
+
+It’s gonna be one of the best component libraries around. I’ll share more about Splendid in another post.
+
+Speaking about utilities, I've created another utility to it easy to send `form-urlencoded` data.
+
+## Utility for form-urlencoded data
+
+`zlFetch` contains a `toQueryString` utility that can convert an object into a query string.
+
+This makes it easy to send `x-www-form-urlencoded` data.
+
+```js
+import { toQueryString } from 'zl-fetch'
+
+zlFetch.post('some-url', {
+  body: toQueryString({ message: 'Good game' }),
+})
+```
+
+Behind the scenes, this is a simple utility since we're just passing the object through `URLSearchParams` 🙃. But hey, it's good to have this utility since it makes things a little bit simpler than before!
+
+```js
+export function toQueryString(object) {
+  const searchParams = new URLSearchParams(object)
+  return searchParams.toString()
+}
+```
+
+That's it for today!
+
+## Further reading
+
+- Check `zlFetch`'s [documentation](https://github.com/zellwk/zl-fetch).
+- Get 2 chapters of my [Async JS course](https://magicaldevschool.com/courses/mastering-async-js) for free and become fluent in AJAX.
+- See how [Splendid UI](https://splendid-ui.com) makes web development much easier for you and me!

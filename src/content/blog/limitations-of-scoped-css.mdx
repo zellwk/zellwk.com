@@ -1,0 +1,272 @@
+---
+title: Limitations of Scoped CSS
+tags: [css, astro, svelte]
+pubDate: 2023-09-05
+---
+
+I was really excited about Scoped CSS a couple of years back when frameworks like React and Vue introduced them.
+
+As I began trying Scoped CSS out for myself, I was disappointed and I felt it didn't live up to its hype.
+
+But after more tries, I'm happy to announce that Scoped CSS is indeed useful. You only have to realize what its limitations are and what to do when you face these limitations.
+
+{/* more */}
+
+## I’m not talking about the native CSS :scope
+
+Before you continue further, I want to make sure we’re talking about the same thing.
+
+In this article, I’m talking about Scoped CSS that can be found in major frameworks like React, Vue, Svelte, and Astro.
+
+I’m not talking about the native CSS `:scope`. You can find out more about that [here](https://developer.mozilla.org/en-US/docs/Web/CSS/:scope).
+
+## The premise of Scoped CSS
+
+Scoped CSS was one of the biggest features that frameworks provided us with. It promises to restrict the scope of your CSS, so your CSS would not leak into other components.
+
+The limitations of Scoped CSS are…
+
+1. You cannot style children components
+2. You cannot style slot content
+
+Now let’s see what I mean by these limitations.
+
+## You cannot style children components
+
+From my experience, Scoped CSS in all frameworks behaves in the same manner. So I'm going to use Svelte here to illustrate my point.
+
+Let's say I imported a `SVG` component and I'd like to style the SVG from a `Menu` component.
+
+```svelte
+<script>
+  import SVG from './SVG.svelte'
+</script>
+
+<div class="Menu">
+  <SVG />
+  <span>Menu</span>
+</div>
+```
+
+The `SVG` component simply contains the SVG and nothing more.
+
+```html
+<!-- SVG component -->
+<svg>...</svg>
+```
+
+If I try to style the SVG from the `Menu` component, the styles will not be applied.
+
+```html
+<!-- Menu component -->
+<style>
+  .Menu svg path {
+    stroke: red;
+  }
+</style>
+```
+
+<Image
+  src='/images/blog/limitations-of-scoped-css/black-menu.png'
+  alt='SVG is still colored black'
+/>
+
+And I'm forced to use the `global` or the `global` selector to style this SVG.
+
+```html
+<!-- Global attribute -->
+<style global>
+  .Menu svg path {
+    fill: red;
+  }
+</style>
+
+<!-- Global selector -->
+<style>
+  :global(.Menu svg path) {
+    fill: red;
+  }
+</style>
+```
+
+<Image
+  src='/images/blog/limitations-of-scoped-css/red-menu.png'
+  alt='SVG is still colored red'
+/>
+
+### The Global Attribute
+
+The global attribute negates scoped CSS and allows the entire style block to act like Normal CSS.
+
+```svelte
+<style global>
+  .Menu svg path {
+    fill: red;
+  }
+</style>
+```
+
+Using the `global` attribute isn't a great practice because you might as well write Normal CSS instead.
+
+By the way, if you use Astro, the `global` attribute is a directive and not an attribute.
+
+```html
+<style is:global>
+  …
+</style>
+```
+
+### The Global Selector
+
+The `:global()` selector allows you to expose the values wrapped inside it to the global scope.
+
+```html
+<style>
+  :global(.Menu svg path) {
+    fill: red;
+  }
+</style>
+```
+
+If you want to keep `.Menu` in the local scope, you can use `:global` only on the rest of the selectors.
+
+```html
+<style>
+  .Menu :global(svg path) {
+    fill: red;
+  }
+</style>
+```
+
+This is nice.
+
+But there's a huge problem.
+
+The `global` selector cannot be used in the middle of the selector chain. So this doesn't work.
+
+```html
+<style>
+  /* These don’t work */
+  .Menu :global(svg) path { … }
+</style>
+```
+
+Because the `global` selector cannot be used in the middle of the selector chain, nesting doesn't work as well.
+
+```html
+<style lang="“scss”">
+  /* This doesn’t work */
+  .Menu :global(svg) {
+    path { … }
+  }
+</style>
+```
+
+This gives Scoped CSS a big minus point in my world.
+
+## You cannot style slot content
+
+Scoped CSS is also limited when you have to style slot content.
+
+For this, let's say we have an `<Article>` component and we are going to pass the contents through a `<slot>`.
+
+```html
+<article class="Article">
+  <slot />
+</article>
+```
+
+We'll use `<Article>` like this.
+
+```html
+<script>
+  import Article from './Article.svelte'
+</script>
+
+<article>
+  <h2>This is a header</h2>
+  <p>This is a paragraph</p>
+</article>
+```
+
+If you try to style the slot content from `Article` with Scoped CSS, you'll realize it doesn't work.
+
+```html
+<article class="Article">
+  <slot />
+</article>
+
+<style>
+  h2 {
+    color: blue;
+  }
+  p {
+    color: red;
+  }
+</style>
+```
+
+<Image
+  src='/images/blog/limitations-of-scoped-css/black-article.png'
+  alt='h2 and p are still black in color'
+/>
+
+You need to use the `global` attribute or the `global` selector instead.
+
+### Styling Slot Content
+
+You can use `global` selectors or the global `attribute` to style slot content.
+
+In this case, let's go with `global` selectors.
+
+Here's how I would style the slot content.
+
+```html
+<article class="Article">
+  <slot />
+</article>
+
+<style lang="scss">
+  article {
+    :global(h2) {
+      color: blue;
+    }
+    :global(p) {
+      color: red;
+    }
+  }
+</style>
+```
+
+<Image
+  src='/images/blog/limitations-of-scoped-css/colored-article.png'
+  alt='h2 and p are now coloured'
+/>
+
+When you use `global` selectors to style slot content, pay attention to these points:
+
+**One**: `global` must be written for every selector you wish to target. If you have to use a large number of `global` selectors, it may be worthwhile to write normal CSS instead:
+
+**Two**: `:global` should come AFTER a selector (`article` in this case). If `:global` doesn't come after a selector, you'll be writing CSS into the global scope which is probably not what you want.
+
+If you did what I just mentioned, your selectors should look somewhat like this:
+
+<Image
+  src='/images/blog/limitations-of-scoped-css/scoped-selector.png'
+  alt='How a scoped selector looks like in the devtools'
+/>
+
+## Wrapping Up
+
+Scoped CSS is a great future.
+
+Scoped CSS can be frustrating to use when you don't know what its limitations are.
+
+Once you know the limitations, you will be able to use Scoped CSS to its fullest potential.
+
+## Further Reading
+
+- [Camelcase CSS](https://zellwk.com/blog/camelcss/) — this explains why I used title case for CSS classes.
+- [How Svelte scopes component styles](https://geoffrich.net/posts/svelte-scoped-styles/)
+- [Scoped Styles in Astro](https://docs.astro.build/en/guides/styling/#scoped-styles-1)
+- [Native CSS `:scope`](https://developer.mozilla.org/en-US/docs/Web/CSS/:scope)
