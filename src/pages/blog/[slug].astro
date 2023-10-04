@@ -55,7 +55,7 @@ const { Content } = await post.render()
           <FormattedDate date={post.data.pubDate} />
         </div>
         {
-          post.data.updateDate && (
+          post.data.updateDate && post.data.updateDate < Date.now() && (
             <div style='margin-top: 0.5em'>
               <strong>Updated</strong>
               <FormattedDate date={post.data.updateDate} />

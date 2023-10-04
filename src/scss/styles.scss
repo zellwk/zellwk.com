@@ -120,3 +120,11 @@ article + article {
 // ========================
 // New Styles
 // ========================
+.Box {
+  border: 2px solid black;
+  padding: 1rem;
+}
+
+pre code {
+  tab-size: 2;
+}

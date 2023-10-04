@@ -28,6 +28,7 @@ export function getPublished(files) {
       if (process.env.NODE_ENV === 'development') return true
 
       // Remove those that aren't published yet
+      if (file.data.pubDate > new Date()) return true // Need this for updated posts because they should still be relevant even before the update.
       if (file.data.date > new Date()) return false
       if (file.data.status === 'draft') return false
       if (!file.data.status) return true
@@ -46,10 +47,22 @@ export function sortFiles(files, order = 'desc') {
       return file
     })
     .sort((a, b) => {
+      const now = Date.now()
+
+      // Ensures correct ordering based on pubDate and updateDate
+      const aDate =
+        a.data.updateDate?.valueOf() < now
+          ? a.data.date.valueOf()
+          : a.data.pubDate.valueOf()
+      const bDate =
+        b.data.updateDate?.valueOf() < now
+          ? b.data.date.valueOf()
+          : b.data.pubDate.valueOf()
+
       if (order === 'desc') {
-        return b.data.date.valueOf() - a.data.date.valueOf()
+        return bDate - aDate
       } else {
-        return a.data.date.valueOf() - b.data.date.valueOf()
+        return aDate - bDate
       }
     })
 

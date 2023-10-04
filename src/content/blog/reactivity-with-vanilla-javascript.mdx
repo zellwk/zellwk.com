@@ -1,0 +1,241 @@
+---
+title: Automatic reactivity with Vanilla JavaScript with two methods — Getters and Setters and JavaScript Proxies
+tags: [javascript]
+pubDate: 2023-11-14
+---
+
+One thing I really loved about Svelte is their reactive statements — you can simply just change a value and the UI gets updated accordingly.
+
+{/* more */}
+
+```svelte
+<script>
+  let show = false
+
+  function toggle() {
+    show = !show
+  }
+</script>
+
+<button on:click={toggle}>Toggle content</button>
+
+{#if show}
+  <div>Hello World!</div>
+{/if}
+```
+
+import Simple from '/src/examples/reactivity-with-vanilla-javascript/simple.svelte'
+
+<Simple client:load />
+
+Going deeper, Svelte also has a `$` syntax that hooks up its reactivity with Vanilla JavaScript so you can update a value whenever another value changes.
+
+```svelte
+<script>
+  let count = 0
+
+  $: double = count * 2
+
+  function increase() {
+    count += 1
+  }
+</script>
+
+<button on:click={increase}>Add count</button>
+<div>Doubled Count: {double}</div>
+```
+
+import Double from '/src/examples/reactivity-with-vanilla-javascript/double.svelte'
+
+<Double client:load />
+
+When I discovered how to use these feature properly, I got hooked. Then I wondered if it's possible to do something similar with Vanilla JavaScript.
+
+Turns out, it's possible! You can do it with two methods:
+
+1. Getters and Setters
+2. Proxies
+
+Proxies are the superior method here because there's less code to scaffold. But it may take a little bit more head-wrangling to get used to.
+
+Without further ado, let's see how to use both methods.
+
+## Reactivity with Getters and Setters
+
+Getters and Setters let you do something before a property is accessed (when getting) or changed (when setting).
+
+<Callout type='note'>
+  I assume you have some knowledge about Getters and Setters in this article. If
+  this concept is new to you, you might want to check out [this
+  article](https://zellwk.com/blog/why-use-getter-and-setter-functions/) where I
+  go into more detail.
+</Callout>
+
+If we put Getters and Setters into a context of showing or hiding an element based on a `show` state, we can write code similar to the following:
+
+```js
+function createState() {
+  let _show = false
+
+  return {
+    get show() {
+      return _show
+    },
+    set show(value) {
+      _show = value
+
+      if (_show === true) open()
+      if (_show === false) close()
+    },
+  }
+}
+
+// Using this function
+const state = createState()
+state.show = true // This runs the `open` function
+state.show = false // This runs the `close` function
+```
+
+In this case...
+
+- When `state.show` is set to `true`, we'll run an `open` function that does whatever the component needs to "open".
+- When `state.show` is set to `false`, we'll run a `close` function that does whatever the component needs to "close".
+
+This looks pretty cool — but there are two downsides:
+
+1. You need a `createState` function to create the state object — this is unnecessary boilerplate code in my opinion.
+2. Each tracked state requires a private variable, which can get complex and unwieldy as the size of the application increases.
+
+We can mitigate both downsides with JavaScript Proxies.
+
+## Reactivity with JavaScript Proxies
+
+JavaScript Proxies function in a similar way compared to Getters and Setters — the only difference is you don't have to create a wrapper function around it.
+
+Here's the same code from above but with Proxies.
+
+```js
+let state = {
+  show = false
+}
+
+state = new Proxy(state, {
+  get(target, prop) {
+    return Reflect.get(...arguments)
+  },
+
+  set(target, prop) {
+    Reflect.set(...arguments)
+
+    if (prop === 'show') {
+      const value = target[prop]
+      if (value === true) open()
+      if (value === false) close()
+		}
+
+		return true
+	},
+})
+
+// Using this
+state.show = true // This runs the `open` function
+state.show = false // This runs the `close` function
+```
+
+There's a lot going on so let me break down what's happening.
+
+### Understanding the Proxy code
+
+First, proxies take in two values — a proxied `object` and a `handler` object.
+
+```js
+const proxied = new Proxy(targetObject, handler)
+```
+
+In this case, I reassigned the `state` variable because I didn't need to keep the original `state` values. This makes the code a little bit cleaner since there are fewer variables.
+
+```js
+let state = { show: false }
+state = new Proxy(state, handler)
+```
+
+The `handler` object here allows you to define what happens when each property is accessed via `get`, `set`, and [other methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get).
+
+<Image src='/images/blog/reactivity-with-vanilla-js/proxy-methods.png' />
+
+In this case, I used `Reflect` for both `get` and `set` which basically tells the proxy to perform the original actions on the accessed values — just like if you `get` or `set` a property normally.
+
+This is an important step — if you missed this then you'll get an error with your proxies.
+
+```js
+state = new Proxy(state, {
+  get(target, prop) {
+    return Reflect.get(...arguments)
+  },
+
+  set(target, prop) {
+    Reflect.set(...arguments)
+    return true
+  },
+})
+
+// Getting the `show` value
+console.log(state.show) // false
+
+// Setting the `show` value
+state.show = true
+console.log(state.show) // true
+```
+
+<Callout type='note'>
+  Fun Fact: The `get`, `set`, and other methods in a Proxy are called traps. I
+  have no idea why they're called traps but I think traps sounded a little too
+  sinister 🙃.
+</Callout>
+
+Finally, I tracked the `show` property and I used this to run `open` or `close` functions whenever its value changes.
+
+```js
+state = new Proxy(state, {
+  set(target, prop) {
+    Reflect.set(...arguments)
+
+    if (prop === 'show') {
+      const value = target[prop]
+      if (value === true) open()
+      if (value === false) close()
+    }
+
+    return true
+  },
+})
+```
+
+### Downsides of JavaScript Proxies
+
+While researching to write this article, I found an article by Chris Ferdinandi that mentioned that [Getters and Setters have better performance than proxies](https://gomakethings.com/proxies-vs.-setter-functions-in-state-based-ui-libraries/).
+
+I haven't had the chance to personally test this out yet so I can't guarantee whether one outperforms another.
+
+Personally, I think the performance difference is negligible in a real application.
+
+That's it!
+
+## Wrapping up
+
+If you want to create reactivity in your applications with Vanilla JavaScript, you can use one of these two methods:
+
+1. Getters and Setters
+2. JavaScript proxies
+
+Of the two, I believe proxies are superior because you can write terser code that contains less boilerplate (which ends up being easier to maintain).
+
+What do you think? I'd love to hear what your thoughts are. And if you learned something new from this article, I'd love it if you shared that with me too! :)
+
+If you enjoyed this article, you may also enjoy our programming courses — get 2-3 chapters of each of our courses for free [here](https://students.magicaldevschool.com). (No email registration required).
+
+## Further Reading
+
+- [More about Getters and Setters](https://zellwk.com/blog/why-use-getter-and-setter-functions/)
+- [JavaScript proxies on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+- [Magical Dev School](https://magicaldevschool.com)

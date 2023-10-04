@@ -37,12 +37,13 @@ const { page } = Astro.props
                   <span>
                     Published on: <FormattedDate date={post.data.pubDate} />
                   </span>
-                  {post.data.updateDate && (
-                    <span>
-                      , Updated on:{' '}
-                      <FormattedDate date={post.data.updateDate} />
-                    </span>
-                  )}
+                  {post.data.updateDate &&
+                    post.data.updateDate < Date.now() && (
+                      <span>
+                        , Updated on:{' '}
+                        <FormattedDate date={post.data.updateDate} />
+                      </span>
+                    )}
                 </span>
                 <Markdown>{post.data.excerpt}</Markdown>
               </div>

@@ -29,7 +29,8 @@
   }
 
   // Align content to second column
-  > * {
+  > *,
+  > :where(astro-island, astro-slot) > * {
     grid-column: 2;
   }
 

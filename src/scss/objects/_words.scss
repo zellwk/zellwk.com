@@ -4,7 +4,7 @@
 .ContentBlock {
   // Default space between elements
   > * + *,
-  > astro-slot > * + * {
+  > :where(astro-island, astro-slot) > * {
     margin-top: vr(0.75);
   }
 

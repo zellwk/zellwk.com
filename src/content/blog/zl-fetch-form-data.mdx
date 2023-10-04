@@ -1,7 +1,7 @@
 ---
 title: zlFetch now supports FormData!
 tags: [zl-fetch, node, javascript, open-source, asynchronous-js]
-pubDate: 2023-09-12
+pubDate: 2023-09-19
 ---
 
 "Now" is grossly inaccurate because `zlFetch` has supported Form Data since v5.0 (since April) and we’re already at v6.0 🙃.
@@ -45,7 +45,11 @@ In express, you can support Form Data by adding the `multer` package.
 ```js
 import multer from 'multer'
 const upload = multer()
-app.use(upload.array())
+
+// Then use upload middleware when you need it.
+app.post('/some-url', upload.none(), (req, res) => {
+  // req.body contains the data
+})
 ```
 
 Most of the time, I prefer to send JSON since there's no need to use `multer` and mess with `multipart/form-data`.

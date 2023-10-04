@@ -5,9 +5,13 @@ import { handler as ssrHandler } from './dist/server/entry.mjs'
 const app = express()
 
 // Redirects
-app.get('/feed.xml', (req, res) => {
-  res.status(301)
-  res.redirect('/rss.xml')
+app.use((req, res, next) => {
+  const { url } = req
+  if (url.startsWith('feed.xml')) return res.redirect(301, '/rss.xml')
+  if (url.startsWith('/blog/looping-through-js-objects'))
+    return res.redirect(301, '/blog/iterating-through-js-objects/')
+
+  return next()
 })
 
 // ========================

@@ -1,0 +1,192 @@
+---
+title: Iterating over objects in JavaScript
+tags: [javascript, splendid-ui]
+pubDate: 2018-06-20
+updateDate: 2023-11-07
+---
+
+Once in a while, you may need to loop over objects in JavaScript. Before ES6, the best way to do this is with the `for...in` loop.
+
+Unfortunately, the `for...in` loop iterates over properties in the Prototype chain as well, so when you use this loop, you need to check if the property belongs to the object with `hasOwnProperty`.
+
+```js
+for (var property in object) {
+  if (object.hasOwnProperty(property)) {
+    // Do things here
+  }
+}
+```
+
+Since ES6, there's no longer a need to use `for...in` because there are three better ways to iterate through objects.
+
+In this article, you're going to learn about these three methods. And at the end of this article, I'm going to show you two more methods that are even easier to use compared to these three methods.
+
+## Better ways to loop through objects
+
+The better way to iterate over an object is to **first covert the object into an array, then loop through that array**.
+
+You can convert an object into an array with three methods:
+
+1. `Object.keys`
+2. `Object.values`
+3. `Object.entries`
+
+### Object.keys
+
+`Object.keys` creates an array that contains the properties of an object. Here's an example.
+
+```js
+const fruits = {
+  apple: 28,
+  orange: 17,
+  pear: 54,
+}
+
+const keys = Object.keys(fruits)
+console.log(keys) // [apple, orange, pear]
+```
+
+### Object.values
+
+`Object.values` creates an array that contains the values of every property in an object. Here's an example:
+
+```js
+const fruits = {
+  apple: 28,
+  orange: 17,
+  pear: 54,
+}
+
+const values = Object.values(fruits)
+console.log(values) // [28, 17, 54]
+```
+
+### Object.entries
+
+`Object.entries` creates an array of arrays. Each inner array has two items — the first item is the property; the second item is the value.
+
+Here's an example:
+
+```js
+const fruits = {
+  apple: 28,
+  orange: 17,
+  pear: 54,
+}
+
+const entries = Object.entries(fruits)
+console.log(entries)
+// [
+//   [apple, 28],
+//   [orange, 17],
+//   [pear, 54]
+// ]
+```
+
+My favorite of the three is `Object.entries` because you get both the key and property values.
+
+## Looping through the array
+
+Once you have converted the object into an array with `Object.keys`, `Object.values`, or `Object.entries`, you can loop through the array with the usual methods like:
+
+- `for...of`
+- `forEach`
+- `map`
+- or other array methods...
+
+```js
+// Looping through arrays created from Object.keys
+const keys = Object.keys(fruits)
+for (const key of keys) {
+  console.log(key)
+}
+
+// Results:
+// apple
+// orange
+// pear
+```
+
+If you use `Object.entries`, you might want to [destructure](/blog/es6) each inner array into its key and property so it becomes easier for you to access both the `key` and `value`.
+
+```js
+for (const [fruit, count] of entries) {
+  console.log(`There are ${count} ${fruit}s`)
+}
+
+// Result
+// There are 28 apples
+// There are 17 oranges
+// There are 54 pears
+```
+
+## Even easier ways to iterate over an object
+
+Converting the Object into an Array can be a tedious process if you have to do it every time you want to iterate through an object.
+
+I made things easier by creating two utility functions that I packed into [Splendid UI](https://splendid-ui.com).
+
+These two utility functions are:
+
+- `ObjectForEach`
+- `ObjectMap`
+
+To use these functions, you need to install Splendid UI.
+
+```shell
+npm install splendid-ui
+```
+
+Then you import `objectForEach` or `objectMap` in your project accordingly.
+
+```js
+import { objectForEach, objectMap } from 'splendid-ui/utils'
+```
+
+### ObjectForEach
+
+`ObjectForEach` converts an object into an array, then loops over the array with a `forEach` method.
+
+```js
+objectForEach(object, ({ key, value }) => {
+  // Do what you want
+})
+```
+
+Like the `forEach` method, this function returns nothing and should be used when you want to do something as you loop over an object.
+
+### ObjectMap
+
+`ObjectMap` converts an object into an array, then loops over the array with a `map` method.
+
+```js
+const array = objectMap(object, ({ key, value }) => {
+  // Do what you want
+})
+```
+
+Like the `map` method, `ObjectMap` returns an array and should be used if you want to return an array after iterating through an object.
+
+## Wrapping up
+
+The better way to loop through an object is to first convert it into an array with one of these three methods.
+
+1. `Object.keys`
+2. `Object.values`
+3. `Object.entries`
+
+Then, you loop through the results like a normal array.
+
+If you want to make things even easier, consider using these two utilities from [Splendid UI](https://splendid-ui.com/).
+
+1. `ObjectForEach`
+2. `ObjectMap`
+
+If this helped you, you might enjoy some of our JavaScript lessons in [Magical Dev School](https://magicaldevschool.com). Just click [here](https://students.magicaldevschool.com) to get 2-3 chapters of our courses for free.
+
+## Further Reading
+
+- [Splendid UI](https://splendid-ui.com/)
+- [`ObjectForEach` documentation](https://splendid-ui.com/javascript/object-for-each)
+- [`ObjectMap` documentation](https://splendid-ui.com/javascript/object-map)
+- [`Object.entries` on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)

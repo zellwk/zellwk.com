@@ -1,13 +1,11 @@
-// For Notes
-.note {
+.Callout {
   position: relative;
   margin-top: vr(0.75);
   padding: vr(0.75);
-  border: 2px solid color(gallery);
+  border: 2px solid;
 }
 
-.note::before {
-  content: "note";
+.Callout::before {
   position: absolute;
   top: -0.7em;
   padding: 0 0.25em;
@@ -16,4 +14,17 @@
   font-variant-caps: small-caps;
   background-color: #fff;
   color: color(monsoon);
+}
+
+.Callout[type='demo'] {
+  &::before {
+    content: 'demo';
+  }
+}
+
+.Callout[type='note'] {
+  border: 2px solid color(gallery);
+  &::before {
+    content: 'note';
+  }
 }

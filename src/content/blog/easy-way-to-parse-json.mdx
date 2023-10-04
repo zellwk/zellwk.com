@@ -1,0 +1,83 @@
+---
+title: Easy way to parse JSON with JavaScript
+tags: [splendid-ui, javascript]
+pubDate: 2023-10-31
+---
+
+When you use `JSON.parse` to parse JSON, you almost always need to make sure you pass in a JSON value, so you will end up having to use a try/catch block most of the time.
+
+{/* more */}
+
+```js
+try {
+  const content = JSON.parse(someValue)
+} catch (e) {
+  // Handle the error
+}
+```
+
+Most of the time, you'll want to set a default value when the parsing fails. So the code ends up looking like this:
+
+```js
+let content
+const defaultValue = {} // Change this to any other value
+
+try {
+  content = JSON.parse(json)
+} catch (e) {
+  content = defaultvalue
+}
+```
+
+I think this process can be simplified so I created a helper function, [`parseJSON`](https://splendid-ui.com/javascript/parse-json) that lets you do these two things in a single line:
+
+1. Specify the JSON content to parse.
+2. And if that fails, specify a default value.
+
+## Using parseJSON
+
+You can use `parseJSON` by first installing [Splendid UI](https://splendid-ui.com).
+
+```shell
+npm install splendid-ui
+```
+
+Then import it into your project:
+
+```js
+import { parseJSON } from 'splendid-ui/utils'
+```
+
+Here's how you can use `parseJSON`.
+
+```js
+const value = parseJSON(json, defaultValue)
+
+// If JSON is valid value will be === JSON data
+// If JSON is invalid, value will be === defaultValue
+```
+
+`parseJSON` is equivalent to the code I just wrote above:
+
+```js
+// Parse JSON lets you write these 7 lines of code in a single line
+let content
+const defaultValue = {}
+
+try {
+  content = JSON.parse(json)
+} catch (e) {
+  content = defaultvalue
+}
+```
+
+Since `parseJSON` is a Vanilla JavaScript utility, you can use it anywhere — frontend JavaScript, Node, and even in frameworks!
+
+That's all you have to know about `parseJSON`!
+
+Take it out for a spin and let me know what you think!
+
+## Further reading
+
+- [Splendid UI](https://splendid-ui.com)
+- [`parseJSON` documentation](https://splendid-ui.com/javascript/parse-json)
