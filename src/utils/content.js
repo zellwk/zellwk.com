@@ -28,8 +28,8 @@ export function getPublished(files) {
       if (process.env.NODE_ENV === 'development') return true
 
       // Remove those that aren't published yet
-      if (file.data.pubDate > new Date()) return true // Need this for updated posts because they should still be relevant even before the update.
-      if (file.data.date > new Date()) return false
+      // Need this for updated posts because they should still be relevant even before the update.
+      if (file.data.pubDate > new Date()) return false
       if (file.data.status === 'draft') return false
       if (!file.data.status) return true
       return true

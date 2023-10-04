@@ -1,4 +1,3 @@
-import commonjsExternals from 'vite-plugin-commonjs-externals'
 import config from './site-config.js'
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
@@ -29,19 +28,6 @@ export default defineConfig({
         'mdx',
       ],
     },
-  },
-  vite: {
-    plugins: commonjsExternals.default({
-      externals: [
-        'node:fs',
-        'node:util',
-        'node:buffer',
-        'node:stream',
-        'node:net',
-        'node:url',
-        'node:path',
-      ],
-    }),
   },
   output: 'server',
   adapter: node({ mode: 'standalone' }),
