@@ -1,0 +1,198 @@
+---
+title: The easiest way to get and set CSS Variables in JavaScript
+description: How to get and set CSS variables using JavaScript — and how to make it easier with some helper functions
+tags: [node, splendid-ui]
+pubDate: 2023-12-05
+---
+
+CSS Variables have become super popular for many reasons. One of them these reasons is — you can now manipulate CSS easily with JavaScript.
+
+In this article, we'll go through how to get and set CSS variables using the methods Vanilla JavaScript provides us with, then we'll go through how to make the process easier with simple helper functions.
+
+{/* more */}
+
+Let's start from the beginning.
+
+## Using CSS Variables
+
+CSS Variables can be written on two kinds of selectors:
+
+- The `:root` selector
+- Any other CSS selector
+
+```css
+:root {
+  --variable: #111;
+}
+
+.element {
+  --variable: #222;
+}
+```
+
+This will be an important distinction later because how you access the CSS variables depends on whether you use it on the `:root` selector or other selectors.
+
+## Getting CSS Variables with JavaScript
+
+You can use `getComputedStyle` and `getPropertyValue` to get the CSS Variable in JavaScript. Here's the syntax:
+
+```js
+getComputedStyle(element).getPropertyValue('--variable')
+```
+
+`element` must be replaced by the HTML Element that contains the CSS Variable.
+
+- If you wrote the variable in `:root`, you can use `document.documentElement` or `document.body`
+- If you wrote the variable in another selector, you need to use `document.querySelector` to find the element first.
+
+```js
+// Getting a CSS variable from :root
+const value = getComputedStyle(document.body).getPropertyValue('--variable') // #111
+```
+
+```js
+// Getting a CSS variable from an HTML element with the `.element` class
+const element = document.querySelector('.element')
+const value = getComputedStyle(element).getPropertyValue('--variable')
+console.log(value) // #222
+```
+
+## Setting CSS Variables with JavaScript
+
+You can set CSS Variables with the following syntax:
+
+```js
+element.style.setProperty(property, value)
+```
+
+- `element` must be the HTML element you're trying to set the CSS variable to.
+- `property` is the CSS variable you want to set. You must include the double dashes (`--`) that signify CSS variables here.
+- `value` is the value you want to set.
+
+The same thing applies as before:
+
+- If you want to set CSS variables on the `:root` element, you can use `document.body` or `document.documentElement` as `element`.
+- If you want to set CSS variables on any other element, you must get that element first.
+
+```js
+// Setting CSS Variables on :root
+document.body.style.setProperty('--variable', 'blue')
+```
+
+```js
+// Setting CSS Variables on an HTML Element with the `.element` class
+const element = document.querySelector('.element')
+element.style.setProperty('--variable', 'blue')
+```
+
+## Helper functions that make it easier to get and set CSS variables
+
+The above processes are simple, but it can be tedious remember the correct way to get and set CSS variables.
+
+To make the process easier for me, I created two helper functions to help me out:
+
+- [`getCSSVar`]() — Gets CSS variable from an element
+- [`setCSSVar`]() — Sets CSS variable on an element
+
+You can install these two helpers by installing [Splendid UI](https://splendid-ui.com), then import them from the `utils` subpath.
+
+```shell
+npm install splendid-ui --save
+```
+
+```js
+import { getCSSVar, setCSSVar } from 'splendid-ui/svelte'
+```
+
+Let's go through how to use each of these helper functions.
+
+### get css var
+
+`getCSSVar` helps you get a CSS variable from an element.
+
+```js
+const value = getCSSVar(element, property)
+```
+
+- `element` is the element you want to get the CSS property from.
+- `property` is the name of the CSS variable.
+
+`getCSSVar` makes things a little easier if you have to get a CSS Variable from an element — you can just pass in the selector and it will do a `querySelector` for you.
+
+```js
+// Getting CSS variable from an HTML element with the `element` class.
+const value = getCSSVar('.element', '--variable')
+console.log(value) // #222
+```
+
+You can still pass in an HTML element and `getCSSVar` will respect that element you passed in.
+
+```js
+// This works too
+const element = document.querySelector('.element')
+const value = getCSSVar(element, '--variable')
+console.log(value) // #222
+```
+
+If the CSS variable is on the `:root` selector, you can just use `document.documentElement` or `document.body` as the `element`.
+
+```js
+// Getting CSS variable from the :root selector
+const value = getCSSVar(document.body, '--variable')
+console.log(value) // #111
+```
+
+### set css var
+
+`setCSSVar` lets you set a CSS variable on an element. The syntax is as follows:
+
+```js
+setCSSVar(element, property, value)
+```
+
+- `element` is the element you want to set the CSS property on.
+- `property` is the name of the CSS variable.
+- `value` is the value you want to set.
+
+The same rules for `element` in `getCSSVar` apply for `setCSSVar`.
+
+You can pass in a `selector` into `setCSSVar` and it will find the element for you.
+
+```js
+// Setting CSS variable on an element with the `.element` class
+setCSSVar('.element', '--variable')
+```
+
+`setCSSVar` will respect the HTML element you pass into `element` too.
+
+```js
+// This works too
+const element = document.querySelector('.element')
+setCSSVar(element, '--variable', 'blue')
+```
+
+If the CSS variable is on the `:root` selector, you can just use `document.documentElement` or `document.body` as the `element`.
+
+```js
+// Setting CSS variable on the :root selector
+setCSSVar(document.body, '--variable')
+```
+
+That's it!
+
+## Wrapping Up
+
+CSS variables are powerful but working with CSS variables in JavaScript can become tedious — especially if you need to remember how different it is to get and set CSS Variables.
+
+To make the process easier, I created [`getCSSVar`](https://splendid-ui.com/javascript/get-css-var) and [`setCSSVar`](https://splendid-ui.com/javascript/set-css-var) helper functions in [Splendid UI](https://splendid-ui.com).
+
+Take them out for a spin and let me know what you think!
+
+If you enjoyed this article, you might also enjoy the courses I've written to help people become better full-stack developers. You can get 2-3 chapters of each of my courses for free [here](https://students.magicaldevschool.com). (No registration necessary). Hope you enjoy these free lessons!
+
+## Further Reading
+
+- [Splendid UI](https://splendid-ui.com)
+- [`getCSSVar` documentation](https://splendid-ui.com/javascript/get-css-var)
+- [`setCSSVar` documentation](https://splendid-ui.com/javascript/set-css-var)
+- [CSS Variables on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)

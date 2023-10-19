@@ -1,0 +1,66 @@
+---
+title: The easiest way to get __dirname in Node with ES Modules
+description: With the dirname utility from Splendid UI, you only need to pass in import.meta.url to get the dirname.
+tags: [node, splendid-ui]
+pubDate: 2023-11-28
+---
+
+Getting the directory name (or short for `dirname`) is extremely simple in Node prior to ES Modules (ESM).
+
+All we had to do was use the `__dirname` global variable.
+
+```js
+console.log(__dirname) // This will show the directory
+```
+
+Unfortunately, `__dirname` is not supported in ES Modules. So if we want `__dirname`, we need to use a rather round-about way to retrieve it.
+
+{/* more */}
+
+## How to get dirname in ESM
+
+The easiest way to get `dirname` in ESM is to use three utilities that Node provides us with
+
+- `import.meta.url` — This gives you the file path to the current file
+- `fileUrlToPath` — This strips away the `file://` protocol so the URL can be used in `path`.
+- `path` — This is a utility you can use to specify paths in Node
+
+The complete code looks like this:
+
+```js
+import { fileURLToPath } from 'url'
+import path from 'path'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+```
+
+This code can be really complicated to remember. So I abstracted it into a `dirname` function in [Splendid UI](https://splendid-ui.com).
+
+## The easier way to get dirname
+
+First, install Splendid UI.
+
+```shell
+npm install splendid-ui
+```
+
+Then import `dirname` from the `node` subpath.
+
+```js
+import { dirname } from 'splendid-ui/node'
+```
+
+Then you just have to pass the `import.meta.url` into `dirname` and you'll get the `__dirname` value.
+
+```js
+const __dirname = dirname(import.meta.url)
+```
+
+That's it!
+
+I hope this makes things easier for you when using Node :)
+
+## Further reading
+
+- [Splendid UI](https://splendid-ui.com)
+- [`dirname` utility documentation](https://splendid-ui.com/node/dirname)
