@@ -59,3 +59,44 @@
 .series-layout {
   margin-bottom: 1.5rem;
 }
+
+// ========================
+// Making it simpler
+// ========================
+
+.PostLayout2-main {
+  @media (min-width: 1400px) {
+    display: grid;
+    grid-template-columns: 60ch 1fr;
+    grid-template-areas: 'content sidebar';
+    gap: 1.5em;
+  }
+}
+
+.PostLayout2 h1 {
+  max-width: 12em;
+}
+
+.PostLayout2-content {
+  margin-top: 1em;
+  max-inline-size: 60ch;
+  grid-area: content;
+}
+
+.PostLayout2-sidebar {
+  display: none;
+
+  @media (width >= 1440px) {
+    display: block;
+    grid-area: sidebar;
+  }
+}
+
+.PostLayout2-date {
+  div + div {
+    margin-top: 0.25em;
+  }
+  strong {
+    margin-right: 0.5ch;
+  }
+}

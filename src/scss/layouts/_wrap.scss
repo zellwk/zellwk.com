@@ -30,3 +30,18 @@
     padding-left: 0;
   }
 }
+
+.Wrap {
+  padding-right: vr(0.75);
+  padding-left: vr(0.75);
+
+  @include bp(large) {
+    padding-right: vr(2);
+    padding-left: vr(2);
+  }
+
+  @include bp(mega) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

@@ -5,6 +5,8 @@ import FormattedDate from '/src/components/FormattedDate.astro'
 import PostNav from '/src/components/PostNav.astro'
 import LeadModal from '/src/components/LeadModal.svelte'
 import Freebie from '/src/components/Freebie.astro'
+import GoogleSquareAd from '/src/components/Ads/google-square.astro'
+import GoogleArticleAd from '/src/components/Ads/google-article.svelte'
 
 import { normalize } from '../../utils/content.js'
 import { CollectionEntry, getCollection } from 'astro:content'
@@ -46,29 +48,37 @@ const { Content } = await post.render()
 ---
 
 <Base {...post.data}>
-  <div class='l-wrap'>
-    <article class='o-content post-layout'>
+  <div class='Wrap'>
+    <article class='PostLayout2'>
       <h1><Markdown content={post.data.title} /></h1>
-      <span class='post-layout__date'>
-        <div>
-          <strong>Published</strong>
-          <FormattedDate date={post.data.pubDate} />
-        </div>
-        {
-          post.data.updateDate && post.data.updateDate < Date.now() && (
-            <div style='margin-top: 0.5em'>
-              <strong>Updated</strong>
-              <FormattedDate date={post.data.updateDate} />
+
+      <div class='PostLayout2-main'>
+        <div class='o-content PostLayout2-content' style='position: relative'>
+          <div class='PostLayout2-date'>
+            <div>
+              <strong>Published:</strong>
+              <FormattedDate date={post.data.pubDate} />
             </div>
-          )
-        }
-      </span>
+            {
+              post.data.updateDate && post.data.updateDate < Date.now() && (
+                <div>
+                  <strong>Updated:</strong>
+                  <FormattedDate date={post.data.updateDate} />
+                </div>
+              )
+            }
+          </div>
 
-      <!-- TODO: MEDIA / YOUTUBE / VIMEO / WHATEVER HERE -->
+          <!-- TODO: MEDIA / YOUTUBE / VIMEO / WHATEVER HERE -->
+          <Content {components} />
+          <PostNav {posts} />
+          <GoogleArticleAd client:load />
+        </div>
 
-      <Content {components} />
-
-      <PostNav {posts} />
+        <div class='PostLayout2-sidebar'>
+          <GoogleSquareAd />
+        </div>
+      </div>
     </article>
   </div>
 
