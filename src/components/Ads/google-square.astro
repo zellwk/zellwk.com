@@ -1,26 +1,47 @@
-<div>
-  <!-- Square Display Ad -->
-  <ins
-    class='adsbygoogle'
-    style='display:block'
-    data-ad-client='ca-pub-5287671859285058'
-    data-ad-slot='3156367173'
-    data-ad-format='auto'
-    data-adtest='on'
-    data-full-width-responsive='true'></ins>
+<!-- Square Display Ad -->
+<div class='sticky'>
+  <div class='GoogleSquareAd'>
+    <ins
+      class='adsbygoogle'
+      style='display:block'
+      data-ad-client='ca-pub-5287671859285058'
+      data-ad-slot='3156367173'
+      data-ad-format='auto'
+      data-adtest='on'
+      data-full-width-responsive='true'></ins>
 
-  <script async>
-    ;(adsbygoogle = window.adsbygoogle || []).push({})
-  </script>
+    <script async>
+      ;(adsbygoogle = window.adsbygoogle || []).push({})
+    </script>
+  </div>
+
+  <!-- Square Ad 2 -->
+  <div class='GoogleSquareAd'>
+    <ins
+      class='adsbygoogle'
+      style='display:block'
+      data-ad-client='ca-pub-5287671859285058'
+      data-ad-slot='8746263873'
+      data-ad-format='auto'
+      data-full-width-responsive='true'></ins>
+    <script>
+      ;(adsbygoogle = window.adsbygoogle || []).push({})
+    </script>
+  </div>
 </div>
 
-<style>
-  div {
+<style lang='scss'>
+  .sticky {
+    position: sticky;
+    top: 1rem;
+  }
+  .GoogleSquareAd {
     min-width: 300px;
     height: 250px;
+    // background-color: rgba(red, 0.5);
   }
 
-  /* ins + ins {
-    margin-top: 1rem;
-  } */
+  .GoogleSquareAd + .GoogleSquareAd {
+    margin-top: 2rem;
+  }
 </style>

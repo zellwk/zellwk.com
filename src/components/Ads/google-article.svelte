@@ -11,24 +11,30 @@
     if (length <= 0) return
 
     // Insert the add before the first h2 element
-    const firstH2 = h2s[0]
-    const parent = firstH2.parentElement
-    parent.insertBefore(adRef, firstH2)
+    const secondH2 = h2s[1]
+    const parent = secondH2.parentElement
+    parent.insertBefore(adRef, secondH2)
   })
 </script>
 
-<div>
-  <!-- Google Article Ad -->
+<!-- Horizontal Display Ad -->
+<div bind:this={adRef}>
   <ins
-    bind:this={adRef}
     class="adsbygoogle"
-    style="display:block; text-align:center;"
-    data-ad-layout="in-article"
-    data-ad-format="fluid"
+    style="display:block"
     data-ad-client="ca-pub-5287671859285058"
-    data-ad-slot="5140366839"
+    data-ad-slot="2534384790"
+    data-ad-format="auto"
+    data-full-width-responsive="true"
   />
-  <script async>
+  <script>
     ;(adsbygoogle = window.adsbygoogle || []).push({})
   </script>
 </div>
+
+<style>
+  div {
+    /* background-color: red; */
+    /* min-height: 90px; */
+  }
+</style>
