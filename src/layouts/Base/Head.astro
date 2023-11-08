@@ -15,102 +15,73 @@ const imageURL = OGImage
 ---
 
 <!-- Global Metadata -->
-<meta charset='utf-8' />
-<meta name='viewport' content='width=device-width' />
-<link rel='icon' type='image/x-icon' href='/favicon.ico' />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
 <!-- Indexing -->
-{!index && <meta name='robots' content='noindex, noarchive' />}
+{!index && <meta name="robots" content="noindex, noarchive" />}
 
 <!-- Primary Meta Tags -->
 <title>{pageTitle}</title>
-<meta name='title' content={pageTitle} />
-<meta name='description' content={pageDescription} />
-<link rel='canonical' href={canonicalURL} />
+<meta name="title" content={pageTitle} />
+<meta name="description" content={pageDescription} />
+<link rel="canonical" href={canonicalURL} />
 
 <!-- Open Graph / Facebook -->
-<meta property='og:type' content='website' />
-<meta property='og:url' content={canonicalURL} />
-<meta property='og:title' content={pageTitle} />
-<meta property='og:description' content={pageDescription} />
-<meta property='og:image' content={imageURL} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={pageDescription} />
+<meta property="og:image" content={imageURL} />
 
 <!-- Twitter -->
-<meta property='twitter:card' content='summary_large_image' />
-<meta property='twitter:url' content={canonicalURL} />
-<meta property='twitter:title' content={pageTitle} />
-<meta property='twitter:description' content={pageDescription} />
-<meta property='twitter:image' content={imageURL} />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={pageTitle} />
+<meta property="twitter:description" content={pageDescription} />
+<meta property="twitter:image" content={imageURL} />
 
 <!-- Favicon -->
 <link
-  rel='apple-touch-icon'
-  sizes='180x180'
-  href='/favicon/apple-touch-icon.png'
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/favicon/apple-touch-icon.png"
 />
 <link
-  rel='icon'
-  type='image/png'
-  sizes='32x32'
-  href='/favicon/favicon-32x32.png'
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="/favicon/favicon-32x32.png"
 />
 <link
-  rel='icon'
-  type='image/png'
-  sizes='16x16'
-  href='/favicon/favicon-16x16.png'
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="/favicon/favicon-16x16.png"
 />
-<link rel='manifest' href='/favicon/manifest.json' />
-<link rel='mask-icon' href='/favicon/safari-pinned-tab.svg' color='#fd256e' />
-<link rel='shortcut icon' href='/favicon/favicon.ico' />
-<meta name='msapplication-config' content='/favicon/browserconfig.xml' />
-<meta name='theme-color' content='#ffffff' />
+<link rel="manifest" href="/favicon/manifest.json" />
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#fd256e" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+<meta name="theme-color" content="#ffffff" />
 
 <!-- Fonts -->
-<script>
-  ;(function (d) {
-    const config = {
-      kitId: 'tsd8lrs',
-      scriptTimeout: 3000,
-      async: true,
-    }
-    const h = d.documentElement
-    const t = setTimeout(function () {
-      h.className = h.className.replace(/\bwf-loading\b/g, '') + ' wf-inactive'
-    }, config.scriptTimeout)
-    const tk = d.createElement('script')
-    let f = false
-    const s = d.getElementsByTagName('script')[0]
-    let a
-    h.className += ' wf-loading'
-    tk.src = 'https://use.typekit.net/' + config.kitId + '.js'
-    tk.async = true
-    tk.onload = tk.onreadystatechange = function () {
-      a = this.readyState
-      if (f || (a && a != 'complete' && a != 'loaded')) return
-      f = true
-      clearTimeout(t)
-      try {
-        Typekit.load(config)
-      } catch (e) {}
-    }
-    s.parentNode.insertBefore(tk, s)
-  })(document)
-</script>
+<link rel="stylesheet" href="https://use.typekit.net/tsd8lrs.css" />
 
 <!-- RSS Auto discovery -->
 <link
-  rel='alternate'
-  type='application/rss+xml'
-  title='Feed for articles'
-  href='/rss.xml'
+  rel="alternate"
+  type="application/rss+xml"
+  title="Feed for articles"
+  href="/rss.xml"
 />
 
 <!-- Sitemap -->
-<link rel='sitemap' href='/sitemap-index.xml' />
+<link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Google Tag Manager -->
-<script>
+<script async>
   ;(function (w, d, s, l, i) {
     w[l] = w[l] || []
     w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
@@ -126,6 +97,6 @@ const imageURL = OGImage
 
 <!-- Adsense -->
 <script
-  async
-  src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5287671859285058'
-  crossorigin='anonymous'></script>
+  defer
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5287671859285058"
+  crossorigin="anonymous"></script>
