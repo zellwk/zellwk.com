@@ -1,6 +1,6 @@
 ---
 // TODO: Probably need to rework this Testimonial component later to make it work for all testimonials — even those without images
-import Image from './Image.svelte'
+import Image from './Image.astro'
 import { toTitle } from '@zellwk/javascript/utils/convert-case.js'
 import { getEntryBySlug } from 'astro:content'
 const { name } = Astro.props
@@ -20,7 +20,7 @@ const normalizedName = toTitle(slug)
     {
       data.hasImage && (
         <Image
-          src={`/images/quotes/${slug}.jpg`}
+          src={`/assets/quotes/${slug}.jpg`}
           alt={'Picture of ' + normalizedName}
         />
       )

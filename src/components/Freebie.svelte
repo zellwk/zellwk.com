@@ -1,7 +1,7 @@
 <script>
   import SVG from './SVG.svelte'
   import SvelteMarkdown from 'svelte-markdown'
-  import Image from './Image.svelte'
+  import Image from './OldImage.svelte'
 
   let klass
   export { klass as class }
@@ -11,7 +11,7 @@
   export let titleVersion = '1' // 1 or 2, uses title or title2. This is just a hacky way and we can improve later.
 
   const { data } = entry
-  let title = titleVersion === '1' ? data.title : data.title2
+  const title = titleVersion === '1' ? data.title : data.title2
 </script>
 
 {#if entry.status !== 'draft'}
