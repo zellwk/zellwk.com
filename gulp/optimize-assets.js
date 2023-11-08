@@ -1,35 +1,17 @@
-import imagemin, { gifsicle, mozjpeg, optipng } from 'gulp-imagemin'
-
 import gulp from 'gulp'
-import newer from 'gulp-newer'
 
 const { src, dest, parallel, watch } = gulp
 
 const paths = {
-  input: 'images',
-  output: 'public/images',
+  input: 'src/assets',
+  output: 'public/assets',
 }
 
-const optimizeAssets = parallel(copyVideos, optimizeImages, copySVGs)
-export default optimizeAssets
+const copyAssets = parallel(copyVideos, copySVGs)
+export default copyAssets
 
 export function assetWatcher() {
-  watch(paths.input + '/**/*', optimizeAssets)
-}
-
-// Optimize images and put it in the public folder.
-// Astro build will take care of the images from that point onwards.
-function optimizeImages() {
-  return src(paths.input + '/**/*.{jpg,jpeg,png,gif}')
-    .pipe(newer(paths.output))
-    .pipe(
-      imagemin([
-        gifsicle({ interlaced: true }),
-        mozjpeg({ quality: 100, progressive: true }),
-        optipng({ optimizationLevel: 5 }),
-      ])
-    )
-    .pipe(dest(paths.output))
+  watch(paths.input + '/**/*', copyAssets)
 }
 
 // Copy videos to the public folder so Astro build can copy it to dist.

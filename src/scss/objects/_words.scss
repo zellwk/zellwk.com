@@ -50,13 +50,23 @@
   li {
     margin-left: 2.5rem;
     list-style-position: outside;
-    font-feature-settings: 'liga' 1, 'lnum' 1;
+    font-feature-settings:
+      'liga' 1,
+      'lnum' 1;
   }
 
   // Images
   figure > img,
+  figure > picture > img,
   figure > video {
     border: 1px solid #ccc;
+    border-radius: 0.25em;
+  }
+
+  figcaption {
+    margin-top: vr(0.375);
+    padding-left: vr(0.25);
+    border-left: 3px solid #ccc;
   }
 
   hr {

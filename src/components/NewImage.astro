@@ -1,0 +1,38 @@
+---
+import { Picture } from 'astro:assets'
+
+const {
+  class: klass,
+  src,
+  formats = ['avif', 'webp'],
+  widths = [400, 800, 1200],
+  alt = '',
+  caption = '',
+} = Astro.props
+
+const image = await importImage(src)
+
+let imageWidths = [...widths, image.width]
+let format = formats
+
+if (image.format === 'gif') {
+  imageWidths = undefined
+  format = undefined
+}
+
+async function importImage(filePath) {
+  const images = import.meta.glob('/src/**/*.{jpeg,jpg,png,gif}')
+  const keys = Object.keys(images)
+  const key = keys.find(key => key.includes(filePath))
+
+  if (!key) throw new Error(`Image ${filePath} not found`)
+
+  const image = await images[key]()
+  return image.default
+}
+---
+
+<figure class={klass} aria-label={caption || null}>
+  <Picture src={image} formats={format} widths={imageWidths} {alt} />
+  {caption && <figcaption aria-hidden>{caption}</figcaption>}
+</figure>

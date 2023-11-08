@@ -18,7 +18,7 @@ html {
 body {
   min-height: 100vh;
   scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
+  text-rendering: optimizespeed;
   line-height: 1.5;
 }
 
@@ -61,13 +61,13 @@ input,
 textarea,
 select,
 button {
-  color: inherit;
   font: inherit;
   letter-spacing: inherit;
+  color: inherit;
 }
 
 /* I usually expand input and textarea to full-width */
-input[type="text"],
+input[type='text'],
 textarea {
   width: 100%;
 }
@@ -82,8 +82,8 @@ button {
 /* Some defaults for one-liner buttons */
 button {
   padding: 0.75em 1em;
-  line-height: inherit;
   border-radius: 0;
+  line-height: inherit;
   background-color: transparent;
 }
 
@@ -101,6 +101,7 @@ object,
 embed {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 svg {
@@ -123,14 +124,14 @@ table {
   visibility: hidden;
 }
 
-[tabindex="-1"] {
+[tabindex='-1'] {
   outline: none !important;
 }
 
 noscript {
   display: block;
-  margin-bottom: 1em;
   margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 /*******************
@@ -152,6 +153,7 @@ noscript {
  * @see https://zellwk.com/blog/hide-content-accessibly/
  *******************/
 .sr-only {
+  overflow: hidden;
   position: absolute;
   width: 1px;
   height: auto;
@@ -159,6 +161,5 @@ noscript {
   padding: 0;
   border: 0;
   clip: rect(0 0 0 0);
-  overflow: hidden;
   white-space: nowrap;
 }

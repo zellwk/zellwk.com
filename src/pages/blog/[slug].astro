@@ -14,7 +14,7 @@ import ConvertkitForm from '../../components/ConvertkitForm.astro'
 type Props = CollectionEntry<'blog'>
 
 // TODO: Perhaps put these components into a single file?
-import Image from '/src/components/Image.svelte'
+import Image from '/src/components/NewImage.astro'
 import Video from '/src/components/Video.svelte'
 import Youtube from '/src/components/Youtube.svelte'
 import Codepen from '/src/components/Codepen.astro'
@@ -42,19 +42,20 @@ export async function getStaticPaths() {
     }
   })
 }
+
 const { posts } = Astro.props
 const { current: post } = posts
 const { Content } = await post.render()
 ---
 
 <Base {...post.data}>
-  <div class='Wrap'>
-    <article class='PostLayout2'>
+  <div class="Wrap">
+    <article class="PostLayout2">
       <h1><Markdown content={post.data.title} /></h1>
 
-      <div class='PostLayout2-main'>
-        <div class='o-content PostLayout2-content' style='position: relative'>
-          <div class='PostLayout2-date'>
+      <div class="PostLayout2-main">
+        <div class="o-content PostLayout2-content" style="position: relative">
+          <div class="PostLayout2-date">
             <div>
               <strong>Published:</strong>
               <FormattedDate date={post.data.pubDate} />
@@ -75,19 +76,19 @@ const { Content } = await post.render()
           <GoogleArticleAd client:load />
         </div>
 
-        <div class='PostLayout2-sidebar'>
+        <div class="PostLayout2-sidebar">
           <GoogleSquareAd />
         </div>
       </div>
     </article>
   </div>
 
-  <div class='post-layout'>
-    <section class='o-content c-ck ck-layout'>
+  <div class="post-layout">
+    <section class="o-content c-ck ck-layout">
       {
         post.data.leadModal && (
-          <div class='uInlineSize'>
-            <Freebie name={post.data.leadModal} tag='h2' />
+          <div class="uInlineSize">
+            <Freebie name={post.data.leadModal} tag="h2" />
           </div>
         )
       }
@@ -99,7 +100,7 @@ const { Content } = await post.render()
   <LeadModal client:load>
     {
       post.data.leadModal && (
-        <Freebie class='mMQ' name={post.data.leadModal} tag='h2' />
+        <Freebie class="mMQ" name={post.data.leadModal} tag="h2" />
       )
     }
 

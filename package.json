@@ -2,6 +2,7 @@
   "name": "zellwk-astro",
   "type": "module",
   "version": "0.0.1",
+  "prettier": "@splendid-ui/prettier-config",
   "scripts": {
     "start": "node pm2.js",
     "dev": "gulp dev & astro dev",
@@ -34,15 +35,15 @@
     "splendid-ui": "^0.8.0",
     "svelte": "^4.2.2",
     "svelte-markdown": "^0.4.0",
+    "vite-plugin-dynamic-import": "^1.5.0",
     "zl-fetch": "^6.0.1"
   },
   "devDependencies": {
+    "@splendid-ui/eslint-config": "^1.0.7",
+    "@splendid-ui/prettier-config": "^1.0.2",
+    "@splendid-ui/stylelint-config": "^1.0.3",
     "@zellwk/devops": "^1.0.0",
     "archiver": "^6.0.1",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-astro": "^0.29.1",
-    "eslint-plugin-svelte": "^2.35.0",
     "fs-extra": "^11.1.1",
     "glob-promise": "^6.0.2",
     "gulp": "^4.0.2",
