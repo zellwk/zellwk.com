@@ -36,17 +36,17 @@ We can use the `npm init` command to create the `package.json` file and the `bow
 $ npm init
 ```
 
-<Image src='/images/2015/02/npminit.png' alt='NPM Init' />
+<Image src="/assets/2015/02/npminit.png" alt="NPM Init" />
 
 ```bash
 $ bower init
 ```
 
-<Image src='/images/2015/02/bowerinit.png' alt='Bower Init' />
+<Image src="/assets/2015/02/bowerinit.png" alt="Bower Init" />
 
 These two files combined will allow you to easily add or manage dependencies in your project. Your folder structure should now be:
 
-<Image src='/images/2015/02/folder-1.png' alt='Folder Structure' />
+<Image src="/assets/2015/02/folder-1.png" alt="Folder Structure" />
 
 We can proceed on to install the grunt packages we need to run LibSass with Susy.
 
@@ -66,7 +66,7 @@ $ npm install grunt-contrib-watch --save-dev
 
 Your project structure should now be:
 
-<Image src='/images/2015/02/folder-2.png' alt='Folder Structure' />
+<Image src="/assets/2015/02/folder-2.png" alt="Folder Structure" />
 
 We now have the necessary node packages to compile Sass into CSS with LibSass. Let's move on to installing our front-end dependencies with Bower.
 
@@ -80,11 +80,11 @@ bower install susy --save
 
 Your folder structure should now be:
 
-<Image src='/images/2015/02/folder-3.png' alt='Folder Structure 3' />
+<Image src="/assets/2015/02/folder-3.png" alt="Folder Structure 3" />
 
 Remember to add your HTML, SCSS and CSS folders into the project.
 
-<Image src='/images/2015/02/folder-4.png' alt='Folder Structure 4' />
+<Image src="/assets/2015/02/folder-4.png" alt="Folder Structure 4" />
 
 We have to import Susy into the stylesheets to use it. This is how you import Susy if you have the same folder structure as the picture above.
 
@@ -111,7 +111,7 @@ Now we have all the necessary libraries for this setup to work properly. Let's p
 
 The simplest way to begin writing the Gruntfile is to create a `Gruntfile.js` and add that to your project structure.
 
-<Image src='/images/2015/02/folder-5.png' alt='Folder Structure 5' />
+<Image src="/assets/2015/02/folder-5.png" alt="Folder Structure 5" />
 
 Then add the following anatomy of the Gruntfile into your `Gruntfile.js`.
 
@@ -222,11 +222,11 @@ $ grunt
 
 Once the command is given, Grunt should run Sass and begin to watch for changes
 
-<Image src='/images/2015/02/run-grunt-1.png' alt='Run Grunt' />
+<Image src="/assets/2015/02/run-grunt-1.png" alt="Run Grunt" />
 
 Once you save any Sass or Scss files within the scss directory, Grunt will compile the new updates and keep watching the directory.
 
-<Image src='/images/2015/02/run-grunt-2.png' alt='Run Grunt' />
+<Image src="/assets/2015/02/run-grunt-2.png" alt="Run Grunt" />
 
 Enjoy your new LibSass compiler!
 

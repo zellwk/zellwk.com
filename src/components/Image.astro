@@ -11,14 +11,7 @@ const {
 } = Astro.props
 
 const image = await importImage(src)
-
-let imageWidths = [...widths, image.width]
-let format = formats
-
-if (image.format === 'gif') {
-  imageWidths = undefined
-  format = undefined
-}
+const imageWidths = [...widths, image.width]
 
 async function importImage(filePath) {
   const images = import.meta.glob('/src/**/*.{jpeg,jpg,png,gif}')
@@ -33,6 +26,11 @@ async function importImage(filePath) {
 ---
 
 <figure class={klass} aria-label={caption || null}>
-  <Picture src={image} formats={format} widths={imageWidths} {alt} />
+  {image.format === 'gif' && <img src={image} {alt} />}
+  {
+    image.format !== 'gif' && (
+      <Picture src={image} {formats} widths={imageWidths} {alt} />
+    )
+  }
   {caption && <figcaption aria-hidden>{caption}</figcaption>}
 </figure>

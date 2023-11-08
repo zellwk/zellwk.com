@@ -16,8 +16,8 @@ This is the third article in the Learn JavaScript design series. Today, I'll tal
 I gave each student a default password. I want to let them change their password, so I created the Account page.
 
 <Image
-  src='/images/2020/ljs-portal-3/account-page.png'
-  alt='The account page.'
+  src="/assets/2020/ljs-portal-3/account-page.png"
+  alt="The account page."
 />
 
 There's only one important activity here: The changing of passwords.
@@ -31,8 +31,8 @@ You need three fields to change passwords:
 We can put the fields in a single column.
 
 <Image
-  src='/images/2020/ljs-portal-3/change-password-1.png'
-  alt='Password fields in a single column.'
+  src="/assets/2020/ljs-portal-3/change-password-1.png"
+  alt="Password fields in a single column."
 />
 
 This works on mobile, but it looks weird on desktop; there's too much whitespace on the right.
@@ -40,8 +40,8 @@ This works on mobile, but it looks weird on desktop; there's too much whitespace
 I tried to reduce the awkwardness by reducing the whitespace. I did this by creating a two-column grid in the form. Labels on the left, fields on the right.
 
 <Image
-  src='/images/2020/ljs-portal-3/change-password-2.png'
-  alt='Labes on the left, fields on the right.'
+  src="/assets/2020/ljs-portal-3/change-password-2.png"
+  alt="Labes on the left, fields on the right."
 />
 
 It looks much better than before, but there's still room for improvement.
@@ -51,8 +51,8 @@ Here each label looks disjointed from their respective fields. This happens beca
 According to proximity rule, related fields should be close to each other. The easiest way to do this is to right-align the labels.
 
 <Image
-  src='/images/2020/ljs-portal-3/change-password-3.png'
-  alt='Aligned labels to the right.'
+  src="/assets/2020/ljs-portal-3/change-password-3.png"
+  alt="Aligned labels to the right."
 />
 
 This looks better, but it's still weird. Why? It looks weird because the button is full-width. It's not aligned to anything (on the left edge).
@@ -60,8 +60,8 @@ This looks better, but it's still weird. Why? It looks weird because the button 
 Since a "button" is kinda like a "field", we can align it like a field.
 
 <Image
-  src='/images/2020/ljs-portal-3/change-password-done.png'
-  alt='Aligned buttons to the right.'
+  src="/assets/2020/ljs-portal-3/change-password-done.png"
+  alt="Aligned buttons to the right."
 />
 
 This looks better since the entire form looks well aligned.
@@ -89,8 +89,8 @@ I could build this page like the Content page (with a list), but it's not enough
 So I chose to go with a table instead. Here's what it looks like:
 
 <Image
-  src='/images/2020/ljs-portal-3/components-table.png'
-  alt='Example of a table of lessons for each component. It contains three columns: Lesson, starter files, source code. '
+  src="/assets/2020/ljs-portal-3/components-table.png"
+  alt="Example of a table of lessons for each component. It contains three columns: Lesson, starter files, source code. "
 />
 
 That's it!

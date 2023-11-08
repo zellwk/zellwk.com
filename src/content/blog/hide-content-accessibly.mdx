@@ -53,29 +53,29 @@ I thought this felt good enough, and I asked Jonathan about it.
 Here's what he responded with:
 
 <blockquote
-  class='twitter-tweet'
-  data-conversation='none'
-  data-dnt='true'
-  data-theme='light'
+  class="twitter-tweet"
+  data-conversation="none"
+  data-dnt="true"
+  data-theme="light"
 >
-  <p lang='en' dir='ltr'>
+  <p lang="en" dir="ltr">
     While it pulls it out of flow, it can obscure clickable items. You could add
     `pointer-events: none;` to it. I don&#39;t know how screenreaders behave
     with pointer-events turned off; I haven&#39;t tested it.
-    <a href='https://t.co/fa8qHvfWic'>https://t.co/fa8qHvfWic</a>
+    <a href="https://t.co/fa8qHvfWic">https://t.co/fa8qHvfWic</a>
   </p>
-  &mdash; Snook (@snookca) <a href='https://twitter.com/snookca/status/1120809900878307328?ref_src=twsrc%5Etfw'>April 23, 2019</a>
+  &mdash; Snook (@snookca) <a href="https://twitter.com/snookca/status/1120809900878307328?ref_src=twsrc%5Etfw">April 23, 2019</a>
 </blockquote>
 
 He also wondered if `pointer-events: none` would stop keyboard-trigged click events (which are absolutely essential for screen readers and keyboard users).
 
-<blockquote class='twitter-tweet' data-dnt='true' data-theme='light'>
-  <p lang='en' dir='ltr'>
+<blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+  <p lang="en" dir="ltr">
     Pointer events shouldn’t obscure because any click/touch events pass
     through. Although, actually, unsure if that breaks keyboard-triggered clock
     events. 🤔
   </p>
-  &mdash; Snook (@snookca) <a href='https://twitter.com/snookca/status/1120844382754754562?ref_src=twsrc%5Etfw'>April 24, 2019</a>
+  &mdash; Snook (@snookca) <a href="https://twitter.com/snookca/status/1120844382754754562?ref_src=twsrc%5Etfw">April 24, 2019</a>
 </blockquote>
 
 I was curious, so I tested `pointer-events: none` and discovered it works with keyboard-generated clicks, screen-reader-generated clicks, and JavaScript generated clicks.
@@ -83,20 +83,20 @@ I was curious, so I tested `pointer-events: none` and discovered it works with k
 Here's the Codepen I used for my test:
 
 <Codepen
-  height='450'
-  themeID='0'
-  defaultTab='html,result'
-  hash='mgzPXa'
-  title='Pointer-events test'
+  height="450"
+  themeID="0"
+  defaultTab="html,result"
+  hash="mgzPXa"
+  title="Pointer-events test"
 />
 
 I reported my findings back to Jonathan and he said we might have a winner!
 
-<blockquote class='twitter-tweet' data-dnt='true' data-theme='light'>
-  <p lang='en' dir='ltr'>
+<blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+  <p lang="en" dir="ltr">
     Sounds like we might have a winner then!
   </p>
-  &mdash; Snook (@snookca) <a href='https://twitter.com/snookca/status/1120862948866633728?ref_src=twsrc%5Etfw'>April 24, 2019</a>
+  &mdash; Snook (@snookca) <a href="https://twitter.com/snookca/status/1120862948866633728?ref_src=twsrc%5Etfw">April 24, 2019</a>
 </blockquote>
 
 ## The snippet
@@ -127,14 +127,14 @@ First, let's talk about `opacity`.
 
 Patrick and Vadim were concerned about `opacity` because it seemed to break in some browser/screen reader combination.
 
-<blockquote class='twitter-tweet' data-dnt='true' data-theme='light'>
-  <p lang='en' dir='ltr'>
+<blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+  <p lang="en" dir="ltr">
     don&#39;t have test results to hand/time to test just now, but in short:
     yes, in at least some browser/screen reader combination, opacity below a
     certain value results in content not being announced. suggest sticking with
     tried and tested (albeit a bit lengthy looking) sr-only styles
   </p>
-  &mdash; patrick h. lauke (@patrick_h_lauke) <a href='https://twitter.com/patrick_h_lauke/status/1120955137491705856?ref_src=twsrc%5Etfw'>April 24, 2019</a>
+  &mdash; patrick h. lauke (@patrick_h_lauke) <a href="https://twitter.com/patrick_h_lauke/status/1120955137491705856?ref_src=twsrc%5Etfw">April 24, 2019</a>
 </blockquote>
 
 But Jonathan found some research that suggests that `opacity` is okay. Patrick further did some tests and agreed that `opacity` is okay.
@@ -184,18 +184,18 @@ Next, let's talk about `pointer-events` because it's the second most-troublesome
 Scott O'Hara pointed out that iOS Voiceover users wouldn't be able to trigger a click if an element had `pointer-events: none`. I tested what Scott said and found it to be true.
 
 <blockquote
-  class='twitter-tweet'
-  data-conversation='none'
-  data-dnt='true'
-  data-theme='light'
+  class="twitter-tweet"
+  data-conversation="none"
+  data-dnt="true"
+  data-theme="light"
 >
-  <p lang='en' dir='ltr'>
+  <p lang="en" dir="ltr">
     Definitely a contextually appropriate solution to hide static text content.
     But this should be noted as not recommended for visually hiding interactive
     elements. For instance IOS VoiceOver will not be able to activate a
     pointer-events none button.
   </p>
-  &mdash; Scott O&#39;Hara (@scottohara) <a href='https://twitter.com/scottohara/status/1120909503585767424?ref_src=twsrc%5Etfw'>April 24, 2019</a>
+  &mdash; Scott O&#39;Hara (@scottohara) <a href="https://twitter.com/scottohara/status/1120909503585767424?ref_src=twsrc%5Etfw">April 24, 2019</a>
 </blockquote>
 
 This means we can't use the `pointer-events` universally on all elements.
@@ -236,14 +236,14 @@ I'll be honest. I don't understand why `z-index: -999` wouldn't work correctly w
 
 Scott and João Beleza Freire (@letrastudio mentioned above) pointed out a noteworthy bug where macOS Voiceover read content out of source-order.
 
-<blockquote class='twitter-tweet'>
-  <p lang='en' dir='ltr'>
+<blockquote class="twitter-tweet">
+  <p lang="en" dir="ltr">
     Even for static text, VoiceOver can sometimes read hidden content out of
     order (it tries to follow visual order instead of source order). And sadly
     this solution isn&#39;t impervious to that issue. Here&#39;s a test:
-    <a href='https://t.co/sRfZNcmE7r'>https://t.co/sRfZNcmE7r</a>
+    <a href="https://t.co/sRfZNcmE7r">https://t.co/sRfZNcmE7r</a>
   </p>
-  &mdash; Letra Studio (@letrastudio) <a href='https://twitter.com/letrastudio/status/1120970115628130304?ref_src=twsrc%5Etfw'>April 24, 2019</a>
+  &mdash; Letra Studio (@letrastudio) <a href="https://twitter.com/letrastudio/status/1120970115628130304?ref_src=twsrc%5Etfw">April 24, 2019</a>
 </blockquote>
 
 I did my own test on this, but the bug Joao reported doesn't seem to happen on my computer, even though we used the same device!
@@ -295,8 +295,8 @@ It turns out, a bunch of experts (including Scott) were already going back-and-f
 From what I've read, it seems like the problem happens when `position: absolute` is used. When you use `position: absolute` and you mess around with the CSS positing, it messes with the position of the Voiceover focus-ring, which changes the reading order.
 
 <Image
-  src='/images/2019/hide-content-accessibly/focus-ring.png'
-  alt='An image detailing the experiments done by Joe Watkin on how CSS affects focus rings'
+  src="/assets/2019/hide-content-accessibly/focus-ring.png"
+  alt="An image detailing the experiments done by Joe Watkin on how CSS affects focus rings"
 />
 
 This means ANY solution that there's a chance that macOS Voiceover screws ANY solution that contains `position: absolute`.
@@ -410,8 +410,8 @@ Like Scott mentioned, it's almost like a situation where you can choose between 
 
 <script
   async
-  src='https://platform.twitter.com/widgets.js'
-  charset='utf-8'
+  src="https://platform.twitter.com/widgets.js"
+  charset="utf-8"
 ></script>
 
 Unfortunately, this is something that's way out of my league right now. If you'd like to step up and participate in the conversation, I'm sure Jonathan, Scott, and many others would love to chat!

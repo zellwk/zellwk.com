@@ -14,8 +14,8 @@ It's much simpler.
 Here's what we're building:
 
 <Image
-  src='/images/2018/empty-input-validation-js/check.gif'
-  alt='When input is filled, borders should turn green'
+  src="/assets/2018/empty-input-validation-js/check.gif"
+  alt="When input is filled, borders should turn green"
 />
 
 {/* more */}
@@ -109,8 +109,8 @@ When a user enters text into the field, input validation begins. However, if the
 We don't want to invalidate the input if the user removes all text. They may need a moment to think, but the invalidated state sets off an unnecessary alarm.
 
 <Image
-  src='/images/2018/empty-input-validation-js/problem.gif'
-  alt='Form becomes invalid when empty after user types into it'
+  src="/assets/2018/empty-input-validation-js/problem.gif"
+  alt="Form becomes invalid when empty after user types into it"
 />
 
 To fix this, we can check whether the user has entered any text into the input before we `trim` it.
@@ -136,6 +136,6 @@ input.addEventListener('input', evt => {
 
 Here's a Codepen for you to play with:
 
-<Codepen height='476' hash='EObQpr' title='Empty validation with JavaScript' />
+<Codepen height="476" hash="EObQpr" title="Empty validation with JavaScript" />
 
 [1]: /blog/check-empty-input-css 'Checking if an input is empty with CSS'

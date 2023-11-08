@@ -86,22 +86,22 @@ While testing, I realised there's no point in testing one operation because of t
 First, `performance.now` can measure operations in microseconds but `Date.now` can't. So we won't be able to see the differences between them.
 
 <Image
-  src='/images/2020/performance/oneop-chrome.png'
-  caption='Time taken for one operation in Chrome'
+  src="/assets/2020/performance/oneop-chrome.png"
+  caption="Time taken for one operation in Chrome"
 />
 
 Second, `performance.now` gets rounded off to the nearest millisecond in Safari and Firefox. So there's no point comparing anything that takes less than 1ms.
 
 <Image
-  src='/images/2020/performance/oneop-firefox.png'
-  caption='Firefox rounds performance.now values to nearest millisecond'
+  src="/assets/2020/performance/oneop-firefox.png"
+  caption="Firefox rounds performance.now values to nearest millisecond"
 />
 
 I had to increase the tests to 10 million operations before the numbers begin to make sense.
 
 <Image
-  src='/images/2020/performance/manyops-firefox.png'
-  alt='10 million operations.'
+  src="/assets/2020/performance/manyops-firefox.png"
+  alt="10 million operations."
 />
 
 ### Finding #1: Performance.now vs Date.now
@@ -115,18 +115,18 @@ perf(
   _ => {
     return 1 + 1
   },
-  count
+  count,
 )
 perfDate(
   'Performance',
   _ => {
     return 1 + 1
   },
-  count
+  count,
 )
 ```
 
-<Image src='/images/2020/performance/initial.png' alt='Initial test' />
+<Image src="/assets/2020/performance/initial.png" alt="Initial test" />
 
 Here, I found no major difference between `performance.now` and `Date.now`.
 
@@ -144,21 +144,21 @@ perf(
   _ => {
     return 1 + 1
   },
-  count
+  count,
 )
 perf(
   'Performance',
   _ => {
     return 1 + 1
   },
-  count
+  count,
 )
 perf(
   'Performance',
   _ => {
     return 1 + 1
   },
-  count
+  count,
 )
 
 perfDate(
@@ -166,25 +166,25 @@ perfDate(
   _ => {
     return 1 + 1
   },
-  count
+  count,
 )
 perfDate(
   'Date',
   _ => {
     return 1 + 1
   },
-  count
+  count,
 )
 perfDate(
   'Date',
   _ => {
     return 1 + 1
   },
-  count
+  count,
 )
 ```
 
-<Image src='/images/2020/performance/stacked.png' alt='Stacked test.' />
+<Image src="/assets/2020/performance/stacked.png" alt="Stacked test." />
 
 Second and Third tests on Chrome for both `perf` and `perfDate` jumped from 8ms to 80ms. That's a 10x increase. I thought I was doing something wrong!
 
@@ -207,8 +207,8 @@ perfDate('Date', test, count)
 ```
 
 <Image
-  src='/images/2020/performance/stacked-2.png'
-  alt='Stacked results when using predefined function.'
+  src="/assets/2020/performance/stacked-2.png"
+  alt="Stacked results when using predefined function."
 />
 
 Note: I also found out that Node's `performance.now` has the same behaviour as Chrome's `performance.now`.
@@ -247,11 +247,11 @@ function perf(message, callback, loops = 1, rounds = 10) {
 
 But the results were strange: the elapsed timing for the second loop onwards dropped to zero. This happened for both `perf` and `perfDate`.
 
-<Image src='/images/2020/performance/results-chrome.png' alt='' />
+<Image src="/assets/2020/performance/results-chrome.png" alt="" />
 
 It also happened for all three browsers!
 
-<Image src='/images/2020/performance/results-all.png' alt='' />
+<Image src="/assets/2020/performance/results-all.png" alt="" />
 
 I'm not sure what's wrong here. If you know why, please tell me!
 

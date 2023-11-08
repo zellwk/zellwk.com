@@ -30,7 +30,7 @@ CRUD, Express and MongoDB are big words for a person who has never touched any s
 
 If we put CRUD, Express and MongoDB together into a single diagram, this is what it would look like:
 
-<Image src='/images/2020/crud/crud-express-mongo.png' alt='' />
+<Image src='/assets/2020/crud/crud-express-mongo.png' alt='' />
 
 Does CRUD, Express and MongoDB makes more sense to you now?
 
@@ -41,7 +41,7 @@ Great. Let's move on.
 Let's build a simple application that lets you track a list of quotes from Star Wars Characters. Here's what it looks like:
 
 <Image
-  src='/images/2020/crud/looks.png'
+  src='/assets/2020/crud/looks.png'
   alt='Add CSS to make the app look better.'
 />
 
@@ -68,7 +68,7 @@ To check if you have Node installed, open up your Command Line and run the follo
 $ node -v
 ```
 
-<Image src='/images/2020/crud/node-version.png' alt='Node version' />
+<Image src='/assets/2020/crud/node-version.png' alt='Node version' />
 
 You should get a version number if you have Node installed. If you don't, you can install Node either by downloading the installer from [Node's website][9] or downloading it through package managers like [Homebrew][10] (Mac) and [Chocolatey][11] (Windows).
 
@@ -82,7 +82,7 @@ Start by creating a folder for this project. Feel free to call it anything you w
 $ npm init
 ```
 
-<Image src='/images/2020/crud/npm-init.png' alt='npm init.' />
+<Image src='/assets/2020/crud/npm-init.png' alt='npm init.' />
 
 Just hit enter through everything that appears. I'll talk about the ones you need to know as we go along.
 
@@ -104,7 +104,7 @@ console.log('May Node be with you')
 Now, run `node server.js` in your command line and you should see this:
 
 <Image
-  src='/images/2020/crud/node-log.png'
+  src='/assets/2020/crud/node-log.png'
   alt='Logged May Node be with you.'
 />
 
@@ -127,7 +127,7 @@ npm install express --save
 ```
 
 <Image
-  src='/images/2020/crud/exp-dependency.png'
+  src='/assets/2020/crud/exp-dependency.png'
   alt='Saved express as a dependency'
 />
 
@@ -148,7 +148,7 @@ app.listen(3000, function () {
 
 Now, run `node server.js` and navigate to `localhost:3000` on your browser. You should see a message that says `cannot get /`.
 
-<Image src='/images/2020/crud/cannot-get.png' alt='Cannot get /.' />
+<Image src='/assets/2020/crud/cannot-get.png' alt='Cannot get /.' />
 
 That's a good sign. It means **we can now communicate to our express server through the browser**. This is where we begin CRUD operations.
 
@@ -201,7 +201,7 @@ Now, restart your server by doing the following:
 
 Then, navigate to `localhost:3000` on your browser. You should be able to see a string that says "Hello World".
 
-<Image src='/images/2020/crud/get-hello-world.png' alt='' />
+<Image src='/assets/2020/crud/get-hello-world.png' alt='' />
 
 Great.
 
@@ -238,7 +238,7 @@ Let's put some text in our `index.html` file as well:
 
 Restart your server and refresh your browser. You should be able to see your HTML file now.
 
-<Image src='/images/2020/crud/get-index.png' alt='The HTML file.' />
+<Image src='/assets/2020/crud/get-index.png' alt='The HTML file.' />
 
 This is how Express handles a **GET** request (**READ** operation) in a nutshell.
 
@@ -259,7 +259,7 @@ $ npm install nodemon --save-dev
 </Callout>
 
 <Image
-  src='/images/2020/crud/nodemon-dev-dep.png'
+  src='/assets/2020/crud/nodemon-dev-dep.png'
   alt='Saved Nodemon as a dev dependency.'
 />
 
@@ -286,7 +286,7 @@ We can make things simpler by adding ` script` key in the `package.json` file. 
 Now, you can run `npm run dev` to trigger `nodemon server.js`.
 
 <Image
-  src='/images/2020/crud/nodemon-server.png'
+  src='/assets/2020/crud/nodemon-server.png'
   alt='Uses npm run dev to run nodemon server.js'
 />
 
@@ -329,7 +329,7 @@ app.post('/quotes', (req, res) => {
 Restart your server (hopefully you've set up Nodemon so it restarts automatically) and refresh your browser. Then, enter something into the `<form>` element and submit the form. Next, look at your command line. You should see `Hellooooooooooooooooo!` in your command line.
 
 <Image
-  src='/images/2020/crud/post-log.png'
+  src='/assets/2020/crud/post-log.png'
   alt='Logs helloooo in the command line.'
 />
 
@@ -373,7 +373,7 @@ app.post('/quotes', (req, res) => {
 You should see an object similar to the following:
 
 <Image
-  src='/images/2020/crud/post-log-req-body.png'
+  src='/assets/2020/crud/post-log-req-body.png'
   alt='Logs the request body.'
 />
 
@@ -423,14 +423,14 @@ The next part is to get the correct link to our database. Most people store thei
 Go ahead and [create an account on MongoDB Atlas][19]. Once you're done, you need to create an "Organization". It's sort of like a company name. You can name it anything you want. (You can change it later).
 
 <Image
-  src='/images/2020/crud/atlas-create-org.png'
+  src='/assets/2020/crud/atlas-create-org.png'
   alt='Creates an Atlas Organization'
 />
 
 You also need to select a cloud service. Go ahead with MongoDB Atlas in this case.
 
 <Image
-  src='/images/2020/crud/atlas-select-cloud.png'
+  src='/assets/2020/crud/atlas-select-cloud.png'
   alt='Selects a cloud service.'
 />
 
@@ -438,18 +438,18 @@ Next, you need to set permissions for users. MongoDB Atlas will automatically fi
 
 You should end up with a screen that looks like this:
 
-<Image src='/images/2020/crud/atlas-projects.png' alt='Atlas project screen.' />
+<Image src='/assets/2020/crud/atlas-projects.png' alt='Atlas project screen.' />
 
 Next, you need to create a Database in MongoDB Atlas. There are several steps to do this.
 
 First, you need to create a new Project. You can do this by going under "Context" in the top left hand menu. Click the Dropdown. Then, select New Project.
 
-<Image src='/images/2020/crud/atlas-cp.png' alt='Creating a new project.' />
+<Image src='/assets/2020/crud/atlas-cp.png' alt='Creating a new project.' />
 
 Next, you will need to name your project. Call it anything you want. I'm going to call this `star-wars`.
 
 <Image
-  src='/images/2020/crud/atlas-cp-name-project.png'
+  src='/assets/2020/crud/atlas-cp-name-project.png'
   alt='Naming the project.'
 />
 
@@ -457,26 +457,26 @@ Then, you will need to add members. Again, you're already added so go ahead and 
 
 You should end up with a screen that says Create a Cluster.
 
-<Image src='/images/2020/crud/atlas-cluster.png' alt='Create Cluster Screen.' />
+<Image src='/assets/2020/crud/atlas-cluster.png' alt='Create Cluster Screen.' />
 
 Click on "Build a Cluster". You should see this screen:
 
-<Image src='/images/2020/crud/atlas-cc.png' alt='Selecting a cluster' />
+<Image src='/assets/2020/crud/atlas-cc.png' alt='Selecting a cluster' />
 
 Select the free cluster (left option) and continue. You should now see a screen to configure a cluster. Scroll down. Make sure you see these two things:
 
 1. Cluster Tier is M0 Sandbox
 2. Monthly Estimate is FREE
 
-<Image src='/images/2020/crud/atlas-cc-m0.png' alt='Configured the cluster.' />
+<Image src='/assets/2020/crud/atlas-cc-m0.png' alt='Configured the cluster.' />
 
 Click on Create cluster next. You should see "Your cluster is being created".
 
-<Image src='/images/2020/crud/atlas-cc-creating.png' alt='Creating cluster.' />
+<Image src='/assets/2020/crud/atlas-cc-creating.png' alt='Creating cluster.' />
 
 You have to wait for approximately 5 minutes for the cluster creation. When the cluster is ready, you'll see this:
 
-<Image src='/images/2020/crud/atlas-cc-ready.png' alt='Cluster ready' />
+<Image src='/assets/2020/crud/atlas-cc-ready.png' alt='Cluster ready' />
 
 Now, we need to connect our Star Wars app with this cluster.
 
@@ -484,19 +484,19 @@ Now, we need to connect our Star Wars app with this cluster.
 
 Click on the Connect button.
 
-<Image src='/images/2020/crud/atlas-connect.png' alt='Connect button.' />
+<Image src='/assets/2020/crud/atlas-connect.png' alt='Connect button.' />
 
 A modal should pop up.
 
 <Image
-  src='/images/2020/crud/atlas-connect-modal.png'
+  src='/assets/2020/crud/atlas-connect-modal.png'
   alt='Connection modal.'
 />
 
 You need to whitelist your IP address before you can connect to your cluster. This is a security feature built into MongoDB Atlas. Go ahead and click "Add your Current IP Address".
 
 <Image
-  src='/images/2020/crud/atlas-connect-add-ip.png'
+  src='/assets/2020/crud/atlas-connect-add-ip.png'
   alt='Adds IP address.'
 />
 
@@ -505,19 +505,19 @@ Next, you need to create a MongoDB user. This username and password is different
 Make sure you remember MongoDB user and password. We'll use it to connect to the database.
 
 <Image
-  src='/images/2020/crud/atlas-connect-mongodb-user.png'
+  src='/assets/2020/crud/atlas-connect-mongodb-user.png'
   alt='MongoDB User.'
 />
 
 Next, click on choose your connection method. Select "Connect to your application" and copy the connection string.
 
 <Image
-  src='/images/2020/crud/atlas-connect-method.png'
+  src='/assets/2020/crud/atlas-connect-method.png'
   alt='Choosing a connection method.'
 />
 
 <Image
-  src='/images/2020/crud/atlas-connection-string.png'
+  src='/assets/2020/crud/atlas-connection-string.png'
   alt='Copy the connection string.'
 />
 
@@ -558,7 +558,7 @@ MongoClient.connect(connectionString, (err, client) => {
 
 You should see something like this:
 
-<Image src='/images/2020/crud/connected.png' alt='Connected to database.' />
+<Image src='/assets/2020/crud/connected.png' alt='Connected to database.' />
 
 You can remove the deprecation warning by adding the option into `MongoClient.connect`
 
@@ -576,7 +576,7 @@ MongoClient.connect(
 ```
 
 <Image
-  src='/images/2020/crud/connect-no-deprecation-warnings.png'
+  src='/assets/2020/crud/connect-no-deprecation-warnings.png'
   alt='Connection without deprecation warning.'
 />
 
@@ -660,28 +660,28 @@ app.post('/quotes', (req, res) => {
 
 Try submitting the `<form>` from the browser. You should see a big scary looking `result` in the Terminal.
 
-<Image src='/images/2020/crud/post-result.png' alt='Post result.' />
+<Image src='/assets/2020/crud/post-result.png' alt='Post result.' />
 
 If you see this, congratulations! You've successfully added the quote into the database.
 
 You can check the items inside the database by going to "Collections" in MongoDB Atlas.
 
 <Image
-  src='/images/2020/crud/atlas-collections.png'
+  src='/assets/2020/crud/atlas-collections.png'
   alt='Collections in MongoDB Atlas.'
 />
 
 You should see a document in your database. (Each database entry is called a document).
 
 <Image
-  src='/images/2020/crud/atlas-collection-view.png'
+  src='/assets/2020/crud/atlas-collection-view.png'
   alt='Documents in MongoDB Atlas.'
 />
 
 If you go back to the Browser, you'll see it's still trying to load something.
 
 <Image
-  src='/images/2020/crud/post-loading.png'
+  src='/assets/2020/crud/post-loading.png'
   alt='Browser still trying to load a page.'
 />
 
@@ -701,7 +701,7 @@ app.post('/quotes', (req, res) => {
 ```
 
 <Image
-  src='/images/2020/crud/post-redirected.png'
+  src='/assets/2020/crud/post-redirected.png'
   alt='Redirected. Browser is no longer waiting to load something.'
 />
 
@@ -732,7 +732,7 @@ app.get('/', (req, res) => {
 
 The `find` method returns a `cursor` which won't make sense if you tried logging it.
 
-<Image src='/images/2020/crud/cursor.png' alt='Cursor object from MongoDB' />
+<Image src='/assets/2020/crud/cursor.png' alt='Cursor object from MongoDB' />
 
 But this `cursor` object contains all quotes from our database! It has a bunch of method that lets us get our data. For example, we can use `toArray` to convert the data into an array.
 
@@ -749,7 +749,7 @@ app.get('/', (req, res) => {
 })
 ```
 
-<Image src='/images/2020/crud/mongodb-get.png' alt='' />
+<Image src='/assets/2020/crud/mongodb-get.png' alt='' />
 
 Great! We see the quotes we added! (You see so many of the same quotes because I added them all when writing this tutorial 😆).
 
@@ -838,7 +838,7 @@ app.get('/', (req, res) => {
 
 If you refresh the page, you should still see the same thing. Nothing should change, nothing should break.
 
-<Image src='/images/2020/crud/get-ejs.png' alt='Renders an ejs file.' />
+<Image src='/assets/2020/crud/get-ejs.png' alt='Renders an ejs file.' />
 
 Let's put the quotes into `index.ejs`. To do this, we need to pass the quotes into the `render` method.
 
@@ -867,7 +867,7 @@ In `index.ejs`, we can use place variables between `<%=` and `%>` tags. Let's tr
 
 You should see this:
 
-<Image src='/images/2020/crud/ejs-quotes.png' alt='Rendered quotes in EJS.' />
+<Image src='/assets/2020/crud/ejs-quotes.png' alt='Rendered quotes in EJS.' />
 
 We see lots of `[object Object]` because each quote inside `results` is a JavaScript object. `ejs` cannot convert that object into HTML automatically.
 
@@ -890,7 +890,7 @@ We need to loop through the quotes. We can do this with a `for` loop. In EJS, we
 ```
 
 <Image
-  src='/images/2020/crud/ejs-rendered-quotes.png'
+  src='/assets/2020/crud/ejs-rendered-quotes.png'
   alt='Rendered quotes with EJS.'
 />
 
@@ -912,7 +912,7 @@ To do this, we need to add a `button` into the `index.ejs` file:
 </div>
 ```
 
-<Image src='/images/2020/crud/put-ejs.png' alt='Add update section to HTML.' />
+<Image src='/assets/2020/crud/put-ejs.png' alt='Add update section to HTML.' />
 
 We will also create an external JavaScript file to execute a `PUT` request. According to Express conventions, this JavaScript is kept in a folder called `public`
 
@@ -1041,7 +1041,7 @@ app.put('/quotes', (req, res) => {
 })
 ```
 
-<Image src='/images/2020/crud/put-body.png' alt='Put request body' />
+<Image src='/assets/2020/crud/put-body.png' alt='Put request body' />
 
 The next step is to change the Yoda's first quote to this quote by Darth Vader.
 
@@ -1129,12 +1129,12 @@ app.put('/quotes', (req, res) => {
 
 Try clicking the "replace first Yoda quote" button in the browser. You should see this result in your command line. This says we changed one of Yoda's quote.
 
-<Image src='/images/2020/crud/put-result.png' alt='Put result.' />
+<Image src='/assets/2020/crud/put-result.png' alt='Put result.' />
 
 If you refresh the browser, you should see Darth Vader's quote as the first quote.
 
 <Image
-  src='/images/2020/crud/put-check.png'
+  src='/assets/2020/crud/put-check.png'
   alt='Checking the HTML after a PUT request.'
 />
 
@@ -1175,7 +1175,7 @@ fetch({
 You should be able to see a `Success` message from the server in the console.
 
 <Image
-  src='/images/2020/crud/put-response.png'
+  src='/assets/2020/crud/put-response.png'
   alt='Response from the server.'
 />
 
@@ -1228,7 +1228,7 @@ First, we need to add a delete button to `index.ejs`.
 ```
 
 <Image
-  src='/images/2020/crud/delete-ejs.png'
+  src='/assets/2020/crud/delete-ejs.png'
   alt='Adds delete button to the index.ejs file.'
 />
 
@@ -1373,7 +1373,7 @@ deleteButton.addEventListener('click', _ => {
 ```
 
 <Image
-  src='/images/2020/crud/delete-result.gif'
+  src='/assets/2020/crud/delete-result.gif'
   alt='Message if no quotes can be deleted.'
 />
 
@@ -1384,7 +1384,7 @@ That's it for the **DELETE** operation!
 The final step is to make the app look a little better by sprinkling some styles!
 
 <Image
-  src='/images/2020/crud/looks.png'
+  src='/assets/2020/crud/looks.png'
   alt='Add CSS to make the app look better.'
 />
 

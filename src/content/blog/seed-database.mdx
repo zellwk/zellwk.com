@@ -120,10 +120,10 @@ userSchema.pre('save', async function (next) {
 
 If you use `create`, you'll get users with hashed passwords: 
 
-<Image src="/images/2019/seed-database/create.png" alt="Create runs the save middleware." />
+<Image src="/assets/2019/seed-database/create.png" alt="Create runs the save middleware." />
 If you use `insertMany`, you'll get users without hashed passwords: 
 
-<Image src="/images/2019/seed-database/insert-many.png" alt="InsertMany does not run the save middleware." />
+<Image src="/assets/2019/seed-database/insert-many.png" alt="InsertMany does not run the save middleware." />
 ### When to use create, when to use insertMany
 
 Since `insertMany` is faster than `create`, you want to use `insertMany` whenever you can. 

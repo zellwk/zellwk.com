@@ -83,7 +83,7 @@ fetch('/signup', {
 
 This request results in an error. Unfortunately, Express will not be able to handle this error. You'll receive a log like this:
 
-<Image src="/images/2019/async-await-express/unhandled-error.png" alt="Unhandled Promise Rejection Warning." />
+<Image src="/assets/2019/async-await-express/unhandled-error.png" alt="Unhandled Promise Rejection Warning." />
 
 To handle an error in an asynchronous function, you need to catch the error first. You can do this with `try/catch`.
 
@@ -100,7 +100,7 @@ app.post('/signup', async (req, res) => {
 })
 ```
 
-<Image src="/images/2019/async-await-express/console-log-error.png" alt="Logging the error into the console." />
+<Image src="/assets/2019/async-await-express/console-log-error.png" alt="Logging the error into the console." />
 
 Next, you pass the error into an Express error handler with the `next` argument.
 
@@ -126,9 +126,9 @@ Express's default error handler will:
 2. Send a Text response back to the requester
 3. Log the text response in the console
 
-<Image src="/images/2019/async-await-express/default-error-handler-response.png" caption="I used Postman to send a request to my server. Here's the text response back from the server." />
+<Image src="/assets/2019/async-await-express/default-error-handler-response.png" caption="I used Postman to send a request to my server. Here's the text response back from the server." />
 
-<Image src="/images/2019/async-await-express/default-error-handler-log.png" caption="Notice the 500 HTTP Status log in this image. This tells me Express's default handler changed the HTTP Status to 500. The log is from Morgan." />
+<Image src="/assets/2019/async-await-express/default-error-handler-log.png" caption="Notice the 500 HTTP Status log in this image. This tells me Express's default handler changed the HTTP Status to 500. The log is from Morgan." />
 
 I talked about Morgan in detail <a href="/blog/express-middlewares"> here</a>. 
 

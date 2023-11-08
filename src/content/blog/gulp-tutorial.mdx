@@ -41,7 +41,7 @@ $ npm init
 
 This `npm init` command asks you a few questions and creates a `package.json` file to store information about dependencies that you'll use in this project.
 
-<Image src='/images/2015/07/npm-init.png' alt='' />
+<Image src="/assets/2015/07/npm-init.png" alt="" />
 
 The first dependency in our project is Gulp since we're using it as our build tool. You'll have to install gulp within the `project` folder by augmenting the install code slightly:
 
@@ -57,11 +57,11 @@ Since we're installing a package locally, we don't have a need for administrator
 
 Now, if you take a look at your `package.json` file, you should see that Gulp has been added as a dev dependency.
 
-<Image src='/images/2015/07/package-json.png' alt='' />
+<Image src="/assets/2015/07/package-json.png" alt="" />
 
 You should also see a `gulp` folder within the new `node_modules` folder that was created when you ran the `npm install gulp --save-dev` command.
 
-<Image src='/images/2015/07/node-modules.png' alt='' />
+<Image src="/assets/2015/07/node-modules.png" alt="" />
 
 Next, we'll have to create a `gulpfile.js` file to store all our Gulp configurations.
 
@@ -131,7 +131,7 @@ $ gulp hello
 
 You should see a log from the terminal saying "Hello Zell!" once you ran the code in the terminal.
 
-<Image src='/images/2015/07/hello.png' alt='' />
+<Image src="/assets/2015/07/hello.png" alt="" />
 
 In reality, gulp tasks are slightly more complex that what we have written so far. You'll have to use two other gulp methods, `gulp.src` and `gulp.dest`.
 
@@ -177,7 +177,7 @@ Now, create a `styles.scss` file within the `app/scss` folder and give it some s
 
 This `styles.scss` file will be converted into CSS by passing through the `gulp-sass` plugin we installed. After passing through the plugin, it'll be created as `styles.css` in the `app/css` folder.
 
-<Image src='/images/2015/07/pipe-1.png' alt='' />
+<Image src="/assets/2015/07/pipe-1.png" alt="" />
 
 Here's how the task would look like:
 
@@ -230,7 +230,7 @@ var autoprefixer = require('gulp-autoprefixer')
 
 Autoprefixer is usually placed after Sass is compiled into CSS. In Gulp, we'll want to add another `.pipe()` so the resultant CSS gets passed through autoprefixer before it's created as `styles.css` in `app/css`.
 
-<Image src='/images/2015/07/pipe-autoprefixer.png' alt='' />
+<Image src="/assets/2015/07/pipe-autoprefixer.png" alt="" />
 
 The modified code is hence:
 
@@ -260,7 +260,7 @@ Another task that'll help you out during development is to add sourcemaps.
 
 A sourcemap is a string of information that tells the browser where different sections of the code is stored. With a CSS sourcemap, you can easily locate the original source code of specific lines of CSS just by checking out the inspector.
 
-<Image src='/images/2015/07/sourcemap.png' alt='' />
+<Image src="/assets/2015/07/sourcemap.png" alt="" />
 
 To add sourcemaps to the `sass` task, we'll have to install the `gulp-sourcemaps` plugin.
 
@@ -279,7 +279,7 @@ First, we'll need to initialize the sourcemap plugin right after getting source 
 
 Then, we'll have to let the files pass through `gulp-sass` and `gulp-autoprefixer` before writing the sourcemaps at the end of the css file.
 
-<Image src='/images/2015/07/pipe-sourcemap.png' alt='' />
+<Image src="/assets/2015/07/pipe-sourcemap.png" alt="" />
 
 ```js
 gulp.task('sass', function () {
@@ -331,11 +331,11 @@ gulp.task('watch', function () {
 
 Now if you run the watch command you'll see that gulp immediately starts watching your files for changes.
 
-<Image src='/images/2015/07/watch-changes.png' alt='' />
+<Image src="/assets/2015/07/watch-changes.png" alt="" />
 
 And if you change a line in `styles.scss`, Gulp will automatically run the sass task.
 
-<Image src='/images/2015/07/watch-compile.gif' alt='' />
+<Image src="/assets/2015/07/watch-compile.gif" alt="" />
 
 There's only one thing that's lacking here. Gulp didn't run the `sass` task first before running `watch`, which means the CSS might not be the most updated one. Hence, we'll want to make sure the `watch` task runs after the `sass` task.
 
@@ -350,7 +350,7 @@ gulp.task('watch', ['sass'], function () {
 
 Now if you run the `watch` task, you'll see that Gulp tells the command line to first run the `sass` task, followed by the `watch` task.
 
-<Image src='/images/2015/07/sass-watch.png' alt='' />
+<Image src="/assets/2015/07/sass-watch.png" alt="" />
 
 Since we're already watching and recompiling Sass files when it's changed, why not bring it further and reload the browser each time the file is saved?
 
@@ -405,7 +405,7 @@ gulp.task('sass', function () {
       .pipe(
         browserSync.reload({
           stream: true,
-        })
+        }),
       )
   )
 })
@@ -421,11 +421,11 @@ gulp.task('watch', ['browserSync', 'sass'], function () {
 
 If you run `gulp watch` in the terminal now, you'll see that `browserSync` and `sass` runs concurrently, followed by `watch`. In addition, a browser pops up to show you the current `index.html` file.
 
-<Image src='/images/2015/07/bs-watch.png' alt='' />
+<Image src="/assets/2015/07/bs-watch.png" alt="" />
 
 So if you change the `styles.scss` file and save...
 
-<Image src='/images/2015/07/bs-change-bg.gif' alt='' />
+<Image src="/assets/2015/07/bs-change-bg.gif" alt="" />
 
 Viola! :)
 

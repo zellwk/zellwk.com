@@ -18,15 +18,15 @@ This post reveals the two problems and shows you how to solve them.
 The first problem happens when you get a gallery where the first item is not positioned in the correct place.
 
 <Image
-  src='/images/2015/05/first-item-position.png'
-  alt='First item is placed in the wrong position'
+  src="/assets/2015/05/first-item-position.png"
+  alt="First item is placed in the wrong position"
 />
 
 The second problem happens when you want to create a gallery of different sizes.
 
 <Image
-  src='/images/2015/05/different-gallery-widths.png'
-  alt='Having different galleries items of different width'
+  src="/assets/2015/05/different-gallery-widths.png"
+  alt="Having different galleries items of different width"
 />
 
 These two problems are relatively easy to solve once you know what goes on in the `gallery()` mixin. Let's explore how the `gallery()` mixin works again before diving into solving these problems.
@@ -173,7 +173,7 @@ This means we need to use a `3n+2` to target the first column, `3n+3` for the se
 
 Here's a Codepen of this method working:
 
-<Codepen hash='MwjbYe' title='MwjbYe' />
+<Codepen hash="MwjbYe" title="MwjbYe" />
 
 ### Use Span instead of Gallery
 
@@ -193,7 +193,7 @@ The code for this option also changes depending on the `gutter-position` you hav
 
 Here's a Codepen of this:
 
-<Codepen hash='EjgNaX' title='EjgNaX' />
+<Codepen hash="EjgNaX" title="EjgNaX" />
 
 If you use `split` or `inside` gutters though, you don't need that. Just do use a normal span.
 
@@ -205,7 +205,7 @@ If you use `split` or `inside` gutters though, you don't need that. Just do use 
 
 Here's a Codepen of this:
 
-<Codepen hash='GJjNgP' title='GJjNgP' />
+<Codepen hash="GJjNgP" title="GJjNgP" />
 
 We're done with the first problem. You can use any of these methods and the results will be the same. Let's move onto the second problem
 
@@ -225,8 +225,8 @@ The answer then, is to change the width of the gallery item when needed.
 However, since the `gallery()` uses the [Isolate Technique](https://css-tricks.com/build-web-layouts-easily-susy/), we can't simply change the width or we'll end up with overlapping elements:
 
 <Image
-  src='/images/2015/05/overlapping-elements.png'
-  alt='Overlapping elements'
+  src="/assets/2015/05/overlapping-elements.png"
+  alt="Overlapping elements"
 />
 
 The solution for this is exactly the same as the problem from before. You can either:
@@ -239,8 +239,8 @@ The solution for this is exactly the same as the problem from before. You can ei
 This option is preferable if you want to continue using the [Isolate Technique](https://css-tricks.com/build-web-layouts-easily-susy/). The limitation, however, is that you'll need to ensure that the items within a single column are of equal widths.
 
 <Image
-  src='/images/2015/05/equal-width-columns.png'
-  alt='Equal width columns'
+  src="/assets/2015/05/equal-width-columns.png"
+  alt="Equal width columns"
 />
 
 Here's what the Sass may look like:
@@ -263,7 +263,7 @@ Here's what the Sass may look like:
 
 Here's a Codepen of this:
 
-<Codepen hash='YXGpyO' title='YXGpyO' />
+<Codepen hash="YXGpyO" title="YXGpyO" />
 
 ### Using span to create the gallery
 
@@ -284,7 +284,7 @@ Here's what the Sass may look like:
 
 Here's the Codepen of this:
 
-<Codepen hash='bdwBEb' title='bdwBEb' />
+<Codepen hash="bdwBEb" title="bdwBEb" />
 
 And we're done with the second problem!
 
@@ -296,4 +296,4 @@ But fret not! Once you understand the output from the Gallery mixin, you can alw
 
 Are you now able to resolve the biggest gallery problems you have when using Susy? Which of the methods in this article have you used? Let me know in the comments below!
 
-<script async src='//assets.codepen.io/assets/embed/ei.js'></script>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>

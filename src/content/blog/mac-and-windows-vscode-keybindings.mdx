@@ -30,21 +30,21 @@ Modifiers on Mac (`Command`, `Option`, `Control`) and modifiers on Windows (`Ctr
 Here's where the original modifiers are located on Mac:
 
 <Image
-  src='/images/2020/vscode-keybindings-1/mac-keyboard.jpg'
+  src='/assets/2020/vscode-keybindings-1/mac-keyboard.jpg'
   alt='Mac keyboard.'
 />
 
 On my Windows PC (which is a Surface Laptop).
 
 <Image
-  src='/images/2020/vscode-keybindings-1/surface-keyboard.jpg'
+  src='/assets/2020/vscode-keybindings-1/surface-keyboard.jpg'
   alt='Windows (Surface Laptop 3) keyboard'
 />
 
 I changed modifier locations of my Windows PC with a program called [Auto Hot Key](https://www.autohotkey.com). Here's what they look like right now:
 
 <Image
-  src='/images/2020/vscode-keybindings-1/surface-keyboard-after.jpg'
+  src='/assets/2020/vscode-keybindings-1/surface-keyboard-after.jpg'
   alt="Changed positions of Ctrl, Alt, and Win key on the Window's keyboard."
 />
 
@@ -109,7 +109,7 @@ From now on, **let's jump into the exciting part!**
 The _Go to File_ shortcut is my bread-and-butter shortcut. It opens a list box that lets you type a file you want to go to.
 
 <Image
-  src='/images/2020/vscode-keybindings-1/go-to-file.gif'
+  src='/assets/2020/vscode-keybindings-1/go-to-file.gif'
   alt='Opens the quick open dropdown menu with Command + T.'
 />
 
@@ -158,14 +158,14 @@ Search for _Go to file_ in the keyboard shortcuts panel. You should see one opti
 This creates a shortcut with `Command` + `T`.
 
 <Image
-  src='/images/2020/vscode-keybindings-1/go-to-file.png'
+  src='/assets/2020/vscode-keybindings-1/go-to-file.png'
   caption='Searched for Go to file (on Mac)'
 />
 
 Next, I brought back `Command` + `P` as a keyboard shortcut. To do this, open up `keybindings.json` by clicking on the third icon from the top-right corner.
 
 <Image
-  src='/images/2020/vscode-keybindings-1/keybindings.png'
+  src='/assets/2020/vscode-keybindings-1/keybindings.png'
   alt='Green arrow pointing to an icon that opens the keybindings.json file.'
 />
 
@@ -208,7 +208,7 @@ On Windows, my `Ctrl` key is in the position of the `Alt` key. Since `Ctrl` is i
 I open many tabs when I'm coding, so I need a shortcut to switch between tabs.
 
 <Image
-  src='/images/2020/vscode-keybindings-1/select-tab.gif'
+  src='/assets/2020/vscode-keybindings-1/select-tab.gif'
   alt='Changes betwen three tabs with keyboard shortcuts.'
 />
 
@@ -227,7 +227,7 @@ I open many tabs when I'm coding, so I need a shortcut to switch between tabs.
 Look for _openEditorAtIndex_ in the keyboard settings panel. You should find 9 entries (both Mac and Windows). Change this to `Command` (or `Ctrl`) + Numbers 1 to 9.
 
 <Image
-  src='/images/2020/vscode-keybindings-1/open-editor-at-index.png'
+  src='/assets/2020/vscode-keybindings-1/open-editor-at-index.png'
   alt='Searched for Open editor at index. Found 9 entries.'
 />
 
@@ -248,7 +248,7 @@ It's super helpful to have two (sometimes three) panels to edit code. I use this
 
 For example, I would open a HTML file on one panel. Then, I would open a CSS file on the second panel. Sometimes, I would use a third panel to open a JavaScript file. (But I stick with two panels most of the time).
 
-<Video src='/images/2020/vscode-keybindings-1/create-code-panels.mp4' />
+<Video src='/assets/2020/vscode-keybindings-1/create-code-panels.mp4' />
 
 Visual Studio Code offers a variety of ways to split the text editor. I found _focus on editor group_ the best shortcut because it:
 
@@ -257,7 +257,7 @@ Visual Studio Code offers a variety of ways to split the text editor. I found _f
 
 In this example below, I jump from the second panel to the third panel, then back to the first panel.
 
-<Video src='/images/2020/vscode-keybindings-1/jump-panels.mp4' />
+<Video src='/assets/2020/vscode-keybindings-1/jump-panels.mp4' />
 
 **The default shortcut is:**
 
@@ -274,7 +274,7 @@ In this example below, I jump from the second panel to the third panel, then bac
 Look for _focus editor group_ in Visual Studio Code's keyboard shortcuts panel. You'll see options that say `workbench.actions.focus[Number]EditorGroup`. (Where `Number` is first, second, third, fourth, and so on).
 
 <Image
-  src='/images/2020/vscode-keybindings-1/focus-editor-group.png'
+  src='/assets/2020/vscode-keybindings-1/focus-editor-group.png'
   alt='Searched for focus editor group in Visual Studio Code keyboard shortcuts panel.'
 />
 
@@ -299,15 +299,15 @@ On Windows, my `Alt` is right next to `Ctrl`. It makes sense. I'm pressing the s
 
 What happens I opened a tab from the wrong panel? This is where _Move editor into group_ comes in handy. It lets me move a tab from one panel to another.
 
-<Video src='/images/2020/vscode-keybindings-1/move-panel.mp4' />
+<Video src='/assets/2020/vscode-keybindings-1/move-panel.mp4' />
 
 _Move editor into group_ also lets me open up a panel if there are none.
 
-<Video src='/images/2020/vscode-keybindings-1/move-open-panel.mp4' />
+<Video src='/assets/2020/vscode-keybindings-1/move-open-panel.mp4' />
 
 You can even create a Vertical + Horizontal split combination with _Move editor into group_!
 
-<Video src='/images/2020/vscode-keybindings-1/move-open-panel-vertical.mp4' />
+<Video src='/assets/2020/vscode-keybindings-1/move-open-panel-vertical.mp4' />
 
 You can move panels (which Visual Studio Code calls editor groups) in 8 ways:
 
@@ -344,7 +344,7 @@ No default keyboard shortcuts are assigned to the last four actions 😢.
 Search for "_Move editor into_" in Visual Studio Code's keyboard shortcuts panel. You should see 8 entries.
 
 <Image
-  src='/images/2020/vscode-keybindings-1/move-editor-into.png'
+  src='/assets/2020/vscode-keybindings-1/move-editor-into.png'
   alt='Searched for Move editor into in the keyboarh shortcuts panel.'
 />
 
@@ -369,7 +369,7 @@ I find that this makes a lot of sense!
 Let's say you create an empty panel by accident. You want to close this panel.
 
 <Image
-  src='/images/2020/vscode-keybindings-1/close.gif'
+  src='/assets/2020/vscode-keybindings-1/close.gif'
   alt='Closes an empty panel.'
 />
 
@@ -385,7 +385,7 @@ I didn't change this shortcut. I just wanted to tell you about this because I fi
 I prefer to split the screen vertically. But when I need code gets long, it makes sense to split things up horizontally. This is especially useful for those pesky JavaScript methods with super long names.
 
 <Image
-  src='/images/2020/vscode-keybindings-1/toggle-split.gif'
+  src='/assets/2020/vscode-keybindings-1/toggle-split.gif'
   alt='Toggles split direction of panels'
 />
 

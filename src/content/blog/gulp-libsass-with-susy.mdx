@@ -34,17 +34,17 @@ We can use the `npm init` command to create the `package.json` file and the `bow
 $ npm init
 ```
 
-<Image src='/images/2015/02/npminit1.png' alt='NPM Init' />
+<Image src="/assets/2015/02/npminit1.png" alt="NPM Init" />
 
 ```bash
 $ bower init
 ```
 
-<Image src='/images/2015/02/bowerinit1.png' alt='Bower Init' />
+<Image src="/assets/2015/02/bowerinit1.png" alt="Bower Init" />
 
 These two files combined will allow you to easily add or manage dependencies in your project. Your folder structure should now be:
 
-<Image src='/images/2015/02/gulp-folder-1.png' alt='Folder Structure' />
+<Image src="/assets/2015/02/gulp-folder-1.png" alt="Folder Structure" />
 
 We can proceed on to install the gulp packages we need to run LibSass with Susy.
 
@@ -70,7 +70,7 @@ $ npm install gulp-sourcemaps --save-dev
 
 Your project structure should now be:
 
-<Image src='/images/2015/02/gulp-folder-2.png' alt='Folder Structure' />
+<Image src="/assets/2015/02/gulp-folder-2.png" alt="Folder Structure" />
 
 We now have the necessary packages to compile Sass into CSS with LibSass. Let's move on to installing our front-end dependencies with Bower.
 
@@ -84,11 +84,11 @@ bower install susy --save
 
 Your folder structure should now be:
 
-<Image src='/images/2015/02/gulp-folder-3.png' alt='Folder Structure 3' />
+<Image src="/assets/2015/02/gulp-folder-3.png" alt="Folder Structure 3" />
 
 Remember to add your HTML, SCSS and CSS folders into the project.
 
-<Image src='/images/2015/02/gulp-folder-4.png' alt='Folder Structure 4' />
+<Image src="/assets/2015/02/gulp-folder-4.png" alt="Folder Structure 4" />
 
 We have to import Susy into the stylesheets to use it. This is how you import Susy if you have the same folder structure as the picture above.
 
@@ -115,7 +115,7 @@ Now we have all the necessary libraries for this setup to work properly. Let's p
 
 We begin writing the Gulpfile by creating the a `gulpfile.js` and add that into your the project.
 
-<Image src='/images/2015/02/gulp-folder-5.png' alt='Folder Structure 5' />
+<Image src="/assets/2015/02/gulp-folder-5.png" alt="Folder Structure 5" />
 
 You start off by requiring all the packages that are installed.
 
@@ -179,7 +179,7 @@ gulp.task('sass', function () {
     .pipe(
       sass({
         errLogToConsole: true,
-      })
+      }),
     )
     // Writes sourcemaps into the CSS file
     .pipe(sourcemaps.write())
@@ -221,11 +221,11 @@ $ gulp
 
 Once the command is given, Gulp should run Sass and begin to watch for changes.
 
-<Image src='/images/2015/02/run-gulp-1.png' alt='Run Gulp' />
+<Image src="/assets/2015/02/run-gulp-1.png" alt="Run Gulp" />
 
 Once you save any Sass or Scss files within the scss directory, Gulp will compile the new updates and keep watching the directory.
 
-<Image src='/images/2015/02/run-gulp-2.png' alt='Run Gulp' />
+<Image src="/assets/2015/02/run-gulp-2.png" alt="Run Gulp" />
 
 Enjoy your new LibSass compiler :)
 

@@ -15,8 +15,8 @@ I had that question when I tried to make an autocomplete component for Learn Jav
 2. Show the dropdown if the input is filled
 
 <Image
-  src='/images/2018/empty-input-validation-css/autocomplete.gif'
-  alt='autocomplete demo from https://learnjavascript.today'
+  src="/assets/2018/empty-input-validation-css/autocomplete.gif"
+  alt="autocomplete demo from https://learnjavascript.today"
 />
 
 I found a way to do it. It's not perfect. There are a few nuances involved, but I want to share it with you.
@@ -37,8 +37,8 @@ First, let's build a form so we're on the same page. We're going to use a simple
 When the input is filled, we want to change its `border-color` to green. Here's an example of what we're creating:
 
 <Image
-  src='/images/2018/empty-input-validation-css/check.gif'
-  alt='when input is filled, borders should turn green'
+  src="/assets/2018/empty-input-validation-css/check.gif"
+  alt="when input is filled, borders should turn green"
 />
 
 ## Checking if the input is empty
@@ -55,15 +55,15 @@ I relied on HTML form validation to check whether the input is empty. That meant
 At this point, it works fine when the input is filled. Borders turned green.
 
 <Image
-  src='/images/2018/empty-input-validation-css/check.gif'
-  alt='borders turned green when input is filled'
+  src="/assets/2018/empty-input-validation-css/check.gif"
+  alt="borders turned green when input is filled"
 />
 
 But there's a problem: If the user enters a whitespace into the field, the borders turn green too.
 
 <Image
-  src='/images/2018/empty-input-validation-css/check-whitespace.gif'
-  alt='Borders turn green even if user enters a whitespace'
+  src="/assets/2018/empty-input-validation-css/check-whitespace.gif"
+  alt="Borders turn green even if user enters a whitespace"
 />
 
 Technically, this is correct. The input is filled because the user typed something into it.
@@ -88,15 +88,15 @@ Since I didn't want whitespaces to be recognized, I started with the `\S+` patte
 Sure enough, it worked. If a user enters a whitespace into the field, the input doesn't get validated.
 
 <Image
-  src='/images/2018/empty-input-validation-css/check-pattern-pre1.gif'
+  src="/assets/2018/empty-input-validation-css/check-pattern-pre1.gif"
   alt="Input doesn't get validated when whitespaces are entered"
 />
 
 But when a whitespace is entered (anywhere) into the input, the input gets invalidated.
 
 <Image
-  src='/images/2018/empty-input-validation-css/check-pattern1.gif'
-  alt='Borders turned from greet to black when a whitespace is added.'
+  src="/assets/2018/empty-input-validation-css/check-pattern1.gif"
+  alt="Borders turned from greet to black when a whitespace is added."
 />
 
 Unfortunately, this pattern didn't work in my use case.
@@ -104,8 +104,8 @@ Unfortunately, this pattern didn't work in my use case.
 In Learn JavaScript's autocomplete component, I taught students how to complete a list of countries. The names of some countries had spaces...
 
 <Image
-  src='/images/2018/empty-input-validation-css/autocomplete.gif'
-  alt='Dropdown contains countries with names that have spaces in them. For example, United States.'
+  src="/assets/2018/empty-input-validation-css/autocomplete.gif"
+  alt="Dropdown contains countries with names that have spaces in them. For example, United States."
 />
 
 I had to include whitespaces in the mix.
@@ -122,15 +122,15 @@ The next best alternative I could think of is `\S+.*`. This means 1 or more non-
 This worked! I can enter whitespaces into the mix now!
 
 <Image
-  src='/images/2018/empty-input-validation-css/check-pattern2.gif'
-  alt='Borders remained green when whitespace is added in the middle of the input'
+  src="/assets/2018/empty-input-validation-css/check-pattern2.gif"
+  alt="Borders remained green when whitespace is added in the middle of the input"
 />
 
 But there's one more problem... the input doesn't validate if you START with a whitespace...
 
 <Image
-  src='/images/2018/empty-input-validation-css/check-pattern3.gif'
-  alt='Borders turned black when whitespace is added to the start of input'
+  src="/assets/2018/empty-input-validation-css/check-pattern3.gif"
+  alt="Borders turned black when whitespace is added to the start of input"
 />
 
 And that's the problem I couldn't resolve. More on this later.
@@ -177,20 +177,20 @@ input:valid {
 Here's a demo for you to play with:
 
 <p
-  data-height='486'
-  data-theme-id='7929'
-  data-slug-hash='dgEKxX'
-  data-default-tab='result'
-  data-user='zellwk'
-  data-pen-title='Pure CSS Empty validation'
-  class='codepen'
+  data-height="486"
+  data-theme-id="7929"
+  data-slug-hash="dgEKxX"
+  data-default-tab="result"
+  data-user="zellwk"
+  data-pen-title="Pure CSS Empty validation"
+  class="codepen"
 >
   See the Pen{' '}
-  <a href='https://codepen.io/zellwk/pen/dgEKxX/'>Pure CSS Empty validation</a>{' '}
-  by Zell Liew (<a href='https://codepen.io/zellwk'>@zellwk</a>) on{' '}
-  <a href='https://codepen.io'>CodePen</a>.
+  <a href="https://codepen.io/zellwk/pen/dgEKxX/">Pure CSS Empty validation</a>{' '}
+  by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on{' '}
+  <a href="https://codepen.io">CodePen</a>.
 </p>
-<script async src='https://static.codepen.io/assets/embed/ei.js'></script>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Note: Edge doesn't support `:placeholder-shown`, so it's probably not a good idea to use it in production yet. There's no good way to detect this feature.
 
@@ -249,20 +249,20 @@ And many others!
 Here's a codepen with the updated solution by Daniel:
 
 <p
-  data-height='486'
-  data-theme-id='7929'
-  data-slug-hash='NeRaPw'
-  data-default-tab='result'
-  data-user='zellwk'
-  data-pen-title='Pure CSS Empty validation'
-  class='codepen'
+  data-height="486"
+  data-theme-id="7929"
+  data-slug-hash="NeRaPw"
+  data-default-tab="result"
+  data-user="zellwk"
+  data-pen-title="Pure CSS Empty validation"
+  class="codepen"
 >
   See the Pen{' '}
-  <a href='https://codepen.io/zellwk/pen/NeRaPw/'>Pure CSS Empty validation</a>{' '}
-  by Zell Liew (<a href='https://codepen.io/zellwk'>@zellwk</a>) on{' '}
-  <a href='https://codepen.io'>CodePen</a>.
+  <a href="https://codepen.io/zellwk/pen/NeRaPw/">Pure CSS Empty validation</a>{' '}
+  by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on{' '}
+  <a href="https://codepen.io">CodePen</a>.
 </p>
-<script async src='https://static.codepen.io/assets/embed/ei.js'></script>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Wrapping up
 

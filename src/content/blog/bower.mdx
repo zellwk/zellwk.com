@@ -56,7 +56,7 @@ $ bower init
 
 Upon hitting enter, Bower immediately runs you through a series of questions and creates the `bower.json` file for you at the end.
 
-<Image src='/images/2015/06/bower-init.png' alt='bower init' />
+<Image src="/assets/2015/06/bower-init.png" alt="bower init" />
 
 Once the `bower.json` file is created, you can begin installing libraries into your project.
 
@@ -74,13 +74,13 @@ $ bower install jquery --save
 
 Bower will install the latest version of jQuery with this command. The additional `--save` flag tells Bower to add jQuery into your `bower.json` file as a dependency.
 
-<Image src='/images/2015/06/bower-json.png' alt='bower json' />
+<Image src="/assets/2015/06/bower-json.png" alt="bower json" />
 
 If you take a look at your folders now you'll see a `bower_components` directory, followed by a `jquery` folder within it.
 
 <Image
-  src='/images/2015/06/bower-components.png'
-  alt='Bower components with jQuery'
+  src="/assets/2015/06/bower-components.png"
+  alt="Bower components with jQuery"
 />
 
 Let's try to use this jQuery package you've just installed.
@@ -99,11 +99,11 @@ First you'll have to navigate to the `jquery` folder within `bower_components`.
 
 You'll see that there's a `src` folder and a `dist` folder within this package. Both `src` and `dist` are short names for folders that developers use. `src` means source while `dist` means distribution.
 
-<Image src='/images/2015/06/jquery.png' alt='jquery folder' />
+<Image src="/assets/2015/06/jquery.png" alt="jquery folder" />
 
 In this case, you'll want to search under `distribution`.
 
-<Image src='/images/2015/06/jquery-2.png' alt='jquery.js location' />
+<Image src="/assets/2015/06/jquery-2.png" alt="jquery.js location" />
 
 In here, you'll find `jquery.js`, which is what we're looking for.
 
@@ -127,15 +127,15 @@ $ bower install susy --save
 
 Check that you now have a `susy` folder in the `bower_components` directory and a `susy` dependency in your `bower.json` file.
 
-<Image src='/images/2015/06/susy.png' alt='susy folder' />
+<Image src="/assets/2015/06/susy.png" alt="susy folder" />
 
-<Image src='/images/2015/06/susy-dep.png' alt='susy dependency' />
+<Image src="/assets/2015/06/susy-dep.png" alt="susy dependency" />
 
 Similar to what we did before with the jQuery package, you'll need to look into the `susy` folder to find out what files to add to your Sass project.
 
 In this case, the file you want is `susy.scss`, which can be found in the `sass` folder.
 
-<Image src='/images/2015/06/susy-2.png' alt='Susy sass file' />
+<Image src="/assets/2015/06/susy-2.png" alt="Susy sass file" />
 
 Next, you have to import this file to your Sass partial. The code will be:
 
@@ -157,11 +157,11 @@ In this case, you can search for the breakpoint package with the `bower search` 
 $ bower search breakpoint
 ```
 
-<Image src='/images/2015/06/bower-search.png' alt='breakpoint result' />
+<Image src="/assets/2015/06/bower-search.png" alt="breakpoint result" />
 
 And as you can see, there are multiple results for `breakpoint`. If you went ahead and typed `bower install breakpoints`, you would have installed an incorrect bower package.
 
-<Image src='/images/2015/06/breakpoint-result.png' alt='breakpoint result' />
+<Image src="/assets/2015/06/breakpoint-result.png" alt="breakpoint result" />
 
 So if you're unsure, the best thing to do is always to search for the Bower package first, take a look at their git repository before deciding what to install.
 
@@ -225,8 +225,8 @@ However, since you already have jQuery v2.1.4 in your project, you'll be greeted
 Bower knows when you have two versions of the same library installed and asks you to choose between them when this happens.
 
 <Image
-  src='/images/2015/06/dependency-conflict.png'
-  alt='dependency conflict'
+  src="/assets/2015/06/dependency-conflict.png"
+  alt="dependency conflict"
 />
 
 All you have to do is to select the correct version with `1` or `2` and Bower will resolve the conflict for you automatically.
@@ -257,11 +257,11 @@ What it does is that it'll run through all the bower components in your project 
 
 If you run this `bower-update` command in the `test` folder, you'll get a prompt like this:
 
-<Image src='/images/2015/06/bower-update.png' alt='bower-update' />
+<Image src="/assets/2015/06/bower-update.png" alt="bower-update" />
 
 The only thing I dislike about the `bower-update` command is that it adds a "resolutions" object in the `bower.json` file.
 
-<Image src='/images/2015/06/bower-resolution.png' alt='bower resolution' />
+<Image src="/assets/2015/06/bower-resolution.png" alt="bower resolution" />
 
 I haven't found a need for resolutions myself and I often delete it manually.
 

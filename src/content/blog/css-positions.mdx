@@ -38,7 +38,7 @@ When set to position relative, elements take up the same amount of space at the 
 
 It can however, appear to be pushed to a different location visually.
 
-![][image-1]
+<Image src="/assets/2014/03/posr.jpg" alt="position relative" />
 
 2. Allow a child element to be positioned absolutely with reference to it. (See below)
 
@@ -48,15 +48,16 @@ Position absolute takes the document out of the document flow. This means that i
 
 When position absolute is used on an element, it is positioned absolutely with reference to the closest parent that has a position relative value.
 
-![][image-2]
+<Image src="/assets/2014/03/posa.jpg" alt="position absolute" />
 
-If there are no parent elements that has a relative position, then the absolutely positioned element will take its reference from the browser window.
+If there are no parent elements that has a relative position, then the absolutely
+positioned element will take its reference from the browser window.
 
 ### Fixed
 
 Similar to position absolute, an element that has fixed position is taken out of the document flow. The major difference is: elements with position fixed is always positioned relative to the browser window.
 
-![][image-3]
+<Image src="/assets/2014/03/posf.jpg" alt="position fixed" />
 
 ## Other Attributes available for positioning
 
@@ -65,7 +66,3 @@ Once an element is set to position relative, absolute or fixed, some other posit
 - `top`, `right`, `bottom`, `left` - Allows you to set the edge of the element with reference to its containing element. These values can be negative if you want to place them just outside of their containing elements.
 
 - `z-index` - Z-index controls the vertical stacking order of elements, and take only numbered integers. The higher the integer, the more forward this element is. (Somewhat like the "bring forward/backward" thing in powerpoint and photoshop).
-
-[image-1]: /images/2014/03/posr.jpg 'position relative'
-[image-2]: /images/2014/03/posa.jpg 'position absolute'
-[image-3]: /images/2014/03/posf.jpg 'position fixed'

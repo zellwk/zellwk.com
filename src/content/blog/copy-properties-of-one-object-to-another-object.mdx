@@ -41,7 +41,7 @@ console.log('three:', three)
 Try logging `two` and `three` in a Node environment. Accessors will be logged clearly. You'll immediately see that `three.count` is NOT an accessor.
 
 <Image
-  src='/images/2020/copy-accessors/accessors-not-copied.png'
+  src='/assets/2020/copy-accessors/accessors-not-copied.png'
   alt='Accessors are not copied into three.'
 />
 
@@ -84,27 +84,15 @@ const descriptor = Object.getOwnPropertyDescriptor(object, 'normalProperty')
 console.log(descriptor)
 ```
 
-```js
-// Output
-// {
-//   value: 'hello world',
-//   writable: true,
-//   enumerable: true,
-//   configurable: true
-// }
-```
+<Image src='/assets/2020/copy-accessors/descriptor.png' alt='Descriptor.' />
 
-<Image
-  src='/images/2020/normal-prop.png'
-  alt='Descriptor of a normal property.'
-/>
 
 If you log the descriptor of an accessor, you'll see `get` and `set` keys.
 
 ```js
 let count = 0
 const two = {
-  get count () { return count }
+  get count () { return count },
   set count (value) { count = value }
 }
 
@@ -112,7 +100,7 @@ const descriptor = Object.getOwnPropertyDescriptor(two, 'count')
 console.log(descriptor)
 ```
 
-<Image src='/images/2020/accessor.png' alt='Descriptor of an accessor.' />
+<Image src='/assets/2020/copy-accessors/accessor.png' alt='Descriptor of an accessor.' />
 
 ### Object.getDefineProperty
 
@@ -170,7 +158,7 @@ Object.defineProperty(object, 'count', {
   get function () {
     return count
   }
-}
+})
 ```
 
 ### Copying accessors
@@ -201,7 +189,7 @@ console.log('copy:', copy)
 ```
 
 <Image
-  src='/images/2020/copy-accessors/copied-accessor.png'
+  src='/assets/2020/copy-accessors/copied-accessor.png'
   alt='Copied the `count` accessor.'
 />
 
@@ -232,7 +220,7 @@ console.log('copy:', copy)
 ```
 
 <Image
-  src='/images/2020/copy-accessors/copied-many-include-accessors.png'
+  src='/assets/2020/copy-accessors/copied-many-include-accessors.png'
   alt='Copied all properties, including accessors.'
 />
 
@@ -282,7 +270,7 @@ console.log('mixed:', mixed)
 ```
 
 <Image
-  src='/images/2020/copy-accessors/mix-simple.png'
+  src='/assets/2020/copy-accessors/mix-simple.png'
   alt='Combined properties and accessors into a new object with mix'
 />
 
@@ -389,7 +377,7 @@ console.log('three:', three)
 ```
 
 <Image
-  src='/images/2020/copy-accessors/accessors-not-copied.png'
+  src='/assets/2020/copy-accessors/accessors-not-copied.png'
   alt="Merge options doesn't copy accesors into the new object."
 />
 
@@ -423,7 +411,7 @@ console.log('three:', three)
 ```
 
 <Image
-  src='/images/2020/copy-accessors/yes-copy-accessors.png'
+  src='/assets/2020/copy-accessors/yes-copy-accessors.png'
   alt='Mix copies accessors.'
 />
 

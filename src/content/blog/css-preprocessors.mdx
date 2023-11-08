@@ -56,7 +56,10 @@ Wikipedia defines nesting as enclosing of control structures one into another, u
 
 SASS nesting works the same way as most programming nesting work. Here's an example of SASS nesting at work.
 
-![][image-1]
+<Image
+  src="/assets/2013/06/nesting-example.png"
+  alt="Nesting example with an anchor tag selector in a h5 selector"
+/>
 
 Within each parent bracket, if there is a child selector within, the output to CSS will contain the parent selector, followed by the child selector, and any properties mentioned will be group together smartly.
 
@@ -90,7 +93,10 @@ Importing these partials work exactly the same as as importing CSS files. Within
 
 Below is an example of how I used SCSS partials on a project that I am currently working on.
 
-![][image-2]
+<Image
+  src="/assets/2013/06/partials-example.jpg"
+  alt="How to save partials  and import them into a SASS project"
+/>
 
 As you can see, I have broken up my SASS files into very many partials including typography, color, different sections of the website. This allows me to find my code quickly and easily.
 
@@ -108,7 +114,10 @@ Variables, as the name suggests, gives you the option to store anything as a var
 
 Here's a quick example
 
-![][image-3]
+<Image
+  src="/assets/2013/06/variables-example.png"
+  alt="Sass Variables example "
+/>
 
 Variables are very very powerful and allow you to easily change anything on your website as long as you use them.
 
@@ -134,7 +143,10 @@ I feel that mixins are helpful because it reduces the need to remember things su
 
 Here's a quick example of what it looks like
 
-![][image-4]
+<Image
+  src="/assets/2013/06/mixin-example.png"
+  alt="Mixin example with self defined mixin and compass mixins"
+/>
 
 In the above code, the circle mixin was predefined by myself by copying the required code from the internet. The vendor prefixes added with box shadow are predefined in a mixin library called [Compass][4] referenced above.
 
@@ -148,7 +160,10 @@ I saved a lot of time and effort on CSS coding without the need to remember pref
 
 Here's another quick example of using mixins for media queries
 
-![][image-5]
+<Image
+  src="/assets/2013/06/CSS-media-queries.png"
+  alt="Media queries with Sass"
+/>
 
 ## Feature 5: Other awesome stuff
 
@@ -160,7 +175,10 @@ There are so many helper functions that I can't even remember them all. Here are
 
     Basic mathematical expressions can be carried out straight while writing SASS. Because of this, you'll catch me often writing things like
 
-    ![][image-6]
+    <Image
+      src="/assets/2013/06/helper-math.png"
+      alt="Multiplying values with Sass"
+    />
 
 2.  Color alteration functions
 
@@ -192,9 +210,3 @@ Have fun playing with Sass!
 [6]: http://bourbon.io 'Burbon - a lightweight Sass mixin library'
 [7]: http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html 'Sass reference page'
 [8]: http://leveluptuts.com
-[image-1]: /images/2013/06/nesting-example.png 'Nesting example with an anchor tag selector in a h5 selector'
-[image-2]: /images/2013/06/partials-example.jpg 'How to save partials  and import them into a SASS project'
-[image-3]: /images/2013/06/variables-example.png 'Sass Variables example '
-[image-4]: /images/2013/06/mixin-example.png 'Mixin example with self defined mixin and compass mixins'
-[image-5]: /images/2013/06/CSS-media-queries.png 'Media queries with Sass'
-[image-6]: /images/2013/06/helper-math.png 'Multiplying values with Sass'

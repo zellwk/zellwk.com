@@ -22,14 +22,16 @@ The first step to converting your typefaces is to make sure that you have the fo
 
 Once you get hold of your font, head over to the [Font Squirrel Webfont Generator][2] and upload your fonts into the generator.
 
-![Uploading Fira Sans into Font Squirrel][image-1]
+<Image
+  src="/assets/2014/03/ff-1.png"
+  alt="Uploading Fira Sans into Font Squirrel"
+/>
 
 I've used the Fira Sans Font for this tutorial. The weights that I've used are regular, regular italic, bold and bold italic.
 
 You should be able to download a webfont folder with the following items
 
-![Webfont kit from Font Squirrel][image-2]
-
+<Image src="/assets/2014/03/ff-2.png" alt="Webfont kit" />
 This list may look daunting, but it really isn't.
 
 There is a need to convert every webfont you uploaded into 4 different formats: `eot`, `woff`, `ttf` and `svg` to make sure that it is usable for every browser. We had 4 fonts, hence 16 files. From here, you can remove all demo.html files, the speciment_files folder and the generator_config.txt.
@@ -38,7 +40,7 @@ There is a need to convert every webfont you uploaded into 4 different formats: 
 
 Typically, I place the fonts beside my css directory like this:
 
-![Webfont in project][image-3]
+<Image src="/assets/2014/03/ff-3.png" alt="Webfont in project" />
 
 Open up the stylesheet.css file in the webfont folder and you should see 4 @font-face declarations that look somewhat like this.
 
@@ -144,6 +146,3 @@ When using @font-face, you should try to only include fonts you need since they 
 
 [1]: http://www.fontsquirrel.com 'Font Squirrel'
 [2]: http://www.fontsquirrel.com/tools/webfont-generator
-[image-1]: /images/2014/03/ff-1.png 'Uploading Fira Sans into Font Squirrel'
-[image-2]: /images/2014/03/ff-2.png 'Webfont kit'
-[image-3]: /images/2014/03/ff-3.png 'Webfont in project'

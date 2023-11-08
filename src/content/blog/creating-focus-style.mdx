@@ -22,7 +22,7 @@ I wrote more about this in my article on [designing focus][1]. During my researc
 2. The one on WTF Forms
 3. The one on Slack
 
-<Image src="/images/2019/create-focus/combined.png" alt="Focus styles on Smashing Mag, WTF Forms and Slack" />
+<Image src="/assets/2019/create-focus/combined.png" alt="Focus styles on Smashing Mag, WTF Forms and Slack" />
 Today, I want to show you how to create these focus styles and use them effortlessly across your website.
 
 {/* more */}
@@ -31,7 +31,7 @@ Today, I want to show you how to create these focus styles and use them effortle
 
 Smashing Magazine uses a large dotted outline for focus. To create this focus style, you set the `outline` property to `3px dotted`. 
 
-<Image src="/images/2019/create-focus/smashing.png" alt="Focus styles on Smashing Magazine." />
+<Image src="/assets/2019/create-focus/smashing.png" alt="Focus styles on Smashing Magazine." />
 ```css
 *:focus {
   outline: 3px dotted #761b15;
@@ -90,7 +90,7 @@ The focus style for WTF forms contains two parts:
 1. A white border
 2. A blue border
 
-<Image src="/images/2019/create-focus/wtf.png" alt="Focus styles for WTF Forms." />
+<Image src="/assets/2019/create-focus/wtf.png" alt="Focus styles for WTF Forms." />
 This style can be created with `box-shadow`. The idea is you create two shadows: 
 
 1. The first shadow with the background's color
@@ -157,7 +157,7 @@ The focus style on Slack contains two parts:
 1. A dark blue outline 
 2. A light-blue border
 
-<Image src="/images/2019/create-focus/slack.png" alt="Focus styles on Slack." />
+<Image src="/assets/2019/create-focus/slack.png" alt="Focus styles on Slack." />
 This focus style can be created with the same technique as WTF Forms. 
 
 ```css
@@ -197,7 +197,7 @@ The CSS Variables trick works wonders if you need to change colors.
 
 If you use this technique on elements with borders, you might want to remove the borders. It's not pretty to see two stacking borders. 
 
-<Image src="/images/2019/create-focus/double-borders.png" alt="" />
+<Image src="/assets/2019/create-focus/double-borders.png" alt="" />
 ```css
 button:focus {
   border-color: transparent;

@@ -19,7 +19,7 @@ Today, I want to share how I setup Jest and Mongoose.
 
 Jest gives you a warning if you try to use Mongoose with Jest. 
 
-<Image src="/images/2019/jest-and-mongoose/mongoose-jest-warning.png" alt="Warning if you try to use Mongoose with Jest" />
+<Image src="/assets/2019/jest-and-mongoose/mongoose-jest-warning.png" alt="Warning if you try to use Mongoose with Jest" />
 If you don't want to see this error, you need to set `testEnvironment` to `node` in your `package.json` file.
 
 ```js
@@ -131,7 +131,7 @@ Note: If you run this code two times, you'll get an `E1100 duplicate key error`.
 1. We said the `email` should be `unique` in the Schema above. 
 2. We tried to create another user with `testing@gmail.com`. even though one already exists in the database. (The first one was created when you sent the first request). 
 
-<Image src="/images/2019/jest-and-mongoose/duplicate-error.png" alt="Duplicate key error." />
+<Image src="/assets/2019/jest-and-mongoose/duplicate-error.png" alt="Duplicate key error." />
 ## Cleaning up the database between tests
 
 You want to remove entries from the database between each test. This ensures you always start with an empty database. 
@@ -191,7 +191,7 @@ it('Should save user to database', async done => {
 
 If you `console.log` user, you should see something like this: 
 
-<Image src="/images/2019/jest-and-mongoose/user.png" alt="User object from MongoDB." />
+<Image src="/assets/2019/jest-and-mongoose/user.png" alt="User object from MongoDB." />
 This means our user got saved to the database. If we want to confirm the user has a name and an email, we can do `expect` them to be true. 
 
 ```js

@@ -15,7 +15,7 @@ I saw an article about [Leading Trim](https://medium.com/microsoft-design/leadin
 
 Leading Trim is a part of a new CSS Specification (currently being written by [@fantasai](https://twitter.com/fantasai)) for improving text layout. `leading-trim` together with `text-edge` lets you trim away extra whitespace from a font.
 
-<Image src='/images/2020/leading-trim/leading-trim.gif' alt='Leading Trim.' />
+<Image src="/assets/2020/leading-trim/leading-trim.gif" alt="Leading Trim." />
 
 This changes everything about Web Typography.
 
@@ -28,15 +28,15 @@ Below, I'll give a summarised version + some of my thoughts.
 Web Typography, as we know it today, uses `line-height` to determine the height of a line of text. This `line-height` splits leading up into two halves.
 
 <Image
-  src='/images/2020/leading-trim/line-height.png'
-  alt='Anatomy of line-height.'
+  src="/assets/2020/leading-trim/line-height.png"
+  alt="Anatomy of line-height."
 />
 
 The problem with the current `line-height` system is it makes it impossible for text to follow a baseline-grid. A baseline-grid is an imaginary grid where you draw lines on a text's baseline. It looks like this:
 
 <Image
-  src='/images/2020/leading-trim/print-baseline.png'
-  alt='Print baseline grid.'
+  src="/assets/2020/leading-trim/print-baseline.png"
+  alt="Print baseline grid."
 />
 
 It's hard to align text on the baseline grid because you need to hack things around. One process requires you to add/remove margins or paddings. A second (alternate) process requires you to use `position: relative` to nudge the text in place.
@@ -59,8 +59,8 @@ It's extremely hard to align text completely to the baseline grid. It's close to
 This is a pity because the baseline grid helps us create better Typography by creating [better Vertical Rhythm](https://zellwk.com/blog/why-vertical-rhythms/).
 
 <Image
-  src='/images/2020/leading-trim/print-vs-web.png'
-  alt='Print vs Web Typography'
+  src="/assets/2020/leading-trim/print-vs-web.png"
+  alt="Print vs Web Typography"
 />
 
 On the left is Print Typography – where we align text to the baseline grid. On the right is Web Typography – where we align text to the middle of the grid (since we use `line-height`).

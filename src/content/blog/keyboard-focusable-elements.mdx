@@ -20,8 +20,8 @@ It's easy to find keyboard-focusable elements if you know the contents of the el
 For example, I know the focusable elements in this modal are `<input>` and `<button>`.
 
 <Image
-  src='/images/2020/get-focusables/modal.png'
-  alt='Modal with two inputs and one button.'
+  src="/assets/2020/get-focusables/modal.png"
+  alt="Modal with two inputs and one button."
 />
 
 I can get the focusable elements with `querySelectorAll`.
@@ -49,7 +49,7 @@ We can get all keyboard-focusable elements with the following `querySelectorAll`
 
 ```js
 const keyboardfocusableElements = document.querySelectorAll(
-  'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+  'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
 )
 ```
 
@@ -62,7 +62,7 @@ We can remove these elements with `filter`.
 ```js
 const keyboardfocusableElements = [
   ...document.querySelectorAll(
-    'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+    'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
   ),
 ].filter(el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'))
 ```
@@ -80,10 +80,10 @@ This `querySelectorAll` code is hard to read. We can put the entire thing into a
 function getKeyboardFocusableElements(element = document) {
   return [
     ...element.querySelectorAll(
-      'a[href], button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
+      'a[href], button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])',
     ),
   ].filter(
-    el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden')
+    el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'),
   )
 }
 ```

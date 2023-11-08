@@ -23,7 +23,7 @@ Once you have completed the installation process, try typing `mongo --version` i
 mongo --version
 ```
 
-<Image src="/images/2019/local-mongodb/version.png" alt="Terminal showing MongoDB Version"/>
+<Image src="/assets/2019/local-mongodb/version.png" alt="Terminal showing MongoDB Version"/>
 
 ## Starting MongoDB
 
@@ -33,7 +33,7 @@ You can start MongoDB on your computer with the `mongod` command.
 mongod
 ```
 
-<Image src="/images/2019/local-mongodb/mongod.png" alt=""/>
+<Image src="/assets/2019/local-mongodb/mongod.png" alt=""/>
 
 Keep the `mongod` window running when you want to work with your local MongoDB. MongoDB stops when you close the window.
 
@@ -57,7 +57,7 @@ One way to add items to a MongoDB database is through the Mongo Shell. To open u
 mongo
 ```
 
-<Image src="/images/2019/local-mongodb/mongo-shell.png" alt=""/>
+<Image src="/assets/2019/local-mongodb/mongo-shell.png" alt=""/>
 
 Note: Make sure you keep the `mongod` window open! You won't be able to interact with the Mongo Shell if you close the `mongod` window.
 
@@ -69,7 +69,7 @@ First, we need a database to work with. You can see the currently selected datab
 
 Note: The `>` in the code above signifies the Mongo Shell. You don't need to type `>`. It is not part of the command.
 
-<Image src="/images/2019/local-mongodb/test-db.png" alt="Terminal returns 'test' when we run the 'db' command."/>
+<Image src="/assets/2019/local-mongodb/test-db.png" alt="Terminal returns 'test' when we run the 'db' command."/>
 
 For this article, we'll create a database called `game-of-thrones`. You can use the `use <database>` command to create and switch to a new database.
 
@@ -77,7 +77,7 @@ For this article, we'll create a database called `game-of-thrones`. You can use 
 > use game-of-thrones
 ```
 
-<Image src="/images/2019/local-mongodb/switch-db.png" alt="Switch to a database named game-of-thrones."/>
+<Image src="/assets/2019/local-mongodb/switch-db.png" alt="Switch to a database named game-of-thrones."/>
 
 We're going to add a character into the `game-of-thrones`. Here, we need to put the character into a collection. We'll use `characters` as the name of the collection.
 
@@ -87,7 +87,7 @@ To add an item to a collection, you can pass a JavaScript object into `db.<colle
 db.characters.insertOne({ name: 'Jon Snow' })
 ```
 
-<Image src="/images/2019/local-mongodb/insert-1.png" alt="Added 'Jon Snow' into the 'characters' collection."/>
+<Image src="/assets/2019/local-mongodb/insert-1.png" alt="Added 'Jon Snow' into the 'characters' collection."/>
 
 Let's add one character into the database before we continue.
 
@@ -95,7 +95,7 @@ Let's add one character into the database before we continue.
 db.characters.insertOne({ name: 'Arya Stark' })
 ```
 
-<Image src="/images/2019/local-mongodb/insert-2.png" alt="Added 'Arya Stark' into the 'characters' collection."/>
+<Image src="/assets/2019/local-mongodb/insert-2.png" alt="Added 'Arya Stark' into the 'characters' collection."/>
 
 You can see the characters we've added by using the `find` command. (`db.<collectionName>.find()`).
 
@@ -103,7 +103,7 @@ You can see the characters we've added by using the `find` command. (`db.<collec
 db.characters.find()
 ```
 
-<Image src="/images/2019/local-mongodb/db-find.png" alt="Database returns two characters—Jon Snow and Arya Stark."/>
+<Image src="/assets/2019/local-mongodb/db-find.png" alt="Database returns two characters—Jon Snow and Arya Stark."/>
 
 This is all you need to know about the Mongo Shell for now.
 
@@ -115,23 +115,23 @@ To use MongoDB Compass, you have to install it first. You can download and insta
 
 When you open MongoDB Compass, you'll see a screen that looks like this:
 
-<Image src="/images/2019/local-mongodb/mongodb-compass.png" alt="MongoDB Compass startup screen."/>
+<Image src="/assets/2019/local-mongodb/mongodb-compass.png" alt="MongoDB Compass startup screen."/>
 
 To connect to your local MongoDB, you set `Hostname` to `localhost` and `Port` to `27017`. These values are the default for all local MongoDB connections (unless you changed them).
 
-<Image src="/images/2019/local-mongodb/mongodb-compass-settings.png" alt="Sets Hostname to localhost and Port to 27017."/>
+<Image src="/assets/2019/local-mongodb/mongodb-compass-settings.png" alt="Sets Hostname to localhost and Port to 27017."/>
 
 Press connect, and you should see the databases in your local MongoDB. Here, you should be able to see `game-of-thrones` (the database we created for this tutorial).
 
-<Image src="/images/2019/local-mongodb/mongodb-compass-databases.png" alt="List of databases in my local MongoDB"/>
+<Image src="/assets/2019/local-mongodb/mongodb-compass-databases.png" alt="List of databases in my local MongoDB"/>
 
 If you click on `game-of-thrones`, you'll see a `characters` collection.
 
-<Image src="/images/2019/local-mongodb/mongodb-compass-collection.png" alt="The characters collection in MongoDB Compass."/>
+<Image src="/assets/2019/local-mongodb/mongodb-compass-collection.png" alt="The characters collection in MongoDB Compass."/>
 
 And if you click on `characters`, you'll see the two characters we created in the earlier section.
 
-<Image src="/images/2019/local-mongodb/mongodb-compass-documents.png" alt="Documents 'Jon Snow' and 'Arya Stark' in the 'Characters' collection."/>
+<Image src="/assets/2019/local-mongodb/mongodb-compass-documents.png" alt="Documents 'Jon Snow' and 'Arya Stark' in the 'Characters' collection."/>
 
 This is how you can use MongoDB Compass to connect to a MongoDB that's running on your own computer.
 
@@ -177,7 +177,7 @@ MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
 })
 ```
 
-<Image src="/images/2019/local-mongodb/connect-mongodb.png" alt="Connected to local MongoDB with MongoDB native driver."/>
+<Image src="/assets/2019/local-mongodb/connect-mongodb.png" alt="Connected to local MongoDB with MongoDB native driver."/>
 
 ### Connecting with Mongoose
 
@@ -216,7 +216,7 @@ db.on('error', err => {
 })
 ```
 
-<Image src="/images/2019/local-mongodb/connect-mongoose.png" alt="Connected to local MongoDB through Mongoose."/>
+<Image src="/assets/2019/local-mongodb/connect-mongoose.png" alt="Connected to local MongoDB through Mongoose."/>
 
 [1]:	/blog/install-mongodb "Install MongoDB on Mac"
 [2]:	https://treehouse.github.io/installation-guides/windows/mongo-windows.html "Treehouse — Install MongoDB on Windows"

@@ -22,11 +22,11 @@ Most of the questions I receive boil down to these two different variations:
 
 (1) How to create a uniform spacing between the edges of grid elements and their parent containers? In other words, how do I make the layout in this image?
 
-<Image src='/images/2014/10/img1.png' alt='' />
+<Image src="/assets/2014/10/img1.png" alt="" />
 
 (2) Why are the gutters of elements within the nested grid different from the ones outside? In other words, why does this happen?
 
-<Image src='/images/2014/10/img2.png' alt='' />
+<Image src="/assets/2014/10/img2.png" alt="" />
 
 People have a variety of ways to deal with these two situations, most resorting to a trial and error method that eventually lead to super complex `span()` mixins like `span(15 of 27)`. Some others tweak the gutter ratio within the nested grids to balance out these situations.
 
@@ -46,7 +46,7 @@ There's no way to miss the `of` keyword in this example. **What follows the `of`
 
 This is what happens if we translate the above code into an image.
 
-<Image src='/images/2014/10/img3.png' alt='' />
+<Image src="/assets/2014/10/img3.png" alt="" />
 
 We can clearly see that `.content` takes up 8 of 12 columns in the image. You could also say that **context is the number of columns in the parent element**.
 
@@ -92,7 +92,7 @@ $susy: (
 
 Let's take it a step further and identify the context within nested grids. If we wanted to build something like this:
 
-<Image src='/images/2014/10/img4.png' alt='' />
+<Image src="/assets/2014/10/img4.png" alt="" />
 
 The HTML should be straightforward. `.nested-item` will be nested within `.content`.
 
@@ -122,11 +122,11 @@ It's easy to write the Susy code for both `.content` and `.nested-item` once we 
 }
 ```
 
-<Image src='/images/2014/10/img4.png' alt='' />
+<Image src="/assets/2014/10/img4.png" alt="" />
 
 Say you wanted to center `.nested-item` within content.
 
-<Image src='/images/2014/10/img5.png' alt='' />
+<Image src="/assets/2014/10/img5.png" alt="" />
 
 One way to do so is to offset the `.nested-item` by 2 spans and one gutter from the left. You have to make sure you use the correct context when offsetting the `.nested-item` element.
 
@@ -142,7 +142,7 @@ The way I prefer to offset is to use the `span()` function instead of `pre()` or
 
 And with this, the `.nested-item` is centred within `.content`.
 
-<Image src='/images/2014/10/img5.png' alt='' />
+<Image src="/assets/2014/10/img5.png" alt="" />
 
 You can see that context is used in almost every single function and mixin in the examples above. Susy becomes super easy, once you understand context.
 
@@ -150,7 +150,7 @@ There is just one more small thing that you might want to keep in mind.
 
 Susy calculates the width of columns and gutters in percentages. The exact width of the columns and gutters are affected by the available width of the element.
 
-<Image src='/images/2014/10/img6.png' alt='' />
+<Image src="/assets/2014/10/img6.png" alt="" />
 
 When we add padding to the parent container (assuming you are on border-box sizing), we push the content within inwards. The column and gutter sizes will not be exactly the same as the ones we used in the outer content. Most of the time though, this effect is negligible at about a 1px difference.
 
@@ -162,7 +162,7 @@ Now let's take it up a level and answer one of the most popular questions: "How 
 
 Let's revisit what we have to make first.
 
-<Image src='/images/2014/10/img1.png' alt='' />
+<Image src="/assets/2014/10/img1.png" alt="" />
 
 We know that this is a gallery and each of these gallery items can found within a `.content` div.
 
@@ -197,7 +197,7 @@ Take note that the `gallery()` mixins use floats. We have to add a clearfix to f
 }
 ```
 
-<Image src='/images/2014/10/img7.png' alt='' />
+<Image src="/assets/2014/10/img7.png" alt="" />
 
 We can provide an equal vertical space between each gallery item by adding some margins to the bottom of each item. We can use the context again to create the exact amount of margins we need.
 
@@ -208,7 +208,7 @@ We can provide an equal vertical space between each gallery item by adding some 
 }
 ```
 
-<Image src='/images/2014/10/img8.png' alt='' />
+<Image src="/assets/2014/10/img8.png" alt="" />
 
 Now we need to add the left, top and right spaces to reach our end goal.
 
@@ -221,7 +221,7 @@ The simplest way to get to it is to add paddings that are worth a gutter size to
 }
 ```
 
-<Image src='/images/2014/10/img9.png' alt='' />
+<Image src="/assets/2014/10/img9.png" alt="" />
 
 The final step of this method isn't perfect. Since we are adding padding to the parent element, we have reduce the total available width for its child elements. Because of this, the widths of columns and gutters will be slightly smaller. It isn't much of a problem because the difference is at most 1px in this case.
 
@@ -243,7 +243,7 @@ There is another method to create paddings that are equal on all sides if you di
 
 And you will get a similar result, with the exception that the parent container is pushed off the grid instead.
 
-<Image src='/images/2014/10/img10.png' alt='' />
+<Image src="/assets/2014/10/img10.png" alt="" />
 
 See how with an understanding of the proper context, things become more intuitive? :)
 

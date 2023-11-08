@@ -36,7 +36,7 @@ npm login
 
 You'll be prompted to enter your username, password, and email address.
 
-<Image src="/images/2019/publish-to-npm/npm-login.png" alt="Logging into npm via the command line"/>
+<Image src="/assets/2019/publish-to-npm/npm-login.png" alt="Logging into npm via the command line"/>
 
 **Third, you need to create a package**. To do so, create a folder somewhere on your computer and navigate to it. The command line version is:
 
@@ -56,7 +56,7 @@ npm init
 
 This command runs you through a few questions and creates a `package.json` file for you at the end. This `package.json` file contains the bare necessities you need to publish your project. (Feel free to skip questions that don't make sense).
 
-<Image src="/images/2019/publish-to-npm/npm-init.png" alt="Image of the npm init command"/>
+<Image src="/assets/2019/publish-to-npm/npm-init.png" alt="Image of the npm init command"/>
 
 **The final step is to publish your package** with the `npm publish` command.
 
@@ -66,7 +66,7 @@ npm publish
 
 If the package already exists on npm (because your package has the same name as another package on npm), you won't be able to publish it. You'll get an error.
 
-<Image src="/images/2019/publish-to-npm/npm-publish-error.png" alt=""/>
+<Image src="/assets/2019/publish-to-npm/npm-publish-error.png" alt=""/>
 
 You'll need to change your package name.
 
@@ -74,7 +74,7 @@ To change your package name, you change the `name` property in the `package.json
 
 (You can check for naming collisions by doing a search on npm, or through the `npm search` command).
 
-<Image src="/images/2019/publish-to-npm/renaming.png" alt="Changed name property to publishing-to-npm"/>
+<Image src="/assets/2019/publish-to-npm/renaming.png" alt="Changed name property to publishing-to-npm"/>
 
 It's also a good idea to update the folder name as well for consistency. Here's the command line equivalent.
 
@@ -85,7 +85,7 @@ mv how-to-publish-to-npm publishing-to-npm
 
 Try the `publish` command again. You should get a success message now.
 
-<Image src="/images/2019/publish-to-npm/npm-publish.png" alt="Successfully published to npm"/>
+<Image src="/assets/2019/publish-to-npm/npm-publish.png" alt="Successfully published to npm"/>
 
 ### What to do if every name you came up with is taken up already
 
@@ -118,11 +118,11 @@ Second, React is [published on][4] npm.
 
 Third, React follows [Semantic versioning][5] (Semver for short).
 
-<Image src="/images/2019/publish-to-npm/semver.png" alt="npm packages follows Semver"/>
+<Image src="/assets/2019/publish-to-npm/semver.png" alt="npm packages follows Semver"/>
 
 Fourth, each update to React has a git tag associated with it. This git tag follows Semver as well.
 
-<Image src="/images/2019/publish-to-npm/git-tag.png" alt="Each git tag is follows Semver"/>
+<Image src="/assets/2019/publish-to-npm/git-tag.png" alt="Each git tag is follows Semver"/>
 
 Fifth, there are [release notes][6] for every React update.
 
@@ -180,15 +180,15 @@ git commit -m "Initial Commit"
 
 If your project is not a Git repository, you'll get this error:
 
-<Image src="/images/2019/publish-to-npm/np-error-no-git.png" caption="np's error if project is not a Git repository"/>
+<Image src="/assets/2019/publish-to-npm/np-error-no-git.png" caption="np's error if project is not a Git repository"/>
 
 If your project doesn't have remote, you'll get this error (at a later part of the checks).
 
-<Image src="/images/2019/publish-to-npm/np-error-no-remote.png" caption="np's error if project does not have a remote. This error happens later in the process"/>
+<Image src="/assets/2019/publish-to-npm/np-error-no-remote.png" caption="np's error if project does not have a remote. This error happens later in the process"/>
 
 If your working directory is dirty, you'll get this error:
 
-<Image src="/images/2019/publish-to-npm/np-error-dirty.png" caption="np's error working directory is dirty"/>
+<Image src="/assets/2019/publish-to-npm/np-error-dirty.png" caption="np's error working directory is dirty"/>
 
 If you haven't pushed to the Git remote at least once, `np` will just hang and do nothing.
 
@@ -202,11 +202,11 @@ np
 
 `np` will prompt you to enter a Semver number.
 
-<Image src="/images/2019/publish-to-npm/np.png" alt="np prompts the user for a Semver number"/>
+<Image src="/assets/2019/publish-to-npm/np.png" alt="np prompts the user for a Semver number"/>
 
 Choose a number and `np` will ask you to confirm your choice.
 
-<Image src="/images/2019/publish-to-npm/np-confirm.png" alt="np prompts a confirmation of the chosen Semver number"/>
+<Image src="/assets/2019/publish-to-npm/np-confirm.png" alt="np prompts a confirmation of the chosen Semver number"/>
 
 `np` then does the rest of the publishing stuff for you.
 
@@ -216,7 +216,7 @@ Choose a number and `np` will ask you to confirm your choice.
 
 If you followed the tutorial up to this point, you would get an error that looks like this:
 
-<Image src="/images/2019/publish-to-npm/np-test-error.png" alt="An error with running tests"/>
+<Image src="/assets/2019/publish-to-npm/np-test-error.png" alt="An error with running tests"/>
 
 This happens because our `npm test` command results in an error. You can try it yourself:
 
@@ -224,7 +224,7 @@ This happens because our `npm test` command results in an error. You can try it 
 npm test
 ```
 
-<Image src="/images/2019/publish-to-npm/npm-test-error.png" alt="npm test results in an error"/>
+<Image src="/assets/2019/publish-to-npm/npm-test-error.png" alt="npm test results in an error"/>
 
 To fix this error, we need to change the `test` script in `package.json` file.
 
@@ -248,11 +248,11 @@ This change works because `exit 1` creates an error.
 
 With this change, `np` should complete the publishing process. (Remember to commit the change before running `np`).
 
-<Image src="/images/2019/publish-to-npm/np-process.png" alt="The np publishing process"/>
+<Image src="/assets/2019/publish-to-npm/np-process.png" alt="The np publishing process"/>
 
 At the end of the process, `np` launches a browser window for you to write your release notes.
 
-<Image src="/images/2019/publish-to-npm/np-release.png" alt="Writing release notes"/>
+<Image src="/assets/2019/publish-to-npm/np-release.png" alt="Writing release notes"/>
 
 In short, `np` makes publishing packages much simpler!
 

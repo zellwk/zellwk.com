@@ -23,7 +23,7 @@ If you see 150+ lessons in a sidebar, you'll definitely get overwhelmed. So I ch
 
 I figured the best way is to present lessons is with a list.
 
-<Image src='/images/2020/ljs-portal-2/contents.png' alt='Contents page.' />
+<Image src="/assets/2020/ljs-portal-2/contents.png" alt="Contents page." />
 
 Two points to note here.
 
@@ -42,15 +42,15 @@ I designed the login page next. Why? Because I need students to log in to enter 
 I got stuck at the login page at first, so I searched the web for inspiration. I found that most login designs include a Modal window of some sort.
 
 <Image
-  src='/images/2020/ljs-portal-2/login-google.png'
-  alt='Searching for login page inspiration on Google.'
+  src="/assets/2020/ljs-portal-2/login-google.png"
+  alt="Searching for login page inspiration on Google."
 />
 
 I didn't want to use a Modal window for the login page. Modals make logins unnecessarily complicated. I wanted it to be clean and simple like Wordpress's login page.
 
 <Image
-  src='/images/2020/ljs-portal-2/wordpress.png'
-  alt='Wordpress login page.'
+  src="/assets/2020/ljs-portal-2/wordpress.png"
+  alt="Wordpress login page."
 />
 
 But I also found the Wordpress's page boring. I wanted my login page to be beautiful. It should also speak boldly about the course. This meant I had to design the login page from scratch.
@@ -69,28 +69,28 @@ I chose to work on the logo first.
 
 Ironically, learn JavaScript doesn't have a logo. All I have is an animated visual I use to describe the course.
 
-<Video src='/images/2020/ljs-portal-2/visual.mp4' />
+<Video src="/assets/2020/ljs-portal-2/visual.mp4" />
 
 The animating text doesn't suit the login page. I don't have to convince anyone to invest in the course anymore. So I removed the animated words and shifted the brackets up.
 
 <Image
-  src='/images/2020/ljs-portal-2/logo-no-yellow.png'
-  alt='Learn JavaScript logo without animating text.'
+  src="/assets/2020/ljs-portal-2/logo-no-yellow.png"
+  alt="Learn JavaScript logo without animating text."
 />
 
 Deleting the text makes the visual lose the feel of a "brand". The words "Learn JavaScript" is too plain and cold, so I added the yellow highlight back.
 
 Here's what I ended up with after tweaking typography, sizes, and positioning.
 
-<Image src='/images/2020/ljs-portal-2/logo.png' alt='Learn JavaScript logo' />
+<Image src="/assets/2020/ljs-portal-2/logo.png" alt="Learn JavaScript logo" />
 
 ### Email and password fields
 
 Both email and password are text fields. When I design text fields, I start by inheriting typography from the rest of the page. This is as easy as setting `font` and `line-height` to `inherit`.
 
 <Image
-  src='/images/2020/ljs-portal-2/inputs-1.png'
-  alt='Two input fields. Inherited typography from the rest of the page.'
+  src="/assets/2020/ljs-portal-2/inputs-1.png"
+  alt="Two input fields. Inherited typography from the rest of the page."
 />
 
 Each text field needs something to define its boundaries. There are three ways to create a boundary:
@@ -104,8 +104,8 @@ I started with a 2px border first because I like well-defined boundaries. I trie
 I also rounded the borders to make inputs feel friendlier.
 
 <Image
-  src='/images/2020/ljs-portal-2/inputs-2.png'
-  alt='Two input fields, each with a white background and light-gray rounded border.'
+  src="/assets/2020/ljs-portal-2/inputs-2.png"
+  alt="Two input fields, each with a white background and light-gray rounded border."
 />
 
 ### Buttons
@@ -120,15 +120,15 @@ Most primary buttons contain a solid fill. This solid fill draws attention to th
 Sometimes, secondary buttons have a white fill.
 
 <Image
-  src='/images/2020/ljs-portal-2/stripe.png'
-  caption='Example of primary and secondary buttons on Stripe.'
+  src="/assets/2020/ljs-portal-2/stripe.png"
+  caption="Example of primary and secondary buttons on Stripe."
 />
 
 I decided to go for a solid yellow fill for the primary button.
 
 <Image
-  src='/images/2020/ljs-portal-2/buttons.png'
-  caption='Primary (left) and Secondary (right) buttons for the course portal'
+  src="/assets/2020/ljs-portal-2/buttons.png"
+  caption="Primary (left) and Secondary (right) buttons for the course portal"
 />
 
 ### Button hover and focus states
@@ -138,15 +138,15 @@ Buttons are interactive elements. They need a hover state and a focus state. Bot
 For hover, I decided to change the background of the button to the orange-yellow gradient. This reuses another element so it unifies the design even more.
 
 <Image
-  src='/images/2020/ljs-portal-2/button-hover.gif'
-  alt='Hover over button. Background becomes orange-yellow gradient.'
+  src="/assets/2020/ljs-portal-2/button-hover.gif"
+  alt="Hover over button. Background becomes orange-yellow gradient."
 />
 
 For focus, I added a blue outline around the button. This outline stands out when you Tab onto it. I wrote an article about creating these kinds of outlines. You can find out more about the technique [here][3].
 
 <Image
-  src='/images/2020/ljs-portal-2/focus-buttons.png'
-  alt='Blue outline when button gets focus.'
+  src="/assets/2020/ljs-portal-2/focus-buttons.png"
+  alt="Blue outline when button gets focus."
 />
 
 ### Focus on email and password fields
@@ -154,8 +154,8 @@ For focus, I added a blue outline around the button. This outline stands out whe
 I decided to use the same focus state on email and password fields. The difference is: I changed the border color to a dark blue to match the focus.
 
 <Image
-  src='/images/2020/ljs-portal-2/focus-text.png'
-  alt='Blue outline when text field gets focus.'
+  src="/assets/2020/ljs-portal-2/focus-text.png"
+  alt="Blue outline when text field gets focus."
 />
 
 ### Bringing the login form together
@@ -163,8 +163,8 @@ I decided to use the same focus state on email and password fields. The differen
 If I bring the elements together for the login page, they look like this:
 
 <Image
-  src='/images/2020/ljs-portal-2/form-1.png'
-  alt='Initial look for the form.'
+  src="/assets/2020/ljs-portal-2/form-1.png"
+  alt="Initial look for the form."
 />
 
 It works, but it doesn't look great.
@@ -172,8 +172,8 @@ It works, but it doesn't look great.
 I tried to center-align every element, but it doesn't look great either. Something seems to be missing.
 
 <Image
-  src='/images/2020/ljs-portal-2/form-2.png'
-  alt='Align every form element to the center.'
+  src="/assets/2020/ljs-portal-2/form-2.png"
+  alt="Align every form element to the center."
 />
 
 I was stuck for a long time. Around this period, I came across [Paul Jarvis][4]'s [Chimp Essentials][5] course again.
@@ -181,28 +181,28 @@ I was stuck for a long time. Around this period, I came across [Paul Jarvis][4]'
 Here, I noticed Paul accentuated his login form with a thick border. This helps me focus on the text fields and login button.
 
 <Image
-  src='/images/2020/ljs-portal-2/chimp-essentials.png'
-  alt='Chimp Essentials login form design.'
+  src="/assets/2020/ljs-portal-2/chimp-essentials.png"
+  alt="Chimp Essentials login form design."
 />
 
 So I stole this idea.
 
 <Image
-  src='/images/2020/ljs-portal-2/form-3.png'
-  alt='Aligned email field, password field, and login button in a single row.'
+  src="/assets/2020/ljs-portal-2/form-3.png"
+  alt="Aligned email field, password field, and login button in a single row."
 />
 
 Then, I accentuated my form by adding a light yellow background. This allows the form to draw more attention.
 
 <Image
-  src='/images/2020/ljs-portal-2/form-4.png'
-  alt='Form has light-yellow background.'
+  src="/assets/2020/ljs-portal-2/form-4.png"
+  alt="Form has light-yellow background."
 />
 
 Finally, I wanted to emphasize the login button more. It looks receded in the login form right now. I played around with a few options and chose to increase the `border-width` from `2px` to `4px`.
 
 <Image
-  src='/images/2020/ljs-portal-2/form-5.png'
+  src="/assets/2020/ljs-portal-2/form-5.png"
   alt="Increased login button's border-width to 4px."
 />
 
@@ -213,15 +213,15 @@ When a user clicks the submit button, I log them into the course with JavaScript
 I wanted to give users feedback that they're logging into the course. The simplest way to do this is to add a status message that says "Logging in". I decided to add this status message to the bottom of the form.
 
 <Image
-  src='/images/2020/ljs-portal-2/login-status-message.png'
-  alt='Example of the login status message.'
+  src="/assets/2020/ljs-portal-2/login-status-message.png"
+  alt="Example of the login status message."
 />
 
 This message can be easily changed to a failure message if the login fails.
 
 <Image
-  src='/images/2020/ljs-portal-2/login-error-message.png'
-  alt='Example of the login error message.'
+  src="/assets/2020/ljs-portal-2/login-error-message.png"
+  alt="Example of the login error message."
 />
 
 That's all the considerations I made for the login page. Next week, I'll end the series with the Accounts and Components page. I'll also share some of my learnings from this experience.

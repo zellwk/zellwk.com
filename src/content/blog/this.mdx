@@ -36,9 +36,9 @@ console.log(this) // Window
 ```
 
 <Image
-  src='/images/2017/es6/window.png'
-  alt='This defaults to window object in browsers'
-  caption='This defaults to window object in browsers'
+  src="/assets/2017/es6/window.png"
+  alt="This defaults to window object in browsers"
+  caption="This defaults to window object in browsers"
 />
 
 Usually, you wouldn't use `this` in a global context anyway, so the value of `this` here doesn't really matter. Let's move on to the next context.
@@ -60,9 +60,9 @@ console.log(thomas) // this.age = 24
 ```
 
 <Image
-  src='/images/2017/es6/constructor.png'
-  alt='This refers to the instance'
-  caption='This refers to the instance'
+  src="/assets/2017/es6/constructor.png"
+  alt="This refers to the instance"
+  caption="This refers to the instance"
 />
 
 You can see that `greg` is an instance of `Person` in the code above. Now, whenever you reference `greg`, you won't accidentally get `thomas`. So, setting `this` to be the instance makes perfect sense.
@@ -95,9 +95,9 @@ o.sayThis() // o
 ```
 
 <Image
-  src='/images/2017/es6/object.png'
-  alt='this in a method refers to the object itself'
-  caption='this refers to the object'
+  src="/assets/2017/es6/object.png"
+  alt="this in a method refers to the object itself"
+  caption="this refers to the object"
 />
 
 Since `this` refers to the object, you can use methods to get the instance of an object, like this:
@@ -122,7 +122,7 @@ In these two object contexts, you can see that the changed value of `this` lets 
 
 Let's move on to the next context.
 
-<div class='jsCkClone'></div>
+<div class="jsCkClone"></div>
 
 ### This in a simple function
 
@@ -331,9 +331,9 @@ boundFunc()
 ```
 
 <Image
-  src='/images/2017/this/bound.png'
-  alt='Bind helps to change this'
-  caption='Bind helps to change this'
+  src="/assets/2017/this/bound.png"
+  alt="Bind helps to change this"
+  caption="Bind helps to change this"
 />
 
 The other parameters you pass to `bind` will be passed as arguments to the original function
@@ -347,9 +347,9 @@ boundFunc()
 ```
 
 <Image
-  src='/images/2017/this/boundargs.png'
-  alt='Other params passed to bind become arguments in the function'
-  caption='Other params passed to bind become arguments in the function'
+  src="/assets/2017/this/boundargs.png"
+  alt="Other params passed to bind become arguments in the function"
+  caption="Other params passed to bind become arguments in the function"
 />
 
 Note: `bind` doesn't work with arrow functions.
@@ -384,22 +384,22 @@ function LeetSpeaker(elem) {
 Here's a Codepen for you to see the code in action.
 
 <p
-  data-height='300'
-  data-theme-id='7929'
-  data-slug-hash='VWbQJe'
-  data-default-tab='js,result'
-  data-user='zellwk'
-  data-embed-version='2'
-  data-pen-title='SpeakLeetOnce?'
-  class='codepen'
+  data-height="300"
+  data-theme-id="7929"
+  data-slug-hash="VWbQJe"
+  data-default-tab="js,result"
+  data-user="zellwk"
+  data-embed-version="2"
+  data-pen-title="SpeakLeetOnce?"
+  class="codepen"
 >
-  See the Pen <a href='https://codepen.io/zellwk/pen/VWbQJe/'>SpeakLeetOnce?</a>{' '}
-  by Zell Liew (<a href='https://codepen.io/zellwk'>@zellwk</a>) on{' '}
-  <a href='https://codepen.io'>CodePen</a>.
+  See the Pen <a href="https://codepen.io/zellwk/pen/VWbQJe/">SpeakLeetOnce?</a>{' '}
+  by Zell Liew (<a href="https://codepen.io/zellwk">@zellwk</a>) on{' '}
+  <a href="https://codepen.io">CodePen</a>.
 </p>
 <script
   async
-  src='https://production-assets.codepen.io/assets/embed/ei.js'
+  src="https://production-assets.codepen.io/assets/embed/ei.js"
 ></script>
 
 And that's all you need to know about `this`.

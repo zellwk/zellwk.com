@@ -153,7 +153,7 @@ This doesn't work because Astro changes how `mdx` is processed when used in an A
 
 If you log `MarkdownContent`, you'll notice there are clear signs that Astro hijacked the `mdx` processing and `mdsvex` did nothing.
 
-<Image src='/images/posts/render-mdx-svelte-astro/astro-mdx-log.png' alt='' />
+<Image src='/assets/posts/render-mdx-svelte-astro/astro-mdx-log.png' alt='' />
 
 You can also try rendering `<MarkdownContent/>` directly, but you'll get an error that says "`<Markdowncontent>` is not a valid SSR component" if you don't add a `client:only` directive.
 

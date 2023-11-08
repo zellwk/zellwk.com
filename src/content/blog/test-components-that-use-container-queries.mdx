@@ -18,11 +18,11 @@ There are better ways.
 
 The first is to use a browser like [Polypane](https://polypane.app/?ref=zellwk) that lets you debug multiple viewports at the same time. It costs only $9/m and it has the potential to reduce a lot of developmental headaches.
 
-<Image src='/images/blog/test-container-queries/polypane.png' />
+<Image src="/assets/blog/test-container-queries/polypane.png" />
 
 If you don't want to spend any money, the second way is to debug your components with a utility that lets you display the component in many different sizes.
 
-<Image src='/images/blog/test-container-queries/utility.png' />
+<Image src="/assets/blog/test-container-queries/utility.png" />
 
 ## Here's how the utility works
 
@@ -34,7 +34,7 @@ The basic idea is:
 
 You'll find the code below.
 
-<Callout type='note'>
+<Callout type="note">
   I’ve written this in Astro because I currently use Astro. But this can be
   reworked for React, Vue, Svelte, Nunjucks, Pug, and all sorts of frameworks
   and template engines easily.
@@ -50,13 +50,13 @@ increment = increment || 50 // Containers should increase by 50px each time by d
 startAt = startAt || 300 // The smallest container is 300px wide
 ---
 
-<div class='CQTestGrid'>
+<div class="CQTestGrid">
   {
     [...Array(containers)].map((_, i) => {
       const width = i * increment + startAt + 'px'
       return (
         <div style={`width: ${width}`}>
-          <div class='size'>{width}</div>
+          <div class="size">{width}</div>
           <slot />
         </div>
       )
@@ -99,7 +99,7 @@ const props = {
   <CQTest {...props}>
     {
       [...Array(props.containers)].map(_ => (
-        <div class='“Container”'>Your component here</div>
+        <div class="“Container”">Your component here</div>
       ))
     }
   </CQTest>

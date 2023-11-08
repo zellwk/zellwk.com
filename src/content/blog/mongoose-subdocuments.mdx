@@ -137,7 +137,7 @@ const doc = await char.save()
 console.log(doc)
 ```
 
-<Image src="/images/2019/mongoose-subdocuments/ryu.png" alt="Image of Ryu's document." />
+<Image src="/assets/2019/mongoose-subdocuments/ryu.png" alt="Image of Ryu's document." />
 ### Method 2: Adding subdocuments later
 
 For this method, we create a character with `new Character` first.
@@ -213,7 +213,7 @@ const doc = await ryu.save()
 console.log(doc)
 ```
 
-<Image src="/images/2019/mongoose-subdocuments/ryu.png" alt="Image of Ryu's document." />
+<Image src="/assets/2019/mongoose-subdocuments/ryu.png" alt="Image of Ryu's document." />
 ## Updating array subdocuments
 
 The easiest way to update subdocuments is:
@@ -239,7 +239,7 @@ const specials = ryu.specials
 console.log(specials)
 ```
 
-<Image src="/images/2019/mongoose-subdocuments/specials.png" alt="Log of specials." />
+<Image src="/assets/2019/mongoose-subdocuments/specials.png" alt="Log of specials." />
 This `specials` array is a normal JavaScript array.
 
 ```js
@@ -271,7 +271,7 @@ const updated = await ryu.save()
 console.log(updated)
 ```
 
-<Image src="/images/2019/mongoose-subdocuments/ryu-updated.png" alt="Ryu updated with Jodan Sokutou Geri" />
+<Image src="/assets/2019/mongoose-subdocuments/ryu-updated.png" alt="Ryu updated with Jodan Sokutou Geri" />
 ## Updating a single subdocument
 
 It's even easier to update single subdocuments. You can edit the document directly like a normal object.
@@ -290,5 +290,5 @@ const updated = await ryu.save()
 console.log(updated)
 ```
 
-<Image src="/images/2019/mongoose-subdocuments/ryu-3.png" alt="Ryu document with Dejin Hadoken." />
+<Image src="/assets/2019/mongoose-subdocuments/ryu-3.png" alt="Ryu document with Dejin Hadoken." />
 [1]: /blog/mongoose

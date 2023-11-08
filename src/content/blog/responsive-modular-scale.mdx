@@ -21,8 +21,8 @@ This problem happens a lot because people want to use the golden ratio for their
 Unfortunately, the golden ratio isn't ideal for creating a Modular Scale because it's **large ratio creates large changes in font-size between each step of the scale**.
 
 <Image
-  src='/images/2016/responsive-modular-scale/golden-ratio-scale.png'
-  caption='Modular Scale produced by the Golden Ratio (1.618)'
+  src="/assets/2016/responsive-modular-scale/golden-ratio-scale.png"
+  caption="Modular Scale produced by the Golden Ratio (1.618)"
 />
 
 If you used 16px as your base for the golden ratio, it's likely that you used the following sizes for you h1-h3 elements:
@@ -61,8 +61,8 @@ This method works because a **smaller ratio produces a scale with smaller differ
 Just take a look at the difference in sizes between these two scales and you'll see what I mean:
 
 <Image
-  src='/images/2016/responsive-modular-scale/diff-scales.png'
-  caption='Modular Scale with ratio 1.333 vs Modular Scale with ratio 1.618'
+  src="/assets/2016/responsive-modular-scale/diff-scales.png"
+  caption="Modular Scale with ratio 1.333 vs Modular Scale with ratio 1.618"
 />
 
 The 1.333-ratio Modular Scale has more font-sizes you can work with. If you used this ratio, you can set the `h1` size to 38px, `h2` to 28px and so on. When the viewport allows, you can also choose to increase the heading sizes by any number of steps with a media query:
@@ -95,8 +95,8 @@ The second way to fix the problem is to add a second number to the base-font-siz
 Let's say you somehow decided that 36px would make a great heading size on the mobile. All you do is to add 36px as the second base number to the scale:
 
 <Image
-  src='/images/2016/responsive-modular-scale/second-base.png'
-  caption='Adding 36px as a second base'
+  src="/assets/2016/responsive-modular-scale/second-base.png"
+  caption="Adding 36px as a second base"
 />
 
 With this small change, you can already see that your header sizes could be 22.25px, 25.888px and 36px. There's so much more flexibility compared to before. The best part? You still get to use the golden ratio. Yay! 😄
@@ -114,8 +114,8 @@ The third method is to add a second ratio to your modular scale. This can be any
 Let's say you decided to use a ratio of 1.25 in addition to the golden ratio. Your Modular Scale will become:
 
 <Image
-  src='/images/2016/responsive-modular-scale/second-ratio.png'
-  caption='Adding a second ratio to the modular scale'
+  src="/assets/2016/responsive-modular-scale/second-ratio.png"
+  caption="Adding a second ratio to the modular scale"
 />
 
 Adding a ratio allows you to have even more flexibility compared to adding a base. In this new scale, you have four helpful sizes you can use to create your headers---20px, 25px, 31px and 39px.
@@ -135,8 +135,8 @@ The fourth method is to vary the Modular Scale ratio at different breakpoints. W
 Here's how it might look; notice how the sizes of headers change while the size of the body text remains the same.
 
 <Image
-  src='/images/2016/responsive-modular-scale/change-ratio.gif'
-  caption='Changing Modular Scale ratio at different viewports'
+  src="/assets/2016/responsive-modular-scale/change-ratio.gif"
+  caption="Changing Modular Scale ratio at different viewports"
 />
 
 This method is less intuitive compared to the previous three methods. Let's run through why it works.
@@ -154,7 +154,7 @@ Every element has the ability to distract visitors from reading the intended con
 A great example of a large and beautiful attention-grabbing title is on Trent Walton's blog:
 
 <Image
-  src='/images/2016/responsive-modular-scale/trent.png'
+  src="/assets/2016/responsive-modular-scale/trent.png"
   caption="Title text on Trent's blog is big, grabs attention and is absolutely stunning"
 />
 

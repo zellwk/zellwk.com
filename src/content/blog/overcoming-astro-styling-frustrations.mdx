@@ -27,7 +27,7 @@ import Component from './components/Component.svelte'
 <Component client:load />
 ```
 
-<Image src='/images/blog/astro-styling-frustrations/astro-island.png' />
+<Image src='/assets/blog/astro-styling-frustrations/astro-island.png' />
 
 If the component (with client directives) contains a `slot`, Astro will create an `astro-slot` tag. This `astro-slot` will be found within an `astro-island`.
 
@@ -41,7 +41,7 @@ import Component from './components/Component.svelte'
 </Component>
 ```
 
-<Image src='/images/blog/astro-styling-frustrations/astro-slots.png' />
+<Image src='/assets/blog/astro-styling-frustrations/astro-slots.png' />
 
 Now, if you include a component without client directives, Astro will not create `astro-island` and `astro-slot` tags.
 
@@ -55,7 +55,7 @@ import Component from './components/Component.svelte'
 </Component>
 ```
 
-<Image src='/images/blog/astro-styling-frustrations/no-slots.png' />
+<Image src='/assets/blog/astro-styling-frustrations/no-slots.png' />
 
 ## What's frustrating about Astro islands and slots
 
@@ -162,7 +162,7 @@ Here's an example that I commonly use to give some space between elements.
 
 Unfortunately, these styles won't work on `astro-island` and `astro-slot` tags because they use the [`display: content` property](https://bitsofco.de/how-display-contents-works/).
 
-<Image src='/images/blog/astro-styling-frustrations/lobotomized-owl-not-working.png' />
+<Image src='/assets/blog/astro-styling-frustrations/lobotomized-owl-not-working.png' />
 
 ### Fixing it
 
@@ -179,7 +179,7 @@ Here's what the CSS looks like.
 }
 ```
 
-<Image src='/images/blog/astro-styling-frustrations/lobotomized-owl-working.png' />
+<Image src='/assets/blog/astro-styling-frustrations/lobotomized-owl-working.png' />
 
 ## CSS Grid Positioning no longer works
 
@@ -214,7 +214,7 @@ import Component from './Component.svelte'
 </style>
 ```
 
-<Image src='/images/blog/astro-styling-frustrations/grid.png' />
+<Image src='/assets/blog/astro-styling-frustrations/grid.png' />
 
 There are two ways to fix this problem.
 
@@ -236,7 +236,7 @@ There are two ways to fix this problem.
 }
 ```
 
-<Image src='/images/blog/astro-styling-frustrations/grid-fixed.png' />
+<Image src='/assets/blog/astro-styling-frustrations/grid-fixed.png' />
 
 **The second way is to put the components in another element.**
 
@@ -260,7 +260,7 @@ There are two ways to fix this problem.
 }
 ```
 
-<Image src='/images/blog/astro-styling-frustrations/grid-fixed.png' />
+<Image src='/assets/blog/astro-styling-frustrations/grid-fixed.png' />
 
 ## Nth-child no longer works as expected
 
@@ -284,7 +284,7 @@ This produces a DOM that looks like this.
 - Second element is a `script` tag
 - Next three elements are `astro-island` tags
 
-<Image src='/images/blog/astro-styling-frustrations/astro-components.png' />
+<Image src='/assets/blog/astro-styling-frustrations/astro-components.png' />
 
 <Callout type='note'>
   Astro will only include `style` and `script` tags for the components once in
@@ -301,7 +301,7 @@ If you want to get the first component with `nth-child`, you need to pass in `nt
 }
 ```
 
-<Image src='/images/blog/astro-styling-frustrations/component-red.png' />
+<Image src='/assets/blog/astro-styling-frustrations/component-red.png' />
 
 Yes, I know it's confusing.
 
@@ -328,7 +328,7 @@ You can then use `nth-child` to style with a descendant selector to style the co
 }
 ```
 
-<Image src='/images/blog/astro-styling-frustrations/component-red.png' />
+<Image src='/assets/blog/astro-styling-frustrations/component-red.png' />
 
 **The second way is to stop using `nth-child` and use `nth-of-type` instead.**
 
@@ -338,7 +338,7 @@ You can then use `nth-child` to style with a descendant selector to style the co
 }
 ```
 
-<Image src='/images/blog/astro-styling-frustrations/component-red.png' />
+<Image src='/assets/blog/astro-styling-frustrations/component-red.png' />
 
 ## A deeper layer of frustrations
 
@@ -361,7 +361,7 @@ Astro will create the following layout:
 2. `astro-slot` in the second level (since `Component` gets content through a slot)
 3. Another `astro-island` after `astro-slot` since `Nested` needs to have JavaScript functionality as well.
 
-<Image src='/images/blog/astro-styling-frustrations/nested-island-and-slots.png' />
+<Image src='/assets/blog/astro-styling-frustrations/nested-island-and-slots.png' />
 
 I'm not sure whether this level of complexity is necessary though.
 

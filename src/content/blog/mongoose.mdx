@@ -64,8 +64,8 @@ db.on('error', err => {
 Try connecting to the database. You should see a log like this:
 
 <Image
-  src='/images/2019/mongoose/connect-database.png'
-  alt='Connected to a database.'
+  src="/assets/2019/mongoose/connect-database.png"
+  alt="Connected to a database."
 />
 ## Creating a Model
 
@@ -178,7 +178,7 @@ ryu.save(function (error, document) {
 
 If you run the code above, you should see this in the console.
 
-<Image src='/images/2019/mongoose/saved.png' alt='Ryu saved to the database.' />
+<Image src="/assets/2019/mongoose/saved.png" alt="Ryu saved to the database." />
 ### Promises and Async/await
 
 **Mongoose supports promises.** It lets you write nicer code like this:
@@ -229,8 +229,8 @@ Note: I'll use the async/await format for the rest of the tutorial.
 Mongoose adds a new character to the database each you use `new Character` and `save`. If you run the code(s) above three times, you'd expect to see three Ryus in the database.
 
 <Image
-  src='/images/2019/mongoose/three-ryus.png'
-  alt='Three Ryus in the database.'
+  src="/assets/2019/mongoose/three-ryus.png"
+  alt="Three Ryus in the database."
 />
 We don't want to have three Ryus in the database. We want to have **ONE Ryu only**.
 To do this, we can use the **unique** option.
@@ -252,7 +252,7 @@ await Character.deleteMany({})
 
 Try to add two Ryus into the database now. You'll get an `E11000 duplicate key error`. You won't be able to save the second Ryu.
 
-<Image src='/images/2019/mongoose/dup-error.png' alt='Duplicated key error.' />
+<Image src="/assets/2019/mongoose/dup-error.png" alt="Duplicated key error." />
 Let's add another character into the database before we continue the rest of the
 tutorial.
 
@@ -266,8 +266,8 @@ await ken.save()
 ```
 
 <Image
-  src='/images/2019/mongoose/ryu-ken.png'
-  alt='Database contains two characters.'
+  src="/assets/2019/mongoose/ryu-ken.png"
+  alt="Database contains two characters."
 />
 ## Retrieving a character
 
@@ -286,8 +286,8 @@ console.log(ryu)
 ```
 
 <Image
-  src='/images/2019/mongoose/found-one.png'
-  alt='Found Ryu from the database.'
+  src="/assets/2019/mongoose/found-one.png"
+  alt="Found Ryu from the database."
 />
 ### find
 
@@ -299,8 +299,8 @@ console.log(chars)
 ```
 
 <Image
-  src='/images/2019/mongoose/found-many-ryu.png'
-  alt='Combed through the database and found one character with the name Ryu.'
+  src="/assets/2019/mongoose/found-many-ryu.png"
+  alt="Combed through the database and found one character with the name Ryu."
 />
 If you did not specify any properties to search for, it'll return an array that contains
 all documents in the collection.
@@ -311,8 +311,8 @@ console.log(chars)
 ```
 
 <Image
-  src='/images/2019/mongoose/found-many.png'
-  alt='Found two characters in the database.'
+  src="/assets/2019/mongoose/found-many.png"
+  alt="Found two characters in the database."
 />
 ## Updating a Character
 
@@ -363,7 +363,7 @@ const doc = await ryu.save()
 console.log(doc)
 ```
 
-<Image src='/images/2019/mongoose/ryu-updated.png' alt='Updated Ryu.' />
+<Image src="/assets/2019/mongoose/ryu-updated.png" alt="Updated Ryu." />
 ### findOneAndUpdate
 
 `findOneAndUpdate` is the same as MongoDB's `findOneAndModify` method.
@@ -381,18 +381,18 @@ const doc = await Character.findOneAndUpdate(
   { name: 'Ryu' },
   {
     specials: ['Hadoken', 'Shoryuken', 'Tatsumaki Senpukyaku'],
-  }
+  },
 )
 
 console.log(doc)
 ```
 
-<Image src='/images/2019/mongoose/ryu-updated.png' alt='Updated Ryu.' />
+<Image src="/assets/2019/mongoose/ryu-updated.png" alt="Updated Ryu." />
 ### Difference between findOne + save vs findOneAndUpdate
 
 Two major differences.
 
-First, the **syntax for `` findOne` + `save `` is easier to read** than `findOneAndUpdate`.
+First, the **syntax for ``findOne` + `save`` is easier to read** than `findOneAndUpdate`.
 
 Second, `findOneAndUpdate` does not trigger the `save` middleware.
 

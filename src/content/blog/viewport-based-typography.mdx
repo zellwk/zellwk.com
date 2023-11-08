@@ -28,9 +28,9 @@ There are 4 different types of viewport units available in CSS today. They are:
 **Viewport**, in this case, **refers to the browser screen**. `1vw` would mean one percent of the browser's width. **`100vw` would mean the full browser width**.
 
 <Image
-  src='/images/2016/viewport-based-typography/viewport-units.png'
-  alt='Viewport units'
-  caption='100vw and 100vh'
+  src="/assets/2016/viewport-based-typography/viewport-units.png"
+  alt="Viewport units"
+  caption="100vw and 100vh"
 />
 
 The good thing about **viewport units is that they are automatically recalculated whenever the viewport changes**. This happens on load, on resize or even on orientation change.
@@ -46,8 +46,8 @@ Since viewport units are automatically recalculated, it becomes extremely easy t
 ```
 
 <Image
-  src='/images/2016/viewport-based-typography/quarter-viewport-component.gif'
-  alt='Quarter viewport component'
+  src="/assets/2016/viewport-based-typography/quarter-viewport-component.gif"
+  alt="Quarter viewport component"
   caption="A component that's always a quarter of the viewport"
 />
 
@@ -106,9 +106,9 @@ html {
 ```
 
 <Image
-  src='/images/2016/viewport-based-typography/font-size-in-vw.gif'
-  alt='Font size in vw'
-  caption='Resizing text automatically with viewport units!'
+  src="/assets/2016/viewport-based-typography/font-size-in-vw.gif"
+  alt="Font size in vw"
+  caption="Resizing text automatically with viewport units!"
 />
 
 Pretty amazing, isn't it?
@@ -144,9 +144,9 @@ html {
 Tada!
 
 <Image
-  src='/images/2016/viewport-based-typography/font-size-vw-tamed.gif'
-  alt='Font size tamed'
-  caption='Font sized with vw now tamed!'
+  src="/assets/2016/viewport-based-typography/font-size-vw-tamed.gif"
+  alt="Font size tamed"
+  caption="Font sized with vw now tamed!"
 />
 
 Shwweeeeeet! Can we really get rid of `em`, `rem` and media queries altogether in our code? At this point, I can't wait to try it out!
@@ -169,9 +169,9 @@ h1 {
 ```
 
 <Image
-  src='/images/2016/viewport-based-typography/viewport-sized-header.png'
-  alt='Incorrectly sized h1'
-  caption='H1 has sized incorrectly :('
+  src="/assets/2016/viewport-based-typography/viewport-sized-header.png"
+  alt="Incorrectly sized h1"
+  caption="H1 has sized incorrectly :("
 />
 
 **This happens because I'm using a percentage-based `font-size` calculation in the `<h1>`**. Effectively, I'm recalculating the `font-size` in `<h1>` after inheriting the calculated `font-size` in `<html>`.
@@ -229,9 +229,9 @@ h1 {
 ```
 
 <Image
-  src='/images/2016/viewport-based-typography/correctly-sized-header.png'
-  alt='Correctly sized headers'
-  caption='H1 now correctly sized with em!'
+  src="/assets/2016/viewport-based-typography/correctly-sized-header.png"
+  alt="Correctly sized headers"
+  caption="H1 now correctly sized with em!"
 />
 
 Since we're talking about scaling font-sizes, the next question you may have is: "**What about vertical rhythm or modular scale with viewport units?**"

@@ -31,13 +31,13 @@ $susy: (
 
 Let's create a very simple layout for this tutorial, and understand how these gutter positions work.
 
-<Image src='/images/2014/08/grid-final.png' alt='' />
+<Image src="/assets/2014/08/grid-final.png" alt="" />
 
 ## After
 
 `after` is the default `gutter-position` setting and it tells Susy to place a gutter after every single column. In this mode, **you will need to remove the gutters for the last column in the row**. Gutters are output as margins in this mode.
 
-<Image src='/images/2014/08/gp-after.png' alt='' />
+<Image src="/assets/2014/08/gp-after.png" alt="" />
 
 When using `after`, the default `span` mixin will produce 3 properties, `width`, `margin-right` and `float: left`.
 
@@ -95,7 +95,7 @@ In the layout about, the content area takes up 3 of 4 columns while the sidebar 
 
 `before` is another variation of `after` and the basic process is the same. Instead of placing a gutter after every column, `before` places the gutter before every column. In this mode, you will **need to remove the gutters for the first column in the row**. Gutters are also output as margins in this mode.
 
-<Image src='/images/2014/08/gp-before.png' alt='' />
+<Image src="/assets/2014/08/gp-before.png" alt="" />
 
 When using `before`, the default `span` mixin will produce 3 properties, `width`, `margin-left` and `float: left`.
 
@@ -137,7 +137,7 @@ And we will obtain the same layout.
 
 `split` is a totally different to both `before` and `after`. In `split`, the gutters are divided into two and placed on each side of the column. Gutters are output as margins in this mode, and there is **no need to remove gutters for at the edges of the row**.
 
-<Image src='/images/2014/08/gp-split.png' alt='' />
+<Image src="/assets/2014/08/gp-split.png" alt="" />
 
 If we only had `.content` and `.sidebar`, split gutters are easy. We just need to use the span function as we will normally do.
 
@@ -151,7 +151,7 @@ If we only had `.content` and `.sidebar`, split gutters are easy. We just need t
 }
 ```
 
-<Image src='/images/2014/08/gp-split-2.png' alt='' />
+<Image src="/assets/2014/08/gp-split-2.png" alt="" />
 
 It won't be as straightforward though, if either `.content` or `.sidebar` contains any children elements.
 
@@ -181,7 +181,7 @@ And lets try the same method we used previously. `.child-one` will take up 2 of 
 }
 ```
 
-<Image src='/images/2014/08/gp-split-3.png' alt='' />
+<Image src="/assets/2014/08/gp-split-3.png" alt="" />
 
 Notice how `.child-one` and `child-two` are completely out of alignment with the grid background!
 
@@ -203,7 +203,7 @@ The way Susy outputs the CSS for these two contexts are very different. We need 
 }
 ```
 
-<Image src='/images/2014/08/gp-split-4.png' alt='' />
+<Image src="/assets/2014/08/gp-split-4.png" alt="" />
 
 Notice how that the background for `.content` is extending past the columns while the `.child-one` and `.child-two` are now nicely fitted into the grids.
 
@@ -242,7 +242,7 @@ Children elements are the ones that output all the gutters.
 
 Both `inside` and `inside-static` are very similar to `split`. The gutters are split up into two place placed on each side of the column. These gutters however, are output as paddings instead. There is also **no need to remove gutters for at the edges of the row**.
 
-<Image src='/images/2014/08/gp-inside.png' alt='' />
+<Image src="/assets/2014/08/gp-inside.png" alt="" />
 
 `Inside` gutters have the same mechanism as `split`. If you didn't declare a `nest` keyword on the parent element, the children elements will go out of place.
 
@@ -260,7 +260,7 @@ Both `inside` and `inside-static` are very similar to `split`. The gutters are s
 }
 ```
 
-<Image src='/images/2014/08/gp-inside-2.png' alt='' />
+<Image src="/assets/2014/08/gp-inside-2.png" alt="" />
 
 Just remember to add `nest` keyword to `.content` and you're set.
 
@@ -278,7 +278,7 @@ Just remember to add `nest` keyword to `.content` and you're set.
 }
 ```
 
-<Image src='/images/2014/08/gp-inside-3.png' alt='' />
+<Image src="/assets/2014/08/gp-inside-3.png" alt="" />
 
 `inside-static` works exactly the same way as `inside`. The only exception is that it produces gutters in units instead of percentages, and if you have given a `width` to `column-width` setting.
 

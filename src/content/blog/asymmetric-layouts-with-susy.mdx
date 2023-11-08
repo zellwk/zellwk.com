@@ -19,18 +19,18 @@ In this post, I want to introduce you to asymmetric grids with Susy and show you
 We're making a simple fluid layout that has an asymmetric layout slapped onto it. I've opted to give two sidebars to this layout and also there are two nested items within the content area. **Note: You might want to open this up in Codepen**
 
 <p
-  data-height='266'
-  data-theme-id='7929'
-  data-slug-hash='uvnyx'
-  data-default-tab='result'
-  class='codepen'
+  data-height="266"
+  data-theme-id="7929"
+  data-slug-hash="uvnyx"
+  data-default-tab="result"
+  class="codepen"
 >
-  See the Pen <a href='http://codepen.io/zellwk/pen/uvnyx/'>uvnyx</a> by Zell
-  Liew (<a href='http://codepen.io/zellwk'>@zellwk</a>) on{' '}
-  <a href='http://codepen.io'>CodePen</a>.
+  See the Pen <a href="http://codepen.io/zellwk/pen/uvnyx/">uvnyx</a> by Zell
+  Liew (<a href="http://codepen.io/zellwk">@zellwk</a>) on{' '}
+  <a href="http://codepen.io">CodePen</a>.
 </p>
 
-<script async src='//codepen.io/assets/embed/ei.js'></script>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
 
 ## Configuring Susy Global Settings
 
@@ -70,7 +70,7 @@ As usual, the important first step is to add a `container` mixin to wrap. We wil
 }
 ```
 
-<Image src='/images/2014/08/asym-grid-1.png' alt='' />
+<Image src="/assets/2014/08/asym-grid-1.png" alt="" />
 
 There is one other thing we need to understand before we can create the grid.
 
@@ -115,7 +115,7 @@ With this knowledge, we can quickly create the output for `.sidebar-one`, `.cont
 
 The three elements mentioned above should be positioned nicely on an asymmetrical grid now. If we temporarily remove `.nest-one` and `.nest-two` from the equation, this should look like
 
-<Image src='/images/2014/08/Screen-Shot-2014-08-18-at-1.30.30-pm.png' alt='' />
+<Image src="/assets/2014/08/Screen-Shot-2014-08-18-at-1.30.30-pm.png" alt="" />
 
 Working on the nested elements (`.nest-one` and `.nest-two`) is slightly more tricky than working with the base items. This is because we now need to give the nested elements the correct context to work with.
 
@@ -135,15 +135,15 @@ When writing for the nested elements, we need to include this context into the `
 ```
 
 <p
-  data-height='266'
-  data-theme-id='7929'
-  data-slug-hash='uvnyx'
-  data-default-tab='result'
-  class='codepen'
+  data-height="266"
+  data-theme-id="7929"
+  data-slug-hash="uvnyx"
+  data-default-tab="result"
+  class="codepen"
 >
-  See the Pen <a href='http://codepen.io/zellwk/pen/uvnyx/'>uvnyx</a> by Zell
-  Liew (<a href='http://codepen.io/zellwk'>@zellwk</a>) on{' '}
-  <a href='http://codepen.io'>CodePen</a>.
+  See the Pen <a href="http://codepen.io/zellwk/pen/uvnyx/">uvnyx</a> by Zell
+  Liew (<a href="http://codepen.io/zellwk">@zellwk</a>) on{' '}
+  <a href="http://codepen.io">CodePen</a>.
 </p>
 
 As you can see, we didn't have to worry about calculating the exact grid widths in terms or pixels or percentages when working with Susy. You can create asymmetric grids with Susy easily as long as you know the theory behind it, and you can count the number of columns to span.

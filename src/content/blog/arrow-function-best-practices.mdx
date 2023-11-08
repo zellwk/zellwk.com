@@ -57,8 +57,8 @@ zell.sayHi()
 ```
 
 <Image
-  src='/images/2020/arrow-function-best-practices/sayhi-correct.png'
-  alt='Zell says hi.'
+  src="/assets/2020/arrow-function-best-practices/sayhi-correct.png"
+  alt="Zell says hi."
 />
 
 Watch what happens if you change `sayHi` to an arrow function.
@@ -73,8 +73,8 @@ zell.sayHi()
 ```
 
 <Image
-  src='/images/2020/arrow-function-best-practices/sayhi-error.png'
-  alt='Error, this.getFullname is not a function.'
+  src="/assets/2020/arrow-function-best-practices/sayhi-error.png"
+  alt="Error, this.getFullname is not a function."
 />
 
 ...
@@ -96,8 +96,8 @@ zell.sayHi()
 ```
 
 <Image
-  src='/images/2020/arrow-function-best-practices/sayhi-arrow-method.png'
-  alt='This is windows.'
+  src="/assets/2020/arrow-function-best-practices/sayhi-arrow-method.png"
+  alt="This is windows."
 />
 
 In short: **Do not use arrow functions to create methods!**
@@ -120,8 +120,8 @@ object.this()
 ```
 
 <Image
-  src='/images/2020/arrow-function-best-practices/window.png'
-  alt='This is Window.'
+  src="/assets/2020/arrow-function-best-practices/window.png"
+  alt="This is Window."
 />
 
 We usually want `this` to be the object when we use `this` inside a method. (So we can call other methods).
@@ -143,8 +143,8 @@ object.this()
 ```
 
 <Image
-  src='/images/2020/arrow-function-best-practices/object.png'
-  alt='This is the object.'
+  src="/assets/2020/arrow-function-best-practices/object.png"
+  alt="This is the object."
 />
 
 Another way is to create a new function with `bind`.
@@ -164,8 +164,8 @@ object.this()
 ```
 
 <Image
-  src='/images/2020/arrow-function-best-practices/object.png'
-  alt='This is the object.'
+  src="/assets/2020/arrow-function-best-practices/object.png"
+  alt="This is the object."
 />
 
 If you use arrow functions, you don't need to use `self`, `that`, or `bind`. You can write the arrow function directly, and `this` will point to the object (because the surrounding `this` value is the object).
@@ -184,8 +184,8 @@ object.hello()
 ```
 
 <Image
-  src='/images/2020/arrow-function-best-practices/object.png'
-  alt='This is the object.'
+  src="/assets/2020/arrow-function-best-practices/object.png"
+  alt="This is the object."
 />
 
 [1]: https://learnjavascript.today

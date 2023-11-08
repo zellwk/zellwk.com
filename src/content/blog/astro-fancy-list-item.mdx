@@ -2,7 +2,7 @@
 title: Building fancy list items in Astro
 description: This article shows you how to add custom SVG to any markdown list items in Astro, so you don't have to write custom HTML each time you want to make nice lists. 
 slug: astro-fancy-list-item
-cover: /images/blog/astro-fancy-list-item/markdown.png
+cover: /assets/blog/astro-fancy-list-item/markdown.png
 tags: ['astro', 'node']
 ckForm: astro
 pubDate: 2023-04-12
@@ -14,9 +14,9 @@ The answer is there is — with Astro, it's possible. You can simply write markd
 
 {/* more */}
 
-<Image src="/images/blog/astro-fancy-list-item/markdown.png" alt="List items written like normal markdown" caption="Input: Contains normal markdown" />
+<Image src="/assets/blog/astro-fancy-list-item/markdown.png" alt="List items written like normal markdown" caption="Input: Contains normal markdown" />
 
-<Image src="/images/blog/astro-fancy-list-item/output.png" alt="Output that uses SVGs as the list bullet" caption="Output: Contains an SVG as the list item"/>
+<Image src="/assets/blog/astro-fancy-list-item/output.png" alt="Output that uses SVGs as the list bullet" caption="Output: Contains an SVG as the list item"/>
 
 
 ## Before we begin
@@ -56,11 +56,11 @@ The cool thing about this is you can add extra properties like `fill`, `stroke`,
 
 Here are some examples where I changed the SVG `fill` for [Magical Dev School](https://magicaldevschool.com). 
 
-<Image src="/images/blog/astro-fancy-list-item/green-star.png" alt="List items with a green color star" />
+<Image src="/assets/blog/astro-fancy-list-item/green-star.png" alt="List items with a green color star" />
 
-<Image src="/images/blog/astro-fancy-list-item/blue-star.png" alt="List items with a blue color star" />
+<Image src="/assets/blog/astro-fancy-list-item/blue-star.png" alt="List items with a blue color star" />
 
-<Image src="/images/blog/astro-fancy-list-item/yellow-star.png" alt="List items with a yellow color star" />
+<Image src="/assets/blog/astro-fancy-list-item/yellow-star.png" alt="List items with a yellow color star" />
 
 I'm going to show you how to build a simple version that lets you insert an SVG you want. We won't be going through the advanced stuff like adding `fill` and `stroke` and other conditions though!
 
@@ -77,7 +77,7 @@ console.log(html)
 ---
 ```
 
-<Image src="/images/blog/astro-fancy-list-item/html-string.png" alt="console.log of the slot content" />
+<Image src="/assets/blog/astro-fancy-list-item/html-string.png" alt="console.log of the slot content" />
 
 **Next, this is where the magic happens**
 

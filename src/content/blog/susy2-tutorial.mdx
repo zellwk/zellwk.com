@@ -24,7 +24,7 @@ Susy removes this layer altogether. You can immediately target any css class and
 
 Yeah I know this is totally abstract and its difficult to grasp. Instead of only talking about theory, we are going to use Susy 2 to help us build a complicated grid system devised by Arnaud Guera (AG) that uses 10 columns. This grid looks like this
 
-![10 column AG grid with susy 2][image-1]
+<Image src="/assets/2014/04/susy2-1.png" alt="10 column AG grid with susy 2" />
 
 ## Installing Susy 2
 
@@ -347,7 +347,7 @@ We first need to create the layouts on AG1, AG2 and AG3. Upon inspection, the wh
 
 If you take a look at the output now, you should see this
 
-![][image-2]
+<Image src="/assets/2014/04/susy2-2.png" alt="Susy 2 with first 3 containers" />
 
 AG4 and AG5 are nested within AG2 and they each hold a width of 3 columns each
 
@@ -375,7 +375,7 @@ Alternatively, you can make use of the last mixin and write it this way. The las
 
 AG4 and AG5 should now fall nicely in place.
 
-![][image-3]
+<Image src="/assets/2014/04/susy2-3.png" alt="Susy 2 with 5 containers" />
 
 AG6 holds 2 columns and AG 7 holds 4 columns, and AG 7 is the last item in the row. You should probably know the drill by now.
 
@@ -390,7 +390,10 @@ AG6 holds 2 columns and AG 7 holds 4 columns, and AG 7 is the last item in the r
 }
 ```
 
-![Susy 2 with all 10 AG containers][image-4]
+<Image
+  src="/assets/2014/04/susy2-4.png"
+  alt="Susy 2 with all 10 AG containers"
+/>
 
 And lets finish up the last few items for the AG Grid
 
@@ -410,7 +413,7 @@ And lets finish up the last few items for the AG Grid
 }
 ```
 
-![10 column AG grid with susy 2][image-5]
+<Image src="/assets/2014/04/susy2-1.png" alt="10 column AG grid with susy 2" />
 
 That was how you could use Susy 2 in the nutshell.
 
@@ -423,8 +426,3 @@ I hope this was helpful for you. If you have any comments or questions, leave th
 [3]: http://susydocs.oddbird.net/en/latest/settings/#global-defaults 'Susy global defaults'
 [4]: /blog/a-complete-tutorial-to-susy/ 'Susy 1 Tutorial'
 [5]: http://susydocs.oddbird.net/en/latest/toolkit/#span-mixin 'Susy span mixin'
-[image-1]: /images/2014/04/susy2-1.png '10 column AG grid with susy 2'
-[image-2]: /images/2014/04/susy2-2.png 'Susy 2 with first 3 containers'
-[image-3]: /images/2014/04/susy2-3.png 'Susy 2 with 5 containers'
-[image-4]: /images/2014/04/susy2-4.png 'Susy 2 with all 10 AG containers'
-[image-5]: /images/2014/04/susy2-1.png '10 column AG grid with susy 2'
