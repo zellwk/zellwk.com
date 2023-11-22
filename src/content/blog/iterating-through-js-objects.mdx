@@ -9,6 +9,8 @@ Once in a while, you may need to loop over objects in JavaScript. Before ES6, th
 
 Unfortunately, the `for...in` loop iterates over properties in the Prototype chain as well, so when you use this loop, you need to check if the property belongs to the object with `hasOwnProperty`.
 
+{/* more */}
+
 ```js
 for (var property in object) {
   if (object.hasOwnProperty(property)) {

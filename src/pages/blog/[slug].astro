@@ -5,13 +5,10 @@ import FormattedDate from '/src/components/FormattedDate.astro'
 import PostNav from '/src/components/PostNav.astro'
 import LeadModal from '/src/components/LeadModal.svelte'
 import Freebie from '/src/components/Freebie.astro'
-import GoogleSquareAd from '/src/components/Ads/google-square.astro'
-import GoogleArticleAd from '/src/components/Ads/google-article.svelte'
 
 import { normalize } from '../../utils/content.js'
-import { CollectionEntry, getCollection } from 'astro:content'
+import { getCollection } from 'astro:content'
 import ConvertkitForm from '../../components/ConvertkitForm.astro'
-type Props = CollectionEntry<'blog'>
 
 // TODO: Perhaps put these components into a single file?
 import Image from '/src/components/Image.astro'
@@ -73,11 +70,11 @@ const { Content } = await post.render()
           <!-- TODO: MEDIA / YOUTUBE / VIMEO / WHATEVER HERE -->
           <Content {components} />
           <PostNav {posts} />
-          <GoogleArticleAd client:load />
+          <!-- <GoogleArticleAd client:load /> -->
         </div>
 
         <div class="PostLayout2-sidebar">
-          <GoogleSquareAd />
+          <!-- <GoogleSquareAd /> -->
         </div>
       </div>
     </article>

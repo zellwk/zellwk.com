@@ -26,7 +26,7 @@ async function importImage(filePath) {
 ---
 
 <figure class={klass} aria-label={caption || null}>
-  {image.format === 'gif' && <img src={image} {alt} />}
+  {image.format === 'gif' && <img src={image.src} {alt} />}
   {
     image.format !== 'gif' && (
       <Picture src={image} {formats} widths={imageWidths} {alt} />

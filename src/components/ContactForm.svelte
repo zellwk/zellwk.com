@@ -7,7 +7,7 @@
   export let action
   export let redirectTo
 
-  let loader = {
+  const loader = {
     title: 'Sending your message...',
   }
 
@@ -41,6 +41,8 @@
 
 <Form method="post" {redirectTo} on:submit={submit} {loader}>
   <Input type="hidden" name="subject" value="Hey Zell!" />
+  <Input type="hidden" name="template" value="contact-form" />
+  <Input type="hidden" name="send-to-self" value="true" />
   <Input type="text" name="first-name" label="First Name" required="true" />
   <Input type="email" name="email" label="Email address" required="true" />
   <Input
