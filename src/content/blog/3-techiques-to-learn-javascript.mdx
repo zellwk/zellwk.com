@@ -1,0 +1,142 @@
+---
+title: 3 Techniques to learn JavaScript effectively
+description: If you know how to study JavaScript effectively, you will be able to master it within months. If you don’t, you’ll take way longer than necessary. Today, I’m going to reveal three techniques that I have used to help myself and many others master JavaScript quickly.
+tags: ['javascript', 'learning-techniques']
+pubDate: 2024-01-09
+---
+
+If you know how to study JavaScript effectively, you will be able to master it within months. If you don’t, you’ll take way longer than necessary.
+
+Today, I’m going to reveal three techniques that I have used to help myself and many others master JavaScript quickly.
+
+{/* more */}
+
+They are:
+
+1. Picturing concepts with Analogies
+2. Seeing the cause and effect of each concept
+3. Simplify a concept to its core
+
+## Picturing the JavaScript Concept with Analogies
+
+The human mind works very well with analogies. When you create an analogy for a concept, you link that concept with something you're already familiar with.
+
+For example, let's say you want to understand for loops (which is something many up-and-coming developers have problems with).
+
+Most developers would try to memorize the code for the for loop — which is incredibly daunting because there are so many components within it.
+
+```js
+// This is daunting to remember!
+for (let index = 0; index < 6; index++) {
+  // Do something
+}
+```
+
+But if I ask you to picture a 400m running track. Your job is to run for 2.4 kilometers.
+
+Instantly, you know you have to run around the track 6 times. When you start the run, you know it's the first round. When you pass the starting line, you know it's the second round. So you increment the `index` — which, in this case, is the number of times the loop has run — by 1.
+
+Now you understand for loops and you'll have no problems working with it. (If you didn't know this before, you're welcome 🙂).
+
+<Callout>
+  I kept this example short because we're going through two more techniques in
+  this article. If you want to get a sense of how I use these analogies to
+  teach, check out the [if/else
+  statement](https://students.magicaldevschool.com/learn-javascript/js-basics/if-else/)
+  lesson (free),
+  [function](https://students.magicaldevschool.com/learn-javascript/js-basics/)
+  lesson (free) or the [For
+  loops](https://students.magicaldevschool.com/learn-javascript/arrays-and-loops/for-loop/)
+  lesson (paid) in [Learn JavaScript](https://learnjavascript.today).
+</Callout>
+
+## Seeing the cause and effect of the concept
+
+JavaScript is difficult because it is relatively invisible to most people. Picturing what it is, how it works, and how to turn a concept into analogies is almost impossible for most people (unless you can understand what's going on).
+
+In this case, seeing the cause and effect of the concept can help you understand what's going on.
+
+For example, imagine your mobile phone is currently switched off and you want to turn it on. To do so, you just have to press a button and the phone comes on.
+
+Now, you don't have to understand how the phone works. You simply need to know that pressing the button (the cause) will result in the phone turning on (the effect).
+
+You can use the same technique for JavaScript concepts too.
+
+On a simple level, consider you're trying to assign a value to a JavaScript variable, `num`. To see the effect of this assignment, you can just `console.log` the variable.
+
+```js
+let num = 0
+num = 4 // This is the cause.
+console.log(num) // This lets you see the effect.
+```
+
+When the `console.log` statement says that `num` is 4, you have confidence that your assignment changed the value of `num` — the cause has worked and therefore you see the effect. (This is why `console.log` is such a powerful tool for learning).
+
+You can use a similar method for complex concepts too.
+
+This time, imagine you're trying to fetch a resource from another website. You read somewhere that you can use the Fetch API and it looks like this:
+
+```js
+fetch('https://api.github.com...')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+  })
+```
+
+You may not know what `then` or `response.json` does, but you don't have to care anyway in the initial stages of your learning. You don't even have to know how the `fetch` works.
+
+You just have to know:
+
+1. The `fetch` function takes in a URL
+2. You have to use `response.json`
+3. Then you get the data that you want
+
+The code structure (with `fetch` and `then` and `then`) is the cause. And the effect of that is you get the data you want.
+
+Of course, you can improve your understanding of the Fetch API by understanding promises. And you can use [analogies](https://students.magicaldevschool.com/async-js-and-rest-apis/fundamental-concepts/promises/) to understand what promises are.
+
+This is why seeing cause and effect is powerful — you get confidence that what you're doing is accurate and correct. Once the base is established, it gives you the confidence to venture further to understand at a deeper level.
+
+<Callout>
+  One of the best examples to understand the cause and effect is to trace the
+  [flow of a
+  function](https://students.magicaldevschool.com/learn-javascript/js-basics/flow-of-a-function/)
+  (free lesson). Once you see this, you'll understand JavaScript functions
+  completely.{' '}
+</Callout>
+
+## Simplifying a concept to its core
+
+One of the main problems with learning code on the internet is the ego of the writers — many tutorial writers try to appear smart by using jargons (which they may not fully understand).
+
+These jargons don't help anyone understand what's going on. Clarifying them and simplifying them to their core message can help you understand what these jargons are.
+
+For example, you've heard that JavaScript has "Higher Order Functions".
+
+This "Higher Order Functions" concept sounds complex. But they mean nothing more than "You can pass functions as variables into other functions".
+
+```js
+function fn1() {
+  /* ... */
+}
+function fn2(arg) {
+  /* ... */
+}
+
+// Function2 takes in an argument, and Function1 can be passed as the argument.
+fn2(fn1)
+```
+
+When you're able to unpack the jargon and see what it means, you understand it completely — and you will not feel a sense of uncertainty around it anymore.
+
+There are many more of these complex-sounding jargons like [Object Oriented Programming](https://css-tricks.com/the-flavors-of-object-oriented-programming-in-javascript/), [Prototypes](https://zellwk.com/blog/javascript-prototype/), [Polymorphism](https://zellwk.com/blog/polymorphism-javascript), and [Encapsulation](https://students.magicaldevschool.com/learn-javascript/oop/encapsulation/) in JavaScript — it takes quite a bit of work to understand what they _actually_ at their core.
+
+<Callout>
+  We do a lot of this jargon-unpacking work in [Learn
+  JavaScript](https://learnjavascript.today) and all of our courses in [Magical
+  Dev School](https://magicaldevschool.com). This is why many of our students
+  were able to learn JavaScript
+  [easily](https://learnjavascript.today/#testimonials) with us even when they
+  struggled while using other resources.
+</Callout>

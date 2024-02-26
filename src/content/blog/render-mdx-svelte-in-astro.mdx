@@ -38,7 +38,7 @@ First, you need a Svelte component that has a `<slot>`.
 ```svelte
 <!-- Super minimal Svelte component -->
 <div>
-  <slot/>
+  <slot />
 </div>
 ```
 
@@ -98,7 +98,7 @@ import svelte from '@astrojs/svelte'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://students.asyncjs.today',
+  site: 'https://students.https://magicaldevschool.com/async-js',
   integrations: [
     svelte({
       extensions: ['.svelte', '.svx'],
@@ -131,7 +131,7 @@ Then we create a Svelte component. In this component, we will import the `.svx` 
   import MarkdownContent from '../markdown/content.svx'
 </script>
 
-<MarkdownContent/>
+<MarkdownContent />
 ```
 
 That's it!
@@ -146,14 +146,14 @@ Ideally, we should pass `.mdx` to `mdsvex`. When we do this, we should be able t
   import MarkdownContent from '../markdown/content.mdx'
 </script>
 
-<MarkdownContent/>
+<MarkdownContent />
 ```
 
 This doesn't work because Astro changes how `mdx` is processed when used in an Astro project — and these changes still happen in a Svelte component file.
 
 If you log `MarkdownContent`, you'll notice there are clear signs that Astro hijacked the `mdx` processing and `mdsvex` did nothing.
 
-<Image src='/assets/posts/render-mdx-svelte-astro/astro-mdx-log.png' alt='' />
+<Image src="/assets/posts/render-mdx-svelte-astro/astro-mdx-log.png" alt="" />
 
 You can also try rendering `<MarkdownContent/>` directly, but you'll get an error that says "`<Markdowncontent>` is not a valid SSR component" if you don't add a `client:only` directive.
 

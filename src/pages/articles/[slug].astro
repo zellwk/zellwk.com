@@ -17,14 +17,13 @@ import Youtube from '/src/components/Youtube.svelte'
 import Codepen from '/src/components/Codepen.astro'
 import Button from '/src/components/Button.svelte'
 import Callout from '/src/components/Callout.svelte'
-import Tweet from '/src/components/Tweet.astro'
 
-const components = { Image, Video, Youtube, Codepen, Button, Callout, Tweet }
+const components = { Image, Video, Youtube, Codepen, Button, Callout }
 
 export const prerender = true
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog')
+  const posts = await getCollection('articles')
   const normalized = normalize(posts)
 
   return normalized.map((post, index) => {

@@ -1,0 +1,20 @@
+---
+// https://developer.twitter.com/en/docs/twitter-for-websites/embedded-tweets/guides/embedded-tweet-parameter-reference
+const { theme = 'dark', link } = Astro.props
+---
+
+<div class="Tweet">
+  <blockquote class="twitter-tweet" data-theme={theme}>
+    <a href={link}></a>
+  </blockquote>
+</div>
+
+<script>
+  import './twitter-widget.js'
+</script>
+
+<style>
+  .Tweet :global(.twitter-tweet) {
+    margin: 0 !important;
+  }
+</style>

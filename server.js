@@ -10,7 +10,6 @@ app.use((req, res, next) => {
   if (url.startsWith('feed.xml')) return res.redirect(301, '/rss.xml')
   if (url.startsWith('/blog/looping-through-js-objects'))
     return res.redirect(301, '/blog/iterating-through-js-objects/')
-
   return next()
 })
 
@@ -33,7 +32,7 @@ app.use((req, res, next) => {
   return res
     .status(404)
     .sendFile(
-      path.resolve(dirname(import.meta.url), 'dist', 'client', '404.html')
+      path.resolve(dirname(import.meta.url), 'dist', 'client', '404.html'),
     )
 })
 
@@ -59,7 +58,7 @@ if (process.env.NODE_ENV === 'production') {
       status: err.status,
       stackHighlighted: err.stack.replace(
         /[a-z_-\d]+.js:\d+:\d+/gi,
-        '<mark>$&</mark>'
+        '<mark>$&</mark>',
       ),
     }
     res.status(err.status || 500)

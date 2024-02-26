@@ -1,0 +1,27 @@
+---
+title: Changing CSS Variables with Tailwind
+description: This is a superpower once you see how to use it.
+tags: ['Tailwind', 'CSS', 'Splendid UI']
+pubDate: 2023-12-23
+updateAt: 2023-12-22
+---
+
+Today I discovered that you can change CSS Variables with Tailwind on the fly.
+
+{/* more */}
+
+Here's the syntax:
+
+```html
+<div class="[--span:2] md:[--span:3]">...</div>
+```
+
+This is _very_ powerful — because it gives me the ability to change the number of columns in a custom grid easily with CSS Variables like `--span`.
+
+And as you may suspect, I'm integrating this methodology with the layouts I'm creating in [CSS Layout Patterns](https://magicaldevschool.com/css-layout-patterns/).
+
+One of my latest inventions is a [Masonry Grid](https://twitter.com/zellwk/status/1737880790787305835) that can span multiple columns — with super little CSS and JavaScript.
+
+<Tweet link="https://twitter.com/zellwk/status/1737880790787305835" />
+
+Honestly, I'm seeing CSS Layout Patterns as the easiest way to create layouts now. Can't wait to share more about it in the future.
