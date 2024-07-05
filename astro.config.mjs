@@ -9,6 +9,9 @@ import svelte from '@astrojs/svelte'
 export default defineConfig({
   site: config.siteUrl,
   integrations: [svelte(), mdx(), sitemap()],
+  redirects: {
+    '/blog': '/blog/1',
+  },
   markdown: {
     shikiConfig: {
       theme: 'dracula',

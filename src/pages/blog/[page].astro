@@ -19,21 +19,21 @@ const { page } = Astro.props
 ---
 
 <Base>
-  <div class='l-wrap'>
-    <section class='generic-layout'>
+  <div class="l-wrap">
+    <section class="generic-layout">
       <h1>Articles</h1>
       {
         page.data.map(post => {
           // TODO: Include Media and tags on posts?
           return (
             <article>
-              <div class='o-words'>
-                <h2 style='font-size: 1.44rem'>
+              <div class="o-words">
+                <h2 style="font-size: 1.44rem">
                   <a href={`/blog/${post.slug}/`}>
                     <Markdown content={post.data.title} />
                   </a>
                 </h2>
-                <span style='display: inline-block; font-size: 0.83333rem; color: #666; margin-top: 1em;'>
+                <span style="display: inline-block; font-size: 0.83333rem; color: #666; margin-top: 1em;">
                   <span>
                     Published on: <FormattedDate date={post.data.pubDate} />
                   </span>

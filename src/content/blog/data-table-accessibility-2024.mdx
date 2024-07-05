@@ -1,0 +1,128 @@
+---
+title: Data Table Accessibility in 2024
+description: 'You might be able to use display: grid directly on the <table> element!'
+tags: ['accessibility', 'html']
+pubDate: 2024-05-08
+---
+
+A comment from [Estelle Weyl](https://front-end.social/@estelle) sparked this whole article.
+
+> I know the `display` property would override the native semantics of a table, like setting `display: grid`, but **I am not sure if that is still the case**."
+
+(Emphasis mine).
+
+This prompted me to do some research.
+
+{/* more */}
+
+## Screen Readers Tested
+
+I've tested the following screen readers on the stated browser versions:
+
+- Voiceover (Chrome 126 + Firefox 127 + Safari 17)
+- NVDA (Chrome 124 + Firefox 125)
+
+Note: These tests should be supplemented with other screen readers like JAWS to be more conclusive, but I don't have access to JAWS and other screen readers so I didn't test them.
+
+## Tables That I Tested
+
+Before constructing this test, I was already interested in how `scope="rowgroup"` and `colspan` works so I constructed a table that looks like this.
+
+<Image
+  src="/src/assets/blog/data-table-accessibility-2024/table.png"
+  alt="Screenshot of the tested table"
+/>
+
+In doing this test, I was interested in how screen readers would speak about tables in four different settings:
+
+- `<table>` as it should be
+- `<table>` with `display: grid` (to test Estelle's question)
+- `<div role="table>` along with its aria counterparts to see how this fares against `<table>`
+- `<div role="grid">` to see the difference between this and `<div role="table>`.
+
+I've added the markup for these four table elements into Codepen.
+
+<Codepen hash="QWRWbpj" title="Data Table Accessibility Tests " height={800} />
+
+<Callout type="note">
+  If you're curious about how I styled this complex table with CSS Grid easily
+  (with `subgrid`), check the codepen or wait for me to explain in a future
+  article. It's gonna be a solid
+  [recipe](http://localhost:4321/blog/found-the-light/#recipes-going-forward)!
+</Callout>
+
+## Summary of My Findings
+
+I'll first present my findings for a basic table (without invoking `scope="rowgroup"` and `colspan` properties).
+
+- `<table>`
+  - All screen readers were able to recognize the table, rows, and columns. (Which should by expected, eh?).
+- `<table>` with `display: grid`
+  - Table semantics was not stripped out by screen readers in most browsers. They were able to announce table, rows, and columns accurately.
+  - The only exception was Voiceover + Safari which announced a table but no rows and columns
+- `[role="table"]` and `[role="grid"]`
+  - Voiceover + Firefox introduces a "clickable" term on `rowheader` elements. This "clickable" term was not present in NVDA nor Voiceover in other browsers
+
+Now if we include `scope="rowgroup"` and `colspan`, things become a bit more complex.
+
+### Findings about `scope="rowgroup"`
+
+- `<table>`
+  - NVDA doesn't speak `rowgroup` information
+  - Voiceover Chrome doesn't speak `rowgroup` information.
+- `<table>` with `display: grid`
+  - NVDA doesn't speak `rowgroup` information
+  - Voiceover Chrome speaks about `"scope="rowgroup"` (by stating the items in all row groups)
+- `role="table` and `role="grid"`
+  - Voiceover Safari doesn't recognize `rowgroup`. When included, it strips out all rows and columns from the table. 🙃
+
+### Findings about `colspan` and `aria-colspan`
+
+- `<table>`
+  - All screen readers speak `colspan` information
+- `<table>` with `display: grid`
+  - NVDA doesn't speak `colspan`
+- `role="table"` and `role="grid"`
+  - NVDA doesn't speak `aria-colspan`
+  - Voiceover speaks `aria-colspan` in Safari only
+
+### Additional peculiar findings
+
+- `scope="rowgroup"` and `scope="columngroup` does not have aria counterparts.
+  - `role="columnheader"` replaces `scope="col"`
+  - `role="rowheader"` replaces `scope="row"`
+  - But there are no roles or aria properties that replaces `scope="rowgroup"` and `scope="columngroup"`
+- When `role="grid`:
+  - Voiceover speaks "table" instead of "grid". I'm not sure if this is the default behaviour but it was surprising for me when I first heard it.
+  - Screen reader keyboard shortcuts can navigate in all `role="grid"` as if they were all tables — this seems to go against WCAG recommendations that you have to create all keyboard shortcuts for the `role="grid"`.
+
+## Implications From These Findings
+
+I'm not pretending to be an accessibility expert over here. I'm just curious about the current state of things, so I did my research and published my findings.
+
+Please take the following words with a strong pinch of salt — and use the findings above to form your own conclusions.
+
+**Implication 1**: For a Basic Table (without cells spanning multiple columns or rows), you might be able to `display` to `grid` on the `<table>` element, depending on your accessibility risk appetite.
+
+I say this because:
+
+- All screen readers were able to recognize the table, rows, and columns when `display` is `grid`.
+- The only exception is Voiceover + Safari which seems to include only [a very small minority of screen reader users](https://medium.com/@colleengratzer/key-findings-from-the-webaim-2024-screen-reader-user-survey-bb15864d3bc8#:~:text=VoiceOver%2C%20which%20is%20for%20Mac%2C%20didn’t%20even%20have%2010%25.) (9.7%).
+- However, we do have to be very careful because [most screen reader users (71%)](<https://medium.com/@colleengratzer/key-findings-from-the-webaim-2024-screen-reader-user-survey-bb15864d3bc8#:~:text=Most%20of%20them%20(almost%2071%25)%20use%20Apple%20iPhone%2C%20iPad%20or%20iPod%20Touch>) use Voiceover on Mobile. Of these, 58.2% use Safari while 27.9% use Chrome. (But we know Chrome is still based on Safari on iOS).
+
+So here's what I would recommend:
+
+- If your accessibility risk appetite is low, stick to `<table>` element or use `<role="table">` like what most accessibility experts recommend.
+- If your accessibility risk appetite is high, use `<table>` with `display: grid` directly if you wanna style it with `grid`.
+
+**Implication 2:** For advanced tables with cells that span multiple rows or columns, it's still best to stick with the standard `<table>` element.
+
+I say this because:
+
+- Screen readers don't speak `colspan` or `aria-colspan` information in other set ups.
+- Screen readers don't speak `scope="rowgroup` in other set ups.
+- There is no aria replacement for `scope="rowgroup"` and `scope="colgroup"`
+
+That's all I have to share.
+
+I hope this gives you a better understanding of the state of accessibility of Data Tables in 2024.

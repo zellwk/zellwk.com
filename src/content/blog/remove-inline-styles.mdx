@@ -1,0 +1,23 @@
+---
+title: Easy way to remove inline styles
+description: So you never have to fight a CSS specificity war with the libraries you use — just style everything without any battles!
+tags: ['css']
+pubDate: 2024-04-17
+updateAt: 2024-04-17
+---
+
+Here's a simple way to remove inline styles from 3rd-party libraries.
+
+{/* more */}
+
+```js
+// Replace .container with the HTML element you're targeting
+const container = document.querySelector('.container')
+const elements = container.querySelectorAll('*')
+
+for (const element of elements) {
+  element.removeAttribute('style')
+}
+```
+
+The basic idea is we strip out the `style` tag from all elements within the container, so you don't have to fight a never-winning CSS specificity war by using `!important`.

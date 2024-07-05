@@ -1,0 +1,89 @@
+---
+title: Understanding and using npm exports
+description: The documentation for npx exports that you've always been looking for.
+tags: ['node', 'npm']
+pubDate: 2024-04-16
+---
+
+npm exports lets you specify how users can import or require your files. (For instructions on using require, see below).
+
+{/* more */}
+
+The basic syntax looks like this:
+
+```json
+// package.json
+"name": "my-splendid-lib",
+"exports": {
+  ".": "./dist/main.js",
+  "./components": "./dist/components.js",
+  "./components/*": "./dist/components/*.js"
+}
+```
+
+Let me explain what's happening.
+
+First, `.` is the path you use for people to import your library directly. If they import `my-splendid-lib`, they are actually importing the `./dist/main.js` file.
+
+```js
+// Actual path: /node_modules/my-splendid-lib/dist/main.js
+import lib from 'my-splendid-lib'
+```
+
+`./components` (or any other name) lets people import with `my-splendid-lib/components`. By specifying `./components`, you can determine what maps to. In this case, we mapped it to `./dist/components.js`
+
+```js
+// Actual path: /node_modules/my-splendid-lib/dist/components.js
+import Components from `my-splendid-lib/components`
+```
+
+Finally, you use a `*` wildcard if you want to let users specify the paths themselves. This wildcard is often called a glob in the web development world.
+
+In this case, if they imported `my-splendid-lib/components/Accordion`, `Accordion` will match the `*` wildcard. The actual file that will be imported will be `./dist/components/Accordion.js`
+
+```js
+// Actual path: /node_modules/my-splendid-lib/dist/components/Accordion.js
+import Accordion from 'my-splendid-lib/components/Accordion'
+```
+
+That's pretty much all you have to know if you only use ESM!
+
+## Differentiating Between CJS and ESM
+
+For posterity:
+
+- CJS means Common JS
+- ESM means EcmaScript Modules
+
+If you use Common JS, you need to `require` files. On the other hand, if you use ESM, you `import` files. There's not much of a need to support CJS today because most people use the ESM import syntax.
+
+```js
+// CJS
+const lib = require('lib')
+```
+
+```js
+import lib from `lib`
+```
+
+If you're writing a library that provides both CJS and ESM imports, then adding a `require` or `import` key to your `exports` map would do the trick.
+
+```json
+"name": "my-splendid-lib",
+"exports": {
+  ".": {
+    "require": './dist/index.cjs',
+    "import": "./dist/index.mjs"
+  }
+}
+```
+
+Now when a CJS loader requires your library, it will look under the `require` key and retrieve the `./dist/index.cjs` file.
+
+On the other hand, when an ESM loader imports your library, it will look for the `import` key and retrieve `./dist/index.mjs`.
+
+That's it.
+
+Not too hard, yeah? 😉
+
+Now go and write your libraries and rock the world with your creations.

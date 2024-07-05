@@ -30,6 +30,7 @@
     "omit-empty": "^1.0.0",
     "pm2": "^5.3.0",
     "postmark": "^3.1.2",
+    "remark-gfm": "^4.0.0",
     "remark-plain-text": "^0.2.0",
     "sanitize-html": "^2.10.0",
     "splendid-ui": "^0.8.0",
