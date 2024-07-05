@@ -1,0 +1,6 @@
+User-agent: *
+
+# Disallow all query parameters to prevent "Alternate page with proper canonical tag" error in search console
+Disallow: /*?*
+
+Sitemap: https://zellwk.com/sitemap-0.xml

@@ -2,6 +2,7 @@ import config from './site-config.js'
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import node from '@astrojs/node'
+import redirects from './redirect.config.js'
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
 
@@ -9,9 +10,7 @@ import svelte from '@astrojs/svelte'
 export default defineConfig({
   site: config.siteUrl,
   integrations: [svelte(), mdx(), sitemap()],
-  redirects: {
-    '/blog': '/blog/1',
-  },
+  redirects,
   markdown: {
     shikiConfig: {
       theme: 'dracula',
