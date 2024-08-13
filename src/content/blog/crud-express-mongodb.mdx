@@ -114,16 +114,16 @@ Great. Node works. The next step is to learn to use Express.
 
 First, we have to install Express. We can do this by running the `npm install` command. (`npm` is installed with Node, which is why you use commands like `npm init` and `npm install`).
 
-Run `npm install express --save` command in your command line.
+Run `npm install express` command in your command line.
 
 <Callout>
-  The `--save` flag saves `express` as a `dependency` in `package.json`. It's
+  What you install using npm will be added as a `dependency` in `package.json`. It's
   important to know these dependencies because `npm` can retrieve dependencies
   with another `npm install` command when you need it later.
 </Callout>
 
 ```bash
-npm install express --save
+npm install express
 ```
 
 <Image
@@ -330,7 +330,7 @@ app.post('/quotes', (req, res) => {
 })
 ```
 
-Restart your server (hopefully you've set up Nodemon so it restarts automatically) and refresh your browser. Then, enter something into the `<form>` element and submit the form. Next, look at your command line. You should see `Hellooooooooooooooooo!` in your command line.
+Restart your server (hopefully you've set up Nodemon or are using --watch so it restarts automatically) and refresh your browser. Then, enter something into the `<form>` element and submit the form. Next, look at your command line. You should see `Hellooooooooooooooooo!` in your command line.
 
 <Image
   src='/assets/2020/crud/post-log.png'
@@ -339,21 +339,14 @@ Restart your server (hopefully you've set up Nodemon so it restarts automaticall
 
 Great, we know that Express is handling the form for us right now. The next question is, how do we get the input values with Express?
 
-Turns out, Express doesn't handle reading data from the `<form>` element on it's own. We have to add another package called [body-parser][14] to gain this functionality.
-
-```bash
-npm install body-parser --save
-```
-
-Body-parser is a **middleware**. They help to tidy up the `request` object before we use them. Express lets us use middleware with the `use` method.
+Turns out, Express doesn't handle reading data from the `<form>` element on it's own. We have to use middleware to gain this functionality. It will help to tidy up the `request` object before we use it. Express lets us use middleware with the `use` method.
 
 ```js
 const express = require('express')
-const bodyParser = require('body-parser')
 const app = express()
 
-// Make sure you place body-parser before your CRUD handlers!
-app.use(bodyParser.urlencoded({ extended: true }))
+// Make sure you place this before your CRUD handlers!
+app.use(express.urlencoded({ extended: true }))
 
 // All your handlers here...
 app.get('/', (req, res) => {
@@ -364,7 +357,7 @@ app.post('/quotes', (req, res) => {
 })
 ```
 
-The `urlencoded` method within body-parser tells body-parser to extract data from the `<form>` element and add them to the `body` property in the `request` object.
+The `urlencoded` method on express tells express to extract data from the `<form>` element and add them to the `body` property in the `request` object.
 
 You should be able to see values from the `<form>` element inside `req.body` now. Try doing a `console.log` and see what it is!
 
@@ -400,7 +393,7 @@ MongoDB is a database. We can store information into this database to remember Y
 First, we need to install MongoDB via npm.
 
 ```bash
-npm install mongodb --save
+npm install mongodb
 ```
 
 Once installed, we can connect to MongoDB through the `MongoClient`'s connect method as shown in the code below:
@@ -546,53 +539,25 @@ You need to replace 2 things here:
 Put this connection string inside the `MongoClient.connect`.
 
 ```js
-MongoClient.connect(connectionString, (err, client) => {
+MongoClient.connect(connectionString).then(
   // ... do something here
-}))
+)
 ```
 
 We know we've connected to the database if there are no errors. Let's create `console.log` statement that says "Connected to database". This will help us know we've connected to the database when we restart the server.
 
 ```javascript
-MongoClient.connect(connectionString, (err, client) => {
-  if (err) return console.error(err)
+MongoClient.connect(connectionString).then(
   console.log('Connected to Database')
-})
+).catch(error => console.error(error))
 ```
 
 You should see something like this:
-
-<Image src='/assets/2020/crud/connected.png' alt='Connected to database.' />
-
-You can remove the deprecation warning by adding the option into `MongoClient.connect`
-
-```javascript
-MongoClient.connect(
-  connectionString,
-  {
-    useUnifiedTopology: true,
-  },
-  (err, client) => {
-    if (err) return console.error(err)
-    console.log('Connected to Database')
-  }
-)
-```
 
 <Image
   src='/assets/2020/crud/connect-no-deprecation-warnings.png'
   alt='Connection without deprecation warning.'
 />
-
-MongoDB supports promises. If you want to use promises instead of callbacks, you can write `MongoClient.connect` like this. It behaves exactly like the code above.
-
-```javascript
-MongoClient.connect(connectionString, { useUnifiedTopology: true })
-  .then(client => {
-    console.log('Connected to Database')
-  })
-  .catch(error => console.error(error))
-```
 
 <Callout>
   Read [this article][20] if you want to learn about promises in JavaScript.
@@ -603,11 +568,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 We need to change the database from `test` to something else. You can name it anything you want. I chose to name my new database `star-wars-quotes` because it helps me remember what I'm building.
 
 ```javascript
-MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(
-  client => {
-    console.log('Connected to Database')
+MongoClient.connect(connectionString).then(
+  console.log('Connected to Database')
     const db = client.db('star-wars-quotes')
-  }
 )
 ```
 
@@ -779,7 +742,7 @@ For this tutorial, we will use [Embedded JavaScript][25] (EJS) as our template e
 First, we need to install EJS.
 
 ```bash
-npm install ejs --save
+npm install ejs
 ```
 
 Next, we need to set `view engine` to `ejs`. This tells Express we're using EJS as the template engine. You need to place it before any `app.use`, `app.get` or `app.post` methods.
@@ -1031,10 +994,10 @@ update.addEventListener('click', _ => {
 
 ### Accepting the PUT request
 
-Our server doesn't accept JSON data yet. We can teach it to read JSON by adding the `body-parser`'s `json` middleware.
+Our server doesn't accept JSON data yet. We can teach it to read JSON by using express's `json` middleware.
 
 ```javascript
-app.use(bodyParser.json())
+app.use(express.json())
 ```
 
 Next, we can handle the `PUT` request with a `put` method. You should be able to see the values we send from the fetch request.
