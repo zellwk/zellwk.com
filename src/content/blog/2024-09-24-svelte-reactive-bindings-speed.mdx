@@ -1,0 +1,151 @@
+---
+title: Speed of Svelte reactive bindings vs keyboard events
+slug: svelte-reactive-bindings-speed
+tags: ['Svelte', 'Javascript']
+pubDate: 2024-09-24
+---
+
+Svelte's reactive bindings execute slower than `keydown`, `keypress`, and `input` events, but faster than `keyup` events.
+
+{/* more */}
+
+The order is as follows:
+
+- `keydown`
+- `keypress`
+- `input`
+- Svelte's reactive bindings update here
+- `keyup`
+
+You probably won't need keyboard event listeners if you're using Svelte's bindings because the bindings are usually sufficient:
+
+```svelte
+<script>
+  let value = ''
+
+  $: {
+    // Do something with value
+  }
+</script>
+
+<input bind:value />
+```
+
+But if you ever need them, there are a couple of ways to handle their difference.
+
+1. Defer execution
+2. Use keyup instead
+3. Don't bind
+
+## Defer execution
+
+The first method is to defer execution of the event handler — so `event.target.value` will use the same value from the Svelte binding.
+
+The simplest way is with `setTimeout`:
+
+```svelte
+<script>
+  let value = ''
+
+  function handleInput(event) {
+    setTimeout(_ => {
+      // Use value here
+    }, 0)
+  }
+</script>
+
+<input bind:value on:input={handleInput} />
+```
+
+An alternative way is to use `setTimeout`'s promise-variant to defer execution.
+
+```svelte
+<script>
+  let value = ''
+
+  async function handleInput(event) {
+    await delay()
+    // Use value here
+  }
+
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+  }
+</script>
+
+<input bind:value on:input={handleInput} />
+```
+
+But you cannot use Svelte's built-in `tick` function. This triggers too quickly for some reason, so the binding would not be updated in the event listener.
+
+```svelte
+<script>
+  import { tick } from 'svelte'
+  let value = ''
+
+  async function handleInput(event) {
+    await tick()
+    // value would not be updated yet
+  }
+</script>
+
+<input bind:value on:input={handleInput} />
+```
+
+Of course, debouncing works. This may be the ideal solution if you need to handle asynchronous tasks.
+
+```svelte
+<script>
+  let value = ''
+
+  async function handleInput(event) {
+    // Use value here
+  }
+</script>
+
+<input bind:value on:input={debounce(handleInput, 200)} />
+```
+
+## Use keyup
+
+If you wish to skip the binding trouble, you can use `keyup` instead of other keyboard events. This assumes `keyup` works for what you're trying to do.
+
+```svelte
+<script>
+  let value = ''
+
+  async function handleKeyup(event) {
+    // Use value here
+  }
+</script>
+
+<input bind:value on:keyup={handleKeyup} />
+```
+
+## Don't bind
+
+The third (perhaps most preferred) way is simply not to bind. To do this, we just set the initial `value` and adjust it whenever we need to.
+
+```svelte
+<script>
+  let value = ''
+
+  async function handleInput(event) {
+    value = event.target.value
+  }
+</script>
+
+<input {value} on:input={handleInput} />
+```
+
+<Callout>
+  Svelte doesn't update the `<input>` element when `value` changes because `value` is only used for the [initial value](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#value).
+</Callout>
+
+## Wrapping up
+
+That's everything you need to know about the relationship between Svelte's reactive bindings and event listeners.
+
+This might change in Svelte 5, though I think it's unlikely. I'll update this article or write a new one when I play around with Svelte 5.
+
+Have fun in the meantime!

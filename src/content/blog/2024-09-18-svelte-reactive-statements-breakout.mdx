@@ -1,0 +1,39 @@
+---
+title: Breaking out of Svelte's reactive statements
+slug: svelte-reactive-statements-breakout
+tags: ['Svelte']
+pubDate: 2024-09-18
+---
+
+If you use Svelte, you may notice that Svelte lets you create reactive statements with `$`. It kinda looks like this:
+
+{/* more */}
+
+```js
+let count = 0
+$: double = count * 2
+```
+
+In this case, `double` will change _automatically_ to `count * 2` whenever `count` changes. This is an excellent pattern that I love — so much that I figured out how to do this [in Vanilla JavaScript](https://zellwk.com/blog/reactivity-with-vanilla-javascript/)
+
+The problem with this pattern, is you will face an error if you tried to handle DOM related tasks in an SSR environment.
+
+```js
+// ERROR
+$: {
+  const hello = document.querySelector('.world')
+}
+```
+
+This error happens because the DOM is not available in an SSR environment. It is only available in client environments.
+
+Solving the problem is simple. You can just break out of the reactive statement when the DOM is not ready.
+
+```js
+$: {
+  if (typeof window === 'undefined') break $
+  // Your DOM related tasks here
+}
+```
+
+That's it! Have fun using the reactive pattern until Svelte 5 rolls around! (We may have to use a different syntax at that point).

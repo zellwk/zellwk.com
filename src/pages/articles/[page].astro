@@ -10,7 +10,7 @@ export const prerender = true
 
 // TODO: Remove pubDate from blog content file name — because it doesn't make sense to have to manually update the file name when date changes.
 export async function getStaticPaths({ paginate }) {
-  const posts = await getCollection('blog')
+  const posts = await getCollection('articles')
   const normalized = normalize(posts)
   return paginate(normalized, { pageSize: 20 })
 }
@@ -29,7 +29,7 @@ const { page } = Astro.props
             <article>
               <div class="o-words">
                 <h2 style="font-size: 1.44rem">
-                  <a href={`/blog/${post.slug}/`}>
+                  <a href={`/articles/${post.slug}/`}>
                     <Markdown content={post.data.title} />
                   </a>
                 </h2>

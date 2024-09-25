@@ -24,7 +24,7 @@ const components = { Image, Video, Youtube, Codepen, Button, Callout, Tweet }
 export const prerender = true
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog')
+  const posts = await getCollection('articles')
   const normalized = normalize(posts)
 
   return normalized.map((post, index) => {
