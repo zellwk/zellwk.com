@@ -3,6 +3,7 @@
 @use './new/components/_FloatingCard';
 @use './new/components/_Freebie';
 @use './new/_utils';
+@import './base/reset';
 
 // Libraries8
 // ---------
@@ -80,21 +81,21 @@ table {
 
   th,
   td {
-    border: 1px solid black;
     padding: 0.25em;
+    border: 1px solid black;
   }
 }
 
 .about-social {
   display: flex;
   flex-flow: row wrap;
-  margin-inline: auto;
   align-items: center;
   margin-top: 0.25rem;
+  margin-inline: auto;
 
   li {
-    margin: 0 0.5em 0 0 !important;
     width: auto;
+    margin: 0 0.5em 0 0 !important;
     list-style: none !important;
 
     svg {
@@ -121,8 +122,8 @@ article + article {
 // New Styles
 // ========================
 .Box {
-  border: 2px solid black;
   padding: 1rem;
+  border: 2px solid black;
 }
 
 pre code {

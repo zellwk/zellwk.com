@@ -4,6 +4,7 @@
 .ContentBlock {
   // Default space between elements
   > * + *,
+  > blockquote > * + *,
   > :where(astro-island, astro-slot) > * {
     margin-top: vr(0.75);
   }

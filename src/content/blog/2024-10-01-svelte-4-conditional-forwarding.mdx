@@ -1,0 +1,29 @@
+---
+title: Conditional Slot Forwarding is not a thing in Svelte 4
+description: And it probably will never be
+slug: svelte-4-conditional-forwarding
+tags: ['Svelte', 'Javascript']
+pubDate: 2024-09-24
+---
+
+If you ever wanted to forward conditional slots up two component levels, you're out of luck.
+
+{/* more */}
+
+```svelte
+<!-- Grandchild -->
+<slot name="label" />
+```
+
+```svelte
+<!-- Child -->
+{#if $$slots.label}
+  <slot name="label" slot="label" />
+{/if}
+```
+
+Conditional Slot Forwarding is probably never gonna be a thing in Svelte 4.
+
+[Tan Li Hau](https://github.com/tanhauhau) has created a [PR](https://github.com/sveltejs/svelte/pull/8304) to make this possible, but Rich Harris [closed the PR](https://github.com/sveltejs/svelte/pull/8304#issuecomment-2030741921), stating that snippets (a Svelte 5 feature that replaces slots) will resolve this use case.
+
+We can only hope that Svelte 5 indeed solves this issue — and that porting over Svelte 4 code will not be too much of a pain!

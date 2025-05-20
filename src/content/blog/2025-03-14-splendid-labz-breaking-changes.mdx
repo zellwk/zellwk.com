@@ -1,0 +1,120 @@
+---
+title: Upcoming Breaking Changes for Splendid Layouts
+slug: splendid-labz-breaking-changes
+tags: ['splendid-labz', 'css', 'tailwind']
+pubDate: 2025-03-14
+---
+
+I acknowledge the irony that I'm announcing breaking changes just after ranting about breaking changes.
+
+But, I believe it's important to let you know about breaking changes in advance so you can ease into the new library as much as possible.
+
+{/* more */}
+
+So here we go.
+
+## Stuff that has changed (and why)
+
+I'm still rebuilding the libraries for Splendid Labz based on breaking changes in Tailwind v4, so I won't be able to give you a complete breakdown on what has changed.
+
+But I'm able to tell you about the biggest changes so far — and explain why we need to make these changes — so you'll get an idea about what's going on and why these changes had to be made.
+
+Here are the major changes so far:
+
+- Combining Splendid Layouts and Splendid Styles into a single library.
+- Undoing the naming convention
+
+## Combining Splendid Layouts and Splendid Styles into one library
+
+If you have been following my sporadic articles about [Splendid Labz](https://splendidlabz.com) last year, you may have heard of [Splendid Layouts](https://splendidlabz.com/docs/layouts/getting-started/introduction/) and Splendid Styles.
+
+The basic idea is this:
+
+- Splendid Layouts gives you components and utilities that lets you build layouts easily and quickly.
+- Splendid Styles gives you a scaffold that makes it easy for you to build sites — especially if you used the components I've built via Splendid Astro and Splendid Svelte.
+
+I realize how confusing it can be for you to understand the difference between these two projects. So when I converted Tailwind from v3 to v4, I took the opportunity to combine the projects together into one.
+
+I discovered this was a much better approach since I could now introduce Splendid Styles as a Tailwind-first library (in a non-traditional Tailwind sense).
+
+### A Tailwind-first library
+
+Splendid Styles is going to be Tailwind-first library going-forward, so it is best used together with Tailwind.
+
+Two points I have to make on this here.
+
+First: **I'm still adamant on making the library available for non-tailwind users**. So you have the option to do that too. (Don't worry about it, I'm not abandoning you traditional CSS guys).
+
+Second: Even though Splendid Styles is Tailwind-first, it doesn't mean you should use it in the default Tailwind-fashion.
+
+Truthfully, **Tailwind is horrible if you use it as-is**. But it can be amazing if you use it together with pre-made layout patterns because it makes your whole layout experience much easier, more straightforward — I'll show you a quick example about this below.
+
+## Undoing my Naming Methodology
+
+When I created Splendid Layouts, I recommended a naming convention that uses a mix of PascalCase and camelCase. [You can read more about the rationale here](https://splendidlabz.com/docs/layouts/concepts/naming-convention/).
+
+```html
+<div class="ComponentName-modifierName">...</div>
+```
+
+I still think this naming convention beats [traditional BEM](https://zellwk.com/blog/css-architecture-1/). But I have to undo this naming convention because it's not compatible with Tailwind 4. (More on this below).
+
+## What lead to these breaking changes?
+
+We're really diving into the nitty-gritty details here so have a cup of tea as you read through this section.
+
+In a nutshell, Tailwind 4 is incompatible with the way I've built Splendid Labz with Tailwind 3.
+
+In Tailwind 3, you could make a component inside CSS layers and Tailwind would pick that up as a valid components.
+
+```css
+/* Valid components in Tailwind v3 */
+@layer components {
+  .Horizontal {
+    /* Make a horizontal layout */
+  }
+  .Vertical {
+    /* Make a vertical layout */
+  }
+}
+```
+
+By valid, I mean Tailwind would pick those components up and let you use them with Tailwind's variants.
+
+So if you wanted a simple layout that:
+
+- is vertical on mobile
+- is horizontal on tablet/desktop
+
+You could use the `Horizontal` and `Vertical` components I've created like this:
+
+```html
+<div class="Vertical md:Horizontal">...</div>
+```
+
+Noticed something? You can can visualize what's going to happen as you read the HTML. This pattern is powerful because it's very visual — you can see, maintain, change, and edit it easily while still knowing what's happening almost all the time.
+
+Unfortunately, this the naming convention no longer works in Tailwind 4 because they [stopped hijacking CSS layers](https://tailwindcss.com/docs/upgrade-guide#adding-custom-utilities) (I didn't knew they did that 🫣).
+
+If you want to make a class work with Tailwind's variants in version 4, you need to create it as a Tailwind utility.
+
+```css
+@utility horizontal { ... }
+@utility vertical { ... }
+```
+
+Notice I used lower-cased names (`horizontal`) instead of PascalCased names (`Horizontal`)? I did this because Tailwind enforced kebab-case naming conventions for the `@utility` feature... so this effectively broke [the naming convention](#undoing-my-naming-methodology) I suggested above.
+
+Pity.
+
+So, instead of writing the `vertical-to-horizontal` layout with PascalCase utilities, we're now forced to use kebab-cased utilities
+
+```html
+<div class="vertical md:horizontal">...</div>
+```
+
+It still works. It still makes sense. And it's not that big of a change for you 🙂 (even though reworking the while library was a [major change](/blog/breaking-changes-rant/) for me 🤬).
+
+On the bright side, this changed paved the way for me to create the new Splendid Styles completely with Tailwind. In doing so, I learned to take advantage of Tailwind's powerful `@apply` feature.
+
+I'll talk about that in my next article.

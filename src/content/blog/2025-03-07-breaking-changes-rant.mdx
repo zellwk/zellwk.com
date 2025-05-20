@@ -1,0 +1,68 @@
+---
+title: A little rant about breaking changes
+description: How to setup a Corne Keyboard v4
+slug: breaking-changes-rant
+tags: ['Tools']
+pubDate: 2025-03-07
+---
+
+As a developer, you probably had to handle your fair share of breaking changes over your career.
+
+{/* more */}
+
+This seems like a completely normal thing in our industry. We reasoned that it happens because things move so fast — so it’s inevitable that there are breaking changes.
+
+But if you slow down and consider the changes you’ve had to make,
+
+- how much of these breaking changes contribute to the quality of your website that the end user enjoys?
+- how much of them increased DX to a point that the changes were worth it?
+- how much did you have to adjust because your dependencies decided to introduce breaking changes?
+
+The last one seems to be the case most of time. Harry Robert’s ranted about this and said [it’s not meaningful productivity](https://csswizardry.com/2025/01/build-for-the-web-build-on-the-web-build-with-the-web/). I agree.
+
+Consider this too — we’ve been working on the web platform for ages. When have browsers (and standards) ever introduced a breaking change?
+
+The answer is never; they only deprecate stuff, but those deprecated stuff works for a long long time.
+
+So why do we have to endure breaking changes for no apparent reason, other than “improvements” because our depdencies said so?
+
+## The Typi Story
+
+Years ago, I built a semi-popular project called [Typi](https://github.com/zellwk/typi). It makes responsive typography easy by giving you a way to create map of `font-size` and `line-height` values at various breakpoints.
+
+Typi was a real breakthrough that made styling websites much easier for me and many others.
+
+Typi relied on a library called [`modularscale-sass`](https://github.com/modularscale/modularscale-sass) to generate font sizes. When I was writing Typi, I assumed the underlying dependencies won’t change much, but it did.
+
+`modularscale-sass` had a major overhaul when it went from v2 to v3. It was enough of an overhaul to introduce loads of breaking changes in Typi internals, so I had to choose:
+
+- I could do nothing and let Typi fade into obscurity (since people didn’t like to use outdated dependencies)
+- I could spend weeks or maybe a month to return Typi to feature parity with the upgraded dependency
+
+I chose the first option because of time constraints, energy management, priorities, and other factors that I won’t go further into.
+
+But (a long time later), I realized it was a stupid decision. I had a third option — I could create a utility that provided the modular scale functionality instead. If I did this, I could have continued to support Typi without letting it fade.
+
+That's already too late.
+
+But, much of the lessons I've learned made it to my later projects — I would introduce little to no dependencies — so there will be little to zero breaking changes.
+
+## Great APIs shouldn’t have to change (much)
+
+This is a controversial opinion because we’re so used to breaking changes by now. "Move fast, break things" as they say, even though it's [horrible advice](/blog/2024-03-19-move-fast-break-things/).
+
+If we slow down and think about the components we're building — and they APIs we provide — we realize there's no need to change them much.
+
+Our current situation is similar to how technological advancements haven’t advanced much from 1969 when the first man landed on the moon.
+
+Instead of making our rockets faster, more efficient, or travel longer distances, we have collectively decided to fiddle around button placements on the control panel and call that progress.
+
+I’m frustrated. Really frustrated.
+
+Instead of directing that frustration to lament through articles any longer, I'm going to direct my frustrations to create libraries that I can use — hopefully use _forever_ (failing that, as long as possible) — because complaining about breaking changes doesn't affect the ecosystem much.
+
+There are always going to be reasons for breaking changes. We have to learn to be aware whether those breaking changes forward our agenda. If they don’t, entertaining those changes might be a bad idea.
+
+Thanks for hearing me rant.
+
+Over and out.

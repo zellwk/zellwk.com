@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content'
 import { normalize } from '../../utils/content.js'
 import FormattedDate from '/src/components/FormattedDate.astro'
 import Markdown from '/src/components/Markdown.astro'
-import Pagination from '/src/components/Pagination.svelte'
 import Base from '/src/layouts/Base.astro'
 
 export const prerender = true
@@ -53,6 +52,6 @@ const { page } = Astro.props
       }
     </section>
 
-    <Pagination {page} />
+    <!-- <Pagination {page} /> -->
   </div>
 </Base>

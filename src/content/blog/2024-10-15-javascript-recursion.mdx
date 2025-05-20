@@ -1,0 +1,283 @@
+---
+title: Understanding Recursion in JavaScript
+description: Learn recursion step-by-step through a hands-on example
+slug: javascript-recursion
+tags: ['Javascript']
+pubDate: 2024-10-15
+---
+
+Recursion happens when a function calls itself over and over.
+
+A function that calls itself over and over is called a recursive function. Here's an example of a recursive function:
+
+```js
+function helloWorld() {
+  console.log('Hello world')
+  helloWorld()
+}
+```
+
+(Don't try this code because your browser would hang). I'll explain how you write a proper recursive function and why you may want to use one.
+
+{/* more */}
+
+## Loops and Recursions
+
+A recursion is a `while` loop that's written in a slightly different way.
+
+A `while` loop looks like this:
+
+```js
+while (condition) {
+  // Stuff to do
+}
+```
+
+If you want to write a `while` loop that runs forever, you can pass in a `condition` that always evaluates to `true`.
+
+```js
+while (true) {
+  console.log('Hello world')
+}
+```
+
+This will produce lots of `Hello world`s in the console. It will also hang your browser because the function calls itself too quickly and too many times.
+
+If you write a function that calls itself, you've effectively written the infinite `while` loop.
+
+```js
+// Same result as the infinite while loop above
+function helloWorld() {
+  console.log('Hello world')
+  helloWorld()
+}
+```
+
+## While loops the right way
+
+If you want the `while` loop to end, you need to change the condition so it evaluates to `false` sometime later. For example, let's say you want to run the loop 3 times. You may write something like this:
+
+```js
+// This logs three `Hello world` statements in the console.
+let count = 0
+while (count < 3) {
+  console.log('Hello world')
+  count = count + 1
+}
+```
+
+You can apply the same logic to recursive functions.
+
+```js
+// Loop three times only
+let count = 0
+function helloWorld() {
+  console.log('Hello world')
+  count = count + 1
+  if (count < 3) {
+    helloWorld()
+  }
+}
+```
+
+## Recursions without external variables
+
+We don't need to declare `count = 0` upfront. We can pass `count` into the recursive function directly as an argument.
+
+```js
+helloWorld(0)
+```
+
+We can use the variable inside the recursive function like this:
+
+```js
+function helloWorld(count) {
+  console.log('Hello world')
+  count = count + 1
+  if (count < 3) {
+    helloWorld()
+  }
+}
+```
+
+## Recursion without hardcoding
+
+We hardcoded three loops into `helloWorld` since we used the number `3`. If we want to let the user control how many times to loop, we hardcode this value. We need to use a number passed in by the user.
+
+Here's an example of what the user would pass in:
+
+```js
+// This should log five 'Hello worlds'
+helloWorld(5)
+```
+
+In this case, the argument becomes the number of times we want to loop.
+
+```js
+function helloWorld(timesToLoop) {
+  // ...
+}
+```
+
+After logging `hello world` each time, we want to decrease `timesToLoop` by 1.
+
+```js
+function helloWorld(timesToLoop) {
+  console.log('hello world')
+  timesToLoop = timesToLoop - 1
+}
+```
+
+Eventually, `timesToLoop` will get to `0`.
+
+- If it gets to `0`, we do nothing. The recursion ends here.
+- But if `timesToLoop` is NOT `0`, we need to run `helloWorld` again.
+
+```js
+function helloWorld(timesToLoop) {
+  console.log('hello world')
+  timesToLoop = timesToLoop - 1
+
+  if (timesToLoop === 0) {
+    // Do nothing
+  } else {
+    helloWorld(timesToLoop)
+  }
+}
+```
+
+## Returning values from recursive functions
+
+If we want to return a number from a recursive function, each branch in the `if` statement should return a value.
+
+- At least one of these branches should end the recursion
+- At least one of these branches should call the recursive function
+
+```js
+function recursiveFunction(parameter) {
+  if (condition) {
+    return value // Ends recursion
+  } else {
+    return recursiveFunction(/*...*/) // Continues recursion
+  }
+}
+```
+
+## Working through an example
+
+Let's say you want to create a recursive function that calculates the factorial of a number. (This is the classic example used for recursive functions).
+
+Here's how factorials work. (Note: Factorials are written as `!` in math):
+
+- `1!`: `1 = 1`
+- `2!`: `1 * 2 = 2`
+- `3!`: `1 * 2 * 3 = 6`
+- `4!`: `1 * 2 * 3 * 4 = 6`
+
+To calculate the factorial of a number, users insert the number into the function.
+
+```js
+factorial(4) // Should produce 24
+```
+
+Since we want `4!`, it makes more sense to invert the calculation (like what we did with `timesToLoop` above.
+
+- `4!`: `4 * 3 * 2 * 1 = 6`
+- `3!`: `3 * 2 * 1 = 6`
+- `2!`: `2 * 1 = 2`
+- `1!`: `1 = 1`
+
+There's a case where we don't have to continue the recursion anymore. This is often called the **end state**. In this case, the condition is `n === 1`. When `n === 1`, we always return the number `1`.
+
+```js
+function factorial(num) {
+  if (num === 1) {
+    return 1
+  }
+}
+```
+
+Let's continue to look at the rest of the numbers:
+
+- `4!`: `4 * 3 * 2 * 1 = 6`
+- `3!`: `3 * 2 * 1 = 6`
+- `2!`: `2 * 1 = 2`
+
+Now imagine we passed `4` into the function. To get `4!`, we need to multiply `4` by `3!`:
+
+- `4!`: `4 * 3!`
+- `3!`: `3 * 2!`
+- `2!`: `2 * 1!`
+
+Notice we're multiplying `num` by the factorial of `num - 1`? We can put this observation into the `factorial` function.
+
+```js
+function factorial(num) {
+  if (num === 1) {
+    return 1
+  } else {
+    return num * factorial(num - 1)
+  }
+}
+```
+
+We can clean it up slightly with [early returns][1].
+
+```js
+function factorial(num) {
+  if (n === 1) return 1
+  return num * factorial(num - 1)
+}
+```
+
+## Recursions without end states
+
+Not all recursions need end states. This is true when the recursion happens infrequently enough that it doesn't hang the computer. One example is when you use `requestAnimationFrame`
+
+```js
+// Snippet from CSS-Tricks
+function repeatOften() {
+  requestAnimationFrame(repeatOften)
+}
+
+requestAnimationFrame(repeatOften)
+```
+
+Chris Coyier went ahead and created a demo of this in his [article on `requestAnimationFrame`][2].
+
+<p
+  class="codepen"
+  data-height="300"
+  data-theme-id="7929"
+  data-default-tab="result"
+  data-user="chriscoyier"
+  data-slug-hash="ltseg"
+  style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+  data-pen-title="Super Simple requestAnimationFrame Thing"
+>
+  <span>
+    See the Pen
+    <a href="https://codepen.io/chriscoyier/pen/ltseg">
+      Super Simple requestAnimationFrame Thing
+    </a>
+    by Chris Coyier (<a href="https://codepen.io/chriscoyier">@chriscoyier</a>)
+    on <a href="https://codepen.io">CodePen</a>.
+  </span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+## Summary of recursions
+
+Recursions are functions that call itself over and over again. Most recursions require an end state (like `factorial`).
+
+Once in a while, you'll find recursions that work slowly (enough) not to require an end state (like `requestAnimationFrame`).
+
+## When should you use recursion in JavaScript?
+
+Recursion looks fancy, but [they perform worse compared to `for` or `while` loops][3], so I'm not exactly a fan of recursion.
+
+Personally, I find `while` loops easier to write and I would prefer using `while `for simple use cases. I would then fish out recursive functions if `while` become too complex.
+
+[1]: https://zellwk.com/blog/dont-reassign/
+[2]: https://css-tricks.com/using-requestanimationframe/
+[3]: https://jsperf.com/fibonacci-recursive-or-iterative/4

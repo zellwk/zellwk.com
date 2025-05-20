@@ -1,0 +1,25 @@
+---
+title: Best Practice for Astro Endpoints
+description: Just one — make sure they're not prerendered.
+slug: astro-endpoint-best-practice
+tags: ['Svelte', 'Javascript']
+pubDate: 2024-10-08
+---
+
+Astro strips away query parameters from endpoints if you're in a static rendering mode. So, unless you're using SSR for all your pages, you'll need to ensure that your **endpoints are not pre-rendered**.
+
+{/* more */}
+
+{/* prettier-ignore */}
+```js title="endpoint.js"
+// Make sure this is there
+export const prerender = false 
+
+// All your endpoints go here
+export function GET () {/* ... */}
+export function POST () {/* ... */}
+export function PATCH () {/* ... */}
+export function DELETE () {/* ... */}
+```
+
+This will save you lots of headaches when debugging Astro endpoints.

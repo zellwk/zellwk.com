@@ -1,0 +1,34 @@
+---
+title: Killing and Restarting pm2
+description: How to kill and restart pm2
+slug: killing-and-restarting-pm2
+tags: ['Javascript']
+pubDate: 2024-12-29
+---
+
+I encountered a strange error with `pm2` that has the following properties:
+
+1. `pm2 list` displays nothing even though processes should be running
+2. After restarting a couple of projects, `pm2 list` still displays nothing
+3. Running `pm2 list` hogs the server and creates a spike (see picture below).
+
+{/* more */}
+
+<Image
+  src="/src/assets/blog/killing-pm2/pm2-list-spike.png"
+  alt="pm2 list spike"
+/>
+
+Killing `pm2`, `node`, and reinstalling the latest version of `pm2` fixed the problem for me.
+
+```shell
+pkill -9 PM2
+pkill -9 node
+npm i -g pm2@latest`
+```
+
+After you have done these things, restart each of your applications and `pm2` should run fine again.
+
+Edit: Marc Ram emailed me and made a good point. In his words:
+
+> If you blindly reinstall pm2latest, you run the risk of having to deal with unexpected breaking changes, perhaps you should reinstall the specific version of pm2 you are currently using, or limit it to the latest minor update until you can verify that the latest pm2 version on a staging/test server does not break anything. Or at least read the release notes to check for breaking changes first.
