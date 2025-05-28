@@ -20,3 +20,5 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+# SpecStory explanation file
+.specstory/.what-is-this.md

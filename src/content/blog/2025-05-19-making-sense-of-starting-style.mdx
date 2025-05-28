@@ -1,0 +1,274 @@
+---
+title: Making sense of starting-style
+description: It's actually pretty easy once you get the hang of it.
+slug: making-sense-of-starting-style
+tags: ['CSS']
+pubDate: 2025-05-19
+---
+
+`@starting-style` is a CSS at-rule that allows you to create transitions for elements that are hidden by `display:none`.
+
+It's one of those things that seems simple on first glance, but turns out to be quite complex. The main reason is because we can't DRY (Don't Repeat Yourself) when using `@starting-style` — you have to specify certain styles twice.
+
+Making sense of starting style is actually pretty simple. You have to write three selectors:
+
+1. One for the base state
+2. One for the opened state
+3. One for the starting state
+
+{/* more */}
+
+The opened state and starting state are much easier to understand so let's start with that.
+
+## The Opened State
+
+The opened state contains rules you want to use when the component is in an opened state. The most common example is to set opacity to `1` and display to `block`.
+
+```css
+.component.open {
+  opacity: 1;
+}
+```
+
+## The Starting State
+
+The starting state is also relatively easy to understand. Here, you want to write rules from where you initial transition should come from. The most common example is to set opacity to 0 and display to none.
+
+```css
+@starting-style {
+  .component.open {
+    opacity: 0;
+  }
+}
+```
+
+There are three irksome things about `@starting-style`.
+
+**One**: **It must be written after the open state** because the selector has the same specificity. So your styles so far should look like this.
+
+```css
+.component.open {
+  opacity: 1;
+}
+
+@starting-style {
+  .component.open {
+    opacity: 0;
+  }
+}
+```
+
+This kinda messes with my brain since I view an opened state being "stronger" than an opening state, but there's nothing much we can do but accept this and move on.
+
+**Two**: There's this weird rule where you have to change `display` to `block` (or other values) inside `@starting-style` so we get the element ready for a transition.
+
+```css
+.component.open {
+  display: block;
+  opacity: 1;
+}
+
+@starting-style {
+  .component.open {
+    display: block;
+    opacity: 0;
+  }
+}
+```
+
+**Three**: **`@starting-style` cannot be nested when working with pseudo elements**. So, if you're dealing with `::backdrop` from the [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) or [Dialog element](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement), you cannot write this:
+
+```css
+/*********************
+ * Nested. Will not work *
+ *********************/
+dialog[open]::backdrop {
+  opacity: 1;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+/*********************
+ * Not nested. This works *
+ *********************/
+dialog[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+```
+
+Additional note: When working with Popover API or Dialog, you don't need to set `display: block` and `display:none` yourself. It's handled by browser agent styles.
+
+Let's move on.
+
+## The Base State
+
+The base state is relatively complex because you're going to write three kinds of styles in here:
+
+1. Base styles
+2. Closed styles
+3. Transition styles
+
+**Base styles** refer to styles you want to apply regardless of the state the component is in. Things like `padding`, `border`, `font-size` are values you'll find in here.
+
+```css
+.component {
+  /* Base Styles */
+  padding: 1em;
+  border: 2px solid black;
+  border-radius: 0.5em;
+}
+```
+
+**Closed styles** refer to the values you wish for the component to have when it is closed. **These values will be used when transitioning outwards.**
+
+The simplest approach here is to use the same rules in `@starting-style`, except `display`. If you want to hide the component with `display:none`, you have to put it here.
+
+```css
+.component {
+  display: none; /* none closes the component */
+  opacity: 0;
+}
+
+@starting-style {
+  .component.open {
+    display: block; /* block readys it for transition */
+    opacity: 0;
+  }
+}
+```
+
+Things begin to feel even more irksome because we are repeating ourselves. Since DRY (Don't Repeat Yourself) is one of the major programming principles, it can feel like we're going against everything we know to be right and good. At the same time, the difference in `display` makes things ever-slightly more confusing.
+
+Breathe. And let go. There's nothing much most developers can do about this — except perhaps whine a little and move on with life.
+
+### Transition Behaviour and Values
+
+The major point of `@starting-style` is to allow transitions from `display:none` to `display:block` (or other display values like `flex` and `grid`). For this to happen, we need to:
+
+1. set `transition-behaviour` to `allow-discrete`.
+2. Include `display` as a `transition-property`.
+3. If you're working with `::backdrop`, you also need to set `overlay` as a transition property.
+
+{/* prettier-ignore */}
+```css
+.component {
+  /* ... */
+  transition-property: display, color, background-color opacity, overlay, ...;
+  transition-behaviour: allow-discrete;
+}
+```
+
+Of course, the easy way is to set `transition-property` to all but this might produce unintended side effects.
+
+```css
+/* Not recommended */
+.component {
+  /* ... */
+  transition: all ease-out 200ms;
+  transition-behaviour: allow-discrete;
+}
+```
+
+Finally, here's a pen because we completed the bare minimum complete a `@starting-style` transition.
+
+<Codepen hash="bNGPGVY" title="Starting Style Explainer" />
+
+## In & Out Transitions
+
+`@starting-style` lets us to create a different transition for elements coming in and going out.
+
+To do this, you simply change your closed state styles such that they contain different values from those in `@starting-style`.
+
+Here's an example where:
+
+- The element flies in from the left
+- The element flies out to the right
+
+```css
+.component {
+  transform: translateX(100%);
+}
+
+.component.open {
+  transform: translateX(0);
+}
+
+@starting-style {
+  .component.open {
+    opacity: translateX(-100%);
+  }
+}
+```
+
+<Codepen
+  hash="xbxoxJZ"
+  title="Starting Style Explainer — In / Out Transitions"
+/>
+
+## Putting everything together
+
+`@starting-style` is easy to understand once you can put the above pieces together one by one.
+
+You need to write 3 selectors:
+
+1. For the Base state
+2. For the Opened state
+3. For the Starting state
+
+In these three selectors, you're watching out for five things:
+
+- Base selector
+  1.  Base styles
+  2.  Closed styles
+  3.  Transition properties
+- Opened selector
+  1.  Opened styles
+- Starting selector
+  1.  Starting styles
+
+This example below puts everything together:
+
+```css
+.component {
+  /* Base styles */
+  padding: 1em;
+  border: 2px solid black;
+  border-radius: 0.5em;
+
+  /* Closed styles */
+  display: none;
+  opacity: 0;
+  transform: translateX(100%);
+
+  /* Transition Properties */
+  transition: all ease-out 200ms;
+  transition-behaviour: allow-discrete;
+}
+
+.component.open {
+  /* Opened Styles */
+  display: block;
+  transform: translateX(0);
+}
+
+@starting-style {
+  .component.open {
+    /* Starting styles */
+    display: block;
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+```
+
+That's it! I hope this makes `@starting-style` as clear as day for you.
+
+If you found this useful, you might be interested in how I explain web development stuff over at [Magical Dev School](https://magicaldevschool.com). Just saying! :)
