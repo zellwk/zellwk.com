@@ -19,6 +19,8 @@
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/svelte": "^4.0.3",
+    "@splendidlabz/third-party": "^1.2.0",
+    "@splendidlabz/utils": "^1.6.0",
     "@zellwk/javascript": "^4.0.1",
     "astro": "^3.4.3",
     "camelcase-keys": "^9.1.2",

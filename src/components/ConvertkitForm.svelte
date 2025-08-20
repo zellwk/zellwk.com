@@ -1,17 +1,10 @@
 <script>
   import zlFetch, { toObject } from 'zl-fetch'
-  import delay from '@zellwk/javascript/utils/delay.js'
-  import Form from './Form.svelte'
   import Input from './FormInput.svelte'
+  import Form from './Form.svelte'
+  import delay from '@zellwk/javascript/utils/delay.js'
 
-  import { saveCkID } from './Convertkit'
-
-  export let formID
-  export let action
-  export let redirectTo
-
-  // States
-  let loader = {
+  const loader = {
     tile: 'Hold on while I sign up you...',
   }
 
@@ -21,21 +14,18 @@
     const data = toObject(new FormData(form))
     const email = data.email
 
-    // Just to make sure we have a minimum delay of 2 seconds
-    const promises = await Promise.all([
-      zlFetch.post(action, { body: { ...data, formID }, returnError: true }),
-      delay(2000),
-    ])
+    await delay(2000)
 
-    const { response, error } = promises[0]
+    // Just to make sure we have a minimum delay of 2 seconds
+    const { response, error } = await zlFetch.post('/api/sendy', {
+      body: data,
+      returnError: true,
+    })
 
     if (response) {
-      const subscriberID = response.body.subscriber.id
-      saveCkID(subscriberID)
-
+      loader.state = 'success'
       // Send analytics information to GTM
       window.dataLayer.push({ event: 'generate_lead', email })
-      loader.state = 'success'
     }
 
     if (error) {
@@ -46,15 +36,21 @@
 </script>
 
 <div class="ConvertkitForm o-words" style="max-width: 35em">
-  <slot />
+  <h2>Learn To Up Your Development Game</h2>
+  <p>
+    You'll get articles to help you improve your game as a web developer. These
+    articles can be related to CSS, JavaScript, Astro, Svelte, or even general
+    web development tips.
+  </p>
+
   <Form
-    method="post"
+    class="ConvertkitForm o-words"
     on:submit={submit}
     {loader}
-    {redirectTo}
-    buttonText={'Send it to me'}
+    redirectTo="/newsletter/confirm"
+    buttonText="Help me level up"
   >
-    <Input type="text" label="First Name" name="first-name" required />
+    <Input type="text" label="First Name" name="name" required />
     <Input type="text" label="Email address" name="email" required />
   </Form>
 </div>

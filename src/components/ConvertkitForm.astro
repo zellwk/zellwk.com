@@ -1,21 +1,5 @@
 ---
-import config from '/site-config.js'
 import ConvertkitForm from './ConvertkitForm.svelte'
-import { getFormID } from './Convertkit'
-import { getEntryBySlug } from 'astro:content'
-
-// Default Form
-const { name = 'better-fed' } = Astro.props
-const id = getFormID(name)
-
-const form = await getEntryBySlug('convertkit-forms', name)
-const { Content } = await form.render() // Astro will error if form is not found
-
-const apiRoot = config.apiRoot
-const endpoint = `${apiRoot}/convertkit/subscribe`
 ---
 
-<!-- TODO: We should think of an alternate display if visitor has already subscribed... -->
-<ConvertkitForm action={endpoint} formID={id} redirectTo='/thanks' client:load>
-  <Content />
-</ConvertkitForm>
+<ConvertkitForm client:idle />

@@ -10,17 +10,17 @@
 
   // List of navigation items
   const nav = [
-    { name: 'Learn JavaScript', link: 'https://learnjavascript.today' },
-    { name: 'Freebies', link: '/freebies' },
     { name: 'About', link: '/about' },
+    { name: 'Magical Dev School', link: 'https://magicaldevschool.com' },
+    { name: 'Learn JavaScript', link: 'https://learnjavascript.today' },
     { name: 'Articles', link: '/blog/1' },
     { name: 'Contact', link: '/contact' },
   ]
 
   let state = 'closed'
   let offsetX
-  let stagger = 100
-  let initialDelay = 100
+  const stagger = 100
+  const initialDelay = 100
 
   onMount(() => {
     offsetX = rem() * -1

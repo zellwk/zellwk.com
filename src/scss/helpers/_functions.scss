@@ -8,7 +8,7 @@
 // An easy way to get colors from the $colors map
 // =====
 
-@use "sass:math";
+@use 'sass:math';
 
 @function color($color, $map: $colors) {
   @return map-get($map, $color);
@@ -28,11 +28,14 @@
   $key: nth($keys, 1);
   $length: length($keys);
   $value: map-get($map, $key);
+
   @if $length > 1 {
     $rest: ();
+
     @for $i from 2 through $length {
       $rest: append($rest, nth($keys, $i));
     }
+
     @return map-fetch($value, $rest);
   } @else {
     @return $value;
@@ -43,7 +46,6 @@
 @function strip-unit($num) {
   @return math.div($num, $num * 0 + 1);
 }
-
 
 // Contains
 @function contains($list, $var) {

@@ -7,14 +7,13 @@
 @mixin fw($family, $weight, $map: $font-weights) {
   $weights: map-fetch($map, $family);
   $w: contains($weights, $weight);
-  @if ($w) {
+
+  @if $w {
     font-weight: $weight;
   } @else {
     @error "$weight '#{$weight}' was not found in $font-weights: #{$family}.";
   }
 }
-
-
 
 // Font Family
 // -----------

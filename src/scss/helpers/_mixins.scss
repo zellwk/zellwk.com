@@ -5,13 +5,13 @@
 
 // Clearfix
 // --------
-@use "sass:math";
+@use 'sass:math';
 
 @mixin cf {
   &::after {
+    content: ' ';
     display: table;
     clear: both;
-    content: ' ';
   }
 }
 
@@ -33,7 +33,12 @@
 // BP [Mixin]
 // ----------
 // Convenience mixin for Mappy Breakpoints
-@mixin bp($queries, $type: all, $query-fallback: null, $breakpoints: $breakpoints) {
+@mixin bp(
+  $queries,
+  $type: all,
+  $query-fallback: null,
+  $breakpoints: $breakpoints
+) {
   @include mappy-bp($queries, $type, $query-fallback, $breakpoints) {
     @content;
   }
@@ -44,13 +49,13 @@
 @mixin eq-flex-parent($gutter, $num-children) {
   display: flex;
   justify-content: space-between;
-  margin-right: -1 * $gutter * 0.5;
   margin-left: -1 * $gutter * 0.5;
+  margin-right: -1 * $gutter * 0.5;
 
   > * {
     flex-basis: calc(#{math.div(100%, $num-children)} - #{$gutter});
-    margin-right: $gutter * 0.5;
     margin-left: $gutter * 0.5;
+    margin-right: $gutter * 0.5;
   }
 }
 
@@ -63,13 +68,13 @@
 // Makes element invisible, but still accessible
 // - http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 @mixin is-invisible {
+  overflow: hidden;
   position: absolute;
   width: 1px;
   height: 1px;
   margin: -1px;
   padding: 0;
   border: 0;
-  overflow: hidden;
   clip: rect(0 0 0 0);
 }
 
@@ -77,10 +82,10 @@
 // ----------
 // Turns off the element-invisible effect.
 @mixin is-visible {
+  overflow: auto;
   position: static;
   width: auto;
   height: auto;
-  overflow: auto;
   clip: auto;
 }
 
@@ -96,8 +101,8 @@
 // Changes selected color and background color
 @mixin selection($bg-color, $text-color) {
   &::selection {
-    background: $bg-color;
     color: $text-color;
+    background: $bg-color;
   }
 }
 
@@ -109,7 +114,6 @@
   white-space: nowrap;
   overflow: hidden;
 }
-
 
 // Z-index
 // -------
@@ -144,11 +148,11 @@
 // - $triangle-direction  - Used to determine which direction triangle points.
 //                          Options: top, bottom, left, right
 @mixin triangle($triangle-size, $triangle-color, $triangle-direction) {
+  content: '';
   display: block;
   width: 0;
   height: 0;
   border: inset $triangle-size;
-  content: '';
 
   @if $triangle-direction == top {
     border-top-style: solid;
