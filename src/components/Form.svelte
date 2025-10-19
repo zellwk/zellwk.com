@@ -36,7 +36,8 @@
 
     // Prevent spam
     // If spam is filled, don't submit
-    const spamField = form.elements.spam
+    const spamField = form.elements.hp
+
     if (spamField.value.trim()) return
 
     // Opens the modal and starts the loader
@@ -61,8 +62,7 @@
 
 <!-- Form -->
 <form class="Form o-words" {method} on:submit|preventDefault={submit}>
-  <Input type="hidden" name="spam" />
-
+  <input type="text" name="hp" class="form-field-helper" />
   <div style="display: contents;">
     <slot />
   </div>
@@ -85,3 +85,9 @@
     </ModalLoader>
   </Modal>
 {/if}
+
+<style>
+  .form-field-helper {
+    display: none !important;
+  }
+</style>
