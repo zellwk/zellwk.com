@@ -8,7 +8,6 @@ import Base from '/src/layouts/Base.astro'
 
 import { getCollection } from 'astro:content'
 import ConvertkitForm from '../../components/ConvertkitForm.astro'
-import { normalize } from '../../utils/content.js'
 
 // TODO: Perhaps put these components into a single file?
 import Button from '/src/components/Button.svelte'
@@ -25,16 +24,16 @@ export const prerender = true
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
-  const normalized = normalize(posts)
+  // const normalized = normalize(posts)
 
-  return normalized.map((post, index) => {
+  return posts.map((post, index) => {
     return {
       params: { slug: post.slug },
       props: {
         posts: {
           current: post,
-          prev: normalized[index + 1],
-          next: normalized[index - 1],
+          prev: posts[index + 1],
+          next: posts[index - 1],
         },
       },
     }

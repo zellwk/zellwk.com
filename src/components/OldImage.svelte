@@ -2,7 +2,7 @@
   let klass
   export { klass as class }
   export let src, alt, loading, caption
-  import SvelteMarkdown from 'svelte-markdown'
+  import {Markdown} from '@splendidlabz/svelte'
 
   if (loading !== 'eager') loading = 'lazy'
 </script>
@@ -11,7 +11,7 @@
   <figure class={klass} aria-label={caption} {...$$restProps}>
     <img {src} alt={alt || caption} {loading} aria-hidden />
     <figcaption aria-hidden>
-      <SvelteMarkdown source={caption} />
+      <Markdown content={caption} inline />
     </figcaption>
   </figure>
 {/if}

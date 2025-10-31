@@ -2,11 +2,10 @@
   import { onMount } from 'svelte'
   import { fade, fly } from 'svelte/transition'
   import { cubicOut, sineOut } from 'svelte/easing'
-  import { rem } from '@zellwk/javascript/browser/font-size.js'
+  import { rem, trapFocus } from '@splendidlabz/utils/dom'
 
   import SVG from './SVG.svelte'
   import Portal from './Portal.svelte'
-  import trapFocus from '../actions/trap-focus.js'
 
   // List of navigation items
   const nav = [

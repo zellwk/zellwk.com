@@ -1,5 +1,5 @@
 <script>
-  import delay from '@zellwk/javascript/utils/delay.js'
+  import {delay} from '@splendidlabz/utils'
   import { createEventDispatcher } from 'svelte'
   import Input from './FormInput.svelte'
   import Modal from './Modal.svelte'

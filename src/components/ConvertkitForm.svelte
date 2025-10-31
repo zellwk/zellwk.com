@@ -2,7 +2,7 @@
   import zlFetch, { toObject } from 'zl-fetch'
   import Input from './FormInput.svelte'
   import Form from './Form.svelte'
-  import delay from '@zellwk/javascript/utils/delay.js'
+  import {delay} from '@splendidlabz/utils'
 
   const loader = {
     tile: 'Hold on while I sign up you...',
@@ -36,11 +36,14 @@
 </script>
 
 <div class="ConvertkitForm o-words" style="max-width: 35em">
-  <h2>Learn To Up Your Development Game</h2>
+  <!-- <h2>Learn To Up Your Development Game</h2> -->
   <p>
-    You'll get articles to help you improve your game as a web developer. These
-    articles can be related to CSS, JavaScript, Astro, Svelte, or even general
-    web development tips.
+    I build web products, and share what I'm learning — about code, building
+    businesses, and living well.
+  </p>
+  <p>
+    Follow along in my journey and get technical content, product updates,
+    thoughts about living well, and more.
   </p>
 
   <Form
@@ -48,7 +51,7 @@
     on:submit={submit}
     {loader}
     redirectTo="/newsletter/confirm"
-    buttonText="Help me level up"
+    buttonText="Join the journey"
   >
     <Input type="text" label="First Name" name="name" required />
     <Input type="text" label="Email address" name="email" required />

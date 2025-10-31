@@ -2,7 +2,7 @@
   import Modal from './Modal.svelte'
   // import ExitIntent from '../actions/exit-intent.js'
   import ScrollObserver from '../actions/scroll-observer.js'
-  import localStore from '@zellwk/javascript/browser/localstore.js'
+  import {localStore} from '@splendidlabz/utils/dom'
   import milliseconds from 'date-fns/milliseconds'
   import { onMount } from 'svelte'
   import {

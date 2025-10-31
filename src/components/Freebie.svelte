@@ -1,6 +1,6 @@
 <script>
   import SVG from './SVG.svelte'
-  import SvelteMarkdown from 'svelte-markdown'
+  import { Markdown } from '@splendidlabz/svelte'
   import Image from './OldImage.svelte'
 
   let klass
@@ -32,7 +32,7 @@
 
     <div class="content ContentBlock">
       <svelte:element this={tag} class="title">
-        <SvelteMarkdown source={title} />
+        <Markdown content={title} inline />
       </svelte:element>
 
       <slot />

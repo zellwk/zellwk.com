@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content'
-import { normalize } from '../../utils/content.js'
 import FormattedDate from '/src/components/FormattedDate.astro'
 import Markdown from '/src/components/Markdown.astro'
 import Pagination from '/src/components/Pagination.svelte'
@@ -11,8 +10,8 @@ export const prerender = true
 // TODO: Remove pubDate from blog content file name — because it doesn't make sense to have to manually update the file name when date changes.
 export async function getStaticPaths({ paginate }) {
   const posts = await getCollection('blog')
-  const normalized = normalize(posts)
-  return paginate(normalized, { pageSize: 20 })
+  // const normalized = normalize(posts)
+  return paginate(posts, { pageSize: 20 })
 }
 
 const { page } = Astro.props

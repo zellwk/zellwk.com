@@ -1,4 +1,4 @@
-import localStore from '@zellwk/javascript/browser/localstore.js'
+import { localStore } from '@splendidlabz/utils/dom'
 
 const IDS = {
   javascript: 5015374,
