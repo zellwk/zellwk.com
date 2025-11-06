@@ -1,65 +1,147 @@
 ---
-import ConvertkitForm from '../components/ConvertkitForm.astro'
-import SVG from '../components/SVG.svelte'
-import Testimonial from '../components/Testimonial.astro'
+import { Image, Markdown, Partial } from '@splendidlabz/astro'
+import { processFiles } from '@splendidlabz/astro/content'
+import { getCollection } from 'astro:content'
+import { now } from '../content/data/now'
 import Base from '../layouts/Base.astro'
+
+const files = await getCollection('blog')
+const posts = (await processFiles(files)).slice(0, 5)
+console.dir(posts[0], { depth: 1 })
 
 export const prerender = true
 ---
 
-<Base bodyClass="home-page" showNav={false}>
-  <div class="c-site-container">
-    <div class="c-home">
-      <div class="c-home__content o-words">
-        <section class="c-ck ck-layout--home">
-          <h2>Welcome to my little corner of the internet :)</h2>
-          <p class="mt-4"></p>
-          <ConvertkitForm name="homepage2" />
-        </section>
+<Base bodyClass="home-page">
+  <section class="section">
+    <div class="wrap">
+      <div class="grid-simple [--cols:3] gap-large max-w-standard mx-auto">
+        <div class="vertical [--span:2] gap-large">
+          <div class="vertical">
+            <div class="relative">
+              <hgroup>
+                <h1 class="h1 text-zpurple-500">Heya, I'm Zell</h1>
+                <p class="h1-subhead">Welcome to my corner of the internet</p>
+              </hgroup>
+              <Image
+                figureClass="pos-right -z-1 max-w-[16rem]"
+                class="rounded-full"
+                src="/src/assets/zell/zell.jpg"
+                alt="Zell"
+              />
+            </div>
+            <div class="prose-tight card card-purple text-11">
+              <!-- prettier-ignore -->
+              <Markdown>
+                I'm a developer who builds products and thinks about life. I started out by teaching front-end development, helping millions of developers learn to build for the web.  
+                
+                I've also invested a large amount of time, money, and energy psychology and personal development. And it helped me change the way I see the world. 
+
+                These days, I'm building products and exploring what makes a sustainable creator businesses. I bring a dev background + deep interest in psychology and human development to everything I make.
+              </Markdown>
+              <a class="button self-start pigment-purple-filled">
+                Read about my story
+              </a>
+            </div>
+          </div>
+
+          <div class="vertical">
+            <hgroup>
+              <h2 class="h1 text-zorange-500 june-curious">Now Now Now</h2>
+              <p class="h1-subhead">Things I'm focusing on right now</p>
+            </hgroup>
+
+            <div class="grid-simple [--cols:2]">
+              {
+                now.map(item => (
+                  <div
+                    class="card gap-[0.5em] border-zorange-500 subgrid-rows "
+                    style={{
+                      '--rowspan': item.cta ? '3' : '2',
+                    }}
+                  >
+                    <h3 class="h3 text-zorange-500">{item.title}</h3>
+                    <Markdown>{item.content}</Markdown>
+                    {item.cta && (
+                      <a
+                        href={item.link}
+                        class="button button-outline justify-self-start pigment-orange-outline"
+                      >
+                        {item.cta}
+                      </a>
+                    )}
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="vertical [--span:1] gap-large">
+          <div class="vertical">
+            <div
+              class="card-divided card-divided-vertical [--border-color:var(--color-zcyan-500)]"
+            >
+              <h2 class="h2 text-zcyan-500 text-center">Blog</h2>
+
+              {
+                posts.map(post => (
+                  <a
+                    href={`/blog/${post.data.slug}`}
+                    style={{
+                      '--border-color': 'inherit',
+                      '--bg-hover-color': 'var(--color-zcyan-700)',
+                      '--text-hover-color': 'var(--color-zcyan-100)',
+                    }}
+                  >
+                    {post.data.title}
+                  </a>
+                ))
+              }
+
+              <a
+                href="/blog"
+                class="button button-large py-3 pigment-cyan-filled"
+              >
+                Read more articles
+              </a>
+            </div>
+          </div>
+
+          <div class="vertical">
+            <div
+              class="card-divided card-divided-vertical [--border-color:var(--color-zcyan-500)]"
+            >
+              <h2 class="h2 text-zcyan-500 text-center">Shorts</h2>
+
+              {
+                posts.map(post => (
+                  <a
+                    href={`/blog/${post.data.slug}`}
+                    style={{
+                      '--border-color': 'inherit',
+                      '--bg-hover-color': 'var(--color-zcyan-700)',
+                      '--text-hover-color': 'var(--color-zcyan-100)',
+                    }}
+                  >
+                    {post.data.title}
+                  </a>
+                ))
+              }
+
+              <a
+                href="/blog"
+                class="button button-large py-3 pigment-cyan-filled"
+              >
+                See more shorts
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <section class="home-social">
-      <div class="l-wrap">
-        <div class="home-social__content">
-          <h2>Zell has been featured in</h2>
-          <div>
-            <ul>
-              <li><SVG name="a-list-apart" /></li>
-              <li><SVG name="css-tricks" /></li>
-              <li><SVG name="smashing-mag" /></li>
-              <li><SVG name="sitepoint" /></li>
-              <li><SVG name="css-weekly" /></li>
-              <li><SVG name="javascript-weekly" /></li>
-              <li><SVG name="free-code-camp" /></li>
-              <li><SVG name="devto" /></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="l-wrap">
-        <div class="home-testimonials">
-          <h2>What others are saying</h2>
-
-          <div>
-            <ul>
-              <li><Testimonial name="veerle-pieters" /></li>
-              <li><Testimonial name="jerry-jones" /></li>
-              <li><Testimonial name="chen-hui-jing" /></li>
-              <li><Testimonial name="zoran-jambor" /></li>
-            </ul>
-          </div>
-
-          <p>
-            <a class="button" data-type="secondary" href="/blog/1"
-              >Read the blog</a
-            >
-          </p>
-        </div>
-      </div>
-    </section>
-  </div>
+  <Partial path="TestimonialSection" />
+  <Partial path="FollowMyJourney" />
 </Base>

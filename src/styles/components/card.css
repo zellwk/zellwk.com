@@ -1,0 +1,23 @@
+.card-purple {
+  --border-color: var(--color-zpurple-500);
+  border-color: var(--border-color);
+  background-color: var(--color-zpurple-1000);
+}
+
+.card-orange {
+  --border-color: var(--color-zorange-500);
+  border-color: var(--border-color);
+  background-color: var(--color-zpurple-1000);
+}
+
+.card-cyan {
+  --border-color: var(--color-zcyan-500);
+  border-color: var(--border-color);
+  background-color: var(--color-zpurple-1000);
+}
+
+.card-red {
+  --border-color: var(--color-zred-500);
+  border-color: var(--border-color);
+  background-color: var(--color-zpurple-1000);
+}

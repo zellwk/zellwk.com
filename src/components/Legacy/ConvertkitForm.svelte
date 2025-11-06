@@ -1,8 +1,8 @@
 <script>
+  import { delay } from '@splendidlabz/utils'
   import zlFetch, { toObject } from 'zl-fetch'
-  import Input from './FormInput.svelte'
   import Form from './Form.svelte'
-  import {delay} from '@splendidlabz/utils'
+  import Input from './FormInput.svelte'
 
   const loader = {
     tile: 'Hold on while I sign up you...',
@@ -35,7 +35,7 @@
   }
 </script>
 
-<div class="ConvertkitForm o-words" style="max-width: 35em">
+<div style="max-width: 35em" class="ConvertkitForm o-words">
   <!-- <h2>Learn To Up Your Development Game</h2> -->
   <p>
     I build web products, and share what I'm learning — about code, building
@@ -48,12 +48,12 @@
 
   <Form
     class="ConvertkitForm o-words"
-    on:submit={submit}
+    buttonText="Join the journey"
     {loader}
     redirectTo="/newsletter/confirm"
-    buttonText="Join the journey"
+    on:submit={submit}
   >
-    <Input type="text" label="First Name" name="name" required />
-    <Input type="text" label="Email address" name="email" required />
+    <Input name="name" label="First Name" required type="text" />
+    <Input name="email" label="Email address" required type="text" />
   </Form>
 </div>

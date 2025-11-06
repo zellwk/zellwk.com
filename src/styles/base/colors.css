@@ -1,0 +1,30 @@
+@theme {
+  --color-zcyan-100: oklch(94.25% 0.0248 209.25deg);
+  --color-zcyan-500: oklch(81.47% 0.1415 211.094deg);
+  --color-zcyan-600: oklch(72% 0.14 211.66deg);
+  --color-zcyan-700: oklch(56% 0.12 212.15deg);
+  --color-zcyan-800: oklch(44% 0.08 215.06deg);
+  --color-zorange-500: oklch(84.03% 0.1724 84.08deg);
+  --color-zorange-600: oklch(74% 0.16 82.99deg);
+  --color-zorange-800: oklch(33.6% 0.0687 87.22deg);
+
+  /* --color-zpurple-50: oklch(87.95% 0.0289 294.54deg); */
+  --color-zpurple-50: oklch(92.96% 0.015 277.84deg);
+  --color-zpurple-100: oklch(89% 0.02 277.71deg);
+  --color-zpurple-500: oklch(67.83% 0.1705 275deg);
+  --color-zpurple-600d: oklch(58% 0.13 275.74deg);
+  --color-zpurple-600: oklch(58% 0.17 273.9deg);
+  --color-zpurple-700: oklch(46% 0.1 275.67deg);
+  --color-zpurple-900: oklch(24.87% 0.0134 298.48deg);
+  --color-zpurple-1000: oklch(19.91% 0.01 294.64deg);
+  --color-zpurple-1100: oklch(13.18% 0.0075 301.63deg);
+  --color-zpurple-800d: oklch(24.58% 0.0058 301.11deg);
+  --color-zred-500: oklch(67.8% 0.198 24.06deg);
+  --color-zred-700: oklch(53% 0.17 24.69deg);
+  --color-zred-900: oklch(16.92% 0.041 22.47deg);
+  --color-zred-700d: oklch(33.1% 0.0568 20.57deg);
+  --color-zgray-300: oklch(84% 0.0084 278.61deg);
+  --color-zgray-400: oklch(78.58% 0 0deg);
+  --color-zgray-500: oklch(59.65% 0 0deg);
+  --color-zgray-600: oklch(41.28% 0 0deg);
+}

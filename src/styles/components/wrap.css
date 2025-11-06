@@ -1,0 +1,7 @@
+:root {
+  --warp-padding: 1rlh;
+
+  @media (width >= 1000px) {
+    --wrap-padding: 2rem;
+  }
+}

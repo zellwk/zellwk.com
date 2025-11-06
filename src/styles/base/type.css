@@ -1,0 +1,79 @@
+@theme {
+  --font-june: 'June Expt Variable';
+  --font-stinger: 'Stinger Variable';
+  --font-sztos: 'Sztos';
+  --font-snug: 'snug-sharp-variable', 'Snug Sharp VF', sans-serif;
+}
+
+@utility june {
+  @apply font-june;
+  font-variation-settings: 'STYL' var(--font-style, 40);
+}
+
+@utility june-curious {
+  --font-style: 100;
+}
+
+@utility stinger {
+  @apply font-stinger;
+  font-variation-settings:
+    'wght' var(--font-weight, 350),
+    'wdth' var(--font-width, 100);
+}
+
+@utility stinger-fit {
+  @apply stinger;
+  --font-width: 108;
+  --font-weight: 325;
+}
+
+@utility snug {
+  @apply font-snug;
+  line-height: 1;
+  font-variation-settings:
+    'wdth' var(--font-width, 55),
+    'wght' var(--font-weight, 700),
+    'XHGT' var(--font-xheight, 100);
+}
+
+@utility snug-meta {
+  @apply snug;
+  --font-weight: 700;
+  --font-width: 100;
+}
+
+@utility mono {
+  font-family: 'Spline Sans Mono', monospace;
+}
+
+/*********************
+ * Patterns *
+ *********************/
+
+@utility h1 {
+  @apply june;
+  @apply text-18;
+  --font-style: 80;
+  line-height: 1.15;
+}
+
+@utility h1-subhead {
+  @apply snug;
+  @apply text-14;
+  --font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-zgray-300);
+}
+
+@utility h2 {
+  @apply june;
+  @apply text-15;
+  --font-style: 80;
+  line-height: 1.3;
+}
+
+@utility h3 {
+  @apply june;
+  @apply text-11;
+  --font-style: 80;
+}

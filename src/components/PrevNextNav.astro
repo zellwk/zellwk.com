@@ -1,0 +1,43 @@
+---
+import { If } from '@splendidlabz/astro'
+import { toTitle } from '@splendidlabz/utils'
+
+const { prev, next, dir = 'blog' } = Astro.props
+let { prevPath, nextPath } = Astro.props
+
+const prevTitle = getPrevNextTitle(prev)
+const nextTitle = getPrevNextTitle(next)
+
+prevPath = `/${dir}/${prev?.data.slug}`
+nextPath = `/${dir}/${next?.data.slug}`
+
+function getPrevNextTitle(part) {
+  if (!part) return null
+  const { data, path } = part
+  if (data?.title) return data?.title
+  const name = path.split('/').pop()
+  return toTitle(name)
+}
+---
+
+<div class="grid-simple [--cols:2] mt-large">
+  <If condition={prevTitle}>
+    <a
+      class="vertical gap-1 p-3 border-2 rounded-0.75r pigment-cyan-outline-dim"
+      href={`/docs/${prevPath}/`}
+    >
+      <span class="snug-meta text-zpurple-100">Previous</span>
+      <span> {prevTitle} </span>
+    </a>
+  </If>
+
+  <If condition={nextTitle}>
+    <a
+      class="vertical gap-1 p-3 border-2 rounded-0.75r pigment-cyan-outline-dim"
+      href={`/docs/${nextPath}/`}
+    >
+      <span class="snug-meta text-zpurple-100">Next</span>
+      <span> {nextTitle} </span>
+    </a>
+  </If>
+</div>

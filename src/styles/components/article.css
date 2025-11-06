@@ -1,0 +1,27 @@
+.article {
+  --theme-color: var(--color-zorange-500);
+
+  header {
+    @apply vertical gap-4;
+  }
+
+  .meta {
+    @apply vertical gap-0.5;
+    @apply june;
+    @apply text-8;
+    --font-style: 60;
+  }
+
+  .content {
+    @apply text-10;
+
+    pre {
+      font-size: 0.85em;
+    }
+  }
+
+  h2 {
+    @apply h2;
+    color: var(--theme-color);
+  }
+}

@@ -1,0 +1,18 @@
+.site-footer {
+  h2,
+  a:not(.copyright *) {
+    @apply text-8;
+  }
+
+  a {
+    @apply pigment-gray-text;
+  }
+
+  a:not(.copyright *) {
+    @apply stinger;
+    --font-width: 108;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+  }
+}

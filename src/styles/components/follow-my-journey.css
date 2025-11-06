@@ -1,0 +1,14 @@
+.newsletter-title {
+  @apply h1;
+  @apply text-zred-500 text-center;
+  @apply transition-scaffold;
+  --y: 2.25rlh;
+  transform: translateY(var(--y));
+}
+
+.newsletter-section {
+  &:has(.newsletter-title:hover, .card:hover, .card:focus-within)
+    .newsletter-title {
+    --y: 1.75rlh;
+  }
+}

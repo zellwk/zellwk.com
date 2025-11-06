@@ -1,0 +1,12 @@
+form {
+  @apply vertical;
+  --border-width: 2px;
+  --radius: 0.75em;
+
+  .input-meta {
+    @apply snug;
+    --font-width: 100;
+    --font-weight: 700;
+    color: var(--color-zred-500);
+  }
+}

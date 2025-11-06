@@ -1,0 +1,40 @@
+---
+import { Markdown, Partial } from '@splendidlabz/astro'
+import NewsletterForm from '../../components/NewsletterForm.svelte'
+---
+
+<section class="section">
+  <div class="wrap">
+    <div
+      class="grid-simple [--cols:9] items-center gap-x-[2rem] max-w-standard mx-auto"
+    >
+      <hgroup class="[--span:5]">
+        <h2 class="h1 text-zred-500">Follow My Journey</h2>
+        <p class="h1-subhead mt-2">
+          <Markdown inline>
+            If you're into making things and growing as a person, you'll
+            probably feel at home here.
+          </Markdown>
+        </p>
+      </hgroup>
+
+      <div class="vertical [--span:5]">
+        <div class="card card-red prose text-10">
+          <!-- prettier-ignore -->
+          <Markdown>
+            I share what I'm learning on this newsletter: code, building businesses, and living well. 
+
+            Sometimes I write about technical deep-dives, product updates, musings on how to live, and sometimes my struggles and how I'm breaking through. 
+
+            Regardless of the type of content, I do my best to send you an update every week. 
+          </Markdown>
+          <NewsletterForm client:load />
+        </div>
+      </div>
+
+      <div class="[--span:4]">
+        <Partial path="LotoQuote" />
+      </div>
+    </div>
+  </div>
+</section>

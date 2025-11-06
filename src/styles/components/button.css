@@ -1,0 +1,19 @@
+.button {
+  @apply snug;
+  --font-weight: 800;
+  --font-width: 100;
+  padding: 0.5em 1.25em;
+  text-transform: uppercase;
+}
+
+.button-large {
+  @apply text-11;
+}
+
+.button-outline {
+  --font-width: 100;
+  --font-weight: 700;
+  --border-width: 2px;
+  padding: 0.5em 1.25em;
+  border-radius: 0.5em;
+}

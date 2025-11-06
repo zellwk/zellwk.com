@@ -1,1 +1,17 @@
-@import "tailwindcss";
+@layer reset, theme, base, utilities.base, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+/* Splendid Labz libraries */
+@import '@splendidlabz/styles';
+@import '@splendidlabz/styles/components';
+
+/* Base styles */
+@import './base/index.css';
+@import './components/index.css';
+
+/* @import './theme/index.css'; */
+/* @import './components/index.css'; */
+@source "../../node_modules/@splendidlabz/astro";
+@source "../../node_modules/@splendidlabz/svelte";

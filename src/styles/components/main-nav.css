@@ -1,0 +1,26 @@
+.main-nav {
+  .logo {
+    @apply june;
+    @apply june-curious;
+    @apply text-13;
+    --text-color: var(--color-zgray-500);
+    --text-hover-color: var(--color-zpurple-500);
+  }
+
+  .card-divided {
+    --radius: 0.75rlh;
+    --border-width: 2px;
+    --bc: var(--color-zgray-600);
+    --border-color: var(--bc);
+  }
+
+  .card-divided a {
+    @apply stinger;
+    @apply text-8;
+    --text-color: var(--color-zgray-500);
+    --text-hover-color: var(--color-zpurple-500);
+    padding-block: 0.5rlh;
+    padding-inline: 0.75rlh;
+    border-color: var(--bc);
+  }
+}

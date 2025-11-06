@@ -1,0 +1,152 @@
+---
+import { FancyList, Image, Markdown, Partial, SVG } from '@splendidlabz/astro'
+import { processFiles } from '@splendidlabz/astro/content'
+import { getCollection } from 'astro:content'
+import { now } from '../content/data/now'
+import Base from '../layouts/Base.astro'
+
+const nowItems = now.slice(0, 2)
+
+const files = await getCollection('blog')
+const posts = (await processFiles(files)).slice(0, 5)
+
+export const prerender = true
+---
+
+<Base bodyClass="home-page">
+  <section class="section">
+    <div class="wrap">
+      <div class="grid-auto-fr max-w-mid mx-auto gap-[1.5rlh]">
+        <div>
+          <Image
+            class="max-w-[22rem] rounded-1.5r"
+            src="/src/assets/zell/zell-fooling-around.jpg"
+            alt="Zell"
+          />
+        </div>
+        <div class="mt-28 vertical">
+          <h1 class="h1 text-zpurple-500">Heya, I'm Zell</h1>
+          <p class="h1-subhead -mt-2">
+            Welcome to my corner of the internet. Thanks for stopping by :)
+          </p>
+          <div class="prose text-10">
+            <!-- prettier-ignore -->
+            <Markdown>
+              I'm a developer who's in the process of creating sustainable businesses that jive with the way I work. I'm exploring what that means, while being careful not to land myself in burnout like my previous business. 
+
+              I'm also deeply interested in psychology + human development. Over the years, I've spent over $100k --- primarily with an organization called Live Your Mark --- and they've helped reshaped the way I think about many other aspects of life like enjoyment, money, and relationships. 
+
+              I'm interested in marketing too. As proof of that, I've also sunk more than $50k learning about marketing. 
+            </Markdown>
+          </div>
+        </div>
+        <div></div>
+      </div>
+      <div class="grid-fr-auto max-w-standard mx-auto mt-section">
+        <h2 class="h1 text-zorange-500 [--span:2]">My Unusual Journey</h2>
+        <div class="card card-orange">
+          <div class="prose text-10">
+            <Markdown inline>
+              <FancyList
+                class="ml-0"
+                icon="ph:egg-crack"
+                iconClass="simple-svg fill-zorange-500"
+                items={[
+                  `I studied finance in school, but taught myself how to code in the penultimate year.`,
+                  `Went freelance fresh out of school within 10 months of learning web dev.`,
+                  `Wrote my first book 2 years after I started learning code.`,
+                  `Gave conference talks and workshops in the next year.`,
+                  `Seth Godin told me "well said" for one of my talks. And that I didn't embarrass myself in front of 400 people.`,
+                  `Somehow managed to stay afloat for more than a decade so I never had a traditional job`,
+                  `Built in a course-based business that earned close to $100k in annual sales at one point.`,
+                  `Over several years, I managed to coach my wife to a point where her ex-boss trusts her enough to cofound a new business venture with her! (She's doing well now!)`,
+                ]}
+              />
+            </Markdown>
+          </div>
+        </div>
+        <div class="max-w-[28em] self-end prose mb-26 text-zgray-500">
+          <Markdown>
+            Unfortunately, sales dwindled because I went dark for a while, so
+            I'm no longer one of the top searches on Google. It's difficult to
+            get that back, especially in the AI age, so I'm pivoting to
+            different business model. Wish me luck!
+          </Markdown>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SVG icon="wriggle-line" />
+
+  <section class="section">
+    <div class="wrap vertical">
+      <h2 class="h1 text-zcyan-500 text-center">What I'm Exploring Now</h2>
+      <div class="grid-simple [--cols:3] max-w-mid mx-auto">
+        <div class="prose [--span:2] text-10">
+          <!-- prettier-ignore -->
+          <Markdown>
+            I've been thinking about what to do ever since AI began to take over the planet. (Let's face it, it's here). At the very least, AI has cannibalized my course business --- anyone can ask AI about code, so few people would buy another coding course. 
+
+            So I'm back in exploration mode. 
+
+            And here are a few things that I'm looking into:
+
+            1. Creating unique courses where AI cannot replicate (like <strong class="text-zpurple-500">Unorthodox Tailwind</strong>).
+            2. Building a component library (<strong class="text-zorange-500">Splendid Labz</strong>) that'll help me ship projects faster.
+            3. Deep diving into AI to see what I can make out of it.
+            4. Building applications and making businesses out of them
+            5. <strong class="text-zred-500">Coaching people</strong> to help them unblock themselves and unravel their potential in life.
+
+            Ultimately, I'm looking to create sustainable and thriving businesses that works for me. I don't think I'd ever want to stop growing, so I'd probably never stop exploring too. 
+          </Markdown>
+
+          <h3 class="h2 text-zcyan-500">Still Freelancing</h3>
+
+          <Markdown>
+            While I'm not actively seeking freelance work, I'm always happy to
+            work on interesting projects. Feel free to [contact me](/contact/)
+            if you want to work on something together!
+          </Markdown>
+        </div>
+
+        <div class="vertical">
+          <div class="card card-purple text-8 vertical gap-[0.5em]">
+            <h3 class="h3 text-zpurple-500">{now[0].title}</h3>
+            <Markdown>{now[0].content}</Markdown>
+            <a
+              href={now[0].link}
+              class="button button-outline justify-self-start pigment-purple-outline"
+              >{now[0].cta}</a
+            >
+          </div>
+
+          <div class="card card-orange text-8 vertical gap-[0.5em]">
+            <h3 class="h3 text-zorange-500">{now[1].title}</h3>
+            <Markdown>{now[1].content}</Markdown>
+            <a
+              href={now[1].link}
+              class="button button-outline justify-self-start pigment-purple-outline"
+            >
+              {now[1].cta}
+            </a>
+          </div>
+
+          <div class="card card-red text-8 vertical gap-[0.5em]">
+            <h3 class="h3 text-zred-500">{now[2].title}</h3>
+            <Markdown>{now[2].content}</Markdown>
+            <!-- <a
+              href={now[2].link}
+              class="button button-outline justify-self-start pigment-red-outline"
+            >
+              {now[2].cta}
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Partial path="TestimonialSection" />
+  <Partial path="FollowMyJourney" />
+</Base>

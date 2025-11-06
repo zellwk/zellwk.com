@@ -1,29 +1,22 @@
 ---
+import MainNav from '../components/MainNav.svelte'
 // import '../scss/styles.scss'
-import Nav from '../components/Nav.svelte'
-import Footer from '../partials/Footer.mdx'
+// import Footer from '../partials/Footer.mdx'
+import Footer from '../components/Footer.astro'
 import '../styles/styles.css'
 import Head from './Base/Head.astro'
 const { bodyClass, showNav = true, ...props } = Astro.props
 ---
 
-<html lang='en'>
+<html lang="en" class="scrollbars-on">
   <head>
     <Head {...props} />
   </head>
 
-  <body class={bodyClass}>
-    <div class='c-site-container'>
-      {
-        showNav && (
-          <header>
-            <Nav client:load />
-          </header>
-        )
-      }
-      <main>
-        <slot />
-      </main>
+  <body class={`${bodyClass}  `}>
+    <div class="shell-simple">
+      <header><MainNav client:idle /></header>
+      <main class="content my-16"><slot /></main>
       <Footer />
     </div>
   </body>

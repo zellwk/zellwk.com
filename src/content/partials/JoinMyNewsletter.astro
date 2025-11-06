@@ -1,0 +1,47 @@
+---
+import { Markdown } from '@splendidlabz/astro'
+import NewsletterForm from '../../components/NewsletterForm.svelte'
+import SideTestimonial from '../../components/SideTestimonial.astro'
+
+const selectedTestimonials = ['heydon-pickering', 'geoff-graham']
+const selectedTestimonial =
+  selectedTestimonials[Math.floor(Math.random() * selectedTestimonials.length)]
+---
+
+<section class="section newsletter-section">
+  <div class="wrap">
+    <div
+      class="grid-simple [--cols:9] items-center gap-x-large max-w-standard mx-auto"
+    >
+      <div class="[--span:5] group vertical">
+        <h2 class="newsletter-title">Join My Newsletter</h2>
+      </div>
+
+      <div class="[--span:5]">
+        <div class="card card-red prose text-10 bg-zpurple-1000 relative">
+          <!-- prettier-ignore -->
+          <Markdown>
+            I share what I'm learning on this newsletter: code, building businesses, and living well. 
+            
+            Sometimes I write about technical deep-dives, product updates, musings on how to live, and sometimes my struggles and how I'm breaking through. 
+            
+            Regardless of the type of content, I do my best to send you an update every week. 
+          </Markdown>
+          <NewsletterForm client:load />
+        </div>
+      </div>
+
+      <div class="[--span:4] vertical">
+        <p
+          class="snug text-13 leading-[1.25] [--font-weight:775] mt-2 text-zgray-300"
+        >
+          <Markdown inline>
+            If you're into making things and growing as a person, you'll
+            probably feel at home here.
+          </Markdown>
+        </p>
+        <SideTestimonial path={selectedTestimonial} />
+      </div>
+    </div>
+  </div>
+</section>

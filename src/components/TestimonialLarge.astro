@@ -1,0 +1,34 @@
+---
+import { Image } from '@splendidlabz/astro'
+import { toTitle } from '@splendidlabz/utils'
+import { getEntry, render } from 'astro:content'
+
+const { path } = Astro.props
+const entry = await getEntry('testimonials', path)
+const { data } = entry
+const { Content } = await render(entry)
+
+// Prepare variables for use in template
+let { title, image, name } = data
+if (!image) image = `/src/assets/testimonials/${path}.jpg`
+if (!name) name = toTitle(path)
+---
+
+<div class="testimonial-large horizontal gap-x-0 items-center">
+  <div class="card card-orange">
+    <h3 class="h3 text-10">
+      <span class="text-zorange-500">{name}</span>
+      <span class="text-zgray-500">— {title}</span>
+    </h3>
+    <div class="prose text-11 mt-2 max-w-narrow">
+      <Content />
+    </div>
+  </div>
+
+  <Image
+    figureClass="max-w-[14rem]"
+    class="rounded-full"
+    src={image}
+    alt={name}
+  />
+</div>

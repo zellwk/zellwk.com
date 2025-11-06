@@ -1,0 +1,25 @@
+.content-list {
+  @apply text-7;
+  @apply vertical gap-1;
+  @apply border-scaffold;
+  --border-width: 1px;
+  --border-color: var(--color-zgray-600);
+  --radius: 0.75rlh;
+  padding: 0.75rlh;
+
+  .label {
+    @apply snug-meta;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    @apply pigment-gray-link-bright;
+  }
+
+  a[aria-current] {
+    --text-color: var(--color-zcyan-500);
+  }
+}

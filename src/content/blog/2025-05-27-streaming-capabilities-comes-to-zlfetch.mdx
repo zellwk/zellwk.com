@@ -1,52 +1,52 @@
 ---
 title: Streaming capabilities comes to zlFetch
-description: zlFetch is now prime for handling AI-related streams 😉. 
+description: zlFetch is now prime for handling AI-related streams 😉.
 slug: streaming-capabilities-comes-to-zlfetch
 tags: ['JavaScript', 'zlFetch']
 pubDate: 2025-05-27
 ---
 
-Just last weekend, I sat down and gave [zlFetch](https://github.com/zellwk/zl-fetch) another brand new update — streaming capabilities. With `v6.2.0`, zlFetch is now able to: 
+Just last weekend, I sat down and gave [zlFetch](https://github.com/zellwk/zl-fetch) another brand new update — streaming capabilities. With `v6.2.0`, zlFetch is now able to:
 
 - Receive and convert streams automatically (without you having to write a stream decoder manually)
-- Have Typescript support (thanks to [juji](https://github.com/juji)). 
+- Have Typescript support (thanks to [juji](https://github.com/juji)).
 
-Now zlFetch is now prime for handling AI-related streams😉. 
+Now zlFetch is now prime for handling AI-related streams😉.
 
 {/* more */}
 
-## What is zlFetch? 
+## What is zlFetch?
 
-It's a library I've created that helps you with the Fetch API. It provides a ton of quality-of-life improvements like: 
+It's a library I've created that helps you with the Fetch API. It provides a ton of quality-of-life improvements like:
 
 - Automatic response solution (so no need to use `response.json`)
-- Promise-like error handling 
+- Promise-like error handling
 - Usage with `await` easily
 - Simple Basic and Token based authentication headers
 - And a [ton of other things](https://github.com/zellwk/zl-fetch)
 
-Just my personal opinion: 
+Just my personal opinion:
 
-- It's better than [axios](https://www.npmjs.com/package/axios) cos it's less complicated 
-- It's better than [ky](https://www.npmjs.com/package/ky) cos it has better defaults 
+- It's better than [axios](https://www.npmjs.com/package/axios) cos it's less complicated
+- It's better than [ky](https://www.npmjs.com/package/ky) cos it has better defaults
 
-## Three Types of Streams 
+## Three Types of Streams
 
-As far as I know, there are three types of streams: 
+As far as I know, there are three types of streams:
 
 1. Server Sent Events (SSE)
-2. Chunked Encoding 
-3. A normal stream 
+2. Chunked Encoding
+3. A normal stream
 
-**Server Sent Events** lets you create a connection between a browser and the server. If the connection is dropped, the browser can automatically connect (with the help of Event Source). This happens if the server sets `Content-Type: text/event-stream`. 
+**Server Sent Events** lets you create a connection between a browser and the server. If the connection is dropped, the browser can automatically connect (with the help of Event Source). This happens if the server sets `Content-Type: text/event-stream`.
 
-**Chunked Encoding** lets one server tell another that they're going to send data in bits. The receiving server is supposed to receive everything, combine them, before sending letting the clients use them. This happens if the sending server sets the `Transfer-Encoding: Chunked` header. 
+**Chunked Encoding** lets one server tell another that they're going to send data in bits. The receiving server is supposed to receive everything, combine them, before sending letting the clients use them. This happens if the sending server sets the `Transfer-Encoding: Chunked` header.
 
-**Normal Streams** happens when the sending server doesn't send over a `Content-Length` property. 
+**Normal Streams** happens when the sending server doesn't send over a `Content-Length` property.
 
-zlFetch detects all three kinds of streams and decodes them for you automatically, so you can just loop through the response body to get your data — no need for manual decoding! 
+zlFetch detects all three kinds of streams and decodes them for you automatically, so you can just loop through the response body to get your data — no need for manual decoding!
 
-Oh, by the way, if the chunk contains JSON data, zlFetch converts that into a JavaScript object for you automatically. Again, quality of life improvements — so you can build stuff without having to deal with boilerplate! 
+Oh, by the way, if the chunk contains JSON data, zlFetch converts that into a JavaScript object for you automatically. Again, quality of life improvements — so you can build stuff without having to deal with boilerplate!
 
 ```js
 // Basic Stream Handling Example with Fetch
@@ -59,9 +59,8 @@ while (true) {
   buffer += decoder.decode(value, { stream: true })
 
   // Decode the chunk
-  let chunk = typeof value === 'string' 
-    ? value 
-    : decoder.decode(value, { stream: true })
+  let chunk =
+    typeof value === 'string' ? value : decoder.decode(value, { stream: true })
 
   chunk = chunk.trim()
 
@@ -74,7 +73,7 @@ while (true) {
 ```
 
 ```js
-// With zlFetch 
+// With zlFetch
 const response = await zlFetch('some-url')
 
 for await (const chunk of response.body) {
@@ -82,7 +81,7 @@ for await (const chunk of response.body) {
 }
 ```
 
-Even for chunked encoding, you can *actually* receive the data in your browser as chunks! To make that happen, we can't parse the stream in advance inside zlFetch. But we've given you a `readStream` helper to, you know, deal with the stream decoding stuff. 
+Even for chunked encoding, you can _actually_ receive the data in your browser as chunks! To make that happen, we can't parse the stream in advance inside zlFetch. But we've given you a `readStream` helper to, you know, deal with the stream decoding stuff.
 
 ```js
 import zlFetch, { readStream } from 'zl-fetch'
@@ -90,7 +89,7 @@ import zlFetch, { readStream } from 'zl-fetch'
 // Decoding chunked encoding as streams in the browser
 const response = await zlFetch('some-url')
 
-// Just add this helper 
+// Just add this helper
 const stream = readStream(response)
 
 for await (const chunk of stream) {
@@ -98,10 +97,10 @@ for await (const chunk of stream) {
 }
 ```
 
-## Text Event Stream and Server Sent Events 
+## Text Event Stream and Server Sent Events
 
-Server Sent Events is a pretty cool technology. It's similar to Fetch, but made for streams — because your browser can reconnect to the server if you get disconnected! 
+Server Sent Events is a pretty cool technology. It's similar to Fetch, but made for streams — because your browser can reconnect to the server if you get disconnected!
 
-The best way to consume Server Sent Events is through the [Event Source API](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events). We've made that simpler too with [`zlEventSource`](https://github.com/zellwk/zl-fetch?tab=readme-ov-file#streaming-with-event-source). 
+The best way to consume Server Sent Events is through the [Event Source API](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events). We've made that simpler too with [`zlEventSource`](https://github.com/zellwk/zl-fetch?tab=readme-ov-file#streaming-with-event-source).
 
-I'd leave further explanation for a future article. If you're interested, you can check out the docs right now 😉. 
+I'd leave further explanation for a future article. If you're interested, you can check out the docs right now 😉.

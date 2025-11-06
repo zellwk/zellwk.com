@@ -1,8 +1,8 @@
 ---
 // TODO: Probably need to rework this Testimonial component later to make it work for all testimonials — even those without images
-import Image from './Image.astro'
-import { toTitle } from '@zellwk/javascript/utils/convert-case.js'
+import { toTitle } from '@splendidlabz/utils'
 import { getEntryBySlug } from 'astro:content'
+import Image from './Image.astro'
 const { name } = Astro.props
 
 const entry = await getEntryBySlug('testimonial', name)

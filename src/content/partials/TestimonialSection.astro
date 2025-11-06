@@ -1,0 +1,39 @@
+---
+import { SVG } from '@splendidlabz/astro'
+import TestimonialLarge from '../../components/TestimonialLarge.astro'
+---
+
+<section class="section bg-zpurple-800d">
+  <div class="wrap vertical gap-large">
+    <h2 class="h2 text-zorange-500 text-center">
+      Nice words from peers, friends, and customers
+    </h2>
+    <div class="max-w-mid mx-auto vertical gap-large">
+      <TestimonialLarge path="geoff-graham" />
+      <TestimonialLarge path="heydon-pickering" />
+
+      <a
+        href="/testimonials"
+        class="button button-large self-center pigment-orange-filled -rotate-5"
+      >
+        Read other nice things people have said!
+      </a>
+    </div>
+  </div>
+
+  <div class="wrap vertical max-w-standard mx-auto mt-section gap-large">
+    <h2 class="h2 text-zorange-500 text-center">
+      I've also been featured in the following publications
+    </h2>
+    <div class="grid-flex [--cols:4] [--grow:0] justify-center">
+      <SVG class="h-16 simple-svg fill-zgray-400" icon="a-list-apart" />
+      <SVG class="h-16 simple-svg fill-zgray-400" icon="css-tricks" />
+      <SVG class="h-16 simple-svg fill-zgray-400" icon="smashing-mag" />
+      <SVG class="h-16 simple-svg fill-zgray-400" icon="sitepoint" />
+      <SVG class="h-16 simple-svg fill-zgray-400" icon="css-weekly" />
+      <SVG class="h-16 simple-svg fill-zgray-400" icon="javascript-weekly" />
+      <SVG class="h-16 simple-svg fill-zgray-400" icon="free-code-camp" />
+      <SVG class="h-16 simple-svg fill-zgray-400" icon="devto" />
+    </div>
+  </div>
+</section>

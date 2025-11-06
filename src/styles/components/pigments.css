@@ -1,0 +1,54 @@
+@utility pigment-purple-filled {
+  --bg-color: var(--color-zpurple-500);
+  --text-color: var(--color-zpurple-1000);
+  --bg-hover-color: var(--color-zpurple-600);
+  --border-hover-color: var(--color-zpurple-600);
+}
+
+@utility pigment-orange-filled {
+  --bg-color: var(--color-zorange-500);
+  --text-color: var(--color-zpurple-1000);
+  --bg-hover-color: var(--color-zorange-600);
+}
+
+@utility pigment-orange-outline {
+  --bg-color: transparent;
+  --text-color: var(--color-zorange-500);
+  --border-color: var(--color-zorange-500);
+  --bg-hover-color: var(--color-zorange-800);
+  --text-hover-color: #fff;
+}
+
+@utility pigment-cyan-filled {
+  --bg-color: var(--color-zcyan-600);
+  --text-color: var(--color-zpurple-1000);
+  --border-color: var(--color-zcyan-600);
+  --bg-hover-color: var(--color-zcyan-700);
+  --border-hover-color: var(--color-zcyan-700);
+}
+
+@utility pigment-cyan-outline-dim {
+  --bg-color: transparent;
+  --text-color: var(--color-zcyan-500);
+  --border-color: var(--color-neutral-700);
+  --text-hover-color: var(--color-zpurple-50);
+  --bg-hover-color: var(--color-zcyan-800);
+  --border-hover-color: var(--color-zcyan-800);
+}
+
+@utility pigment-red-filled {
+  --bg-color: var(--color-zred-500);
+  --text-color: var(--color-zpurple-1000);
+  --bg-hover-color: var(--color-zred-700);
+  --border-hover-color: var(--color-zred-700);
+}
+
+@utility pigment-gray-text {
+  --text-color: var(--color-zgray-500);
+  --text-hover-color: var(--color-zgray-400);
+}
+
+@utility pigment-gray-link-bright {
+  --text-color: var(--color-zgray-500);
+  --text-hover-color: var(--color-zcyan-500);
+}

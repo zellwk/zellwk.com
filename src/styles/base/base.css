@@ -1,0 +1,40 @@
+@layer base {
+  html {
+    @apply stinger;
+    --font-weight: 350;
+    line-height: 1.5;
+  }
+
+  body {
+    @apply text-9;
+    color: var(--color-zpurple-100);
+    background-color: var(--color-zpurple-1000);
+  }
+
+  strong,
+  .strong {
+    @apply stinger;
+    --font-weight: 600;
+    color: var(--color-zpurple-500);
+  }
+
+  a:not(.button) {
+    --text-color: var(--color-zcyan-600);
+    --text-hover-color: var(--color-zcyan-700);
+  }
+
+  h1 {
+    @apply h1;
+    color: var(--color-zorange-500);
+  }
+
+  code {
+    @apply mono;
+  }
+}
+
+pre {
+  @apply scrollbar-thin;
+  --radius: 0.25rem;
+  line-height: 1.25;
+}

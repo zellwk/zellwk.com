@@ -1,0 +1,85 @@
+---
+import { Markdown } from '@splendidlabz/astro'
+import { Icon } from '@splendidlabz/svelte'
+const today = new Date()
+const thisYear = today.getFullYear()
+---
+
+<footer class="overflox-hidden site-footer bg-zpurple-1100">
+  <div class="horizontal">
+    <div
+      class="june h1 text-zpurple-500 writing-rotate-left relative -left-6"
+      aria-hidden="true"
+    >
+      The Footer
+    </div>
+
+    <div class="py-[3rem]">
+      <div class="wrap vertical w-full max-w-standard mx-auto">
+        <nav
+          class="grid-repeat-auto [--cols:5] [--gap-x:4rem] [--gap-y:0.75rlh]"
+        >
+          <div class="vertical">
+            <h2 class="june text-zorange-500">General</h2>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+          </div>
+          <div class="vertical">
+            <h2 class="june text-zorange-500">Projects</h2>
+            <a href="https://magicaldevschool.com">Magical Dev School</a>
+            <a href="https://splendidlabz.com">Splendid Labz</a>
+          </div>
+          <div class="subgrid-columns [--span:2]">
+            <h2 class="june text-zorange-500 [--span:2]">Socials</h2>
+            <div class="vertical [--span:1]">
+              <a href="https://magicaldevschool.com">
+                <Icon icon="tabler:brand-youtube" client:load />
+                Youtube
+              </a>
+              <a href="https://magicaldevschool.com">
+                <Icon icon="tabler:brand-instagram" client:load />
+                Instagram
+              </a>
+              <a href="https://magicaldevschool.com">
+                <Icon icon="tabler:brand-tiktok" client:load />
+                Tiktok
+              </a>
+            </div>
+            <div class="vertical [--span:1]">
+              <a href="https://magicaldevschool.com">
+                <Icon icon="tabler:brand-github" client:load />
+                Github
+              </a>
+              <a href="https://magicaldevschool.com">
+                <Icon icon="tabler:brand-bluesky" client:load />
+                Bluesky
+              </a>
+            </div>
+          </div>
+          <div class="vertical">
+            <h2 class="june text-zorange-500">Follow Along</h2>
+            <a href="/newsletter">
+              <Icon icon="tabler:mail" client:load />
+              Email
+            </a>
+            <a href="/rss">
+              <Icon icon="tabler:rss" client:load />
+              RSS
+            </a>
+          </div>
+        </nav>
+
+        <div
+          class="copyright june [--font-style:80] text-zgray-500 mt-8 text-6"
+        >
+          <Markdown inline>
+            <span>&copy; 2013 - {thisYear} </span>
+            <a href="/">Zell Liew</a> / All rights reserved / 
+            <a href="/terms">Terms</a>
+          </Markdown>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

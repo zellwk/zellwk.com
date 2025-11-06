@@ -1,34 +1,34 @@
 ---
-import FormattedDate from '/src/components/FormattedDate.astro'
-import Freebie from '/src/components/Freebie.astro'
-import LeadModal from '/src/components/LeadModal.svelte'
-import Markdown from '/src/components/Markdown.astro'
-import PostNav from '/src/components/PostNav.astro'
+import { Partial, SVG } from '@splendidlabz/astro'
+import { processFiles } from '@splendidlabz/astro/content'
+import { ContentList } from '@splendidlabz/svelte'
+import { getCollection, render } from 'astro:content'
+// import Freebie from '/src/components/Freebie.astro'
+import { Markdown } from '@splendidlabz/astro'
+// import PostNav from '/src/components/PostNav.astro'
+import { formatDate } from 'date-fns'
+import PrevNextNav from '/src/components/PrevNextNav.astro'
 import Base from '/src/layouts/Base.astro'
 
-import { getCollection } from 'astro:content'
-import ConvertkitForm from '../../components/ConvertkitForm.astro'
-
-// TODO: Perhaps put these components into a single file?
-import Button from '/src/components/Button.svelte'
-import Callout from '/src/components/Callout.svelte'
-import Codepen from '/src/components/Codepen.astro'
-import Image from '/src/components/Image.astro'
-import Tweet from '/src/components/Tweet.astro'
-import Video from '/src/components/Video.svelte'
-import Youtube from '/src/components/Youtube.svelte'
+// For Components
+import { Image, Video } from '@splendidlabz/astro'
+import Button from '/src/components/legacy/Button.svelte'
+import Callout from '/src/components/legacy/Callout.svelte'
+import Codepen from '/src/components/legacy/Codepen.astro'
+import Tweet from '/src/components/legacy/Tweet.astro'
+import Youtube from '/src/components/legacy/Youtube.svelte'
 
 const components = { Image, Video, Youtube, Codepen, Button, Callout, Tweet }
 
 export const prerender = true
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog')
-  // const normalized = normalize(posts)
+  const files = await getCollection('blog')
+  const posts = await processFiles(files)
 
   return posts.map((post, index) => {
     return {
-      params: { slug: post.slug },
+      params: { slug: post.data.slug },
       props: {
         posts: {
           current: post,
@@ -42,65 +42,70 @@ export async function getStaticPaths() {
 
 const { posts } = Astro.props
 const { current: post } = posts
-const { Content } = await post.render()
+const { Content } = await render(post)
+
+const dateText =
+  post.data.updateDate && post.data.updateDate < Date.now()
+    ? 'Updated'
+    : 'Published'
 ---
 
 <Base {...post.data}>
-  <div class="Wrap">
-    <article class="PostLayout2">
-      <h1><Markdown content={post.data.title} /></h1>
-
-      <div class="PostLayout2-main">
-        <div class="o-content PostLayout2-content" style="position: relative">
-          <div class="PostLayout2-date">
-            <div>
-              <strong>Published:</strong>
-              <FormattedDate date={post.data.pubDate} />
-            </div>
-            {
-              post.data.updateDate && post.data.updateDate < Date.now() && (
-                <div>
-                  <strong>Updated:</strong>
-                  <FormattedDate date={post.data.updateDate} />
-                </div>
-              )
-            }
+  <div class="wrap">
+    <article class="article grid-fr-auto mx-auto max-w-[calc(33rlh+10rlh)]">
+      <header>
+        <div class="meta">
+          <div class="text-zgray-500">
+            {dateText} on
+            {formatDate(post.data.date, 'MMM d, yyyy')}
           </div>
 
-          <!-- TODO: MEDIA / YOUTUBE / VIMEO / WHATEVER HERE -->
-          <Content {components} />
-          <PostNav {posts} />
-          <!-- <GoogleArticleAd client:load /> -->
+          <div class="tags text-zgray-500">
+            <span>Filed under:</span>
+            {
+              post.data.tags.map((tag, index) => (
+                <>
+                  <a
+                    class="pigment-gray-text underline"
+                    href={`/tags/${tag.toLowerCase()}`}
+                  >
+                    #{tag.toLowerCase()}
+                  </a>
+                  {index !== post.data.tags.length - 1 && <span>, </span>}
+                </>
+              ))
+            }
+          </div>
         </div>
+        <hgroup>
+          <h1 class="h1"><Markdown inline>{post.data.title} </Markdown></h1>
+        </hgroup>
+      </header>
 
-        <div class="PostLayout2-sidebar">
-          <!-- <GoogleSquareAd /> -->
-        </div>
+      <div></div>
+
+      <div id="content" class="content prose">
+        <Content {components} />
+      </div>
+
+      <div class="w-[10rlh] max-w-full">
+        <ContentList
+          class="content-list sticky top-4"
+          label="On This Page"
+          selector="#content"
+          listClass="indentlist"
+          client:idle
+        />
+      </div>
+
+      <div class="[--span:2]">
+        <PrevNextNav prev={posts.prev} next={posts.next} />
       </div>
     </article>
   </div>
 
-  <div class="post-layout">
-    <section class="o-content c-ck ck-layout">
-      {
-        post.data.leadModal && (
-          <div class="uInlineSize">
-            <Freebie name={post.data.leadModal} tag="h2" />
-          </div>
-        )
-      }
-
-      {!post.data.leadModal && <ConvertkitForm name={post.data.ckForm} />}
-    </section>
+  <div class="mt-section">
+    <SVG class="rotate-180 simple-svg stroke-zred-500" icon="wriggle-line" />
   </div>
-
-  <LeadModal client:load>
-    {
-      post.data.leadModal && (
-        <Freebie class="mMQ" name={post.data.leadModal} tag="h2" />
-      )
-    }
-
-    {!post.data.leadModal && <ConvertkitForm name={post.data.ckForm} />}
-  </LeadModal>
+  <Partial path="JoinMyNewsletter" />
 </Base>

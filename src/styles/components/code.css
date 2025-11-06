@@ -1,0 +1,66 @@
+/* Shiki CSS Variables Theme */
+/* Uncomment the theme you want to use */
+
+/* Custom Theme */
+:root {
+  /* --scrollbar-thumb-color: var(--scrollbar-thumb-color-dark);
+  --scrollbar-track-color: var(--scrollbar-track-color-dark); */
+  --shiki-token-comment: #7e7d86;
+  --shiki-token-keyword: var(--color-zpurple-500);
+  --shiki-token-constant: oklch(83% 0.16 84.71deg);
+  --shiki-token-function: var(--color-zcyan-500);
+  --shiki-token-string-expression: var(--color-zred-500);
+  --shiki-foreground: var(--color-zpurple-50);
+  --shiki-background: #222027;
+
+  /* Not sure what these are used for */
+  --shiki-token-string: #f1fa8c;
+  --shiki-token-parameter: #ffb86c;
+  --shiki-token-punctuation: #f8f8f2;
+  --shiki-token-link: #8be9fd;
+}
+
+/* Night Owl Theme */
+/* :root {
+  --shiki-foreground: #d6deeb;
+  --shiki-background: #011627;
+  --shiki-token-comment: #637777;
+  --shiki-token-keyword: #c792ea;
+  --shiki-token-constant: #f78c6c;
+  --shiki-token-function: #82aaff;
+  --shiki-token-string: #ecc48d;
+  --shiki-token-string-expression: #ecc48d;
+  --shiki-token-parameter: #d7dbe0;
+  --shiki-token-punctuation: #7fdbca;
+  --shiki-token-link: #80cbc4;
+} */
+
+/* Moonlight II Theme */
+/* :root {
+  --shiki-foreground: #c8d3f5;
+  --shiki-background: #212337;
+  --shiki-token-comment: #7a88cf;
+  --shiki-token-keyword: #fca7ea;
+  --shiki-token-constant: #ff966c;
+  --shiki-token-function: #82aaff;
+  --shiki-token-string: #c3e88d;
+  --shiki-token-string-expression: #c3e88d;
+  --shiki-token-parameter: #c8d3f5;
+  --shiki-token-punctuation: #89ddff;
+  --shiki-token-link: #82aaff;
+} */
+
+/* Original values for Dracula */
+/* :root {
+  --shiki-foreground: #f8f8f2;
+  --shiki-background: #282a36;
+  --shiki-token-constant: #bd93f9;
+  --shiki-token-string: #f1fa8c;
+  --shiki-token-comment: #6272a4;
+  --shiki-token-keyword: #ff79c6;
+  --shiki-token-parameter: #ffb86c;
+  --shiki-token-function: #50fa7b;
+  --shiki-token-string-expression: #f1fa8c;
+  --shiki-token-punctuation: #f8f8f2;
+  --shiki-token-link: #8be9fd;
+} */
