@@ -1,80 +1,27 @@
 ---
 import config from '../../../site-config.js'
-const { siteTitle, siteDescription } = config
+import { SEO } from '@splendidlabz/astro'
+import Favicon from './Favicon.astro'
 
-const { title, description, OGImage, index = true } = Astro.props
-
-const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle
-const pageDescription = description || siteDescription
-
-const URLObject = new URL(Astro.url.pathname, Astro.site)
-const canonicalURL = URLObject.href
-const imageURL = OGImage
-  ? `${URLObject.origin}/${OGImage}`
-  : `${URLObject.origin}/images/defaults/social-image.png`
+const { bodyClass = '', ...props } = Astro.props
 ---
+
+<SEO site={config.siteSEO} {...props} />
+<Favicon />
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-<!-- Indexing -->
-{!index && <meta name="robots" content="noindex, noarchive" />}
-
-<!-- Primary Meta Tags -->
-<title>{pageTitle}</title>
-<meta name="title" content={pageTitle} />
-<meta name="description" content={pageDescription} />
-<link rel="canonical" href={canonicalURL} />
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL} />
-<meta property="og:title" content={pageTitle} />
-<meta property="og:description" content={pageDescription} />
-<meta property="og:image" content={imageURL} />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalURL} />
-<meta property="twitter:title" content={pageTitle} />
-<meta property="twitter:description" content={pageDescription} />
-<meta property="twitter:image" content={imageURL} />
-
-<!-- Favicon -->
-<link
-  rel="apple-touch-icon"
-  sizes="180x180"
-  href="/favicon/apple-touch-icon.png"
-/>
-<link
-  rel="icon"
-  type="image/png"
-  sizes="32x32"
-  href="/favicon/favicon-32x32.png"
-/>
-<link
-  rel="icon"
-  type="image/png"
-  sizes="16x16"
-  href="/favicon/favicon-16x16.png"
-/>
-<link rel="manifest" href="/favicon/manifest.json" />
-<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#fd256e" />
-<link rel="shortcut icon" href="/favicon/favicon.ico" />
-<meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-<meta name="theme-color" content="#ffffff" />
 
 <!-- Fonts -->
-<link rel="stylesheet" href="https://use.typekit.net/tsd8lrs.css" />
+<link rel="stylesheet" href="https://use.typekit.net/pki5tfy.css" />
 
 <!-- RSS Auto discovery -->
 <link
   rel="alternate"
   type="application/rss+xml"
   title="Feed for articles"
-  href="/rss.xml"
+  href={new URL('rss.xml', Astro.site)}
 />
 
 <!-- Sitemap -->

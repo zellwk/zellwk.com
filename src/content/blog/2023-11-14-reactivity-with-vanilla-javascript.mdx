@@ -161,7 +161,7 @@ state = new Proxy(state, handler)
 
 The `handler` object here allows you to define what happens when each property is accessed via `get`, `set`, and [other methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get).
 
-<Image src='/assets/blog/reactivity-with-vanilla-js/proxy-methods.png' />
+<Image src='/src/assets/blog/reactivity-with-vanilla-js/proxy-methods.png' />
 
 In this case, I used `Reflect` for both `get` and `set` which basically tells the proxy to perform the original actions on the accessed values — just like if you `get` or `set` a property normally.
 

@@ -1,24 +1,23 @@
 <script>
-  import Callout from '../../components/Callout.svelte'
-  import { SVG } from 'splendid-ui/svelte'
+  import { Callout, Icon } from '@splendidlabz/svelte'
 </script>
 
 <Callout type="demo">
-  <div class="Box">
-    <SVG icon="tabler:menu" /> Tabler's Menu
+  <div class="box">
+    <Icon icon="tabler:menu" /> Tabler's Menu
   </div>
 
-  <div class="Box">
-    <SVG icon="material-symbols:menu" /> Material Symbol's menu
+  <div class="box">
+    <Icon icon="material-symbols:menu" /> Material Symbol's menu
   </div>
 
-  <div class="Box">
-    <SVG icon="zondicons:menu" /> Zondicon's menu
+  <div class="box">
+    <Icon icon="zondicons:menu" /> Zondicon's menu
   </div>
 </Callout>
 
 <style>
-  .Box {
+  .box {
     display: flex;
     align-items: center;
     gap: 0.5rem;

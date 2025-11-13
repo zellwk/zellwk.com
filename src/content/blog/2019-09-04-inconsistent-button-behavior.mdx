@@ -83,89 +83,89 @@ When you click on a button in Safari (12.1.1), the button does not get focus. Th
 1. There's no focus glow on the button.
 2. `document.activeElement` points to `<body>`.
 
-<Image src="/assets/2019/inconsistent-button-behavior/safari-click.gif" alt="In Safari, document gets focused when you click on a button" />
+<Image src="/src/assets/2019/inconsistent-button-behavior/safari-click.gif" alt="In Safari, document gets focused when you click on a button" />
 Since `<body>` gets focus, any further keypress originates from the `<body>`.
 
-<Image src="/assets/2019/inconsistent-button-behavior/safari-keydown.gif" alt="Next keypress originate from the document." />
+<Image src="/src/assets/2019/inconsistent-button-behavior/safari-keydown.gif" alt="Next keypress originate from the document." />
 Tabbing into the next element works as expected. The next element gets focus.
 
-<Image src="/assets/2019/inconsistent-button-behavior/safari-tab.gif" alt="Tabbing into the next element works as expected." />
+<Image src="/src/assets/2019/inconsistent-button-behavior/safari-tab.gif" alt="Tabbing into the next element works as expected." />
 `Shift` + `Tab` doesn't work as I expected. I expect the previous element to get focus, but `<button>` gets focus instead.
 
-<Image src="/assets/2019/inconsistent-button-behavior/safari-shift-tab.gif" alt="Shift tab does not focus on the previous element. It focuses on the button instead." />
+<Image src="/src/assets/2019/inconsistent-button-behavior/safari-shift-tab.gif" alt="Shift tab does not focus on the previous element. It focuses on the button instead." />
 ### Firefox (Mac)
 
 When you click on a button in Firefox (Nightly 70.0a1), the button does not get focus. The document gets focus instead.
 
-<Image src="/assets/2019/inconsistent-button-behavior/firefox-click.gif" alt="In Firefox, document gets focused when you click on a button" />
+<Image src="/src/assets/2019/inconsistent-button-behavior/firefox-click.gif" alt="In Firefox, document gets focused when you click on a button" />
 Any further keypress originates from the `<body>`.
 
-<Image src="/assets/2019/inconsistent-button-behavior/firefox-keydown.gif" alt="Next keypress originate from the document." />
+<Image src="/src/assets/2019/inconsistent-button-behavior/firefox-keydown.gif" alt="Next keypress originate from the document." />
 `Tab` does not work as expected. When you press `Tab`, Firefox focuses on the first element in the document.
 
-<Image src="/assets/2019/inconsistent-button-behavior/firefox-tab.gif" alt="Tab goes to the first element." />
+<Image src="/src/assets/2019/inconsistent-button-behavior/firefox-tab.gif" alt="Tab goes to the first element." />
 `Shift` + `Tab` is funny. If `<button>` is the first thing you clicked on, Firefox focuses on the last focusable element in the document. If you focused on an element before clicking the button, Firefox focuses that element.
 
-<Image src="/assets/2019/inconsistent-button-behavior/firefox-shift-tab.gif" alt="Shift-tab behavior." />
+<Image src="/src/assets/2019/inconsistent-button-behavior/firefox-shift-tab.gif" alt="Shift-tab behavior." />
 The problem with Firefox and buttons date back to Firefox 63 (at least). MDN has a section on this:
 
-<Image src="/assets/2019/inconsistent-button-behavior/mdn.png" alt="MDN's documentation regarding button clicks in Firefox and other browsers." />
+<Image src="/src/assets/2019/inconsistent-button-behavior/mdn.png" alt="MDN's documentation regarding button clicks in Firefox and other browsers." />
 ### Firefox (Windows)
 
 When you click on a button in Firefox (Quantum 68.0.1, Windows version), the button gets focus, but the focus glow does not show up.
 
-<Image src="/assets/2019/inconsistent-button-behavior/firefox-windows-click.gif" alt="Buttons gets focus but the focus glow does not show up." />
+<Image src="/src/assets/2019/inconsistent-button-behavior/firefox-windows-click.gif" alt="Buttons gets focus but the focus glow does not show up." />
 Further keypress originates from the `<button>`.
 
-<Image src="/assets/2019/inconsistent-button-behavior/firefox-windows-keydown.gif" alt="Next keypress originate from the button." />
+<Image src="/src/assets/2019/inconsistent-button-behavior/firefox-windows-keydown.gif" alt="Next keypress originate from the button." />
 Tab works as expected. The next item gets focus.
 
-<Image src="/assets/2019/inconsistent-button-behavior/firefox-windows-tab.gif" alt="Next item gets focus." />
+<Image src="/src/assets/2019/inconsistent-button-behavior/firefox-windows-tab.gif" alt="Next item gets focus." />
 `Shift` + `Tab` works as expected. The previous item gets focus.
 
-<Image src="/assets/2019/inconsistent-button-behavior/firefox-windows-shift-tab.gif" alt="" />
+<Image src="/src/assets/2019/inconsistent-button-behavior/firefox-windows-shift-tab.gif" alt="" />
 ### Chrome (Mac)
 
 When you click on a button in Chrome (Canary 78.0), the button gets focus. This implementation is different from Safari and Firefox.
 
-<Image src="/assets/2019/inconsistent-button-behavior/chrome-click.gif" alt="In Chrome, the button gets focus when you click on it." />
+<Image src="/src/assets/2019/inconsistent-button-behavior/chrome-click.gif" alt="In Chrome, the button gets focus when you click on it." />
 The next keypress originates from `<button>`. This is expected since `<button>` is the focused element.
 
-<Image src="/assets/2019/inconsistent-button-behavior/chrome-keydown.gif" alt="Next keypress originates from the button" />
+<Image src="/src/assets/2019/inconsistent-button-behavior/chrome-keydown.gif" alt="Next keypress originates from the button" />
 `Tab` works as expected. The next element gets focus.
 
-<Image src="/assets/2019/inconsistent-button-behavior/chrome-tab.gif" alt="Next element gets focus when you tab" />
+<Image src="/src/assets/2019/inconsistent-button-behavior/chrome-tab.gif" alt="Next element gets focus when you tab" />
 `Shift` + `Tab` works as expected. The previous element gets focus.
 
-<Image src="/assets/2019/inconsistent-button-behavior/chrome-shift-tab.gif" alt="Previous element gets focus when you press Shift + Tab" />
+<Image src="/src/assets/2019/inconsistent-button-behavior/chrome-shift-tab.gif" alt="Previous element gets focus when you press Shift + Tab" />
 ### Chrome (Windows)
 
 When you click on a button in Chrome (Chrome 75.0), the button gets focus.
 
-<Image src="/assets/2019/inconsistent-button-behavior/chrome-windows-click.gif" alt="The button gets focus when you click on it." />
+<Image src="/src/assets/2019/inconsistent-button-behavior/chrome-windows-click.gif" alt="The button gets focus when you click on it." />
 The next keypress originates from `<button>`.
 
-<Image src="/assets/2019/inconsistent-button-behavior/chrome-windows-keydown.gif" alt="Next keypress originates from the button" />
+<Image src="/src/assets/2019/inconsistent-button-behavior/chrome-windows-keydown.gif" alt="Next keypress originates from the button" />
 `Tab` works as expected. The next element gets focus.
 
-<Image src="/assets/2019/inconsistent-button-behavior/chrome-windows-tab.gif" alt="Next element gets focus when you tab" />
+<Image src="/src/assets/2019/inconsistent-button-behavior/chrome-windows-tab.gif" alt="Next element gets focus when you tab" />
 `Shift` + `Tab` works as expected. The previous element gets focus.
 
-<Image src="/assets/2019/inconsistent-button-behavior/chrome-windows-shift-tab.gif" alt="Previous element gets focus when you press Shift + Tab" />
+<Image src="/src/assets/2019/inconsistent-button-behavior/chrome-windows-shift-tab.gif" alt="Previous element gets focus when you press Shift + Tab" />
 ### Edge (Windows)
 
 When you click on a button in Edge (Edge 17), the button gets focus, but the focus ring did not appear.
 
-<Image src="/assets/2019/inconsistent-button-behavior/edge-click.gif" alt="The button gets focus when you click on it, but the focus ring did not appear." />
+<Image src="/src/assets/2019/inconsistent-button-behavior/edge-click.gif" alt="The button gets focus when you click on it, but the focus ring did not appear." />
 The next keypress originates from `<button>`.
 
-<Image src="/assets/2019/inconsistent-button-behavior/edge-keydown.gif" alt="Next keypress originates from the button" />
+<Image src="/src/assets/2019/inconsistent-button-behavior/edge-keydown.gif" alt="Next keypress originates from the button" />
 `Tab` works as expected. The next element gets focus.
 
-<Image src="/assets/2019/inconsistent-button-behavior/edge-tab.gif" alt="Next element gets focus when you tab" />
+<Image src="/src/assets/2019/inconsistent-button-behavior/edge-tab.gif" alt="Next element gets focus when you tab" />
 `Shift` + `Tab` works as expected. The previous element gets focus.
 
-<Image src="/assets/2019/inconsistent-button-behavior/edge-shift-tab.gif" alt="Previous element gets focus when you press Shift + Tab" />
+<Image src="/src/assets/2019/inconsistent-button-behavior/edge-shift-tab.gif" alt="Previous element gets focus when you press Shift + Tab" />
 ## Summary of the results
 
 We tested for four things across the common browsers:

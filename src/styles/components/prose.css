@@ -1,0 +1,13 @@
+.prose {
+  --theme-color: var(--color-zorange-500);
+
+  h2 {
+    @apply h2;
+    color: var(--theme-color);
+  }
+
+  h3 {
+    @apply h3;
+    color: var(--theme-color);
+  }
+}

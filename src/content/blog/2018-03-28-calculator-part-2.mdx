@@ -29,13 +29,13 @@ Tim can hit these keys in any order:
 If Tim hits a decimal key when the display already shows a decimal point, nothing should happen.
 
 <Image
-  src="/assets/2018/calculator-2/decimal-multiple.gif"
+  src="/src/assets/2018/calculator-2/decimal-multiple.gif"
   alt="Nothing happens when a user hits the decimal key when the display already shows a decimal point"
   caption="Nothing happens when a user hits the decimal key when the display already shows a decimal point"
 />
 
 <Image
-  src="/assets/2018/calculator-2/decimal-multiple-2.gif"
+  src="/src/assets/2018/calculator-2/decimal-multiple-2.gif"
   alt="Nothing should happen even if the previous key isn't the decimal key"
   caption="Nothing should happen even if the previous key isn't the decimal key"
 />
@@ -62,7 +62,7 @@ if (!displayedNum.includes('.')) {
 Next, if Tim hits the decimal key after hitting an operator key, the display should show `0.`.
 
 <Image
-  src="/assets/2018/calculator-2/decimal-after-operator.gif"
+  src="/src/assets/2018/calculator-2/decimal-after-operator.gif"
   alt="Display should show '0.' if a user hits a decimal key after an operator key"
   caption="Display should show `0.` if a user hits a decimal key after an operator key"
 />
@@ -112,7 +112,7 @@ if (action === 'decimal') {
 First, if Tim hits an operator key first, the operator key should light up. (We've already covered for this edge case, but how? See if you can identify what we did).
 
 <Image
-  src="/assets/2018/calculator-2/operator-first.gif"
+  src="/src/assets/2018/calculator-2/operator-first.gif"
   alt="Operator key should light up if it's the first key."
   caption="Operator key should light up if it's the first key."
 />
@@ -122,7 +122,7 @@ Second, nothing should happen if Tim hits the same operator key multiple times. 
 Note: if you want to provide better UX, you can show the operator getting clicked on again and again with some CSS changes. We didn't do it here because I took recorded all the GIFs before I could fix that.
 
 <Image
-  src="/assets/2018/calculator-2/operator-multiple.gif"
+  src="/src/assets/2018/calculator-2/operator-multiple.gif"
   alt="Operator key remains depressed if clicked on multiple times"
   caption="Operator key remains depressed if clicked on multiple times"
 />
@@ -130,7 +130,7 @@ Note: if you want to provide better UX, you can show the operator getting clicke
 Third, if Tim hits another operator key after hitting the first operator key, the first operator key should be released; the second operator key should be depressed. (We covered for this edge case too; but how?).
 
 <Image
-  src="/assets/2018/calculator-2/operator-switch.gif"
+  src="/src/assets/2018/calculator-2/operator-switch.gif"
   alt="The new operator key should be depressed"
   caption="The new operator key should be depressed"
 />
@@ -138,7 +138,7 @@ Third, if Tim hits another operator key after hitting the first operator key, th
 Fourth, if Tim hits a number, an operator, a number and another operator, in that order, the display should be updated to a calculated value.
 
 <Image
-  src="/assets/2018/calculator-2/operator-calc.gif"
+  src="/src/assets/2018/calculator-2/operator-calc.gif"
   alt="Clicking on the operator when numbers are stored in the calculator results in a calculation"
   caption="Clicking on the operator when numbers are stored in the calculator results in a calculation"
 />
@@ -171,7 +171,7 @@ if (
 Although we can calculate a value when the operator key is clicked for a second time, we have also introduced a bug at this point—additional clicks on the operator key calculates a value when it shouldn't.
 
 <Image
-  src="/assets/2018/calculator-2/bug-operator-immed-calc.gif"
+  src="/src/assets/2018/calculator-2/bug-operator-immed-calc.gif"
   alt="Bug: subsequent clicks on the operator performs a calculation when it shouldn't"
   caption="Bug: subsequent clicks on the operator performs a calculation when it shouldn't"
 />
@@ -187,7 +187,7 @@ if (firstValue && operator && previousKeyType !== 'operator') {
 Fifth, after the operator key calculates a number, if Tim hits on a number, followed by another operator, the operator should continue with the calculation, like this: `8 - 1 = 7`, `7 - 2 = 5`, `5 - 3 = 2`.
 
 <Image
-  src="/assets/2018/calculator-2/operator-consec-calc.gif"
+  src="/src/assets/2018/calculator-2/operator-consec-calc.gif"
   alt="Calculator should be able to continue calculation when a user clicks on numbers, followed by operators, followed by numbers, followed by operators, and so on."
   caption="Calculator should be able to continue calculation when a user clicks on numbers, followed by operators, followed by numbers, followed by operators, and so on."
 />
@@ -195,7 +195,7 @@ Fifth, after the operator key calculates a number, if Tim hits on a number, foll
 Right now, our calculator cannot make consecutive calculations. The second calculated value is wrong. Here's what we have: `99 - 1 = 98`, `98 - 1 = 0`.
 
 <Image
-  src="/assets/2018/calculator-2/operator-consec-calc-bug.gif"
+  src="/src/assets/2018/calculator-2/operator-consec-calc-bug.gif"
   alt="Calculated values are wrong. Second calculated value should be 97 instead of 0"
   caption="Calculated values are wrong. Second calculated value should be 97 instead of 0"
 />
@@ -207,7 +207,7 @@ The second value is calculated wrongly because we fed the wrong values into the 
 First, let's say a user clicks on a number, 99. At this point, nothing is registered in the calculator yet.
 
 <Image
-  src="/assets/2018/calculator-2/op-consec-calc-1.png"
+  src="/src/assets/2018/calculator-2/op-consec-calc-1.png"
   alt="When a user hits numbers, the calculator doesn't register `firstValue` or `operator`"
   caption="When a user hits numbers, the calculator doesn't register `firstValue` or `operator`"
 />
@@ -215,7 +215,7 @@ First, let's say a user clicks on a number, 99. At this point, nothing is regist
 Second, let's say the user clicks the subtract operator. After they click the subtract operator, we set `firstValue` to 99. We set also `operator` to subtract.
 
 <Image
-  src="/assets/2018/calculator-2/op-consec-calc-2.png"
+  src="/src/assets/2018/calculator-2/op-consec-calc-2.png"
   alt="`firstValue` and `operator` are set after the operator button is clicked"
   caption="`firstValue` and `operator` are set after the operator button is clicked"
 />
@@ -223,7 +223,7 @@ Second, let's say the user clicks the subtract operator. After they click the su
 Third, let's say the user clicks on a second value; this time, it's 1. At this point, the displayed number gets updated to 1, but our `firstValue`, `operator` and `secondValue` remains unchanged.
 
 <Image
-  src="/assets/2018/calculator-2/op-consec-calc-3.png"
+  src="/src/assets/2018/calculator-2/op-consec-calc-3.png"
   alt="Display updates to 1, but `firstValue` and `operator` remains at `99` and `subtract`"
   caption="Display updates to 1, but `firstValue` and `operator` remains at `99` and `subtract`"
 />
@@ -231,7 +231,7 @@ Third, let's say the user clicks on a second value; this time, it's 1. At this p
 Fourth, the user clicks on subtract again. Right after they click subtract, before we calculate the result, we set `secondValue` as the displayed number.
 
 <Image
-  src="/assets/2018/calculator-2/op-consec-calc-4.png"
+  src="/src/assets/2018/calculator-2/op-consec-calc-4.png"
   alt="We set `secondValue` to 1"
   caption="We set `secondValue` to 1"
 />
@@ -241,7 +241,7 @@ Fifth, we perform the calculation with `firstValue` 99, `operator` subtract, and
 Once the result is calculated, we set the display to the result. Then, we set `operator` to subtract, and `firstValue` to the previous displayed number.
 
 <Image
-  src="/assets/2018/calculator-2/op-consec-calc-5.png"
+  src="/src/assets/2018/calculator-2/op-consec-calc-5.png"
   alt="After calculation, firstValue is set to `displayedNum`"
   caption="After calculation, firstValue is set to `displayedNum`"
 />
@@ -249,7 +249,7 @@ Once the result is calculated, we set the display to the result. Then, we set `o
 Well, that's terribly wrong! If we want to continue with the calculation, we need to update `firstValue` with the calculated value.
 
 <Image
-  src="/assets/2018/calculator-2/op-consec-calc-6.png"
+  src="/src/assets/2018/calculator-2/op-consec-calc-6.png"
   alt="updates calculated value as `firstValue`"
   caption="updates calculated value as `firstValue`"
 />
@@ -278,7 +278,7 @@ calculator.dataset.operator = action
 With this fix, consecutive calculations done by operator keys should now be correct.
 
 <Image
-  src="/assets/2018/calculator-2/op-consec-calc-fixed.gif"
+  src="/src/assets/2018/calculator-2/op-consec-calc-fixed.gif"
   alt="Consecutive calculations done with the operator key is now correct"
   caption="Consecutive calculations done with the operator key is now correct"
 />
@@ -288,13 +288,13 @@ With this fix, consecutive calculations done by operator keys should now be corr
 First, nothing should happen if Tim hits the equal key before any operator keys,
 
 <Image
-  src="/assets/2018/calculator-2/equal-first.gif"
+  src="/src/assets/2018/calculator-2/equal-first.gif"
   alt="Calculator should show zero if equal key is hit first"
   caption="Calculator should show zero if equal key is hit first"
 />
 
 <Image
-  src="/assets/2018/calculator-2/equal-after-num.gif"
+  src="/src/assets/2018/calculator-2/equal-after-num.gif"
   alt="When no calculation is required, display remains the same"
   caption="When no calculation is required, display remains the same"
 />
@@ -323,7 +323,7 @@ Second, if Tim hits a number, followed by an operator, followed by a equal, the 
 4. `2 ÷ =` —> `2 ÷ 2 = 1`
 
 <Image
-  src="/assets/2018/calculator-2/num-op-equal.gif"
+  src="/src/assets/2018/calculator-2/num-op-equal.gif"
   alt="The calculator should treat first and second values as the same numbers if it's missing a value"
   caption="The calculator should treat first and second values as the same numbers if it's missing a value"
 />
@@ -340,7 +340,7 @@ Third, if Tim hits the equal key after a calculation is completed, another calcu
 6. Tim hits equal. Calculated value is `1 - 1 = 0`
 
 <Image
-  src="/assets/2018/calculator-2/eq-consec-click-fixed.gif"
+  src="/src/assets/2018/calculator-2/eq-consec-click-fixed.gif"
   alt="When a user hits the equal key multiple times, the calculator should continue to calculate"
   caption="When a user hits the equal key multiple times, the calculator should continue to calculate"
 />
@@ -352,7 +352,7 @@ Unfortunately, our calculator messes this calculation up. Here's what our calcul
 3. Tim hits equal. Calculated value is `1`
 
 <Image
-  src="/assets/2018/calculator-2/eq-consec-calc-wrong.gif"
+  src="/src/assets/2018/calculator-2/eq-consec-calc-wrong.gif"
   alt="Equal key consecutive calculation gives a wrong result"
   caption="Equal key consecutive calculation gives a wrong result"
 />
@@ -362,7 +362,7 @@ Unfortunately, our calculator messes this calculation up. Here's what our calcul
 First, let's say our user we clicks 5. At this point, nothing is registered in the calculator yet.
 
 <Image
-  src="/assets/2018/calculator-2/eq-consec-calc-1.png"
+  src="/src/assets/2018/calculator-2/eq-consec-calc-1.png"
   alt="When a user clicked on the first number the calculator doesn't register `firstValue` or `operator`"
   caption="When a user clicked on the first number the calculator doesn't register `firstValue` or `operator`"
 />
@@ -370,7 +370,7 @@ First, let's say our user we clicks 5. At this point, nothing is registered in t
 Second, let's say the user clicks the subtract operator. After they click the subtract operator, we set `firstValue` to 5. We set also `operator` to subtract.
 
 <Image
-  src="/assets/2018/calculator-2/eq-consec-calc-2.png"
+  src="/src/assets/2018/calculator-2/eq-consec-calc-2.png"
   alt="`firstValue` and `operator` are set after the operator button is clicked"
   caption="`firstValue` and `operator` are set after the operator button is clicked"
 />
@@ -378,7 +378,7 @@ Second, let's say the user clicks the subtract operator. After they click the su
 Third, the user clicks on a second value. Let's say it's 1. At this point, the displayed number gets updated to 1, but our `firstValue`, `operator` and `secondValue` remains unchanged.
 
 <Image
-  src="/assets/2018/calculator-2/eq-consec-calc-3.png"
+  src="/src/assets/2018/calculator-2/eq-consec-calc-3.png"
   alt="Display updates to 1, but `firstValue` and `operator` remains at `5` and `subtract`"
   caption="Display updates to 1, but `firstValue` and `operator` remains at `5` and `subtract`"
 />
@@ -386,7 +386,7 @@ Third, the user clicks on a second value. Let's say it's 1. At this point, the d
 Fourth, the user clicks the equal key. Right after they click equal, but before the calculation, we set `secondValue` as `displayedNum`
 
 <Image
-  src="/assets/2018/calculator-2/eq-consec-calc-4.png"
+  src="/src/assets/2018/calculator-2/eq-consec-calc-4.png"
   alt="`displayedNum` is set as `secondValue`"
   caption="We set `secondValue` as `displayedNum` "
 />
@@ -394,7 +394,7 @@ Fourth, the user clicks the equal key. Right after they click equal, but before 
 Fifth, the calculator calculates the result of `5 - 1` and gives `4`. The result gets updated to the display. `firstValue` and `operator` gets carried forward to the next calculation since we did not update them.
 
 <Image
-  src="/assets/2018/calculator-2/eq-consec-calc-5.png"
+  src="/src/assets/2018/calculator-2/eq-consec-calc-5.png"
   alt="`firstValue` and `operator` are used for the next operation"
   caption="`firstValue` and `operator` are used for the next operation"
 />
@@ -402,7 +402,7 @@ Fifth, the calculator calculates the result of `5 - 1` and gives `4`. The result
 Sixth, when the user hits equal again, we set `secondValue` to `displayedNum` before the calculation.
 
 <Image
-  src="/assets/2018/calculator-2/eq-consec-calc-6.png"
+  src="/src/assets/2018/calculator-2/eq-consec-calc-6.png"
   alt="Once again, displayed num is set as the `secondValue` before the calculation"
   caption="Once again, displayed num is set as the `secondValue` before the calculation"
 />
@@ -467,7 +467,7 @@ if (firstValue) {
 With that, we have the correct calculation when the equal key is clicked consecutively.
 
 <Image
-  src="/assets/2018/calculator-2/eq-consec-click-fixed.gif"
+  src="/src/assets/2018/calculator-2/eq-consec-click-fixed.gif"
   alt="Consecutive calculations made by the equal key is now fixed"
   caption="Consecutive calculations made by the equal key is now fixed"
 />
@@ -509,7 +509,7 @@ if (action === 'decimal') {
 Fifth, if Tim hits an operator key right after the equal key, calculator should NOT calculate.
 
 <Image
-  src="/assets/2018/calculator-2/op-after-eq.gif"
+  src="/src/assets/2018/calculator-2/op-after-eq.gif"
   alt="Operator keys should not perform calculations if they're clicked after the equal key"
   caption="Operator keys should not perform calculations if they're clicked after the equal key"
 />
@@ -552,7 +552,7 @@ The clear key has two uses:
 When the calculator is in its default state, `AC` should be shown.
 
 <Image
-  src="/assets/2018/calculator-2/default.png"
+  src="/src/assets/2018/calculator-2/default.png"
   alt="AC should be shown in the initial state"
   caption="AC should be shown in the initial state"
 />
@@ -560,7 +560,7 @@ When the calculator is in its default state, `AC` should be shown.
 First, if Tim hits a key (any key except clear), `AC` should be changed to `CE`.
 
 <Image
-  src="/assets/2018/calculator-2/decimal-first.gif"
+  src="/src/assets/2018/calculator-2/decimal-first.gif"
   alt="AC changes to CE when a key (except clear) gets hit"
   caption="AC changes to CE when a key (except clear) gets hit"
 />
@@ -577,7 +577,7 @@ if (action !== 'clear') {
 Second, if Tim hits `CE`, the display should read 0. At the same time, `CE` should be reverted to `AC` so Tim can reset the calculator to its initial state.\*\*
 
 <Image
-  src="/assets/2018/calculator-2/clear.gif"
+  src="/src/assets/2018/calculator-2/clear.gif"
   alt="If CE is clicked, AC should show"
   caption="If CE is clicked, AC should show"
 />

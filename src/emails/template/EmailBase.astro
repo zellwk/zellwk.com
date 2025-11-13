@@ -1,0 +1,15 @@
+---
+import { EmailBase } from '@splendidLabz/astro/email-components'
+---
+
+<EmailBase {...Astro.props}>
+  <slot name="head" />
+
+  <Fragment slot="styles">
+    <style>
+      @import './email.css';
+    </style>
+  </Fragment>
+
+  <slot />
+</EmailBase>

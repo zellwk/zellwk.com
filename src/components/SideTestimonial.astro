@@ -10,7 +10,6 @@ const { Content } = await render(entry)
 
 // Prepare variables for use in template
 let { title, image, name } = data
-if (!image) image = `/src/assets/testimonials/${path}.jpg`
 if (!name) name = toTitle(path)
 ---
 
@@ -19,7 +18,7 @@ if (!name) name = toTitle(path)
     &ldquo;
   </div>
   <div class="pl-9.5">
-    <div class="prose stinger-fit text-8 text-zgray-400">
+    <div class="prose stinger-fit !text-8 text-zgray-400">
       <Content />
       <div class="horizontal items-center">
         <Image
@@ -36,26 +35,3 @@ if (!name) name = toTitle(path)
     </div>
   </div>
 </blockquote>
-
-<!-- 
-<blockuote class="stack">
-  <div class="june text-[10.5rem] leading-[1] text-zred-700d">&ldquo;</div>
-
-  <div class="pt-6 pl-9.5 stack">
-    <div
-      class="prose stinger-fit text-8 text-zgray-400 bg-zpurple-1000 foreground p-4"
-    >
-      <Content />
-      <div class="text-6 text-center june [--font-style:70]">
-        <span class="text-zorange-500">{name}</span>
-        <span class="text-zgray-500">— {title}</span>
-      </div>
-    </div>
-    <Image
-      figureClass="max-w-[7rem] edge-topright"
-      class="rounded-full"
-      src={image}
-      alt={name}
-    />
-  </div>
-</blockuote> -->

@@ -16,7 +16,7 @@ This is the third article in the Learn JavaScript design series. Today, I'll tal
 I gave each student a default password. I want to let them change their password, so I created the Account page.
 
 <Image
-  src="/assets/2020/ljs-portal-3/account-page.png"
+  src="/src/assets/2020/ljs-portal-3/account-page.png"
   alt="The account page."
 />
 
@@ -31,7 +31,7 @@ You need three fields to change passwords:
 We can put the fields in a single column.
 
 <Image
-  src="/assets/2020/ljs-portal-3/change-password-1.png"
+  src="/src/assets/2020/ljs-portal-3/change-password-1.png"
   alt="Password fields in a single column."
 />
 
@@ -40,7 +40,7 @@ This works on mobile, but it looks weird on desktop; there's too much whitespace
 I tried to reduce the awkwardness by reducing the whitespace. I did this by creating a two-column grid in the form. Labels on the left, fields on the right.
 
 <Image
-  src="/assets/2020/ljs-portal-3/change-password-2.png"
+  src="/src/assets/2020/ljs-portal-3/change-password-2.png"
   alt="Labes on the left, fields on the right."
 />
 
@@ -51,7 +51,7 @@ Here each label looks disjointed from their respective fields. This happens beca
 According to proximity rule, related fields should be close to each other. The easiest way to do this is to right-align the labels.
 
 <Image
-  src="/assets/2020/ljs-portal-3/change-password-3.png"
+  src="/src/assets/2020/ljs-portal-3/change-password-3.png"
   alt="Aligned labels to the right."
 />
 
@@ -60,7 +60,7 @@ This looks better, but it's still weird. Why? It looks weird because the button 
 Since a "button" is kinda like a "field", we can align it like a field.
 
 <Image
-  src="/assets/2020/ljs-portal-3/change-password-done.png"
+  src="/src/assets/2020/ljs-portal-3/change-password-done.png"
   alt="Aligned buttons to the right."
 />
 
@@ -89,7 +89,7 @@ I could build this page like the Content page (with a list), but it's not enough
 So I chose to go with a table instead. Here's what it looks like:
 
 <Image
-  src="/assets/2020/ljs-portal-3/components-table.png"
+  src="/src/assets/2020/ljs-portal-3/components-table.png"
   alt="Example of a table of lessons for each component. It contains three columns: Lesson, starter files, source code. "
 />
 

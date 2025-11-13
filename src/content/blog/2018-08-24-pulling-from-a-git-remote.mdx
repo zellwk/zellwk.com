@@ -32,12 +32,15 @@ Let's say we want to change the `README.md` text.
 
 To do so, you can click on the pencil icon beside the Readme file. This brings you to an editor where you can change the text.
 
-<Image src="/assets/2018/git-pull/edit-readme.png" caption="Github's editor" />
+<Image
+  src="/src/assets/2018/git-pull/edit-readme.png"
+  caption="Github's editor"
+/>
 
 Once you're done. Scroll down to the bottom and write a commit message. You can click on the green button to commit the changes directly on Github.
 
 <Image
-  src="/assets/2018/git-pull/edit-readme-commit.png"
+  src="/src/assets/2018/git-pull/edit-readme-commit.png"
   caption="Committing the changes"
 />
 
@@ -49,21 +52,21 @@ Fork and other Git clients can show you the changes to a remote repository. They
 
 You can do a Fetch yourself by clicking on the empty arrow that points downwards. It's the leftmost arrow button on the top left-hand corner
 
-<Image src="/assets/2018/git-pull/fetch.png" caption="The fetch button" />
+<Image src="/src/assets/2018/git-pull/fetch.png" caption="The fetch button" />
 
 Fetch checks the remote repository for any changes. It's like an email client that says you have three emails to read.
 
 Once the Fetch is completed, you can see in the Git history that `origin/master` is on the `update README.md` commit, and the `update README.md` commit is one commit ahead of our local master branch.
 
 <Image
-  src="/assets/2018/git-pull/history-1.png"
+  src="/src/assets/2018/git-pull/history-1.png"
   caption="`origin/master` tag is one commit ahead of the `master` tag."
 />
 
 On the sidebar, you can see the number 1 beside our master branch, and an arrow that points downwards. This tells us our branch is one commit behind the remote.
 
 <Image
-  src="/assets/2018/git-pull/branch"
+  src="/src/assets/2018/git-pull/branch"
   alt="Sidebar shows a number 1 and a downwards arrow"
   caption="The master branch on the side tells us the same information—our master branch is one commit behind the remote."
 />
@@ -72,12 +75,12 @@ On the sidebar, you can see the number 1 beside our master branch, and an arrow 
 
 To update your local branch, you can click on the pull button. The pull button is the filled downwards arrow at the top left-hand corner. It's the one between Fetch and Push.
 
-<Image src="/assets/2018/git-pull/pull.png" caption="The pull button" />
+<Image src="/src/assets/2018/git-pull/pull.png" caption="The pull button" />
 
 When you click on Pull, you'll be able to select the branch you want to pull. Since we have tracked it previously, you can pull the master branch directly by clicking pull again.
 
 <Image
-  src="/assets/2018/git-pull/pull-menu"
+  src="/src/assets/2018/git-pull/pull-menu"
   alt="Menu that opens up after clicking pull."
   caption="Click on pull again to pull changes"
 />
@@ -85,7 +88,7 @@ When you click on Pull, you'll be able to select the branch you want to pull. Si
 When you pull the branch from the remote to your local repository, you'll see that `master` moves up to the same commit as `origin/master`.
 
 <Image
-  src="/assets/2018/git-pull/history-2.png"
+  src="/src/assets/2018/git-pull/history-2.png"
   caption="`master` and `origin/master` are on the same commit again."
 />
 

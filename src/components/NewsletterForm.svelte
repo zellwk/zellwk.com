@@ -1,5 +1,6 @@
 <script>
   import { Form, Status, TextInput } from '@splendidlabz/svelte'
+  import { delay } from '@splendidlabz/utils'
   import zlFetch from 'zl-fetch'
 
   let status = {
@@ -14,29 +15,28 @@
     })
 
     if (response) {
-      // Send analytics information to GTM
-      status.code = response.code
+      status.code = response.status
       status.text = response.body.message
+      await delay(500)
+      window.location.href = '/newsletter/confirm/'
     }
 
     if (error) {
-      status.code = error.code
+      status.code = error.status
       status.text = error.body.message
     }
   }
 </script>
 
-<Form onsubmit={submit}>
-  <div class="grid-simple [--cols:2]">
-    <TextInput
-      name="first-name"
-      autocomplete="first-name"
-      label="First Name"
-      required
-    />
+<Form
+  class="vertical newsletter-form"
+  honeypotName="last-name"
+  onsubmit={submit}
+>
+  <div class="grid-simple bp8:[--cols:2]">
+    <TextInput name="name" autocomplete="name" label="First Name" required />
     <TextInput name="email" autocomplete="email" label="Email" required />
   </div>
-  <button class="button pigment-red-filled" type="submit">Subscribe</button>
+  <button class="button !pigment-red-filled" type="submit">Subscribe</button>
 </Form>
-
 <Status status={status.code}>{status.text}</Status>

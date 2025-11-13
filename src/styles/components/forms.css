@@ -1,12 +1,31 @@
 form {
-  @apply vertical;
   --border-width: 2px;
-  --radius: 0.75em;
+  --border-color: var(--color-zgray-700);
+  --radius: 0.5rlh;
 
-  .input-meta {
-    @apply snug;
-    --font-width: 100;
+  .label {
+    /* @apply snug; */
+    @apply stinger;
+    --font-width: 92;
     --font-weight: 700;
+    color: var(--color-zpurple-500);
+  }
+
+  .hint {
+    @apply stinger;
+    @apply text-8;
+    --font-width: 108;
+  }
+
+  .label + .hint {
+    margin-top: -0.25rlh;
+  }
+}
+
+.newsletter-form {
+  --border-color: var(--color-zred-500);
+
+  .label {
     color: var(--color-zred-500);
   }
 }

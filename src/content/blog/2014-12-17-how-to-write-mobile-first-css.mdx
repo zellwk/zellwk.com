@@ -69,7 +69,7 @@ Code for larger screens is usually more complicated than the codes for smaller s
 
 Consider a situation where you have a content-sidebar layout for a website. `.content` takes up a 100% width on mobile, and 66% on the desktop.
 
-<Image src="/assets/2014/12/mw-5.png" alt="" />
+<Image src="/src/assets/2014/12/mw-5.png" alt="" />
 
 Most of the time, we can rely on default properties to style content for smaller screens. In this case, a `<div>` has a width of 100% by default.
 
@@ -117,7 +117,7 @@ Let's explore some of these instances.
 
 Consider a case of a gallery of thumbnails. This gallery has 3 thumbnails in a row on a smaller viewport and 4 items in a row on a larger viewport.
 
-<Image src="/assets/2014/12/mw-1.png" alt="" />
+<Image src="/src/assets/2014/12/mw-1.png" alt="" />
 
 Since there are no spaces between each item, its simple:
 
@@ -133,7 +133,7 @@ Since there are no spaces between each item, its simple:
 
 It gets slightly complicated if there are empty spaces within each item.
 
-<Image src="/assets/2014/12/mw-2.png" alt="" />
+<Image src="/src/assets/2014/12/mw-2.png" alt="" />
 
 Say these spaces each take up 5% of the width:
 
@@ -181,7 +181,7 @@ This code must also work for the case where there are four items in the row. If 
 }
 ```
 
-<Image src="/assets/2014/12/mw-3.png" alt="" />
+<Image src="/src/assets/2014/12/mw-3.png" alt="" />
 
 This doesn't work properly because we specified that every 3rd item should have a `margin-right` of 0px. This property gets cascaded towards a larger viewport and breaks the pattern we wanted.
 
@@ -229,7 +229,7 @@ A better way is to constrain `nth-child(3n)` selector within its rightful viewpo
 }
 ```
 
-<Image src="/assets/2014/12/mw-2.png" alt="" />
+<Image src="/src/assets/2014/12/mw-2.png" alt="" />
 
 This works because the `max-width` property limits the selectors to below 800px and the styles given within will not affect styles for any other viewports.
 
@@ -265,7 +265,7 @@ Now imagine if you have a larger viewport and you wanted to show 5 items per row
 }
 ```
 
-<Image src="/assets/2014/12/mw-4.png" alt="" />
+<Image src="/src/assets/2014/12/mw-4.png" alt="" />
 
 ## A Video!
 

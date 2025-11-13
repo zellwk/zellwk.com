@@ -46,7 +46,7 @@ Morgan comes with five predefined formats for you to choose from:
 
 I only use the `dev` format. A `dev` log from Morgan looks like this:
 
-<Image src="/assets/2019/express-middlewares/200.png" alt="Example of a Dev log." />
+<Image src="/src/assets/2019/express-middlewares/200.png" alt="Example of a Dev log." />
 I use Morgan to check two things:
 
 1. The method and the endpoint
@@ -66,7 +66,7 @@ If something goes wrong when I code backend applications, the first thing I chec
 
 When I send a request to the server, I get a log from Morgan. This log tells me the method and endpoint. The first value is the method. The second value is the endpoint.
 
-<Image src="/assets/2019/express-middlewares/breakdown.png" alt="Identifies the method and endpoint in a dev log." />
+<Image src="/src/assets/2019/express-middlewares/breakdown.png" alt="Identifies the method and endpoint in a dev log." />
 ### Checking status codes
 
 Since backend is about [communication][4], I want to make sure I send the correct status code back to the frontend. If a user tries to login with an incorrect username or password, I want to send an 401 Unauthorized Error instead of a 500 Internal Server Error.
@@ -75,16 +75,16 @@ The best part about the `dev` format is it shows the status code with different 
 
 A 200+ status code is green:
 
-<Image src="/assets/2019/express-middlewares/200.png" alt="200 status code is green." />
+<Image src="/src/assets/2019/express-middlewares/200.png" alt="200 status code is green." />
 A 300+ status code is cyan:
 
-<Image src="/assets/2019/express-middlewares/300.png" alt="300 status code is cyan." />
+<Image src="/src/assets/2019/express-middlewares/300.png" alt="300 status code is cyan." />
 A 400+ status code is yellow:
 
-<Image src="/assets/2019/express-middlewares/400.png" alt="400 status code is yellow." />
+<Image src="/src/assets/2019/express-middlewares/400.png" alt="400 status code is yellow." />
 And a 500+ status code is red:
 
-<Image src="/assets/2019/express-middlewares/500.png" alt="500 status code is red." />
+<Image src="/src/assets/2019/express-middlewares/500.png" alt="500 status code is red." />
 ## CamelCase
 
 Let's say you want to get a user's first name from a form. To do this, you need a `<form>` in your HTML. The `<form>` should contain an `<input>` with the `name` of `first-name`.

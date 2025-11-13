@@ -28,13 +28,18 @@
     color: var(--color-zorange-500);
   }
 
-  code {
+  :not(pre) > code {
     @apply mono;
+    font-size: 0.825em;
+    letter-spacing: -0.05em;
+    color: var(--color-zred-400);
   }
 }
 
 pre {
   @apply scrollbar-thin;
+  @apply mono;
   --radius: 0.25rem;
-  line-height: 1.25;
+  font-size: 0.65em;
+  line-height: 1.45;
 }

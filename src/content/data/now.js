@@ -17,8 +17,8 @@ export const now = [
   {
     title: 'Life Coaching',
     content: `We all have potential but we're trapped behind our stories and blindspots. I do a small part in unlocking the potential of the people I coach. Maybe yours too?`,
-    // link: 'https://betterhuman.co',
-    // cta: 'Find out more',
+    link: '/coaching/',
+    cta: 'Find out more',
   },
   {
     title: 'Finding What Works',

@@ -12,7 +12,7 @@ When I saw the CSS Tricks redesign, I was hooked. I loved the links with gradien
 That's what I did for Learn JavaScript's course portal. The links look like this:
 
 <Image
-  src="/assets/2020/multi-line-gradient/link.gif"
+  src="/src/assets/2020/multi-line-gradient/link.gif"
   alt="Blue color link with blue underline. When hovered, the text has an orange to yellow gradient; underline becomes solid orange."
 />
 I want to share what I learned about creating gradient links
@@ -42,7 +42,7 @@ Chris Coyier wrote an [article on creating gradient text][1] back in 2012. The a
 ```
 
 <Image
-  src="/assets/2020/multi-line-gradient/gradient-text.png"
+  src="/src/assets/2020/multi-line-gradient/gradient-text.png"
   alt="Text with vertical gradient. From light gray at the top to dark gray at the bottom."
 />
 
@@ -59,7 +59,7 @@ We can provide an angle to `linear-gradient` to change the angle of the gradient
 ```
 
 <Image
-  src="/assets/2020/multi-line-gradient/gradient-text-2.png"
+  src="/src/assets/2020/multi-line-gradient/gradient-text-2.png"
   alt="Text with linear gradient set to 120 degrees."
 />
 
@@ -68,7 +68,7 @@ We can provide an angle to `linear-gradient` to change the angle of the gradient
 The snippet above supports multi-line gradient text on Chrome, Firefox, and Edge. But it doesn't work on Safari. Text that goes into the second (or later) rows become completely transparent.
 
 <Image
-  src="/assets/2020/multi-line-gradient/multiline-safari.png"
+  src="/src/assets/2020/multi-line-gradient/multiline-safari.png"
   alt="Second row of text on Safari is transparent."
 />
 
@@ -84,7 +84,7 @@ I didn't understand why, so I inspected the links on CSS Tricks. I noticed they 
 ```
 
 <Image
-  src="/assets/2020/multi-line-gradient/multiline-safari-fixed.png"
+  src="/src/assets/2020/multi-line-gradient/multiline-safari-fixed.png"
   alt="Gradient text on safari fixed."
 />
 
@@ -95,7 +95,7 @@ I didn't understand why, so I inspected the links on CSS Tricks. I noticed they 
 I tried putting the `.gradient-text` snippet onto links, but I discovered there weren't any underlines.
 
 <Image
-  src="/assets/2020/multi-line-gradient/multiline-safari-fixed.png"
+  src="/src/assets/2020/multi-line-gradient/multiline-safari-fixed.png"
   alt="Gradient text on safari fixed."
 />
 
@@ -104,10 +104,11 @@ Why?
 I dug around and realised that `-webkit-text-fill-color` changes the `text-decoration-color`. When we set `-webkit-text-fill-color` to transparent, we also set `text-decoration-color` to `transparent`.
 
 <Image
-  src="/assets/2020/multi-line-gradient/text-fill-color.gif"
+  src="/src/assets/2020/multi-line-gradient/text-fill-color.gif"
   alt="Textsfill-color: transparent set text decoration color to transparent as well"
 />
-So the easiest way to bring back the underline is to change `text-decoration-color`.{' '}
+So the easiest way to bring back the underline is to change
+`text-decoration-color`.
 
 ```css
 a {
@@ -118,7 +119,7 @@ a {
 ```
 
 <Image
-  src="/assets/2020/multi-line-gradient/text-decoration-color.png"
+  src="/src/assets/2020/multi-line-gradient/text-decoration-color.png"
   alt="Set text decoration color to orange."
 />
 
@@ -133,17 +134,17 @@ You can only create gradient underlines with `background-image`. (See "[styling 
 The `text-decoration` underline looks ugly at large font sizes. But when they're ok when they're at normal font sizes.
 
 <Image
-  src="/assets/2020/multi-line-gradient/link.gif"
+  src="/src/assets/2020/multi-line-gradient/link.gif"
   alt="Blue color link with blue underline. When hovered, text has a orange to yellow gradient; underline becomes solid orange."
 />
-I suggest you don't add `text-decoration` underlines to large text. Consider [creating
-underlines with a different method ][4]instead.{' '}
+I suggest you don't add `text-decoration` underlines to large text. Consider
+[creating underlines with a different method ][4]instead.
 
 ## Gradient + Focus
 
 Gradient links look amazing with focus outlines. [Just saying][5].
 
-<Image src="/assets/2020/multi-line-gradient/focus.gif" alt="" />
+<Image src="/src/assets/2020/multi-line-gradient/focus.gif" alt="" />
 
 [1]: https://css-tricks.com/snippets/css/gradient-text/ 'Creating gradient text'
 [2]: https://css-tricks.com/almanac/properties/b/box-decoration-break/ 'Box decoration break'

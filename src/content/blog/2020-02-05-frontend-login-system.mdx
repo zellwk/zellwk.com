@@ -28,7 +28,7 @@ The system goes like this:
 
 Students can log in to the course with their email address and a password. 
 
-<Image src="/assets/2020/login-system/login.png" alt="Login form. It has two fields: email address and password." />
+<Image src="/src/assets/2020/login-system/login.png" alt="Login form. It has two fields: email address and password." />
 
 When they submit the form, I send their email and password to my server through a POST request. Here's what the request looks like: 
 
@@ -118,9 +118,9 @@ async function isLoggedIn () {
 
 Besides `token`, I store a student's "access level" inside `localStorage` as well. This "access level" determines what lessons a student can access. 
 
-<Image src="/assets/2020/login-system/can-access.png" caption="Students can access these lessons" />
+<Image src="/src/assets/2020/login-system/can-access.png" caption="Students can access these lessons" />
 
-<Image src="/assets/2020/login-system/cannot-access.png" caption="Students cannot access these lessons" />
+<Image src="/src/assets/2020/login-system/cannot-access.png" caption="Students cannot access these lessons" />
 
 I store this access level when the student logs in for the first time. 
 
@@ -198,7 +198,7 @@ I need to tell these students to turn on JavaScript, so I added a `<noscript>` t
 <noscript>This course portal requires JavaScript to verify your identity. Please enable JavaScript to access the course.</noscript>
 ```
 
-<Image src="/assets/2020/login-system/noscript.png" alt="Noscript message" />
+<Image src="/src/assets/2020/login-system/noscript.png" alt="Noscript message" />
 
 That's the entire login process! 
 

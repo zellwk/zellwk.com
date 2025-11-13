@@ -1,9 +1,0 @@
-// TODO: Make text tab work even without JavaScript
-
-.o-text-tab ~ hr {
-  display: none;
-}
-
-.o-text-tab.has-selected-tab ~ hr {
-  display: block;
-}

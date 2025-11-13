@@ -41,8 +41,8 @@ console.log('three:', three)
 Try logging `two` and `three` in a Node environment. Accessors will be logged clearly. You'll immediately see that `three.count` is NOT an accessor.
 
 <Image
-  src='/assets/2020/copy-accessors/accessors-not-copied.png'
-  alt='Accessors are not copied into three.'
+  src="/src/assets/2020/copy-accessors/accessors-not-copied.png"
+  alt="Accessors are not copied into three."
 />
 
 {/* more */}
@@ -84,23 +84,29 @@ const descriptor = Object.getOwnPropertyDescriptor(object, 'normalProperty')
 console.log(descriptor)
 ```
 
-<Image src='/assets/2020/copy-accessors/descriptor.png' alt='Descriptor.' />
-
+<Image src="/src/assets/2020/copy-accessors/descriptor.png" alt="Descriptor." />
 
 If you log the descriptor of an accessor, you'll see `get` and `set` keys.
 
 ```js
 let count = 0
 const two = {
-  get count () { return count },
-  set count (value) { count = value }
+  get count() {
+    return count
+  },
+  set count(value) {
+    count = value
+  },
 }
 
 const descriptor = Object.getOwnPropertyDescriptor(two, 'count')
 console.log(descriptor)
 ```
 
-<Image src='/assets/2020/copy-accessors/accessor.png' alt='Descriptor of an accessor.' />
+<Image
+  src="/src/assets/2020/copy-accessors/accessor.png"
+  alt="Descriptor of an accessor."
+/>
 
 ### Object.getDefineProperty
 
@@ -155,9 +161,9 @@ If you want to add an accessor to a defined object , you need `Object.defineProp
 // Same result as above
 const object = {}
 Object.defineProperty(object, 'count', {
-  get function () {
+  get function() {
     return count
-  }
+  },
 })
 ```
 
@@ -189,8 +195,8 @@ console.log('copy:', copy)
 ```
 
 <Image
-  src='/assets/2020/copy-accessors/copied-accessor.png'
-  alt='Copied the `count` accessor.'
+  src="/src/assets/2020/copy-accessors/copied-accessor.png"
+  alt="Copied the `count` accessor."
 />
 
 ### Copying all properties of an object
@@ -220,8 +226,8 @@ console.log('copy:', copy)
 ```
 
 <Image
-  src='/assets/2020/copy-accessors/copied-many-include-accessors.png'
-  alt='Copied all properties, including accessors.'
+  src="/src/assets/2020/copy-accessors/copied-many-include-accessors.png"
+  alt="Copied all properties, including accessors."
 />
 
 ### Merging different object sources
@@ -270,8 +276,8 @@ console.log('mixed:', mixed)
 ```
 
 <Image
-  src='/assets/2020/copy-accessors/mix-simple.png'
-  alt='Combined properties and accessors into a new object with mix'
+  src="/src/assets/2020/copy-accessors/mix-simple.png"
+  alt="Combined properties and accessors into a new object with mix"
 />
 
 The great part is `mix` doesn't mutate objects. You don't have o pass in an empty object.
@@ -377,7 +383,7 @@ console.log('three:', three)
 ```
 
 <Image
-  src='/assets/2020/copy-accessors/accessors-not-copied.png'
+  src="/src/assets/2020/copy-accessors/accessors-not-copied.png"
   alt="Merge options doesn't copy accesors into the new object."
 />
 
@@ -411,8 +417,8 @@ console.log('three:', three)
 ```
 
 <Image
-  src='/assets/2020/copy-accessors/yes-copy-accessors.png'
-  alt='Mix copies accessors.'
+  src="/src/assets/2020/copy-accessors/yes-copy-accessors.png"
+  alt="Mix copies accessors."
 />
 
 Second, `mix` copies nested objects and arrays so you don't have to worry about mutation.

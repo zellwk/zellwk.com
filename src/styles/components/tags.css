@@ -1,0 +1,15 @@
+button.tag,
+a.tag {
+  @apply june;
+  @apply [--font-style:60];
+  @apply pigment-gray-text;
+
+  & + span {
+    color: var(--color-zgray-500);
+  }
+}
+
+button.tag {
+  padding: 0;
+  border: 0;
+}

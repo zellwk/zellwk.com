@@ -1,39 +1,69 @@
 ---
-import Base from '/src/layouts/Base.astro'
+import { Partial, SVG } from '@splendidlabz/astro'
+import { gatherTags, processFiles } from '@splendidlabz/astro/content'
+import { pluralize } from '@splendidlabz/utils'
 import { getCollection } from 'astro:content'
-import { gatherTags } from '../../utils/content.js'
-import { toTitle } from '@zellwk/javascript/utils/convert-case.js'
+import Base from '/src/layouts/Base.astro'
 
-export const prerender = true
-
-const posts = await getCollection('blog')
+const blog = await getCollection('blog')
+const posts = await processFiles(blog)
 const tags = gatherTags(posts)
+
+// Group tags alphabetically
+const groupedTags = tags.reduce((groups, tag) => {
+  const firstLetter = tag.name[0].toLowerCase()
+  if (!groups[firstLetter]) groups[firstLetter] = []
+  groups[firstLetter].push(tag)
+  return groups
+}, {})
+
+// Convert to sorted array format [[a tags], [b tags], ...]
+const alphabeticalGroups = Object.entries(groupedTags).sort(([a], [b]) =>
+  a.localeCompare(b),
+)
 ---
 
 <Base>
-  <div class='l-wrap'>
-    <article class='o-words generic-layout'>
-      <h1>A list of tags for this blog</h1>
+  <div class="wrap">
+    <section class="vertical max-w-narrow mx-auto">
+      <div class="vertical">
+        <h1>Avaliable tags</h1>
 
-      <p>
-        Feel free to browse around. You might find some gems inside the tags
-        you're interested in! 😉
-      </p>
-
-      <ol>
         {
-          tags.map(tag => {
+          alphabeticalGroups.map(group => {
+            const [letter, grptags] = group
             return (
-              <li>
-                <span>
-                  <a href={`/tags/${tag.name}`}>{toTitle(tag.name)}</a>:
-                  {tag.items.length} articles
-                </span>
-              </li>
+              <div>
+                <h2 class="h3 text-zorange-500">{letter.toUpperCase()}</h2>
+                <ul>
+                  {grptags.map(tag => {
+                    return (
+                      <li>
+                        <a
+                          class="june [--font-style:60] "
+                          href={`/tags/${tag.name}`}
+                        >
+                          #{tag.name.toLowerCase()}
+                        </a>
+                        <span class="text-zgray-500 text-7">
+                          ({tag.items.length}{' '}
+                          {pluralize('article', tag.items.length)})
+                        </span>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
             )
           })
         }
-      </ol>
-    </article>
+      </div>
+    </section>
   </div>
+
+  <div class="mt-section">
+    <SVG class="rotate-180 simple-svg stroke-zred-500" icon="wriggle-line" />
+  </div>
+
+  <Partial path="JoinMyNewsletter" />
 </Base>

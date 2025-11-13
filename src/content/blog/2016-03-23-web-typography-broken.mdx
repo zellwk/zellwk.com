@@ -27,7 +27,7 @@ The Baseline grid is primarily the manifestation of Vertical Rhythm at a work. I
 When these baselines are stacked together onto the same page, we have a baseline grid.
 
 <Image
-  src="/assets/2016/web-typography-broken/baseline-grid.png"
+  src="/src/assets/2016/web-typography-broken/baseline-grid.png"
   caption="A baseline grid"
 />
 
@@ -52,7 +52,7 @@ body {
 Baseline grids often appear like this on the web. You'll see that text floats between the baselines.
 
 <Image
-  src="/assets/2016/web-typography-broken/baseline-web.png"
+  src="/src/assets/2016/web-typography-broken/baseline-web.png"
   caption="Baseline grid on the web"
 />
 
@@ -61,7 +61,7 @@ They appear this way because the `line-height` property distributes extra pixels
 Baseline grids on Print design is slightly different. Text sits on the baseline instead of floating between them.
 
 <Image
-  src="/assets/2016/web-typography-broken/baseline-print.png"
+  src="/src/assets/2016/web-typography-broken/baseline-print.png"
   caption="Print baseline grid"
 />
 
@@ -97,7 +97,7 @@ The situation becomes slightly more complicated when you have text elements with
 You'll discover that the **`<h1>` element sits slightly above the baseline** no matter which method you use to "fix the baseline grid".
 
 <Image
-  src="/assets/2016/web-typography-broken/h1-above-baseline.png"
+  src="/src/assets/2016/web-typography-broken/h1-above-baseline.png"
   caption="H1 sits above baseline"
 />
 
@@ -111,7 +111,7 @@ h1 {
 ```
 
 <Image
-  src="/assets/2016/web-typography-broken/h1-to-baseline.png"
+  src="/src/assets/2016/web-typography-broken/h1-to-baseline.png"
   caption="Pushing h1 to baseline"
 />
 
@@ -122,7 +122,7 @@ There are two solutions to this problem. First, there's a library called [Sassli
 In case you were wondering, the CSS output from Sassline and MegaType are both pretty complicated. Here's what the output from Sassline looks like:
 
 <Image
-  src="/assets/2016/web-typography-broken/sassline.png"
+  src="/src/assets/2016/web-typography-broken/sassline.png"
   caption="Sassline CSS"
 />
 
@@ -131,7 +131,7 @@ As you can see, Sassline uses negative `margins` coupled with `padding` to repos
 The CSS output from MegaType is:
 
 <Image
-  src="/assets/2016/web-typography-broken/megatype.png"
+  src="/src/assets/2016/web-typography-broken/megatype.png"
   caption="MegaType CSS"
 />
 
@@ -154,14 +154,14 @@ Since we're following the principle of repetition, the key to finding out whethe
 I decided to compare print and web baselines side by side while repeating more elements. Here's the result:
 
 <Image
-  src="/assets/2016/web-typography-broken/print-vs-web-1.png"
+  src="/src/assets/2016/web-typography-broken/print-vs-web-1.png"
   caption="Implementation of Print and Web Baselines placed side by side"
 />
 
 Uh. It's hard to compare the results with the baselines turned on. Hold on, I'll remove them.
 
 <Image
-  src="/assets/2016/web-typography-broken/print-vs-web-2.png"
+  src="/src/assets/2016/web-typography-broken/print-vs-web-2.png"
   caption="Print vs Web Baselines"
 />
 
@@ -174,7 +174,7 @@ It seems to me that type set with print baseline follows a more consistent rhyth
 Now, let's try repeating some more elements:
 
 <Image
-  src="/assets/2016/web-typography-broken/print-vs-web-3.png"
+  src="/src/assets/2016/web-typography-broken/print-vs-web-3.png"
   caption="More repetitions on the web baseline."
 />
 
@@ -189,14 +189,14 @@ There's more to web design than pure text elements. Sometimes, we have elements 
 When you have elements like a button, how would you place them on the baseline? Would you put the button's edges, the text, or both of them on the baseline?
 
 <Image
-  src="/assets/2016/web-typography-broken/buttons-on-baseline.png"
+  src="/src/assets/2016/web-typography-broken/buttons-on-baseline.png"
   caption="Variations of placing a button on a baseline"
 />
 
 Both Jake's Sassline and Tom's MegaType seem to suggest that we should place both the edges and text on the baseline:
 
 <Image
-  src="/assets/2016/web-typography-broken/sassline-megatype-buttons.png"
+  src="/src/assets/2016/web-typography-broken/sassline-megatype-buttons.png"
   caption="Sassline and MegaType suggests we placeboth the edges and text on the baseline"
 />
 
@@ -205,7 +205,7 @@ Personally, I don't agree with Sassline nor MegaType because it's weird to see b
 Instead of accepting their answers as the correct one, I decided to test all three variations to see if one was better than the other. Here are the results if I compared all four variations (plus the web one) with their respective baselines turned on.
 
 <Image
-  src="/assets/2016/web-typography-broken/print-vs-web-4.png"
+  src="/src/assets/2016/web-typography-broken/print-vs-web-4.png"
   caption="All three variations vs web baseline grid"
 />
 
@@ -216,7 +216,7 @@ When I changed the `<h1`>'s `font-size`, I also realized that I had to create a 
 Let me turn off the baseline grid now. Take a look and see which you prefer.
 
 <Image
-  src="/assets/2016/web-typography-broken/print-vs-web-5.png"
+  src="/src/assets/2016/web-typography-broken/print-vs-web-5.png"
   caption="All four versions without baselines"
 />
 
@@ -243,7 +243,7 @@ Medium has a beautiful design with long-form text. It's a perfect case to test f
 To conduct the case study, I picked [a random article](https://medium.com/@deanvipond/explaining-graphic-design-to-four-year-olds-fe9257ffaf3d#.hk353i17k) and inspected the paragraph tag.
 
 <Image
-  src="/assets/2016/web-typography-broken/medium.png"
+  src="/src/assets/2016/web-typography-broken/medium.png"
   caption="Medium's CSS"
 />
 
@@ -254,7 +254,7 @@ _Note: Medium changes the `font-size` at different device widths. What I mention
 The next step was to create a baseline grid on Medium with `repeating-linear-gradient()`. Here's what I found
 
 <Image
-  src="/assets/2016/web-typography-broken/medium-baseline-print.png"
+  src="/src/assets/2016/web-typography-broken/medium-baseline-print.png"
   caption="Medium with a Baseline grid"
 />
 
@@ -277,21 +277,21 @@ Awwward's design is radically different from Medium's. I picked it because I wan
 There isn't much text on the page itself, so I picked the only text container I could see to hypothesize a baseline.
 
 <Image
-  src="/assets/2016/web-typography-broken/awwwards-baseline-assumption.png"
+  src="/src/assets/2016/web-typography-broken/awwwards-baseline-assumption.png"
   caption="Assuming a baseline from Awwwards's text container"
 />
 
 Here, I see that Awwwards uses a `font-size` of `16px` and a `line-height` of `1.9`.
 
 <Image
-  src="/assets/2016/web-typography-broken/awwwards.png"
+  src="/src/assets/2016/web-typography-broken/awwwards.png"
   caption="Awwward's font-size and line-height"
 />
 
 This means Awwwards should have a baseline of `16px * 1.9 = 30.4px`. Here's what it looks like when I added a baseline grid to Awwward:
 
 <Image
-  src="/assets/2016/web-typography-broken/awwwards-baseline.png"
+  src="/src/assets/2016/web-typography-broken/awwwards-baseline.png"
   caption="Baseline grid on Awwward"
 />
 
@@ -302,7 +302,7 @@ Nope.
 As I looked deeper, I noticed that Awwwards repeats a `padding` of `20px` in multiple places:
 
 <Image
-  src="/assets/2016/web-typography-broken/awwwards-padding.png"
+  src="/src/assets/2016/web-typography-broken/awwwards-padding.png"
   caption="Awwwards uses 20px padding in multiple places"
 />
 
@@ -319,7 +319,7 @@ For the third test, I wanted to find a page that uses both images and text to se
 Dribble's shot page uses a `font-size` of `16px` and a `line-height` of `1.5`, which means the baseline should be `24px`.
 
 <Image
-  src="/assets/2016/web-typography-broken/dribbble-baseline.png"
+  src="/src/assets/2016/web-typography-broken/dribbble-baseline.png"
   caption="Dribbble with a baseline grid"
 />
 
@@ -330,7 +330,7 @@ Nope.
 As I dug further, I noticed that Dribbble also used multiples of `5px` as margins or paddings all around.
 
 <Image
-  src="/assets/2016/web-typography-broken/dribbble-repetition.png"
+  src="/src/assets/2016/web-typography-broken/dribbble-repetition.png"
   caption="Dribbble repeats a rhythm of 5px all around"
 />
 

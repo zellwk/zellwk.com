@@ -1,5 +1,5 @@
 .testimonial-large {
-  --negative-margin: -1rlh;
+  --negative-margin: 0;
 
   &:nth-child(odd) > *:first-child {
     order: 1;
@@ -13,5 +13,9 @@
   .card {
     position: relative;
     z-index: 1;
+  }
+
+  @media screen and (width >= 800px) {
+    --negative-margin: -1rlh;
   }
 }

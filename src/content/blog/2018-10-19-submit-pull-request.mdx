@@ -57,7 +57,7 @@ f
 It'll appear in the section I highlighted in the image below.
 
 <Image
-  src="/assets/2018/submit-pr/github-auto-pr.png"
+  src="/src/assets/2018/submit-pr/github-auto-pr.png"
   alt="Highlighted a section between the description and repository tabs"
 />
 
@@ -66,21 +66,21 @@ If you see the message, great. Click on it. You'll save a few steps.
 If you don't see it, you can click on the pull request tab at the top of your Github repo.
 
 <Image
-  src="/assets/2018/submit-pr/pull-request-tab.png"
+  src="/src/assets/2018/submit-pr/pull-request-tab.png"
   alt="The pull request tab"
 />
 
 Then, click on the green button that says "new pull request".
 
 <Image
-  src="/assets/2018/submit-pr/pull-request-new.png"
+  src="/src/assets/2018/submit-pr/pull-request-new.png"
   alt="The green pull request button"
 />
 
 You'll come to a page that says "Compare changes".
 
 <Image
-  src="/assets/2018/submit-pr/pull-request-compare.png"
+  src="/src/assets/2018/submit-pr/pull-request-compare.png"
   alt="Choosing branches for the pull request"
 />
 
@@ -94,7 +94,7 @@ In our case, we want to merge to master, so we'll set `base` to `master`. We're 
 Once you've selected your branches, Github will show you the list of commits that have been made. Here' what you need to do is click on the "Create pull request button".
 
 <Image
-  src="/assets/2018/submit-pr/pull-request-compare-2.png"
+  src="/src/assets/2018/submit-pr/pull-request-compare-2.png"
   alt="Setting base branch to master and compare branch to develop"
 />
 
@@ -103,7 +103,7 @@ Github will show you a page that says "Open a pull request".
 Note: This is the page you'll arrive at if you saw the "Your branch has been updated X minutes ago" message I talked about earlier.
 
 <Image
-  src="/assets/2018/submit-pr/pull-request-open.png"
+  src="/src/assets/2018/submit-pr/pull-request-open.png"
   alt="Open a pull request page"
 />
 
@@ -112,7 +112,7 @@ The title you write will be the title people see in the pull request tab. We're 
 For the comments, it's going to be the first message people see when they clicked into the pull request. In this case, we'll say "I've added a heading. Let me know if its good?".
 
 <Image
-  src="/assets/2018/submit-pr/pull-request-open-2.png"
+  src="/src/assets/2018/submit-pr/pull-request-open-2.png"
   alt="Setting title and comments fro the pull request"
 />
 
@@ -121,7 +121,7 @@ Once you've added the title and message, you can click on the Create pull reques
 Now, if you click on the pull request tab at the top, you'll an open pull request that we've just submitted.
 
 <Image
-  src="/assets/2018/submit-pr/pull-request-opened.png"
+  src="/src/assets/2018/submit-pr/pull-request-opened.png"
   alt="Pull request opened"
 />
 
@@ -156,13 +156,19 @@ Note: You cannot fork your own repository. What I'm going to do is use a dummy a
 
 To fork a repository, you click on the fork button that's on the top-right-hand corner of the repository.
 
-<Image src="/assets/2018/submit-pr/na-fork.png" alt="Forking a repository" />
+<Image
+  src="/src/assets/2018/submit-pr/na-fork.png"
+  alt="Forking a repository"
+/>
 
 Once the fork is completed, you'll see a repository that looks (almost) exactly like the repository you forked from. There is one difference though—if you look at the title of the project, you can see that the project is forked from another repository.
 
 You have write access to this forked repository.
 
-<Image src="/assets/2018/submit-pr/na-forked.png" alt="The forked repository" />
+<Image
+  src="/src/assets/2018/submit-pr/na-forked.png"
+  alt="The forked repository"
+/>
 
 Here's what we do when we submit a pull request from a forked repository:
 
@@ -191,7 +197,7 @@ The commit message for this changes is: `Add list`.
 Now, if you go back to your forked repository, you should be able to see a button called "new pull request". This button is beside the button that lets you switch branches.
 
 <Image
-  src="/assets/2018/submit-pr/na-pr-button.png"
+  src="/src/assets/2018/submit-pr/na-pr-button.png"
   alt="The pull request button on a forked repository"
 />
 
@@ -207,7 +213,7 @@ The difference is you need to set four things:
 4. The compare branch
 
 <Image
-  src="/assets/2018/submit-pr/na-compare.png"
+  src="/src/assets/2018/submit-pr/na-compare.png"
   alt="Comparing two repositories and two branches"
 />
 
@@ -228,14 +234,14 @@ This means we should set the following:
 What you need to do next is write the pull request title, write the comment, and click on the New Pull Request button.
 
 <Image
-  src="/assets/2018/submit-pr/na-open.png"
+  src="/src/assets/2018/submit-pr/na-open.png"
   alt="Writing the pull request title"
 />
 
 And you have submitted a pull request from a forked repository.
 
 <Image
-  src="/assets/2018/submit-pr/na-pr-opened.png"
+  src="/src/assets/2018/submit-pr/na-pr-opened.png"
   alt="Pull request opened"
 />
 

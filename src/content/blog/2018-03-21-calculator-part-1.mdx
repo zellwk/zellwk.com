@@ -11,7 +11,7 @@ This is the start of a three-part lesson about building a calculator. By the end
 Here's what you'll get:
 
 <Image
-  src="/assets/2018/calculator-1/calculator.gif"
+  src="/src/assets/2018/calculator-1/calculator.gif"
   caption="GIF of a calculator you'll build"
 />
 
@@ -46,7 +46,7 @@ First, we want to build the calculator.
 The calculator consist of two parts. The display and the keys.
 
 <Image
-  src="/assets/2018/calculator-1/display-and-keys.png"
+  src="/src/assets/2018/calculator-1/display-and-keys.png"
   alt="Squares that label the calculator's display and keys"
   caption="Calculators have a display and several keys"
 />
@@ -161,7 +161,7 @@ if (action === 'calculate') {
 At this point, you should get a `console.log` response from every calculator key.
 
 <Image
-  src="/assets/2018/calculator-1/click-key.gif"
+  src="/src/assets/2018/calculator-1/click-key.gif"
   caption="We're now able to detect different types of keys"
 />
 
@@ -188,14 +188,14 @@ When Mary picks up a calculator, she'll probably hit a number key at first.
 At this point, if the calculator shows 0 (the default number), the target number should replace zero.
 
 <Image
-  src="/assets/2018/calculator-1/num-zero.gif"
+  src="/src/assets/2018/calculator-1/num-zero.gif"
   caption="Calculator replaces 0 with 9"
 />
 
 If the calculator shows a non-zero number, the target number should be appended to the displayed number.
 
 <Image
-  src="/assets/2018/calculator-1/num-non-zero.gif"
+  src="/src/assets/2018/calculator-1/num-non-zero.gif"
   caption="Calculator appends 5 to 9"
 />
 
@@ -254,7 +254,7 @@ Let's say Mary hits the decimal key.
 When Mary hits the decimal key, a decimal should appear on the display. If Mary hits any number after hitting a decimal key, the number should be appended on the display as well.
 
 <Image
-  src="/assets/2018/calculator-1/decimal-non-zero.gif"
+  src="/src/assets/2018/calculator-1/decimal-non-zero.gif"
   caption="Calculator adds a decimal, followed by a number, to the display"
 />
 
@@ -273,7 +273,7 @@ Next, let's say Mary continues her calculation by hitting an operator key.
 If Mary hits an operator key, the operator should be highlighted so Mary knows the operator is active.
 
 <Image
-  src="/assets/2018/calculator-1/operator.gif"
+  src="/src/assets/2018/calculator-1/operator.gif"
   caption="Operator keys should be depressed when they're clicked on"
 />
 
@@ -297,7 +297,7 @@ Once Mary has hit an operator key, she'll hit another number key.
 When Mary hits a number key again, the previous display should be replaced with the new number. The operator key should also release it's pressed state.
 
 <Image
-  src="/assets/2018/calculator-1/num-after-operator.gif"
+  src="/src/assets/2018/calculator-1/num-after-operator.gif"
   caption="Display replaced by a new number"
 />
 
@@ -370,7 +370,7 @@ When Mary hits the equal key, the calculator should calculate a result that depe
 After the calculation, the result should replace the displayed value.
 
 <Image
-  src="/assets/2018/calculator-1/equal.gif"
+  src="/src/assets/2018/calculator-1/equal.gif"
   caption="Calculates the correct value"
 />
 

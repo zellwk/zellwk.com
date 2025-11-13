@@ -7,20 +7,13 @@
     --text-hover-color: var(--color-zpurple-500);
   }
 
-  .card-divided {
-    --radius: 0.75rlh;
-    --border-width: 2px;
-    --bc: var(--color-zgray-600);
-    --border-color: var(--bc);
-  }
-
-  .card-divided a {
-    @apply stinger;
+  .link {
+    @apply stinger-fit;
     @apply text-8;
+    --font-style: 60;
+    --font-width: 108;
+    --font-weight: 400;
     --text-color: var(--color-zgray-500);
-    --text-hover-color: var(--color-zpurple-500);
-    padding-block: 0.5rlh;
-    padding-inline: 0.75rlh;
-    border-color: var(--bc);
+    --text-hover-color: var(--color-zorange-500);
   }
 }

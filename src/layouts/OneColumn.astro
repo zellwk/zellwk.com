@@ -1,0 +1,26 @@
+---
+import { Markdown } from '@splendidlabz/astro'
+import Base from './Base.astro'
+const props = Astro.props.content
+const { title, titleWidth = '' } = props
+---
+
+<Base {...props}>
+  <div class="wrap">
+    <article class="article max-w-standard mx-auto">
+      <div class="vertical">
+        <header>
+          <h1
+            class="h1 text-center mx-auto"
+            style={titleWidth && { maxWidth: titleWidth }}
+          >
+            <Markdown inline>{title} </Markdown>
+          </h1>
+        </header>
+        <div id="content" class="prose max-w-narrow mx-auto">
+          <slot />
+        </div>
+      </div>
+    </article>
+  </div>
+</Base>

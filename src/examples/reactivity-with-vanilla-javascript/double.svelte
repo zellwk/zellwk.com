@@ -1,8 +1,8 @@
 <script>
-  import Callout from '../../components/Callout.svelte'
-  let count = 0
+  import { Callout } from '@splendidlabz/svelte'
 
-  $: double = count * 2
+  let count = $state(0)
+  let double = $derived(count * 2)
 
   function increase() {
     count += 1

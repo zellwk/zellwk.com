@@ -1,8 +1,18 @@
 @utility pigment-purple-filled {
   --bg-color: var(--color-zpurple-500);
   --text-color: var(--color-zpurple-1000);
+  --border-color: var(--color-zpurple-500);
   --bg-hover-color: var(--color-zpurple-600);
+  --text-hover-color: var(--color-zpurple-1000);
   --border-hover-color: var(--color-zpurple-600);
+}
+
+@utility pigment-purple-outline {
+  --bg-color: transparent;
+  --text-color: var(--color-zpurple-500);
+  --border-color: var(--color-zpurple-500);
+  --bg-hover-color: var(--color-zpurple-700);
+  --text-hover-color: var(--color-zpurple-50);
 }
 
 @utility pigment-orange-filled {
@@ -39,8 +49,18 @@
 @utility pigment-red-filled {
   --bg-color: var(--color-zred-500);
   --text-color: var(--color-zpurple-1000);
+  --border-color: var(--color-zred-500);
   --bg-hover-color: var(--color-zred-700);
+  --text-hover-color: var(--color-zpurple-1000);
   --border-hover-color: var(--color-zred-700);
+}
+
+@utility pigment-red-outline {
+  --bg-color: transparent;
+  --text-color: var(--color-zred-500);
+  --border-color: var(--color-zred-500);
+  --bg-hover-color: var(--color-zred-800);
+  --text-hover-color: var(--color-zred-50);
 }
 
 @utility pigment-gray-text {

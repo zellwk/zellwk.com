@@ -1,8 +1,0 @@
-// sass-lint:disable no-important
-[hidden] {
-  display: none !important;
-}
-
-.is-invisible {
-  @include is-invisible;
-}

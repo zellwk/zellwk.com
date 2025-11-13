@@ -35,11 +35,11 @@ mkcert localhost 127.0.0.1
 
 This creates two `pem` files.
 
-<Image src="/assets/2022/node-https-localhost/generate-certs.png" alt="" />
+<Image src="/src/assets/2022/node-https-localhost/generate-certs.png" alt="" />
 
 I like to put these files in a `certs` folder and rename them into `key.pem` and `cert.pem` to keep things tidy.
 
-<Image src="/assets/2022/node-https-localhost/rename-certs.png" alt="" />
+<Image src="/src/assets/2022/node-https-localhost/rename-certs.png" alt="" />
 
 The final step is to serve them in your server.
 
@@ -74,7 +74,7 @@ server.listen(443, _ => {
 
 Final thing to do is load your site at `https://localhost` and you're done!
 
-<Image src="/assets/2022/node-https-localhost/demo.png" alt="" />
+<Image src="/src/assets/2022/node-https-localhost/demo.png" alt="" />
 
 One final thing: You can also use port 80 instead of 443. But if you use port 80, you need to load the site at `https://localhost:80`.
 

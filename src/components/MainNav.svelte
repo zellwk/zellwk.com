@@ -25,11 +25,11 @@
       onfocus={changeColor}
       onmouseenter={changeColor}>ZL</a
     >
-    <div class="card-divided card-divided-horizontal ml-auto">
-      <a href="/about/">About</a>
-      <!-- <a href="/projects">Projects</a> -->
-      <a href="/blog/">Articles</a>
-      <a href="/contact/">Contact</a>
+    <div class="horizontal gap-4 ml-auto">
+      <a class="link" href="/about/">About</a>
+      <!-- <a class="link" href="/projects">Projects</a> -->
+      <a class="link" href="/blog/">Articles</a>
+      <a class="link" href="/contact/">Contact</a>
     </div>
   </nav>
 </div>

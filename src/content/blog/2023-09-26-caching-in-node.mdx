@@ -1,6 +1,6 @@
 ---
 title: Easy caching on the local file system with Node
-tags: [node, caching, splendid-ui]
+tags: [node, caching, splendidlabz]
 pubDate: 2023-09-26
 ---
 
@@ -11,7 +11,7 @@ This utility is called `fileCache` and it’s built into [Splendid UI](https://s
 {/* more */}
 
 ```shell
-npm install splendid-ui
+npm install splendidlabz
 ```
 
 To use the utility, import `fileCache` from Splendid UI.
@@ -22,7 +22,7 @@ Give it a directory and a file name.
 - The file name determines the name of the file.
 
 ```js
-import { fileCache } from 'splendid-ui/node'
+import { fileCache } from 'splendidlabz/node'
 
 const cache = await fileCache({
   dirname: '.cache',
@@ -77,7 +77,7 @@ It's easy to do this with the [`getLastModifiedTime`](https://splendidlabz.com/n
 It takes in a glob value so you can specify all the files you want to check. This process is extremely quick so you don't have to worry about checking lots of files at once.
 
 ```js
-import { getLastModifiedTime } from 'splendid-ui/node'
+import { getLastModifiedTime } from 'splendidlabz/node'
 
 // Gets the latest modified timestamp of all the files in src/content
 const lastModified = await getLatestModifiedTime('src/content/**/*')
@@ -88,7 +88,7 @@ If the latest modified timestamp exceeds that of the cache, you can invalidate t
 The process looks like this:
 
 ```js
-import { fileCache, getLastModifiedTime } from 'splendid-ui/node'
+import { fileCache, getLastModifiedTime } from 'splendidlabz/node'
 
 function getContent () {
   const cache = await fileCache({ /* ... */ })

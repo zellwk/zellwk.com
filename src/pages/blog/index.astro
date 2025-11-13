@@ -1,0 +1,28 @@
+---
+import Base from '@/layouts/Base.astro'
+import { Partial, SVG } from '@splendidlabz/astro'
+import { processFiles } from '@splendidlabz/astro/content'
+import { getCollection } from 'astro:content'
+import SearchAndFilter from '/src/components/SearchAndFilter.svelte'
+
+const blog = await getCollection('blog')
+const posts = processFiles(blog)
+const data = posts.map(post => post.data)
+---
+
+<Base>
+  <div class="wrap">
+    <section class="vertical max-w-narrow mx-auto">
+      <div class="vertical">
+        <h1>Articles</h1>
+        <SearchAndFilter {posts} client:idle />
+      </div>
+    </section>
+  </div>
+
+  <div class="mt-section">
+    <SVG class="rotate-180 simple-svg stroke-zred-500" icon="wriggle-line" />
+  </div>
+
+  <Partial path="JoinMyNewsletter" />
+</Base>

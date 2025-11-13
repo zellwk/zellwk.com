@@ -57,7 +57,11 @@ You can trigger CSS transitions directly with pseudo classes like `:hover` (acti
 }
 ```
 
-<Codepen height='400' hash='Qqzzxd' title='CSS Transition' />
+<Codepen
+  height="400"
+  link="https://codepen.io/zellwk/pen/Qqzzxd"
+  title="CSS Transition"
+/>
 
 You can also trigger CSS transitions through JavaScript by adding or removing a class.
 
@@ -77,7 +81,11 @@ const button = document.querySelector('.button')
 button.addEventListener('click', _ => button.classList.toggle('is-active'))
 ```
 
-<Codepen height='400' hash='GMPPBg' title='CSS Transition with JavaScript' />
+<Codepen
+  height="400"
+  link="https://codepen.io/zellwk/pen/GMPPBg"
+  title="CSS Transition with JavaScript"
+/>
 
 ## Understanding transition-timing-function
 
@@ -123,9 +131,9 @@ Since you have `ease-in` and `ease-out`, there's also a timing function that com
 See this pen for a demo of the timing functions you've learned so far:
 
 <Codepen
-  height='700'
-  hash='Oxrqpo'
-  title='CSS Transition Timing Functions (no cubic)'
+  height="700"
+  link="https://codepen.io/zellwk/pen/Oxrqpo"
+  title="CSS Transition Timing Functions (no cubic)"
 />
 
 Finally, if you don't like any of the above choices, you can create your own timing function with `cubic-bezier`.
@@ -145,12 +153,16 @@ Don't worry about the `x1`, `y1,`, `x2` and `y2`. You'll never create cubic-bezi
 You can rely on both Chrome and Firefox's trusty developer tools to help you create your curves. To use it, you add a `transition-timing-function` into an element, then open up devtools and click on the timing function.
 
 <Image
-  src='/assets/2017/css-transition/cubic-bezier.png'
-  alt='Both Chrome and Firefox provides you with a cubic-bezier tool'
-  caption='Both Chrome and Firefox provides you with a cubic-bezier tool'
+  src="/src/assets/2017/css-transition/cubic-bezier.png"
+  alt="Both Chrome and Firefox provides you with a cubic-bezier tool"
+  caption="Both Chrome and Firefox provides you with a cubic-bezier tool"
 />
 
-<Codepen height='800' hash='gGZqNo' title='CSS Transition Timing Functions' />
+<Codepen
+  height="800"
+  link="https://codepen.io/zellwk/pen/gGZqNo"
+  title="CSS Transition Timing Functions"
+/>
 
 Going in-depth about creating your own bezier curves for your animations is out of scope for today's article. If you're interested, you can find more information about cubic-bezier curves in "[Understanding CSS Timing Functions](https://www.smashingmagazine.com/2014/04/understanding-css-timing-functions/)" by [Stephen Greig](https://twitter.com/Stephen_Greig).
 
@@ -162,7 +174,9 @@ You can do the same with duration, timing-functions and delays as well. If the v
 
 ```css
 .selector {
-  transition: background-color 1s ease-out, color 1s ease-out;
+  transition:
+    background-color 1s ease-out,
+    color 1s ease-out;
 
   /* OR */
   transition-property: background, color;
@@ -210,9 +224,9 @@ So, in the example above, when you hover on the button, the background color tak
 When you hover out from the button, the background color only takes 0.5s to change back to `#1ce` because the `transition-duration` of 2s no longer exists.
 
 <Codepen
-  height='400'
-  hash='GOLLyR'
-  title='CSS Transition (different transition speeds when transitioning in and out)'
+  height="400"
+  link="https://codepen.io/zellwk/pen/GOLLyR"
+  title="CSS Transition (different transition speeds when transitioning in and out)"
 />
 
 ## Wrapping up

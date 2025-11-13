@@ -74,7 +74,7 @@ brew search node
 
 You want to find the possible versions to download from the results. In this example, we can install node v8 or v10.
 
-<Image src="/assets/2019/brew/search.png" alt="Brew search." />
+<Image src="/src/assets/2019/brew/search.png" alt="Brew search." />
 Install the version you want to use. In this case, lets install Node 10.
 
 ```bash
@@ -95,7 +95,7 @@ Then, we need to link the version we installed. In this case, it's Node@10. To l
 brew link node@10
 ```
 
-<Image src="/assets/2019/brew/link.png" alt="Linking Node 10." />
+<Image src="/src/assets/2019/brew/link.png" alt="Linking Node 10." />
 Sometimes, (like in this case), you need to use `--force` to link the formula.
 
 ```bash
@@ -103,7 +103,7 @@ brew link node@10 --force
 ```
 
 <Image
-  src="/assets/2019/brew/link-force.png"
+  src="/src/assets/2019/brew/link-force.png"
   alt="Linking Node 10 with --force."
 />
 Now if you run `node -v`, you should see that Node v10 is installed.
@@ -112,10 +112,13 @@ Now if you run `node -v`, you should see that Node v10 is installed.
 node -v
 ```
 
-<Image src="/assets/2019/brew/version.png" alt="Checking for Node version." />
-Notice its Node is now v10.16.3. Unfortunately, with Homebrew, we don't get to use
-[Semantic Versioning][4] with Homebrew, so you can't install specific versions. You
-can only perform major version upgrade/downgrades.
+<Image
+  src="/src/assets/2019/brew/version.png"
+  alt="Checking for Node version."
+/>
+Notice its Node is now v10.16.3. Unfortunately, with Homebrew, we don't get to
+use [Semantic Versioning][4] with Homebrew, so you can't install specific
+versions. You can only perform major version upgrade/downgrades.
 
 (But this is enough 99% of the time).
 
@@ -127,7 +130,7 @@ brew link node
 ```
 
 <Image
-  src="/assets/2019/brew/undo.png"
+  src="/src/assets/2019/brew/undo.png"
   alt="Switches back from Node 10 to Node 12."
 />
 Here's the funny thing about Node + Homebrew.

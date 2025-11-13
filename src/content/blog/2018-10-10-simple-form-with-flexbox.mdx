@@ -10,7 +10,7 @@ pubDate: 2018-10-10
 The simplest form on the web contains an email field and a submit button. Sometimes, the email field and the submit button is placed on the same row, like this:
 
 <Image
-  src="/assets/2018/simple-form-flexbox/form.png"
+  src="/src/assets/2018/simple-form-flexbox/form.png"
   caption="Email and submit button on the same row"
 />
 
@@ -41,7 +41,7 @@ Here's the HTML:
 Here's what you have when you write the HTML (after styling for appearance).
 
 <Image
-  src="/assets/2018/simple-form-flexbox/before.png"
+  src="/src/assets/2018/simple-form-flexbox/before.png"
   alt="Input and Button elements are both inline-block elements"
   caption="Input and Button elements are both inline-block elements"
 />
@@ -61,7 +61,7 @@ form {
 Here’s what you get once you set the display to flex:
 
 <Image
-  src="/assets/2018/simple-form-flexbox/flexboxed.png"
+  src="/src/assets/2018/simple-form-flexbox/flexboxed.png"
   alt="Whitespace between elements disappeared we used Flexbox"
   caption="Whitespace between elements disappeared we changed to Flexbox"
 />
@@ -79,13 +79,16 @@ input {
 ```
 
 <Image
-  src="/assets/2018/simple-form-flexbox/form.png"
+  src="/src/assets/2018/simple-form-flexbox/form.png"
   caption="Email field grew to take up any available spaces"
 />
 
 Here's a Codepen to try this out:
 
-<Codepen hash="aaQerX" title="Simple form with Flexbox" />
+<Codepen
+  link="https://codepen.io/zellwk/pen/aaQerX"
+  title="Simple form with Flexbox"
+/>
 
 ## When elements are of unequal height...
 
@@ -101,7 +104,7 @@ This technique helps a lot if your `input` and `button` elements are of unequal 
 ```
 
 <Image
-  src="/assets/2018/simple-form-flexbox/smiley.png"
+  src="/src/assets/2018/simple-form-flexbox/smiley.png"
   alt="Adding a smiley icon as the to the submit button"
   caption="Adding a smiley icon as the to the submit button"
 />
@@ -111,7 +114,7 @@ Notice the `input`'s height increases to fit the large SVG icon. We didn't have 
 If you want to change this behavior, you can change the `align-items` property to either `flex-start`, `flex-end`, or `center`.
 
 <Image
-  src="/assets/2018/simple-form-flexbox/align-items.png"
+  src="/src/assets/2018/simple-form-flexbox/align-items.png"
   caption="Items can be aligned differently if you set `align-itemns` to a different value"
 />
 
@@ -121,7 +124,10 @@ To fix this space below the SVG icon, we can change the SVG's `display` property
 
 Here’s a Codepen to try this out:
 
-<Codepen hash="JawPwX" title="Simple form with Flexbox (with SVG Button)" />
+<Codepen
+  link="https://codepen.io/zellwk/pen/JawPwX"
+  title="Simple form with Flexbox (with SVG Button)"
+/>
 
 ## Wrapping up
 

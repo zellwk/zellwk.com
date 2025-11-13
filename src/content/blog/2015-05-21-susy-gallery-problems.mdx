@@ -18,14 +18,14 @@ This post reveals the two problems and shows you how to solve them.
 The first problem happens when you get a gallery where the first item is not positioned in the correct place.
 
 <Image
-  src="/assets/2015/05/first-item-position.png"
+  src="/src/assets/2015/05/first-item-position.png"
   alt="First item is placed in the wrong position"
 />
 
 The second problem happens when you want to create a gallery of different sizes.
 
 <Image
-  src="/assets/2015/05/different-gallery-widths.png"
+  src="/src/assets/2015/05/different-gallery-widths.png"
   alt="Having different galleries items of different width"
 />
 
@@ -173,7 +173,7 @@ This means we need to use a `3n+2` to target the first column, `3n+3` for the se
 
 Here's a Codepen of this method working:
 
-<Codepen hash="MwjbYe" title="MwjbYe" />
+<Codepen link="https://codepen.io/zellwk/pen/MwjbYe" title="MwjbYe" />
 
 ### Use Span instead of Gallery
 
@@ -193,7 +193,7 @@ The code for this option also changes depending on the `gutter-position` you hav
 
 Here's a Codepen of this:
 
-<Codepen hash="EjgNaX" title="EjgNaX" />
+<Codepen link="https://codepen.io/zellwk/pen/EjgNaX" title="EjgNaX" />
 
 If you use `split` or `inside` gutters though, you don't need that. Just do use a normal span.
 
@@ -205,7 +205,7 @@ If you use `split` or `inside` gutters though, you don't need that. Just do use 
 
 Here's a Codepen of this:
 
-<Codepen hash="GJjNgP" title="GJjNgP" />
+<Codepen link="https://codepen.io/zellwk/pen/GJjNgP" title="GJjNgP" />
 
 We're done with the first problem. You can use any of these methods and the results will be the same. Let's move onto the second problem
 
@@ -225,7 +225,7 @@ The answer then, is to change the width of the gallery item when needed.
 However, since the `gallery()` uses the [Isolate Technique](https://css-tricks.com/build-web-layouts-easily-susy/), we can't simply change the width or we'll end up with overlapping elements:
 
 <Image
-  src="/assets/2015/05/overlapping-elements.png"
+  src="/src/assets/2015/05/overlapping-elements.png"
   alt="Overlapping elements"
 />
 
@@ -239,7 +239,7 @@ The solution for this is exactly the same as the problem from before. You can ei
 This option is preferable if you want to continue using the [Isolate Technique](https://css-tricks.com/build-web-layouts-easily-susy/). The limitation, however, is that you'll need to ensure that the items within a single column are of equal widths.
 
 <Image
-  src="/assets/2015/05/equal-width-columns.png"
+  src="/src/assets/2015/05/equal-width-columns.png"
   alt="Equal width columns"
 />
 
@@ -263,7 +263,7 @@ Here's what the Sass may look like:
 
 Here's a Codepen of this:
 
-<Codepen hash="YXGpyO" title="YXGpyO" />
+<Codepen link="https://codepen.io/zellwk/pen/YXGpyO" title="YXGpyO" />
 
 ### Using span to create the gallery
 
@@ -284,7 +284,7 @@ Here's what the Sass may look like:
 
 Here's the Codepen of this:
 
-<Codepen hash="bdwBEb" title="bdwBEb" />
+<Codepen link="https://codepen.io/zellwk/pen/bdwBEb" title="bdwBEb" />
 
 And we're done with the second problem!
 

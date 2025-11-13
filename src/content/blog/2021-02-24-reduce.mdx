@@ -47,27 +47,27 @@ First, you pass an `initialValue` to `reduce`. This `initialValue` should be 0 b
 1. We want `accumulator` to be a number.
 2. We don't want the `initialValue` to affect the sum.
 
-<Image src="/assets/2021/reduce/sum-flow1.png" caption="Initial value set to 0" />
+<Image src="/src/assets/2021/reduce/sum-flow1.png" caption="Initial value set to 0" />
 
 `accumulator` will be `initialValue` in the first iteration. `currentValue` will be the first array item.
 
-<Image src="/assets/2021/reduce/sum-flow2.png" caption="accumulator assigns as 0" />
+<Image src="/src/assets/2021/reduce/sum-flow2.png" caption="accumulator assigns as 0" />
 
-<Image src="/assets/2021/reduce/sum-flow3.png" caption="currentValue is the first item in the array" />
+<Image src="/src/assets/2021/reduce/sum-flow3.png" caption="currentValue is the first item in the array" />
 
 You need to return a value in the callback. This value will be used as the next `accumulator`. Since we want to sum numbers, we return the sum of `accumulator` and `currentValue`.
 
-<Image src="/assets/2021/reduce/sum-flow4.png" caption="The next return value is calculated" />
+<Image src="/src/assets/2021/reduce/sum-flow4.png" caption="The next return value is calculated" />
 
 `accumulator` takes on the returned value in the second iteration. `currentValue` will be the second array item.
 
-<Image src="/assets/2021/reduce/sum-flow5.png" caption="The previous return value is used as the next accumulator" />
+<Image src="/src/assets/2021/reduce/sum-flow5.png" caption="The previous return value is used as the next accumulator" />
 
-<Image src="/assets/2021/reduce/sum-flow6.png" caption="currentValue becomes the second item in the array" />
+<Image src="/src/assets/2021/reduce/sum-flow6.png" caption="currentValue becomes the second item in the array" />
 
 We return the sum of the two values we have, `accumulator` and `currentValue`. This process goes on until `reduce` loops through the entire array. The final value will be returned to the function call.
 
-<Image src="/assets/2021/reduce/sum-flow7.png" caption="The return value is calculated and the process repeats" />
+<Image src="/src/assets/2021/reduce/sum-flow7.png" caption="The return value is calculated and the process repeats" />
 
 ## Reducing an array into an object
 

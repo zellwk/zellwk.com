@@ -17,7 +17,7 @@ Together, they're called **event propagation**.
 Here, JavaScript goes through `window`, `document`, followed by every element until it reaches the event target.
 
 <Image
-  src="/assets/events/propagation/capture.jpg"
+  src="/src/assets/events/propagation/capture.jpg"
   caption="The capturing phase"
 />
 
@@ -42,7 +42,7 @@ To see how the capturing phase works, we can build a demo with three nested `<di
 ```
 
 <Image
-  src="/assets/events/propagation/demo.png"
+  src="/src/assets/events/propagation/demo.png"
   caption="A demo for understanding event propagation"
 />
 
@@ -68,7 +68,7 @@ boxes.forEach(box => {
 I clicked on `.box3` in the gif below.
 
 <Image
-  src="/assets/events/propagation/capture.gif"
+  src="/src/assets/events/propagation/capture.gif"
   caption="Capturing events trigger event listeners with useCapture"
 />
 
@@ -82,7 +82,10 @@ You can see that the events are fired such in this order:
 
 The target phase comes next. Here, JavaScript reaches the element that fired the event and triggers all event listeners attached to it. The target phase disregards the `useCapture` flag.
 
-<Image src="/assets/events/propagation/target.jpg" caption="The target phase" />
+<Image
+  src="/src/assets/events/propagation/target.jpg"
+  caption="The target phase"
+/>
 
 ```js
 const box3 = document.querySelector('.box3')
@@ -91,7 +94,7 @@ box3.addEventListener('click', listener)
 ```
 
 <Image
-  src="/assets/events/propagation/target.gif"
+  src="/src/assets/events/propagation/target.gif"
   caption="The target phase triggers all events regardless of useCapture"
 />
 
@@ -102,7 +105,7 @@ In the GIF above, you can see all event listeners activate. It doesn't matter if
 The bubbling phase comes last. Here, JavaScript goes through every HTML Element, starting from the target, back to `Window`.
 
 <Image
-  src="/assets/events/propagation/bubble.jpg"
+  src="/src/assets/events/propagation/bubble.jpg"
   caption="The bubbling phase"
 />
 
@@ -120,7 +123,7 @@ boxes.forEach(box =>
 I clicked on `.box3` in the gif below.
 
 <Image
-  src="/assets/events/propagation/bubble.gif"
+  src="/src/assets/events/propagation/bubble.gif"
   caption="Bubbling events trigger event listeners without useCapture"
 />
 
@@ -135,14 +138,14 @@ You can see that events trigger in the following sequence:
 Events that bubble have a `bubbles` property set to `true`. An example is a `click` event:
 
 <Image
-  src="/assets/events/propagation/click.png"
+  src="/src/assets/events/propagation/click.png"
   caption="Information on the click event on MDN"
 />
 
 Some events don't bubble. Examples of these events are `focus` and `blur`.
 
 <Image
-  src="/assets/events/propagation/focus.png"
+  src="/src/assets/events/propagation/focus.png"
   caption="Information on the focus event on MDN"
 />
 
@@ -157,7 +160,7 @@ button.addEventListener('click', e => console.log('Second event'))
 ```
 
 <Image
-  src="/assets/events/propagation/sequence.gif"
+  src="/src/assets/events/propagation/sequence.gif"
   caption="Event Listeners are fired in the order they are attached"
 />
 
@@ -180,7 +183,7 @@ box3.addEventListener('click', e => e.stopPropagation())
 Events from `.box3` will not bubble to `.box2` because we called `stopPropagation` in `.box3`.
 
 <Image
-  src="/assets/events/propagation/stop-prop-1.gif"
+  src="/src/assets/events/propagation/stop-prop-1.gif"
   caption="Propagation stopped for box 3"
 />
 

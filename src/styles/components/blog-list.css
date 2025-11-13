@@ -1,0 +1,31 @@
+.blog-list {
+  @apply vertical bp6:grid-auto-fr items-baseline gap-3;
+}
+
+.blog-list-item {
+  @apply bp6:subgrid-columns;
+  --span: 2;
+
+  .date {
+    @apply max-bp6:hidden;
+    @apply stinger;
+    @apply text-9;
+    --font-weight: 500;
+    margin-top: 0.3em;
+    color: var(--color-zgray-400);
+  }
+
+  .title {
+    @apply june;
+    @apply text-9 bp8:text-11;
+    --font-style: 60;
+    --font-weight: 450;
+  }
+
+  .meta {
+    @apply june;
+    @apply text-5 bp8:text-7;
+    @apply flow gap-[0.25em] text-zgray-500;
+    --font-style: 60;
+  }
+}

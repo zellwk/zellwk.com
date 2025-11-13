@@ -3,7 +3,6 @@
 @import './card.css';
 @import './section.css';
 @import './testimonial-large.css';
-@import './testimonial-side.css';
 @import './site-footer.css';
 @import './follow-my-journey.css';
 @import './main-nav.css';
@@ -11,4 +10,12 @@
 @import './wrap.css';
 @import './article.css';
 @import './code.css';
+@import './shiki.css';
 @import './content-list.css';
+@import './prose.css';
+@import './grids.css';
+@import './blog-list.css';
+@import './search-input.css';
+@import './tags.css';
+@import './callout.css';
+@import './status.css';

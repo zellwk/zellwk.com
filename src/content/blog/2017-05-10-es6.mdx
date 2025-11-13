@@ -165,9 +165,9 @@ for (var i = 1; i < 5; i++) {
 What would you expect this code to do? Here's what actually happens
 
 <Image
-  src='/assets/2017/es6/loop-wrong.png'
-  alt='i was logged as 5 four times in the timeout function'
-  caption='i was logged as 5 four times in the timeout function'
+  src="/src/assets/2017/es6/loop-wrong.png"
+  alt="i was logged as 5 four times in the timeout function"
+  caption="i was logged as 5 four times in the timeout function"
 />
 
 How the heck did `i` become `5` for four times inside the timeout function? Well, turns out, because `var` is function-scoped, the value of `i` became `4` even before the timeout function runs.
@@ -188,9 +188,9 @@ for (var i = 1; i < 5; i++) {
 ```
 
 <Image
-  src='/assets/2017/es6/loop-right.png'
-  alt='i was correctly logged as 1, 2 3 and 4'
-  caption='i was correctly logged as 1, 2 3 and 4'
+  src="/src/assets/2017/es6/loop-right.png"
+  alt="i was correctly logged as 1, 2 3 and 4"
+  caption="i was correctly logged as 1, 2 3 and 4"
 />
 
 (By the way, this is called a closure).
@@ -207,9 +207,9 @@ for (let i = 1; i < 5; i++) {
 ```
 
 <Image
-  src='/assets/2017/es6/loop-right.png'
-  alt='i was correctly logged as 1, 2 3 and 4'
-  caption='i was correctly logged as 1, 2 3 and 4'
+  src="/src/assets/2017/es6/loop-right.png"
+  alt="i was correctly logged as 1, 2 3 and 4"
+  caption="i was correctly logged as 1, 2 3 and 4"
 />
 
 As you can see, **block-scoped** variables make development much simpler by removing common gotchas with **function-scoped** variables. To make life simple, I recommend you use `let` over `var` whenever you declare JavaScript variables from now on. (ES6 is the new JavaScript already 😎).
@@ -377,9 +377,9 @@ console.log(this) // Window
 ```
 
 <Image
-  src='/assets/2017/es6/window.png'
-  alt='This defaults to window object in browsers'
-  caption='This defaults to window object in browsers'
+  src="/src/assets/2017/es6/window.png"
+  alt="This defaults to window object in browsers"
+  caption="This defaults to window object in browsers"
 />
 
 When `this` is called in a **simple function call**, `this` is set to the global object. In the case of browsers, `this` will always be `Window`.
@@ -407,9 +407,9 @@ o.sayThis() // o
 ```
 
 <Image
-  src='/assets/2017/es6/object.png'
-  alt='This refers to the object when the function is called in an object method.'
-  caption='This refers to the object when the function is called in an object method.'
+  src="/src/assets/2017/es6/object.png"
+  alt="This refers to the object when the function is called in an object method."
+  caption="This refers to the object when the function is called in an object method."
 />
 
 When the function is called as a **constructor**, `this` refers to the **newly constructed object**.
@@ -427,9 +427,9 @@ console.log(thomas) // this.age = 24
 ```
 
 <Image
-  src='/assets/2017/es6/constructor.png'
-  alt='This refers to the constructed object called with the new keyword or Object.create().'
-  caption='This refers to the constructed object called with the new keyword or Object.create().'
+  src="/src/assets/2017/es6/constructor.png"
+  alt="This refers to the constructed object called with the new keyword or Object.create()."
+  caption="This refers to the constructed object called with the new keyword or Object.create()."
 />
 
 When used in an event listener, `this` is set to the element that fired the event.
@@ -898,9 +898,9 @@ sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 ```
 
 <Image
-  src='/assets/2017/es6/arguments.png'
-  alt='Arguments is a Symbol, not an array'
-  caption='Arguments is a Symbol, not an array'
+  src="/src/assets/2017/es6/arguments.png"
+  alt="Arguments is a Symbol, not an array"
+  caption="Arguments is a Symbol, not an array"
 />
 
 One way to calculate this sum of arguments is to convert it into an Array with `Array.prototype.slice.call(arguments)`, then, loop through each number with an array method like `forEach` or `reduce`.
@@ -1056,9 +1056,9 @@ const Zell = {
 Pretty neat, eh? Now, we have less words to write, and we all go home happy.
 
 <Image
-  src='/assets/2017/es6/dancing.gif'
-  alt='Happy, dancing star wars figure'
-  caption='Wheeeee! Happy! :)'
+  src="/src/assets/2017/es6/dancing.gif"
+  alt="Happy, dancing star wars figure"
+  caption="Wheeeee! Happy! :)"
 />
 
 While I dance, please go on and move to more shorthand goodness. I'll join you shortly.
@@ -1191,9 +1191,9 @@ who could change night into day`
 ```
 
 <Image
-  src='/assets/2017/es6/multiline.png'
-  alt='Multi-line strings!'
-  caption='Multi-line strings works! Woot!'
+  src="/src/assets/2017/es6/multiline.png"
+  alt="Multi-line strings!"
+  caption="Multi-line strings works! Woot!"
 />
 
 One neat trick is to use these strings to create HTML elements in JavaScript if you need them. (Note: This may not be best way to make HTML elements, but its still way better than creating them one by one!).
@@ -1213,8 +1213,8 @@ document.body.append(container)
 ```
 
 <Codepen
-  hash='JNzMdb'
-  title='Using multi-line strings to create more complicated HTML elements'
+  link="https://codepen.io/zellwk/pen/JNzMdb"
+  title="Using multi-line strings to create more complicated HTML elements"
 />
 
 Another feature of template literals is called **tags**. Tags are functions that allow you manipulate the template literal, if you wanted to substitute any string.

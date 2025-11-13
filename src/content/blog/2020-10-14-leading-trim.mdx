@@ -15,7 +15,10 @@ I saw an article about [Leading Trim](https://medium.com/microsoft-design/leadin
 
 Leading Trim is a part of a new CSS Specification (currently being written by [@fantasai](https://twitter.com/fantasai)) for improving text layout. `leading-trim` together with `text-edge` lets you trim away extra whitespace from a font.
 
-<Image src="/assets/2020/leading-trim/leading-trim.gif" alt="Leading Trim." />
+<Image
+  src="/src/assets/2020/leading-trim/leading-trim.gif"
+  alt="Leading Trim."
+/>
 
 This changes everything about Web Typography.
 
@@ -28,14 +31,14 @@ Below, I'll give a summarised version + some of my thoughts.
 Web Typography, as we know it today, uses `line-height` to determine the height of a line of text. This `line-height` splits leading up into two halves.
 
 <Image
-  src="/assets/2020/leading-trim/line-height.png"
+  src="/src/assets/2020/leading-trim/line-height.png"
   alt="Anatomy of line-height."
 />
 
 The problem with the current `line-height` system is it makes it impossible for text to follow a baseline-grid. A baseline-grid is an imaginary grid where you draw lines on a text's baseline. It looks like this:
 
 <Image
-  src="/assets/2020/leading-trim/print-baseline.png"
+  src="/src/assets/2020/leading-trim/print-baseline.png"
   alt="Print baseline grid."
 />
 
@@ -59,7 +62,7 @@ It's extremely hard to align text completely to the baseline grid. It's close to
 This is a pity because the baseline grid helps us create better Typography by creating [better Vertical Rhythm](https://zellwk.com/blog/why-vertical-rhythms/).
 
 <Image
-  src="/assets/2020/leading-trim/print-vs-web.png"
+  src="/src/assets/2020/leading-trim/print-vs-web.png"
   alt="Print vs Web Typography"
 />
 

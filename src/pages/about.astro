@@ -6,7 +6,6 @@ import { now } from '../content/data/now'
 import Base from '../layouts/Base.astro'
 
 const nowItems = now.slice(0, 2)
-
 const files = await getCollection('blog')
 const posts = (await processFiles(files)).slice(0, 5)
 
@@ -16,7 +15,9 @@ export const prerender = true
 <Base bodyClass="home-page">
   <section class="section">
     <div class="wrap">
-      <div class="grid-auto-fr max-w-mid mx-auto gap-[1.5rlh]">
+      <div
+        class="vertical bp10:grid-auto-fr bp10:max-w-mid mx-auto bp10:gap-[1.5rlh]"
+      >
         <div>
           <Image
             class="max-w-[22rem] rounded-1.5r"
@@ -24,27 +25,34 @@ export const prerender = true
             alt="Zell"
           />
         </div>
-        <div class="mt-28 vertical">
-          <h1 class="h1 text-zpurple-500">Heya, I'm Zell</h1>
-          <p class="h1-subhead -mt-2">
-            Welcome to my corner of the internet. Thanks for stopping by :)
-          </p>
+        <div class="bp10:mt-28 vertical">
+          <hgroup class="vertical hero-heading items-center bp10:items-start">
+            <h1 class="h1 text-center bp10:text-left text-zpurple-500">
+              Heya, I'm Zell
+            </h1>
+            <p class="h1-subhead -mt-2">
+              Welcome to my corner of the internet. Thanks for stopping by :)
+            </p>
+          </hgroup>
           <div class="prose text-10">
             <!-- prettier-ignore -->
             <Markdown>
-              I'm a developer who's in the process of creating sustainable businesses that jive with the way I work. I'm exploring what that means, while being careful not to land myself in burnout like my previous business. 
+              I'm a web developer and I'm in the process of creating a sustainable business that jives with the way I work --- I'm still exploring what that means, while being careful not to burn myself. 
 
-              I'm also deeply interested in psychology + human development. Over the years, I've spent over $100k --- primarily with an organization called Live Your Mark --- and they've helped reshaped the way I think about many other aspects of life like enjoyment, money, and relationships. 
-
-              I'm interested in marketing too. As proof of that, I've also sunk more than $50k learning about marketing. 
-            </Markdown>
+              **Besides code, I'm deeply interested in psychology + human development**. I've spent over the 10 years of my life learning about my psychology and how to develop myself. 
+              
+              Since 2023, I've been doing coaching work to help people unblock themselves and move towards their dreams. </Markdown>
           </div>
         </div>
-        <div></div>
       </div>
-      <div class="grid-fr-auto max-w-standard mx-auto mt-section">
-        <h2 class="h1 text-zorange-500 [--span:2]">My Unusual Journey</h2>
-        <div class="card card-orange">
+
+      <div
+        class="grid-simple max-bp10:gap-large [--cols:1] bp10:[--cols:7] bp10:max-w-standard mx-auto mt-section"
+      >
+        <h2 class="h1 text-zorange-500 max-bp10:text-center bp10:[--span:7]">
+          My Unusual Journey
+        </h2>
+        <div class="card card-orange bp10:[--span:4]">
           <div class="prose text-10">
             <Markdown inline>
               <FancyList
@@ -65,7 +73,7 @@ export const prerender = true
             </Markdown>
           </div>
         </div>
-        <div class="max-w-[28em] self-end prose mb-26 text-zgray-500">
+        <div class="bp10:[--span:3] self-end prose mb-16 text-zgray-500">
           <Markdown>
             Unfortunately, sales dwindled because I went dark for a while, so
             I'm no longer one of the top searches on Google. It's difficult to
@@ -77,13 +85,13 @@ export const prerender = true
     </div>
   </section>
 
-  <SVG icon="wriggle-line" />
+  <SVG class="w-full" icon="wriggle-line" />
 
   <section class="section">
-    <div class="wrap vertical">
+    <div class="wrap vertical gap-large">
       <h2 class="h1 text-zcyan-500 text-center">What I'm Exploring Now</h2>
-      <div class="grid-simple [--cols:3] max-w-mid mx-auto">
-        <div class="prose [--span:2] text-10">
+      <div class="grid-simple bp10:[--cols:3] max-w-mid mx-auto">
+        <div class="prose bp10:[--span:2] text-10">
           <!-- prettier-ignore -->
           <Markdown>
             I've been thinking about what to do ever since AI began to take over the planet. (Let's face it, it's here). At the very least, AI has cannibalized my course business --- anyone can ask AI about code, so few people would buy another coding course. 
@@ -110,19 +118,20 @@ export const prerender = true
           </Markdown>
         </div>
 
-        <div class="vertical">
-          <div class="card card-purple text-8 vertical gap-[0.5em]">
-            <h3 class="h3 text-zpurple-500">{now[0].title}</h3>
+        <div class="flow bp10:vertical justify-center">
+          <div class="card card-small card-purple text-8 vertical">
+            <h3 class="h4 card-title text-zpurple-500">{now[0].title}</h3>
             <Markdown>{now[0].content}</Markdown>
             <a
               href={now[0].link}
               class="button button-outline justify-self-start pigment-purple-outline"
-              >{now[0].cta}</a
             >
+              {now[0].cta}
+            </a>
           </div>
 
-          <div class="card card-orange text-8 vertical gap-[0.5em]">
-            <h3 class="h3 text-zorange-500">{now[1].title}</h3>
+          <div class="card card-small card-orange text-8 vertical">
+            <h3 class="h4 card-title text-zorange-500">{now[1].title}</h3>
             <Markdown>{now[1].content}</Markdown>
             <a
               href={now[1].link}
@@ -132,15 +141,15 @@ export const prerender = true
             </a>
           </div>
 
-          <div class="card card-red text-8 vertical gap-[0.5em]">
-            <h3 class="h3 text-zred-500">{now[2].title}</h3>
+          <div class="card card-small card-red text-8 vertical">
+            <h3 class="h4 card-title text-zred-500">{now[2].title}</h3>
             <Markdown>{now[2].content}</Markdown>
-            <!-- <a
+            <a
               href={now[2].link}
               class="button button-outline justify-self-start pigment-red-outline"
             >
               {now[2].cta}
-            </a> -->
+            </a>
           </div>
         </div>
       </div>

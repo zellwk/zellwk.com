@@ -2,7 +2,7 @@
 title: Deploying to a server via SSH and Rsync in a Github Action
 description: The hardest part is installing the SSH key and getting it to work. I'm going to show you how so you can do this easily.
 slug: github-actions-deploy
-tags: [github actions, tooling, DevOps]
+tags: [devops, github actions, tooling]
 pubDate: 2021-03-17
 ---
 
@@ -35,7 +35,7 @@ cd ~/.ssh
 When we generate the SSH Key, we cannot use the [default instructions on Github's generating an SSH key page](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent). This is because Github Actions doesn't support the latest Ed22159 algorithm. We need to use the legacy command instead.
 
 <Image
-  src="/assets/2021/github-actions-deploy/use-legacy-command.png"
+  src="/src/assets/2021/github-actions-deploy/use-legacy-command.png"
   alt="use legacy command"
 />
 
@@ -50,21 +50,21 @@ Note: Some Github Action authors said we need the PEM format for SSH keys to wor
 Next we need to name the SSH Key file. Here, I don't recommend using the default file name (which is `id_rsa`). I recommend switching the file name to `github-actions` so we know this key is used for Github Actions. It pays to be explicit when you view your SSH keys 6 months down the road.
 
 <Image
-  src="/assets/2021/github-actions-deploy/name-ssh-key-file.png"
+  src="/src/assets/2021/github-actions-deploy/name-ssh-key-file.png"
   alt="name ssh key file"
 />
 
 You'll also be asked to provide a passphrase. Leave this empty since we can't enter passwords when Github Actions run the SSH command for us.
 
 <Image
-  src="/assets/2021/github-actions-deploy/passphrase-empty.png"
+  src="/src/assets/2021/github-actions-deploy/passphrase-empty.png"
   alt="leave passphrase empty"
 />
 
 When you're done generating your SSH keys you should get a cute image like this:
 
 <Image
-  src="/assets/2021/github-actions-deploy/ssh-key-randomart.png"
+  src="/src/assets/2021/github-actions-deploy/ssh-key-randomart.png"
   alt="ssh key randomart image"
 />
 
@@ -77,7 +77,7 @@ ls
 The public key contains a `.pub` extension while the private key doesn't.
 
 <Image
-  src="/assets/2021/github-actions-deploy/public-key-extension.png"
+  src="/src/assets/2021/github-actions-deploy/public-key-extension.png"
   alt="public key has extension .pub"
 />
 
@@ -103,24 +103,24 @@ Note: Make sure you use double-right-angled brackets (`>>`) and not single-angle
 Go to your repository on Github and click on "Settings", then "Secrets". You should see a button that says "New repository secret".
 
 <Image
-  src="/assets/2021/github-actions-deploy/github-settings-location.png"
+  src="/src/assets/2021/github-actions-deploy/github-settings-location.png"
   alt="github settings navigation location"
 />
 
 <Image
-  src="/assets/2021/github-actions-deploy/github-secrets-location.png"
+  src="/src/assets/2021/github-actions-deploy/github-secrets-location.png"
   alt="github secrets navigation location"
 />
 
 <Image
-  src="/assets/2021/github-actions-deploy/new-repository-secret-button.png"
+  src="/src/assets/2021/github-actions-deploy/new-repository-secret-button.png"
   alt="new repository secret button location"
 />
 
 Click "New repository secret" and you'll be prompted to enter a secret. This secret contains two things — a secret name and the contents. The secret name is used to get the contents later in a Github Actions workflow.
 
 <Image
-  src="/assets/2021/github-actions-deploy/adding-a-secret.png"
+  src="/src/assets/2021/github-actions-deploy/adding-a-secret.png"
   alt="adding a new repository secret"
 />
 
@@ -137,14 +137,14 @@ nano github-actions
 You'll see a file similar to this. (Don't worry about me exposing this key, I trashed it already. I just wanted to show you exactly what to expect :)).
 
 <Image
-  src="/assets/2021/github-actions-deploy/private-key.png"
+  src="/src/assets/2021/github-actions-deploy/private-key.png"
   alt="github actions private key"
 />
 
 We need to copy everything and paste it inside the Secret value
 
 <Image
-  src="/assets/2021/github-actions-deploy/paste-secret-value.png"
+  src="/src/assets/2021/github-actions-deploy/paste-secret-value.png"
   alt="paste private key inside secret value"
 />
 
@@ -153,7 +153,7 @@ We can use the key like this:
 Next, click on "Add secret" and you'll be brought back to the secrets page. Here, you'll see `SSH_PRIVATE_KEY` under the repository's secrets.
 
 <Image
-  src="/assets/2021/github-actions-deploy/ssh-private-key.png"
+  src="/src/assets/2021/github-actions-deploy/ssh-private-key.png"
   alt="saved secret ssh-private-key"
 />
 
@@ -184,7 +184,7 @@ steps:
 The `known_hosts` value is a weird hashed value. If you open up a `known_hosts` file in the `.ssh` server, you'll see something like this:
 
 <Image
-  src="/assets/2021/github-actions-deploy/known-hosts-file.png"
+  src="/src/assets/2021/github-actions-deploy/known-hosts-file.png"
   alt="opened known hosts file"
 />
 
@@ -212,14 +212,14 @@ ssh-keyscan -H IP_ADDRESS_OF_HOST
 If you replace `IP_ADDRESS_OF_HOST` with the actual ip address of your server, you should get a result like this. (I omitted my ip address but tried to show you everything else).
 
 <Image
-  src="/assets/2021/github-actions-deploy/add-ip-address.png"
+  src="/src/assets/2021/github-actions-deploy/add-ip-address.png"
   alt="inserted ip address result"
 />
 
 Once we know this, we can manually add the IP address (which I named as `SSH_HOST`) into the Github Secrets.
 
 <Image
-  src="/assets/2021/github-actions-deploy/add-ip-github-secrets.png"
+  src="/src/assets/2021/github-actions-deploy/add-ip-github-secrets.png"
   alt="add IP address to github secrets"
 />
 
@@ -255,7 +255,7 @@ Here's a real example of what I use to deploy zellwk.com to my server.
 Since we have the `verbose` flag, you should be able to see a list of resources that are copied via rsync.
 
 <Image
-  src="/assets/2021/github-actions-deploy/list-of-resources.png"
+  src="/src/assets/2021/github-actions-deploy/list-of-resources.png"
   alt="list of resources copied via rsync"
 />
 

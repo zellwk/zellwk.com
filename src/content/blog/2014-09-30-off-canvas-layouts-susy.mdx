@@ -16,11 +16,11 @@ First, you may be wondering where the term "off-canvas" came from. Canvas (when 
 
 In the web world, you can think of the viewport of your browser as the canvas (It's not the HTML5 canvas element, in case you were wondering).
 
-<Image src='/assets/2014/09/oc-canvas.png' alt='Web canvas' />
+<Image src="/src/assets/2014/09/oc-canvas.png" alt="Web canvas" />
 
 There are no absolute boundaries on any side of the canvas and you can move it anywhere to reveal previously unseen spaces. The term "off-canvas" is used to refer to these spaces that are outside of the visible canvas.
 
-<Image src='/assets/2014/09/oc-off-canvas.png' alt='off-canvas' />
+<Image src="/src/assets/2014/09/oc-off-canvas.png" alt="off-canvas" />
 
 You're really missing out if you haven't seen the vast number of use cases for off-canvas layouts. I suggest popping by this [smashing magazine article](http://www.smashingmagazine.com/2014/02/24/off-the-beaten-canvas-exploring-the-potential-of-the-off-canvas-pattern/) to get a feel of what these layouts can potentially do. Luke Wroblewski also has a [dedicated article](http://www.lukew.com/ff/entry.asp?1569) on off-canvas layouts that I suggest you check out as well.
 
@@ -28,9 +28,9 @@ For today, we will be focusing on coding a navigation item off the canvas. That 
 
 Before we move into building off-canvas layouts with Susy, we have to start off by understanding how they are created via pure HTML and CSS. This will be the layout we'll be creating in this tutorial.
 
-<Image src='/assets/2014/09/oc-demo.png' alt='Image of final result' />
+<Image src="/src/assets/2014/09/oc-demo.png" alt="Image of final result" />
 
-<a href='/blog/labs/off-canvas/index.html' class='btn'>
+<a href="/blog/labs/off-canvas/index.html" class="btn">
   View Demo
 </a>
 
@@ -69,7 +69,7 @@ One possible way to move this particular item back is to add a transform propert
 }
 ```
 
-<Image src='/assets/2014/09/oc-6.png' alt='' />
+<Image src="/src/assets/2014/09/oc-6.png" alt="" />
 
 Do take note that 3D transformations are not supported in IE9, and 2D translations are not supported in IE8. Try changing the margin-left property instead of using transformations if you have to support these browsers. For the rest of the tutorial, I'm going to assume that 3D transformations work for your browser.
 
@@ -83,7 +83,7 @@ body {
 }
 ```
 
-<Image src='/assets/2014/09/oc-1.png' alt='off-canvas Step 1' />
+<Image src="/src/assets/2014/09/oc-1.png" alt="off-canvas Step 1" />
 
 Translating the body seems to work well (at first glance). The off-canvas item has appeared and `main` is now pushed to the right. There is, however, one major problem.
 
@@ -247,7 +247,7 @@ If you noticed, we did not even use the `span` mixin while building the off-canv
 
 Now if you resized the browser down to a smaller screen, you'll realize that sometimes the links on the left will extend to two lines instead of one.
 
-<Image src='/assets/2014/09/oc-2.png' alt='' />
+<Image src="/src/assets/2014/09/oc-2.png" alt="" />
 
 This happens because we are using percentage widths for `.off-canvas`. Since the canvas width is smaller, it's natural that the width of `.off-canvas` will be smaller as well.
 
@@ -271,7 +271,7 @@ You can also optionally include paddings in `.main` to provide some breathing sp
 
 We get the exact same layout as example 1. The only exception is that the off-canvas item now has a fixed width.
 
-<Image src='/assets/2014/09/oc-demo.png' alt='Example 2 result' />
+<Image src="/src/assets/2014/09/oc-demo.png" alt="Example 2 result" />
 
 The full Sass code for example 2 is:
 
@@ -306,7 +306,7 @@ From this point onwards, you could treat `.main` as your usual Susy container an
 
 The two examples above are great implementations for simple off-canvas items. They would not do as well if you needed something more complex. The Squarespace blog has a perfect of example what I meant by a complex off-canvas item.
 
-<Image src='/assets/2014/09/oc-squarespace.png' alt='Squarespace Blog' />
+<Image src="/src/assets/2014/09/oc-squarespace.png" alt="Squarespace Blog" />
 
 You want to code this? Then this brings us to example 3.
 
@@ -316,7 +316,7 @@ Example 3 has a very different use case compared to example 1 and example 2 abov
 
 Let's take a look at what we're making for example 3 before we dive in.
 
-<Image src='/assets/2014/09/oc-3.png' alt='Example 3 Layout' />
+<Image src="/src/assets/2014/09/oc-3.png" alt="Example 3 Layout" />
 
 The very first thing to notice in example 3 is that the off-canvas item occupies 50% of the viewport when opened up. The width that we have to translate here is hence 50% of the viewport.
 
@@ -339,8 +339,8 @@ $off-canvas-width-3: 50%;
 With a simple change in percentage, we managed to get the off-canvas item to occupy 50% of the viewport when it is opened.
 
 <Image
-  src='/assets/2014/09/oc-4.png'
-  alt='Off-canvas talking up half of viewport'
+  src="/src/assets/2014/09/oc-4.png"
+  alt="Off-canvas talking up half of viewport"
 />
 
 Since there is a grid for both on and off-canvas, we can declare a Susy container on each of them.
@@ -368,7 +368,7 @@ Once we have the container, you may begin to output the navigation items on the 
 
 And that's it!
 
-<Image src='/assets/2014/09/oc-5.png' alt='Complex layout' />
+<Image src="/src/assets/2014/09/oc-5.png" alt="Complex layout" />
 
 Feel free to view the demo and grab the source codes for this layout :)
 

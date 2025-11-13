@@ -40,14 +40,14 @@ First, you need to turn on WSL for Windows.
 You do this by searching for "Turn Windows features on and off" in the start menu.
 
 <Image
-  src="/assets/2020/wsl/window-features.png"
+  src="/src/assets/2020/wsl/window-features.png"
   alt="Searched for Turn Windows features on and off in the start menu."
 />
 
 Next, scroll down and check Windows Subsystem for Linux. Restart your computer after checking this option.
 
 <Image
-  src="/assets/2020/wsl/window-features-wsl.jpg"
+  src="/src/assets/2020/wsl/window-features-wsl.jpg"
   alt="Checks the WSL option."
 />
 
@@ -62,21 +62,21 @@ Next, you need to open the Microsoft store and search for a Linux distribution o
 I went with Ubuntu here.
 
 <Image
-  src="/assets/2020/wsl/ubuntu.png"
+  src="/src/assets/2020/wsl/ubuntu.png"
   alt="Ubuntu from the Microsoft store"
 />
 
 Download the distribution, install it, and launch it.
 
 <Image
-  src="/assets/2020/wsl/ubuntu-installed.png"
+  src="/src/assets/2020/wsl/ubuntu-installed.png"
   alt="Ubuntu Terminal after launching Ubuntu for the first time."
 />
 
 Open up Powershell again and type in `wsl`. The path should switch to a value that contains `/mnt/c`. You'll know you have installed WSL properly if this command works.
 
 <Image
-  src="/assets/2020/wsl/wsl-installed.png"
+  src="/src/assets/2020/wsl/wsl-installed.png"
   alt="Switched to WSL in Powershell."
 />
 
@@ -111,7 +111,7 @@ Open up Visual Studio Code.
 You may see a popup at the bottom right corner that that asks you to install the Remote WSL extension.
 
 <Image
-  src="/assets/2020/wsl/remote-wsl.png"
+  src="/src/assets/2020/wsl/remote-wsl.png"
   alt="Remote WSL Extension in Visual Studio Code's markeplace."
 />
 
@@ -124,21 +124,21 @@ Open up Visual Studio Code's integrated terminal and click on the `powershell` n
 Here, click on "Select Default Shell".
 
 <Image
-  src="/assets/2020/wsl/vscode-default-shell-1.png"
+  src="/src/assets/2020/wsl/vscode-default-shell-1.png"
   alt="Selecting the Default Shell option in Visual Studio Code's integrated terminal"
 />
 
 A listbox should pop up at the top. Select WSL Bash here.
 
 <Image
-  src="/assets/2020/wsl/vscode-default-shell-2.png"
+  src="/src/assets/2020/wsl/vscode-default-shell-2.png"
   alt="Select WSL Bash from the popup menu."
 />
-Restart Visual Studio Code and open the integrated terminal again. You should see
-the same `/mnt/c` path as before.
+Restart Visual Studio Code and open the integrated terminal again. You should
+see the same `/mnt/c` path as before.
 
 <Image
-  src="/assets/2020/wsl/vscode-default-shell-3.png"
+  src="/src/assets/2020/wsl/vscode-default-shell-3.png"
   alt="Visual Studio Code Integrated Terminal shows the mount path."
 />
 
@@ -156,7 +156,7 @@ There are two ways to use Git with Visual Studio Code:
 We can use Git through the Integrated Terminal already. Try typing `git --version` the version status.
 
 <Image
-  src="/assets/2020/wsl/integrated-git-version.png"
+  src="/src/assets/2020/wsl/integrated-git-version.png"
   alt="Shows the version of Git installed in WSL."
 />
 
@@ -176,7 +176,7 @@ code .
 Visual Studio Code will complain that Git is not installed. It prompts you to install Git.
 
 <Image
-  src="/assets/2020/wsl/git-not-found.png"
+  src="/src/assets/2020/wsl/git-not-found.png"
   alt="Dialog that asks you to install Git."
 />
 
@@ -195,24 +195,24 @@ Here are the options I changed:
 I went with the default setting for all other options.
 
 <Image
-  src="/assets/2020/wsl/git-install-1.png"
+  src="/src/assets/2020/wsl/git-install-1.png"
   alt="Uncheck Git Explorer integration."
 />
 
 <Image
-  src="/assets/2020/wsl/git-install-2.png"
+  src="/src/assets/2020/wsl/git-install-2.png"
   alt="Set default editor to Visual Studio Code"
 />
 
 <Image
-  src="/assets/2020/wsl/git-install-3.png"
+  src="/src/assets/2020/wsl/git-install-3.png"
   alt="Use Window's default console window"
 />
 
 Restart Visual Studio Code once you're done installing Windows Git. The Source Control Panel should work now.
 
 <Image
-  src="/assets/2020/wsl/git-vscode-installed.png"
+  src="/src/assets/2020/wsl/git-vscode-installed.png"
   alt="Source Control panel shows the staging area."
 />
 
@@ -297,14 +297,14 @@ Choco installs Cmder in `C:\tools`. Open that folder up with the file explorer a
 
 You should see the lambda symbol (λ) here. This means you're on the Cmder terminal. (In case you're wondering, this is actually Command Prompt).
 
-<Image src="/assets/2020/wsl/cmder.png" alt="Started up Cmder." />
+<Image src="/src/assets/2020/wsl/cmder.png" alt="Started up Cmder." />
 
 ### WSL on Cmder
 
 WSL is already configured on Cmder. You can run the `wsl` command and the shell would switch to WSL. If you do this, you should see the familiar `/mnt/c` path.
 
 <Image
-  src="/assets/2020/wsl/cmder-wsl.png"
+  src="/src/assets/2020/wsl/cmder-wsl.png"
   alt="Typed `wsl` into Cmder. Shell changed to WSL. "
 />
 
@@ -313,14 +313,14 @@ WSL is already configured on Cmder. You can run the `wsl` command and the shell 
 It makes sense to start Cmder with WSL. To do this, you click on the menu button (the hamburger at the bottom-right corner) and select "Settings".
 
 <Image
-  src="/assets/2020/wsl/cmder-settings.png"
+  src="/src/assets/2020/wsl/cmder-settings.png"
   alt="Location of the settings menu option."
 />
 
 Under Startup, select "Specified name task". Then, select `{WSL::bash}`.
 
 <Image
-  src="/assets/2020/wsl/cmder-startup.png"
+  src="/src/assets/2020/wsl/cmder-startup.png"
   alt="Location of the WSL bash option."
 />
 

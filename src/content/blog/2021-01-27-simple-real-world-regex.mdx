@@ -17,7 +17,7 @@ I'm going to show you a real example.
 
 The best place to learn regular expressions is [regexone.com](https://regexone.com). It gives you step-by-step challenges to work through, which helps to build your regex vocabulary. It also has a handy cheatsheet that I always refer back to when I need some regex help.
 
-<Image src="/assets/2021/real-world-regex/regex-cheatsheet.png" alt="" />
+<Image src="/src/assets/2021/real-world-regex/regex-cheatsheet.png" alt="" />
 
 Now onward to the real-life example.
 
@@ -32,7 +32,7 @@ I decided to call this framework `Tiny` since it's a small framework that's not 
 
 If you're curious, here's a draft of table of contents for this framework part.
 
-<Image src="/assets/2021/real-world-regex/table-of-contents.png" alt="" />
+<Image src="/src/assets/2021/real-world-regex/table-of-contents.png" alt="" />
 
 Now on to the part where I needed regular expressions.
 
@@ -67,7 +67,7 @@ const props = attribute
 console.log(props)
 ```
 
-<Image src="/assets/2021/real-world-regex/props.png" alt="" />
+<Image src="/src/assets/2021/real-world-regex/props.png" alt="" />
 
 The problem becomes slightly more complicated when we need to pass multiple props. In this case, I chose to separate each prop-value pair with square brackets.
 
@@ -77,7 +77,7 @@ The problem becomes slightly more complicated when we need to pass multiple prop
 
 We cannot same `replace` code above for this new string. You'll get weird results.
 
-<Image src="/assets/2021/real-world-regex/weird.png" alt="" />
+<Image src="/src/assets/2021/real-world-regex/weird.png" alt="" />
 
 The culprit becomes obvious when omit the `split` and `trim` parts. You can clearly see `replace` only replaces the first instance of `[` and `]`.
 
@@ -88,7 +88,7 @@ const props = attribute.replace('[', '').replace(']', '')
 console.log(props)
 ```
 
-<Image src="/assets/2021/real-world-regex/replaced.png" alt="" />
+<Image src="/src/assets/2021/real-world-regex/replaced.png" alt="" />
 
 Fixing this is easy. We can use a regular expression with a `g` flag. The `g` flag signifies "global" (but I remember it as greedy 😂), allows the regular expression to match all occurrences of the specified value.
 
@@ -101,7 +101,7 @@ const props = attribute.replace(/\[/g, '').replace(/\]/g, '')
 console.log(props)
 ```
 
-<Image src="/assets/2021/real-world-regex/no-brackets.png" alt="" />
+<Image src="/src/assets/2021/real-world-regex/no-brackets.png" alt="" />
 
 At this point we can also replace all commas, then split the string at each empty space to put each value into an array.
 
@@ -115,7 +115,7 @@ const props = attribute
 console.log(props)
 ```
 
-<Image src="/assets/2021/real-world-regex/array.png" alt="" />
+<Image src="/src/assets/2021/real-world-regex/array.png" alt="" />
 
 At this point we can loop through the `props` array to get the values we need. Each odd item is the property and each even item is the value needed.
 
@@ -142,7 +142,7 @@ Users can break the string by adding in unwanted spaces before or after the stri
 <div tiny-props=" [count, state.count] [message, state.message] ">...</div>
 ```
 
-<Image src="/assets/2021/real-world-regex/disarray.png" alt="" />
+<Image src="/src/assets/2021/real-world-regex/disarray.png" alt="" />
 
 The simple way to prevent these issues is to trim the string before passing `replace`.
 
@@ -155,7 +155,7 @@ const props = attribute
 console.log(props)
 ```
 
-<Image src="/assets/2021/real-world-regex/trimmed.png" alt="" />
+<Image src="/src/assets/2021/real-world-regex/trimmed.png" alt="" />
 
 Users can also break the implementation by adding extra whitespaces between commas or between square brackets.
 
@@ -165,7 +165,7 @@ Users can also break the implementation by adding extra whitespaces between comm
 </div>
 ```
 
-<Image src="/assets/2021/real-world-regex/break.png" alt="" />
+<Image src="/src/assets/2021/real-world-regex/break.png" alt="" />
 
 The simplest way to fix this is, once again, with regular expressions. In this case, we'll use split the string with `\s+`.
 
@@ -187,7 +187,7 @@ Finally, users can break this implementation (again) by omitting whitespaces bet
 <div tiny-props="[count,state.count][message,state.message]">...</div>
 ```
 
-<Image src="/assets/2021/real-world-regex/omit-whitespace.png" alt="" />
+<Image src="/src/assets/2021/real-world-regex/omit-whitespace.png" alt="" />
 
 We can fix this by creating whitespaces intentionally when replacing `[`, `]` and `,`. This creates extra whitespace in three places:
 

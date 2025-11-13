@@ -28,11 +28,11 @@ Here's an example where I deliberately created a script with 20000 lines of `con
 <p>After Script</p>
 ```
 
-<Video src="/assets/2021/async-and-defer-attributes/after-script.mp4" />
+<Video src="/src/assets/2021/async-and-defer-attributes/after-script.mp4" />
 
 Both `async` and `defer` allows the browser load and parse the JavaScript file separately, so the DOM can be shown immediately. This allows users to see content faster.
 
-<Video src="/assets/2021/async-and-defer-attributes/async.mp4" />
+<Video src="/src/assets/2021/async-and-defer-attributes/async.mp4" />
 
 ## We can still put scripts normally at the bottom
 
@@ -89,9 +89,9 @@ console.log('Async:', asyncButtons.length)
 ```
 
 <Image
-  src="/assets/2021/async-and-defer-attributes/number-of-elements.png"
+  src="/src/assets/2021/async-and-defer-attributes/number-of-elements.png"
   alt="Number of elements selected by async and defer"
-/>{' '}
+/>
 
 ### Defer respects the sequence of scripts. Async doesn't.
 
@@ -104,9 +104,9 @@ We can prove this with another example. We'll have three scripts. Each script lo
 ```
 
 <Image
-  src="/assets/2021/async-and-defer-attributes/async-sequence.png"
+  src="/src/assets/2021/async-and-defer-attributes/async-sequence.png"
   alt="Loading order of async"
-/>{' '}
+/>
 
 But if we use `defer` the loading order will always be as specified
 
@@ -117,9 +117,9 @@ But if we use `defer` the loading order will always be as specified
 ```
 
 <Image
-  src="/assets/2021/async-and-defer-attributes/defer-sequence.png"
+  src="/src/assets/2021/async-and-defer-attributes/defer-sequence.png"
   alt="Loading order of defer"
-/>{' '}
+/>
 
 ## When to use async
 

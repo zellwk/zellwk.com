@@ -29,8 +29,8 @@ Let's start by toggling the integrated terminal.
 This keyboard shortcut opens and closes the Integrated Terminal. It's really important!
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/toggle-terminal.gif'
-  alt='Toggles the integrated terminal.'
+  src="/src/assets/2020/vscode-keybindings-2/toggle-terminal.gif"
+  alt="Toggles the integrated terminal."
 />
 
 **The default shortcut is:**
@@ -48,8 +48,8 @@ This keyboard shortcut opens and closes the Integrated Terminal. It's really imp
 Search for _"Integrated Terminal"_ in the keyboard shortcuts panel. You should see an option to toggle the integrated terminal.
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/view-integrated-terminal.png'
-  alt='Searched for integrated terminal. View: Toggle integrated terminal appeared as the second option.'
+  src="/src/assets/2020/vscode-keybindings-2/view-integrated-terminal.png"
+  alt="Searched for integrated terminal. View: Toggle integrated terminal appeared as the second option."
 />
 
 On Mac, you can't set `Command` + `Option` + <code>\`</code> through this panel. (Mac Visual Studio Code won't register <code>\`</code> with `Command` or `Option` keys). You must set it through the JSON file, so open up `keybindings.json` and insert the following entry.
@@ -83,8 +83,8 @@ On Windows, my `Alt` key is next to the `Ctrl` key. I changed the shortcut to `C
 We can split the terminal into two with the _Split Terminal_ action.
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/split-terminal.gif'
-  alt='Splitting terminals with a keyboard shortcut.'
+  src="/src/assets/2020/vscode-keybindings-2/split-terminal.gif"
+  alt="Splitting terminals with a keyboard shortcut."
 />
 
 **The default shortcuts are:**
@@ -105,8 +105,8 @@ We can split the terminal into two with the _Split Terminal_ action.
 Search for _Split Terminal_ in Visual Studio Code's keyboard shortcuts panel.
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/split-terminal.png'
-  alt='Searched for split terminal in the keyboard shortcuts panel.'
+  src="/src/assets/2020/vscode-keybindings-2/split-terminal.png"
+  alt="Searched for split terminal in the keyboard shortcuts panel."
 />
 
 **Why this change?**
@@ -127,8 +127,8 @@ We can create a new terminal with the _New Integrated Terminal_ action.
 When you create a new terminal, a new window replaces the old one. You can switch between terminals by clicking on the "Switch terminal" box at the top-right corner.
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/new-terminal.gif'
-  alt='Creating new terminals with a keyboard shortcut.'
+  src="/src/assets/2020/vscode-keybindings-2/new-terminal.gif"
+  alt="Creating new terminals with a keyboard shortcut."
 />
 
 **The default shortcuts are:**
@@ -146,8 +146,8 @@ When you create a new terminal, a new window replaces the old one. You can switc
 Search for _New Integrated Terminal_ in Visual Studio Code's keyboard shortcuts panel.
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/new-terminal.png'
-  alt='Searched for new integratde terminal in the keyboard shortcuts panel.'
+  src="/src/assets/2020/vscode-keybindings-2/new-terminal.png"
+  alt="Searched for new integratde terminal in the keyboard shortcuts panel."
 />
 
 **Why this change?**
@@ -172,7 +172,7 @@ I wanted a shortcut that lets me focus on a terminal window quickly. The best on
 
 This shortcut lets me focus on both split terminals and new terminals.
 
-<Video src='/assets/2020/vscode-keybindings-2/focus-panels.mp4' />
+<Video src="/src/assets/2020/vscode-keybindings-2/focus-panels.mp4" />
 
 **The default shortcut is:**
 
@@ -188,8 +188,8 @@ There are no default shortcuts for this feature 😢.
 Look for _"focus terminal at index"_ in the keyboard shortcuts panel. You should see this.
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/focus-terminal-at-index.png'
-  alt='Searched for focus terminal at index.'
+  src="/src/assets/2020/vscode-keybindings-2/focus-terminal-at-index.png"
+  alt="Searched for focus terminal at index."
 />
 
 **Why this change?**
@@ -208,8 +208,8 @@ For Windows, you know my answer by now. My `Ctrl` is in the same position as `Co
 When you can create terminals, you also need to be able to close them. This shortcut closes a terminal window. (It doesn't matter whether we're focusing on a split terminal or a new terminal).
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/close-terminal.gif'
-  alt='Closes terminals with a keyboard shortcut.'
+  src="/src/assets/2020/vscode-keybindings-2/close-terminal.gif"
+  alt="Closes terminals with a keyboard shortcut."
 />
 
 **The default shortcut is:**
@@ -226,8 +226,8 @@ There are no default shortcuts: 😢.
 Search for _"kill terminal"_ in the keyboard shortcuts panel and change it to the shortcut I mentioned above.
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/kill-terminal.png'
-  alt='Searched for kill terminal in the keyboard shortcuts panel.'
+  src="/src/assets/2020/vscode-keybindings-2/kill-terminal.png"
+  alt="Searched for kill terminal in the keyboard shortcuts panel."
 />
 
 There's one more step.
@@ -237,15 +237,15 @@ We only want to kill a terminal when the terminal has focus. It doesn't make sen
 After you created a key binding, right-click the property and select _"Change when expression"_.
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/kill-change-when.png'
-  alt='Highlights change expression in the contextual menu.'
+  src="/src/assets/2020/vscode-keybindings-2/kill-change-when.png"
+  alt="Highlights change expression in the contextual menu."
 />
 
 Enter `terminalFocus` into the textbox.
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/kill-when-changed.png'
-  alt='Changed the when expression to terminalFocus.'
+  src="/src/assets/2020/vscode-keybindings-2/kill-when-changed.png"
+  alt="Changed the when expression to terminalFocus."
 />
 
 **Why this change?**
@@ -260,7 +260,7 @@ I felt the Integrated Terminal doesn't have enough space, remember? With _Move P
 
 I can even make Visual Studio Code look like Codepen if I wanted to!
 
-<Video src='/assets/2020/vscode-keybindings-2/codepen-it.mp4' />
+<Video src="/src/assets/2020/vscode-keybindings-2/codepen-it.mp4" />
 
 (I expanded the terminal with another shortcut. You'll learn this later).
 
@@ -284,7 +284,7 @@ There are no default shortcuts 😢
 Search for _"Move Panel"_ in Visual Studio Code's keyboard shortcuts panel. You should see this:
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/move-panel.png'
+  src="/src/assets/2020/vscode-keybindings-2/move-panel.png"
   alt="Searched for 'move panel' in Visual Studio Code keyboard shortcuts screen."
 />
 
@@ -325,15 +325,15 @@ I thought of using `Ctrl` + `Win` + Arrow keys on Windows to resize terminals. U
 Here's one last tip for the terminal. You can maximise the terminal if you don't need the code editor. To do this, you can click the "Up chevron" icon on a terminal window.
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/maximize-terminal.png'
-  alt='Location of the button to maximize the terminal.'
+  src="/src/assets/2020/vscode-keybindings-2/maximize-terminal.png"
+  alt="Location of the button to maximize the terminal."
 />
 
 Here's what it does:
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/maximize-terminal.gif'
-  alt='Maximizes the terminal panel.'
+  src="/src/assets/2020/vscode-keybindings-2/maximize-terminal.gif"
+  alt="Maximizes the terminal panel."
 />
 
 **The default shortcut is**
@@ -350,8 +350,8 @@ There are no default shortcuts 😢
 Look for _View maximise panel_ in the keyboard shortcuts panel.
 
 <Image
-  src='/assets/2020/vscode-keybindings-2/view-maximize-panel.png'
-  alt='Searched for Viwe maximize panel in the keyboard shortcuts panel.'
+  src="/src/assets/2020/vscode-keybindings-2/view-maximize-panel.png"
+  alt="Searched for Viwe maximize panel in the keyboard shortcuts panel."
 />
 
 **Why this change?**

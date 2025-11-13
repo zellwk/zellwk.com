@@ -99,12 +99,12 @@ listbox.addEventListener('click', event => {
 We need to test the widget with screen readers. In this case, both Voiceover and NVDA were able to say the active item.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-listbox-click.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-listbox-click.mp4"
   caption="Voiceover says the clicked item"
 />
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-listbox-click-nvda.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-listbox-click-nvda.mp4"
   caption="NVDA says the clicked item"
 />
 
@@ -206,12 +206,12 @@ listbox.addEventListener('keydown', event => {
 Again, both Voiceover and NVDA were able to say the active item.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-listbox-arrow.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-listbox-arrow.mp4"
   caption="Voiceover says the active item"
 />
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-listbox-arrow-nvda.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-listbox-arrow-nvda.mp4"
   caption="NVDA says the active item"
 />
 
@@ -269,12 +269,12 @@ li:focus {
 Both Voiceover and NVA were able to say the active item.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/focus-listbox.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/focus-listbox.mp4"
   caption="Voiceover says the active item"
 />
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/focus-listbox-click-nvda.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/focus-listbox-click-nvda.mp4"
   caption="NVDA says the active item"
 />
 
@@ -378,12 +378,12 @@ listbox.addEventListener('keydown', event => {
 Again, both Voiceover and NVDA were able to say the selected item.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/focus-listbox-arrow.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/focus-listbox-arrow.mp4"
   caption="Voiceover says the selected item"
 />
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/focus-listbox-arrow-nvda.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/focus-listbox-arrow-nvda.mp4"
   caption="NVDA says the selected item"
 />
 
@@ -394,7 +394,7 @@ The [spec][2] says `aria-activedescendant` is an alternative method to manage fo
 However, this doesn't seem to be the case in practice. I found the `aria-activedescendant` version longer and more complicated.
 
 <Image
-  src="/assets/2020/element-focus-vs-aad/comparison.png"
+  src="/src/assets/2020/element-focus-vs-aad/comparison.png"
   caption="Comparing code between the focus method (left) and aria-activedescendant method (right)"
 />
 
@@ -416,21 +416,21 @@ A combobox is an element that contains two things:
 A Typeahead (often called Autocomplete) is an example of a combobox.
 
 <Image
-  src="/assets/2020/element-focus-vs-aad/google.png"
+  src="/src/assets/2020/element-focus-vs-aad/google.png"
   caption="Google's autocomplete is an example of a combobox. "
 />
 
 I tried setting `aria-activedescendant` on the Combobox element. When I did this, Voiceover refuses to say elements that are selected with `aria-activedescendant`.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-combobox-1.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-combobox-1.mp4"
   caption="Voiceover doesn't say the active element"
 />
 
 But it works on NVDA.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-combobox-1-nvda.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-combobox-1-nvda.mp4"
   caption="NVDA says the active element"
 />
 
@@ -459,26 +459,26 @@ There's a second way to use `aria-activedescendant` with Comboboxes. We can set 
 Both Voiceover and NVDA were able to say the active descendant when the input is empty.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-combobox-2.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-combobox-2.mp4"
   caption="Voiceover says the active item"
 />
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-combobox-2-nvda.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-combobox-2-nvda.mp4"
   caption="NVDA says the active item"
 />
 
 However, Voiceover does not say the active descendant if the input is filled.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-combobox-2-filled.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-combobox-2-filled.mp4"
   caption="Voiceover doesn't say active descendant"
 />
 
 It works on NVDA though.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-combobox-2-filled-nvda.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-combobox-2-filled-nvda.mp4"
   caption="NVDA says the active descendant"
 />
 
@@ -496,28 +496,28 @@ For grids, we can let users select one of these:
 When I allowed users to select the entire row, Voiceover says "2 rows selected" regardless of the content.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-grid-row.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-grid-row.mp4"
   caption="Voiceover says 2 rows selected"
 />
 
 NVDA announces the selected row.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-grid-row-nvda.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-grid-row-nvda.mp4"
   caption="NVDA announces the selected row"
 />
 
 When I allowed users to select one cell, Voiceover says nothing.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-grid-cell.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-grid-cell.mp4"
   caption="Voiceover doesn't say active cell"
 />
 
 NVDA says the cell content, row, column header, and column.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/aad-grid-cell-nvda.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/aad-grid-cell-nvda.mp4"
   caption="NVDA announces the cell content, row, column, and column header"
 />
 
@@ -532,24 +532,24 @@ How does the `element.focus` + roving `tabindex` method fare? Let's find out.
 Both Voiceover and NVDA says the item with DOM focus when the input is empty.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/focus-combobox.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/focus-combobox.mp4"
   caption="Voiceover says the active item"
 />
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/focus-combobox-nvda.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/focus-combobox-nvda.mp4"
   caption="NVDA says the active item"
 />
 
 There were also able to say the active item when the input is filled.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/focus-combobox-filled.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/focus-combobox-filled.mp4"
   caption="Voiceover says the active item"
 />
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/focus-combobox-filled-nvda.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/focus-combobox-filled-nvda.mp4"
   caption="NVDA says the active item"
 />
 
@@ -558,28 +558,28 @@ There were also able to say the active item when the input is filled.
 When I allowed users to select the entire row, Voiceover announces the first cell in the row.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/focus-grid-row.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/focus-grid-row.mp4"
   caption="Voiceover says the selected row"
 />
 
 NVDA announces the selected row.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/focus-grid-row-nvda.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/focus-grid-row-nvda.mp4"
   caption="NVDA says the selected row"
 />
 
 When I allowed users to select one cell, Voiceover says the cell contents.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/focus-grid-cell.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/focus-grid-cell.mp4"
   caption="Voiceover says the cell"
 />
 
 NVDA says the cell contents, the row, the column header, and the column number.
 
 <Video
-  src="/assets/2020/element-focus-vs-aad/focus-grid-cell-nvda.mp4"
+  src="/src/assets/2020/element-focus-vs-aad/focus-grid-cell-nvda.mp4"
   caption="NVDA says the cell, row, and column"
 />
 

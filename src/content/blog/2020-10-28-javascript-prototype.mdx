@@ -42,15 +42,15 @@ const array = new Array('one', 'two', 'three')
 
 If you `console.log` this array you won't see any methods, but you can use methods like `concat`, `slice`, `filter`, and `map`!
 
-<Image src="/assets/2020/prototype/array.png" alt="Array doesn't contain method." />
+<Image src="/src/assets/2020/prototype/array.png" alt="Array doesn't contain method." />
 
 Why?
 
 Because these methods are located in the Array's prototype. You can expand the `__proto__` object (Chrome Devtools) or `<prototype>` object (Firefox Devtools) and you'll see a list of methods.
 
-<Image src="/assets/2020/prototype/array-prototype.png" caption="Array.prototype contains the methods" />
+<Image src="/src/assets/2020/prototype/array-prototype.png" caption="Array.prototype contains the methods" />
 
-<Image src="/assets/2020/prototype/firefox.png" caption="Firefox logs prototype as <code>prototype</code>" />
+<Image src="/src/assets/2020/prototype/firefox.png" caption="Firefox logs prototype as <code>prototype</code>" />
 
 <Callout>
 Both `__proto__` in Chrome and `<prototype>` in Firefox points to the Prototype object, they're just written differently in different browsers.
@@ -75,7 +75,7 @@ Here’s what JavaScript does when you access a property:
 
 Diagrammatically, here’s what the process looks like:
 
-<Image src="/assets/2020/prototype/prototype-chain.jpg" alt="Prototype chain." />
+<Image src="/src/assets/2020/prototype/prototype-chain.jpg" alt="Prototype chain." />
 
 ### Prototype Chain example
 
@@ -133,7 +133,7 @@ zell.code('website') // Zell coded website
 
 If you `console.log` the instance, you can see the methods in the prototype chain.
 
-<Image src="/assets/2020/prototype/prototype-chain-eg.png" alt="`code` and `sayHello` in the prototype chain." />
+<Image src="/src/assets/2020/prototype/prototype-chain-eg.png" alt="`code` and `sayHello` in the prototype chain." />
 
 ## Prototypal Delegation / Prototypal Inheritance
 

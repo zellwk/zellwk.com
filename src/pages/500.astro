@@ -1,0 +1,26 @@
+---
+import Base from '@/layouts/Base.astro'
+
+export const prerender = false
+const { error } = Astro.props
+console.log(error)
+
+const SEOProps = {
+  title: 'Error',
+  noIndex: true,
+}
+---
+
+<Base {...SEOProps}>
+  <div class="wrap">
+    <article class="article vertical max-w-standard mx-auto">
+      <h1 class="h1 text-center mx-auto" style={{ maxWidth: '45rem' }}>
+        Whoops! Something went wrong.
+      </h1>
+      <div id="content" class="prose max-w-narrow mx-auto">
+        <div>{error}</div>
+        <div>{error.stack}</div>
+      </div>
+    </article>
+  </div>
+</Base>

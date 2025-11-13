@@ -1,11 +1,11 @@
 ---
-layout: '../layouts/BaseMDX.astro'
-title: RSS
+layout: '../layouts/OneColumn.astro'
+title: RSS Feeds
 ---
 
 export const prerender = true
 
-import Callout from '/src/components/Callout.svelte'
+import { Callout } from '@splendidlabz/svelte'
 
 Hello, friend! 🙂
 
@@ -13,5 +13,5 @@ You can subscribe to blog updates via RSS by pasting [this link](/rss.xml) into 
 
 {/* prettier-ignore */}
 <Callout type="note">
-I send plenty of updates (including free workshop previews) to my subscribers via email only. You might want to [subscribe via email](/newsletter) if you don't want to miss them out! 
+I send plenty of updates to my subscribers via email only, you might want to [subscribe via email](/newsletter) if you don't want to miss them out! 
 </Callout>

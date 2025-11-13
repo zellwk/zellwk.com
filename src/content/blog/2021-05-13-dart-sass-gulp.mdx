@@ -54,9 +54,9 @@ gulp css
 ```
 
 <Image
-  src='/assets/2021/dart-sass-gulp/npx-gulp-css.png'
-  alt='Run npx gulp css'
-/>{' '}
+  src="/src/assets/2021/dart-sass-gulp/npx-gulp-css.png"
+  alt="Run npx gulp css"
+/>
 
 ## Transpiling Sass to CSS with Dart Sass
 
@@ -140,7 +140,7 @@ function css() {
       sass({
         includePaths: ['./node_modules'],
         fiber: Fiber,
-      }).on('error', sass.logError)
+      }).on('error', sass.logError),
     )
     .pipe(dest('dist/css'))
 }

@@ -22,35 +22,35 @@ I'll share with you how I notice and code the big picture in this article, and w
 
 When trying to understand the big picture, look at the whole website in general and try to look for places wrappers are required. Its much easier to show this with an example, so I'll use my blog as one.
 
-<Image src="/assets/2014/03/1.png" alt="HTML Header" />
+<Image src="/src/assets/2014/03/1.png" alt="HTML Header" />
 
 The first is an image of the top portion of my blog.
 
 The first thing you should try to locate are the obvious areas, namely the header, content, sidebar (if there are) and footer.
 
-<Image src="/assets/2014/03/1-1.png" alt="HTML Structure Header" />
+<Image src="/src/assets/2014/03/1-1.png" alt="HTML Structure Header" />
 
 Lets do the same for the footer as well
 
-<Image src="/assets/2014/03/2.png" alt="Footer image" />
+<Image src="/src/assets/2014/03/2.png" alt="Footer image" />
 
 In this case, the obvious area are as follows
 
-<Image src="/assets/2014/03/2-1.png" alt="HTML structure footer" />
+<Image src="/src/assets/2014/03/2-1.png" alt="HTML structure footer" />
 
 From these two images, you may have realized that there some have used similar structures (Hint: content and sidebar are two examples).
 
 So if we put them alltogether in one image, the site would look something like this.
 
-<Image src="/assets/2014/03/3.jpg" alt="HTML structure 3" />
+<Image src="/src/assets/2014/03/3.jpg" alt="HTML structure 3" />
 
 But, if you look closely at the structure, you'll also realize that that is a wrapper that contains the left and right blocks, and this wrapper repeats.
 
-<Image src="/assets/2014/03/3-1.png" alt="html structure wraps" />
+<Image src="/src/assets/2014/03/3-1.png" alt="html structure wraps" />
 
 So effectively, the website structure should look something like this
 
-<Image src="/assets/2014/03/3-2.jpg" alt="HTML structure 3.2" />
+<Image src="/src/assets/2014/03/3-2.jpg" alt="HTML structure 3.2" />
 
 ## Writing the Code
 

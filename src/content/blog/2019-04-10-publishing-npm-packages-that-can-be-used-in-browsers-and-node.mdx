@@ -124,7 +124,7 @@ Next, we want to create a file. This will be a JavaScript file. (We will run Nod
 touch index.js
 ```
 
-<Image src="/assets/2019/authoring-packages/node-project.png" caption=""/>
+<Image src="/src/assets/2019/authoring-packages/node-project.png" caption=""/>
 
 In `index.js`, we're going to write a `console.log` statement. This is for us to know if we run the file.
 
@@ -141,7 +141,7 @@ node index.js
 
 Once you run `index.js`, you should see the `console.log` in the terminal. That's how we know the file has ran.
 
-<Image src="/assets/2019/authoring-packages/run-node.png" alt=""/>
+<Image src="/src/assets/2019/authoring-packages/run-node.png" alt=""/>
 
 ### Adding libraries to Node
 
@@ -154,7 +154,7 @@ const fs = require('fs')
 console.log(fs)
 ```
 
-<Image src="/assets/2019/authoring-packages/log-fs.png" alt=""/>
+<Image src="/src/assets/2019/authoring-packages/log-fs.png" alt=""/>
 
 When you use `require`, Node looks for the library you specified in three places:
 
@@ -175,7 +175,7 @@ const express = require('express')
 console.log(express)
 ```
 
-<Image src="/assets/2019/authoring-packages/log-express.png" alt=""/>
+<Image src="/src/assets/2019/authoring-packages/log-express.png" alt=""/>
 
 Third, if you add `./` to `require`, Node will look for a file located in the current directory. This is where we can begin writing the `peach-blossom` library.
 
@@ -187,7 +187,7 @@ Let's start by creating a `peach-blossom.js` file. This file should be in the sa
 touch peach-blossom.js
 ```
 
-<Image src="/assets/2019/authoring-packages/node-peach-blossom.png" caption=""/>
+<Image src="/src/assets/2019/authoring-packages/node-peach-blossom.png" caption=""/>
 
 We can add `peach-blossom.js` to `index.js` by using `require`. Here's what it looks like:
 
@@ -216,7 +216,7 @@ const peachBlossom = (function () {
 const peachBlossom = require('./peach-blossom')
 ```
 
-<Image src="/assets/2019/authoring-packages/node-peach-blossom-error.png" caption=""/>
+<Image src="/src/assets/2019/authoring-packages/node-peach-blossom-error.png" caption=""/>
 
 To pass variables from one file to another in Node, you have to write `module.exports`. Variables passed to `module.exports` can be retrieved from another file.
 

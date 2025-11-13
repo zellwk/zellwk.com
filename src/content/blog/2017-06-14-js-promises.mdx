@@ -36,7 +36,7 @@ const promise = jeffBuysCake('black forest')
 
 Right now, Jeff hasn't acted on his promise yet. In JavaScript, we say the promise is `pending`. You can verify this if you `console.log` a promise object.
 
-<Image src="/assets/2017/promises/pending.png" alt="Logging jeffBuysCake shows that the promise is pending." caption="Logging jeffBuysCake shows that the promise is pending." />
+<Image src="/src/assets/2017/promises/pending.png" alt="Logging jeffBuysCake shows that the promise is pending." caption="Logging jeffBuysCake shows that the promise is pending." />
 
 (When we construct `jeffBuysCake` together later, you will be able to verify this console.log statement for yourself).
 
@@ -157,7 +157,7 @@ const promise = jeffBuysCake('black forest')
 console.log(promise)
 ```
 
-<Image src="/assets/2017/promises/pending.png" alt="Logging jeffBuysCake shows that the promise is pending." caption="Logging jeffBuysCake shows that the promise is pending." />
+<Image src="/src/assets/2017/promises/pending.png" alt="Logging jeffBuysCake shows that the promise is pending." caption="Logging jeffBuysCake shows that the promise is pending." />
 
 If you add `then` and `catch` into the promise chain, you'll also see `black forest cake!` or `no cake 😢` depending on the type of cake you passed into `jeffBuysCake`
 
@@ -167,7 +167,7 @@ const promise = jeffBuysCake('black forest')
   .catch(nocake => console.log(nocake))
 ```
 
-<Image src="/assets/2017/promises/hascake.png" alt="The console shows either black forest cake or no cake, depending on what you pass into jeffBuysCake." caption="The console shows either black forest cake or no cake, depending on what you pass into jeffBuysCake." />
+<Image src="/src/assets/2017/promises/hascake.png" alt="The console shows either black forest cake or no cake, depending on what you pass into jeffBuysCake." caption="The console shows either black forest cake or no cake, depending on what you pass into jeffBuysCake." />
 
 Not too hard to make a promise, isn't it? 😉.
 

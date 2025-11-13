@@ -1,7 +1,7 @@
 ---
 title: The easiest way to use SVGs in an Astro or Svelte app
 description: You can load icons from popular icon sets and custom SVGs with this simple approach.
-tags: [svelte, astro, html, svg, splendid-ui]
+tags: [svelte, astro, html, svg, splendidlabz]
 pubDate: 2023-11-21
 ---
 
@@ -21,14 +21,14 @@ Today I'm going to show you how the [SVG](https://splendidlabz.com/svelte/svg) u
 First, you need to install Splendid UI.
 
 ```shell
-npm install splendid-ui —save
+npm install splendidlabz —save
 ```
 
-Then you import the SVG component from `splendid-ui/svelte`
+Then you import the SVG component from `splendidlabz/svelte`
 
 ```svelte
 <script>
-  import { SVG } from 'splendid-ui/svelte'
+  import { SVG } from 'splendidlabz/svelte'
 </script>
 ```
 
@@ -60,7 +60,7 @@ You can load the icons with the following code in Svelte:
 
 ```svelte
 <script>
-  import { SVG } from 'splendid-ui/svelte'
+  import { SVG } from 'splendidlabz/svelte'
 </script>
 
 <SVG icon="icon-set:icon-name" />
@@ -72,7 +72,7 @@ If you're using Astro, you must add a `client:load` directive or the icons won't
 
 ```astro
 ---
-import { SVG } from 'splendid-ui/svelte'
+import { SVG } from 'splendidlabz/svelte'
 ---
 
 <SVG icon="icon-set:icon-name" client:load />
@@ -84,7 +84,7 @@ Unfortunately, this means you'll see a flicker of invisible icons for a bit when
 
 <Video
   gifReplacement
-  src="/assets/blog/svg/loading-icons.mp4"
+  src="/src/assets/blog/svg/loading-icons.mp4"
   caption="Loading icons on subsequent requests can be pretty quick!"
 />
 
@@ -97,13 +97,13 @@ That's why I'm happy to release the SVG component as it is today.
 You can view all supported icon sets and their respective icons through [Iconify's icon browser](https://icon-sets.iconify.design), the [Figma component](https://www.figma.com/community/plugin/735098390272716381/iconify) or [Icones](https://icones.js.org).
 
 <Image
-  src="/assets/blog/svg/iconify icon browser.png"
+  src="/src/assets/blog/svg/iconify icon browser.png"
   caption="
 Iconify icon browser"
 />
 
 <Image
-  src="/assets/blog/svg/iconify-icon-name.png"
+  src="/src/assets/blog/svg/iconify-icon-name.png"
   caption="Finding an icon's name"
 />
 
@@ -124,7 +124,7 @@ For example, if you have an SVG that is called `logo.svg`, you only need to pass
 
 ```astro
 ---
-import { SVG } from 'splendid-ui/svelte'
+import { SVG } from 'splendidlabz/svelte'
 ---
 
 <SVG icon="logo" />

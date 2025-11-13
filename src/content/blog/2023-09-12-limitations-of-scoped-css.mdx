@@ -67,8 +67,8 @@ If I try to style the SVG from the `Menu` component, the styles will not be appl
 ```
 
 <Image
-  src='/assets/blog/limitations-of-scoped-css/black-menu.png'
-  alt='SVG is still colored black'
+  src="/src/assets/blog/limitations-of-scoped-css/black-menu.png"
+  alt="SVG is still colored black"
 />
 
 And I'm forced to use the `global` or the `global` selector to style this SVG.
@@ -90,8 +90,8 @@ And I'm forced to use the `global` or the `global` selector to style this SVG.
 ```
 
 <Image
-  src='/assets/blog/limitations-of-scoped-css/red-menu.png'
-  alt='SVG is still colored red'
+  src="/src/assets/blog/limitations-of-scoped-css/red-menu.png"
+  alt="SVG is still colored red"
 />
 
 ### The Global Attribute
@@ -207,8 +207,8 @@ If you try to style the slot content from `Article` with Scoped CSS, you'll real
 ```
 
 <Image
-  src='/assets/blog/limitations-of-scoped-css/black-article.png'
-  alt='h2 and p are still black in color'
+  src="/src/assets/blog/limitations-of-scoped-css/black-article.png"
+  alt="h2 and p are still black in color"
 />
 
 You need to use the `global` attribute or the `global` selector instead.
@@ -239,8 +239,8 @@ Here's how I would style the slot content.
 ```
 
 <Image
-  src='/assets/blog/limitations-of-scoped-css/colored-article.png'
-  alt='h2 and p are now coloured'
+  src="/src/assets/blog/limitations-of-scoped-css/colored-article.png"
+  alt="h2 and p are now coloured"
 />
 
 When you use `global` selectors to style slot content, pay attention to these points:
@@ -252,8 +252,8 @@ When you use `global` selectors to style slot content, pay attention to these po
 If you did what I just mentioned, your selectors should look somewhat like this:
 
 <Image
-  src='/assets/blog/limitations-of-scoped-css/scoped-selector.png'
-  alt='How a scoped selector looks like in the devtools'
+  src="/src/assets/blog/limitations-of-scoped-css/scoped-selector.png"
+  alt="How a scoped selector looks like in the devtools"
 />
 
 ## Wrapping Up

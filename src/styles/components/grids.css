@@ -1,0 +1,11 @@
+.grid-content-sidebar {
+  @apply vertical;
+
+  @media screen and (width >= 1000px) {
+    @apply grid-fr-auto gap-8;
+    --content-width: 33rlh;
+    --sidebar-width: 10rlh;
+    max-width: calc(var(--content-width) + var(--sidebar-width));
+    margin-inline: auto;
+  }
+}

@@ -1,9 +1,12 @@
 export default {
   appName: 'zellwk.com',
-  siteTitle: 'Zell Liew',
-  siteDescription: `This is where I share the things I know and learned about Web Development and Web Design.`,
-  siteUrl: 'https://zellwk.com',
-
+  site: {
+    title: 'Zell Liew',
+    description: ``,
+    url: 'https://zellwk.com',
+    OGImageFallback: '',
+    OGImageFallbackAlt: '',
+  },
   port: getPort(),
   apiRoot: getAPIRoot(),
   syncDestination: '/var/www/zellwk.com',

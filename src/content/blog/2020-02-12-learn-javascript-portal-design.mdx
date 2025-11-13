@@ -12,7 +12,7 @@ Learn JavaScript is my flagship JavaScript course. It helps people go from knowi
 Today, I want to share with you how I designed Learn JavaScript's course portal.
 
 <Image
-  src="/assets/2020/ljs-portal/login.png"
+  src="/src/assets/2020/ljs-portal/login.png"
   alt="Learn JavaScript login page."
 />
 
@@ -25,7 +25,7 @@ I started by designing the lessons page because most of your time would be spent
 Each lesson in Learn JavaScript is an article. They contain images, gifs, videos, and code blocks.
 
 <Image
-  src="/assets/2020/ljs-portal/article.png"
+  src="/src/assets/2020/ljs-portal/article.png"
   caption="Example of Learn JavaScript content"
 />
 
@@ -50,12 +50,12 @@ I had two choices here:
 2. Align the column closer to the left edge (like this blog)
 
 <Image
-  src="/assets/2020/ljs-portal/center-align.png"
+  src="/src/assets/2020/ljs-portal/center-align.png"
   caption="Aligning in the middle"
 />
 
 <Image
-  src="/assets/2020/ljs-portal/left-align.png"
+  src="/src/assets/2020/ljs-portal/left-align.png"
   caption="Align closer to the left edge"
 />
 
@@ -72,7 +72,7 @@ This meant I only had to design for three heading levels: `h1`, `h2`, and `h3`.
 `h1` was easy. I used a large (but workable) `font-size` to draw attention. While creating `h1`, I also toyed around with using Adelle Condensed, but I decided that Adelle Sans was good enough. There was no need to introduce another typeface.
 
 <Image
-  src="/assets/2020/ljs-portal/h1.png"
+  src="/src/assets/2020/ljs-portal/h1.png"
   alt="Level 1 heading has a large size compared to the rest of the page."
 />
 
@@ -82,7 +82,10 @@ This meant I only had to design for three heading levels: `h1`, `h2`, and `h3`.
 
 I also added more whitespace to above each `h2` to separate sections of text. This allows users to associate `h2` with the next set of content.
 
-<Image src="/assets/2020/ljs-portal/h2.png" alt="Example of the h2 element." />
+<Image
+  src="/src/assets/2020/ljs-portal/h2.png"
+  alt="Example of the h2 element."
+/>
 
 `h3` is a subheading. It needs to be significantly different from `h2` so students immediately tell that the `h3` is a subheading. At the same time, it needs to have enough contrast with the body text.
 
@@ -92,7 +95,7 @@ I had to work on other elements before coming back to it.
 
 Eventually, I went with a gradient underline. I'll explain why I did this below.
 
-<Image src="/assets/2020/ljs-portal/h3.png" alt="Example of h3" />
+<Image src="/src/assets/2020/ljs-portal/h3.png" alt="Example of h3" />
 
 ### Code
 
@@ -111,14 +114,14 @@ When I choose colors, I **start by thinking about the message I want to convey**
 Yellow comes to mind when I think of fun. Yellow is bright, has high energy, and conveys a sense of optimism. So I chose yellow as my primary color.
 
 <Image
-  src="/assets/2020/ljs-portal/color-emotion.png"
+  src="/src/assets/2020/ljs-portal/color-emotion.png"
   alt="Color emotion chart."
 />
 
 It also helped that JavaScript is usually associated with yellow. (No idea why though).
 
 <Image
-  src="/assets/2020/ljs-portal/js.jpg"
+  src="/src/assets/2020/ljs-portal/js.jpg"
   alt="JavaScript logos made with yellow."
 />
 
@@ -142,7 +145,7 @@ On top of the primary colors we chose, we also need these colors:
 Steve suggested we should create 9 different shades of each color we use.
 
 <Image
-  src="/assets/2020/ljs-portal/steve-colors.png"
+  src="/src/assets/2020/ljs-portal/steve-colors.png"
   alt="9 shades of 6 different colors."
 />
 
@@ -151,7 +154,7 @@ I didn't have the luxury to pick colors from scratch for this project. I only ga
 So I grabbed one of the color palettes Steve created for Refactoring UI. I looked for one that contains blue and yellow.
 
 <Image
-  src="/assets/2020/ljs-portal/palette.jpg"
+  src="/src/assets/2020/ljs-portal/palette.jpg"
   alt="The color palette from Refactoring UI that I used for the project."
 />
 
@@ -166,7 +169,7 @@ I love the gradient links in CSS Trick's redesign. When I saw them, I told mysel
 Here's the links I created:
 
 <Image
-  src="/assets/2020/multi-line-gradient/link.gif"
+  src="/src/assets/2020/multi-line-gradient/link.gif"
   alt="Blue color link with blue underline. When hovered, the text has an orange to yellow gradient; underline becomes solid orange."
 />
 
@@ -183,7 +186,7 @@ However, the contrast between `black` and `white` is too strong. Many people cho
 I chose to reduce the contrast further by setting a light grey background. This eases the strain on the eyes, which allows my students to concentrate for a longer period.
 
 <Image
-  src="/assets/2020/ljs-portal/text-color.jpg"
+  src="/src/assets/2020/ljs-portal/text-color.jpg"
   alt="Background color set to #f7f7f7. Text color set to #222"
 />
 
@@ -194,7 +197,7 @@ Inline code requires a boundary. I can either create this boundary with `backgro
 I was quite happy with the result.
 
 <Image
-  src="/assets/2020/ljs-portal/inline-code.png"
+  src="/src/assets/2020/ljs-portal/inline-code.png"
   alt="Code has yellow background when placed inside a paragraph."
 />
 
@@ -203,7 +206,7 @@ I was quite happy with the result.
 Code blocks require syntax highlighting. Here, I went with [Dracula][5] because the emotional temperature of the colors match what I'm trying to convey. They're bright and kinda funky.
 
 <Image
-  src="/assets/2020/ljs-portal/code-block.png"
+  src="/src/assets/2020/ljs-portal/code-block.png"
   alt="Code block uses Dracula theme."
 />
 
@@ -211,7 +214,7 @@ Code blocks require syntax highlighting. Here, I went with [Dracula][5] because 
 
 Since I used gradients for links, I thought about trying gradients to emphasize h3. I was surprised by the results. It looked good.
 
-<Image src="/assets/2020/ljs-portal/h3.png" alt="Example of h3" />
+<Image src="/src/assets/2020/ljs-portal/h3.png" alt="Example of h3" />
 
 There are three reasons why it looked good.
 
@@ -224,7 +227,7 @@ There are three reasons why it looked good.
 Since the gradients looked so good with the `h3`, I decided it add another gradient to separate the lesson and the navigation.
 
 <Image
-  src="/assets/2020/ljs-portal/article.png"
+  src="/src/assets/2020/ljs-portal/article.png"
   alt="Orange-yellow gradient separates the navigation from the rest of the page."
 />
 

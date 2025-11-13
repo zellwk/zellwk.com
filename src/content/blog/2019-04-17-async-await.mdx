@@ -3,7 +3,7 @@ title: JavaScript async and await
 description: Everything you need to know about asynchronous functions in this two-part series.
 slug: async-await
 series: async-await
-tags: [javascript]
+tags: [asyncjs, javascript, magicaldevs]
 pubDate: 2019-04-17
 leadModal: learn-javascript
 ---
@@ -214,7 +214,7 @@ sleep(1000)
   })
 ```
 
-<Image src="/assets/2019/async-await/sleep.gif" alt="Console logs 'now' immediately. One second later, it logs 'After one second'"/>
+<Image src="/src/assets/2019/async-await/sleep.gif" alt="Console logs 'now' immediately. One second later, it logs 'After one second'"/>
 
 Let's say `getOne` takes one second to resolve. To create this delay, we pass `1000` (one second) into `sleep`. After one second has passed and the `sleep` promise resolves, we return the value 1.
 
@@ -237,7 +237,7 @@ const test = async _ => {
 test()
 ```
 
-<Image src="/assets/2019/async-await/block-1.gif" alt="Console logs 'Now' immediately. After one second, console logs 1"/>
+<Image src="/src/assets/2019/async-await/block-1.gif" alt="Console logs 'Now' immediately. After one second, console logs 1"/>
 
 Now let's say you need to wait for three promises. Each promise has a one-second delay.
 
@@ -274,7 +274,7 @@ const test = async _ => {
 test()
 ```
 
-<Image src="/assets/2019/async-await/block-2.gif" alt="Console shows 'Now' immediately. One second later, it shows 1. Another second later, it shows 2. Another second later, it shows 3 and 'Done' at the same time."/>
+<Image src="/src/assets/2019/async-await/block-2.gif" alt="Console shows 'Now' immediately. One second later, it shows 1. Another second later, it shows 2. Another second later, it shows 3 and 'Done' at the same time."/>
 
 If `getOne`, `getTwo` and `getThree` can be fetched simultaneously, you'll save two seconds. You can fetch these three promises at the same time with `Promise.all`.
 
@@ -302,7 +302,7 @@ const test = async _ => {
 test()
 ```
 
-<Image src="/assets/2019/async-await/block-3.gif" alt="Console shows 'Now' immediately. After one second, console shows 1, 2, 3, and 'Done'."/>
+<Image src="/src/assets/2019/async-await/block-3.gif" alt="Console shows 'Now' immediately. After one second, console shows 1, 2, 3, and 'Done'."/>
 
 That's all you need to know about basic asynchronous functions! I hope this article clears things up for you.
 

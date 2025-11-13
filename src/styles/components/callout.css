@@ -1,0 +1,11 @@
+.callout {
+  --radius: calc(var(--spacing) * 3);
+  --border-width: 2px;
+  --border-color: var(--color-zgray-600);
+
+  .callout-header {
+    @apply june;
+    --font-style: 80;
+    color: var(--color-zpurple-500);
+  }
+}

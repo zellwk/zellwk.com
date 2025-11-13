@@ -2,11 +2,12 @@ import mdx from '@astrojs/mdx'
 import node from '@astrojs/node'
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
+// import { transformerColorizedBrackets } from '@shikijs/colorized-brackets'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 import { URL, fileURLToPath } from 'node:url'
+import twilightCosmos from 'twilight-cosmos-theme'
 import redirects from './redirect.config.js'
-import cssVariablesTheme from './shiki-css-theme.js'
 import config from './site-config.js'
 
 // https://astro.build/config
@@ -25,7 +26,7 @@ export default defineConfig({
   adapter: node({ mode: 'server' }),
   markdown: {
     shikiConfig: {
-      theme: cssVariablesTheme,
+      theme: twilightCosmos,
       langs: [
         'shell',
         'php',
@@ -41,6 +42,7 @@ export default defineConfig({
         'md',
         'mdx',
       ],
+      // transformers: [transformerColorizedBrackets()],
     },
   },
 })

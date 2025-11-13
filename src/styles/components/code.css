@@ -1,17 +1,35 @@
 /* Shiki CSS Variables Theme */
 /* Uncomment the theme you want to use */
 
+pre.shiki,
+pre.astro-code {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: var(--shiki-foreground);
+  background-color: var(--shiki-background);
+  overflow-x: auto;
+}
+
+pre.shiki code,
+pre.astro-code code {
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background: none;
+}
+
 /* Custom Theme */
 :root {
   /* --scrollbar-thumb-color: var(--scrollbar-thumb-color-dark);
   --scrollbar-track-color: var(--scrollbar-track-color-dark); */
-  --shiki-token-comment: #7e7d86;
-  --shiki-token-keyword: var(--color-zpurple-500);
-  --shiki-token-constant: oklch(83% 0.16 84.71deg);
-  --shiki-token-function: var(--color-zcyan-500);
-  --shiki-token-string-expression: var(--color-zred-500);
   --shiki-foreground: var(--color-zpurple-50);
   --shiki-background: #222027;
+  --shiki-token-comment: #7e7d86;
+  --shiki-token-keyword: var(--color-zpurple-500);
+  --shiki-token-constant: var(--color-zorange-500);
+  --shiki-token-function: var(--color-zcyan-500);
+  --shiki-token-string-expression: var(--color-zgreen-500);
 
   /* Not sure what these are used for */
   --shiki-token-string: #f1fa8c;

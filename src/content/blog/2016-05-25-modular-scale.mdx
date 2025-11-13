@@ -69,8 +69,8 @@ Modular Scale gives you a `ms()` function to calculate the `font-size` you wante
 It takes in a number, the nth-step you want your font-size to be. By step, I mean the font-size is the number nth on your scale, like this:
 
 <Image
-  src='/assets/2016/everything-about-ms/modular-scale-steps.png'
-  caption='Modular Scale Steps'
+  src="/src/assets/2016/everything-about-ms/modular-scale-steps.png"
+  caption="Modular Scale Steps"
 />
 
 Here's how you use the function:
@@ -119,8 +119,8 @@ $ms3: ms(3); // => 1.777em
 ```
 
 <Image
-  src='/assets/2016/everything-about-ms/double-ratio.png'
-  caption='Steps for a double-ratio scale'
+  src="/src/assets/2016/everything-about-ms/double-ratio.png"
+  caption="Steps for a double-ratio scale"
 />
 
 Likewise, you can also change the base `font-size` of the Modular Scale by setting the `$ms-base` property. The default `font-size` used is `1em`.
@@ -146,8 +146,8 @@ $ms3: ms(3); // => 2em
 ```
 
 <Image
-  src='/assets/2016/everything-about-ms/double-base-scale.png'
-  caption='Steps for a double-base scale'
+  src="/src/assets/2016/everything-about-ms/double-base-scale.png"
+  caption="Steps for a double-base scale"
 />
 
 Finally, Modular Scale gives you a `ms-respond` mixin that allows you to the change ratio of your Scale at different breakpoints. I've went in-depth into this on a [separate article](/blog/changing-modular-scale).
@@ -190,7 +190,7 @@ $ms-ratio: 1.25;
 $h1-map: (
   null: ms(3),
   // 2.92969em
-  small: ms(4) // 3.66211em,,
+  small: ms(4), // 3.66211em,,
 );
 ```
 
@@ -217,7 +217,7 @@ $h1-map: (
   null: 2,
   // 2nd step
   small: 3 // 3rd step
-  large: 4 // 4th step,,
+  large: 4, // 4th step,,
 );
 ```
 
@@ -319,24 +319,20 @@ $typi-ms: (
   // Single ratio of 1.2
   small: 1.2 1.5,
   // Two ratios, 1.2 and 1.5
-  med:
-    (
+  med: (
       1em,
       1.5,
     ),
   // Single base of 1em and single ratio of 1.5
-  large:
-    (
+  large: (
       1em 2em,
       1.618,
     ),
   // Double bases and a single ratio
-  dont-do-this:
-    (
+  dont-do-this: (
       1em 2em,
       1.333 1.618,
-    )
-    // Double bases and double ratios,,
+    ), // Double bases and double ratios,,
 );
 ```
 

@@ -5,9 +5,12 @@ const {
   user = 'zellwk',
   author = 'Zell Liew',
   themeID = 7929,
-  hash,
+  link,
   title,
 } = Astro.props
+
+// Extract hash from link if link is provided
+const hash = link ? link.split('/pen/')[1] : undefined
 ---
 
 <p
@@ -21,7 +24,7 @@ const {
   data-pen-title={title}
 >
   <span
-    >See the Pen <a href=`https://codepen.io/${user}/pen/${hash}`>
+    >See the Pen <a href={link}>
       {title}
     </a>by {author} (<a href={`https://codepen.io/${user}`}>@{user}</a>) on<a
       href="https://codepen.io">CodePen</a

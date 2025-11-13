@@ -167,7 +167,7 @@ const moreThanTen = numbers.filter(getMoreThanTen)
 
 This is why you'd use callbacks in a synchronous function. Now, let's move on and look at why we use callbacks in asynchronous functions.
 
-<div class='jsCkClone'></div>
+<div class="jsCkClone"></div>
 
 ### Callbacks in asynchronous functions
 
@@ -257,7 +257,7 @@ addOne(6) // 7
 This is what would appear on JavaScript's todo-list.
 
 <Image
-  src='/assets/2017/callbacks/todo.png'
+  src="/src/assets/2017/callbacks/todo.png"
   alt="Commands appear synchronously on JavaScript's todo list"
   caption="Commands appear synchronously on JavaScript's todo list"
 />
@@ -286,33 +286,33 @@ ironClothes()
 JavaScript's initial todo-list would be:
 
 <Image
-  src='/assets/2017/callbacks/todo2.png'
+  src="/src/assets/2017/callbacks/todo2.png"
   alt="JavaScript's todo list"
-  caption='Order pizza, mop floor and iron clothes! 😄'
+  caption="Order pizza, mop floor and iron clothes! 😄"
 />
 
 Then, while going through `orderPizza`, JavaScript knows it needs to wait for the pizza to arrive. So, it adds "waiting for pizza to arrive" to its waiting list while it tackles the rest of its jobs.
 
 <Image
-  src='/assets/2017/callbacks/waiting.png'
-  alt='JavaScript waits for pizza to arrive'
-  caption='JavaScript waits for pizza to arrive'
+  src="/src/assets/2017/callbacks/waiting.png"
+  alt="JavaScript waits for pizza to arrive"
+  caption="JavaScript waits for pizza to arrive"
 />
 
 When the pizza arrives, JavaScript gets notified by the doorbell and it makes a **mental note** to execute `layTheTable` when it's done with the other chores
 
 <Image
-  src='/assets/2017/callbacks/mental-note.png'
-  alt='JavaScript knows it needs to execute layTheTable by adding the command to its mental note'
-  caption='JavaScript knows it needs to execute layTheTable by adding the command to its mental note'
+  src="/src/assets/2017/callbacks/mental-note.png"
+  alt="JavaScript knows it needs to execute layTheTable by adding the command to its mental note"
+  caption="JavaScript knows it needs to execute layTheTable by adding the command to its mental note"
 />
 
 Then, once it's done with the other chores, JavaScript executes the callback function, `layTheTable`.
 
 <Image
-  src='/assets/2017/callbacks/lay-table.png'
-  alt='JavaScript lays the table when everything else is completed'
-  caption='JavaScript lays the table when everything else is completed'
+  src="/src/assets/2017/callbacks/lay-table.png"
+  alt="JavaScript lays the table when everything else is completed"
+  caption="JavaScript lays the table when everything else is completed"
 />
 
 This, my friend, is called the Event Loop. You can substitute our butler analogy with actual keywords in the Event loop to understand everything:
@@ -322,7 +322,7 @@ This, my friend, is called the Event Loop. You can substitute our butler analogy
 - **Mental note** -> Event queue
 
 <Image
-  src='/assets/2017/callbacks/event-loop.png'
+  src="/src/assets/2017/callbacks/event-loop.png"
   alt="JavaScript's event loop"
   caption="JavaScript's event loop"
 />
@@ -330,10 +330,10 @@ This, my friend, is called the Event Loop. You can substitute our butler analogy
 I highly recommend you watch [Philip Roberts](https://twitter.com/philip_roberts) JSConf talk about event loops if you got 20 mins to spare. It'll help you understand the nitty gritty of event loops.
 
 <iframe
-  width='560'
-  height='315'
-  src='https://www.youtube.com/embed/8aGhZQkoFbQ'
-  frameborder='0'
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/8aGhZQkoFbQ"
+  frameborder="0"
   allowfullscreen
 ></iframe>
 
@@ -403,7 +403,7 @@ app.get('/', function (req, res) {
         },
         function (err, document) {
           res.json({ user: document })
-        }
+        },
       )
     } else {
       user.create(req.body, function (err, document) {
@@ -427,7 +427,7 @@ const updateUser = (req, res) => {
     function () {
       if (err) throw err
       return res.json(user)
-    }
+    },
   )
 }
 

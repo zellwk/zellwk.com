@@ -25,8 +25,8 @@ Let's assume that you're going to use the following numbers:
 Let's also say that your `h1` font-size is set to the 3rd step. When I say the 3rd step, I mean the font-size of your `h1` is the third number on the scale:
 
 <Image
-  src='/assets/2016/changing-ms-ratio/modular-scale-steps.png'
-  caption='Modular Scale Steps'
+  src="/src/assets/2016/changing-ms-ratio/modular-scale-steps.png"
+  caption="Modular Scale Steps"
 />
 
 Mathematically, you can calculate the size of this step by multiplying the base font-size by the ratio to a power of the step:
@@ -75,7 +75,10 @@ Today, we're not going to look at everything in the Modular Scale plugin. **We'r
 To change the ratio across different device widths, **you first need to create a variable called `$ms-range`**. This variable is a list of values that contain two numbers in each argument:
 
 ```scss
-$ms-range: 1.2 20em, 1.333 30em, 1.618 40em;
+$ms-range:
+  1.2 20em,
+  1.333 30em,
+  1.618 40em;
 ```
 
 In each argument, **the first number is the ratio** you'll like to use for your Modular Scale. **The second number is the minimum width where the ratio kicks in**. So, the `$ms-range` you see here will produce font-sizes such that:
@@ -136,8 +139,8 @@ Calculating viewport-based typography is complicated. I've dove into more detail
 Anyway, since the Modular Scale plugin uses viewport based typography, you'll see your `h1` changing sizes whenever you resize your browser between 20em and 40em:
 
 <Image
-  src='/assets/2016/changing-ms-ratio/change-ratio.gif'
-  alt='Changing Ratio of Modular Scale'
+  src="/src/assets/2016/changing-ms-ratio/change-ratio.gif"
+  alt="Changing Ratio of Modular Scale"
 />
 
 Many people love viewport-based typography because they get to write lesser media queries and their font-sizes changes automatically.

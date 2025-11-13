@@ -1,0 +1,8 @@
+.search-input {
+  --border-color: var(--color-zgray-600);
+  --border-hover-color: var(--color-zpurple-500);
+
+  input::placeholder {
+    color: var(--color-zgray-600);
+  }
+}

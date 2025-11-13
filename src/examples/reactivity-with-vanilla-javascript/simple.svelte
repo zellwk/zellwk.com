@@ -1,5 +1,5 @@
 <script>
-  import Callout from '../../components/Callout.svelte'
+  import { Callout } from '@splendidlabz/svelte'
 
   let show = false
   function toggle() {

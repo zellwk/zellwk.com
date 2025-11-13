@@ -1,3 +1,7 @@
 .section {
-  padding-block: var(--spacing-section);
+  padding-block: calc(var(--spacing) * 8);
+
+  @media screen and (width >= 800px) {
+    padding-block: var(--spacing-section);
+  }
 }

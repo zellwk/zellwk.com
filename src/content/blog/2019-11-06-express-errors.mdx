@@ -36,7 +36,7 @@ Express's default error handler will:
 2. Sends a text response to the requester
 3. Logs the text response in the console
 
-<Image src="/assets/2019/express-errors/sync-error.png" alt="Error returns to the client" />
+<Image src="/src/assets/2019/express-errors/sync-error.png" alt="Error returns to the client" />
 ## Handling asynchronous errors
 
 If you want to handle an asynchronous error, you need to send the error into an express error handler through the `next` argument.
@@ -47,7 +47,7 @@ app.post('/testing', async (req, res, next) => {
 })
 ```
 
-<Image src="/assets/2019/express-errors/async-error-log.png" alt="" />
+<Image src="/src/assets/2019/express-errors/async-error-log.png" alt="" />
 If you're using Async/await in an Express app, you want to use a wrapper function like [express-async-handler][1]. This lets you write asynchronous code without try/catch blocks. I wrote more about this in "[Using Async/await in Express][2]".
 
 ```js
@@ -72,7 +72,7 @@ app.post(
 )
 ```
 
-<Image src="/assets/2019/express-errors/async-handler-error-log.png" alt="" />
+<Image src="/src/assets/2019/express-errors/async-handler-error-log.png" alt="" />
 ## Writing a custom error handler
 
 Express error handlers take in four arguments:
@@ -177,7 +177,7 @@ app.use((error, req, res, next) => {
 })
 ```
 
-<Image src="/assets/2019/express-errors/http-errors.png" alt="Status code and error message logged into the console. " />
+<Image src="/src/assets/2019/express-errors/http-errors.png" alt="Status code and error message logged into the console. " />
 Then, you set the error status with `res.status`. You send the message with `res.json`.
 
 ```js
@@ -234,7 +234,7 @@ app.use((error, req, res, next) => {
 })
 ```
 
-<Image src="/assets/2019/express-errors/fallback-error.png" alt="Error does not contain the status property" />
+<Image src="/src/assets/2019/express-errors/fallback-error.png" alt="Error does not contain the status property" />
 In these cases, you can default to 500 Internal Server Error.
 
 ```js
@@ -282,12 +282,12 @@ app.use((req, res, next) => {
 // Error handler...
 ```
 
-<Image src="/assets/2019/express-errors/not-found-error.png" alt="Not found error sent to the client." />
+<Image src="/src/assets/2019/express-errors/not-found-error.png" alt="Not found error sent to the client." />
 ## Regarding "Cannot set headers after they are sent to the client"
 
 Don't panic if you see an error that says "Cannot set headers after they're sent to the server".
 
-<Image src="/assets/2019/express-errors/http-errors.png" alt="Error: Cannot set headers after they're sent." />
+<Image src="/src/assets/2019/express-errors/http-errors.png" alt="Error: Cannot set headers after they're sent." />
 This error happens because the code ran methods that set response headers more than once in the same handler. These are the methods that set a response headers for you:
 
 1. `res.send`

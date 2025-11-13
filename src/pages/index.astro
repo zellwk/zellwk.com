@@ -6,61 +6,66 @@ import { now } from '../content/data/now'
 import Base from '../layouts/Base.astro'
 
 const files = await getCollection('blog')
-const posts = (await processFiles(files)).slice(0, 5)
+const posts = (await processFiles(files)).slice(0, 9)
 console.dir(posts[0], { depth: 1 })
 
 export const prerender = true
 ---
 
-<Base bodyClass="home-page">
+<Base bodyClass="home-page [--radius:1.25rlh]">
   <section class="section">
     <div class="wrap">
-      <div class="grid-simple [--cols:3] gap-large max-w-standard mx-auto">
-        <div class="vertical [--span:2] gap-large">
+      <div class="grid-simple bp11:[--cols:3] gap-large max-w-standard mx-auto">
+        <div class="vertical bp11:[--span:2] gap-large">
           <div class="vertical">
-            <div class="relative">
-              <hgroup>
+            <div class="vertical relative">
+              <hgroup class="max-bp6:text-center">
                 <h1 class="h1 text-zpurple-500">Heya, I'm Zell</h1>
                 <p class="h1-subhead">Welcome to my corner of the internet</p>
               </hgroup>
               <Image
-                figureClass="pos-right -z-1 max-w-[16rem]"
+                figureClass="-order-1 mx-auto bp6:pos-right -z-1 max-w-[12rem] bp8:max-w-[16rem]"
                 class="rounded-full"
                 src="/src/assets/zell/zell.jpg"
                 alt="Zell"
               />
             </div>
-            <div class="prose-tight card card-purple text-11">
+            <div
+              class="prose-tight card card-purple text-9 bp6:text-10 bp9:text-11"
+            >
               <!-- prettier-ignore -->
               <Markdown>
-                I'm a developer who builds products and thinks about life. I started out by teaching front-end development, helping millions of developers learn to build for the web.  
-                
-                I've also invested a large amount of time, money, and energy psychology and personal development. And it helped me change the way I see the world. 
+                I'm a web developer who builds products and thinks about how to live. I started out by teaching front-end development, helping millions of developers become better at building for the web. 
+
+                Over the years, I've invested a large amount of time, money, and energy into learning about psychology and personal development --- this has helped to change the way I see the world. 
 
                 These days, I'm building products and exploring what makes a sustainable creator businesses. I bring a dev background + deep interest in psychology and human development to everything I make.
               </Markdown>
-              <a class="button self-start pigment-purple-filled">
+              <a
+                href="/about/"
+                class="button self-start !pigment-purple-filled"
+              >
                 Read about my story
               </a>
             </div>
           </div>
 
-          <div class="vertical">
+          <div class="vertical mt-4">
             <hgroup>
               <h2 class="h1 text-zorange-500 june-curious">Now Now Now</h2>
               <p class="h1-subhead">Things I'm focusing on right now</p>
             </hgroup>
 
-            <div class="grid-simple [--cols:2]">
+            <div class="masonry bp6:[--cols:2]">
               {
                 now.map(item => (
                   <div
-                    class="card gap-[0.5em] border-zorange-500 subgrid-rows "
+                    class="vertical card card-orange card-small !max-w-full"
                     style={{
                       '--rowspan': item.cta ? '3' : '2',
                     }}
                   >
-                    <h3 class="h3 text-zorange-500">{item.title}</h3>
+                    <h3 class="h3 card-title text-zorange-500">{item.title}</h3>
                     <Markdown>{item.content}</Markdown>
                     {item.cta && (
                       <a
@@ -77,10 +82,10 @@ export const prerender = true
           </div>
         </div>
 
-        <div class="vertical [--span:1] gap-large">
+        <div class="vertical gap-large">
           <div class="vertical">
             <div
-              class="card-divided card-divided-vertical [--border-color:var(--color-zcyan-500)]"
+              class="card-divided card-divided-vertical [--padding:0.75rlh] [--border-color:var(--color-zcyan-500)]"
             >
               <h2 class="h2 text-zcyan-500 text-center">Blog</h2>
 
@@ -108,9 +113,9 @@ export const prerender = true
             </div>
           </div>
 
-          <div class="vertical">
+          <!-- <div class="vertical">
             <div
-              class="card-divided card-divided-vertical [--border-color:var(--color-zcyan-500)]"
+              class="card-divided card-divided-vertical [--padding:0.75rlh] [--border-color:var(--color-zcyan-500)]"
             >
               <h2 class="h2 text-zcyan-500 text-center">Shorts</h2>
 
@@ -136,7 +141,7 @@ export const prerender = true
                 See more shorts
               </a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

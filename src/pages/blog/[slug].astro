@@ -1,24 +1,12 @@
 ---
-import { Partial, SVG } from '@splendidlabz/astro'
+import { components } from '@/components/blogPostComponents.js'
+import { Markdown, Partial, SVG } from '@splendidlabz/astro'
 import { processFiles } from '@splendidlabz/astro/content'
 import { ContentList } from '@splendidlabz/svelte'
 import { getCollection, render } from 'astro:content'
-// import Freebie from '/src/components/Freebie.astro'
-import { Markdown } from '@splendidlabz/astro'
-// import PostNav from '/src/components/PostNav.astro'
 import { formatDate } from 'date-fns'
 import PrevNextNav from '/src/components/PrevNextNav.astro'
 import Base from '/src/layouts/Base.astro'
-
-// For Components
-import { Image, Video } from '@splendidlabz/astro'
-import Button from '/src/components/legacy/Button.svelte'
-import Callout from '/src/components/legacy/Callout.svelte'
-import Codepen from '/src/components/legacy/Codepen.astro'
-import Tweet from '/src/components/legacy/Tweet.astro'
-import Youtube from '/src/components/legacy/Youtube.svelte'
-
-const components = { Image, Video, Youtube, Codepen, Button, Callout, Tweet }
 
 export const prerender = true
 
@@ -52,7 +40,7 @@ const dateText =
 
 <Base {...post.data}>
   <div class="wrap">
-    <article class="article grid-fr-auto mx-auto max-w-[calc(33rlh+10rlh)]">
+    <article class="article grid-content-sidebar">
       <header>
         <div class="meta">
           <div class="text-zgray-500">
@@ -60,25 +48,25 @@ const dateText =
             {formatDate(post.data.date, 'MMM d, yyyy')}
           </div>
 
-          <div class="tags text-zgray-500">
-            <span>Filed under:</span>
+          <div class="flow gap-[0.25em] text-zgray-500">
+            <span>Filed under: </span>
             {
-              post.data.tags.map((tag, index) => (
-                <>
-                  <a
-                    class="pigment-gray-text underline"
-                    href={`/tags/${tag.toLowerCase()}`}
-                  >
-                    #{tag.toLowerCase()}
-                  </a>
-                  {index !== post.data.tags.length - 1 && <span>, </span>}
-                </>
-              ))
+              post.data.tags.map((tag, index) => {
+                const isLast = index === post.data.tags.length - 1
+                // prettier-ignore
+                return (
+                  <div>
+                    <a class="pigment-gray-text underline" href={`/tags/${tag.toLowerCase()}`}>#{tag.toLowerCase()}</a>{!isLast && <span>, </span>}
+                  </div>
+                )
+              })
             }
           </div>
         </div>
         <hgroup>
-          <h1 class="h1"><Markdown inline>{post.data.title} </Markdown></h1>
+          <h1 class="h1">
+            <Markdown inline>{post.data.title} </Markdown>
+          </h1>
         </hgroup>
       </header>
 
@@ -88,7 +76,7 @@ const dateText =
         <Content {components} />
       </div>
 
-      <div class="w-[10rlh] max-w-full">
+      <div class="w-[10rlh] max-w-full max-bp10:hidden">
         <ContentList
           class="content-list sticky top-4"
           label="On This Page"
@@ -107,5 +95,6 @@ const dateText =
   <div class="mt-section">
     <SVG class="rotate-180 simple-svg stroke-zred-500" icon="wriggle-line" />
   </div>
+
   <Partial path="JoinMyNewsletter" />
 </Base>

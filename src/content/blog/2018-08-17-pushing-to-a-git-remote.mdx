@@ -45,7 +45,7 @@ Sign in to Github. Create an account if you don't have one already.
 Once you sign in, you'll see a plus (+) button on the right-hand corner of the page. Click on this plus button and select new repository.
 
 <Image
-  src="/assets/2018/git-push/create-repo-1.png"
+  src="/src/assets/2018/git-push/create-repo-1.png"
   alt="Menu that shows up after clicking the plus button on the top right hand corner. There is a option that says create repository"
 />
 
@@ -58,14 +58,14 @@ Set the project to public or private, depending on what you want.
 Then, ignore the rest and click on the create repository button.
 
 <Image
-  src="/assets/2018/git-push/create-repo-2.png"
+  src="/src/assets/2018/git-push/create-repo-2.png"
   alt="Example of creating a repo"
 />
 
 Once you click on create repository, you'll come to a page with some Git instructions.
 
 <Image
-  src="/assets/2018/git-push/git-instructions.png"
+  src="/src/assets/2018/git-push/git-instructions.png"
   alt="Instructions after creating repo"
 />
 
@@ -82,7 +82,7 @@ Make sure you select SSH (not HTTPS!).
 SSH lets you push (put things into the remote repository) and pull (copy the remote back to your local) without entering your Github username and password every time. It makes things a lot easier.
 
 <Image
-  src="/assets/2018/git-push/git-url.png"
+  src="/src/assets/2018/git-push/git-url.png"
   alt="Select the URL. Make sure SSH is checked"
 />
 
@@ -91,7 +91,7 @@ Next, open the project in Fork and click the Push button.
 It is the fourth button from the left. It looks like an arrow that goes upwards.
 
 <Image
-  src="/assets/2018/git-push/push.png"
+  src="/src/assets/2018/git-push/push.png"
   alt="The push button is a button that looks like an up arrow"
 />
 
@@ -101,7 +101,7 @@ In this case, our branch will be master (because we only have one branch).
 
 We need to add the remote we just created. To add the remote, click on the select box and select add remote.
 
-<Image src="/assets/2018/git-push/add-remote.png" alt="Adding a remote" />
+<Image src="/src/assets/2018/git-push/add-remote.png" alt="Adding a remote" />
 
 Next, you need to name your remote.
 
@@ -112,7 +112,7 @@ The repository URL should be the URL you copied from Github.
 Select Add new remote when you're done.
 
 <Image
-  src="/assets/2018/git-push/remote-name.png"
+  src="/src/assets/2018/git-push/remote-name.png"
   alt="The remote name and url"
 />
 
@@ -121,7 +121,7 @@ Select Add new remote when you're done.
 When you push your files onto the remote for the first time, make sure the create tracking reference checkbox is checked.
 
 <Image
-  src="/assets/2018/git-push/tracking-ref.png"
+  src="/src/assets/2018/git-push/tracking-ref.png"
   alt="Make sure tracking reference is checked"
 />
 
@@ -138,7 +138,7 @@ Once it is pushed, you can look at the All Commits section. (In other Git client
 In all commits, you'll see two tags. One is called `master` (the master branch on our computer). And the other is called `origin/master` (the master branch on the remote named origin). In this case, our origin is Github, so `origin/master` refers to the master branch on Github.
 
 <Image
-  src="/assets/2018/git-push/history-1.png"
+  src="/src/assets/2018/git-push/history-1.png"
   alt="Git History shows `master` and `origin/master` on the same commit"
 />
 
@@ -147,7 +147,7 @@ When these two tags are on the same commit, it means the files we have on our lo
 You can verify this is true if you go back to the page where you got the Git remote URL from. Refresh this page and you'll see what you'll usually see on Github (a project page).
 
 <Image
-  src="/assets/2018/git-push/git-repo-1.png"
+  src="/src/assets/2018/git-push/git-repo-1.png"
   alt="Git repository page updated with the files you pushed"
   caption="Git repository page updated with the files you pushed"
 />
@@ -169,7 +169,7 @@ Once we have created the file, we'll see the changes in Fork if we click on the 
 When you create a new commit, take a look at the sidebar on the left. You'll see a number, one, and an arrow that points upwards beside the master branch.
 
 <Image
-  src="/assets/2018/git-push/branch.png"
+  src="/src/assets/2018/git-push/branch.png"
   alt="Right of master branch contains 1 and an up arrow"
 />
 
@@ -178,7 +178,7 @@ This tells us our master branch is one commit ahead of the remote branch. This m
 If you look at the Git history, you can the "Create readme.md" commit is on the local branch, but this commit did not make it to the remote yet.
 
 <Image
-  src="/assets/2018/git-push/history-2.png"
+  src="/src/assets/2018/git-push/history-2.png"
   alt="Git history updated with local commits"
 />
 
@@ -189,7 +189,7 @@ Then, click push once more.
 That's it.
 
 <Image
-  src="/assets/2018/git-push/pushing-again.png"
+  src="/src/assets/2018/git-push/pushing-again.png"
   alt="Menu to push again becomes simpler. You just need to click push."
   caption=""
 />
@@ -197,7 +197,7 @@ That's it.
 Once the commit is pushed to the remote branch, you can see that the `origin/master` tag gets moved to the same commit as the `master` tag.
 
 <Image
-  src="/assets/2018/git-push/history-3.png"
+  src="/src/assets/2018/git-push/history-3.png"
   alt="Git history updated. `origin/master` is also on the 'Create Readme.md' commit"
 />
 

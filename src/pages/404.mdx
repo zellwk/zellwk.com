@@ -1,5 +1,5 @@
 ---
-layout: '../layouts/BaseMDX.astro'
+layout: '../layouts/OneColumn.astro'
 title: Page Not Found 😢
 ---
 
@@ -7,13 +7,23 @@ export const prerender = true
 
 {/* TODO: Include some sort of Newsletter stuff over here! — And also some stuff related to page sales */}
 
-Looks like you stumbled on a page that doesn't exist. If you're sure the link is correct, [let me know](/contact)!
+Looks like you stumbled on a page that doesn't exist. If you're sure the link is correct, [let me know](/contact/)!
 
 Otherwise, here's some links that can help!
 
-1. [CSS articles](/tags/css)
-2. [JavaScript articles](/tags/javascript)
-3. [Node articles](/tags/node)
-4. [Design articles](/tags/design)
+<div class="grid-simple [--cols:2]">
+  <div>
+    1. [CSS articles](/tags/css)
+    2. [Tailwind articles](/tags/tailwind)
+    3. [JavaScript articles](/tags/javascript)
+    4. [Node articles](/tags/node)
+    5. [Astro articles](/tags/astro)
+    6. [Svelte articles](/tags/svelte)
+    7. [Design articles](/tags/design)
+  </div>
 
-If you need help becoming a good frontend developer, considering signing up for my [newsletter](/newsletter)!
+  <div>
+    1. [Splendid Labz](/tags/splendidlabz)
+    2. [Magical Dev School](/tags/magicaldevs)
+  </div>
+</div>

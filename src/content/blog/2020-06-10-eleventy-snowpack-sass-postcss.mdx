@@ -102,7 +102,7 @@ I can access static assets from my Eleventy files like this:
 <script src="/js/main.js"></script>
 
 <!-- Images -->
-<img src="/assets/image.png" />
+<img src="/src/assets/image.png" />
 ```
 
 The next step is to run eleventy. Here, we can use a `run` script. We also watch eleventy with a [`::watch` modifier][3].
@@ -124,7 +124,7 @@ npx snowpack dev
 
 You should see this log. A browser will also open up. This browser directs you to `http://localhost:8080` (which is where the Snowpack's dev server is hosted).
 
-<Image src='/assets/2020/snowpack-eleventy/snowpack-dev.png' alt='' />
+<Image src="/src/assets/2020/snowpack-eleventy/snowpack-dev.png" alt="" />
 
 I eventually set `snowpack dev` as an npm script so I can use `npm run dev`. `npm run dev` is easier for me to write because I have an alias for it.
 
@@ -160,8 +160,8 @@ npx snowpack build
 ```
 
 <Image
-  src='/assets/2020/snowpack-eleventy/snowpack-dist.png'
-  alt='Snowpack Dist folder.'
+  src="/src/assets/2020/snowpack-eleventy/snowpack-dist.png"
+  alt="Snowpack Dist folder."
 />
 
 Again, I used an npm script. I set this to `build`.
@@ -203,7 +203,10 @@ confetti.create(canvas, {
 
 When you run `snowpack build`, you should see a `web_modules` folder. This `web_modules` folder contains dependencies we imported.
 
-<Image src='/assets/2020/snowpack-eleventy/js.png' alt='Snowpack JavaScript.' />
+<Image
+  src="/src/assets/2020/snowpack-eleventy/js.png"
+  alt="Snowpack JavaScript."
+/>
 
 Snowpack will also point your import statements to this `/web_modules` folder automatically.
 

@@ -1,0 +1,13 @@
+---
+import { Markdown } from '@splendidlabz/astro'
+import EmailBase from './EmailBase.astro'
+
+const props = Astro.props
+const { name, message } = props
+---
+
+<EmailBase {...props}>
+  <Markdown>Hey Zell,</Markdown>
+  <Markdown>{message}</Markdown>
+  <Markdown>{name}</Markdown>
+</EmailBase>

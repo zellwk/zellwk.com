@@ -1,11 +1,12 @@
 @theme {
-  --border-width: 3px;
-  --radius: 1.5rem;
+  --border-width: 2px;
+  --border-color: var(--color-zgray-700);
+  --radius: 0.5rlh;
   --spacing: 0.25rlh;
   --outline-width: 2px;
 
   /* For gaps */
-  --spacing-large: 2.5rlh;
+  --spacing-large: 2rlh;
   --spacing-section: 5rlh;
 
   /* Max widths */
@@ -15,5 +16,5 @@
 
   /* Scrollbars */
   --scrollbar-thumb-color: var(--color-zpurple-600d);
-  --scrollbar-track-color: var(--color-zpurple-900);
+  --scrollbar-track-color: var(--color-zpurple-800);
 }

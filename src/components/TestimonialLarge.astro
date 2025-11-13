@@ -14,19 +14,27 @@ if (!image) image = `/src/assets/testimonials/${path}.jpg`
 if (!name) name = toTitle(path)
 ---
 
-<div class="testimonial-large horizontal gap-x-0 items-center">
+<div class="testimonial-large horizontal gap-x-0 bp8:items-center">
   <div class="card card-orange">
-    <h3 class="h3 text-10">
-      <span class="text-zorange-500">{name}</span>
-      <span class="text-zgray-500">— {title}</span>
-    </h3>
+    <div class="horizontal gap-2 items-center">
+      <Image
+        figureClass="max-w-14 flex-shrink-0 bp8:hidden"
+        class="rounded-full"
+        src={image}
+        alt={name}
+      />
+      <h3 class="h3 text-8 max-bp8:leading-[1.45] bp8:text-10">
+        <span class="text-zorange-500">{name}</span>
+        <span class="text-zgray-500">— {title}</span>
+      </h3>
+    </div>
     <div class="prose text-11 mt-2 max-w-narrow">
       <Content />
     </div>
   </div>
 
   <Image
-    figureClass="max-w-[14rem]"
+    figureClass="max-w-[14rem] max-bp8:hidden"
     class="rounded-full"
     src={image}
     alt={name}

@@ -1,6 +1,6 @@
 export default {
   // Actual Needed Redirects (because we changed some things)...
-  '/blog': '/blog/1',
+  // '/blog': '/blog/1',
   '/blog/think': '/blog/think-like-a-programmer/',
   '/convertkit': '/blog/convertkit-cli/',
   '/learnjs/': 'https://learnjavascript.today',

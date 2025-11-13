@@ -31,7 +31,7 @@ To initialize the Git flow, you go to the left-hand sidebar in Fork and right-cl
 Click on it.
 
 <Image
-  src="/assets/2018/git-flow/git-flow-init.png"
+  src="/src/assets/2018/git-flow/git-flow-init.png"
   alt="Initialize Git Flow"
 />
 
@@ -50,7 +50,7 @@ We'll talk about what these prefixes are later. For now, let's go with the defau
 When you initialized Git Flow, Fork will create the `develop` branch for you.
 
 <Image
-  src="/assets/2018/git-flow/git-flow-inited.png"
+  src="/src/assets/2018/git-flow/git-flow-inited.png"
   alt="Develop branch created after Git Flow gets initialized"
 />
 
@@ -78,12 +78,15 @@ We start a `feature` branch from the `develop` branch. When the feature is compl
 
 To create a feature, you right-click on any of your branches in the left sidebar, select Git Flow, and select Start Feature.
 
-<Image src="/assets/2018/git-flow/feature-start.png" alt="Starting a feature" />
+<Image
+  src="/src/assets/2018/git-flow/feature-start.png"
+  alt="Starting a feature"
+/>
 
 Fork will start the feature from the `develop` branch for you.
 
 <Image
-  src="/assets/2018/git-flow/feature-start-2.png"
+  src="/src/assets/2018/git-flow/feature-start-2.png"
   alt="Fork will start the feature from the develop branch. You can change it though"
 />
 
@@ -94,14 +97,14 @@ Once you click on start feature, you'll see a folder called `feature` in the lef
 This means the **prefixes help you organize your branches into folders.**
 
 <Image
-  src="/assets/2018/git-flow/feature-sidebar.png"
+  src="/src/assets/2018/git-flow/feature-sidebar.png"
   alt="Sidebar shows a feature folder and a nav branch"
 />
 
 If you look at the Git History, you'll also see a branch called `feature/nav`. This tells you that `nav` is a feature branch.
 
 <Image
-  src="/assets/2018/git-flow/feature-log.png"
+  src="/src/assets/2018/git-flow/feature-log.png"
   alt="Git history shows a feature/nav tag"
 />
 
@@ -123,7 +126,7 @@ After making your changes, you need to commit them to the project. Go to the sta
 In this example, I set my commit message to "add nav". Here's what the Git history looks like after I committed the code. You'll see that `feature/nav` is one commit ahead of everything else:
 
 <Image
-  src="/assets/2018/git-flow/feature-log-2.png"
+  src="/src/assets/2018/git-flow/feature-log-2.png"
   alt="Feature is one commit ahead of other branches"
 />
 
@@ -136,21 +139,21 @@ One way to end the feature is to imerge `nav` into `develop` ourselves with the 
 But if you initialized the feature with Git Flow, you can use Git Flow to merge the `feature` back into `develop` for you. To do this, you right-click on the feature you want to merge (`nav` in this case), go under Git Flow, and click on the Finish feature option.
 
 <Image
-  src="/assets/2018/git-flow/feature-finish.png"
+  src="/src/assets/2018/git-flow/feature-finish.png"
   alt="Finishing a feature"
 />
 
 Fork will ask you whether you want to delete your branches. I check it because it helps me keep my branches clean.
 
 <Image
-  src="/assets/2018/git-flow/feature-finish-2.png"
+  src="/src/assets/2018/git-flow/feature-finish-2.png"
   alt="Menu that pops up after you click on finish feature"
 />
 
 Click on finish and you'll see the `develop` branch is now on the `add nav` commit.
 
 <Image
-  src="/assets/2018/git-flow/feature-finish-3.png"
+  src="/src/assets/2018/git-flow/feature-finish-3.png"
   alt="Feature completed. `develop` is now on the `add nav` commit"
   caption=""
 />
@@ -167,7 +170,10 @@ Once the bugs are fixed, you'll merge the release branch into `master`.
 
 Release branches can be created with Git Flow. To create a release branch, you right-click on any of the branches in the left sidebar, go to Git Flow and select Start Release.
 
-<Image src="/assets/2018/git-flow/release-start.png" alt="Starting a release" />
+<Image
+  src="/src/assets/2018/git-flow/release-start.png"
+  alt="Starting a release"
+/>
 
 The release branch will also start from `develop`.
 
@@ -176,31 +182,34 @@ The release branch will also start from `develop`.
 Here, we'll use a version of `1.0.0`. I'll talk about why we use such a version number in a later video.
 
 <Image
-  src="/assets/2018/git-flow/release-start-name.png"
+  src="/src/assets/2018/git-flow/release-start-name.png"
   alt="Naming the release 1.0.0"
 />
 
 Once you've decided on a version number, click on start release and Fork will create a branch for you. It will also create a `release` folder on the sidebar. This is the same as what you see with a `feature`.
 
 <Image
-  src="/assets/2018/git-flow/release-sidebar.png"
+  src="/src/assets/2018/git-flow/release-sidebar.png"
   alt="Sidebar contains the release folder and your release branch"
 />
 
 You'll also see release branch in the Git History.
 
-<Image src="/assets/2018/git-flow/release-history.png" alt="" caption="" />
+<Image src="/src/assets/2018/git-flow/release-history.png" alt="" caption="" />
 
 ### Ending the release
 
 To end the release, right-click on your release branch, go to Git Flow, and select finish release.
 
-<Image src="/assets/2018/git-flow/release-end.png" alt="Finishing a release" />
+<Image
+  src="/src/assets/2018/git-flow/release-end.png"
+  alt="Finishing a release"
+/>
 
 Fork will ask you whether you want to delete the branch and back-merge master to develop.
 
 <Image
-  src="/assets/2018/git-flow/release-end-2.png"
+  src="/src/assets/2018/git-flow/release-end-2.png"
   alt="Do you want to delete the branch and back merge it into master?"
 />
 
@@ -209,7 +218,7 @@ Check both and click on Submit.
 You'll see the Git history change, and it might be complicated. So let's explain what's happening.
 
 <Image
-  src="/assets/2018/git-flow/release-end-history.png"
+  src="/src/assets/2018/git-flow/release-end-history.png"
   alt="Git history when the release ends"
 />
 
@@ -236,7 +245,7 @@ This is just the way it goes. You'll have to get used to it.
 Atlassian has a [good blog post][4] on Git Flow. I'm going to steal their pictures to help explain what's happening.
 
 <Image
-  src="/assets/2018/git-flow/atlassian-release.png"
+  src="/src/assets/2018/git-flow/atlassian-release.png"
   alt="Picture of a release from Atlassian's blog post"
 />
 
@@ -267,7 +276,7 @@ What you do is:
 Here's the picture from Atlassian on hotfixes:
 
 <Image
-  src="/assets/2018/git-flow/atlassian-hotfix.png"
+  src="/src/assets/2018/git-flow/atlassian-hotfix.png"
   alt="Picture from Atlassian's blog on hotfixes"
 />
 
@@ -275,26 +284,29 @@ Here's the picture from Atlassian on hotfixes:
 
 To create a hotfix, you go to the left-hand sidebar, right-click on any of your branches, go to Git Flow and select Start Hotfix.
 
-<Image src="/assets/2018/git-flow/hotfix-start.png" alt="Starting a hotfix" />
+<Image
+  src="/src/assets/2018/git-flow/hotfix-start.png"
+  alt="Starting a hotfix"
+/>
 
 Fork will ask you for the name of your hotfix.
 
 You also create a tag for hotfixes, so you'll use a version number as well. In this case, I'll use `1.0.1` as the version number. Once again, we'll talk about the version numbers in a later lesson.
 
 <Image
-  src="/assets/2018/git-flow/hotfix-start-2.png"
+  src="/src/assets/2018/git-flow/hotfix-start-2.png"
   alt="Naming the hotfix as 1.0.1"
 />
 
 Click on Start Hotfix, and Git will create a `hotfix/1.0.1` branch. You'll see this in both the Git history and in the sidebar.
 
 <Image
-  src="/assets/2018/git-flow/hotfix-log.png"
+  src="/src/assets/2018/git-flow/hotfix-log.png"
   alt="Hotfix/1.0.1 in the git history"
 />
 
 <Image
-  src="/assets/2018/git-flow/hotfix-sidebar.png"
+  src="/src/assets/2018/git-flow/hotfix-sidebar.png"
   alt="Hotfix folder and 1.0.1 branch in the sidebar"
 />
 
@@ -313,25 +325,28 @@ We're going to fix the stupid `href="#"` error we made above.
 
 Once you fixed the error, you have to commit the changes. I'm going to set the commit message to "fix links".
 
-<Image src="/assets/2018/git-flow/hotfix-log-2.png" alt="Fixing the bugs" />
+<Image src="/src/assets/2018/git-flow/hotfix-log-2.png" alt="Fixing the bugs" />
 
 ### Finishing the hotfix
 
 To finish the hotfix, you click on the hotfix branch, go to Git Flow, and select finish hotfix.
 
-<Image src="/assets/2018/git-flow/hotfix-finish.png" alt="Finishing a hotfix" />
+<Image
+  src="/src/assets/2018/git-flow/hotfix-finish.png"
+  alt="Finishing a hotfix"
+/>
 
 Here, Fork can help you delete the `'1.0.1` branch as well. I'll keep that check to keep my branches clean.
 
 <Image
-  src="/assets/2018/git-flow/hotfix-finish-2.png"
+  src="/src/assets/2018/git-flow/hotfix-finish-2.png"
   alt="Menu that pops up after you click on finish hotfix"
 />
 
 When you finish the branch, the Git history will become a lot more confusing than before.
 
 <Image
-  src="/assets/2018/git-flow/hotfix-finish-log.png"
+  src="/src/assets/2018/git-flow/hotfix-finish-log.png"
   alt="Git history after hotfix is finished"
 />
 

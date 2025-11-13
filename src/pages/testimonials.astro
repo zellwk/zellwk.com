@@ -1,0 +1,54 @@
+---
+import Base from '@/layouts/Base.astro'
+import { sort, toTitle } from '@splendidlabz/utils'
+import { getCollection, render } from 'astro:content'
+
+const files = await getCollection('testimonials')
+const testimonials = await Promise.all(
+  files.map(async testimonial => {
+    const data = {
+      ...testimonial.data,
+      priority: testimonial.data.priority || 0,
+    }
+    testimonial.data = data
+    return { ...testimonial, ...(await render(testimonial)) }
+  }),
+)
+const sorted = sort(testimonials, { props: 'data.priority', reverse: true })
+
+const SEOProps = {
+  title: 'Nice Words from Peers, Friends, and Customers',
+}
+---
+
+<Base {...SEOProps}>
+  <section class="section">
+    <div class="wrap vertical">
+      <div class="article vertical gap-large max-w-standard mx-auto">
+        <h1 class="h1 text-center max-w-[14em] mx-auto">
+          Nice Words from Peers, Friends, and Customers
+        </h1>
+
+        <div class="masonry bp6:[--cols:2] bp10:[--cols:3]">
+          {
+            sorted.map(testimonial => {
+              return (
+                <blockquote class="card card vertical">
+                  <div class="prose-tight text-8">
+                    <testimonial.Content />
+                  </div>
+                  <footer class="june text-zorange-500 text-6">
+                    {toTitle(testimonial.id)}{' '}
+                    <span class="text-zgray-500">
+                      — {testimonial.data.title}
+                    </span>
+                  </footer>
+                </blockquote>
+              )
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

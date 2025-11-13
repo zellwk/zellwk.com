@@ -85,7 +85,7 @@ It's difficult to pick the font-size of your typographic elements (`<h1>` to `<h
 It is a sequence of numbers related to each other through a ratio (a number). It can be created by multiplying (or dividing) the font-size of your body copy with the ratio. The resultant number is then multiplied (or divided) again with the ratio.
 
 <Image
-  src="/assets/2016/01/modular-scale.png"
+  src="/src/assets/2016/01/modular-scale.png"
   caption="
 A modular scale with ratio 1.333 and body copy of 16px"
 />
@@ -198,7 +198,7 @@ Much better now!
 
 <Codepen
   height="266"
-  hash="OMmEqg"
+  link="https://codepen.io/zellwk/pen/OMmEqg"
   title="Responsive Typography – Relative Units"
 />
 
@@ -318,8 +318,7 @@ $typi: (
   large: (
     20px,
     1.4,
-  )
-  // Sets line-height to 1.4,,,,,,,,,,,,,,,,,,,
+  ), // Sets line-height to 1.4,,,,,,,,,,,,,,,,,,,
 );
 ```
 
@@ -490,7 +489,11 @@ p + p {
 }
 ```
 
-<Codepen height="266" hash="WrjOoa" title="Vertical Rhythms in PX" />
+<Codepen
+  height="266"
+  link="https://codepen.io/zellwk/pen/WrjOoa"
+  title="Vertical Rhythms in PX"
+/>
 
 Looks pretty good! Let's take it a step further by changing the code above into relative units. While doing so, you'll encounter the great em vs rem debate.
 
@@ -529,7 +532,11 @@ Notice how we used `63.147px` as the base for the division? This must be done be
 
 Now, here's the kicker. Even though we tried to be as accurate as we can be, browsers don't seem to cooperate with us. You'll notice that our vertical rhythms start getting screwy.
 
-<Codepen height="266" hash="jWmKKZ" title="jWmKKZ" />
+<Codepen
+  height="266"
+  link="https://codepen.io/zellwk/pen/jWmKKZ"
+  title="jWmKKZ"
+/>
 
 Two problems contributed to this screwy behavior.
 

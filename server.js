@@ -10,6 +10,9 @@ app.use((req, res, next) => {
   if (url.startsWith('feed.xml')) return res.redirect(301, '/rss.xml')
   if (url.startsWith('/blog/looping-through-js-objects'))
     return res.redirect(301, '/blog/iterating-through-js-objects/')
+  if (url.startsWith('/articles/'))
+    return res.redirect(301, url.replace('/articles/', '/blog/'))
+
   return next()
 })
 

@@ -1,0 +1,20 @@
+.status {
+  --radius: 0.75em;
+}
+
+.status-info {
+  color: var(--color-zgray-400);
+  background-color: var(--color-zgray-900);
+}
+
+.status-error {
+  border-color: var(--color-zred-500);
+  color: var(--color-zred-500);
+  background-color: var(--color-zred-900);
+}
+
+.status-success {
+  border-color: var(--color-zgreen-500);
+  color: var(--color-zgreen-500);
+  background-color: #02140a;
+}

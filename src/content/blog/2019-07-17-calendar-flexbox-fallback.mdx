@@ -70,7 +70,7 @@ The best place to check for support is [caniuse][2]. Here, I see that support fo
 2. Android Browsers 2.1 to 4.4.4: 0.67% global usage
 3. Blackberry browser: 0.02% global usage (Not gonna worry about this one).
 
-<Image src="/assets/2019/calendar-flexbox/css-grid-support.png" alt="" />
+<Image src="/src/assets/2019/calendar-flexbox/css-grid-support.png" alt="" />
 
 Support for the fallback (Flexbox) is also good.
 
@@ -81,7 +81,7 @@ Here, I have to decide:
 1. Is providing Flexbox fallback for Opera Mini (1.42%), Android 4.4.4 (0.3%), and Blackberry (0.02%) worth the effort?
 2. Should I change fallback from Flexbox to an older feature to support Android 2.1 to 4.3 (another 0.37%)?
 
-<Image src="/assets/2019/calendar-flexbox/flexbox-support.png" alt="" />
+<Image src="/src/assets/2019/calendar-flexbox/flexbox-support.png" alt="" />
 
 Let's assume, for this project, I decide that Flexbox fallback is sufficient. I'm not going to worry about Android 2.1 to 4.3.
 
@@ -94,7 +94,7 @@ Here, I see:
 3. Blackberry browser doesn't support Feature Queries
 4. IE 11 does't support Feature Queries
 
-<Image src="/assets/2019/calendar-flexbox/feature-queries-support" alt="" />
+<Image src="/src/assets/2019/calendar-flexbox/feature-queries-support" alt="" />
 
 ## Deciding how to write fallback code
 
@@ -156,7 +156,7 @@ We can disable the CSS Grid code by setting `display` to an invalid value (not `
 ```
 
 <Image
-  src="/assets/2019/calendar-flexbox/inital-layout.png"
+  src="/src/assets/2019/calendar-flexbox/inital-layout.png"
   alt="Initial layout."
 />
 
@@ -174,7 +174,7 @@ The first thing is set `display` to `flex`.
 ```
 
 <Image
-  src="/assets/2019/calendar-flexbox/flexbox-1.png"
+  src="/src/assets/2019/calendar-flexbox/flexbox-1.png"
   alt="Results after setting display to flex."
 />
 
@@ -187,7 +187,7 @@ We need the buttons in `.date-grid` to wrap, so we set `flex-wrap` to `wrap`.
 ```
 
 <Image
-  src="/assets/2019/calendar-flexbox/flexbox-2.png"
+  src="/src/assets/2019/calendar-flexbox/flexbox-2.png"
   alt="Buttons in date grid wrapped at the edges."
 />
 
@@ -203,7 +203,7 @@ We need to replicate the seven-column grid. An easy way to do this is calculate 
 ```
 
 <Image
-  src="/assets/2019/calendar-flexbox/flexbox-3.png"
+  src="/src/assets/2019/calendar-flexbox/flexbox-3.png"
   alt="Wrapping at 7 columns"
 />
 
@@ -216,7 +216,7 @@ We need the elements in `.day-of-week` to spread out across the available width.
 ```
 
 <Image
-  src="/assets/2019/calendar-flexbox/flexbox-4.png"
+  src="/src/assets/2019/calendar-flexbox/flexbox-4.png"
   alt="After setting space-between."
 />
 
@@ -231,7 +231,7 @@ In this case, the easiest way is to set `flex-basis` to the width of one grid it
 ```
 
 <Image
-  src="/assets/2019/calendar-flexbox/flexbox-5.png"
+  src="/src/assets/2019/calendar-flexbox/flexbox-5.png"
   alt="Adjusted .day-of-week for size."
 />
 
@@ -246,7 +246,7 @@ Finally, we need to push the 1 February to Friday. (Five columns). Since column 
 ```
 
 <Image
-  src="/assets/2019/calendar-flexbox/flexbox-6.png"
+  src="/src/assets/2019/calendar-flexbox/flexbox-6.png"
   alt="Pushed 1 Febuary to Friday"
 />
 
@@ -261,7 +261,7 @@ We can reactivate the CSS Grid code and make any necessary changes now.
 ```
 
 <Image
-  src="/assets/2019/calendar-flexbox/grid-fix-1.png"
+  src="/src/assets/2019/calendar-flexbox/grid-fix-1.png"
   alt="Activating CSS Grid code"
 />
 
@@ -278,7 +278,7 @@ Here, we see some values fly far out to the right. This happens because we added
 ```
 
 <Image
-  src="/assets/2019/calendar-flexbox/grid-fix-2.png"
+  src="/src/assets/2019/calendar-flexbox/grid-fix-2.png"
   alt="Removed margin-left."
 />
 
@@ -300,7 +300,7 @@ Another thing: We can remove `max-width` because we don't need it in the CSS Cod
 Here's the visual difference between the Flexbox and CSS Grid versions. Not too bad!
 
 <Image
-  src="/assets/2019/calendar-flexbox/difference.gif"
+  src="/src/assets/2019/calendar-flexbox/difference.gif"
   alt="Visual difference between the Flexbox and CSS Grid code"
 />
 
@@ -311,14 +311,14 @@ CSS Grid is cool because it follows writing direction. We can easily change the 
 Note: I don't know if calendars are read from right to left in rtl languages. I just thought it'll fun to mention this 😜).
 
 <Image
-  src="/assets/2019/calendar-flexbox/rtl.gif"
+  src="/src/assets/2019/calendar-flexbox/rtl.gif"
   alt="Switching between ltr and rtl."
 />
 
 Our code for CSS Grid supports this behaviour naturally. If you want to support the same behaviour with Flexbox, you need to use [CSS Logical Properties][5].
 
 <Image
-  src="/assets/2019/calendar-flexbox/css-logical-properties-support.png"
+  src="/src/assets/2019/calendar-flexbox/css-logical-properties-support.png"
   alt="Support for CSS Logical Properties."
 />
 
@@ -343,7 +343,7 @@ Since support for CSS Logical Properties is not-so-great, we need to provide fal
 That's it! Here's a Codepen for the final code:
 
 <Codepen
-  hash="ZNrezV"
+  link="https://codepen.io/zellwk/pen/ZNrezV"
   height="600"
   title="Building a Calendar with CSS Grid (and fallback with Flexbox)"
 />

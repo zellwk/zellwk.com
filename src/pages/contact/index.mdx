@@ -1,23 +1,13 @@
 ---
-layout: '/src/layouts/BaseMDX.astro'
+layout: '/src/layouts/OneColumn.astro'
 title: Contact Zell
-showCkForm: false
 ---
 
+import ContactForm from '@/components/ContactForm.svelte'
 export const prerender = true
-
-import ContactForm from '/src/components/ContactForm.svelte'
-import Input from '/src/components/FormInput.svelte'
-
-import config from '/site-config.js'
-export const apiRoot = config.apiRoot
-export const endpoint = `${apiRoot}/email`
 
 Hello there! Just fill in this form and I'll get back to you as quickly as I can.
 
-<div>
-
-<ContactForm action={endpoint} redirectTo='/contact/thanks' client:load>
-  <Input type="hidden" name="template" value="contact-form"  />
-</ContactForm>
+<div class="prose mt-4 mx-auto w-full max-w-standard">
+  <ContactForm client:idle />
 </div>

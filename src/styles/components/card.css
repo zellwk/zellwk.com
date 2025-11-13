@@ -2,12 +2,24 @@
   --border-color: var(--color-zpurple-500);
   border-color: var(--border-color);
   background-color: var(--color-zpurple-1000);
+
+  :where(button, .button) {
+    @apply pigment-purple-outline;
+  }
 }
 
 .card-orange {
   --border-color: var(--color-zorange-500);
   border-color: var(--border-color);
   background-color: var(--color-zpurple-1000);
+
+  strong {
+    color: var(--color-zorange-500);
+  }
+
+  :where(button, .button) {
+    @apply pigment-orange-outline;
+  }
 }
 
 .card-cyan {
@@ -20,4 +32,17 @@
   --border-color: var(--color-zred-500);
   border-color: var(--border-color);
   background-color: var(--color-zpurple-1000);
+
+  :where(button, .button) {
+    @apply pigment-red-outline;
+  }
+}
+
+.card-small {
+  gap: 1lh;
+  max-width: 22.5rem;
+
+  .card-title {
+    margin-bottom: -0.5lh;
+  }
 }

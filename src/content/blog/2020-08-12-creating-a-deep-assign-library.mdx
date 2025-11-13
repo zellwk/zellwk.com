@@ -200,7 +200,7 @@ The next day, I thought of Lodash. So I did a quick search. Lodash didn't have a
 
 In its documentations, Lodash explained `_.cloneDeep` (which recursively uses `_.clone`) was loosely based on the Structured Clone Algorithm. I was intrigued and dove into the source code.
 
-<Image src='/assets/2020/create-deep-assign-library/lodash.png' alt='' />
+<Image src="/src/assets/2020/create-deep-assign-library/lodash.png" alt="" />
 
 Long story short, I wasn't able to use Lodash's source code directly since it was such a complicated library. But I managed to find a piece of gem that looked like this:
 
@@ -373,8 +373,8 @@ I decided to stop working on other types because I don't use them at all. I didn
 Of course, with any library creation, it's important to write tests to ensure the library functions correctly. I wrote a couple of them while creating this project. 😎
 
 <Image
-  src='/assets/2020/create-deep-assign-library/mix-test-final.png'
-  alt=''
+  src="/src/assets/2020/create-deep-assign-library/mix-test-final.png"
+  alt=""
 />
 
 ## Update: Preventing Prototype Pollution

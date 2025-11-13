@@ -7,6 +7,7 @@ export async function POST(context) {
 
   // Honeypot check
   if (body.hp) return
+  console.log(body)
 
   const response = await sendy.subscribe({
     context,
