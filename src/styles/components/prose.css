@@ -1,4 +1,4 @@
-.prose {
+@utility prose {
   --theme-color: var(--color-zorange-500);
 
   h2 {
