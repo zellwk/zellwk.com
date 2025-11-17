@@ -1,9 +1,15 @@
 ---
 import Base from '@/layouts/Base.astro'
 import { Partial } from '@splendidlabz/astro'
+
+const SEOProps = {
+  title: 'Newsletter',
+  description:
+    'Join my newsletter to get updates on my latest projects and articles',
+}
 ---
 
-<Base>
+<Base {...SEOProps}>
   <div class="wrap">
     <Partial path="JoinMyNewsletter" testimonialCount={2} />
   </div>

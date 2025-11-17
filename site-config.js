@@ -2,7 +2,7 @@ export default {
   appName: 'zellwk.com',
   site: {
     title: 'Zell Liew',
-    description: ``,
+    description: `I build products, coach people, and explore what sustainable work means. I bring a dev background and psychology to everything I make. Weekly updates on code, breakthroughs, and living well.`,
     url: 'https://zellwk.com',
     OGImageFallback: '',
     OGImageFallbackAlt: '',

@@ -36,9 +36,14 @@ const dateText =
   post.data.updateDate && post.data.updateDate < Date.now()
     ? 'Updated'
     : 'Published'
+
+const SEOProps = {
+  OGImageUrl: `/og/${post.data.slug}.png`,
+  OGImageAlt: post.data.title,
+}
 ---
 
-<Base {...post.data}>
+<Base {...post.data} {...SEOProps}>
   <div class="wrap">
     <article class="article grid-content-sidebar">
       <header>
@@ -72,7 +77,7 @@ const dateText =
 
       <div></div>
 
-      <div id="content" class="content prose">
+      <div id="content" class="content prose-responsive">
         <Content {components} />
       </div>
 

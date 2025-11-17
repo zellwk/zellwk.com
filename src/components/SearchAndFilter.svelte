@@ -107,7 +107,7 @@
           <div class="blog-list-item">
             <div class="date">{formatDate(post.data.date, 'dd MMM')}</div>
             <div class="vertical gap-0.25">
-              <a class="title" href={`/blog/${post.data.slug}`}>
+              <a class="title" href="/blog/{post.data.slug}/">
                 {post.data.title}
               </a>
               <span class="meta">
@@ -133,7 +133,7 @@
 
 {#snippet oneTag(tag, isLast)}
   <span>
-    <a class="tag" href="/tags/{tag.toLowerCase()}">#{tag.toLowerCase()}</a
+    <a class="tag" href="/tags/{tag.toLowerCase()}/">#{tag.toLowerCase()}</a
     >{#if !isLast}<span>,</span>{/if}
   </span>
 {/snippet}

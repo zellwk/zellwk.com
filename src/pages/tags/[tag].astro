@@ -41,9 +41,14 @@ function groupByYear(posts) {
   // Return entries sorted by year descending
   return Object.entries(postsByYear).sort((a, b) => Number(b[0]) - Number(a[0]))
 }
+
+const SEOProps = {
+  title: `Tagged with #${tag.toLowerCase()}`,
+  description: `A list of all the articles tagged with #${tag.toLowerCase()}`,
+}
 ---
 
-<Base>
+<Base {...SEOProps}>
   <div class="wrap">
     <section class="vertical max-w-narrow mx-auto">
       <div class="vertical">
@@ -73,7 +78,7 @@ function groupByYear(posts) {
                             {formatDate(post.data.date, 'dd MMM')}
                           </div>
                           <div class="vertical gap-0.25">
-                            <a class="title" href={`/blog/${post.data.slug}`}>
+                            <a class="title" href={`/blog/${post.data.slug}/`}>
                               {post.data.title}
                             </a>
                             <span class="meta">
@@ -83,7 +88,7 @@ function groupByYear(posts) {
                                 // prettier-ignore
                                 return (
                                   <span>
-                                    <a class="tag" href={`/tags/${tag.toLowerCase()}`}>#{tag.toLowerCase()}</a>{!isLast && <span>,</span>}
+                                    <a class="tag" href={`/tags/${tag.toLowerCase()}/`}>#{tag.toLowerCase()}</a>{!isLast && <span>,</span>}
                                   </span>
                                 )
                               })}

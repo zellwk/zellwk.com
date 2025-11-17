@@ -1,6 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro'
-import { Partial, SVG } from '@splendidlabz/astro'
+import { Markdown, Partial, SVG } from '@splendidlabz/astro'
 import { processFiles } from '@splendidlabz/astro/content'
 import { getCollection } from 'astro:content'
 import SearchAndFilter from '/src/components/SearchAndFilter.svelte'
@@ -8,13 +8,25 @@ import SearchAndFilter from '/src/components/SearchAndFilter.svelte'
 const blog = await getCollection('blog')
 const posts = processFiles(blog)
 const data = posts.map(post => post.data)
+
+const SEOProps = {
+  title: 'Articles',
+  description: 'A list of all the articles on the blog',
+}
 ---
 
-<Base>
+<Base {...SEOProps}>
   <div class="wrap">
     <section class="vertical max-w-narrow mx-auto">
       <div class="vertical">
         <h1>Articles</h1>
+        <div class="prose">
+          <Markdown>
+            There are {posts.length} articles here — that's a lot to comb through
+            so here's a `searchbox` and some `tags` to help you begin browsing! Enjoy!
+          </Markdown>
+        </div>
+
         <SearchAndFilter {posts} client:idle />
       </div>
     </section>

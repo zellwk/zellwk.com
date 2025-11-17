@@ -9,10 +9,14 @@ const nowItems = now.slice(0, 2)
 const files = await getCollection('blog')
 const posts = (await processFiles(files)).slice(0, 5)
 
+const SEOProps = {
+  title: 'About',
+}
+
 export const prerender = true
 ---
 
-<Base bodyClass="home-page">
+<Base bodyClass="home-page" {...SEOProps}>
   <section class="section">
     <div class="wrap">
       <div

@@ -3,7 +3,7 @@ import MainNav from '../components/MainNav.svelte'
 import Footer from '../components/Footer.astro'
 import '../styles/styles.css'
 import Head from './Base/Head.astro'
-const { bodyClass, showNav = true, ...props } = Astro.props
+const { bodyClass, ...props } = Astro.props
 ---
 
 <html lang="en" class="scrollbars-on">
@@ -17,8 +17,16 @@ const { bodyClass, showNav = true, ...props } = Astro.props
       <main class="content my-16"><slot /></main>
       <Footer />
     </div>
-  </body><script>
-    import { masonry } from '@splendidlabz/styles/scripts'
-    masonry()
-  </script>
+
+    <script>
+      import { fb, ph } from '@/services/tracking/web'
+      import { masonry } from '@splendidlabz/styles/scripts'
+
+      fb.init()
+      fb.track('PageView')
+      ph.init()
+
+      masonry()
+    </script>
+  </body>
 </html>

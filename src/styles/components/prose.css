@@ -11,3 +11,8 @@
     color: var(--theme-color);
   }
 }
+
+.prose-responsive {
+  @apply prose;
+  @apply text-8 bp8:text-10;
+}

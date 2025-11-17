@@ -13,7 +13,3 @@
   #content {
   }
 }
-
-.prose {
-  @apply text-8 bp8:text-10;
-}

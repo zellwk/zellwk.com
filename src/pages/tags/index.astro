@@ -21,9 +21,14 @@ const groupedTags = tags.reduce((groups, tag) => {
 const alphabeticalGroups = Object.entries(groupedTags).sort(([a], [b]) =>
   a.localeCompare(b),
 )
+
+const SEOProps = {
+  title: 'Tags',
+  description: 'A list of all the tags available on the blog',
+}
 ---
 
-<Base>
+<Base {...SEOProps}>
   <div class="wrap">
     <section class="vertical max-w-narrow mx-auto">
       <div class="vertical">
@@ -41,7 +46,7 @@ const alphabeticalGroups = Object.entries(groupedTags).sort(([a], [b]) =>
                       <li>
                         <a
                           class="june [--font-style:60] "
-                          href={`/tags/${tag.name}`}
+                          href={`/tags/${tag.name}/`}
                         >
                           #{tag.name.toLowerCase()}
                         </a>

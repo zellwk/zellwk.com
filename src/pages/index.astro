@@ -7,7 +7,6 @@ import Base from '../layouts/Base.astro'
 
 const files = await getCollection('blog')
 const posts = (await processFiles(files)).slice(0, 9)
-console.dir(posts[0], { depth: 1 })
 
 export const prerender = true
 ---
@@ -31,7 +30,7 @@ export const prerender = true
               />
             </div>
             <div
-              class="prose-tight card card-purple text-9 bp6:text-10 bp9:text-11"
+              class="prose-tight card card-purple border-blue-500 text-9 bp6:text-10 bp9:text-11"
             >
               <!-- prettier-ignore -->
               <Markdown>
@@ -39,7 +38,7 @@ export const prerender = true
 
                 Over the years, I've invested a large amount of time, money, and energy into learning about psychology and personal development --- this has helped to change the way I see the world. 
 
-                These days, I'm building products and exploring what makes a sustainable creator businesses. I bring a dev background + deep interest in psychology and human development to everything I make.
+                These days, I build products and coach people while creating a sustainable business that jives with how I work. I bring a dev background and deep interest in psychology to everything I make.
               </Markdown>
               <a
                 href="/about/"
