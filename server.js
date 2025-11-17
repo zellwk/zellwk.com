@@ -1,4 +1,4 @@
-import dirname from '@zellwk/javascript/node/dirname.js'
+import { dirname } from '@splendidlabz/utils/node'
 import express from 'express'
 import path from 'path'
 import { handler as ssrHandler } from './dist/server/entry.mjs'
