@@ -1,26 +1,26 @@
 export default [
   {
-    name: 'youtube',
+    name: 'Youtube',
     url: 'https://www.youtube.com/@zellwk',
   },
   {
-    name: 'instagram',
+    name: 'Instagram',
     url: 'https://www.instagram.com/zellwk/',
   },
   {
-    name: 'tiktok',
+    name: 'Tiktok',
     url: 'https://www.tiktok.com/@zellwk',
   },
   {
-    name: 'github',
+    name: 'Github',
     url: 'https://github.com/zellwk',
   },
   {
-    name: 'bluesky',
+    name: 'Bluesky',
     url: 'https://bsky.app/profile/zellwk.com',
   },
   {
-    name: 'twitter',
+    name: 'X',
     url: 'https://twitter.com/zellwk',
   },
 ]

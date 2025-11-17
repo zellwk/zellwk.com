@@ -43,7 +43,10 @@ const thisYear = today.getFullYear()
               {
                 socialMediaAccounts.map(account => (
                   <a href={account.url}>
-                    <Icon icon={`tabler:brand-${account.name}`} client:idle />
+                    <Icon
+                      icon={`tabler:brand-${account.name.toLowerCase()}`}
+                      client:idle
+                    />
                     {account.name}
                   </a>
                 ))
