@@ -31,6 +31,9 @@ export default defineConfig({
         '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
     },
+    server: {
+      allowedHosts: ['skylark-kind-dragon.ngrok-free.app', 'zellwk.com'],
+    },
   },
   adapter: node({ mode: 'middleware' }),
   markdown: {},

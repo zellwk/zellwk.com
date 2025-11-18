@@ -1,13 +1,12 @@
 import mdxRenderer from '@astrojs/mdx/server.js'
-import svelteRenderer from '@astrojs/svelte/server.js'
-import { components } from '../components/blogPostComponents.js'
-
 import rss from '@astrojs/rss'
+import svelteRenderer from '@astrojs/svelte/server.js'
 import { processFiles } from '@splendidlabz/astro/content'
 import { toSentence } from '@splendidlabz/utils'
 import { experimental_AstroContainer as AstroContainer } from 'astro/container'
 import { getCollection, render } from 'astro:content'
 import config from '../../site-config.js'
+import { components } from '../components/blogPostComponents.js'
 
 export const prerender = true
 

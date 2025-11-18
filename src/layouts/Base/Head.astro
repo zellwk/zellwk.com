@@ -1,6 +1,6 @@
 ---
-import config from '../../../site-config.js'
 import { SEO } from '@splendidlabz/astro'
+import config from '../../../site-config.js'
 import Favicon from './Favicon.astro'
 
 const { bodyClass = '', ...props } = Astro.props
@@ -28,7 +28,7 @@ const { bodyClass = '', ...props } = Astro.props
 <link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Google Tag Manager -->
-<script async>
+<!-- <script async>
   ;(function (w, d, s, l, i) {
     w[l] = w[l] || []
     w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
@@ -39,5 +39,5 @@ const { bodyClass = '', ...props } = Astro.props
     j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
     f.parentNode.insertBefore(j, f)
   })(window, document, 'script', 'dataLayer', 'GTM-5FDGFC8')
-</script>
+</script> -->
 <!-- End Google Tag Manager -->

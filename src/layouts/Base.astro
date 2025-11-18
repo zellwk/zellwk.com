@@ -20,13 +20,22 @@ const { bodyClass, ...props } = Astro.props
 
     <script>
       import { fb, ph } from '@/services/tracking/web'
-      import { masonry } from '@splendidlabz/styles/scripts'
 
       fb.init()
       fb.track('PageView')
       ph.init()
+    </script>
 
-      masonry()
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FF5QLS3KNY"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'G-FF5QLS3KNY')
     </script>
   </body>
 </html>
