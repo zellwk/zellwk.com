@@ -1,0 +1,67 @@
+name: Deploy to Digital Ocean
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "1 0 * * *" # Daily at 00:01 UTC
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Cache build artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules/.cache
+            .astro
+          key: ${{ runner.os }}-build-cache-v1
+          restore-keys: |
+            ${{ runner.os }}-build-cache-
+
+      - name: Cache processed images
+        uses: actions/cache@v4
+        with:
+          path: |
+            dist/client/_astro
+            dist/client/assets
+          key: ${{ runner.os }}-images-${{ hashFiles('src/assets/**/*') }}-${{ hashFiles('public/assets/**/*') }}
+          restore-keys: |
+            ${{ runner.os }}-images-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Sync to server
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: npm run sync
+
+      - name: Deploy and restart on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/zellwk.com
+            git fetch origin
+            git reset --hard origin/master
+            npm install
+            pm2 restart zellwk.com
