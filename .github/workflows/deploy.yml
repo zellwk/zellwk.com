@@ -27,16 +27,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Cache Astro build
+      - name: Cache Astro images
         uses: actions/cache@v4
         with:
           path: |
-            node_modules/.cache
             node_modules/.astro
             .astro
-          key: ${{ runner.os }}-astro-build-${{ hashFiles('src/assets/**/*') }}-${{ hashFiles('public/assets/**/*') }}
+          key: ${{ runner.os }}-astro-images-${{ hashFiles('src/assets/**/*') }}-${{ hashFiles('public/assets/**/*') }}
           restore-keys: |
-            ${{ runner.os }}-astro-build-
+            ${{ runner.os }}-astro-images-
+
+      - name: Cache OG images
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.cache/og-images
+          key: ${{ runner.os }}-og-images-${{ hashFiles('src/content/blog/**/*.md') }}
+          restore-keys: |
+            ${{ runner.os }}-og-images-
 
       - name: Install Playwright browsers
         run: |
