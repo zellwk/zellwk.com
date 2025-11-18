@@ -32,14 +32,18 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: node_modules/.astro
-          key: astro-images-${{ runner.os }}
+          key: astro-images-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            astro-images-${{ runner.os }}-
 
       - name: Restore OG image cache
         id: cache-og-restore
         uses: actions/cache/restore@v4
         with:
           path: node_modules/.cache/og-images
-          key: og-images-${{ runner.os }}
+          key: og-images-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            og-images-${{ runner.os }}-
 
       - name: Install Playwright browsers
         run: |
@@ -56,7 +60,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh extension install actions/gh-actions-cache || true
-          gh actions-cache delete "${{ steps.cache-astro-restore.outputs.cache-primary-key }}" --branch ${{ github.ref_name }} --confirm || true
+          gh actions-cache list --key "astro-images-${{ runner.os }}-" | cut -f1 | xargs -I {} gh actions-cache delete {} --confirm || true
 
       - name: Save Astro image cache
         uses: actions/cache/save@v4
@@ -72,7 +76,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh extension install actions/gh-actions-cache || true
-          gh actions-cache delete "${{ steps.cache-og-restore.outputs.cache-primary-key }}" --branch ${{ github.ref_name }} --confirm || true
+          gh actions-cache list --key "og-images-${{ runner.os }}-" | cut -f1 | xargs -I {} gh actions-cache delete {} --confirm || true
 
       - name: Save OG image cache
         uses: actions/cache/save@v4
