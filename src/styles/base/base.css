@@ -18,7 +18,7 @@
     color: var(--color-zpurple-500);
   }
 
-  a:not(.button) {
+  a:where(:not(.button)) {
     --text-color: var(--color-zcyan-600);
     --text-hover-color: var(--color-zcyan-700);
   }
@@ -33,6 +33,15 @@
     font-size: 0.825em;
     letter-spacing: -0.05em;
     color: var(--color-zred-400);
+  }
+
+  a:has(> code) {
+    --text-color: var(--color-zred-400);
+    --text-hover-color: var(--color-zred-600);
+
+    > code {
+      @apply pigment-without-border;
+    }
   }
 }
 
