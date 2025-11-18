@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install FFmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
       - name: Cache build artifacts
         uses: actions/cache@v4
         with:
