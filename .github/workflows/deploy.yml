@@ -11,7 +11,6 @@ jobs:
   build-and-deploy:
     if: github.event_name == 'schedule' || contains(github.event.head_commit.message, '[build ci]')
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
