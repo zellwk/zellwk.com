@@ -6,6 +6,8 @@
   "scripts": {
     "start": "pm2 start pm2.js",
     "restart": "pm2 reload pm2.js --update-env",
+    "stop": "pm2 stop pm2.js",
+    "delete": "pm2 delete pm2.js",
     "dev": "gulp dev & astro dev --host",
     "build": "gulp build && astro build",
     "server": "nodemon start.js",
