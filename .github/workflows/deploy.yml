@@ -24,29 +24,19 @@ jobs:
       - name: Install FFmpeg
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
-      - name: Cache build artifacts
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Astro build
         uses: actions/cache@v4
         with:
           path: |
             node_modules/.cache
             node_modules/.astro
             .astro
-          key: ${{ runner.os }}-build-cache-v1
+          key: ${{ runner.os }}-astro-build-${{ hashFiles('src/assets/**/*') }}-${{ hashFiles('public/assets/**/*') }}
           restore-keys: |
-            ${{ runner.os }}-build-cache-
-
-      - name: Cache processed images
-        uses: actions/cache@v4
-        with:
-          path: |
-            dist/client/_astro
-            dist/client/assets
-          key: ${{ runner.os }}-images-${{ hashFiles('src/assets/**/*') }}-${{ hashFiles('public/assets/**/*') }}
-          restore-keys: |
-            ${{ runner.os }}-images-
-
-      - name: Install dependencies
-        run: npm ci
+            ${{ runner.os }}-astro-build-
 
       - name: Install Playwright browsers
         run: |
