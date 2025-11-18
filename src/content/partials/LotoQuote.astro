@@ -3,11 +3,13 @@ import { Markdown } from '@splendidlabz/astro'
 ---
 
 <blockquote class="stack">
-  <div class="june text-[10.5rem] leading-[1] text-zred-700d">&ldquo;</div>
+  <div class="june text-[10.5rem] leading-[1] text-zred-700d pos-topleft">
+    &ldquo;
+  </div>
   <div class="pt-5.5 pl-9">
     <div class="prose stinger-fit text-8 bp8:text-9 text-zgray-400">
-      <Markdown inline>
-        <p>
+      <p>
+        <Markdown inline>
           I'm always <span class="text-zpurple-500">designing</span>,
           <span class="text-zcyan-500">aligning</span><br />
           <span class="text-zorange-500">Combining</span> ideas, and <span
@@ -16,8 +18,10 @@ import { Markdown } from '@splendidlabz/astro'
           <br />
           I'm a real bright thinker and a genius when I tinker <br />
           With a love of problem-solving as a model canoe sinker
-        </p>
-        <p>
+        </Markdown>
+      </p>
+      <p>
+        <Markdown inline>
           We're failing fantastically, yes, we're a mess <br />
           And we're messing up drastically, falling on your face is the best
           <br />
@@ -27,8 +31,8 @@ import { Markdown } from '@splendidlabz/astro'
           There's really only <span class="text-zcyan-500">failing</span>, then <span
             class="text-zorange-500">learning</span
           >, then <span class="text-zred-500">death</span>
-        </p>
-      </Markdown>
+        </Markdown>
+      </p>
     </div>
     <footer class="text-[0.85em] bp8:text-7 strong mt-2 text-zred-500">
       — Loto, Moana 2
