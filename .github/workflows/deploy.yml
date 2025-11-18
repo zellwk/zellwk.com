@@ -29,6 +29,7 @@ jobs:
         with:
           path: |
             node_modules/.cache
+            node_modules/.astro
             .astro
           key: ${{ runner.os }}-build-cache-v1
           restore-keys: |
