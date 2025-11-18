@@ -83,4 +83,4 @@ jobs:
             git fetch origin
             git reset --hard origin/master
             npm install
-            pm2 restart zellwk.com
+            npm run restart
