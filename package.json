@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "prettier": "@splendidlabz/prettier-config",
   "scripts": {
-    "start": "node pm2.js",
+    "start": "pm2 start pm2.js",
+    "restart": "pm2 reload pm2.js --update-env",
     "dev": "gulp dev & astro dev --host",
     "build": "gulp build && astro build",
     "server": "nodemon start.js",
