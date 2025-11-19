@@ -1,5 +1,6 @@
 import { processFiles } from '@splendidlabz/astro/content'
 import { getCollection } from 'astro:content'
+import ogStyles from '../../styles/og-styles.css?raw'
 import { createOGImage } from './utils.js'
 
 export async function getStaticPaths() {
@@ -21,14 +22,14 @@ export async function GET({ props, params }) {
 
   const image = await createOGImage({
     slug,
-    body: `<h1>${title}</h1>`,
-    styles: './style.css', // Or a CSS string, or an array of CSS files
     fonts: [
       {
         name: 'June Expt',
         path: '/public/fonts/june-expt-variable.woff2',
       },
     ],
+    styles: ogStyles,
+    body: `<h1>${title}</h1>`,
   })
 
   return new Response(image, {

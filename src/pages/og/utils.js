@@ -5,14 +5,26 @@ import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright-core'
 
-// Cache browser and font for reuse across multiple image generations
+// Module-level cache for browser instance, fonts, and processed CSS
 let browserInstance = null
 const fontCache = new Map()
+const processedStylesCache = new Map() // Cache for final processed styles by content hash
 
 const DEFAULT_CACHE_DIR = './node_modules/.cache/og-images'
-const FONTS_CACHE_DIR = join(DEFAULT_CACHE_DIR, 'fonts')
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
+/**
+ * Creates an OG image from the provided options.
+ *
+ * @param {Object} options - Configuration options
+ * @param {string} options.slug - Unique identifier for the image (used for caching)
+ * @param {string} [options.cacheDir] - Directory to cache images (default: './node_modules/.cache/og-images')
+ * @param {string} options.body - HTML body content for the image
+ * @param {string|string[]} [options.styles] - CSS styles (file path, array of paths, or CSS string)
+ * @param {Array<{name: string, path: string|string[], variable?: boolean, fontStyle?: string}>} options.fonts - Array of font configurations
+ * @returns {Promise<Buffer>} PNG image buffer
+ * @throws {Error} If required options are missing or invalid
+ */
 export async function createOGImage(options) {
   const {
     slug,
@@ -35,7 +47,7 @@ export async function createOGImage(options) {
     }
   }
 
-  // Load fonts and styles
+  // Load fonts and styles in parallel
   const [loadedFonts, stylesContent] = await Promise.all([
     Promise.all(fonts.map(font => loadFont(font))),
     loadStyles(styles),
@@ -49,8 +61,9 @@ export async function createOGImage(options) {
 
   // Check cache first
   const cached = await getCachedImage(slug, contentHash, cacheDir)
-  if (cached) return cached
-
+  if (cached) {
+    return cached
+  }
   // Generate image
   const html = generateOGImageHTML(body, loadedFonts, stylesContent)
   const screenshot = await generateImageFromHTML(html)
@@ -61,10 +74,24 @@ export async function createOGImage(options) {
   return screenshot
 }
 
+/**
+ * Generates a SHA-256 hash of the provided content.
+ *
+ * @param {string} content - Content to hash
+ * @returns {string} Hexadecimal hash string
+ */
 function getContentHash(content) {
   return createHash('sha256').update(content).digest('hex')
 }
 
+/**
+ * Retrieves a cached image if it exists and matches the content hash.
+ *
+ * @param {string} slug - Image slug identifier
+ * @param {string} contentHash - Expected content hash
+ * @param {string} cacheDir - Cache directory path
+ * @returns {Promise<Buffer|null>} Cached image buffer or null if not found/invalid
+ */
 async function getCachedImage(slug, contentHash, cacheDir) {
   const cachePath = join(cacheDir, `${slug}.png`)
   const metaPath = join(cacheDir, `${slug}.meta`)
@@ -78,6 +105,15 @@ async function getCachedImage(slug, contentHash, cacheDir) {
   return null
 }
 
+/**
+ * Caches an image with its content hash for future lookups.
+ *
+ * @param {string} slug - Image slug identifier
+ * @param {Buffer} buffer - Image buffer to cache
+ * @param {string} contentHash - Content hash for validation
+ * @param {string} cacheDir - Cache directory path
+ * @returns {Promise<void>}
+ */
 async function cacheImage(slug, buffer, contentHash, cacheDir) {
   await mkdir(cacheDir, { recursive: true })
   const cachePath = join(cacheDir, `${slug}.png`)
@@ -86,6 +122,11 @@ async function cacheImage(slug, buffer, contentHash, cacheDir) {
   await writeFile(metaPath, contentHash, 'utf-8')
 }
 
+/**
+ * Gets or creates a browser instance (singleton pattern).
+ *
+ * @returns {Promise<import('playwright-core').Browser>} Browser instance
+ */
 async function getBrowser() {
   if (!browserInstance) {
     browserInstance = await chromium.launch({
@@ -100,38 +141,72 @@ async function getBrowser() {
   return browserInstance
 }
 
+/**
+ * Resolves a font file path to an absolute path.
+ * - Paths starting with `/` are resolved from project root
+ * - Paths starting with `.` are resolved from current file directory
+ * - Other paths are used as-is
+ *
+ * @param {string} path - Font file path
+ * @returns {string} Absolute path to font file
+ */
 function resolveFontPath(path) {
-  // Absolute path (starts with /) - resolve from project root
   if (path.startsWith('/')) {
-    // Strip leading / to make it relative to project root
     return resolve(process.cwd(), path.slice(1))
   }
-  // Relative path (starts with .) - resolve from current file directory
   if (path.startsWith('.')) {
     return resolve(__dirname, path)
   }
-  // Otherwise use as-is (assumed to be absolute or already resolved)
   return path
 }
 
+/**
+ * Determines the font format based on path and variable flag.
+ *
+ * @param {string} path - Font file path
+ * @param {boolean} [variable] - Whether the font is a variable font
+ * @returns {string} Font format ('woff2-variations', 'woff2', or 'woff')
+ */
 function getFontFormat(path, variable) {
   if (variable === true) return 'woff2-variations'
   if (path.toLowerCase().includes('variable')) return 'woff2-variations'
   if (path.endsWith('.woff2')) return 'woff2'
   if (path.endsWith('.woff')) return 'woff'
-  return 'woff2' // default
+  return 'woff2'
 }
 
+/**
+ * Loads a font file and converts it to base64 for embedding.
+ *
+ * @param {Object} font - Font configuration
+ * @param {string} font.name - Font family name
+ * @param {string|string[]} font.path - Font file path(s)
+ * @param {boolean} [font.variable] - Whether the font is a variable font
+ * @param {string} [font.fontStyle] - Font style ('normal' or 'italic'). Auto-detected from filename if not provided.
+ * @returns {Promise<{name: string, fontStyle: string, fonts: Array<{format: string, base64: string}>}>} Loaded font data
+ * @throws {Error} If no font files are found
+ */
 async function loadFont(font) {
-  const { name, path, variable } = font
+  const { name, path, variable, fontStyle } = font
   const paths = Array.isArray(path) ? path : [path]
 
-  // Load local font files
   const availableFonts = []
   const attemptedPaths = []
+
+  // Auto-detect italic from filename if fontStyle not explicitly provided
+  const detectItalic = fontPath => {
+    if (fontStyle) {
+      return fontStyle === 'italic'
+    }
+    // Check if filename contains 'italic' or 'it' (case-insensitive)
+    const lowerPath = fontPath.toLowerCase()
+    return lowerPath.includes('italic') || lowerPath.includes('-it.')
+  }
+
   for (const fontPath of paths) {
     const resolvedPath = resolveFontPath(fontPath)
     attemptedPaths.push(resolvedPath)
+
     if (existsSync(resolvedPath)) {
       const format = getFontFormat(fontPath, variable)
       const cacheKey = `${resolvedPath}|${format}`
@@ -144,6 +219,7 @@ async function loadFont(font) {
       availableFonts.push({
         format,
         base64: fontCache.get(cacheKey),
+        fontStyle: detectItalic(fontPath) ? 'italic' : 'normal',
       })
     }
   }
@@ -154,128 +230,70 @@ async function loadFont(font) {
     )
   }
 
-  return { name, fonts: availableFonts }
+  // Determine overall font style (use italic if any font is italic)
+  const overallFontStyle = availableFonts.some(f => f.fontStyle === 'italic')
+    ? 'italic'
+    : 'normal'
+
+  return { name, fontStyle: overallFontStyle, fonts: availableFonts }
 }
 
+/**
+ * Resolves a style file path to an absolute path.
+ * - Paths starting with `/` are resolved from project root
+ * - Paths starting with `.` are resolved from current file directory
+ * - Other paths are used as-is
+ *
+ * @param {string} path - Style file path
+ * @returns {string} Absolute path to style file
+ */
 function resolveStylePath(path) {
-  // Absolute path (starts with /) - resolve from project root
   if (path.startsWith('/')) {
-    // Strip leading / to make it relative to project root
     return resolve(process.cwd(), path.slice(1))
   }
-  // Relative path (starts with .) - resolve from current file directory
   if (path.startsWith('.')) {
     return resolve(__dirname, path)
   }
-  // Otherwise use as-is (assumed to be absolute or already resolved)
   return path
 }
 
-async function processImports(css) {
-  // Find all @import statements
+/**
+ * Removes @import statements from CSS (not supported - use local fonts instead).
+ *
+ * @param {string} css - CSS content with potential @import statements
+ * @returns {string} CSS with @import statements removed
+ */
+function processImports(css) {
+  // Remove @import statements - they're not supported, use local fonts instead
+  if (!css.includes('@import')) {
+    return css
+  }
+
   const importRegex = /@import\s+(?:url\()?['"]?([^'")]+)['"]?\)?[^;]*;/g
-  const imports = []
-  let match
-
-  while ((match = importRegex.exec(css)) !== null) {
-    const url = match[1].trim()
-    if (url.startsWith('http')) {
-      imports.push({ url, fullMatch: match[0] })
-    }
-  }
-
-  // Process each @import
-  for (const { url, fullMatch } of imports) {
-    // Create cache key from URL
-    const urlHash = getContentHash(url)
-    const cacheFile = join(FONTS_CACHE_DIR, `${urlHash}.css`)
-
-    // Check if already cached and processed
-    let importedCss
-    let needsProcessing = true
-    if (existsSync(cacheFile)) {
-      importedCss = await readFile(cacheFile, 'utf-8')
-      // Check if cached CSS already has data URIs (already processed)
-      if (importedCss.includes('data:font/')) {
-        needsProcessing = false
-      }
-    }
-
-    if (needsProcessing) {
-      // Fetch from URL if we don't have CSS yet
-      if (!importedCss) {
-        const response = await fetch(url)
-        if (!response.ok) {
-          throw new Error(
-            `Failed to fetch CSS from ${url}: ${response.statusText}`,
-          )
-        }
-        importedCss = await response.text()
-      }
-
-      // Parse CSS to find font URLs and download them
-      const fontUrlRegex = /url\(['"]?([^'")]+)['"]?\)/g
-      const fontUrls = []
-      let fontMatch
-      while ((fontMatch = fontUrlRegex.exec(importedCss)) !== null) {
-        const fontUrl = fontMatch[1].trim()
-        // Only process http/https URLs (skip data URIs)
-        if (fontUrl.startsWith('http')) {
-          fontUrls.push(fontUrl)
-        }
-      }
-
-      // Download and cache font files
-      await mkdir(FONTS_CACHE_DIR, { recursive: true })
-      for (const fontUrl of fontUrls) {
-        const fontUrlHash = getContentHash(fontUrl)
-        const fontCacheFile = join(FONTS_CACHE_DIR, fontUrlHash)
-        const fontExt = fontUrl.match(/\.(woff2|woff|ttf|otf)/)?.[1] || 'woff2'
-        const fontCachePath = `${fontCacheFile}.${fontExt}`
-
-        if (!existsSync(fontCachePath)) {
-          const fontResponse = await fetch(fontUrl)
-          if (fontResponse.ok) {
-            const fontBuffer = await fontResponse.arrayBuffer()
-            await writeFile(fontCachePath, Buffer.from(fontBuffer))
-          }
-        }
-
-        // Replace URL with data URI for embedding
-        if (existsSync(fontCachePath)) {
-          const fontBuffer = await readFile(fontCachePath)
-          const fontBase64 = fontBuffer.toString('base64')
-          const mimeType =
-            fontExt === 'woff2'
-              ? 'font/woff2'
-              : fontExt === 'woff'
-                ? 'font/woff'
-                : fontExt === 'ttf'
-                  ? 'font/truetype'
-                  : 'font/opentype'
-          const dataUri = `data:${mimeType};base64,${fontBase64}`
-          // Replace all occurrences of this URL (may appear quoted or unquoted)
-          const escapedUrl = fontUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-          importedCss = importedCss.replace(
-            new RegExp(`url\\(['"]?${escapedUrl}['"]?\\)`, 'g'),
-            `url(${dataUri})`,
-          )
-        }
-      }
-
-      // Cache the processed CSS
-      await writeFile(cacheFile, importedCss, 'utf-8')
-    }
-
-    // Replace @import with the processed CSS
-    css = css.replace(fullMatch, importedCss)
-  }
-
-  return css
+  return css.replace(importRegex, '')
 }
 
+/**
+ * Loads and processes CSS styles from various sources.
+ * Supports file paths (single or array), CSS strings, and removes @import statements.
+ * Uses in-memory cache to avoid reprocessing the same styles across multiple image generations.
+ *
+ * @param {string|string[]} [styles] - CSS file path(s) or CSS string
+ * @returns {Promise<string>} Processed CSS content
+ */
 async function loadStyles(styles) {
   if (!styles) return ''
+
+  // Check in-memory cache first (hash the input to create cache key)
+  // For string inputs, use the string directly; for arrays, stringify
+  const stylesKey = typeof styles === 'string' ? styles : JSON.stringify(styles)
+  const stylesHash = getContentHash(stylesKey)
+
+  // Fast path: return cached result immediately
+  if (processedStylesCache.has(stylesHash)) {
+    return processedStylesCache.get(stylesHash)
+  }
+
   let css = ''
 
   if (Array.isArray(styles)) {
@@ -292,27 +310,36 @@ async function loadStyles(styles) {
       if (existsSync(resolvedPath)) {
         css = await readFile(resolvedPath, 'utf-8')
       } else {
-        css = styles // Treat as CSS content if file doesn't exist
+        // Treat as CSS content if file doesn't exist
+        css = styles
       }
     } else {
-      // Otherwise treat as CSS content
+      // Treat as CSS content (this is the case for ?raw imports)
       css = styles
     }
   }
 
-  // Process @import statements
-  css = await processImports(css)
+  // Remove @import statements (not supported - use local fonts instead)
+  css = processImports(css)
+
+  // Cache the final processed result for next time
+  processedStylesCache.set(stylesHash, css)
 
   return css
 }
 
-function generateOGImageHTML(body, loadedFonts, styles) {
-  const fontFaces = loadedFonts
-    .map(({ name, fonts }) => {
+/**
+ * Generates @font-face CSS declarations from loaded fonts.
+ *
+ * @param {Array<{name: string, fontStyle: string, fonts: Array<{format: string, base64: string, fontStyle?: string}>}>} loadedFonts - Array of loaded font data
+ * @returns {string} CSS @font-face declarations
+ */
+function generateFontFaces(loadedFonts) {
+  return loadedFonts
+    .map(({ name, fontStyle, fonts }) => {
       const src = fonts
         .map(({ format, base64 }) => {
           const mimeType = format.includes('woff2') ? 'font/woff2' : 'font/woff'
-          // Check if format indicates variable font
           const isVariableFormat =
             format.includes('variations') || format.includes('woff2-variations')
           const formatString = isVariableFormat ? 'woff2-variations' : format
@@ -320,23 +347,34 @@ function generateOGImageHTML(body, loadedFonts, styles) {
         })
         .join(', ')
 
-      // Check if any font is variable (has variations format)
       const isVariable = fonts.some(
         f =>
           f.format.includes('variations') ||
           f.format.includes('woff2-variations'),
       )
-      // For variable fonts, add font-weight range
-      // Also check if URL indicates variable font (for Google Fonts)
       const fontWeight = isVariable ? 'font-weight: 100 900;' : ''
+      const fontStyleRule = fontStyle === 'italic' ? 'font-style: italic;' : ''
 
       return `@font-face {
             font-family: ${name};
             src: ${src};
             ${fontWeight}
+            ${fontStyleRule}
           }`
     })
     .join('\n          ')
+}
+
+/**
+ * Generates the complete HTML document for OG image generation.
+ *
+ * @param {string} body - HTML body content
+ * @param {Array<{name: string, fonts: Array<{format: string, base64: string}>}>} loadedFonts - Array of loaded font data
+ * @param {string} styles - CSS styles content
+ * @returns {string} Complete HTML document
+ */
+function generateOGImageHTML(body, loadedFonts, styles) {
+  const fontFaces = generateFontFaces(loadedFonts)
 
   return `
     <!DOCTYPE html>
@@ -354,17 +392,20 @@ function generateOGImageHTML(body, loadedFonts, styles) {
   `
 }
 
+/**
+ * Generates a PNG screenshot from HTML content using Playwright.
+ *
+ * @param {string} html - HTML content to render
+ * @returns {Promise<Buffer>} PNG image buffer
+ */
 async function generateImageFromHTML(html) {
   const browser = await getBrowser()
   const page = await browser.newPage()
   await page.setViewportSize({ width: 1200, height: 630 })
   await page.setContent(html, { waitUntil: 'domcontentloaded' })
 
-  // Wait for fonts to load (handles both local and external fonts)
+  // Wait for fonts to load (fonts are embedded as data URIs, so this should be fast)
   await page.evaluate(() => document.fonts.ready)
-
-  // Additional wait for network requests to complete (for external fonts)
-  await page.waitForLoadState('networkidle')
 
   const screenshot = await page.screenshot({ type: 'png' })
   await page.close()
