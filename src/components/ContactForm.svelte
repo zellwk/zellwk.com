@@ -51,6 +51,7 @@
     if (response) {
       status.status = 'success'
       status.message = response.body.message
+      console.log(response.body)
 
       // Ensures people have sufficient time to read the status message before they are redirected.
       await wait(2000)
@@ -60,6 +61,7 @@
     if (error) {
       status.status = 'error'
       status.message = error.body.message
+      console.log(error.body)
     }
   }
 </script>

@@ -10,6 +10,9 @@ export async function POST(context) {
   const body = await parseData(context)
   const { hp, template = 'Contact', name, email, message, subject } = body
 
+  console.log(import.meta.env.POSTMARK_KEY)
+  console.log(body)
+
   // Fake the spammers
   if (hp?.trim())
     return JSONResponse({
