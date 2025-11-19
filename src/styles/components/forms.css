@@ -20,6 +20,23 @@ form {
   .label + .hint {
     margin-top: -0.25rlh;
   }
+
+  /* Override autofill bright background */
+  /* input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px var(--color-zpurple-1000) inset !important;
+    -webkit-text-fill-color: var(--color-zpurple-100) !important;
+  }
+
+  input:autofill,
+  input:autofill:hover,
+  input:autofill:focus,
+  input:autofill:active {
+    color: var(--color-zpurple-100) !important;
+    box-shadow: 0 0 0 30px var(--color-zpurple-1000) inset !important;
+  } */
 }
 
 .newsletter-form {
