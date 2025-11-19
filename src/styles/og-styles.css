@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 1200px;
+  height: 630px;
+  padding: 100px;
+  background: #0d0c11;
+}
+
+h1 {
+  /* font-family: 'June Expt', sans-serif; */
+  font-family: Inter, serif;
+  font-size: 80px;
+  text-align: center;
+  color: #ffbf00;
+  font-variation-settings: 'STYL' 60;
+}

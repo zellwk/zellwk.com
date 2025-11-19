@@ -4,7 +4,7 @@ export default {
     title: 'Zell Liew',
     description: `I build products, coach people, and explore what sustainable work means. I bring a dev background and psychology to everything I make. Weekly updates on code, breakthroughs, and living well.`,
     url: 'https://zellwk.com',
-    OGImageFallback: '',
+    OGImageFallback: '/og/fallback.png',
     OGImageFallbackAlt: 'Zell Liew',
   },
   port: getPort(),
