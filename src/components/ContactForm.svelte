@@ -18,8 +18,6 @@
     const { name, email, message } = data
     let { subject = 'Contact Zell' } = data
 
-    if (data.hp.trim()) return
-
     status = {
       status: 'info',
       message: 'Sending your message',
@@ -66,7 +64,7 @@
   }
 </script>
 
-<Form class="vertical" {onsubmit}>
+<Form class="vertical" honeypotName="last-name" {onsubmit}>
   <div class="grid-simple bp5:[--cols:2]">
     <TextInput name="name" label="Your Name" required />
     <TextInput name="email" label="Your Email Address" required type="email" />
