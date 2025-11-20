@@ -1,7 +1,7 @@
 import { processFiles } from '@splendidlabz/astro/content'
+import { createOGImage } from '@splendidlabz/og'
 import { getCollection } from 'astro:content'
 import ogStyles from '../../styles/og-styles.css?raw'
-import { createOGImage } from './utils.js'
 
 export async function getStaticPaths() {
   const files = await getCollection('blog')

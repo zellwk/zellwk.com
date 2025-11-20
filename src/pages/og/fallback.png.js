@@ -1,6 +1,6 @@
+import { createOGImage } from '@splendidlabz/og'
 import config from '../../../site-config.js'
 import ogStyles from '../../styles/og-styles.css?raw'
-import { createOGImage } from './utils.js'
 
 export async function GET() {
   const image = await createOGImage({
