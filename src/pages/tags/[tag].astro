@@ -72,15 +72,26 @@ const SEOProps = {
                   </hgroup>
                   <div class="blog-list">
                     {grpPosts.map(post => {
+                      const url = post.data.url || `/blog/${post.data.slug}/`
                       return (
                         <div class="blog-list-item">
                           <div class="date">
                             {formatDate(post.data.date, 'dd MMM')}
                           </div>
                           <div class="vertical gap-0.25">
-                            <a class="title" href={`/blog/${post.data.slug}/`}>
+                            <a
+                              class="title"
+                              href={url}
+                              target={post.data.url ? '_blank' : null}
+                            >
                               {post.data.title}
+                              {post.data.url && (
+                                <span class="external">
+                                  (On {post.data.external})
+                                </span>
+                              )}
                             </a>
+
                             <span class="meta">
                               {post.data.tags.map((tag, index) => {
                                 const isLast =

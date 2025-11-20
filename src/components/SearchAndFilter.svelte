@@ -104,12 +104,23 @@
       </hgroup>
       <div class="blog-list">
         {#each posts as post (post.data.slug)}
+          {@const url = post.data.url || `/blog/${post.data.slug}/`}
           <div class="blog-list-item">
             <div class="date">{formatDate(post.data.date, 'dd MMM')}</div>
             <div class="vertical gap-0.25">
-              <a class="title" href="/blog/{post.data.slug}/">
+              <a
+                class="title"
+                href={url}
+                target={post.data.url ? '_blank' : null}
+              >
                 {post.data.title}
+                {#if post.data.url}
+                  <span class="external">
+                    (On {post.data.external})
+                  </span>
+                {/if}
               </a>
+
               <span class="meta">
                 {#each post.data.tags as tag, index (tag + index)}
                   {@render oneTag(tag, index === post.data.tags.length - 1)}

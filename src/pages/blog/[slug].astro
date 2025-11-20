@@ -13,8 +13,9 @@ export const prerender = true
 export async function getStaticPaths() {
   const files = await getCollection('blog')
   const posts = await processFiles(files)
+  const localPosts = posts.filter(post => !post.data.url)
 
-  return posts.map((post, index) => {
+  return localPosts.map((post, index) => {
     return {
       params: { slug: post.data.slug },
       props: {

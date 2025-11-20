@@ -91,7 +91,8 @@ export const prerender = true
               {
                 posts.map(post => (
                   <a
-                    href={`/blog/${post.data.slug}/`}
+                    href={post.data.url || `/blog/${post.data.slug}/`}
+                    target={post.data.url ? '_blank' : null}
                     style={{
                       '--border-color': 'inherit',
                       '--bg-hover-color': 'var(--color-zcyan-700)',

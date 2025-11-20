@@ -22,6 +22,21 @@
     --font-weight: 450;
   }
 
+  .external {
+    @apply transition-scaffold;
+    @apply stinger;
+    @apply text-6;
+    --font-width: 108;
+    --font-weight: 500;
+    color: var(--color-zgray-500);
+  }
+
+  .title:where(:hover, :focus, :active) {
+    .external {
+      color: var(--color-zgray-600);
+    }
+  }
+
   .meta {
     @apply june;
     @apply text-5 bp8:text-7;
