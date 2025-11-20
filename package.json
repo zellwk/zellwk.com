@@ -23,7 +23,7 @@
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/svelte": "^7.2.1",
     "@splendidlabz/astro": "^5.2.8",
-    "@splendidlabz/og": "file:../@splendidlabz/splendid/packages/og",
+    "@splendidlabz/og": "^1.0.1",
     "@splendidlabz/styles": "^4.6.0",
     "@splendidlabz/svelte": "^4.6.12",
     "@splendidlabz/third-party": "^1.3.11",
