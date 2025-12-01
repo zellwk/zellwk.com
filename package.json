@@ -34,7 +34,7 @@
     "astro-expressive-code": "^0.41.3",
     "date-fns": "^4.1.0",
     "dotenv": "^17.2.3",
-    "express": "^5.1.0",
+    "express": "^5.2.0",
     "playwright-core": "^1.56.1",
     "pm2": "^6.0.13",
     "postmark": "^4.0.5",
