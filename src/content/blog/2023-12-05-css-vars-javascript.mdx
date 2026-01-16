@@ -91,22 +91,22 @@ The above processes are simple, but it can be tedious remember the correct way t
 
 To make the process easier for me, I created two helper functions to help me out:
 
-- [`getCSSVar`]() — Gets CSS variable from an element
-- [`setCSSVar`]() — Sets CSS variable on an element
+- [`getCSSVar`](https://splendidlabz.com/docs/utils/dom/css-variables/) — Gets CSS variable from an element
+- [`setCSSVar`](https://splendidlabz.com/docs/utils/dom/css-variables/) — Sets CSS variable on an element
 
 You can install these two helpers by installing [Splendid UI](https://splendidlabz.com), then import them from the `utils` subpath.
 
 ```shell
-npm install splendidlabz --save
+npm install @splendidlabz/utils --save
 ```
 
 ```js
-import { getCSSVar, setCSSVar } from 'splendidlabz/svelte'
+import { getCSSVar, setCSSVar } from '@splendidlabz/utils/dom'
 ```
 
 Let's go through how to use each of these helper functions.
 
-### get css var
+### Get CSS Variable
 
 `getCSSVar` helps you get a CSS variable from an element.
 
@@ -142,7 +142,7 @@ const value = getCSSVar(document.body, '--variable')
 console.log(value) // #111
 ```
 
-### set css var
+### Set CSS Variable
 
 `setCSSVar` lets you set a CSS variable on an element. The syntax is as follows:
 
@@ -193,6 +193,6 @@ If you enjoyed this article, you might also enjoy the courses I've written to he
 ## Further Reading
 
 - [Splendid UI](https://splendidlabz.com)
-- [`getCSSVar` documentation](https://splendidlabz.com/utils/dom/get-css-var)
-- [`setCSSVar` documentation](https://splendidlabz.com/utils/dom/set-css-var)
+- [`getCSSVar` documentation](https://splendidlabz.com/docs/utils/dom/css-variables/)
+- [`setCSSVar` documentation](https://splendidlabz.com/docs/utils/dom/css-variables/)
 - [CSS Variables on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)

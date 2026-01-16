@@ -39,19 +39,19 @@ const thisYear = today.getFullYear()
             <h2 class="june text-zorange-500 [--span:2] bp9:[--span:2]">
               Socials
             </h2>
-            <div class="vertical gap-y-2 bp6:gap-y-3">
-              {
-                socialMediaAccounts.map(account => (
-                  <a href={account.url}>
-                    <Icon
-                      icon={`tabler:brand-${account.name.toLowerCase()}`}
-                      client:idle
-                    />
-                    {account.name}
-                  </a>
-                ))
-              }
-            </div>
+            <!-- <div class="vertical gap-y-2 bp6:gap-y-3"> -->
+            {
+              socialMediaAccounts.map(account => (
+                <a href={account.url}>
+                  <Icon
+                    icon={`tabler:brand-${account.name.toLowerCase()}`}
+                    client:idle
+                  />
+                  {account.name}
+                </a>
+              ))
+            }
+            <!-- </div> -->
           </div>
           <div class="vertical gap-y-2 bp6:gap-y-3">
             <h2 class="june text-zorange-500">Follow Along</h2>

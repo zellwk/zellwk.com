@@ -7,7 +7,6 @@ leadModal: learn-javascript
 pubDate: 2020-10-28
 ---
 
-
 JavaScript is said to be a Prototype-based language, so "prototypes" must be an important concept. Right?
 
 Today I'm going to explain what Prototypes are, what you need to know, and how to use Prototypes effectively.
@@ -28,9 +27,10 @@ In JavaScript, prototype refers to a system. This system allows you to define pr
 Prototype is closely related to Object Oriented Programming. It won’t make sense unless you understand what Object Oriented Programming is about.
 
 I suggest you familiarise yourself with [this introductory series on Object Oriented Programming](https://css-tricks.com/the-flavors-of-object-oriented-programming-in-javascript/) before going further.
+
 </Callout>
 
-For example, an `Array` is a blueprint for array instances. You create an array instance with  `[]` or `new Array()`.
+For example, an `Array` is a blueprint for array instances. You create an array instance with `[]` or `new Array()`.
 
 ```js
 const array = ['one', 'two', 'three']
@@ -42,15 +42,24 @@ const array = new Array('one', 'two', 'three')
 
 If you `console.log` this array you won't see any methods, but you can use methods like `concat`, `slice`, `filter`, and `map`!
 
-<Image src="/src/assets/2020/prototype/array.png" alt="Array doesn't contain method." />
+<Image
+  src="/src/assets/2020/prototype/array.png"
+  alt="Array doesn't contain method."
+/>
 
 Why?
 
 Because these methods are located in the Array's prototype. You can expand the `__proto__` object (Chrome Devtools) or `<prototype>` object (Firefox Devtools) and you'll see a list of methods.
 
-<Image src="/src/assets/2020/prototype/array-prototype.png" caption="Array.prototype contains the methods" />
+<Image
+  src="/src/assets/2020/prototype/array-prototype.png"
+  caption="Array.prototype contains the methods"
+/>
 
-<Image src="/src/assets/2020/prototype/firefox.png" caption="Firefox logs prototype as <code>prototype</code>" />
+<Image
+  src="/src/assets/2020/prototype/firefox.png"
+  caption="Firefox logs prototype as <code>prototype</code>"
+/>
 
 <Callout>
 Both `__proto__` in Chrome and `<prototype>` in Firefox points to the Prototype object, they're just written differently in different browsers.
@@ -75,7 +84,10 @@ Here’s what JavaScript does when you access a property:
 
 Diagrammatically, here’s what the process looks like:
 
-<Image src="/src/assets/2020/prototype/prototype-chain.jpg" alt="Prototype chain." />
+<Image
+  src="/src/assets/2020/prototype/prototype-chain.jpg"
+  alt="Prototype chain."
+/>
 
 ### Prototype Chain example
 
@@ -90,19 +102,19 @@ class Human {
     this.lastname = lastName
   }
 
-  sayHello () {
+  sayHello() {
     console.log(`Hi, I'm ${this.firstName}`)
   }
 }
 ```
 
 <Callout>
-`Human` (and `Developer` below) can be written with Constructor functions. If we use Constructor functions, the `prototype` becomes clearer, but creating Subclasses becomes harder. That's why I'm showing an example with Classes. (See [this article]() for the 4 different ways to use Object Oriented Programming).
+`Human` (and `Developer` below) can be written with Constructor functions. If we use Constructor functions, the `prototype` becomes clearer, but creating Subclasses becomes harder. That's why I'm showing an example with Classes. (See [this article](https://css-tricks.com/the-flavors-of-object-oriented-programming-in-javascript/) for the 4 different ways to use Object Oriented Programming).
 
 Here's how you would write `Human` if you used a Constructor instead:
 
 ```js
-function Human (firstName, lastName) {
+function Human(firstName, lastName) {
   this.firstName = firstName
   this.lastName = lastName
 }
@@ -111,13 +123,14 @@ Human.prototype.sayHello = function () {
   console.log(`Hi, I'm ${this.firstName}`)
 }
 ```
+
 </Callout>
 
 Here's the code for `Developer`:
 
 ```js
 class Developer extends Human {
-  code (thing) {
+  code(thing) {
     console.log(`${this.firstName} coded ${thing}`)
   }
 }
@@ -133,7 +146,10 @@ zell.code('website') // Zell coded website
 
 If you `console.log` the instance, you can see the methods in the prototype chain.
 
-<Image src="/src/assets/2020/prototype/prototype-chain-eg.png" alt="`code` and `sayHello` in the prototype chain." />
+<Image
+  src="/src/assets/2020/prototype/prototype-chain-eg.png"
+  alt="`code` and `sayHello` in the prototype chain."
+/>
 
 ## Prototypal Delegation / Prototypal Inheritance
 
@@ -151,9 +167,15 @@ I'd argue that it depends on how you write Object Oriented Programming. It makes
 
 ```js
 class Blueprint {
-  method1 () {/* ... */}
-  method2 () {/* ... */}
-  method3 () {/* ... */}
+  method1() {
+    /* ... */
+  }
+  method2() {
+    /* ... */
+  }
+  method3() {
+    /* ... */
+  }
 }
 ```
 
@@ -172,6 +194,7 @@ function Blueprint {
 Again, read [this article](https://css-tricks.com/the-flavors-of-object-oriented-programming-in-javascript/) for four different ways to write Object Oriented Programming.
 
 ## Performance Implications
+
 Differences in performance between the two methods do not matter much – unless your app requires millions of operations. In this section, I'm going to share some experiments to prove this point.
 
 ### Setup
@@ -192,7 +215,7 @@ console.log(elapsed)
 I used a `perf` function to help with my tests:
 
 ```js
-function perf (message, callback, loops = 1) {
+function perf(message, callback, loops = 1) {
   const startTime = performance.now()
   for (let index = 0; index <= loops; index++) {
     callback()
@@ -227,10 +250,10 @@ perf('In Prototype', _ => { instance.inPrototype() }, count)
 
 The average results are summarised in this table as follows:
 
-| Test          | 1,000,000 ops  | 10,000,000 ops |
-|:-----------|:--------------|:---------------|
-| In Object     | 3ms              | 15ms          |
-| In Prototype | 2ms              | 12ms          |
+| Test         | 1,000,000 ops | 10,000,000 ops |
+| :----------- | :------------ | :------------- |
+| In Object    | 3ms           | 15ms           |
+| In Prototype | 2ms           | 12ms           |
 
 Note: Results are from Firefox's Devtools. Read [this](/blog/performance-now) to understand why I'm only benchmarking with Firefox.
 
@@ -247,39 +270,51 @@ Here's the code.
 ```js
 // Class blueprint
 class HumanClass {
-  constructor (firstName, lastName) {
+  constructor(firstName, lastName) {
     this.firstName = firstName
     this.lastName = lastName
   }
 
-  sayHello () {
+  sayHello() {
     console.lg(`Hi, I'm ${this.firstName}}`)
   }
 }
 
 // Factory blueprint
-function HumanFactory (firstName, lastName) {
+function HumanFactory(firstName, lastName) {
   return {
     firstName,
     lastName,
-    sayHello () {
-	    console.log(`Hi, I'm ${this.firstName}}`)
-	  }
+    sayHello() {
+      console.log(`Hi, I'm ${this.firstName}}`)
+    },
   }
 }
 
 // Tests
 const count = 1000000
-perf('Class', _ => { new HumanClass('Zell', 'Liew') }, count)
-perf('Factory', _ => { HumanFactory('Zell', 'Liew') }, count)
+perf(
+  'Class',
+  _ => {
+    new HumanClass('Zell', 'Liew')
+  },
+  count,
+)
+perf(
+  'Factory',
+  _ => {
+    HumanFactory('Zell', 'Liew')
+  },
+  count,
+)
 ```
 
 The average results are summarised in the table as follows:
 
-| Test          | 1,000,000 ops  | 10,000,000 ops |
-|:-----------|:--------------|:---------------|
-| Class         | 5ms              | 18ms          |
-| Factory      | 6ms              | 18ms          |
+| Test    | 1,000,000 ops | 10,000,000 ops |
+| :------ | :------------ | :------------- |
+| Class   | 5ms           | 18ms           |
+| Factory | 6ms           | 18ms           |
 
 The verdict: It doesn't matter whether you use Class or Factory functions. It's not going to make a difference even if you do run > 1 million operations.
 
