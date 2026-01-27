@@ -12,7 +12,9 @@ export const prerender = true
 
 export async function getStaticPaths() {
   const files = await getCollection('blog')
-  const posts = await processFiles(files)
+  const posts = await processFiles(files, { filter: false })
+  // Need to change this to include the data.url...
+  // For those that have data url, they are external links, so we redirect them there instead.
   const localPosts = posts.filter(post => !post.data.url)
 
   return localPosts.map((post, index) => {
@@ -62,7 +64,7 @@ const SEOProps = {
                 // prettier-ignore
                 return (
                   <div>
-                    <a class="pigment-gray-text underline" href={`/tags/${tag.toLowerCase()}`}>#{tag.toLowerCase()}</a>{!isLast && <span>, </span>}
+                    <a class="pigment-gray-text underline" href={`/tags/${tag.toLowerCase()}/`}>#{tag.toLowerCase()}</a>{!isLast && <span>, </span>}
                   </div>
                 )
               })
@@ -71,7 +73,7 @@ const SEOProps = {
         </div>
         <hgroup>
           <h1 class="h1">
-            <Markdown inline>{post.data.title} </Markdown>
+            <Markdown inline>{post.data.title}</Markdown>
           </h1>
         </hgroup>
       </header>

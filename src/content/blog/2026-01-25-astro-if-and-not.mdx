@@ -1,0 +1,185 @@
+---
+title: "If and Not Components for Astro"
+tags: ['astro', 'splendidlabz']
+---
+
+I like using Astro, but one thing that consistently irritates me is the lack of an `if` statement. Instead of a simple `if`, we have to use a JSX conditional like this. 
+
+```astro
+{
+  condition && (
+    <!-- Markup goes here --> 
+  )
+}
+```
+
+This is annoying because the condition takes up space and creates indentation, which makes the code harder to parse.
+
+It’s a stark contrast to Vue's and Svelte's `if` statements. 
+
+<div class="grid-simple bp8:[--cols:2]">
+  ```vue title="index.vue"
+  <div v-if={condition}> 
+    <!-- Markup goes here --> 
+  </div>
+  ```
+
+  ```svelte title="index.svelte"
+  {#if} 
+    <!-- Markup goes here --> 
+  {/if}
+  ```
+</div>
+
+After some experiments, I created an [`If`](https://splendidlabz.com/docs/astro/components/if/) component that simplifies JSX code above. 
+
+```astro title="index.astro"
+<If condition={1 + 1 === 2}>
+  <!-- Markup goes here --> 
+</If>
+```
+
+And a [`Not`](https://splendidlabz.com/docs/astro/components/not/) component that does the opposite. 
+
+```astro title="index.astro"
+<Not condition={authorized}>
+  <!-- Markup goes here --> 
+</Not>
+```
+
+## Building these yourself
+
+There's nothing complex about `If` and `Not`. You need to check for a condition and pass a `slot` as the markup. 
+
+```astro title=If.astro
+---
+const { condition } = Astro.props
+---
+
+{condition && <slot />}
+```
+
+## Caveats
+
+There's one major caveat you need to know when using [`If`](https://splendidlabz.com/docs/astro/components/if/) and [`Not`](https://splendidlabz.com/docs/astro/components/not/) components in Astro. 
+
+Astro evaluates `slot` content before passing them into the components. It doesn't take your condition into account. This means **you can't access undefined properties in `slot`**. 
+
+```astro title="index.astro"
+---
+const stuff = undefined
+---
+
+<If condition={stuff}>
+  <!-- This will result in an error since undefined cannot have properties --> 
+  {stuff.property} 
+</If>
+```
+
+Luckily, you can use optional chaining for these situations: 
+
+```diff lang="astro" title="index.astro"
+<If condition={stuff}>
+-  {stuff.property}
++  {stuff?.property} 
+</If>
+```
+
+## Using If and Not via Splendid Labz 
+
+I added [`If`](https://splendidlabz.com/docs/astro/components/if/) and [`Not`](https://splendidlabz.com/docs/astro/components/not/) into [Splendid Astro](https://splendidlabz.com/docs/astro/). You can import and use them directly. 
+
+```astro
+---
+import {If, Not} from '@splendidlabz/astro'
+---
+
+<If condition={...}> <!-- Markup goes here --> </If>
+<Not condition={...}> <!-- Markup goes here --> </Not>
+```
+
+Both `If` and `Not` have a few improvements over the barebones code I provided above. 
+
+## Improvements 
+
+### If / Else 
+
+It's quite common to have an `if/else` branch. You can use `Not` for this, but you need to pass in the condition again, so it's not ideal. 
+
+```astro
+---
+const authorized = /* ... */
+---
+<If condition={authorized}> ... </If>
+<Not condition={authorized}> ... </If>
+```
+
+So [`If`](https://splendidlabz.com/docs/astro/components/if/) takes an `else` slot that renders when the condition is falsey. 
+
+```astro
+<If condition={authorized}>
+  <div> 
+    <!-- Default slot. Shows this when truthy --> 
+  </div>
+  
+  <div slot="else">
+    <!-- Else slot. Shows this when falsey --> 
+  </div>
+</If>
+```
+
+[`Not`](https://splendidlabz.com/docs/astro/components/not/) has the same feature as well — it takes an `else` slot that renders when the condition is truthy. (Though pou should probably use the `If` component for this sorta thing, because `If` is easier to parse than `Not`).
+
+```astro
+<Not condition={authorized}>
+  <div> 
+    <!-- Default slot. Shows this when falsey --> 
+  </div>
+  
+  <div slot="else">
+    <!-- Else slot. Shows this when truthy --> 
+  </div>
+</If>
+```
+
+### True and False slots 
+
+The `Default` and `else` slots may introduce some level of confusion if you have a lot of markup. To make things clearer, I introduced `true` and `false` slots as their aliases. 
+
+- `true` slot acts as the `default` slot
+- `false` slot acts as `else` slot
+
+```astro
+<If condition={authorized}>
+  <div slot="true"> 
+    <!-- Shows this when truthy --> 
+  </div>
+  
+  <div slot="false">
+    <!-- Shows this when falsey --> 
+  </div>
+</If>
+```
+
+Of course, `Not` has the same feature as well. 
+
+```astro
+<Not condition={authorized}>
+  <div slot="true"> 
+    <!-- Shows this when falsey --> 
+  </div>
+  
+  <div slot="false">
+    <!-- Shows this when truthy --> 
+  </div>
+</If>
+```
+
+These are just extra affordances, so feel free to use whatever flavour you prefer! 
+
+Hope you find these components useful! 
+
+## Further reading
+
+- `If` component [documentation](https://splendidlabz.com/docs/astro/components/if/) 
+- `Not` component [documentation](https://splendidlabz.com/docs/astro/components/not/) 

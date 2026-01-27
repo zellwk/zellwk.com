@@ -15,7 +15,7 @@
   .strong {
     @apply stinger;
     --font-weight: 600;
-    color: var(--color-zpurple-500);
+    color: var(--color-zviolet-300);
   }
 
   a:where(:not(.button)) {

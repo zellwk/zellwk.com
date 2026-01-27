@@ -15,7 +15,7 @@ import config from './site-config.js'
 const shikiConfig = {
   theme: twilightCosmos,
   // transformers: [transformerColorizedBrackets()],
-  langs: [ 'shell', 'php', 'svelte', 'astro', 'jsx', 'vue', 'js', 'css', 'scss', 'json', 'jsonc', 'md', 'mdx'], 
+  langs: [ 'shell', 'php', 'svelte', 'astro', 'jsx', 'vue', 'js', 'css', 'scss', 'json', 'jsonc', 'md', 'mdx', 'vue'], 
 }
 
 export default defineConfig({
