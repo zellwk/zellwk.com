@@ -1,30 +1,43 @@
 ---
 import { components } from '@/components/blogPostComponents.js'
+import PrevNextNav from '@/components/PrevNextNav.astro'
+import Base from '@/layouts/Base.astro'
 import { Markdown, Partial, SVG } from '@splendidlabz/astro'
 import { processFiles } from '@splendidlabz/astro/content'
 import { ContentList } from '@splendidlabz/svelte'
 import { getCollection, render } from 'astro:content'
 import { formatDate } from 'date-fns'
-import PrevNextNav from '/src/components/PrevNextNav.astro'
-import Base from '/src/layouts/Base.astro'
 
 export const prerender = true
 
 export async function getStaticPaths() {
   const files = await getCollection('blog')
   const posts = await processFiles(files, { filter: false })
+
   // Need to change this to include the data.url...
   // For those that have data url, they are external links, so we redirect them there instead.
   const localPosts = posts.filter(post => !post.data.url)
 
   return localPosts.map((post, index) => {
+    let prev = posts[index + 1]
+    let next = posts[index - 1]
+    const now = new Date()
+
+    // Prevents prev and next posts from being shown if they're in the future
+    // Only on production builds.
+    // So we can still test them easily in development.
+    if (import.meta.env.PROD) {
+      if (prev && now < new Date(prev.data.date)) prev = null
+      if (next && now < new Date(next.data.date)) next = null
+    }
+
     return {
       params: { slug: post.data.slug },
       props: {
         posts: {
           current: post,
-          prev: posts[index + 1],
-          next: posts[index - 1],
+          prev,
+          next,
         },
       },
     }
