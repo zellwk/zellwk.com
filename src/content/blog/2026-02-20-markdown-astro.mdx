@@ -1,0 +1,211 @@
+---
+title: "Markdown + Astro = ❤️"
+tags: ['astro', 'markdown', 'magicaldevs']
+---
+
+Markdown is a great invention that lets us write less markup. It also handles typographical matters like converting straight apostrophes (') to opening or closing quotes (' or ') for us. 
+
+Although Astro has built-in support for Markdown via `.md` files, I'd argue that your Markdown experience can be enhanced in two ways: 
+
+1. MDX 
+2. Markdown Component 
+
+Both of these are recipes that I've added to [Astro Recipes](https://magicaldevschool.com/courses/astro-recipes/).
+
+We're going to focus on MDX today. 
+
+## What is MDX?
+
+MDX is a superset of Markdown. **It lets you use components in Markdown** and simple JSX in addition to all other Markdown features.  
+
+For Astro, you can also use components from any frontend framework that you have installed. So you can do something like: 
+
+```mdx title="post.mdx"
+---
+# Frontmatter... 
+---
+
+import AstroComp from '@/components/AstroComp.astro'
+import SvelteComp from '@/components/AstroComp.astro'
+
+<AstroComp> ... </AstroComp>
+<SvelteComp> ... </SvelteComp>
+```
+
+It's a great substitute for content-heavy files because I get to write markup like the following: 
+
+```html
+<div class="card">
+  ## Card Title 
+  
+  Content goes here 
+  
+  - List
+  - Of
+  - Items
+  
+  Second paragraph
+
+</div>
+```
+
+And Astro will convert the MDX above into this HTML: 
+
+```html
+<div class="card">
+  <h2>Card Title</h2>
+  
+  <p>Content goes here </p>
+  
+  <ul>
+    <li> List </li>
+    <li> Of </li>
+    <li> Items </li>
+  </ul>
+  
+  <p>Second paragraph</p>
+</div>
+```
+
+Cool, right?
+
+Notice what I did above: 
+
+- I used `##` instead of a full h2 tag. 
+- I used `-` to replace `<ul>` and `<li>` for unordered lists
+- And I didn't need write any paragraph tags!
+
+Writing in Markdown is much easier than writing in HTML. That's why I like Markdown. 
+
+## Installing MDX
+
+Astro folks have built an integration for MDX so it's easy-peasy to add it to your project. Just follow [these instructions](https://docs.astro.build/en/guides/integrations-guide/mdx/#installation). 
+
+## Three Main Ways to use MDX 
+
+Here are the three ways: 
+
+1. Import it directly into an Astro file 
+2. Through Content Collections 
+3. Through a Layout 
+
+I use all three methods depending on the situation. 
+
+(FYI: These methods also work with standard Markdown files). 
+
+### Import it directly
+
+The first way is simply to import the MDX file and use it directly as a component. 
+
+```astro title="index.astro"
+---
+import MDXComp from '../components/MDXComp.mdx'
+---
+
+<MDXComp />
+```
+
+This allows MDX files to function like partials (smaller pieces of reusable markup that can be used as-is). 
+
+### Through Content Collections 
+
+For this, we feed the MDX into a content collection by adding the `mdx` pattern to our glob. 
+
+```js title="src/content.config.js" {5}
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+
+const blog = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/blog" }),
+});
+
+export const collections = { blog };
+```
+
+Then we retrieve the MDX file and render its contents. 
+
+```astro title="post.astro" {4-5, 8}
+---
+import { getEntry, render } from 'astro:content'
+const { slug } = Astro.props
+const post = await getEntry('blog', slug)
+const { Content } = await render(post)
+---
+
+<Content />
+```
+
+When I'm doing this, I like to pass components into the `Content` component so I don't have to import them individually in every file. 
+
+Here's an example where I pass the [`Image`](https://splendidlabz.com/docs/astro/components/image/#features) component from Splendid Labz into each of blog posts files. 
+
+```astro title="post.astro" {5, 8}
+---
+import { Image } from '@splendidlabz/astro'
+// ...
+const { Content } = await render(post)
+const components = { Image }
+---
+
+<Content {components} />
+```
+
+With this, I can use `<Image>` without importing it in the MDX file.  
+
+```mdx title="post-1.mdx"
+<Image src="..." alt="..." />
+```
+
+### Use a Layout 
+
+The final method is to use layout frontmatter that points to to an Astro file. 
+
+
+```mdx
+---
+title: Blog Post Title
+layout: @/layouts/MDX.astro
+---
+```
+
+I use this for single-page content where the MDX contains all of the necessary information, and we just need a layout to wrap around it.
+
+In this layout file: 
+
+- We extract frontmatter properties from `Astro.props.content`
+- Then we render MDX content with `<slot>`. 
+
+```astro title="MDX.astro"
+---
+import Base from './Base.astro'
+const props = Astro.props.content
+const { title } = props
+---
+
+<Base>
+	<h1>{title}</h1>
+	<slot /> 
+</Base>
+```
+
+Here are some examples that use this method on this site: 
+
+- [The 404 Page](/404/)
+- [The tools I Use page](/tools/)
+
+
+## Caveats 
+
+### Formatting and Linting Fails
+
+ESLint and Prettier don't format MDX files well. 
+
+This means you have to indent your markup manually, which is a deal-breaker for large files. But it's fine for small amounts of markup. 
+
+If you have a lot of markup, you might want to use a Markdown Component instead. (More on this next week).
+
+### RSS Issues 
+
+The [Astro RSS integration](https://docs.astro.build/en/recipes/rss/) doesn't support MDX files out of the box. 
+
+Thankfully, this can be handled easily with Astro containers. I'll show you how to do this another day. 

@@ -1,0 +1,133 @@
+---
+title: "Enhancing Astro with a Markdown Component"
+tags: ['astro', 'markdown', 'magicaldevs']
+---
+
+There are two ways to enhance Markdown in an Astro project. 
+
+1. [Through MDX](/blog/markdown-astro/)
+2. Through a Markdown Component
+
+This article focuses on the Markdown Component. 
+
+## Why Use A Markdown Component
+
+I use a Markdown Component for two main reasons: 
+
+1. It reduces the amount of markup I need to write 
+2. It converts typographic symbols like \' to opening or closing quotes. 
+
+So I can skip several HTML tags — like `<p>`, `<strong>`, `<em>`, `<ul>`, `<ol>`, `<li>`, and `<a>`. I can also skip heading tags if I don't need to add classes to them. 
+
+```html
+<div class="card">
+  <!-- prettier-ignore --> 
+  <Markdown>
+    ## Card Title 
+    
+    This is a paragraph with **strong** and *italic* text.
+    
+    This is the second paragraph with a [link](https://link-somewhere.com)
+    
+    - List
+    - Of
+    - Items
+  </Markdown>
+</div>
+```
+
+Notice the `prettier-ignore` comment? It tells prettier not to format the contents within the `<Markdown>` block, so Prettier won't mess up my Markdown content. 
+
+The HTML output will be as follows: 
+
+```html
+<div class="card">
+	<h2> Card Title </h2>
+
+	<p>This is a paragraph with <strong>strong</strong> and <em>italic</em> text.</p>
+    
+	<p>
+		This is the second paragraph with a 
+		<a href="https://link-somewhere.com">link</a>
+	</p>
+    
+	<ul>
+    <li> List </li>
+    <li> Of </li>
+    <li> Items </li>
+  </ul>
+</div>
+```
+
+## Installing the Markdown Component 
+
+Fun Fact: Astro came with a `<Markdown>` component in its early release, but this `<Markdown>` component was [migrated to a separate plugin in v1](https://docs.astro.build/en/guides/upgrade-to/v1/#markdown--component-removed), and [completely removed in v3](https://docs.astro.build/en/guides/upgrade-to/v3/#removed-markdown--component). 
+
+I was upset about it. But I decided to build a Markdown component for myself since I liked using one. You can view the [documentation here](https://splendidlabz.com/docs/astro/components/markdown/#features). 
+
+**Using the Markdown component is simple**: Just import and use it in the way I showed you above. 
+
+```astro
+---
+import { Markdown } from '@splendidlabz/astro'
+---
+
+<Markdown> ... </Markdown>
+```
+
+### Inline Option 
+
+There's an `inline` option that tells the `<Markdown>` component not to generate paragraph tags. 
+
+```astro
+<h2 class="max-w-[12em]">
+  <Markdown inline> Ain't this cool? </Markdown>
+</h2>
+```
+
+Here's the output: 
+
+```astro
+<h2 class="max-w-[12em]">
+  Ain't this cool?
+</h2>
+```
+
+## Gotchas and Caveats 
+
+Prettier messes up the `<!-- prettier-ignore -->` block if you have unicode characters like emojis and emdashes anywhere before the block. 
+
+```astro title="Before saving"
+<!-- prettier-ignore -->
+<Markdown>
+  Markdown block that contains unicode characters 🤗
+</Markdown>
+
+<!-- prettier-ignore -->
+<Markdown>
+  Second Markdown block.
+</Markdown>
+```
+
+```diff lang="markdown" title="After saving"
+<!-- prettier-ignore -->
+<Markdown>
+  Markdown block that contains unicode characters 🤗
+</Markdown>
+
+<!-- prettier-ignore -->
+<arkdown>
+  Second Markdown block.
+</
+```
+
+Unfortunately, we can't do much about emojis because the issue stems from Prettier's formatter.
+
+But, we can use `en` and `em` dashes by writing `--` and `---` respectively.
+
+## Further Reading 
+
+- [Markdown Syntax](https://daringfireball.net/projects/markdown/syntax)
+- Markdown Component [documentation](https://splendidlabz.com/docs/astro/components/markdown/)
+- [Other stuff](https://splendidlabz.com/docs/astro/getting-started/installation/) I've built for Astro 
+
