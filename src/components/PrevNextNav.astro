@@ -8,8 +8,6 @@ let { prevPath, nextPath } = Astro.props
 const prevTitle = getPrevNextTitle(prev)
 const nextTitle = getPrevNextTitle(next)
 
-console.log(`/${dir}/${prev?.data.slug}`)
-
 prevPath = `/${dir}/${prev?.data.slug}/`
 nextPath = `/${dir}/${next?.data.slug}/`
 

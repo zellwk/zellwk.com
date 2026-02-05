@@ -1,9 +1,9 @@
 ---
+import SearchAndFilter from '@/components/SearchAndFilter.svelte'
 import Base from '@/layouts/Base.astro'
 import { Markdown, Partial, SVG } from '@splendidlabz/astro'
 import { processFiles } from '@splendidlabz/astro/content'
 import { getCollection } from 'astro:content'
-import SearchAndFilter from '/src/components/SearchAndFilter.svelte'
 
 const blog = await getCollection('blog')
 const posts = processFiles(blog)

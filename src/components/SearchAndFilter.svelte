@@ -35,7 +35,6 @@
   })
 
   const topicTags = [
-    'html',
     'css',
     'javascript',
     'astro',
@@ -45,7 +44,7 @@
     'accessibility',
   ]
   const productTags = ['splendidlabz', 'magicaldevs']
-  const businessAndLifeTags = ['life', 'business', 'musings', 'reflection']
+  const businessAndLifeTags = ['life', 'musings', 'reflection']
 
   function handleTagClick(event) {
     event.preventDefault()
