@@ -17,7 +17,6 @@ export async function getStaticPaths() {
   // Need to change this to include the data.url...
   // For those that have data url, they are external links, so we redirect them there instead.
   const localPosts = posts.filter(post => !post.data.url)
-
   return localPosts.map((post, index) => {
     let prev = posts[index + 1]
     let next = posts[index - 1]
