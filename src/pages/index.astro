@@ -11,7 +11,11 @@ const posts = (await processFiles(files)).slice(0, 9)
 export const prerender = true
 ---
 
-<Base bodyClass="home-page [--radius:1.25rlh]">
+<Base
+  bodyClass="home-page [--radius:1.25rlh]"
+  title="Zell Liew — Web Developer, Writer, Coach"
+  description="I build products, coach people, and write about web development, CSS, JavaScript, and sustainable work. Step-by-step tutorials and insights from over a decade of building for the web."
+>
   <section class="section">
     <div class="wrap">
       <div class="grid-simple bp11:[--cols:3] gap-large max-w-standard mx-auto">

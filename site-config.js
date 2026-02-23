@@ -6,6 +6,8 @@ export default {
     url: 'https://zellwk.com',
     OGImageFallback: '/og/fallback.png',
     OGImageFallbackAlt: 'Zell Liew',
+    twitterHandle: '@zellwk',
+    siteHandle: '@zellwk',
   },
   port: getPort(),
   apiRoot: getAPIRoot(),
