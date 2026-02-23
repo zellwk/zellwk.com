@@ -24,7 +24,7 @@ Fetch articles from the CSS-Tricks author page and create blog entries for any m
 ```mdx
 ---
 title: Article Title Here
-description: "One-sentence description of the article's core argument or insight."
+description: 'One-sentence description of the article's core argument or insight.'
 url: https://css-tricks.com/article-slug/
 external: CSS Tricks
 tags: ['relevant', 'tags']
