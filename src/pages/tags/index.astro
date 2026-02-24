@@ -1,9 +1,9 @@
 ---
-import { Partial, SVG } from '@splendidlabz/astro'
+import { JsonLD, Partial, SVG } from '@splendidlabz/astro'
 import { gatherTags, processFiles } from '@splendidlabz/astro/content'
 import { pluralize } from '@splendidlabz/utils'
 import { getCollection } from 'astro:content'
-import Base from '/src/layouts/Base.astro'
+import Base from '@/layouts/Base.astro'
 
 const blog = await getCollection('blog')
 const posts = await processFiles(blog)
@@ -29,6 +29,14 @@ const SEOProps = {
 ---
 
 <Base {...SEOProps}>
+  <JsonLD
+    type="BreadcrumbList"
+    items={[
+      { name: 'Home', url: '/' },
+      { name: 'Tags' },
+    ]}
+  />
+
   <div class="wrap">
     <section class="vertical max-w-narrow mx-auto">
       <div class="vertical">

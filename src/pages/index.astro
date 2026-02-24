@@ -1,5 +1,5 @@
 ---
-import { Image, Markdown, Partial } from '@splendidlabz/astro'
+import { Image, JsonLD, Markdown, Partial } from '@splendidlabz/astro'
 import { processFiles } from '@splendidlabz/astro/content'
 import { getCollection } from 'astro:content'
 import { now } from '../content/data/now'
@@ -9,6 +9,21 @@ const files = await getCollection('blog')
 const posts = (await processFiles(files)).slice(0, 9)
 
 export const prerender = true
+
+const JsonLDProps = {
+  type: "Organization",
+  name: "Zell Liew",
+  url: "https://zellwk.com",
+  logo: "https://zellwk.com/favicon/favicon.svg",
+  sameAs: [
+    'https://twitter.com/zellwk',
+    'https://github.com/zellwk',
+    'https://linkedin.com/in/zellwk',
+    'https://instagram.com/zellwk',
+    'https://bsky.app/profile/zellwk.bsky.social',
+    'https://facebook.com/zellwk',
+  ],
+}
 ---
 
 <Base
@@ -16,6 +31,7 @@ export const prerender = true
   title="Zell Liew — Web Developer, Writer, Coach"
   description="I build products, coach people, and write about web development, CSS, JavaScript, and sustainable work. Step-by-step tutorials and insights from over a decade of building for the web."
 >
+  <JsonLD {...JsonLDProps} />
   <section class="section">
     <div class="wrap">
       <div class="grid-simple bp11:[--cols:3] gap-large max-w-standard mx-auto">
@@ -101,7 +117,7 @@ export const prerender = true
                       '--border-color': 'inherit',
                       '--bg-hover-color': 'var(--color-zcyan-700)',
                       '--text-hover-color': 'var(--color-zcyan-100)',
-                    }}
+                    }} rel="noreferrer"
                   >
                     {post.data.title}
                   </a>

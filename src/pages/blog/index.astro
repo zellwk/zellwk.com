@@ -1,7 +1,7 @@
 ---
 import SearchAndFilter from '@/components/SearchAndFilter.svelte'
 import Base from '@/layouts/Base.astro'
-import { Markdown, Partial, SVG } from '@splendidlabz/astro'
+import { JsonLD, Markdown, Partial, SVG } from '@splendidlabz/astro'
 import { processFiles } from '@splendidlabz/astro/content'
 import { getCollection } from 'astro:content'
 
@@ -16,6 +16,11 @@ const SEOProps = {
 ---
 
 <Base {...SEOProps}>
+  <JsonLD type="BreadcrumbList" items={[
+    { name: 'Home', url: '/' },
+    { name: 'Blog' },
+  ]} />
+
   <div class="wrap">
     <section class="vertical max-w-narrow mx-auto">
       <div class="vertical">

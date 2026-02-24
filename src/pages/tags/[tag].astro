@@ -1,9 +1,9 @@
 ---
-import { Partial, SVG } from '@splendidlabz/astro'
+import { JsonLD, Partial, SVG } from '@splendidlabz/astro'
 import { gatherTags, processFiles } from '@splendidlabz/astro/content'
 import { getCollection } from 'astro:content'
 import { formatDate } from 'date-fns'
-import Base from '/src/layouts/Base.astro'
+import Base from "@/layouts/Base.astro"
 
 export const prerender = true
 
@@ -49,6 +49,12 @@ const SEOProps = {
 ---
 
 <Base {...SEOProps}>
+  <JsonLD type="BreadcrumbList" items={[
+    { name: 'Home', url: '/' },
+    { name: 'Tags', url: '/tags/' },
+    { name: `#${tag.toLowerCase()}` },
+  ]} />
+
   <div class="wrap">
     <section class="vertical max-w-narrow mx-auto">
       <div class="vertical">
@@ -82,7 +88,7 @@ const SEOProps = {
                             <a
                               class="title"
                               href={url}
-                              target={post.data.url ? '_blank' : null}
+                              target={post.data.url ? '_blank' : null} rel="noreferrer"
                             >
                               {post.data.title}
                               {post.data.url && (

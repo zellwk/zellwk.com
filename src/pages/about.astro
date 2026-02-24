@@ -1,5 +1,12 @@
 ---
-import { FancyList, Image, Markdown, Partial, SVG } from '@splendidlabz/astro'
+import {
+  FancyList,
+  Image,
+  JsonLD,
+  Markdown,
+  Partial,
+  SVG,
+} from '@splendidlabz/astro'
 import { processFiles } from '@splendidlabz/astro/content'
 import { getCollection } from 'astro:content'
 import { now } from '../content/data/now'
@@ -11,12 +18,38 @@ const posts = (await processFiles(files)).slice(0, 5)
 
 const SEOProps = {
   title: 'About',
+  openGraph: {
+    basic: { type: 'profile' },
+    profile: {
+      firstName: 'Zell',
+      lastName: 'Liew',
+      username: 'zellwk',
+    },
+  },
 }
 
 export const prerender = true
 ---
 
 <Base bodyClass="home-page" {...SEOProps}>
+  <JsonLD
+    type="ProfilePage"
+    mainEntity={{
+      type: 'Person',
+      name: 'Zell Liew',
+      url: 'https://zellwk.com/',
+      sameAs: [
+        'https://twitter.com/zellwk',
+        'https://github.com/zellwk',
+        'https://linkedin.com/in/zellwk',
+        'https://instagram.com/zellwk',
+        'https://bsky.app/profile/zellwk.bsky.social',
+        'https://facebook.com/zellwk',
+        'https://css-tricks.com/author/zellwk/',
+      ],
+    }}
+  />
+
   <section class="section">
     <div class="wrap">
       <div

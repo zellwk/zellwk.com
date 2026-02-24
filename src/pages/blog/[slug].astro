@@ -2,7 +2,7 @@
 import { components } from '@/components/blogPostComponents.js'
 import PrevNextNav from '@/components/PrevNextNav.astro'
 import Base from '@/layouts/Base.astro'
-import { Markdown, Partial, SVG } from '@splendidlabz/astro'
+import { JsonLD, Markdown, Partial, SVG } from '@splendidlabz/astro'
 import { processFiles } from '@splendidlabz/astro/content'
 import { ContentList } from '@splendidlabz/svelte'
 import { getCollection, render } from 'astro:content'
@@ -53,12 +53,51 @@ const dateText =
     : 'Published'
 
 const SEOProps = {
-  OGImageUrl: `/og/${post.data.slug}.png`,
+  OGImageURL: `/og/${post.data.slug}.png`,
   OGImageAlt: post.data.title,
+  openGraph: {
+    basic: { type: 'article' },
+    article: {
+      publishedTime: post.data.date.toISOString(),
+      ...(post.data.updateDate && {
+        modifiedTime: post.data.updateDate.toISOString(),
+      }),
+      authors: ['https://zellwk.com/about/'],
+      tags: post.data.tags,
+    },
+  },
+}
+
+const articleJSONLDProps = {
+  type: 'Article',
+  ...post.data,
+  image: `/og/${post.data.slug}.png`,
+  author: [
+    {
+      type: 'Person',
+      name: 'Zell Liew',
+      url: 'https://zellwk.com/about/',
+    },
+  ],
+  publisher: {
+    type: 'Organization',
+    name: 'Zell Liew',
+    url: 'https://zellwk.com/',
+  },
 }
 ---
 
 <Base {...post.data} {...SEOProps}>
+  <JsonLD {...articleJSONLDProps} />
+  <JsonLD
+    type="BreadcrumbList"
+    items={[
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blog/' },
+      { name: post.data.title },
+    ]}
+  />
+
   <div class="wrap">
     <article class="article grid-content-sidebar">
       <header>
