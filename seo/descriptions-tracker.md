@@ -5,8 +5,8 @@ Sorted newest first. To continue backfilling, say "continue backfilling descript
 
 ## Stats
 - Total missing: 231
-- Done: 10
-- Remaining: 221
+- Done: 20
+- Remaining: 211
 
 ## Done
 
@@ -18,21 +18,20 @@ Sorted newest first. To continue backfilling, say "continue backfilling descript
 - [x] 2026-01-19-time-doesnt-heal-wounds.mdx
 - [x] 2026-01-19-closing-off-reflections-on-violence.mdx
 - [x] 2025-03-14-splendid-labz-breaking-changes.mdx
-- [x] 2025-01-13-reflections-on-violence.mdx
+- [x] 2025-01-13-reflections-on-highlighting-my-violence.mdx
 - [x] 2025-01-07-suicide-hotline.mdx
+- [x] 2025-01-07-convincing-doesnt-work.mdx
+- [x] 2024-12-29-make-people-happy.mdx
+- [x] 2024-11-19-forcing-the-future.mdx
+- [x] 2024-10-29-sucks.mdx
+- [x] 2024-10-22-sellout.mdx
+- [x] 2024-10-15-write-like-seth.mdx
+- [x] 2024-10-08-stress-for-metamorphosis.mdx
+- [x] 2024-10-01-good-enough.mdx
+- [x] 2024-09-24-svelte-reactive-bindings-speed.mdx
+- [x] 2024-09-18-svelte-reactive-statements-breakout.mdx
 
 ## Pending
-
-- [ ] 2025-01-07-convincing-doesnt-work.mdx
-- [ ] 2024-12-29-dont-make-people-happy.mdx
-- [ ] 2024-11-19-forcing-the-future.mdx
-- [ ] 2024-10-29-sucks.mdx
-- [ ] 2024-10-22-sellout.mdx
-- [ ] 2024-10-15-write-like-seth.mdx
-- [ ] 2024-10-08-stress-for-metamorphosis.mdx
-- [ ] 2024-10-01-good-enough.mdx
-- [ ] 2024-09-24-svelte-reactive-bindings-speed.mdx
-- [ ] 2024-09-18-svelte-reactive-statements-breakout.mdx
 - [ ] 2024-08-29-a-great-failed-experiment.mdx
 - [ ] 2024-03-27-fetch-credentials.mdx
 - [ ] 2024-03-20-cookies-vs-localstorage-for-storing-access-tokens.mdx
@@ -130,7 +129,7 @@ Sorted newest first. To continue backfilling, say "continue backfilling descript
 - [ ] 2018-01-09-why-mutation-can-be-scary.mdx
 - [ ] 2018-01-09-should-you-use-css-or-javascript-for-web-animations.mdx
 - [ ] 2018-01-08-discount.mdx
-- [ ] 2017-12-27-animating-gsap.mdx
+- [ ] 2017-12-27-gsap.mdx
 - [ ] 2017-12-20-css-animations.mdx
 - [ ] 2017-12-15-imposter.mdx
 - [ ] 2017-12-13-css-transitions.mdx
@@ -164,7 +163,7 @@ Sorted newest first. To continue backfilling, say "continue backfilling descript
 - [ ] 2017-02-22-fighting-decision-paralysis.mdx
 - [ ] 2017-01-18-read-faster.mdx
 - [ ] 2017-01-04-2016-review.mdx
-- [ ] 2016-11-02-2016-11-2-responsive-grid-system.mdx
+- [ ] 2016-11-02-responsive-grid-system.mdx
 - [ ] 2016-10-19-designing-grids.mdx
 - [ ] 2016-09-21-dont-reinvent-the-wheel.mdx
 - [ ] 2016-08-17-learn-fast.mdx
@@ -241,7 +240,7 @@ Sorted newest first. To continue backfilling, say "continue backfilling descript
 - [ ] 2013-12-30-wordpress-with-grunt.mdx
 - [ ] 2013-10-09-a-complete-tutorial-to-susy-part-2.mdx
 - [ ] 2013-09-22-a-complete-tutorial-to-susy.mdx
-- [ ] 2013-09-16-md-color-tools.mdx
+- [ ] 2013-09-16-color-tools.mdx
 - [ ] 2013-09-09-why-color-pickers-and-palettes-are-bad-for-you.mdx
 - [ ] 2013-08-18-wordpress101.mdx
 - [ ] 2013-07-28-learning.mdx
