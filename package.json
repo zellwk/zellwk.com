@@ -22,7 +22,7 @@
     "@astrojs/rss": "^4.0.15",
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/svelte": "^7.2.5",
-    "@splendidlabz/astro": "^5.4.0",
+    "@splendidlabz/astro": "^5.5.0",
     "@splendidlabz/og": "^1.0.1",
     "@splendidlabz/styles": "^4.6.7",
     "@splendidlabz/svelte": "^4.8.1",
