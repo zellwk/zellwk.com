@@ -5,8 +5,8 @@ Sorted newest first. To continue backfilling, say "continue backfilling descript
 
 ## Stats
 - Total missing: 231
-- Done: 20
-- Remaining: 211
+- Done: 40
+- Remaining: 191
 
 ## Done
 
@@ -30,28 +30,28 @@ Sorted newest first. To continue backfilling, say "continue backfilling descript
 - [x] 2024-10-01-good-enough.mdx
 - [x] 2024-09-24-svelte-reactive-bindings-speed.mdx
 - [x] 2024-09-18-svelte-reactive-statements-breakout.mdx
+- [x] 2024-08-29-a-great-failed-experiment.mdx
+- [x] 2024-03-27-fetch-credentials.mdx
+- [x] 2024-03-20-cookies-vs-localstorage-for-storing-access-tokens.mdx
+- [x] 2023-12-01-december-2023.mdx
+- [x] 2023-11-14-reactivity-with-vanilla-javascript.mdx
+- [x] 2023-10-31-easy-way-to-parse-json.mdx
+- [x] 2023-10-24-free-chapters.mdx
+- [x] 2023-10-17-neon-button.mdx
+- [x] 2023-10-10-tailwind-space-in-astro.mdx
+- [x] 2023-10-03-updates-for-async-js-and-rest-api-course.mdx
+- [x] 2023-09-26-caching-in-node.mdx
+- [x] 2023-09-19-zl-fetch-form-data.mdx
+- [x] 2023-09-12-limitations-of-scoped-css.mdx
+- [x] 2023-09-05-zl-fetch-improvements.mdx
+- [x] 2023-08-29-mds-student-portal.mdx
+- [x] 2023-08-22-finding-my-roots.mdx
+- [x] 2023-07-10-test-components-that-use-container-queries.mdx
+- [x] 2023-06-15-building-components-in-astro.mdx
+- [x] 2023-02-19-spirit-of-css-tricks.mdx
+- [x] 2023-01-04-render-mdx-svelte-in-astro.mdx
 
 ## Pending
-- [ ] 2024-08-29-a-great-failed-experiment.mdx
-- [ ] 2024-03-27-fetch-credentials.mdx
-- [ ] 2024-03-20-cookies-vs-localstorage-for-storing-access-tokens.mdx
-- [ ] 2023-12-01-december-2023.mdx
-- [ ] 2023-11-14-reactivity-with-vanilla-javascript.mdx
-- [ ] 2023-10-31-easy-way-to-parse-json.mdx
-- [ ] 2023-10-24-free-chapters.mdx
-- [ ] 2023-10-17-neon-button.mdx
-- [ ] 2023-10-10-tailwind-space-in-astro.mdx
-- [ ] 2023-10-03-updates-for-async-js-and-rest-api-course.mdx
-- [ ] 2023-09-26-caching-in-node.mdx
-- [ ] 2023-09-19-zl-fetch-form-data.mdx
-- [ ] 2023-09-12-limitations-of-scoped-css.mdx
-- [ ] 2023-09-05-zl-fetch-improvements.mdx
-- [ ] 2023-08-29-mds-student-portal.mdx
-- [ ] 2023-08-22-finding-my-roots.mdx
-- [ ] 2023-07-10-test-components-that-use-container-queries.mdx
-- [ ] 2023-06-15-building-components-in-astro.mdx
-- [ ] 2023-02-19-spirit-of-css-tricks.mdx
-- [ ] 2023-01-04-render-mdx-svelte-in-astro.mdx
 - [ ] 2022-10-12-never-let-anyone-stop-you-from-pursuing-your-dreams.mdx
 - [ ] 2022-05-25-install-node.mdx
 - [ ] 2022-05-12-understanding-csrf-attacks.mdx
