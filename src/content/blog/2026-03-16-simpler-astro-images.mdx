@@ -1,0 +1,201 @@
+---
+title: 'Skip the Import — A Simpler Way to Use Images in Astro'
+description: "Astro's Image and Picture components require importing every image before use. Here's a simpler approach that lets you pass paths directly to the src attribute."
+tags: ['astro', 'splendidlabz']
+---
+
+Astro's `Image` and `Picture` components are wonderful because they prevent Cumulative Layout Shift (CLS), which has become an important factor in Google's Core Web Vitals.
+
+But **both `Image` and `Picture` have one glaring DX issue** — you gotta import the image before using it...
+
+```astro title="index.astro"
+---
+import { Image } from 'astro:assets'
+import myImage from '../assets/penguin.png'
+---
+
+<Image src={myImage} alt="A very cool penguin!" />
+```
+
+I can accept this workflow if I only have 1-2 images on the page, but it gets quite irritating to import, name the image, then pass it to the component when I have more than 5 images...
+
+```astro title="index.astro"
+---
+// ...
+import image1 from '../assets/image1.png'
+import image2 from '../assets/image2.png'
+import image3 from '../assets/image3.png'
+import image4 from '../assets/image4.png'
+import image5 from '../assets/image5.png'
+---
+```
+
+I need a better way.
+
+So I've built one that lets me do this:
+
+{/* prettier-ignore */}
+```astro title="index.astro"
+<Image 
+  src="/src/assets/image1.png" 
+  alt="Image 1 description" 
+/>
+```
+
+Real simple.
+
+But before we go into this, let's go through what we can do to use images easily in Astro's native implementation.
+
+## Potential Solutions with Astro's native implementation
+
+### 1: Use the Markdown Image Syntax
+
+When you use a `md` or `mdx` file, you can pass the image in with a relative path. You can also use an import alias if you've set that up.
+
+```html
+<!-- Using a relative path -->
+![Image description](../../assets/image.png)
+
+<!-- Using an import alias -->
+![Image description](@/assets/image.png)
+```
+
+```html
+<!-- Result -->
+<img
+  src="/_astro/my_image.hash.webp"
+  alt=""
+  width="1024"
+  height="1024"
+  loading="lazy"
+  decoding="async"
+/>
+```
+
+But this works only in `md` and `mdx` files — not `astro` files... and you can't fine-tune settings for the `Image` or `Picture` components.
+
+### 2: Use dynamic imports
+
+Astro doesn't document this.
+
+But through my tests, I realized you can use dynamic imports directly in the `src` attribute of both `Image` and `Picture` components.
+
+```astro
+---
+import { Image } from 'astro:assets'
+---
+
+<Image src={import('../assets/home/hero.jpg')} alt="Image" />
+```
+
+This is _slightly_ better than having to import the image, attach it to a variable, then put the variable into the `src` attribute.
+
+But you still have to write the whole `import()` boilerplate, so it's not ideal.
+
+## Enter Splendid Labz's Image Component
+
+I've built an [`Image`](https://splendidlabz.com/docs/astro/components/image/) component that allows you to import assets directly from the `src` attribute.
+
+```astro
+---
+import { Image } from 'splendid-ui/astro'
+---
+
+<Image src="/src/assets/image.png" alt="image" />
+```
+
+Notice the url begins with `/src`? I settled on this because it lets me use the file autocomplete feature built most code editors to find images easily.
+
+<Video
+  src="/src/assets/blog/simpler-astro-images/astro-image-file-autocomplete.mp4"
+  gifReplacement
+/>
+
+## Output
+
+Two things to note here:
+
+1. The output is wrapped with a figure tag
+2. Then a picture tag
+
+```html
+<!-- Output -->
+<figure>
+  <picture>
+    <source srcset="..." type="image/avif"></source>
+		<img src="..." srcset="..." alt="description" width="1024" height="1024" loading="lazy" decoding="async"></source>
+  </picture>
+</figure>
+```
+
+`<figure>` allows us to create captions easily while providing a unified interface for images with and without captions.
+
+`<picture>` let us create responsive images with `srcset` and gives us the ability to support image formats like `avif` at the same time.
+
+## Captions
+
+Enabling captions is easy. You just need to provide a `caption` property and `Image` will output a figcaption.
+
+```astro
+<Image src="..." caption="Describe the image" />
+```
+
+Here's the output:
+
+```html
+<figure>
+  <picture> ... </picture>
+  <figcaption>Describe the image</figcaption>
+</figure>
+```
+
+## Removing figure
+
+If you don't want the figure wrapper for any reason, just add `figure: false` when you use `Image`.
+
+```astro
+<Image src="..." figure={false} />
+```
+
+## Responsive Images and Image Formats
+
+I built Splendid's `Image` on Astro's `Picture` because Astro's `Image` doesn't support image formats, while `Picture` does.
+
+You can adjust `image` formats and `srcset` easily by using the `widths` and `formats` properties — same as Astro's `Picture` element.
+
+{/* prettier-ignore */}
+```astro
+<Image 
+  src="..." 
+  widths={[400, 800, 1200]} 
+  formats={['avif', 'webp']} 
+/>
+```
+
+## The Necessary CSS
+
+For images to be responsive, you need to include a `height: auto` declaration in your CSS.
+
+If you don't do this, images will be stretched!
+
+```css
+/* Important properties for responsive images! */
+img {
+  max-width: 100%;
+  height: auto;
+}
+```
+
+## Taking it further
+
+This [`Image`](https://splendidlabz.com/docs/astro/components/image/) component handles the everyday case — optimizing images and creating responsive `srcset` automatically.
+
+But **images in Astro go deeper than this**.
+
+- Art direction needs `<picture>` with media queries.
+- Background images need a completely different optimization path.
+- SVGs and icons each have their own gotchas.
+
+Figure these out one by one and you're looking at days of trial and error.
+
+I've figured out patterns for all of these and put them together in [Practical Astro: Image Systems](/courses/practical-astro/image-systems/). You'll get 6 production-tested patterns so you can handle any image situation without second-guessing yourself.

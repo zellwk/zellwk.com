@@ -1,24 +1,37 @@
+import { glob } from 'glob'
 import gulp from 'gulp'
+import fsp from 'node:fs/promises'
+import path from 'node:path'
 
-const { src, dest, parallel, watch } = gulp
+const { watch } = gulp
 
 const paths = {
   input: 'src/assets',
   output: 'public/assets',
 }
 
-const copyAssets = parallel(copyVideos, copySVGs)
-export default copyAssets
+export async function copyAssets() {
+  await Promise.all([copyVideos(), copySVGs()])
+}
 
 export function assetWatcher() {
   watch(paths.input + '/**/*', copyAssets)
 }
 
 // Copy videos to the public folder so Astro build can copy it to dist.
-function copyVideos() {
-  return src(paths.input + '/**/*.mp4').pipe(dest(paths.output))
+async function copyVideos() {
+  const files = await glob(paths.input + '/**/*.{avi,webm,mp4,wmv,mov}')
+  await Promise.all(files.map(f => copyFile(f)))
 }
 
-function copySVGs() {
-  return src(paths.input + '/**/*.svg').pipe(dest(paths.output))
+async function copySVGs() {
+  const files = await glob(paths.input + '/**/*.svg')
+  await Promise.all(files.map(f => copyFile(f)))
+}
+
+async function copyFile(from) {
+  const to = from.replace(paths.input, paths.output)
+  const dir = path.dirname(to)
+  await fsp.mkdir(dir, { recursive: true })
+  await fsp.copyFile(from, to)
 }

@@ -1,12 +1,10 @@
-import optimizeAssets, { assetWatcher } from './gulp/optimize-assets.js'
+import { assetWatcher, copyAssets } from './gulp/optimize-assets.js'
 
-import gulp from 'gulp'
-
-const { series, parallel } = gulp
-
-export function watch() {
+export async function dev() {
+  await copyAssets()
   assetWatcher()
 }
 
-export const dev = series(parallel(optimizeAssets), watch)
-export const build = parallel(optimizeAssets)
+export async function build() {
+  await copyAssets()
+}
