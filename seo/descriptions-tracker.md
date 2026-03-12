@@ -5,10 +5,230 @@ Sorted newest first. To continue backfilling, say "continue backfilling descript
 
 ## Stats
 - Total missing: 231
-- Done: 40
-- Remaining: 191
+- Done: 231
+- Remaining: 0
 
-## Done
+## Done (SEO Optimization Pass 4)
+
+- [x] 2018-02-09-vscode-2.mdx
+- [x] 2018-02-02-vscode-1.mdx
+- [x] 2018-01-31-review-2017.mdx
+- [x] 2018-01-17-understanding-and-using-rest-api.mdx
+- [x] 2018-01-09-why-mutation-can-be-scary.mdx
+- [x] 2018-01-09-should-you-use-css-or-javascript-for-web-animations.mdx
+- [x] 2018-01-08-discount.mdx
+- [x] 2017-12-27-gsap.mdx
+- [x] 2017-12-20-css-animations.mdx
+- [x] 2017-12-15-imposter.mdx
+- [x] 2017-12-13-css-transitions.mdx
+- [x] 2017-12-08-interactive-components.mdx
+- [x] 2017-12-06-js-for-loops.mdx
+- [x] 2017-11-22-js-if-else.mdx
+- [x] 2017-11-17-debug-javascript-errors.mdx
+- [x] 2017-11-15-how-to-learn-javascript.mdx
+- [x] 2017-11-10-console-log-everything.mdx
+- [x] 2017-11-08-js-functions.mdx
+- [x] 2017-11-03-semicolons.mdx
+- [x] 2017-11-01-javascript-variables.mdx
+- [x] 2017-10-25-announcing-learn-js.mdx
+- [x] 2017-10-18-overcome-fear-of-js.mdx
+- [x] 2017-10-11-get-hired.mdx
+- [x] 2017-08-28-javascript-scope-closures.mdx
+- [x] 2017-08-23-should-you-use-this.mdx
+
+## Done (SEO Optimization Pass 7)
+
+- [x] 2022-10-12-never-let-anyone-stop-you-from-pursuing-your-dreams.mdx
+- [x] 2022-05-25-install-node.mdx
+- [x] 2022-05-12-understanding-csrf-attacks.mdx
+- [x] 2022-04-19-library-for-localstorage.mdx
+- [x] 2022-04-19-find-tag-id-in-convertkit.mdx
+- [x] 2022-03-25-dont-be-ashamed-of-tutorial-hell.mdx
+- [x] 2022-03-25-css-color-rgb-instead-of-rgba.mdx
+- [x] 2022-03-20-getting-a-cookies-expiry-value-on-a-server.mdx
+- [x] 2022-03-18-rsync-with-github-actions-when-using-a-custom-port.mdx
+- [x] 2022-03-18-rsync-with-custom-port.mdx
+- [x] 2022-03-09-why-i-stopped-using-operator-mono.mdx
+- [x] 2022-02-21-serving-https-locally-with-node.mdx
+- [x] 2022-02-21-node-modules-in-frontend-without-bundlers.mdx
+- [x] 2022-02-11-get-good-at-the-hiring-game.mdx
+- [x] 2022-01-26-year-end-review-2021.mdx
+- [x] 2021-06-30-dealing-with-anxiety-during-job-interviews.mdx
+- [x] 2021-06-23-astro-thoughts.mdx
+- [x] 2021-06-09-javascript-async-and-defer.mdx
+- [x] 2021-06-03-trying-your-best.mdx
+- [x] 2021-05-20-rapid-mac-setup.mdx
+- [x] 2021-02-17-netlify-vercel-digital-ocean.mdx
+- [x] 2021-01-27-simple-real-world-regex.mdx
+- [x] 2021-01-20-year-end-review-2020.mdx
+- [x] 2020-12-23-moonlander.mdx
+- [x] 2020-12-16-ergonomic-keyboard.mdx
+- [x] 2020-09-02-coding-career-handbook.mdx
+- [x] 2020-07-01-arrow-function-best-practices.mdx
+- [x] 2020-05-27-think-like-a-programmer.mdx
+- [x] 2020-03-25-design-courses.mdx
+- [x] 2019-06-12-everything-you-need-to-know-about-date-in-javascript.mdx
+- [x] 2018-12-26-review-2018.mdx
+- [x] 2018-07-18-what-to-do-when-life-shits-on-you.mdx
+- [x] 2018-06-27-css-values-in-js.mdx
+- [x] 2018-06-22-finding-motivation.mdx
+- [x] 2018-06-20-iterating-through-js-objects.mdx
+- [x] 2018-06-15-finding-materials-to-learn.mdx
+- [x] 2018-06-13-dont-reassign.mdx
+- [x] 2018-06-08-dealing-with-overwhelm.mdx
+- [x] 2018-06-06-why-you-learn-when-you-teach.mdx
+- [x] 2018-06-01-dealing-with-confusion.mdx
+- [x] 2018-05-30-things-i-learned-from-infinity-wars.mdx
+- [x] 2018-05-25-which-framework-to-learn.mdx
+- [x] 2018-05-23-finding-time-to-learn.mdx
+- [x] 2018-05-18-frameworks-vs-javascript.mdx
+- [x] 2018-05-11-restructure-results.mdx
+- [x] 2018-05-09-authentication-in-learn-js.mdx
+- [x] 2018-05-07-future-of-web-design.mdx
+- [x] 2018-05-04-code-quality.mdx
+- [x] 2018-05-02-should-i-teach-authentication-in-learn-javascript.mdx
+- [x] 2018-04-27-real-dev.mdx
+- [x] 2018-04-25-avengers-and-learning.mdx
+- [x] 2018-04-20-sublime-to-vscode.mdx
+- [x] 2018-04-18-css-conf-china.mdx
+- [x] 2018-04-13-restructured-learn-javascript.mdx
+- [x] 2018-04-11-dom-traversals.mdx
+- [x] 2018-04-06-bad-experience.mdx
+- [x] 2018-04-04-calculator-part-3.mdx
+- [x] 2018-03-30-dont-look-for-a-junior-position.mdx
+- [x] 2018-03-28-calculator-part-2.mdx
+- [x] 2018-03-23-too-old.mdx
+- [x] 2018-03-21-calculator-part-1.mdx
+- [x] 2018-03-16-experiment-publicly.mdx
+- [x] 2018-03-14-case-study-project-from-hell.mdx
+- [x] 2018-03-07-what-to-build.mdx
+- [x] 2018-03-02-linter.mdx
+- [x] 2018-02-28-responsive-vertical-rhythm.mdx
+- [x] 2018-02-23-useful-vscode-keyboard-shortcuts.mdx
+- [x] 2018-02-16-vscode-3.mdx
+- [x] 2018-02-14-intro-to-oop.mdx
+
+## Done (SEO Optimization Pass 6)
+
+- [x] 2016-05-04-wrong-about-vertical-rhythm.mdx
+- [x] 2016-04-27-deploy-static-site.mdx
+- [x] 2016-04-20-advanced-typi.mdx
+- [x] 2016-04-13-typi.mdx
+- [x] 2016-04-06-procrastination.mdx
+- [x] 2016-03-30-from-html-grids-to-css-grids.mdx
+- [x] 2016-03-23-web-typography-broken.mdx
+- [x] 2016-03-17-media-query-units.mdx
+- [x] 2016-03-09-viewport-based-typography.mdx
+- [x] 2016-02-24-why-vertical-rhythms.mdx
+
+## Done (SEO Optimization Pass 5)
+
+- [x] 2017-08-02-remember.mdx
+- [x] 2017-07-16-5-top-tips-for-speedy-learning.mdx
+- [x] 2017-06-21-this.mdx
+- [x] 2017-06-14-js-promises.mdx
+- [x] 2017-06-07-callbacks.mdx
+- [x] 2017-05-31-js-env.mdx
+- [x] 2017-05-18-the-rules-of-responsive-web-typography.mdx
+- [x] 2017-05-10-es6.mdx
+- [x] 2017-05-02-using-fetch.mdx
+- [x] 2017-04-26-js-in-dom.mdx
+- [x] 2017-04-12-breaking-the-rules.mdx
+- [x] 2017-03-30-20-things-to-consider-when-creating-your-first-node-js-application.mdx
+- [x] 2017-03-01-typefaces.mdx
+- [x] 2017-02-22-fighting-decision-paralysis.mdx
+- [x] 2017-01-18-read-faster.mdx
+- [x] 2017-01-04-2016-review.mdx
+- [x] 2016-11-02-responsive-grid-system.mdx
+- [x] 2016-10-19-designing-grids.mdx
+- [x] 2016-09-21-dont-reinvent-the-wheel.mdx
+- [x] 2016-08-17-learn-fast.mdx
+- [x] 2016-06-22-reset-susy.mdx
+- [x] 2016-06-15-asking-questions.mdx
+- [x] 2016-05-25-modular-scale.mdx
+- [x] 2016-05-18-changing-modular-scale.mdx
+- [x] 2016-05-11-responsive-modular-scale.mdx
+
+## Done (SEO Optimization Pass 3)
+
+- [x] 2018-05-30-things-i-learned-from-infinity-wars.mdx
+- [x] 2018-05-25-which-framework-to-learn.mdx
+- [x] 2018-05-23-finding-time-to-learn.mdx
+- [x] 2018-05-18-frameworks-vs-javascript.mdx
+- [x] 2018-05-11-restructure-results.mdx
+- [x] 2018-05-09-authentication-in-learn-js.mdx
+- [x] 2018-05-07-future-of-web-design.mdx
+- [x] 2018-05-04-code-quality.mdx
+- [x] 2018-05-02-should-i-teach-authentication-in-learn-javascript.mdx
+- [x] 2018-04-27-real-dev.mdx
+- [x] 2018-04-25-avengers-and-learning.mdx
+- [x] 2018-04-20-sublime-to-vscode.mdx
+- [x] 2018-04-18-css-conf-china.mdx
+- [x] 2018-04-13-restructured-learn-javascript.mdx
+- [x] 2018-04-11-dom-traversals.mdx
+- [x] 2018-04-06-bad-experience.mdx
+- [x] 2018-04-04-calculator-part-3.mdx
+- [x] 2018-03-30-dont-look-for-a-junior-position.mdx
+- [x] 2018-03-28-calculator-part-2.mdx
+- [x] 2018-03-23-too-old.mdx
+- [x] 2018-03-21-calculator-part-1.mdx
+- [x] 2018-03-16-experiment-publicly.mdx
+- [x] 2018-03-14-case-study-project-from-hell.mdx
+- [x] 2018-03-07-what-to-build.mdx
+- [x] 2018-03-02-linter.mdx
+- [x] 2018-02-28-responsive-vertical-rhythm.mdx
+- [x] 2018-02-23-useful-vscode-keyboard-shortcuts.mdx
+- [x] 2018-02-16-vscode-3.mdx
+- [x] 2018-02-14-intro-to-oop.mdx
+- [x] 2018-02-14-faux-subgrid.mdx
+
+## Done (SEO Optimization Pass 2)
+
+- [x] 2021-02-17-netlify-vercel-digital-ocean.mdx
+- [x] 2021-01-27-simple-real-world-regex.mdx
+- [x] 2021-01-20-year-end-review-2020.mdx
+- [x] 2020-12-23-moonlander.mdx
+- [x] 2020-12-16-ergonomic-keyboard.mdx
+- [x] 2020-09-02-coding-career-handbook.mdx
+- [x] 2020-07-01-arrow-function-best-practices.mdx
+- [x] 2020-05-27-think-like-a-programmer.mdx
+- [x] 2020-03-25-design-courses.mdx
+- [x] 2019-06-12-everything-you-need-to-know-about-date-in-javascript.mdx
+- [x] 2018-12-26-review-2018.mdx
+- [x] 2018-07-18-what-to-do-when-life-shits-on-you.mdx
+- [x] 2018-06-27-css-values-in-js.mdx
+- [x] 2018-06-22-finding-motivation.mdx
+- [x] 2018-06-20-iterating-through-js-objects.mdx
+- [x] 2018-06-15-finding-materials-to-learn.mdx
+- [x] 2018-06-13-dont-reassign.mdx
+- [x] 2018-06-08-dealing-with-overwhelm.mdx
+- [x] 2018-06-06-why-you-learn-when-you-teach.mdx
+- [x] 2018-06-01-dealing-with-confusion.mdx
+
+## Done (SEO Optimization Pass 1)
+
+- [x] 2022-10-12-never-let-anyone-stop-you-from-pursuing-your-dreams.mdx
+- [x] 2022-05-25-install-node.mdx
+- [x] 2022-05-12-understanding-csrf-attacks.mdx
+- [x] 2022-04-19-library-for-localstorage.mdx
+- [x] 2022-04-19-find-tag-id-in-convertkit.mdx
+- [x] 2022-03-25-dont-be-ashamed-of-tutorial-hell.mdx
+- [x] 2022-03-25-css-color-rgb-instead-of-rgba.mdx
+- [x] 2022-03-20-getting-a-cookies-expiry-value-on-a-server.mdx
+- [x] 2022-03-18-rsync-with-github-actions-when-using-a-custom-port.mdx
+- [x] 2022-03-18-rsync-with-custom-port.mdx
+- [x] 2022-03-09-why-i-stopped-using-operator-mono.mdx
+- [x] 2022-02-21-serving-https-locally-with-node.mdx
+- [x] 2022-02-21-node-modules-in-frontend-without-bundlers.mdx
+- [x] 2022-02-11-get-good-at-the-hiring-game.mdx
+- [x] 2022-01-26-year-end-review-2021.mdx
+- [x] 2021-06-30-dealing-with-anxiety-during-job-interviews.mdx
+- [x] 2021-06-23-astro-thoughts.mdx
+- [x] 2021-06-09-javascript-async-and-defer.mdx
+- [x] 2021-06-03-trying-your-best.mdx
+- [x] 2021-05-20-rapid-mac-setup.mdx
+
+## Previously Done
 
 - [x] 2026-02-18-cause-of-depression.mdx
 - [x] 2026-02-11-public-therapy.mdx
@@ -50,205 +270,3 @@ Sorted newest first. To continue backfilling, say "continue backfilling descript
 - [x] 2023-06-15-building-components-in-astro.mdx
 - [x] 2023-02-19-spirit-of-css-tricks.mdx
 - [x] 2023-01-04-render-mdx-svelte-in-astro.mdx
-
-## Pending
-- [ ] 2022-10-12-never-let-anyone-stop-you-from-pursuing-your-dreams.mdx
-- [ ] 2022-05-25-install-node.mdx
-- [ ] 2022-05-12-understanding-csrf-attacks.mdx
-- [ ] 2022-04-19-library-for-localstorage.mdx
-- [ ] 2022-04-19-find-tag-id-in-convertkit.mdx
-- [ ] 2022-03-25-dont-be-ashamed-of-tutorial-hell.mdx
-- [ ] 2022-03-25-css-color-rgb-instead-of-rgba.mdx
-- [ ] 2022-03-20-getting-a-cookies-expiry-value-on-a-server.mdx
-- [ ] 2022-03-18-rsync-with-github-actions-when-using-a-custom-port.mdx
-- [ ] 2022-03-18-rsync-with-custom-port.mdx
-- [ ] 2022-03-09-why-i-stopped-using-operator-mono.mdx
-- [ ] 2022-02-21-serving-https-locally-with-node.mdx
-- [ ] 2022-02-21-node-modules-in-frontend-without-bundlers.mdx
-- [ ] 2022-02-11-get-good-at-the-hiring-game.mdx
-- [ ] 2022-01-26-year-end-review-2021.mdx
-- [ ] 2021-06-30-dealing-with-anxiety-during-job-interviews.mdx
-- [ ] 2021-06-23-astro-thoughts.mdx
-- [ ] 2021-06-09-javascript-async-and-defer.mdx
-- [ ] 2021-06-03-trying-your-best.mdx
-- [ ] 2021-05-20-rapid-mac-setup.mdx
-- [ ] 2021-02-17-netlify-vercel-digital-ocean.mdx
-- [ ] 2021-01-27-simple-real-world-regex.mdx
-- [ ] 2021-01-20-year-end-review-2020.mdx
-- [ ] 2020-12-23-moonlander.mdx
-- [ ] 2020-12-16-ergonomic-keyboard.mdx
-- [ ] 2020-09-02-coding-career-handbook.mdx
-- [ ] 2020-07-01-arrow-function-best-practices.mdx
-- [ ] 2020-05-27-think-like-a-programmer.mdx
-- [ ] 2020-03-25-design-courses.mdx
-- [ ] 2019-06-12-everything-you-need-to-know-about-date-in-javascript.mdx
-- [ ] 2018-12-26-review-2018.mdx
-- [ ] 2018-07-18-what-to-do-when-life-shits-on-you.mdx
-- [ ] 2018-06-27-css-values-in-js.mdx
-- [ ] 2018-06-22-finding-motivation.mdx
-- [ ] 2018-06-20-iterating-through-js-objects.mdx
-- [ ] 2018-06-15-finding-materials-to-learn.mdx
-- [ ] 2018-06-13-dont-reassign.mdx
-- [ ] 2018-06-08-dealing-with-overwhelm.mdx
-- [ ] 2018-06-06-why-you-learn-when-you-teach.mdx
-- [ ] 2018-06-01-dealing-with-confusion.mdx
-- [ ] 2018-05-30-things-i-learned-from-infinity-wars.mdx
-- [ ] 2018-05-25-which-framework-to-learn.mdx
-- [ ] 2018-05-23-finding-time-to-learn.mdx
-- [ ] 2018-05-18-frameworks-vs-javascript.mdx
-- [ ] 2018-05-11-restructure-results.mdx
-- [ ] 2018-05-09-authentication-in-learn-js.mdx
-- [ ] 2018-05-07-future-of-web-design.mdx
-- [ ] 2018-05-04-code-quality.mdx
-- [ ] 2018-05-02-should-i-teach-authentication-in-learn-javascript.mdx
-- [ ] 2018-04-27-real-dev.mdx
-- [ ] 2018-04-25-avengers-and-learning.mdx
-- [ ] 2018-04-20-sublime-to-vscode.mdx
-- [ ] 2018-04-18-css-conf-china.mdx
-- [ ] 2018-04-13-restructured-learn-javascript.mdx
-- [ ] 2018-04-11-dom-traversals.mdx
-- [ ] 2018-04-06-bad-experience.mdx
-- [ ] 2018-04-04-calculator-part-3.mdx
-- [ ] 2018-03-30-dont-look-for-a-junior-position.mdx
-- [ ] 2018-03-28-calculator-part-2.mdx
-- [ ] 2018-03-23-too-old.mdx
-- [ ] 2018-03-21-calculator-part-1.mdx
-- [ ] 2018-03-16-experiment-publicly.mdx
-- [ ] 2018-03-14-case-study-project-from-hell.mdx
-- [ ] 2018-03-07-what-to-build.mdx
-- [ ] 2018-03-02-linter.mdx
-- [ ] 2018-02-28-responsive-vertical-rhythm.mdx
-- [ ] 2018-02-23-useful-vscode-keyboard-shortcuts.mdx
-- [ ] 2018-02-16-vscode-3.mdx
-- [ ] 2018-02-14-intro-to-oop.mdx
-- [ ] 2018-02-14-faux-subgrid.mdx
-- [ ] 2018-02-09-vscode-2.mdx
-- [ ] 2018-02-02-vscode-1.mdx
-- [ ] 2018-01-31-review-2017.mdx
-- [ ] 2018-01-17-understanding-and-using-rest-api.mdx
-- [ ] 2018-01-09-why-mutation-can-be-scary.mdx
-- [ ] 2018-01-09-should-you-use-css-or-javascript-for-web-animations.mdx
-- [ ] 2018-01-08-discount.mdx
-- [ ] 2017-12-27-gsap.mdx
-- [ ] 2017-12-20-css-animations.mdx
-- [ ] 2017-12-15-imposter.mdx
-- [ ] 2017-12-13-css-transitions.mdx
-- [ ] 2017-12-08-interactive-components.mdx
-- [ ] 2017-12-06-js-for-loops.mdx
-- [ ] 2017-11-22-js-if-else.mdx
-- [ ] 2017-11-17-debug-javascript-errors.mdx
-- [ ] 2017-11-15-how-to-learn-javascript.mdx
-- [ ] 2017-11-10-console-log-everything.mdx
-- [ ] 2017-11-08-js-functions.mdx
-- [ ] 2017-11-03-semicolons.mdx
-- [ ] 2017-11-01-javascript-variables.mdx
-- [ ] 2017-10-25-announcing-learn-js.mdx
-- [ ] 2017-10-18-overcome-fear-of-js.mdx
-- [ ] 2017-10-11-get-hired.mdx
-- [ ] 2017-08-28-javascript-scope-closures.mdx
-- [ ] 2017-08-23-should-you-use-this.mdx
-- [ ] 2017-08-02-remember.mdx
-- [ ] 2017-07-16-5-top-tips-for-speedy-learning.mdx
-- [ ] 2017-06-21-this.mdx
-- [ ] 2017-06-14-js-promises.mdx
-- [ ] 2017-06-07-callbacks.mdx
-- [ ] 2017-05-31-js-env.mdx
-- [ ] 2017-05-18-the-rules-of-responsive-web-typography.mdx
-- [ ] 2017-05-10-es6.mdx
-- [ ] 2017-05-02-using-fetch.mdx
-- [ ] 2017-04-26-js-in-dom.mdx
-- [ ] 2017-04-12-breaking-the-rules.mdx
-- [ ] 2017-03-30-20-things-to-consider-when-creating-your-first-node-js-application.mdx
-- [ ] 2017-03-01-typefaces.mdx
-- [ ] 2017-02-22-fighting-decision-paralysis.mdx
-- [ ] 2017-01-18-read-faster.mdx
-- [ ] 2017-01-04-2016-review.mdx
-- [ ] 2016-11-02-responsive-grid-system.mdx
-- [ ] 2016-10-19-designing-grids.mdx
-- [ ] 2016-09-21-dont-reinvent-the-wheel.mdx
-- [ ] 2016-08-17-learn-fast.mdx
-- [ ] 2016-06-22-reset-susy.mdx
-- [ ] 2016-06-15-asking-questions.mdx
-- [ ] 2016-05-25-modular-scale.mdx
-- [ ] 2016-05-18-changing-modular-scale.mdx
-- [ ] 2016-05-11-responsive-modular-scale.mdx
-- [ ] 2016-05-04-wrong-about-vertical-rhythm.mdx
-- [ ] 2016-04-27-deploy-static-site.mdx
-- [ ] 2016-04-20-advanced-typi.mdx
-- [ ] 2016-04-13-typi.mdx
-- [ ] 2016-04-06-procrastination.mdx
-- [ ] 2016-03-30-from-html-grids-to-css-grids.mdx
-- [ ] 2016-03-23-web-typography-broken.mdx
-- [ ] 2016-03-17-media-query-units.mdx
-- [ ] 2016-03-09-viewport-based-typography.mdx
-- [ ] 2016-02-24-why-vertical-rhythms.mdx
-- [ ] 2016-02-17-rem-vs-em.mdx
-- [ ] 2016-02-04-star-rating.mdx
-- [ ] 2016-01-13-responsive-typography.mdx
-- [ ] 2016-01-06-2015-review.mdx
-- [ ] 2015-12-24-animating-svgs.mdx
-- [ ] 2015-12-18-trolls-and-expert-opinions.mdx
-- [ ] 2015-12-14-website-layout-tools-compared-flexbox-vs-susy.mdx
-- [ ] 2015-11-25-overcoming-your-fears.mdx
-- [ ] 2015-11-11-migrating-from-bootstrap-to-susy.mdx
-- [ ] 2015-10-07-gitignore.mdx
-- [ ] 2015-09-13-nunjucks-with-gulp.mdx
-- [ ] 2015-09-01-gulp-for-beginners.mdx
-- [ ] 2015-07-08-gulp-tutorial-2.mdx
-- [ ] 2015-07-01-gulp-tutorial.mdx
-- [ ] 2015-06-24-choosing-a-build-tool.mdx
-- [ ] 2015-06-10-fear-of-command-line.mdx
-- [ ] 2015-06-07-bower.mdx
-- [ ] 2015-06-03-workflow-overview.mdx
-- [ ] 2015-05-21-susy-gallery-problems.mdx
-- [ ] 2015-05-14-why-i-stopped-blogging-and-what-do-you-wanna-read-about-next.mdx
-- [ ] 2015-04-23-masonry-with-susy.mdx
-- [ ] 2015-03-26-mappy-breakpoints.mdx
-- [ ] 2015-02-15-gulp-libsass-with-susy.mdx
-- [ ] 2015-02-11-grunt-sass-with-susy.mdx
-- [ ] 2015-01-26-learning-susy-update-delayed.mdx
-- [ ] 2014-12-17-how-to-write-mobile-first-css.mdx
-- [ ] 2014-11-25-use-susy-bootstrap.mdx
-- [ ] 2014-11-14-updating-learning-susy.mdx
-- [ ] 2014-10-29-context-with-susy.mdx
-- [ ] 2014-10-15-how-i-wrote-and-sold-my-first-ebook-and-how-you-can-do-it-too.mdx
-- [ ] 2014-09-30-off-canvas-layouts-susy.mdx
-- [ ] 2014-09-18-build-web-layouts-easily-susy.mdx
-- [ ] 2014-09-14-support-for-older-browsers.mdx
-- [ ] 2014-09-08-smarter-layouts-with-susy.mdx
-- [ ] 2014-08-29-bootstraps-grid-system-vs-susy-comparison.mdx
-- [ ] 2014-08-18-asymmetric-layouts-with-susy.mdx
-- [ ] 2014-08-17-susy-gutter-positions.mdx
-- [ ] 2014-08-16-susy-grid-background-image.mdx
-- [ ] 2014-06-30-organizing-multiple-theme-styles-with-sass.mdx
-- [ ] 2014-06-02-adaptive-placeholders.mdx
-- [ ] 2014-05-26-compass-vs-autoprefixer.mdx
-- [ ] 2014-05-20-codekit-2-autoprefixer-with-compass.mdx
-- [ ] 2014-05-12-organized-susy-layouts.mdx
-- [ ] 2014-04-28-static-grids-with-susy2.mdx
-- [ ] 2014-04-21-susy2-tutorial-2.mdx
-- [ ] 2014-04-14-susy2-tutorial.mdx
-- [ ] 2014-03-31-font-face.mdx
-- [ ] 2014-03-24-html-structure-2.mdx
-- [ ] 2014-03-17-html-structure.mdx
-- [ ] 2014-03-10-css-positions.mdx
-- [ ] 2014-03-03-mailchimp-api-in-wordpress-1.mdx
-- [ ] 2014-02-24-compass-vertical-rhythm.mdx
-- [ ] 2014-02-17-understanding-css-box-sizing.mdx
-- [ ] 2014-02-10-wordpress-actions-and-filters.mdx
-- [ ] 2014-01-17-find-wordpress-css.mdx
-- [ ] 2013-12-30-wordpress-with-grunt.mdx
-- [ ] 2013-10-09-a-complete-tutorial-to-susy-part-2.mdx
-- [ ] 2013-09-22-a-complete-tutorial-to-susy.mdx
-- [ ] 2013-09-16-color-tools.mdx
-- [ ] 2013-09-09-why-color-pickers-and-palettes-are-bad-for-you.mdx
-- [ ] 2013-08-18-wordpress101.mdx
-- [ ] 2013-07-28-learning.mdx
-- [ ] 2013-06-17-css-preprocessors.mdx
-- [ ] 2013-06-02-make-your-website-more-professional-with-1-simple-step-watch-the-space-between-lines-of-text.mdx
-- [ ] 2013-05-26-creating-a-clean-and-simple-website-part-3-style-the-content-and-6-items-to-take-note.mdx
-- [ ] 2013-05-13-creating-a-clean-and-simple-website-part-2-styling-the-header.mdx
-- [ ] 2013-05-05-9-important-css-properties-you-must-know.mdx
-- [ ] 2013-04-29-creating-a-clean-and-simple-website-part-1-html.mdx
-- [ ] 2013-04-21-layouts-of-a-website.mdx
-- [ ] 2013-03-23-why-i-started-learning-about-web-design-and-how-you-can-do-it-too.mdx
