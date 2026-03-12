@@ -1,0 +1,70 @@
+---
+import { Heading, Markdown } from '@splendidlabz/astro'
+---
+
+<section>
+  <div class="wrap">
+    <div class="vertical">
+      <Heading class="gap-4" center>
+        <h2 class="h1 max-w-[12em] text-zorange-500">
+          Images Shouldn't Be Complicated
+        </h2>
+      </Heading>
+
+      <div class="prose-responsive max-w-narrow mx-auto">
+        <Markdown
+          content="
+    We didn't have to worry much about images in the old days. We just had to minify the image and use a standard `<img>` tag.
+
+      But fast forward till today. Images have gotten complex. Now we have to:
+
+      - Handle responsive images with `srcset`
+      - Improve image performance with image formats like `avif` and `webp`
+      - Use `picture` and `source` tags to support image formats
+      - Do art direction with `<picture>` instead of simply hiding the image
+      - Lazy load images so they don't block rendering
+      - Let images have `width` and `height` attributes to make Google lighthouse audit happy for SEO...
+
+      I'd say we drop all of that complexity into a single component --- prebuilt and ready to use. And this does everything above for you.
+
+      ```
+      <Image src='/src/assets/image.png' alt='image' />
+      ```
+    "
+        />
+
+        <!-- prettier-ignore -->
+        <Markdown>
+          Astro's image tooling is good. But it only covers the simple case.
+
+          The moment you need a caption, you're writing custom markup. Background images skip optimization entirely. Art direction means hand-writing `<picture>` tags. Framework components can't access `astro:assets`. Animated GIFs stay heavy. SVG icons have no consistent pattern. CI builds choke on hundreds of images.
+
+          Each problem has a solution. But you have to find them individually, implement them separately, and re-figure them out on the next project.
+
+          This module is the system.
+
+          You know how `Image` works. You've read the docs. Maybe you've even gotten `srcset` working.
+
+          Then the real project starts.
+
+          You need different crops on mobile and desktop --- and there's no clean way to do art direction without writing 15 lines of `<picture>` markup by hand.
+
+          You need an optimized background image in CSS --- but `astro:assets` only works with components, not `background-image`. So you skip optimization or write a hack.
+
+          You have images inside MDX content --- and they render at full width on every device. No automatic `srcset`. Mobile visitors download 2MB hero images on cellular.
+
+          You're using React or Svelte components --- and they can't access `astro:assets` at all. You end up passing image data through props from wrapper files. It works, but it's fragile.
+
+          Then your CI build starts choking. 200 images, each generating 6 sizes. Memory spikes. Builds timeout. Vercel complains.
+
+          None of this is about not knowing the Astro image API. It's about not having a system for when each approach applies.
+
+          That's what this module gives you.
+        </Markdown>
+      </div>
+    </div>
+  </
+      </div>
+    </div>
+  </div>
+</section>

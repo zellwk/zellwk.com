@@ -1,0 +1,8 @@
+.salespage {
+  --spacing-narrow: 40rem;
+  --border-color: var(--color-neutral-750);
+
+  main.content {
+    margin-bottom: 0;
+  }
+}

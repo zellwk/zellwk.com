@@ -3,7 +3,7 @@ import MainNav from '../components/MainNav.svelte'
 import Footer from '../components/Footer.astro'
 import '../styles/styles.css'
 import Head from './Base/Head.astro'
-const { bodyClass, ...props } = Astro.props
+const { class: bodyClass, ...props } = Astro.props
 ---
 
 <html lang="en" class="scrollbars-on">
@@ -27,7 +27,8 @@ const { bodyClass, ...props } = Astro.props
     </script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FF5QLS3KNY"/>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FF5QLS3KNY"
+    ></script>
     <script async>
       window.dataLayer = window.dataLayer || []
       function gtag() {

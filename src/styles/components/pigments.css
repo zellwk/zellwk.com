@@ -72,3 +72,9 @@
   --text-color: var(--color-zgray-500);
   --text-hover-color: var(--color-zcyan-500);
 }
+
+@utility pigment-disabled {
+  --bg-color: var(--color-neutral-900);
+  --text-color: var(--color-neutral-500);
+  --border-color: var(--color-neutral-800);
+}

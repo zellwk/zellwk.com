@@ -1,0 +1,28 @@
+---
+import { Heading, Markdown } from '@splendidlabz/astro'
+import FeatureCard from '../../../components/FeatureCard.astro'
+import { modules } from '../../data/courses/practical-astro.js'
+---
+
+<section class="section bg-zpurple-900">
+  <div class="wrap">
+    <div class="vertical">
+      <Heading center>
+        <h2 class="h1 text-zred-500">What's inside</h2>
+      </Heading>
+
+      <div class="prose-responsive max-w-narrow mx-auto text-center">
+        <Markdown>
+          Eight categories of production-tested patterns. Each one solves
+          specific problems I've hit across 10+ Astro sites.
+        </Markdown>
+      </div>
+
+      <div
+        class="py-2 grid-flex w-full max-w-[92rem] mx-auto bp7:[--cols:2] bp11:[--cols:3] justify-center"
+      >
+        {modules.map(module => <FeatureCard key={module.title} {...module} />)}
+      </div>
+    </div>
+  </div>
+</section>

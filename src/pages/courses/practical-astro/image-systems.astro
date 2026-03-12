@@ -1,0 +1,238 @@
+---
+import Base from '@/layouts/Base.astro'
+import { Heading, Markdown, Partial } from '@splendidlabz/astro'
+---
+
+<Base class="salespage">
+  <Partial path="image-systems/1.intro" />
+  <Partial path="image-systems/2.not-complicated" />
+
+  <section>
+    <div class="wrap">
+      <div class="vertical">
+        <Heading class="gap-4" center>
+          <h2 class="h1 max-w-[12em] text-zorange-500">
+            Images Shouldn't Be Complicated
+          </h2>
+        </Heading>
+      </div>
+
+      <div class="prose-responsive max-w-narrow mx-auto">
+        <Markdown
+          content="
+      We didn't have to worry much about images in the old days. We just had to minify the image and use a standard `<img>` tag.
+
+        But fast forward till today. Images have gotten complex. Now we have to:
+
+        - Handle responsive images with `srcset`
+        - Improve image performance with image formats like `avif` and `webp`
+        - Use `picture` and `source` tags to support image formats
+        - Do art direction with `<picture>` instead of simply hiding the image
+        - Lazy load images so they don't block rendering
+        - Let images have `width` and `height` attributes to make Google lighthouse audit happy for SEO...
+
+        I'd say we drop all of that complexity into a single component --- prebuilt and ready to use. And this does everything above for you.
+
+        ```
+        <Image src='/src/assets/image.png' alt='image' />
+        ```
+      "
+        />
+
+        <!-- prettier-ignore -->
+        <Markdown>
+        Astro's image tooling is good. But it only covers the simple case.
+
+        The moment you need a caption, you're writing custom markup. Background images skip optimization entirely. Art direction means hand-writing `<picture>` tags. Framework components can't access `astro:assets`. Animated GIFs stay heavy. SVG icons have no consistent pattern. CI builds choke on hundreds of images.
+
+        Each problem has a solution. But you have to find them individually, implement them separately, and re-figure them out on the next project.
+
+        This module is the system.
+
+        You know how `Image` works. You've read the docs. Maybe you've even gotten `srcset` working.
+
+        Then the real project starts.
+
+        You need different crops on mobile and desktop --- and there's no clean way to do art direction without writing 15 lines of `<picture>` markup by hand.
+
+        You need an optimized background image in CSS --- but `astro:assets` only works with components, not `background-image`. So you skip optimization or write a hack.
+
+        You have images inside MDX content --- and they render at full width on every device. No automatic `srcset`. Mobile visitors download 2MB hero images on cellular.
+
+        You're using React or Svelte components --- and they can't access `astro:assets` at all. You end up passing image data through props from wrapper files. It works, but it's fragile.
+
+        Then your CI build starts choking. 200 images, each generating 6 sizes. Memory spikes. Builds timeout. Vercel complains.
+
+        None of this is about not knowing the Astro image API. It's about not having a system for when each approach applies.
+
+        That's what this module gives you.
+      </Markdown>
+    </div>
+  </section>
+
+
+        <section>
+          <div class="wrap">
+            <h2 class="h2 text-zorange-500">What's inside</h2>
+            <p>
+              Six production-tested patterns. Each one solves a specific image
+              problem I've hit across 10+ Astro sites.
+            </p>
+          </div>
+
+          <div class="prose max-w-narrow mx-auto">
+            <!-- prettier-ignore -->
+            <Markdown>
+
+      ### 1. Art Direction
+
+      Breakpoint-specific crops without the markup mess. A clean pattern for serving different images at different viewports --- square on mobile, landscape on desktop --- without hand-writing `<source>` tags every time.
+
+      ### 2. Background Images
+
+      Optimized images in CSS layouts. A utility pattern that generates optimized URLs you can use with `background-image`. Hero sections, banners, overlays --- all with proper optimization instead of raw full-size files.
+
+      ### 3. MDX & Markdown Images
+
+      Content images that don't punish mobile users. A component pattern that gives your markdown images responsive behavior with automatic `srcset` --- so your blog posts serve the right size to every device.
+
+      ### 4. Framework Interop
+
+      Using optimized images in React, Svelte, or Vue components. You can't optimize images inside the framework --- that's Astro's job. But getting them across the boundary cleanly? That's where most people waste time trying `client:only` workarounds and fragile hacks. This pattern shows you the clean approach.
+
+      ### 5. Video as GIF Replacement
+
+      Animated GIFs are massive. A 5-second loop can be 10MB. The modern fix is using `<video>` with optimized formats --- but Astro doesn't handle video optimization in its build pipeline. This pattern gives you a production workflow for optimized video loops that replace GIFs at a fraction of the file size.
+
+      ### 6. CI Performance
+
+      Image-heavy builds that don't timeout. Strategies for caching, incremental optimization, and configuration that keeps your build pipeline fast --- even with hundreds of images across dozens of pages.
+
+
+      ## HOW IT FITS TOGETHER
+
+      These aren't six disconnected tips.
+
+      Art direction handles the viewport problem. Background images handle the CSS problem. MDX images handle the content problem. Framework interop handles the component boundary problem. Video replacement handles the animation problem. CI performance makes sure the whole thing actually ships.
+
+      Each pattern supports the next. You stop improvising and start reusing.
+
+      </Markdown>
+    </div>
+
+
+
+
+
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap">
+            <h2 class="h2 text-zorange-500">CRedibility</h2>
+          </div>
+
+          <div class="prose max-w-narrow mx-auto">
+            <!-- prettier-ignore -->
+            <Markdown>
+I've been building for the web for over 10 years. The last 2-3 have been deep in Astro --- 10+ production sites, each one refining these patterns a little more.
+
+You might know my writing from CSS-Tricks, Smashing Magazine, A List Apart, Sitepoint, or freeCodeCamp. Same approach here: step by step, no hand-waving, every decision explained.
+
+I built these patterns because I was tired of re-solving them. Now I'm packaging them so you don't have to either.
+
+I built this from the image patterns I've refined across production Astro projects over 2-3 years. Ten-plus sites. Each one surfaced a new edge case that made the system better.
+
+If you've read my work on CSS-Tricks, Smashing Magazine, or A List Apart --- same approach. Step by step. Every trade-off explained. No hand-waving.
+      </Markdown>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap">
+            <h2 class="h2 text-zorange-500">Image Systems</h2>
+          </div>
+
+          <div class="grid-simple [--cols:2]">
+            <div class="prose max-w-narrow mx-auto">
+              <!-- prettier-ignore -->
+              <Markdown>
+
+        The complete guide --- every decision explained, on the course platform --- plus source code you drop into your project.
+
+        Six patterns. Every one tested in production. Every decision already made.
+
+        [Get Image Systems --- $49]
+
+        One payment. Lifetime access. Includes source code.
+      </Markdown>
+            </div>
+
+            <div class="prose max-w-narrow mx-auto">
+              <!-- prettier-ignore -->
+              <Markdown>
+
+### Or get everything.
+
+Image Systems is one of 8 modules in Practical Astro. The full collection --- Content Systems, Images, SEO, Server Patterns, Database, Auth, Payments, and CMS Integration --- is $149.
+
+That's every module, current and future. The price goes up as more modules ship.
+
+[Get Practical Astro --- $149]
+
+        </Markdown>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap">
+            <h2 class="h2 text-zorange-500">FAQ</h2>
+          </div>
+
+          <div class="prose max-w-narrow mx-auto">
+            <!-- prettier-ignore -->
+            <Markdown>
+
+      **Is this only about responsive `srcset`?**
+
+      No. `srcset` is one piece. This covers art direction, CSS background images, content images in MDX, framework component interop, video/GIF replacement, and CI build performance. The full production image workflow.
+
+      **Will this still help as Astro evolves?**
+
+      Yes. Astro added responsive image support in v5.10, which handles the common case. This module covers everything that feature doesn't: art direction, background images, MDX content images, framework components, and build performance. The decision framework applies regardless of which Astro version you're on.
+
+      **What if I'm not using React or Svelte?**
+
+      The framework interop pattern shows the general approach for passing optimized images across component boundaries. It applies to any UI framework Astro supports. The other four patterns work regardless of which frameworks you use.
+
+      **Is this for beginners?**
+
+      No. It's built for developers who already know Astro basics and have hit real image problems in production. If you haven't built an Astro site yet, start with the docs first.
+
+      </Markdown>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap">
+            <h2>Stop re-solving the same image problems on every project</h2>
+          </div>
+
+          <div class="prose max-w-narrow mx-auto">
+            <!-- prettier-ignore -->
+            <Markdown>
+        You've already fought with art direction, background images, and slow builds. You don't need another tutorial. You need the system.
+
+        [Get Image Systems — $49]
+
+        One payment. Lifetime access. Includes source code.
+      </Markdown>
+
+
+          </div>
+        </section>
+      </div>
+    </div>
+  </section></Base
+>

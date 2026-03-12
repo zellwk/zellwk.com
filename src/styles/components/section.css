@@ -1,7 +1,17 @@
-.section {
-  padding-block: calc(var(--spacing) * 8);
+@utility section {
+  --spacing-section: 2.5rlh;
+  padding-block: var(--spacing-section);
 
   @media screen and (width >= 800px) {
-    padding-block: var(--spacing-section);
+    --spacing-section: 5rlh;
+  }
+}
+
+.section-mini {
+  @apply section;
+
+  .section + &,
+  & + & {
+    padding-block-start: calc(var(--spacing-section) * 0.5);
   }
 }

@@ -10,6 +10,7 @@
 }
 
 @utility june-curious {
+  @apply june;
   --font-style: 100;
 }
 
@@ -49,6 +50,16 @@
  * Patterns *
  *********************/
 
+@utility eyebrow {
+  @apply stinger;
+  @apply text-6;
+  --font-style: 80;
+  --font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  color: var(--color-neutral-500);
+}
+
 @utility h1 {
   @apply june;
   @apply text-16 bp8:text-18;
@@ -61,7 +72,7 @@
   @apply text-12 bp8:text-14;
   --font-weight: 700;
   line-height: 1.15;
-  color: var(--color-zgray-300);
+  color: var(--color-zgray-400);
 }
 
 @utility h2 {
@@ -81,6 +92,6 @@
 @utility h4 {
   @apply june;
   @apply text-10 bp8:text-10;
-  --font-style: 80;
+  --font-style: 65;
   line-height: 1.4;
 }

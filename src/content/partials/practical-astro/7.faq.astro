@@ -1,0 +1,33 @@
+---
+import { faq } from '@/content/data/faqs/practical-astro'
+import { Heading } from '@splendidlabz/astro'
+import { Accordion } from '@splendidlabz/svelte'
+---
+
+<section class="section">
+  <div class="wrap">
+    <div
+      class="grid-simple bp10:[--cols:5] gap-8 max-w-[46rem] bp10:max-w-mid mx-auto"
+    >
+      <Heading class="bp10:[--span:2]">
+        <h2 class="h1 text-zorange-500">Frequently Asked Questions</h2>
+      </Heading>
+
+      <div class="bp10:[--span:3]">
+        <div class="accordion-stack">
+          {
+            faq.map(item => (
+              <Accordion
+                client:idle
+                key={item.question}
+                title={item.question}
+                content={item.answer}
+                closeOthers
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

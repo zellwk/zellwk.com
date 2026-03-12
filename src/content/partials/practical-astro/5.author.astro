@@ -1,0 +1,51 @@
+---
+import { Heading, Image, Markdown } from '@splendidlabz/astro'
+import TestimonialSection from '../TestimonialSection.astro'
+---
+
+<section class="section">
+  <div class="wrap">
+    <div class="vertical">
+      <Heading class="gap-4" center>
+        <h2 class="h1 max-w-[11em] mx-auto text-zorange-500">
+          Years of Revision, Seconds to Use
+        </h2>
+        <p class="h1-subhead">Refined until there's no more friction</p>
+      </Heading>
+
+      <div class="vertical bp8:grid-auto-fr max-w-mid mx-auto !gap-8">
+        <div>
+          <Image
+            class="mt-2 max-w-[18rem] rounded-2r"
+            src="/src/assets/zell/zell-fooling-around.jpg"
+            alt="Zell"
+          />
+        </div>
+
+        <div class="prose-responsive max-w-narrow mx-auto">
+          <!-- prettier-ignore -->
+          <Markdown>
+            Hi, I'm Zell. **I went all-in on Astro** — it's the framework I use for everything I build.  So I've put lots of energy into building systems that work with it. 
+
+            Over the years, I kept hitting the same friction points on every project. The solutions I found online sometimes worked, but they felt clunky — often too verbose, too complex, or too many moving parts for what should be simple.
+
+            **I wanted something simple and powerful**. So I built my own systems, then revised them — over and over — until each one couldn't get simpler. All while *handling every edge case I've hit in production*.
+            
+            As I built these systems up, the friction I felt when building sites dropped dramatically. And **building became fun again**.  
+
+            I'd like to share them with you, so you can skip the months of trial and error I went through (and avoid dying by a thousand paper cuts). 
+      </Markdown>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<TestimonialSection />

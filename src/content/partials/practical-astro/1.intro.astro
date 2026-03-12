@@ -1,0 +1,40 @@
+---
+import { Heading, Markdown } from '@splendidlabz/astro'
+---
+
+<section class="section">
+  <div class="wrap">
+    <div class="vertical">
+      <Heading class="gap-4 mb-2" center>
+        <h1 class="max-w-[10em]">Production Ready Astro Patterns</h1>
+        <p class="h1-subhead max-w-[38rem]">
+          <Markdown inline>
+            Built for great developer experience --- just plonk and use in real
+            projects
+          </Markdown>
+        </p>
+      </Heading>
+
+      <div class="prose-responsive max-w-[37rem] mx-auto">
+        <!-- prettier-ignore -->
+        <Markdown>
+          Stop figuring out Astro on your own. I've chosen the best approach for each system so you can focus on building great websites.
+        </Markdown>
+
+        <div class="vertical gap-2 text-center">
+          <a
+            href="#pricing"
+            class="button button-large pigment-orange-filled self-center"
+          >
+            <Markdown inline>Get Practical Astro --- only $149</Markdown>
+          </a>
+          <p class="text-8 text-zgray-500">
+            <Markdown inline>
+              Pay Once. Lifetime access. Lifetime updates.
+            </Markdown>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
