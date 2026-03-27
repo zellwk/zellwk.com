@@ -4,6 +4,8 @@ import { formatDate } from 'date-fns'
 
 const {
   title,
+  class: klass,
+  showPrice = true,
   price,
   description,
   items,
@@ -11,25 +13,39 @@ const {
   link,
   available,
   showButton = true,
+  readyByPosition = 'edge-top',
 } = Astro.props
 
 let avDate = null
 if (available) avDate = formatDate(new Date(available), 'do MMMM')
 ---
 
-<div class="card-divided card-divided-vertical bg-zpurple-1000 relative">
+<div
+  class:list={[
+    'card-divided card-divided-vertical relative [--border-color:var(--color-zgray-750)]',
+    klass,
+  ]}
+>
   <header class="bg-zpurple-1100 horizontal justify-between items-center">
     {
       available && (
-        <div class="pill edge-top border-scaffold border-1 px-3 py-1 bg-zpurple-1100 text-6 text-neutral-500 june">
+        <div
+          class:list={[
+            'pill',
+            'border-scaffold border-1 px-3 py-1 bg-zpurple-1100 text-6 text-neutral-500 june',
+            readyByPosition,
+          ]}
+        >
           Ready by: <strong>{avDate}</strong>
         </div>
       )
     }
     <div class="h4 text-zorange-500">{title}</div>
-    <div class="june">{price}</div>
+    <If condition={showPrice}>
+      <div class="june">{price}</div>
+    </If>
   </header>
-  <div class="bg-zpurple-1000 prose flex-grow gap-3">
+  <div class="bg-zpurple-950 prose flex-grow gap-3">
     <p>{description}</p>
     <FancyList
       class="ml-0 text-8 text-neutral-400 simple-svg fill-zorange-500"

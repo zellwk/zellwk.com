@@ -8,43 +8,46 @@ const imageSystems = modules.find(module => module.title === 'Image Systems')
 <section class="section">
   <div class="wrap">
     <div class="vertical">
-      <div class="grid-simple [--cols:5] max-w-standard mx-auto items-center">
+      <div class="grid-simple [--cols:5] max-w-[75rem] mx-auto items-center">
         <div class="vertical [--span:3]">
           <Heading class="gap-4" eyebrow="">
-            <!-- <span class="eyebrow -mb-1 horizontal items-center gap-[0.125em]">
-              This can be yours in one afternoon
-            </span> -->
+            <span class="eyebrow horizontal items-center gap-[0.125em]">
+              Image optimization for Astro
+            </span>
             <h1 class="max-w-[10em]">
-              The Image System I use on Every Astro Site
+              The Image System I Reach For on Every Astro Site
             </h1>
-            <!-- <p class="h1-subhead max-w-[38rem]">
-              <Markdown inline> Yours in an afternoon </Markdown>
-            </p> -->
           </Heading>
 
           <div class="prose-responsive max-w-narrow">
             <!-- prettier-ignore -->
             <Markdown>
-              Images without the import hassle, Art direction, background images, video optimization, and more. Every decision made, every pattern tested on production sites.
+              Responsive images, art direction, background images, SVGs, icons, videos, and GIF replacements. Drop them into your pages and never think about image optimization again.
             </Markdown>
 
-            <div class="vertical gap-2 self-start">
+            <div class="vertical gap-2.5 self-start">
               <a
                 href="#pricing"
                 class="button button-large pigment-cyan-filled"
               >
-                <Markdown inline>Get Image Systems --- only $49</Markdown>
+                <Markdown inline>Get Image Systems --- $49</Markdown>
               </a>
               <p class="text-8 text-zgray-500 text-center italic">
                 <Markdown inline>
-                  Pay Once. Lifetime access. Lifetime updates.
+                  Pay once. Lifetime access. Free updates forever.
                 </Markdown>
               </p>
             </div>
           </div>
         </div>
         <div class="[--span:2]">
-          <FeatureCard {...imageSystems} showButton={false} />
+          <FeatureCard
+            class="opacity-80"
+            readyByPosition="edge-topright-start"
+            {...imageSystems}
+            showButton={false}
+            showPrice={false}
+          />
         </div>
       </div>
     </div>

@@ -1,5 +1,26 @@
 @utility prose {
   --theme-color: var(--color-zorange-500);
+  --ec-codeFontSize: 1em;
+  --ec-codeFontFml: 'Jetbrains Mono', monospace;
+  --ec-uiFontFml: 'Jetbrains Mono', monospace;
+  --ec-uiFontSize: 0.65em;
+  --ec-uiPadBlk: 0.5rem;
+  --ec-uiPadInl: 1rem;
+  --ec-uiLineHt: inherit;
+  --ec-codeLineHt: inherit;
+  --ec-codePadBlk: 1rem;
+  --ec-codePadInl: 1rem;
+  --ec-brdRad: calc(var(--radius) * 0.5);
+  --ec-brdWd: var(--border-width);
+  --ec-brdCol: var(--border-color);
+  --ec-frm-edTabBrdRad: calc(var(--radius) * 0.5);
+  --ec-frm-frameBoxShdCssVal: none;
+  --ec-frm-edBg: var(--color-zpurple-900);
+  --ec-frm-edActTabBg: var(--color-zpurple-900);
+  --ec-frm-edTabBarBg: var(--color-zpurple-1000);
+  --ec-frm-edActTabIndBtmCol: var(--color-zorange-500);
+  --ec-frm-edTabBarBrdCol: var(--border-color);
+  --ec-frm-edActTabIndHt: var(--border-width);
 
   h2 {
     @apply h2;

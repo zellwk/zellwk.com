@@ -31,49 +31,60 @@ import { FancyList, Heading, Markdown } from '@splendidlabz/astro'
           
           Each of these systems took me weeks to get right, so we're talking about months of effort saved if you picked this up. 
 
-          You'll stop doing these: 
         </Markdown>
+      </div>
 
-        <div class="card border-zred-500 bg-zred-850 p-3 rounded-1r">
-          <FancyList
-            class="ml-0 simple-svg fill-zred-500 text-zred-50"
-            icon="ph:x"
-            items={[
-              'Reinventing content structure',
-              'Fighting image imports and layout shifts',
-              'Debugging invisible SEO problems',
-              'Wrestling with forms, sanitization, redirects',
-              'Figuring out email HTML and inline CSS',
-              'Building auth from scratch (again)',
-              'Fussing around with complex queries',
-              'Piecing Stripe together from overwhelming docs and Stack Overflow',
-            ]}
-          />
+      <div
+        class="grid-simple bp9:[--cols:2] max-w-[60rem] mx-auto gap-4 items-center"
+      >
+        <div class="vertical gap-2">
+          <p class="text-center italic text-neutral-400">
+            <Markdown inline>You'll stop doing these: </Markdown>
+          </p>
+          <div class="prose card border-zred-500 bg-zred-850 p-3 rounded-1r">
+            <FancyList
+              class="ml-0 simple-svg fill-zred-500 text-zred-50"
+              icon="ph:x"
+              items={[
+                'Reinventing content structure',
+                'Fighting image imports and layout shifts',
+                'Debugging invisible SEO problems',
+                'Wrestling with forms, sanitization, redirects',
+                'Figuring out email HTML and inline CSS',
+                'Building auth from scratch (again)',
+                'Fussing around with complex queries',
+                'Piecing Stripe together from overwhelming docs and Stack Overflow',
+              ]}
+            />
+          </div>
         </div>
 
-        And do this instead:
-
-        <div
-          class="card border-zgreen-500 bg-zgreen-900 border-scaffold p-3 rounded-1r"
-        >
-          <FancyList
-            class="ml-0 simple-svg text-zgreen-50 fill-zgreen-500"
-            icon="ph:check"
-            items={[
-              'Open the system you need',
-              'Find the pattern that helps',
-              'Grab the code',
-              'Use it',
-              'Move on',
-            ]}
-          />
+        <div class="vertical gap-2 italic text-neutral-400">
+          <p class="text-center">
+            <Markdown inline>And do this instead: </Markdown>
+          </p>
+          <div
+            class="prose card border-zgreen-500 bg-zgreen-900 border-scaffold p-3 rounded-1r"
+          >
+            <FancyList
+              class="ml-0 simple-svg text-zgreen-50 fill-zgreen-500"
+              icon="ph:check"
+              items={[
+                'Open the system you need',
+                'Find the pattern that helps',
+                'Grab the code',
+                'Use it',
+                'Move on',
+              ]}
+            />
+          </div>
         </div>
+      </div>
 
+      <div class="prose-responsive max-w-narrow mx-auto">
         <!-- prettier-ignore -->
         <Markdown>
           No more unnecessary frustration. 
-          
-          No more time wasted on problems that have been solved. 
         </Markdown>
       </div>
     </div>

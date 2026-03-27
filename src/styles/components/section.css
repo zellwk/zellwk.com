@@ -9,6 +9,15 @@
 
 .section-mini {
   @apply section;
+  --spacing-section: 1.5rlh;
+
+  @media screen and (width >= 800px) {
+    --spacing-section: 2.5rlh;
+  }
+}
+
+.section-cont {
+  @apply section;
 
   .section + &,
   & + & {

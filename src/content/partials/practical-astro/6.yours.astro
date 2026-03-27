@@ -2,7 +2,7 @@
 import { Heading, Markdown } from '@splendidlabz/astro'
 ---
 
-<section id="pricing" class="section bg-zpurple-1100">
+<section id="pricing" class="section bg-zpurple-900">
   <div class="wrap">
     <div class="vertical gap-6">
       <Heading center>
@@ -12,11 +12,13 @@ import { Heading, Markdown } from '@splendidlabz/astro'
       <div
         class="grid-simple bp8:[--cols:2] max-w-[32rem] bp8:max-w-[60rem] items-center mx-auto gap-10 mt-2"
       >
-        <div class="card-divided card-divided-vertical">
-          <header>
+        <div
+          class="card-divided card-divided-vertical [--border-color:var(--color-neutral-800)]"
+        >
+          <header class="bg-zpurple-1100">
             <div class="h4 text-zred-500">Practical Astro</div>
           </header>
-          <div class="content">
+          <div class="content bg-zpurple-1000">
             <ul class="text-8 tabular-nums text-zgray-400 vertical gap-0.25">
               <li class="horizontal justify-between items-center gap-1.25">
                 <span>1. </span>
@@ -89,11 +91,11 @@ import { Heading, Markdown } from '@splendidlabz/astro'
           <div class="vertical gap-2">
             <div class="horizontal self-center">
               <div
-                class="h1-subhead strikethrough [--strike-color:var(--color-zred-500)] [--strike-angle:-12deg] tabular-nums"
+                class="h1-subhead text-15 strikethrough [--strike-color:var(--color-zred-500)] [--strike-angle:-12deg] tabular-nums"
               >
                 <span class="opacity-38">$541</span>
               </div>
-              <div class="h1-subhead">
+              <div class="h1-subhead text-15">
                 <span class="text-zorange-500">$149 only</span>
               </div>
             </div>

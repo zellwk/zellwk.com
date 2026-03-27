@@ -1,0 +1,53 @@
+---
+import { Heading, Markdown } from '@splendidlabz/astro'
+import { Code } from 'astro-expressive-code/components'
+---
+
+<section>
+  <div class="wrap">
+    <div class="vertical">
+      <Heading class="gap-4" center>
+        <h2 class="h1 max-w-[12em] text-zorange-500">
+          Images Shouldn't Be Complicated
+        </h2>
+      </Heading>
+
+      <div class="prose-responsive max-w-narrow mx-auto">
+        <Markdown
+          content="
+          Images have gotten way too complicated nowadays. We have to: 
+
+          - Optimize them for the best performance
+          - Use `srcset` to create responsive images 
+          - Use `picture` and `source` tags to support image formats
+          - Add `width` and `height` to prevent layout shifts (to make Google happy for SEO) 
+          - And lazy load them so they don't block rendering... 
+
+          The result of that looks like this:
+          "
+        />
+
+        <Code
+          lang="html"
+          code=`<picture> 
+  <source srcset="path-1 400w, path-2 680w" type="image/avif">  
+  <source srcset="path-1 400w, path-2 680w" type="image/webp">  
+  <img 
+    src="path-1" 
+    srcset="path-1 400w, path-2 680w" 
+    alt="image" 
+    loading="lazy" 
+    decoding="async" 
+    width="680" 
+    height="261" />  
+</picture>`
+        />
+
+        <!-- prettier-ignore -->
+        <Markdown>
+          That's way too difficult to write and maintain manually. 
+        </Markdown>
+      </div>
+    </div>
+  </div>
+</section>

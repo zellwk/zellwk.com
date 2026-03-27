@@ -1,6 +1,5 @@
 ---
-import { Heading, Image, Markdown } from '@splendidlabz/astro'
-import TestimonialSection from '../TestimonialSection.astro'
+import { Heading, Image, Markdown, SVG } from '@splendidlabz/astro'
 ---
 
 <section class="section">
@@ -34,7 +33,7 @@ import TestimonialSection from '../TestimonialSection.astro'
             As I built these systems up, the friction I felt when building sites dropped dramatically. And **building became fun again**.  
 
             I'd like to share them with you, so you can skip the months of trial and error I went through (and avoid dying by a thousand paper cuts). 
-      </Markdown>
+          </Markdown>
 
 
 
@@ -48,4 +47,21 @@ import TestimonialSection from '../TestimonialSection.astro'
     </div>
   </div>
 </section>
-<TestimonialSection />
+
+<section class="section-mini bg-zpurple-1100">
+  <div
+    class="wrap flex flex-col bp8:flex-row items-center justify-center gap-4 bp8:gap-12"
+  >
+    <SVG class="h-5 bp6:h-7 simple-svg fill-neutral-400" icon="smashing-mag" />
+    <SVG class="h-5 bp6:h-7 simple-svg fill-neutral-400" icon="css-tricks" />
+    <SVG class="h-5 bp6:h-7 simple-svg fill-neutral-400" icon="a-list-apart" />
+    <SVG
+      class="h-5 bp6:h-7 simple-svg fill-neutral-400 hidden bp8:block"
+      icon="free-code-camp"
+    />
+    <SVG
+      class="h-5 bp6:h-7 simple-svg fill-neutral-400 hidden bp8:block"
+      icon="sitepoint"
+    />
+  </div>
+</section>
