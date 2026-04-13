@@ -16,19 +16,3 @@
 /* @import './components/index.css'; */
 @source "../../node_modules/@splendidlabz/astro";
 @source "../../node_modules/@splendidlabz/svelte";
-
-.accordion {
-  .accordion-title {
-    @apply stinger;
-    --font-weight: 450;
-    background: var(--color-zpurple-1100);
-
-    .open & {
-      color: var(--color-zorange-500);
-    }
-  }
-
-  .accordion-content {
-    background: var(--color-zpurple-900);
-  }
-}

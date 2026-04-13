@@ -1,0 +1,35 @@
+---
+title: 'Disable Sounds in VSCode'
+description: 'VSCode can start making sounds on save and other events without warning. Here's how to find and disable them in a few clicks.'
+tags: ['VSCode', 'Developer Tools']
+---
+
+import Image from '~/components/Image.astro'
+
+Some time ago, VSCode suddenly began making sounds when I save my files — without any change in configuration.
+
+Here's how to turn them off.
+
+First, bring up the command palette with Command+Shift+P. Then, type List Signal sounds
+
+<Image src="/src/assets/blog/disable-sounds-in-vscode/vscode-list-signal-sounds-command.png" />
+
+You'll see a list of events that trigger sounds.
+
+<Image src="/src/assets/blog/disable-sounds-in-vscode/vscode-signal-sounds-list.png" />
+
+Uncheck the ones that annoy you. Here are the main culprits that drive me mad:
+
+- Code action applied
+- Code action request triggered
+- Error at Position
+- Error at Line
+- Inline suggestion at line
+- No inlay hints on line
+- Undo Edits
+- Warning at Position
+- Warning at Line
+
+But since I like coding without disruptions, I eventually unchecked everything.
+
+Happy coding in silence :)

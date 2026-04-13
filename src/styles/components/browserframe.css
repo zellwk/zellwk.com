@@ -1,0 +1,7 @@
+.browserframe .tab {
+  @apply june;
+  @apply text-4;
+  --font-style: 20;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

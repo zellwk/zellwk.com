@@ -7,7 +7,7 @@
   }
 }
 
-.section-mini {
+@utility section-mini {
   @apply section;
   --spacing-section: 1.5rlh;
 
@@ -16,7 +16,7 @@
   }
 }
 
-.section-cont {
+@utility section-cont {
   @apply section;
 
   .section + &,
