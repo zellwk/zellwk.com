@@ -4,18 +4,24 @@ import { shuffle } from '@splendidlabz/utils'
 import NewsletterForm from '../../components/NewsletterForm.svelte'
 import SideTestimonial from '../../components/SideTestimonial.astro'
 
-const { testimonialCount = 1 } = Astro.props
+const {
+  class: klass = '',
+  testimonialCount = 1,
+  testimonials = [],
+} = Astro.props
 
 const selectedTestimonials = [
   'heydon-pickering',
   'geoff-graham',
   'chen-hui-jing',
 ]
-const shuffled = shuffle(selectedTestimonials)
-const selectedTestimonial = shuffled.slice(0, testimonialCount)
+const selectedTestimonial =
+  testimonials.length > 0
+    ? testimonials
+    : shuffle(selectedTestimonials).slice(0, testimonialCount)
 ---
 
-<section class="section newsletter-section">
+<section class:list={['section newsletter-section', klass]}>
   <div class="wrap">
     <div
       class="grid-simple bp9:[--cols:9] items-center gap-x-8 max-w-standard mx-auto"
