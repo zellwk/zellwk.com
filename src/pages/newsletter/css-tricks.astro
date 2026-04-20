@@ -1,6 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro'
-import { Partial } from '@splendidlabz/astro'
+import { Markdown, Partial } from '@splendidlabz/astro'
 
 const SEOProps = {
   title: 'Newsletter',
@@ -11,6 +11,31 @@ const SEOProps = {
 
 <Base {...SEOProps}>
   <div class="wrap">
-    <Partial path="JoinMyNewsletter" testimonialCount={2} />
+    <article class="article max-w-narrow mx-auto">
+      <h1 class="h1">
+        <Markdown inline> Hey, glad you're here! </Markdown>
+      </h1>
+      <div id="content" class="prose-responsive">
+        <!-- prettier-ignore -->
+        <Markdown>
+          Thanks for reading my article on CSS-Tricks. I'm really happy that you enjoyed it enough to click here :). 
+
+          I'm Zell and I've been a web developer since forever. 
+          
+          These days, I build products and coach people while creating businesses that syncs with how I work. I bring a dev background and deep interest in psychology to everything I make.
+
+          On this blog, you can expect: 
+
+          - Articles like the ones you're reading on CSS Tricks
+          - Product and course updates that I've been working on
+          - My thoughts about work, life, and what I'm figuring out. 
+        </Markdown>
+      </div>
+    </article>
+    <Partial
+      class="section-cont"
+      path="JoinMyNewsletter"
+      testimonials={['geoff-graham', 'heydon-pickering']}
+    />
   </div>
 </Base>
