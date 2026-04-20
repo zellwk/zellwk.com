@@ -37,3 +37,23 @@
   @apply prose;
   @apply text-8 bp6:text-9 bp8:text-10;
 }
+
+.prose-responsive blockquote {
+  @apply prose;
+  position: relative;
+  gap: 0.75lh;
+  margin-top: 1lh;
+  padding-left: 1em;
+
+  p {
+    @apply stinger-fit text-zgray-400 relative;
+    font-size: 0.85em;
+  }
+
+  &::before {
+    @apply june text-[10.5rem] leading-[1] text-zred-700d pos-topleft absolute;
+    content: '“';
+    top: calc(var(--spacing) * -5.5);
+    left: 0;
+  }
+}

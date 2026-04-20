@@ -1,19 +1,21 @@
-@utility section {
+@theme inline {
   --spacing-section: 2.5rlh;
-  padding-block: var(--spacing-section);
+  --spacing-section-mini: calc(var(--spacing-section) * 0.5);
+  --spacing-section-cont: 0;
+}
 
+:root {
   @media screen and (width >= 800px) {
     --spacing-section: 5rlh;
   }
 }
 
-@utility section-mini {
-  @apply section;
-  --spacing-section: 1.5rlh;
+@utility section {
+  padding-block: var(--spacing-section);
+}
 
-  @media screen and (width >= 800px) {
-    --spacing-section: 2.5rlh;
-  }
+@utility section-mini {
+  padding-block: var(--spacing-section-mini);
 }
 
 @utility section-cont {
@@ -21,6 +23,6 @@
 
   .section + &,
   & + & {
-    padding-block-start: calc(var(--spacing-section) * 0.5);
+    padding-block-start: var(--spacing-section-cont);
   }
 }

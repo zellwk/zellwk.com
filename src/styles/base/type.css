@@ -67,6 +67,10 @@
   line-height: 1.15;
 }
 
+.h1 + [class*='prose'] {
+  @apply mt-4;
+}
+
 @utility h1-subhead {
   @apply snug;
   @apply text-12 bp8:text-14;
