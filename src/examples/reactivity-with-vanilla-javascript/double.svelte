@@ -10,6 +10,6 @@
 </script>
 
 <Callout type="demo">
-  <button on:click={increase}>Add count</button>
+  <button onclick={increase}>Add count</button>
   <div>Doubled Count: {double}</div>
 </Callout>
