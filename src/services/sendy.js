@@ -3,6 +3,10 @@ import { getCurrentUrl, getIpAddress } from './utils.js'
 
 export const lists = {
   main: '6hZ8N5yHH763fbenJv68UMxQ',
+  practicalAstroLead: 'IAOYAidfjLzdbdRS7d892Tgg',
+  practicalAstroPurchase: '',
+  contentSystemPurchase: '',
+  imageSystemPurchase: '',
 }
 
 export const sendy = createSendy({

@@ -1,0 +1,26 @@
+---
+import NewsletterForm from '@/components/NewsletterForm.svelte'
+import { Heading, Markdown } from '@splendidlabz/astro'
+---
+
+<section id="pricing" class="section bg-zpurple-900">
+  <div class="wrap">
+    <div class="vertical gap-6">
+      <Heading center>
+        <h2 class="h1 text-zorange-500">Launching Soon</h2>
+      </Heading>
+
+      <div class="prose-responsive max-w-narrow mx-auto">
+        <!-- prettier-ignore -->
+        <Markdown>
+          Drop your email and I'll reach out when more information is ready. 
+        </Markdown>
+        <NewsletterForm
+          list="practicalAstro"
+          redirect="/courses/waitlist/confirm"
+          client:load
+        />
+      </div>
+    </div>
+  </div>
+</section>

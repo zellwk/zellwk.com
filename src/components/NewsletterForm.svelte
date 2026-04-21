@@ -1,7 +1,11 @@
 <script>
   import { Form, Status, TextInput } from '@splendidlabz/svelte'
-  import { delay } from '@splendidlabz/utils'
+  import { delay, omitEmpty } from '@splendidlabz/utils'
   import zlFetch from 'zl-fetch'
+
+  /** @type {{ list: string, children?: import('svelte').Snippet }} */
+
+  const { list, redirect = '/newsletter/confirm/', children } = $props()
 
   let status = {
     code: null,
@@ -10,7 +14,7 @@
 
   async function submit(data) {
     const { response, error } = await zlFetch.post('/api/sendy/', {
-      body: data,
+      body: omitEmpty({ ...data, list }),
       returnError: true,
     })
 
@@ -36,6 +40,7 @@
   <div class="grid-simple bp8:[--cols:2]">
     <TextInput name="name" autocomplete="name" label="First Name" required />
     <TextInput name="email" autocomplete="email" label="Email" required />
+    {@render children?.()}
   </div>
   <button class="button !pigment-red-filled" type="submit">Subscribe</button>
 </Form>

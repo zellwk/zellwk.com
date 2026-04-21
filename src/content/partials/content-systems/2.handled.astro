@@ -1,0 +1,263 @@
+---
+import Test from '@/components/Test.svelte'
+import { Code, Heading, Markdown, Tabcordion } from '@splendidlabz/astro'
+---
+
+<section class="section">
+  <div class="wrap">
+    <div class="vertical">
+      <Heading class="gap-4">
+        <h2 class="h1 max-w-[12em] text-zorange-500">Content Made Simple</h2>
+      </Heading>
+
+      <Test client:load />
+
+      <Heading class="gap-4">
+        <h2 class="h1 max-w-[12em] text-zorange-500">Collections Made Easy</h2>
+      </Heading>
+
+      <Tabcordion
+        breakpoint={800}
+        tabsClass="grid-simple [--cols:3]"
+        tablistClass="tablist-left"
+        tabpanelsClass="[--span:2]"
+      >
+        <div>
+          <div data-header>
+            <strong>Ready Your Collection in a single line</strong>
+            <Markdown> Blah blah blah </Markdown>
+          </div>
+          <div data-content>
+            <!-- prettier-ignore -->
+            <Markdown>
+              Content for collection panel 1
+
+              Maybe 2 paraghs
+            </Markdown>
+          </div>
+        </div>
+
+        <div>
+          <div data-header>
+            <strong>Gather Tags in a single line</strong>
+            <Markdown> Blah blah blah. </Markdown>
+          </div>
+          <div data-content>
+            <!-- prettier-ignore -->
+            <Markdown>
+              Content for tags panel 2
+
+              Maybe 2 paraghs
+            </Markdown>
+          </div>
+        </div>
+
+        <div>
+          <div data-header>
+            <strong>Pagination Made Simple</strong>
+            <Markdown> Blah Blah Blah </Markdown>
+          </div>
+          <div data-content>
+            <!-- prettier-ignore -->
+            <Markdown>
+              Content for pagination panel 3
+
+              Maybe 2 paraghs
+            </Markdown>
+          </div>
+        </div>
+
+        <div>
+          <div data-header>
+            <strong>Pagination Made Simple</strong>
+            <Markdown> Blah Blah Blah </Markdown>
+          </div>
+          <div data-content>
+            <!-- prettier-ignore -->
+            <Markdown>
+              Content for pagination panel 4
+
+              Maybe 2 paraghs
+            </Markdown>
+          </div>
+        </div>
+      </Tabcordion>
+
+      <div class="vertical alt-grid">
+        <!-- Group: Images, optimized every way -->
+        <!-- Group description: Responsive images, art direction, background images. Each one is a single component with optimization built in. -->
+        <div class="grid-simple">
+          <div class="prose-responsive gap-4">
+            <h3 class="h3 text-zorange-500">Optimized Images</h3>
+            <div class="max-w-narrow">
+              <Markdown>
+                Drop in the file path, get responsive sizes, modern formats, and
+                lazy loading. One component, no imports needed.
+              </Markdown>
+            </div>
+          </div>
+          <div class="asset prose-responsive">
+            <Code
+              lang="astro"
+              title="index.astro"
+              code=`
+              <Image src="/path/to/image.png" alt="Alt Text" />
+            `
+            />
+          </div>
+        </div>
+
+        <div class="grid-simple">
+          <div class="prose-responsive gap-4">
+            <h3 class="h3 text-zorange-500">Art Direction</h3>
+            <div class="max-w-narrow">
+              <Markdown>
+                Different images at different breakpoints. Add your sources, set
+                your breakpoints, and the `Picture` component generates the
+                correct markup.
+              </Markdown>
+            </div>
+          </div>
+          <div class="asset prose-responsive">
+            <Code
+              lang="astro"
+              title="index.astro"
+              code=`
+              <Picture
+                artDirection={[
+                  { src: "/src/asset prose-responsives/square", max: 600 },
+                  {
+                    src: "/src/asset prose-responsives/landscape",
+                    min: 1000,
+                  },
+                ]}
+              />`
+            />
+          </div>
+        </div>
+
+        <div class="grid-simple">
+          <div class="prose-responsive gap-4">
+            <h3 class="h3 text-zorange-500">Optimized background images</h3>
+            <div class="max-w-narrow">
+              <Markdown>
+                Pick your image, set `cover` or `repeat`. One component, fully
+                optimized, no imports needed.
+              </Markdown>
+            </div>
+          </div>
+          <div class="asset prose-responsive">
+            <Code
+              lang="astro"
+              title="index.astro"
+              code=`<BackgroundImage
+                src="/src/asset prose-responsives/patterns/schoolbg.png"
+                repeat={true}
+              />`
+            />
+          </div>
+        </div>
+
+        <!-- Group: SVG icons, files, and patterns -->
+        <!-- Group description: Local SVGs from your project, icons from Iconify, decorative patterns. All semantic, all ready to use. -->
+        <div class="grid-simple">
+          <div class="prose-responsive gap-4">
+            <h3 class="h3 text-zorange-500">Local SVGs</h3>
+            <div class="max-w-narrow">
+              <Markdown>
+                Point to any SVG in your project. Get semantic markup with
+                sensible defaults, plus classes and attributes.
+              </Markdown>
+            </div>
+          </div>
+          <div class="asset prose-responsive">Image goes here</div>
+        </div>
+
+        <div class="grid-simple">
+          <div class="prose-responsive gap-4">
+            <h3 class="h3 text-zorange-500">SVG Icons</h3>
+            <div class="max-w-narrow">
+              <Markdown>
+                Grab any free icon from Iconify's library. Thousands of icons,
+                one component. Loaded dynamically so they don't block rendering.
+              </Markdown>
+            </div>
+          </div>
+          <div class="asset prose-responsive">Image goes here</div>
+        </div>
+
+        <div class="grid-simple">
+          <div class="prose-responsive gap-4">
+            <h3 class="h3 text-zorange-500">SVG Backgrounds</h3>
+            <div class="max-w-narrow">
+              <Markdown>
+                Use SVG patterns as backgrounds with one line of code. Reusable
+                patterns, ready to drop in.
+              </Markdown>
+            </div>
+          </div>
+          <div class="asset prose-responsive">Image goes here</div>
+        </div>
+
+        <!-- Group: Videos and GIFs, performance built in -->
+        <!-- Group description: Videos and GIF replacements that won't cause layout shifts or slow your site down. -->
+        <div class="grid-simple">
+          <div class="prose-responsive gap-4">
+            <h3 class="h3 text-zorange-500">Videos</h3>
+            <div class="max-w-narrow">
+              <Markdown>
+                Width and height metadata is pulled automatically with FFmpeg so
+                Lighthouse stays happy.
+              </Markdown>
+            </div>
+          </div>
+          <div class="asset prose-responsive">Image goes here</div>
+        </div>
+
+        <div class="grid-simple">
+          <div class="prose-responsive gap-4">
+            <h3 class="h3 text-zorange-500">Performant GIFs</h3>
+            <div class="max-w-narrow">
+              <Markdown>
+                Looping, muted videos that behave like GIFs — a fraction of the
+                file size. Built on the Video component, so no layout shifts
+                either.
+              </Markdown>
+            </div>
+          </div>
+          <div class="asset prose-responsive">Image goes here</div>
+        </div>
+      </div>
+
+      <!-- The Details Are Handled Too -->
+      <!-- TODO: Easy Captions — Add a caption prop to any Image, Picture, or Video component. One property, correct markup. -->
+      <!-- TODO: Asset prose-responsive Caching for GitHub Actions — Cache optimized asset prose-responsives in CI so you don't re-process them on every deploy. Faster builds, lower costs. -->
+      <!-- TODO: CSS Grid Background Images — Use CSS Grid to overlay an optimized image with full srcset support as a background. The power-user alternative to BackgroundImage. -->
+    </div>
+  </div>
+</section>
+
+<style>
+  /* remove > from alt-grid if you want to simplify the rule */
+
+  .alt-grid {
+    margin-block: calc(var(--spacing) * 16);
+    gap: calc(var(--spacing) * 16);
+  }
+
+  .alt-grid > .grid-simple {
+    gap: inherit;
+    align-items: center;
+    @media screen and (width >= 900px) {
+      --cols: 2;
+      max-width: 70rem;
+      margin-inline: auto;
+    }
+  }
+
+  .alt-grid > .grid-simple:nth-child(even) > .asset {
+    @media screen and (width >= 900px) {
+      order: -1;
+    }
+  }
+</style>

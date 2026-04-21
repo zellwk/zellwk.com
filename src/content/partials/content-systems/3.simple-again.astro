@@ -1,0 +1,28 @@
+---
+import { Code, Heading, Markdown } from '@splendidlabz/astro'
+---
+
+<section class="section">
+  <div class="wrap">
+    <div class="vertical">
+      <Heading class="gap-4" center>
+        <h2 class="h1 max-w-[14em] text-zorange-500">
+          So I Made Them Simple Again
+        </h2>
+      </Heading>
+
+      <div class="prose-responsive max-w-narrow mx-auto">
+        <Markdown>
+          I'm not a fan of unnecessary frustration, so I built an `Image`
+          component that lets me use images just like the good old days — one
+          single line with zero configurations
+        </Markdown>
+
+        <Code
+          code='<Image src="/path/to/image.png" alt="Alt Text" />'
+          lang="astro"
+        />
+      </div>
+    </div>
+  </div>
+</section>

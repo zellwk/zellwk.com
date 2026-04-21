@@ -1,0 +1,165 @@
+---
+import { Markdown } from '@splendidlabz/astro'
+---
+
+<section>
+  <div class="wrap">
+    <h2 class="h2 text-zorange-500">What's inside</h2>
+    <p>
+      Six production-tested patterns. Each one solves a specific image problem
+      I've hit across 10+ Astro sites.
+    </p>
+  </div>
+
+  <div class="prose max-w-narrow mx-auto">
+    <!-- prettier-ignore -->
+    <Markdown>
+
+    ### 1. Art Direction
+
+    Breakpoint-specific crops without the markup mess. A clean pattern for serving different images at different viewports --- square on mobile, landscape on desktop --- without hand-writing `<source>` tags every time.
+
+    ### 2. Background Images
+
+    Optimized images in CSS layouts. A utility pattern that generates optimized URLs you can use with `background-image`. Hero sections, banners, overlays --- all with proper optimization instead of raw full-size files.
+
+    ### 3. MDX & Markdown Images
+
+    Content images that don't punish mobile users. A component pattern that gives your markdown images responsive behavior with automatic `srcset` --- so your blog posts serve the right size to every device.
+
+    ### 4. Framework Interop
+
+    Using optimized images in React, Svelte, or Vue components. You can't optimize images inside the framework --- that's Astro's job. But getting them across the boundary cleanly? That's where most people waste time trying `client:only` workarounds and fragile hacks. This pattern shows you the clean approach.
+
+    ### 5. Video as GIF Replacement
+
+    Animated GIFs are massive. A 5-second loop can be 10MB. The modern fix is using `<video>` with optimized formats --- but Astro doesn't handle video optimization in its build pipeline. This pattern gives you a production workflow for optimized video loops that replace GIFs at a fraction of the file size.
+
+    ### 6. CI Performance
+
+    Image-heavy builds that don't timeout. Strategies for caching, incremental optimization, and configuration that keeps your build pipeline fast --- even with hundreds of images across dozens of pages.
+
+
+    ## HOW IT FITS TOGETHER
+
+    These aren't six disconnected tips.
+
+    Art direction handles the viewport problem. Background images handle the CSS problem. MDX images handle the content problem. Framework interop handles the component boundary problem. Video replacement handles the animation problem. CI performance makes sure the whole thing actually ships.
+
+    Each pattern supports the next. You stop improvising and start reusing.
+
+    </Markdown>
+  </div>
+
+
+
+
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="h2 text-zorange-500">CRedibility</h2>
+  </div>
+
+  <div class="prose max-w-narrow mx-auto">
+    <!-- prettier-ignore -->
+    <Markdown>
+I've been building for the web for over 10 years. The last 2-3 have been deep in Astro --- 10+ production sites, each one refining these patterns a little more.
+
+You might know my writing from CSS-Tricks, Smashing Magazine, A List Apart, Sitepoint, or freeCodeCamp. Same approach here: step by step, no hand-waving, every decision explained.
+
+I built these patterns because I was tired of re-solving them. Now I'm packaging them so you don't have to either.
+
+I built this from the image patterns I've refined across production Astro projects over 2-3 years. Ten-plus sites. Each one surfaced a new edge case that made the system better.
+
+If you've read my work on CSS-Tricks, Smashing Magazine, or A List Apart --- same approach. Step by step. Every trade-off explained. No hand-waving.
+    </Markdown>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="h2 text-zorange-500">Image Systems</h2>
+  </div>
+
+  <div class="grid-simple [--cols:2]">
+    <div class="prose max-w-narrow mx-auto">
+      <!-- prettier-ignore -->
+      <Markdown>
+
+      The complete guide --- every decision explained, on the course platform --- plus source code you drop into your project.
+
+      Six patterns. Every one tested in production. Every decision already made.
+
+      [Get Image Systems --- $49]
+
+      One payment. Lifetime access. Includes source code.
+    </Markdown>
+    </div>
+
+    <div class="prose max-w-narrow mx-auto">
+      <!-- prettier-ignore -->
+      <Markdown>
+
+### Or get everything.
+
+Image Systems is one of 8 modules in Practical Astro. The full collection --- Content Systems, Images, SEO, Server Patterns, Database, Auth, Payments, and CMS Integration --- is $149.
+
+That's every module, current and future. The price goes up as more modules ship.
+
+[Get Practical Astro --- $149]
+
+      </Markdown>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="h2 text-zorange-500">FAQ</h2>
+  </div>
+
+  <div class="prose max-w-narrow mx-auto">
+    <!-- prettier-ignore -->
+    <Markdown>
+
+    **Is this only about responsive `srcset`?**
+
+    No. `srcset` is one piece. This covers art direction, CSS background images, content images in MDX, framework component interop, video/GIF replacement, and CI build performance. The full production image workflow.
+
+    **Will this still help as Astro evolves?**
+
+    Yes. Astro added responsive image support in v5.10, which handles the common case. This module covers everything that feature doesn't: art direction, background images, MDX content images, framework components, and build performance. The decision framework applies regardless of which Astro version you're on.
+
+    **What if I'm not using React or Svelte?**
+
+    The framework interop pattern shows the general approach for passing optimized images across component boundaries. It applies to any UI framework Astro supports. The other four patterns work regardless of which frameworks you use.
+
+    **Is this for beginners?**
+
+    No. It's built for developers who already know Astro basics and have hit real image problems in production. If you haven't built an Astro site yet, start with the docs first.
+
+    </Markdown>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Stop re-solving the same image problems on every project</h2>
+  </div>
+
+  <div class="prose max-w-narrow mx-auto">
+    <!-- prettier-ignore -->
+    <Markdown>
+      You've already fought with art direction, background images, and slow builds. You don't need another tutorial. You need the system.
+
+      [Get Image Systems — $49]
+
+      One payment. Lifetime access. Includes source code.
+    </Markdown>
+
+
+  </div>
+</section>

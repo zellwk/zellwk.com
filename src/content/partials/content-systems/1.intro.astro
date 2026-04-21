@@ -1,0 +1,55 @@
+---
+import FeatureCard from '@/components/FeatureCard.astro'
+import { Heading, Markdown } from '@splendidlabz/astro'
+import { modules } from '../../data/courses/practical-astro.js'
+const systemCard = modules.find(module => module.title === 'Content Systems')
+---
+
+<section class="section">
+  <div class="wrap">
+    <div class="vertical">
+      <div class="grid-simple [--cols:5] max-w-[75rem] mx-auto items-center">
+        <div class="vertical [--span:3]">
+          <Heading class="gap-4" eyebrow="">
+            <span class="eyebrow horizontal items-center gap-[0.125em]">
+              Make Content Simple
+            </span>
+            <h1 class="max-w-[10em]">
+              The Content Architecture I Use on Every Astro Project
+            </h1>
+          </Heading>
+
+          <div class="prose-responsive max-w-narrow">
+            <!-- prettier-ignore -->
+            <Markdown>
+              Astro's Content Collections is simple to use, but it leaves much more to be desired at the same time. This contains improvements Astro's built in collections to bring more ease and speed into your workflow. 
+            </Markdown>
+
+            <div class="vertical gap-2.5 self-start">
+              <a
+                href="#pricing"
+                class="button button-large pigment-cyan-filled"
+              >
+                <Markdown inline>Get Content Systems --- $49</Markdown>
+              </a>
+              <p class="text-8 text-zgray-500 text-center italic">
+                <Markdown inline>
+                  Pay once. Lifetime access. Free updates forever.
+                </Markdown>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="[--span:2]">
+          <FeatureCard
+            class="opacity-80"
+            readyByPosition="edge-topright-start"
+            {...systemCard}
+            showButton={false}
+            showPrice={false}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
