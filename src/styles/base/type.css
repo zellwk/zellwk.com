@@ -51,13 +51,27 @@
  *********************/
 
 @utility eyebrow {
+  @apply pigment;
   @apply stinger;
-  @apply text-7;
+  @apply text-6;
   --font-weight: 400;
-  align-self: start;
+  --border-width: 0;
+  --text-color: oklch(61% 0.1 85.79deg);
   text-transform: uppercase;
   letter-spacing: 0.11em;
-  color: oklch(61% 0.1 85.79deg);
+
+  &.pill {
+    @apply px-3 py-1;
+    @apply pill;
+    @apply text-5;
+    --bg-color: var(--color-zorange-900);
+    --bg-hover-color: var(--color-zorange-800);
+    --text-hover-color: inherit;
+    --border-width: 1.5px;
+    --border-color: currentcolor;
+    --border-hover-color: currentcolor;
+    letter-spacing: 0.08em;
+  }
 }
 
 @utility h1 {

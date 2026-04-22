@@ -6,7 +6,9 @@
   --color-zcyan-800: oklch(44% 0.08 215.06deg);
   --color-zorange-500: oklch(84.03% 0.1724 84.08deg);
   --color-zorange-600: oklch(74% 0.16 82.99deg);
+  --color-zorange-700: oklch(61% 0.1 85.79deg);
   --color-zorange-800: oklch(33.6% 0.0687 87.22deg);
+  --color-zorange-900: oklch(20% 0.03 86.68deg);
 
   /* --color-zpurple-50: oklch(87.95% 0.0289 294.54deg); */
   --color-zpurple-50: oklch(92.965% 0.01509 277.802deg);

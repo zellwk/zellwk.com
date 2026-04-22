@@ -22,7 +22,7 @@
       status.code = response.status
       status.text = response.body.message
       await delay(500)
-      window.location.href = '/newsletter/confirm/'
+      window.location.href = redirect
     }
 
     if (error) {
