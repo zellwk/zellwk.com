@@ -2,6 +2,7 @@
   "name": "zellwk.com",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "npm@11.10.1",
   "prettier": "@splendidlabz/prettier-config",
   "scripts": {
     "start": "node pm2.js",

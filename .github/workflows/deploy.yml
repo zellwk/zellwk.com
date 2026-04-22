@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Install FFmpeg
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
@@ -28,7 +28,7 @@ jobs:
 
       - name: Restore Astro image cache
         id: cache-astro-restore
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: node_modules/.astro
           key: astro-images-${{ runner.os }}-${{ github.run_id }}
@@ -37,7 +37,7 @@ jobs:
 
       - name: Restore OG image cache
         id: cache-og-restore
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: node_modules/.cache/og-images
           key: og-images-${{ runner.os }}-${{ github.run_id }}
@@ -62,7 +62,7 @@ jobs:
           gh actions-cache list --key "astro-images-${{ runner.os }}-" | cut -f1 | xargs -I {} gh actions-cache delete {} --confirm || true
 
       - name: Save Astro image cache
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         if: always()
         with:
           path: node_modules/.astro
@@ -78,7 +78,7 @@ jobs:
           gh actions-cache list --key "og-images-${{ runner.os }}-" | cut -f1 | xargs -I {} gh actions-cache delete {} --confirm || true
 
       - name: Save OG image cache
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         if: always()
         with:
           path: node_modules/.cache/og-images
