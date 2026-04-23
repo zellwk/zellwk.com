@@ -58,7 +58,7 @@ const JsonLDProps = {
 
                 Over the years, I've invested a large amount of time, money, and energy into learning about psychology and personal development --- this has helped to change the way I see the world. 
 
-                These days, I build products and coach people while creating businesses that syncs with how I work. I bring a dev background and deep interest in psychology to everything I make.
+                These days, I'm deep in AI --- figuring out what it actually does well for developers and what it doesn't. I also build products and coach people.
               </Markdown>
               <a
                 href="/about/"
@@ -79,12 +79,16 @@ const JsonLDProps = {
               {
                 now.map(item => (
                   <div
-                    class="vertical card card-orange card-small !max-w-full"
+                    class:list={[
+                      "vertical card card-small !max-w-full", 
+                      `card-${item.color}`
+                    ]}
                     style={{
                       '--rowspan': item.cta ? '3' : '2',
                     }}
+                    key={item.title}
                   >
-                    <h3 class="h3 card-title text-zorange-500">{item.title}</h3>
+                    <h3 class="h3 card-title">{item.title}</h3>
                     <Markdown>{item.content}</Markdown>
                     {item.cta && (
                       <a

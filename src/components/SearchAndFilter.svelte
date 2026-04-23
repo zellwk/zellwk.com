@@ -34,15 +34,7 @@
       .map(year => ({ year, posts: postsByYear[year] }))
   })
 
-  const topicTags = [
-    'css',
-    'javascript',
-    'astro',
-    'svelte',
-    'design',
-    'typography',
-    'accessibility',
-  ]
+  const topicTags = ['ai', 'astro', 'css', 'javascript', 'svelte', 'typography']
   const productTags = ['splendidlabz', 'magicaldevs']
   const businessAndLifeTags = ['life', 'musings', 'reflection']
 

@@ -2,27 +2,32 @@ export const now = [
   {
     title: 'Unorthodox Tailwind',
     content:
-      'A course that shows you how I use *Tailwind and CSS* to build amazing looking websites in (perhaps) half the time.',
+      'A course that shows you how I use *Tailwind and CSS* to build nice websites in half the time.',
     link: 'https://magicaldevschool.com/courses/unorthodox-tailwind/',
     cta: 'Find out more',
+    color: 'purple',
   },
   {
-    title: 'Splendid Labz',
+    title: 'Practical Astro',
     content:
-      'A *library of components* that helps me build websites and applications quickly and effectively. This is built with Astro and Svelte.',
+      'Production ready patterns for Astro — ready for you to *plonk* and build.',
     link: 'https://splendidlabz.com',
     cta: 'Find out more',
+    color: 'orange',
   },
 
   {
     title: 'Life Coaching',
-    content: `We all have potential but we're trapped behind our stories and blindspots. I do a small part in unlocking the potential of the people I coach. Maybe yours too?`,
-    link: '/coaching/',
-    cta: 'Find out more',
+    content: `We all have potential but we're trapped behind our stories and blindspots. I do a small part in unlocking the potential of the people I coach.`,
+    color: 'red',
+    // link: '/coaching/',
+    // cta: 'Find out more',
   },
   {
-    title: 'Finding What Works',
-    content: `What more do I need to say? :)`,
+    title: 'AI Exploration',
+    content: `Figuring out what AI actually does well --- for developers and humans. No hype, just what I've found.
+`,
+    color: 'violet',
     // link: 'https://betterhuman.co',
     // cta: 'Find out more',
   },
