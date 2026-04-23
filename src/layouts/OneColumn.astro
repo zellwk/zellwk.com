@@ -1,8 +1,15 @@
 ---
 import { Markdown } from '@splendidlabz/astro'
+import { notEmpty } from '@splendidlabz/utils'
 import Base from './Base.astro'
-const props = Astro.props.content
+
+const props = getProps(Astro)
 const { title, titleWidth = '' } = props
+
+function getProps(Astro) {
+  if (notEmpty(Astro.props.content)) return Astro.props.content
+  return Astro.props
+}
 ---
 
 <Base {...props}>

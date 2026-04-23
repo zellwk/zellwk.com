@@ -1,0 +1,8 @@
+---
+import OneColumn from './OneColumn.astro'
+const props = Astro.props.content
+---
+
+<OneColumn {...props}>
+  <slot />
+</OneColumn>
