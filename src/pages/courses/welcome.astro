@@ -1,0 +1,27 @@
+---
+import OneColumn from '@/layouts/OneColumn.astro'
+import { Markdown } from '@splendidlabz/astro'
+import { getSearchParams } from '@splendidlabz/astro/server'
+import { toTitle } from '@splendidlabz/utils'
+
+export const prerender = false
+const { product } = getSearchParams(Astro)
+const productName = toTitle(product)
+
+const props = {
+  ...Astro.props,
+  title: `Welcome to ${productName}`,
+  titleWidth: '9em',
+}
+---
+
+<OneColumn {...props}>
+  <!-- prettier-ignore -->
+  <Markdown>
+    I'm so happy that you're here, and thanks for filling up the form!
+
+    Please check your inbox next --- I sent you a welcome note and course access details. 
+
+    And, feel free to [contact me](/contact/) anytime have questions or want to share what you're building!
+  </Markdown>
+</OneColumn>

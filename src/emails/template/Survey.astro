@@ -1,0 +1,34 @@
+---
+import { Markdown } from '@splendidlabz/astro'
+import EmailBase from './EmailBase.astro'
+const props = Astro.props
+const { name, email, why, hope, better, success } = props
+---
+
+<EmailBase {...Astro.props}>
+  <!-- prettier-ignore -->
+  <Markdown>
+    You got a new purchase survey. 
+
+    <hr />
+    
+    From {name}, {email} 
+  
+    <p><strong>Why buy</strong></p>
+  
+    {why}
+  
+    <p><strong>Hope</strong></p>
+  
+    {hope}
+  
+    <p><strong>What they hope to see</strong></p>  
+  
+    {better}
+
+    <p><strong>What would success look like</strong></p>  
+  
+    {success}
+
+  </Markdown>
+</EmailBase>

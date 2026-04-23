@@ -1,0 +1,158 @@
+---
+import OneColumn from '@/layouts/OneColumn.astro'
+import { makeEmail, sendEmail } from '@/services/email'
+import { Sheets } from '@/services/google-sheets'
+import { If, Markdown } from '@splendidlabz/astro'
+import { getSearchParams, parseData } from '@splendidlabz/astro/server'
+import { Form, Textarea, TextInput } from '@splendidlabz/svelte'
+import { toTitle } from '@splendidlabz/utils'
+import { format } from 'date-fns'
+
+export const prerender = false
+const { product, productStatus } = getSearchParams(Astro)
+const productName = toTitle(product)
+const isPreorder = productStatus === 'preorder'
+
+const searchParams = Astro.url.searchParams
+const redirectURL = '/courses/welcome/' + searchParams.toString()
+
+// https:// docs.google.com/spreadsheets/u/1/d/12NpFSAhbtZB71RxAq4RxUUeCO7lGgMMA7e2l_MVsNzU/edit?gid=0#gid=0
+const SHEET_ID = '12NpFSAhbtZB71RxAq4RxUUeCO7lGgMMA7e2l_MVsNzU'
+
+const props = {
+  ...Astro.props,
+  title: `Thanks for purchasing ${productName}!`,
+  titleWidth: '12em',
+}
+
+let values = { name: '', email: '', why: '', hope: '', better: '', success: '' }
+const errors: Record<string, string> = {}
+
+POST: if (Astro.request.method === 'POST') {
+  const body = await parseData(Astro)
+  const { name, email, phone, why, hope, better, success } = body
+  values = { name, email, why, hope, better, success }
+
+  if (phone) break POST
+
+  if (!name) errors.name = 'Please enter your name'
+  if (!email) errors.email = 'Please enter your email'
+
+  if (Object.keys(errors).length > 0) break POST
+
+  // SEND SURVEY DATA TO THE EXCEL.
+  // Automatically silence errors.
+  try {
+    console.log('Sending Sheet')
+    await Sheets.appendOne(SHEET_ID, {
+      value: [
+        format(Date.now(), 'yyyy-MM-dd'),
+        name,
+        email,
+        productName,
+        why,
+        hope,
+        better,
+        success,
+        import.meta.env.DEV && 'From Dev',
+      ],
+    })
+  } catch (e) {
+    console.log(e)
+  }
+
+  // EMAIL IT TO ME
+  if (import.meta.env.PROD) {
+    const emailProps = {
+      to: 'zell@zellwk.com',
+      template: 'Survey',
+      data: {
+        subject: `${productName} Welcome Survey`,
+        name,
+        email,
+        why,
+        hope,
+        better,
+        success,
+      },
+    }
+
+    const { html, text } = await makeEmail(emailProps.template, emailProps.data)
+
+    await sendEmail({
+      to: emailProps.to,
+      subject: emailProps.data.subject,
+      html,
+      text,
+    })
+  }
+
+  // Proceeds to the next step of the purchase flow.
+  return Astro.redirect(redirectURL)
+}
+---
+
+<OneColumn {...props}>
+  <If condition={isPreorder}>
+    <div slot="default">
+      <Markdown>
+        Before you dive in --- four quick questions. Your answers help shape
+        what I build, and they're worth thinking through before you start.
+      </Markdown>
+    </div>
+
+    <div slot="else">
+      <Markdown>
+        Before you dive in --- three quick questions. Takes three minutes, and
+        they're worth thinking through before you start.
+      </Markdown>
+    </div>
+  </If>
+
+  <Form method="POST" class="vertical" honeypotName="phone">
+    <div class="grid-simple [--cols:2] items-end">
+      <TextInput
+        name="name"
+        label="Your Name"
+        value={values.name}
+        error={errors.name}
+      />
+      <TextInput
+        name="email"
+        label="Email"
+        value={values.email}
+        error={errors.email}
+      />
+    </div>
+
+    <Textarea
+      name="why"
+      label=`Why did you buy ${productName}`
+      hint="Is there a specific project that pushed you to buy, or a frustration you kept running into?"
+      value={values.why}
+    />
+    <Textarea
+      name="hope"
+      label=`What are you hoping to build or accomplish?`
+      hint="Any specific sites, features, or skill gaps you want to close?"
+      value={values.hope}
+    />
+    <Textarea
+      name="better"
+      label=`Is there anything specific you're hoping we cover?`
+      hint="Anything you've searched for repeatedly but never found a straight answer on?"
+      value={values.better}
+    />
+
+    <Textarea
+      name="success"
+      label=`What would success look like for you?`
+      hint="Six months from now, what would make you glad you bought this?"
+      value={values.success}
+    />
+
+    <button class="button landing-button pigment-yellow-outline self-start">
+      Continue
+    </button>
+  </Form>
+</OneColumn>
