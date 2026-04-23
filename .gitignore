@@ -17,6 +17,7 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+google-service-account.json
 
 # macOS-specific files
 .DS_Store
