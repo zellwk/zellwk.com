@@ -1,5 +1,6 @@
 ---
 import { Heading, Markdown } from '@splendidlabz/astro'
+const url = 'https://store.zellwk.com/practical-astro/'
 ---
 
 <section id="pricing" class="section bg-zpurple-900">
@@ -102,9 +103,9 @@ import { Heading, Markdown } from '@splendidlabz/astro'
           </div>
 
           <div class="vertical gap-2">
-            <button class="button button-large pigment-cyan-filled">
+            <a href={url} class="button button-large pigment-cyan-filled">
               <Markdown inline>Get Practical Astro</Markdown>
-            </button>
+            </a>
             <div class="vertical gap-1">
               <p class="text-8 text-zgray-500 text-center italic">
                 Pay once. Lifetime updates. Price rises May 1st.
