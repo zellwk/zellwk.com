@@ -1,7 +1,15 @@
+.card {
+  border-color: var(--border-color);
+  background-color: var(--bg-color);
+
+  .card-title {
+    color: var(--border-color);
+  }
+}
+
 .card-purple {
   --border-color: var(--color-zpurple-500);
-  border-color: var(--border-color);
-  background-color: var(--color-zpurple-1000);
+  --bg-color: var(--color-zpurple-1000);
 
   :where(button, .button) {
     @apply pigment-purple-outline;
@@ -10,8 +18,7 @@
 
 .card-orange {
   --border-color: var(--color-zorange-500);
-  border-color: var(--border-color);
-  background-color: var(--color-zpurple-1000);
+  --bg-color: var(--color-zpurple-1000);
 
   strong {
     color: var(--color-zorange-500);
@@ -24,18 +31,21 @@
 
 .card-cyan {
   --border-color: var(--color-zcyan-500);
-  border-color: var(--border-color);
-  background-color: var(--color-zpurple-1000);
+  --bg-color: var(--color-zpurple-1000);
 }
 
 .card-red {
   --border-color: var(--color-zred-500);
-  border-color: var(--border-color);
-  background-color: var(--color-zpurple-1000);
+  --bg-color: var(--color-zpurple-1000);
 
   :where(button, .button) {
     @apply pigment-red-outline;
   }
+}
+
+.card-violet {
+  --border-color: var(--color-zviolet-300);
+  --bg-color: var(--color-zpurple-1000);
 }
 
 .card-small {

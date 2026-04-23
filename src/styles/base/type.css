@@ -78,7 +78,7 @@
   @apply june;
   @apply text-16 bp8:text-18;
   --font-style: 80;
-  line-height: 1.15;
+  line-height: 1.22;
 }
 
 .h1 + [class*='prose'] {

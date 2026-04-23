@@ -7,18 +7,25 @@ form {
     /* @apply snug; */
     @apply stinger;
     --font-width: 92;
-    --font-weight: 700;
+    --font-weight: 600;
     color: var(--color-zpurple-500);
   }
 
-  .hint {
+  .hint,
+  .error {
     @apply stinger;
     @apply text-8;
     --font-width: 108;
+    margin-top: -0.25lh;
   }
 
-  .label + .hint {
-    margin-top: -0.25rlh;
+  .error {
+    color: var(--color-zred-600);
+  }
+
+  input,
+  textarea {
+    @apply text-8;
   }
 
   /* Override autofill bright background */
