@@ -1,0 +1,160 @@
+---
+title: "Four Ways to Deal with Claude's Reduced Usage Limits"
+description: 'Four practical strategies to keep using Claude effectively after the usage limit reduction: defaulting to Sonnet, trimming token costs, using cache wisely, and supplementing with Codex.'
+tags: ['AI', 'Claude']
+---
+
+Claude's usage limits got nerfed hard a month ago.
+
+The nerf was so hard that I had to switch from Opus to Sonnet as my default agent (and lose the flavour of a persona that I created and liked). So I'm genuinely upset about it.
+
+But I have to get over it and move on.
+
+Along the way, **I discovered a few keys that helped me continue to use Claude even with the reduced limits**.
+
+They are:
+
+1. Default to Sonnet
+2. Reduce Skills and MCP Tool usage
+3. Upgrade to Max for better cache TTL (if you want)
+4. `/clear` and `/compact` aggressively
+5. Use Codex as a supplement
+
+## Default to Sonnet
+
+**Opus is way better** but with the new usage limits, there are only so many things you can do with Opus before you run out.
+
+So **defaulting to Sonnet is nothing but a necessity**.
+
+But in my bid to make Sonnet work, I discovered that Sonnet is great when you don't need it to help you think hard about things.
+
+But **these tasks are better left for Opus**:
+
+1. Thinking through problems
+2. Debugging hard problems
+3. Creating detailed plans
+4. Drafting words with a flavor
+
+So balancing between Sonnet and Opus is a trade-off decision, and I had to learn when Sonnet was enough.
+
+What's interesting also is that:
+
+- **Low-effort Opus is generally not worth it at all**
+- Medium effort Opus is generally okay for most of the harder tasks I would like it to do
+- High-effort Sonnet is still worse off than low-effort Opus
+- **I am usually on medium effort Sonnet**
+
+Some people say you should use Haiku as your main agent because it can "delegate" to smarter ones... I honestly do not recommend it — I vomit blood every single time I try talking about the haiku.
+
+### Startup Costs
+
+It's worth noting that Opus, Sonnet, and Haiku have different startup costs that depends on their own system prompts.
+
+| Model  | Cache Write Rate | System Prompt + Tools | Startup Cost |
+| ------ | ---------------: | --------------------: | -----------: |
+| Opus   |       $6.25/MTok |                 19.8k |   $0.0001240 |
+| Sonnet |       $3.75/MTok |                 13.8k |   $0.0000518 |
+| Haiku  |       $1.25/MTok |                 27.2k |   $0.0000340 |
+
+Here are `/context` screenshots to prove the values I used above are accurate as of 1st May, 2026
+
+<Image
+  src="/src/assets/blog/four-ways-to-deal-with-claudes-reduced-usage-limits/context-usage-opus.png"
+  alt="/context output for Opus 4.7 showing 27.8k/1m tokens used, with system prompt, tools, agents, memory, skills, and messages breakdown"
+/>
+
+<Image
+  src="/src/assets/blog/four-ways-to-deal-with-claudes-reduced-usage-limits/context-usage-sonnet.png"
+  alt="/context output for Sonnet 4.6 showing 19.9k/200k tokens used, with system prompt, tools, agents, memory, skills, messages, and autocompact buffer breakdown"
+/>
+
+<Image
+  src="/src/assets/blog/four-ways-to-deal-with-claudes-reduced-usage-limits/context-usage-haiku.png"
+  alt="/context output for Haiku 4.5 showing 40k/200k tokens used, including MCP tools at 6.7k tokens — absent from Opus and Sonnet"
+/>
+
+While taking these screenshots, I also noticed a few interesting things:
+
+1. Haiku system tools are 20.6k tokens! (Whoa!)
+2. **The cost for custom agents and messages is higher in Opus compared to Sonnet and Haiku** — even when their values are completely the same!
+
+What this also means is that agents definitions costs more on Opus!
+
+That leads nicely to my next point.
+
+## Reduce Skills, Agents, and MCP Tool definitions
+
+Agents, skills, and MCP tool definitions cost context tokens. They are charged for every single conversation. So you're always paying for them even if you don't use them at all.
+
+Before I knew this, there was a time where:
+
+- My MCP tools went up to 30,000 tokens
+- My skills up to 5,000 tokens
+
+Which means I'm paying 35,000 tokens extra for any conversation, which costs even more each turn...
+
+**The best action here is not to eliminate the use of skill and MCP tool definitions altogether** because those are the very things that make Claude versatile.
+
+But you want to consider which tools are necessary and which ones are not.
+
+- Eliminate the ones you don't use
+- Keep the ones you always use
+
+For those that are in between, **it's possible to reduce token usage with a skill router and an agent router**. I'll talk about that in a future article.
+
+For MCP it's slightly easier. Opus and Sonnet come with an option to **lazy load MCP tools** so you can just enable it with this setting. (Just ask Sonnet to help you do it).
+
+```json
+{
+  "env": {
+    "ENABLE_TOOL_SEARCH": "true"
+  }
+}
+```
+
+Haiku doesn't support the lazy loading of MCP tools. That's why MCP costs are added to Haiku.
+
+<Image
+  src="/src/assets/blog/four-ways-to-deal-with-claudes-reduced-usage-limits/context-usage-haiku.png"
+  alt="/context output for Haiku 4.5 showing 40k/200k tokens used, including MCP tools at 6.7k tokens — absent from Opus and Sonnet"
+  caption="MCP tokens costs are always added to Haiku."
+/>
+
+## Upgrade to Max for better cache TTL (if you want)
+
+Caching is very important when it comes to saving cost when using LLMs, because the cost for reading a cache is `0.1x` the usual cost.
+
+Anthropic has 2 different cache mechanisms:
+
+- 5 minutes TTL (writing cache costs `1.25x`)
+- 1 hour TTL (writing cache costs `2x`)
+
+Unfortunately, **Pro subscriptions** (which I use) is limited **only to the 5-minute cache**.
+
+So I don't multitask with many agents because there's a high chance of missing the hash.
+
+If you are someone who prefers to fire up many agents and multi-task between them, then I highly recommend upgrading to Max because that is the only way you get a one-hour cache.
+
+Otherwise it's best to change how you work with LLMs so you can stay within the chat times.
+
+## Clear and Compact aggressively
+
+Many people have made a lot of noise about this so I'll not add to the noise.
+
+Instead, here are things that people have never said before:
+
+1. When you miss a cache, I think it's a good time to compact or clear.
+2. This is a hypothesis: **I think ing within the 5mins cache allows you to start your next session at the cached rate**, but the downside is you lose the history.
+
+## Use Codex as a supplement
+
+I know some people will roll their eyes at this recommendation but I honestly found it useful.
+
+That's because when Claude gets stuck on a task, it remains stuck on a task anyway, so you're burning tokens while it's going around in circles.
+
+In these cases it is best to use a different set of eyes. And the best two eyes that I can think of right now are:
+
+1. Use Codex with high or x-high.
+2. Roll up your sleeve and use your own eyes
+
+That's it! Hope you found this useful!
