@@ -11,7 +11,7 @@ export const now = [
     title: 'Practical Astro',
     content:
       'Production ready patterns for Astro — ready for you to *plonk* and build.',
-    link: 'https://splendidlabz.com',
+    link: 'https://zellwk.com/courses/practical-astro/',
     cta: 'Find out more',
     color: 'orange',
   },
