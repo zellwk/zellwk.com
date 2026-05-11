@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "4.3.14",
-    "@astrojs/node": "9.5.5",
+    "@astrojs/node": "10.0.5",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/svelte": "7.2.5",
