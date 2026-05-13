@@ -18,11 +18,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "4.3.14",
-    "@astrojs/node": "9.5.5",
+    "@astrojs/mdx": "5.0.5",
+    "@astrojs/node": "10.1.1",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
-    "@astrojs/svelte": "7.2.5",
+    "@astrojs/svelte": "8.1.1",
     "@splendidlabz/astro": "^6.1.4",
     "@splendidlabz/og": "^1.0.2",
     "@splendidlabz/styles": "^4.9.0",
@@ -31,7 +31,7 @@
     "@splendidlabz/tracking": "^0.2.23",
     "@splendidlabz/utils": "^1.11.6",
     "@tailwindcss/vite": "^4.3.0",
-    "astro": "5.18.1",
+    "astro": "6.3.2",
     "astro-expressive-code": "^0.42.0",
     "date-fns": "^4.1.0",
     "dotenv": "^17.4.2",
