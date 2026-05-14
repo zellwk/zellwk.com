@@ -40,7 +40,7 @@
     "pm2": "^7.0.1",
     "postmark": "^4.0.7",
     "sharp": "^0.34.5",
-    "svelte": "^5.55.4",
+    "svelte": "^5.55.7",
     "tailwindcss": "^4.3.0",
     "twilight-cosmos-theme": "^1.0.6",
     "typescript": "^5.9.3"
