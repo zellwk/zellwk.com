@@ -73,6 +73,12 @@ export default defineConfig({
       },
     }),
   ],
+  security: {
+    allowedDomains: [
+      { hostname: 'zellwk.com', protocol: 'https' },
+      { hostname: 'localhost' },
+    ],
+  },
   redirects,
   vite: {
     // css: { devSourcemap: true },
