@@ -1,0 +1,12 @@
+---
+import { redirect } from '@splendidlabz/astro/server'
+
+export const prerender = false
+
+const targetPath = Astro.url.pathname.replace(
+  /^\/newsletters(?=\/|$)/,
+  '/newsletter'
+)
+
+return redirect(Astro, targetPath, { status: 301 })
+---

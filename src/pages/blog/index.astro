@@ -7,7 +7,6 @@ import { getCollection } from 'astro:content'
 
 const blog = await getCollection('blog')
 const posts = processFiles(blog)
-const data = posts.map(post => post.data)
 
 const SEOProps = {
   title: 'Blog — Articles on Web Development, CSS, and JavaScript',
@@ -16,10 +15,10 @@ const SEOProps = {
 ---
 
 <Base {...SEOProps}>
-  <JsonLD type="BreadcrumbList" items={[
-    { name: 'Home', url: '/' },
-    { name: 'Blog' },
-  ]} />
+  <JsonLD
+    type="BreadcrumbList"
+    items={[{ name: 'Home', url: '/' }, { name: 'Blog' }]}
+  />
 
   <div class="wrap">
     <section class="vertical max-w-narrow mx-auto">

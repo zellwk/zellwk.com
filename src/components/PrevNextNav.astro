@@ -1,43 +1,30 @@
 ---
 import { If } from '@splendidlabz/astro'
-import { toTitle } from '@splendidlabz/utils'
 
 const { prev, next, dir = 'blog' } = Astro.props
-let { prevPath, nextPath } = Astro.props
 
-const prevTitle = getPrevNextTitle(prev)
-const nextTitle = getPrevNextTitle(next)
-
-prevPath = `/${dir}/${prev?.data.slug}/`
-nextPath = `/${dir}/${next?.data.slug}/`
-
-function getPrevNextTitle(part) {
-  if (!part) return null
-  const { data, path } = part
-  if (data?.title) return data?.title
-  const name = path.split('/').pop()
-  return toTitle(name)
-}
+const prevPath = `/${dir}/${prev?.data.slug}/`
+const nextPath = `/${dir}/${next?.data.slug}/`
 ---
 
 <div class="grid-simple [--cols:2] mt-large">
-  <If condition={prevTitle}>
+  <If condition={prev}>
     <a
       class="vertical gap-1 p-3 border-2 rounded-0.75r pigment-cyan-outline-dim"
       href={prevPath}
     >
       <span class="snug-meta text-zpurple-100">Previous</span>
-      <span> {prevTitle} </span>
+      <span> {prev?.data.title} </span>
     </a>
   </If>
 
-  <If condition={nextTitle}>
+  <If condition={next}>
     <a
       class="vertical gap-1 p-3 border-2 rounded-0.75r pigment-cyan-outline-dim"
       href={nextPath}
     >
       <span class="snug-meta text-zpurple-100">Next</span>
-      <span> {nextTitle} </span>
+      <span> {next?.data.title} </span>
     </a>
   </If>
 </div>
