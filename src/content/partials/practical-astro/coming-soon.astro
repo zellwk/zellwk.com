@@ -1,0 +1,46 @@
+---
+import NewsletterForm from '@/components/NewsletterForm.svelte'
+import { Heading, If, Markdown } from '@splendidlabz/astro'
+
+const {
+  class: klass,
+  hasEyebrow = true,
+  title = 'Details Coming Soon',
+  moduleName,
+} = Astro.props
+---
+
+<section class:list={['section bg-zpurple-900', klass]}>
+  <div class="wrap">
+    <div class="vertical gap-6">
+      <Heading class="gap-3" center>
+        <If condition={hasEyebrow}>
+          <a href="../" class="eyebrow pill"> Part of Practical Astro </a>
+        </If>
+        <h2 class="h1 text-zorange-500">{title}</h2>
+      </Heading>
+
+      <div class="prose-responsive max-w-narrow mx-auto text-center">
+        <!-- prettier-ignore -->
+        <Markdown>
+          Full details about {moduleName} are still on their way. Drop your email and I'll let you know when they land. In the meantime, [explore what's inside Practical Astro](/courses/practical-astro/#whats-inside).
+        </Markdown>
+
+        <NewsletterForm
+          list="practicalAstro"
+          redirect="/courses/newsletters/confirm/"
+          client:load
+        />
+      </div>
+
+      <div class="vertical gap-2">
+        <a
+          href="../"
+          class="button button-large pigment-cyan-filled self-center"
+        >
+          <Markdown inline>Get Practical Astro</Markdown>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

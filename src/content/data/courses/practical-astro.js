@@ -3,7 +3,7 @@ export const modules = [
     title: 'Content Systems',
     price: '$49',
     description: 'Handle content like a pro',
-    available: '2026-05-31',
+    released: true,
     items: [
       'Advanced Markdown for Astro',
       'Partials for page organization',

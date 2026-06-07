@@ -12,6 +12,7 @@ const {
   buttonText = "See what's inside",
   link,
   available,
+  released,
   showButton = true,
   readyByPosition = 'edge-top',
 } = Astro.props
@@ -28,7 +29,7 @@ if (available) avDate = formatDate(new Date(available), 'do MMMM')
 >
   <header class="bg-zpurple-1100 horizontal justify-between items-center">
     {
-      available && (
+      (released || available) && (
         <div
           class:list={[
             'pill',
@@ -36,7 +37,7 @@ if (available) avDate = formatDate(new Date(available), 'do MMMM')
             readyByPosition,
           ]}
         >
-          Ready by: <strong>{avDate}</strong>
+          {released ? <strong>Released</strong> : <>Ready by: <strong>{avDate}</strong></>}
         </div>
       )
     }
