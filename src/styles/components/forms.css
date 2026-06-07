@@ -8,7 +8,7 @@ form {
     @apply stinger;
     --font-width: 92;
     --font-weight: 600;
-    color: var(--color-zpurple-500);
+    color: var(--color-zorange-500);
   }
 
   .hint,
@@ -26,6 +26,10 @@ form {
   input,
   textarea {
     @apply text-8;
+  }
+
+  .input-container {
+    gap: 0.5lh;
   }
 
   /* Override autofill bright background */
