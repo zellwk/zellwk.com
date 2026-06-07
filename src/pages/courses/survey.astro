@@ -17,8 +17,9 @@ const params = getSearchParams(Astro)
 const name = params['thrivecart[customer][name]'] || ''
 const email = params['thrivecart[customer][email]'] || ''
 const product = params['thrivecart[order][0][n]'] || ''
+const pdt = params.product && toTitle(params.product)
 
-const productName = toTitle(product)
+const productName = product || pdt
 const redirectURL = '/courses/welcome/' + Astro.url.searchParams.toString()
 
 // See Google Sheet here:
