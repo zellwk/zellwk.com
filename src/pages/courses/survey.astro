@@ -2,30 +2,43 @@
 import OneColumn from '@/layouts/OneColumn.astro'
 import { makeEmail, sendEmail } from '@/services/email'
 import { Sheets } from '@/services/google-sheets'
-import { If, Markdown } from '@splendidlabz/astro'
+import { Markdown } from '@splendidlabz/astro'
 import { getSearchParams, parseData } from '@splendidlabz/astro/server'
 import { Form, Textarea, TextInput } from '@splendidlabz/svelte'
 import { toTitle } from '@splendidlabz/utils'
 import { format } from 'date-fns'
 
 export const prerender = false
-const { product, productStatus } = getSearchParams(Astro)
+
+const params = getSearchParams(Astro)
+
+// ThriveCart passes these as bracket-keyed params. camelCaseKeys leaves the
+// brackets untouched, so they come through getSearchParams unchanged.
+const name = params['thrivecart[customer][name]'] || ''
+const email = params['thrivecart[customer][email]'] || ''
+const product = params['thrivecart[order][0][n]'] || ''
+
 const productName = toTitle(product)
-const isPreorder = productStatus === 'preorder'
+const redirectURL = '/courses/welcome/' + Astro.url.searchParams.toString()
 
-const searchParams = Astro.url.searchParams
-const redirectURL = '/courses/welcome/' + searchParams.toString()
-
-// https:// docs.google.com/spreadsheets/u/1/d/12NpFSAhbtZB71RxAq4RxUUeCO7lGgMMA7e2l_MVsNzU/edit?gid=0#gid=0
+// See Google Sheet here:
+// https://docs.google.com/spreadsheets/u/1/d/12NpFSAhbtZB71RxAq4RxUUeCO7lGgMMA7e2l_MVsNzU/edit?gid=0#gid=0
 const SHEET_ID = '12NpFSAhbtZB71RxAq4RxUUeCO7lGgMMA7e2l_MVsNzU'
 
 const props = {
   ...Astro.props,
-  title: `Thanks for purchasing ${productName}!`,
-  titleWidth: '12em',
+  title: `Thanks for grabbing ${productName}!`,
+  titleWidth: '11em',
 }
 
-let values = { name: '', email: '', why: '', hope: '', better: '', success: '' }
+let values = {
+  name,
+  email,
+  why: '',
+  hope: '',
+  better: '',
+  success: '',
+}
 const errors: Record<string, string> = {}
 
 POST: if (Astro.request.method === 'POST') {
@@ -93,23 +106,16 @@ POST: if (Astro.request.method === 'POST') {
 ---
 
 <OneColumn {...props}>
-  <If condition={isPreorder}>
-    <div slot="default">
-      <Markdown>
-        Before you dive in --- four quick questions. Your answers help shape
-        what I build, and they're worth thinking through before you start.
-      </Markdown>
-    </div>
+  <!-- prettier-ignore -->
+  <Markdown>
+    One thing before you dive in. 
+    
+    **The people who get the most out of this are the ones who know what they're aiming at** --- so take two minutes on the questions below to get clear on what you came here for. Rough answers are fine. 
+    
+    And I read every one. They tell me what to build next and what to point you to first.
+  </Markdown>
 
-    <div slot="else">
-      <Markdown>
-        Before you dive in --- three quick questions. Takes three minutes, and
-        they're worth thinking through before you start.
-      </Markdown>
-    </div>
-  </If>
-
-  <Form method="POST" class="vertical" honeypotName="phone">
+  <Form method="POST" class="vertical gap-6" honeypotName="phone">
     <div class="grid-simple [--cols:2] items-end">
       <TextInput
         name="name"
@@ -127,31 +133,25 @@ POST: if (Astro.request.method === 'POST') {
 
     <Textarea
       name="why"
-      label=`Why did you buy ${productName}`
-      hint="Is there a specific project that pushed you to buy, or a frustration you kept running into?"
+      label=`What finally made you buy ${productName}?`
+      hint="Is there a specific project that pushed you, or a frustration you
+  kept running into?"
       value={values.why}
     />
     <Textarea
       name="hope"
-      label=`What are you hoping to build or accomplish?`
-      hint="Any specific sites, features, or skill gaps you want to close?"
+      label=`What are you hoping to build or pull off?`
+      hint="Specific sites, features, or skill gaps you want to close — and what'd make you glad you bought this six months from now?"
       value={values.hope}
     />
     <Textarea
       name="better"
       label=`Is there anything specific you're hoping we cover?`
-      hint="Anything you've searched for repeatedly but never found a straight answer on?"
+      hint="Anything you've searched for over and over but never found a straight answer eleswhere?"
       value={values.better}
     />
 
-    <Textarea
-      name="success"
-      label=`What would success look like for you?`
-      hint="Six months from now, what would make you glad you bought this?"
-      value={values.success}
-    />
-
-    <button class="button landing-button pigment-yellow-outline self-start">
+    <button class="button landing-button pigment-purple-filled">
       Continue
     </button>
   </Form>
