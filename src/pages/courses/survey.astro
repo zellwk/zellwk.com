@@ -20,7 +20,7 @@ const product = params['thrivecart[order][0][n]'] || ''
 const pdt = params.product && toTitle(params.product)
 
 const productName = product || pdt
-const redirectURL = '/courses/welcome/' + Astro.url.searchParams.toString()
+const redirectURL = '/courses/welcome/?' + Astro.url.searchParams.toString()
 
 // See Google Sheet here:
 // https://docs.google.com/spreadsheets/u/1/d/12NpFSAhbtZB71RxAq4RxUUeCO7lGgMMA7e2l_MVsNzU/edit?gid=0#gid=0
