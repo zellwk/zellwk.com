@@ -32,20 +32,37 @@ const props = {
   titleWidth: '11em',
 }
 
+const questions = [
+  {
+    name: 'why',
+    label: `What finally made you buy ${productName}?`,
+    hint: 'Is there a specific project that pushed you, or a frustration you kept running into?',
+  },
+  {
+    name: 'hope',
+    label: 'What are you hoping to build or pull off?',
+    hint: "Specific sites, features, or skill gaps you want to close — and what'd make you glad you bought this six months from now?",
+  },
+  {
+    name: 'better',
+    label: "Is there anything specific you're hoping we cover?",
+    hint: "Anything you've searched for over and over but never found a straight answer elsewhere?",
+  },
+]
+
 let values = {
   name,
   email,
   why: '',
   hope: '',
   better: '',
-  success: '',
 }
 const errors: Record<string, string> = {}
 
 POST: if (Astro.request.method === 'POST') {
   const body = await parseData(Astro)
-  const { name, email, phone, why, hope, better, success } = body
-  values = { name, email, why, hope, better, success }
+  const { name, email, phone, why, hope, better } = body
+  values = { name, email, why, hope, better }
 
   if (phone) break POST
 
@@ -54,20 +71,20 @@ POST: if (Astro.request.method === 'POST') {
 
   if (Object.keys(errors).length > 0) break POST
 
-  // SEND SURVEY DATA TO THE EXCEL.
-  // Automatically silence errors.
+  const responses = questions.map((q) => ({
+    question: q.label,
+    answer: body[q.name] || '',
+  }))
+
+  // SEND SURVEY DATA TO THE EXCEL. Errors are silenced on purpose.
   try {
-    console.log('Sending Sheet')
     await Sheets.appendOne(SHEET_ID, {
       value: [
         format(Date.now(), 'yyyy-MM-dd'),
         name,
         email,
         productName,
-        why,
-        hope,
-        better,
-        success,
+        ...responses.map((r) => r.answer),
         import.meta.env.DEV && 'From Dev',
       ],
     })
@@ -77,28 +94,15 @@ POST: if (Astro.request.method === 'POST') {
 
   // EMAIL IT TO ME
   if (import.meta.env.PROD) {
-    const emailProps = {
-      to: 'zell@zellwk.com',
-      template: 'Survey',
-      data: {
-        subject: `${productName} Welcome Survey`,
-        name,
-        email,
-        why,
-        hope,
-        better,
-        success,
-      },
-    }
-
-    const { html, text } = await makeEmail(emailProps.template, emailProps.data)
-
-    await sendEmail({
-      to: emailProps.to,
-      subject: emailProps.data.subject,
-      html,
-      text,
+    const subject = `${productName} Welcome Survey`
+    const { html, text } = await makeEmail('Survey', {
+      subject,
+      name,
+      email,
+      responses,
     })
+
+    await sendEmail({ to: 'zell@zellwk.com', subject, html, text })
   }
 
   // Proceeds to the next step of the purchase flow.
@@ -132,25 +136,17 @@ POST: if (Astro.request.method === 'POST') {
       />
     </div>
 
-    <Textarea
-      name="why"
-      label=`What finally made you buy ${productName}?`
-      hint="Is there a specific project that pushed you, or a frustration you
-  kept running into?"
-      value={values.why}
-    />
-    <Textarea
-      name="hope"
-      label=`What are you hoping to build or pull off?`
-      hint="Specific sites, features, or skill gaps you want to close — and what'd make you glad you bought this six months from now?"
-      value={values.hope}
-    />
-    <Textarea
-      name="better"
-      label=`Is there anything specific you're hoping we cover?`
-      hint="Anything you've searched for over and over but never found a straight answer eleswhere?"
-      value={values.better}
-    />
+    {
+      questions.map((q) => (
+        <Textarea
+          key={q.name}
+          name={q.name}
+          label={q.label}
+          hint={q.hint}
+          value={values[q.name]}
+        />
+      ))
+    }
 
     <button class="button landing-button pigment-purple-filled">
       Continue
