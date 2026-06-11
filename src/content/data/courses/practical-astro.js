@@ -20,7 +20,7 @@ export const modules = [
     price: '$49',
     description: 'Images become a cinch.',
     // link: '/courses/practical-astro/image-systems/',
-    available: '2026-06-30',
+    available: '2026-07-31',
     items: [
       'Images without the import hassle',
       'Built-in Cumulative Layout Shift (CLS) prevention',
@@ -41,7 +41,7 @@ export const modules = [
     title: 'Form Systems',
     price: '$49',
     description: 'Handle Forms with ease',
-    available: '2026-07-31',
+    available: '2026-08-31',
     items: [
       'SSR Forms and API routes',
       'Advanced form handling patterns',
