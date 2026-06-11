@@ -20,10 +20,12 @@ const {
         <h2 class="h1 text-zorange-500">{title}</h2>
       </Heading>
 
-      <div class="prose-responsive max-w-narrow mx-auto text-center">
+      <div class="prose-responsive max-w-narrow mx-auto">
         <!-- prettier-ignore -->
         <Markdown>
-          Full details about {moduleName} are still on their way. Drop your email and I'll let you know when they land. In the meantime, [explore what's inside Practical Astro](/courses/practical-astro/#whats-inside).
+          {moduleName} is already released, and the full details on this page is on the way. Drop your email below and I'll let you know when this page is ready. 
+          
+          In the meantime, feel free to [explore what's inside Practical Astro](/courses/practical-astro/#whats-inside)!
         </Markdown>
 
         <NewsletterForm
@@ -31,15 +33,6 @@ const {
           redirect="/courses/newsletters/confirm/"
           client:load
         />
-      </div>
-
-      <div class="vertical gap-2">
-        <a
-          href="../"
-          class="button button-large pigment-cyan-filled self-center"
-        >
-          <Markdown inline>Get Practical Astro</Markdown>
-        </a>
       </div>
     </div>
   </div>

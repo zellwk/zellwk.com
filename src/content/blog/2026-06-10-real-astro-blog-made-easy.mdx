@@ -1,0 +1,348 @@
+---
+title: 'Building a Real Blog Easily in Astro'
+description: "A basic Astro blog is quick to scaffold — making it a real one takes more. Here are the five features every blog needs (dated filenames, excerpts, draft filtering, reverse-chronological sorting), plus the one function that handles them all."
+tags: ['astro', 'splendidlabz', 'practical-astro']
+---
+
+Setting up a basic blog in Astro is easy because you have tutorials all over the world teaching you how to do it.
+
+But setting up a real blog — one that has *great UX* (for the writer) and *great DX* (for you as the developer) — with Astro is much harder. Because you have to figure out what's needed and build things up yourself. 
+
+In this article, I'm going to break down what a real blog needs and how to create that easily. This comes from my personal experience running this blog with over 400 articles. 
+
+<div class="box bg-zviolet-300/15 border-none">
+This is part of [Practical Astro](/courses/practical-astro/) ([Content Systems](/courses/practical-astro/content-systems/)). 
+</div>
+
+## A basic blog
+
+Every blog post needs five things: 
+
+1. `title`
+2. a permalink (via `slug`)
+3. `description`
+4. `tags` 
+5. a published date
+
+The most basic blogs put all of these in the posts' frontmatter.
+
+```md title="my-post.md"
+---
+title: 'My post'
+slug: my-post
+description: 'Description for my post'
+tags: ['tag 1', 'tag 2']
+pubDate: '2026-02-24'
+---
+```
+
+We can already make some improvements here by dropping `slug` because the file name already carries the information. 
+
+```md title="my-post.md"
+---
+title: 'My post'
+description: 'Description for my post'
+tags: ['tag 1', 'tag 2']
+pubDate: '2026-02-24'
+---
+```
+
+### Static rendering
+
+**Blog posts should be static** since the content doesn't change per request. 
+
+- There's no real reason to put it behind a server or database. 
+- Static pages also let you serve content from a CDN that makes your site much faster.
+
+So set Astro's `output` to `static`.
+
+```js title="astro.config.mjs"
+export default defineConfig({
+  // ...
+  output: 'static',
+})
+```
+
+### Scaffolding a basic blog
+
+You can put your blog in any directory. Most people use `pages/blog`, so we'll also do that in this article. Here, you need to create a `[slug].astro` file to generate the static pages. 
+
+`[slug]` here is a placeholder you populate in `getStaticPaths`. We'll set `slug` to the `id` of each entry in the `blog` collection, then pull the content with `render`.
+
+```astro title="src/pages/blog/[slug].astro"
+---
+import { getCollection, render } from 'astro:content'
+
+export const prerender = false // optional if output is static
+
+export async function getStaticPaths() {
+  const files = await getCollection('blog')
+  return files.map(post => {
+    return {
+      params: { slug: post.id }, // sets the [slug] param
+      props: { post },           // gives you post in Astro.props
+    }
+  })
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+---
+
+<article>
+  <h1>{post.data.title}</h1>
+  <Content />
+</article>
+```
+
+Astro will then create one page per post in the collection, each living at `/blog/[slug]`. That's everything you need for creating most basic blog posts.
+
+## What a real blog needs
+
+The basic scaffold works, but it's missing the quality-of-life pieces that matter once you have real content. Here's what I add:
+
+1. A published date in the file name
+2. An updated date
+3. Excerpts
+4. Filtering for published posts
+5. Sorting in reverse chronological order
+
+Let me go through them.
+
+### A published date in the file name
+
+This is an important quality-of-life improvement for content creators, because we can now look for files in chronological order. (That's how I find what I published last week, or this year, easily).
+
+So my file name becomes `YYYY-MM-DD-slug.md`, like this:
+
+<Image
+  src="/src/assets/blog/building-a-blog-in-astro/dated-file-structure.png"
+  alt="A file explorer showing blog posts named with a YYYY-MM-DD date prefix, sorted in chronological order"
+  caption="Much easier to see which is my newest post from here"
+/>
+
+The problem with this approach is that `id` can no longer be used as the `slug`. So we need to: 
+
+1. Strip the date and slug from the file name
+2. Set them to `slug` and `pubDate` frontmatter
+
+```astro title="src/pages/blog/[slug].astro"
+export async function getStaticPaths() {
+  const files = await getCollection('blog')
+  const posts = files.map(file => {
+    let basename = file.filePath.split('/').pop()
+    const datePattern = /^(\d{4})-(\d{2})-(\d{2})(?:-(.+))?$/
+    const dateMatch = basename.match(datePattern)
+
+    if (dateMatch) {
+      const [, year, month, day, remainder] = dateMatch
+      file.data.slug = remainder
+      file.data.pubDate = new Date(`${year}-${month}-${day}`)
+    }
+    return file
+  })
+  // ...
+}
+```
+
+Then point `getStaticPaths` at the new slug.
+
+{/* prettier-ignore */}
+```astro title="src/pages/blog/[slug].astro"
+return posts.map(post => {
+  return {
+    params: { slug: post.data.slug },
+    props: { post },
+  }
+})
+```
+
+Code's getting gnarly here, but that's not the end of it.
+
+### Adding updated dates
+
+Sometimes a blog post needs to be updated. When that happens, it is good to add an `updateDate` property to the frontmatter.
+
+```md title="post.md"
+---
+# Other frontmatter ...
+updateDate: 2026-03-30
+---
+```
+
+Once we have this, we can show `updateDate` when the post is updated.
+
+```astro title="src/pages/blog/[slug].astro"
+<If condition={post.data.updateDate}>
+  <div>Updated at: {post.data.updateDate}</div>
+</If>
+```
+The hard part isn't adding an `updateDate` property. It's sorting the order of the blog post based on both `pubDate` and `updateDate`. We'll handle that later.
+
+### Building an excerpt
+
+An excerpt is like a summary of an article. The simplest (but naive) way of creating excerpts is to use the first paragraph or the first `X` words.
+
+I don't like that. So I opted for a more flexible method, by adding a `<!-- more -->` comment in the article. It lets me place the excerpt anywhere! Here's an example:
+
+```md title="post-with-excerpt.md"
+---
+# Frontmatter...
+---
+
+Stuff that will go into the excerpt goes here.
+
+<!-- more -->
+
+Stuff that doesn't show up in the excerpt goes here.
+```
+
+To make this work, I search for the `<!-- more -->` comment and store everything before that as the excerpt. I also made it work with MDX's comment style — `{/* more */}`.
+
+{/* prettier-ignore */}
+```astro title="src/pages/blog/[slug].astro"
+---
+export async function getStaticPaths() {
+  const files = await getCollection('blog')
+  const posts = await files
+    .map(file => { /* adding published date and slug */ })
+    .map(file => {
+      const moreRegex = /(?:<!--|{\/\*)\s*more\s*(?:-->|\*\/})/
+
+      // Saves the excerpt
+      file.data.excerpt = file.body?.split(moreRegex)[0].trim()
+
+      // Removes the more comment
+      file.body = file.body.replace(moreRegex, '') 
+    })
+  // ...
+}
+---
+```
+
+Since my posts are usually written in Markdown, the excerpt will naturally be in Markdown format. So I use the Markdown component to output the excerpt, like this:
+
+```astro
+<Markdown>{post.data.excerpt}</Markdown>
+```
+
+### Filtering for published posts
+
+I know Astro has this convention that posts prefixed with `_` will not be added to content collections. But I never really used that; it always felt weird to me.
+
+In my world, there are two ways to detect published posts:
+
+1. Blog posts that are dated today or earlier
+2. Posts with the `status` set to `published`
+
+I baked them both into my filtering mechanism.
+
+{/* prettier-ignore */}
+```astro title="src/pages/blog/[slug].astro"
+---
+export async function getStaticPaths() {
+  const files = await getCollection('blog')
+  const posts = await files
+    .map(file => { /* adding published date and slug */ })
+    .map(file => { /* adding excerpts */ })
+    .map(file => {
+      if (file.data?.status === 'draft') return false
+      if (file.data?.status === 'published') return true
+      return file.data?.pubDate <= new Date()
+    })  
+  // ...
+}
+---
+```
+
+### Sorting posts in reverse order
+
+The final thing that is always needed is to sort the posts in reverse chronological order — so the latest posts show up first.
+
+The easiest way to do this is through the `Array.sort()` function. But we have to clone the array first because `Array.sort` mutates the array.
+
+Here's a simple example below where we sort by `pubDate`.
+
+{/* prettier-ignore */}
+```astro title="src/pages/blog/[slug].astro"
+---
+export async function getStaticPaths() {
+  const files = await getCollection('blog')
+  const posts = await files
+    .map()
+    .map(file => { /* adding published date and slug */ })
+    .map(file => { /* adding excerpts */ })
+    .map(file => { /* filter for published posts */ })
+
+  const sorted = posts
+    .slice()
+    .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
+  
+  // ...
+}
+---
+```
+
+We can also sort by the `updateDate` if it's present. This is slightly more complex, so I recommend setting the date property for each file, then we compare the two latest dates.
+
+{/* prettier-ignore */}
+```astro title="src/pages/blog/[slug].astro"
+---
+export async function getStaticPaths() {
+  const files = await getCollection('blog')
+  const posts = await files
+    .map(file => { /* adding published date and slug */ })
+    .map(file => { /* adding excerpts */ })
+    .map(file => { /* filter for published posts */ })
+    .map(file => {
+      file.data.date = file.data.updateDate ?? file.data.pubDate
+      return file
+    })
+
+  const sorted = posts
+    .slice()
+    .sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
+  
+  // ...
+}
+---
+```
+
+We can improve it further by sorting according to `title` if two posts land on the same day. But, at this point, I don't think it's necessary to show you how to do that. 
+
+That's because I've built a function that lets you do all of the things I've mentioned in this lesson — in a super easy way!
+
+## The easy way
+
+That's a lot of work to include these quality-of-life improvements. I wanted to make it easier so I bundled them all into one function — [`processFiles`](https://splendidlabz.com/docs/astro/content/process-files/).
+
+If you want everything I mentioned above, the only thing you have to do is to use that function.
+
+```astro title="src/pages/blog/[slug].astro"
+---
+import { getCollection } from 'astro:content'
+import { processFiles } from '@splendidlabz/astro/content'
+
+export async function getStaticPaths() {
+  const files = await getCollection('blog')
+  const posts = await processFiles(files)
+
+  return posts.map(post => {
+    return {
+      params: { slug: post.data.slug },
+      props: { post },
+    }
+  })
+}
+---
+```
+
+`processFiles` works very well out of the box. But it can be configured as well. Check the [documentation](https://splendidlabz.com/docs/astro/content/process-files/) if you want to know what can be configured!
+
+## Taking it further 
+
+I use Astro for everything I build, so I went all in and created systems to make building Astro sites super easy. The friction I felt then dropped dramatically — and **building sites became fun again**.
+
+I've put these systems into [Practical Astro](/courses/practical-astro/). It's built for professional developers, so you get **production-ready patterns to plonk and use**. 
+
+What you're reading here is just one small part of [Content Systems](/courses/practical-astro/content-systems/), and an even smaller part of Practical Astro. So if you enjoyed this, you'll love Practical Astro.

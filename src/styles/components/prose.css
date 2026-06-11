@@ -31,6 +31,15 @@
     @apply h3;
     color: var(--theme-color);
   }
+
+  figcaption {
+    @apply text-7;
+    @apply text-center;
+    margin-top: 0.5rlh;
+    padding-inline: 0.75em;
+    font-style: italic;
+    color: var(--color-zgray-500);
+  }
 }
 
 @utility prose-responsive {
