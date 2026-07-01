@@ -1,7 +1,7 @@
 ---
 import { Heading, Markdown } from '@splendidlabz/astro'
+import CheckoutButton from '@/components/CheckoutButton.svelte'
 import { chapters } from './lessons.js'
-const url = 'https://store.zellwk.com/unorthodox-tailwind/'
 ---
 
 <section id="pricing" class="section bg-zpurple-900">
@@ -67,15 +67,12 @@ const url = 'https://store.zellwk.com/unorthodox-tailwind/'
           </div>
 
           <div class="vertical gap-2">
-            <a
-              href={url}
-              class="button button-large pigment-cyan-filled"
-              data-checkout-cta
-              data-product="Unorthodox Tailwind"
-              data-value="99"
-            >
-              <Markdown inline>Get Unorthodox Tailwind</Markdown>
-            </a>
+            <CheckoutButton
+              client:load
+              product="Unorthodox Tailwind"
+              value={99}
+              label="Get Unorthodox Tailwind"
+            />
             <p class="text-8 text-zgray-500 text-center italic">
               Pay once. Lifetime updates. Instant access.
             </p>

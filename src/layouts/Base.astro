@@ -20,12 +20,10 @@ const { class: bodyClass, ...props } = Astro.props
 
     <script>
       import { fb, ph } from '@/services/tracking/web'
-      import { initCheckoutTracking } from '@/services/tracking/checkout'
 
       fb.init()
       fb.track('PageView')
       ph.init()
-      initCheckoutTracking()
 
       // Identify the buyer when a page renders the #ph-identify marker (e.g. the
       // post-checkout survey). Runs after ph.init() so the merge actually lands.
