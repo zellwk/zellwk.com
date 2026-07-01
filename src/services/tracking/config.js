@@ -11,6 +11,8 @@ export default {
     framework,
     apiKey: import.meta.env.PUBLIC_POSTHOG_KEY,
     host: 'https://us.i.posthog.com',
-    trackEvents: import.meta.env.NODE_ENV === 'production',
+    trackEvents:
+      import.meta.env.PROD ||
+      import.meta.env.PUBLIC_POSTHOG_DEBUG === 'true',
   },
 }
