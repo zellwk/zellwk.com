@@ -2,7 +2,7 @@
 import { FancyList, Heading, Markdown } from '@splendidlabz/astro'
 ---
 
-<section class="section-mini bg-zpurple-900">
+<section class="section bg-zpurple-900">
   <div class="wrap">
     <div class="vertical">
       <Heading class="gap-4" center>
@@ -41,7 +41,10 @@ import { FancyList, Heading, Markdown } from '@splendidlabz/astro'
           <p class="text-center italic text-neutral-400">
             <Markdown inline>You'll stop doing these: </Markdown>
           </p>
-          <div class="prose card border-zred-500 bg-zred-850 p-3 rounded-1r">
+          <div
+            class="prose card p-3 rounded-1r"
+            style="border-color: var(--color-zred-500); background-color: var(--color-zred-850);"
+          >
             <FancyList
               class="ml-0 simple-svg fill-zred-500 text-zred-50"
               icon="ph:x"
@@ -64,7 +67,8 @@ import { FancyList, Heading, Markdown } from '@splendidlabz/astro'
             <Markdown inline>And do this instead: </Markdown>
           </p>
           <div
-            class="prose card border-zgreen-500 bg-zgreen-900 border-scaffold p-3 rounded-1r"
+            class="prose card border-scaffold p-3 rounded-1r"
+            style="border-color: var(--color-zgreen-500); background-color: var(--color-zgreen-900);"
           >
             <FancyList
               class="ml-0 simple-svg text-zgreen-50 fill-zgreen-500"
