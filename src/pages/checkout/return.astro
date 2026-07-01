@@ -1,0 +1,34 @@
+---
+import { ph } from '@/services/tracking/node'
+import { getSearchParams } from '@splendidlabz/astro/server'
+
+export const prerender = false
+
+const params = getSearchParams(Astro)
+
+// ThriveCart bracket-keyed params (appended by ThriveCart after our own).
+const email = params['thrivecart[customer][email]'] || ''
+const name = params['thrivecart[customer][name]'] || ''
+
+// Prefer our own params (set on the ThriveCart success URL, e.g.
+// ?product=Unorthodox+Tailwind&value=99). Fall back to ThriveCart's order data
+// if a success URL is misconfigured — product name and order total (cents).
+// getSearchParams camelCases key segments, so order_total -> orderTotal.
+const product = params.product || params['thrivecart[order][0][n]'] || ''
+const value = params.value
+  ? Number(params.value)
+  : params['thrivecart[orderTotal]']
+    ? Number(params['thrivecart[orderTotal]']) / 100
+    : undefined
+
+// Guard: real checkout returns carry the buyer email. Blocks direct/fake hits.
+if (email) {
+  ph.capture('checkout_complete', {
+    email,
+    properties: { value, product, $set: { name } },
+  })
+}
+
+// Forward every param so the survey prefills name/email as before.
+return Astro.redirect('/courses/survey/?' + Astro.url.searchParams.toString())
+---
