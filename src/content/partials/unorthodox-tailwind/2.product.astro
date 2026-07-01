@@ -1,0 +1,201 @@
+---
+import FeatureCard from '@/components/FeatureCard.astro'
+import { Heading, Markdown } from '@splendidlabz/astro'
+import { chapters } from './lessons.js'
+---
+
+<section id="product" class="section">
+  <div class="wrap">
+    <div class="vertical">
+      <Heading class="gap-4 mb-2" center>
+        <h1 class="max-w-[12em]">
+          <Markdown> My Entire System in Unorthodox Tailwind </Markdown>
+        </h1>
+        <p class="h1-subhead max-w-[33rem]">
+          <Markdown inline>
+            A complete system for using Tailwind and CSS together.
+          </Markdown>
+        </p>
+      </Heading>
+
+      <div class="prose-responsive max-w-[37rem] mx-auto">
+        <!-- prettier-ignore -->
+        <Markdown>
+          I've been building sites for a long time and I've never been happier with the way I write HTML and CSS today. 
+          
+          But it took major mindset shifts to get here. I'm documenting these shifts for you inside Unorthodox Tailwind to help you get to where I am. 
+        </Markdown>
+      </div>
+
+      <div
+        class="grid-flex justify-center [--grow:0] max-w-mid [--cols:2] mx-auto"
+      >
+        <FeatureCard
+          title="Chapter 1: Introduction"
+          showPrice={false}
+          lessons={chapters[0].lessons}
+          description="The mindset shifts that make everything else click."
+          items={[
+            'See what Tailwind brings to the table, and where it falls short',
+            'The first, most important step ',
+            'A simple unorthodox system',
+            'A preview of the the system I use',
+            'The four-part map of the whole system',
+          ]}
+          showButton={false}
+        />
+
+        <FeatureCard
+          title="Chapter 2: Tailwind Fundamentals"
+          showPrice={false}
+          lessons={chapters[1].lessons}
+          description="Gets you fluent in how Tailwind works. By the end you can read the docs at a glance."
+          items={[
+            "How Tailwind's utility system works",
+            "Installing Tailwind without it's aggressive resets ",
+            '7 most important utility groups',
+            'Guessing the right class without checking the docs',
+            'What defaults to replace, and why ',
+          ]}
+          showButton={false}
+        />
+
+        <FeatureCard
+          title="Chapter 3: Tailwind Fundamentals"
+          showPrice={false}
+          lessons={chapters[2].lessons}
+          description="The core moves that make Tailwind and CSS work as one."
+          items={[
+            'The real ability behind Tailwind utilities',
+            'The difference between components and utilities',
+            'Managing specificity perfectly when using both Tailwind and CSS',
+            'Debug Tailwind and CSS, fast',
+            'The composable utility system, explained',
+          ]}
+          showButton={false}
+        />
+
+        <FeatureCard
+          title="Chapter 4: The Layouts System"
+          showPrice={false}
+          lessons={chapters[3].lessons}
+          description="Build layouts in seconds even when you don't use AI."
+          items={[
+            'Why Tailwind shines here',
+            'The 4 types of layouts: **Shell, Macro, Micro, and Positioning**',
+            'Each type of layout explained in detail --- with examples and code',
+            'Better variants that lets you visualize your layouts immediately across different breakpoints',
+            'Tips and techniques for sections, wrappers, and containers that organizes layouts into repeatable patterns',
+          ]}
+          showButton={false}
+        />
+
+        <FeatureCard
+          title="Chapter 5: The Typography System"
+          showPrice={false}
+          lessons={chapters[4].lessons}
+          description="Use 3-5 typefaces in your design. And create responsive typography without complexity."
+          items={[
+            "Why Tailwind's typography system is weak here",
+            'A consistent font-size scale that works across design software and coding projects',
+            'Responsive typography without the fluid-math',
+            'Making better prose',
+            'Vertical rhythm demystified and simplified',
+          ]}
+          showButton={false}
+        />
+
+        <FeatureCard
+          title="Chapter 6: The Theme System"
+          showPrice={false}
+          lessons={chapters[5].lessons}
+          description="Handles colours, gradients, SVGs, and themes that feel clumsy in pure Tailwind."
+          items={[
+            "Why Tailwind's colour tokens is a strong concept",
+            'The `pigment` system to style hover, active, and selected states with CSS Variables',
+            'Naming conventions for states that make sense',
+            'Extendable gradients with unlimited stops',
+            'Coloring SVG icons with Tailwind',
+          ]}
+          showButton={false}
+        />
+
+        <FeatureCard
+          title="Chapter 7: Useful Tools"
+          showPrice={false}
+          lessons={chapters[6].lessons}
+          description="Deep dive into functional utilities and creating custom variants."
+          items={[
+            'How to functional utilities work',
+            'Creating useful custom variants --- like `interact` and `interact-within`',
+            'Making scaffolds for your own project',
+            'Extending Tailwind on your terms',
+          ]}
+          showButton={false}
+        />
+
+        <FeatureCard
+          title="Chapter 8: Effects"
+          showPrice={false}
+          lessons={chapters[7].lessons}
+          description="Create visual effects like text strokes, strikethroughs, layered shadows by dropping a single utility"
+          items={[
+            'The mental model to build effects that are easy to use',
+            'A layered elevation system you tune with variables for nicer shadows',
+            'Text effects not built into most frameworks --- diagonal strikethroughs, outlined headlines, multi-line highlights, and more',
+            'Transitioning shadows without the usual jank',
+            'Frosted glass, border gradients, and more',
+          ]}
+          showButton={false}
+        />
+
+        <FeatureCard
+          title="Chapter 9: Putting Everything Together"
+          showPrice={false}
+          lessons={chapters[8].lessons}
+          description="The process, the CSS structure, and a cheatsheet you'll keep open."
+          items={[
+            'Decision framework on when to use Tailwind directly, when to build components, when to use CSS',
+            'A CSS structure that scales',
+            'Adjustments to make if you build libraries',
+            'A cheatsheet that gives you the entire method at a glance',
+          ]}
+          showButton={false}
+        />
+      </div>
+
+      <!-- <div class="prose-responsive max-w-[37rem] mx-auto">
+        <Markdown>
+          **Who it's for:** You've used Tailwind. You know CSS. And you're done letting a rulebook decide how you build.
+
+          **Not for you if** you want a plugin to install and forget --- or you'd rather follow best practices than decide for yourself.
+          </Markdown>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<section class="section section-cont">
+  <div class="wrap">
+    <div class="vertical">
+      <Heading class="gap-4 mb-2" center>
+        <h2 class="h1 max-w-[12em]">
+          <Markdown>The mess compounds</Markdown>
+        </h2>
+      </Heading>
+
+      <div class="prose-responsive max-w-[37rem] mx-auto">
+        <!-- prettier-ignore -->
+        <Markdown>
+          You can keep going the way you are. Stack the utilities, squint past the 17 classes, tell yourself that's just how Tailwind works.
+
+          But it doesn't clean itself up. Every project starts fresh and ends buried. And every small change costs you the same tax --- read the wall of classes, rebuild the structure in your head, then find the one thing you came to edit. Multiply that by every element, every day, for as long as you keep building.
+
+          That's the real price. Not the framework --- the hours, and the slow drain of dreading your own code.
+
+          A year from now you'll have shipped a dozen more projects. The only question is whether they felt good to build --- or whether you were still fighting the same fight, week after week.
+        </Markdown>
+      </div>
+    </div>
+  </div>
+</section>

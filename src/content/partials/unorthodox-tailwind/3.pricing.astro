@@ -1,0 +1,92 @@
+---
+import { Heading, Markdown } from '@splendidlabz/astro'
+import { chapters } from './lessons.js'
+const url = 'https://store.zellwk.com/unorthodox-tailwind/'
+---
+
+<section id="pricing" class="section bg-zpurple-900">
+  <div class="wrap">
+    <div class="vertical gap-6">
+      <Heading center>
+        <h2 class="h1 text-zorange-500 max-w-[12em]">
+          Get The Entire System Into Your Hands
+        </h2>
+      </Heading>
+
+      <div
+        class="grid-simple bp8:[--cols:2] max-w-[32rem] bp8:max-w-[60rem] items-center mx-auto gap-10 mt-2"
+      >
+        <div
+          class="card-divided card-divided-vertical [--border-color:var(--color-neutral-800)]"
+        >
+          <header class="bg-zpurple-1100 vertical gap-0.5">
+            <div class="h4 text-zorange-500">Unorthodox Tailwind</div>
+            <p class="text-neutral-300"><em>9 Chapters, 69 lessons</em></p>
+          </header>
+          <div class="content bg-zpurple-1000">
+            <ul class="text-8 tabular-nums text-zgray-400 vertical gap-0.75">
+              {
+                chapters.map((chapter, index) => (
+                  <li class="horizontal justify-between items-center gap-1.25">
+                    <span>{index + 1}. </span>
+                    <span>{chapter.title}</span>
+                    <span class="h-[1em] flex-grow border-b-1 border-dotted relative bottom-[2px]" />
+                    <span>{chapter.lessons.length} lessons</span>
+                  </li>
+                ))
+              }
+              <li
+                class="horizontal justify-between items-center gap-1.25 mt-1.25"
+              >
+                <span class="text-zpurple-50">Total</span>
+                <span class="strong text-zred-500">
+                  {
+                    chapters.reduce(
+                      (sum, chapter) => sum + chapter.lessons.length,
+                      0,
+                    )
+                  } lessons
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="vertical gap-4">
+          <div class="prose text-center">
+            <!-- prettier-ignore -->
+            <Markdown>
+              Get the prototyping speed *and* clean, readable HTML at the same time. Be able to adjust styles quickly and intuitively so building feels good again.
+            </Markdown>
+          </div>
+
+          <div class="horizontal self-center">
+            <div class="h1-subhead text-15">
+              <span class="text-zorange-500">$99 only</span>
+            </div>
+          </div>
+
+          <div class="vertical gap-2">
+            <a href={url} class="button button-large pigment-cyan-filled">
+              <Markdown inline>Get Unorthodox Tailwind</Markdown>
+            </a>
+            <p class="text-8 text-zgray-500 text-center italic">
+              Pay once. Lifetime updates. Instant access.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prose-responsive max-w-[37rem] mx-auto text-center vertical gap-3">
+        <!-- prettier-ignore -->
+        <Markdown>
+          **Try it for 30 days.** Go through the system and use it on a real project. If your HTML doesn't get cleaner and building doesn't start feeling good again, email me and I'll refund every cent.
+
+          One thing to be straight about: this isn't a plugin you install and forget. It's a system --- mindset shifts and rules you actually apply. If you want something that does the thinking for you, this isn't it.
+
+          But if you're done letting a rulebook decide how you build, it'll pay for itself many times over.
+        </Markdown>
+      </div>
+    </div>
+  </div>
+</section>

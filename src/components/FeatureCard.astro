@@ -9,6 +9,8 @@ const {
   price,
   description,
   items,
+  lessons,
+  lessonsText = 'See the lessons',
   buttonText = "See what's inside",
   link,
   available,
@@ -17,17 +19,12 @@ const {
   readyByPosition = 'edge-top',
 } = Astro.props
 
-let avDate = null
-if (available) avDate = formatDate(new Date(available), 'do MMMM')
+let availableDate = null
+if (available) availableDate = formatDate(new Date(available), 'do MMMM')
 ---
 
-<div
-  class:list={[
-    'card-divided card-divided-vertical relative [--border-color:var(--color-zgray-750)]',
-    klass,
-  ]}
->
-  <header class="bg-zpurple-1100 horizontal justify-between items-center">
+<div class:list={['feature-card ', klass]}>
+  <header class="relative">
     {
       (released || available) && (
         <div
@@ -37,7 +34,13 @@ if (available) avDate = formatDate(new Date(available), 'do MMMM')
             readyByPosition,
           ]}
         >
-          {released ? <strong>Released</strong> : <>Ready by: <strong>{avDate}</strong></>}
+          {released ? (
+            <strong>Released</strong>
+          ) : (
+            <>
+              Ready by: <strong>{availableDate}</strong>
+            </>
+          )}
         </div>
       )
     }
@@ -45,14 +48,25 @@ if (available) avDate = formatDate(new Date(available), 'do MMMM')
     <If condition={showPrice}>
       <div class="june">{price}</div>
     </If>
+    <If condition={lessons}>
+      <div class="june text-6 text-neutral-500 whitespace-nowrap shrink-0">
+        {lessons?.length} lessons
+      </div>
+    </If>
   </header>
-  <div class="bg-zpurple-950 prose flex-grow gap-3">
+  <div class="content">
     <p>{description}</p>
-    <FancyList
-      class="ml-0 text-8 text-neutral-400 simple-svg fill-zorange-500"
-      icon="ph:check"
-      {items}
-    />
+    <div class="vertical gap-[inherit]">
+      <FancyList class="checklist" icon="ph:check" {items} />
+      <If condition={lessons}>
+        <details class="lesson-list">
+          <summary>{lessonsText}</summary>
+          <ol>
+            {lessons?.map(lesson => <li>{lesson}</li>)}
+          </ol>
+        </details>
+      </If>
+    </div>
     <If condition={showButton}>
       <If condition={link}>
         <a href={link} class="mt-auto button pigment-orange-filled">

@@ -1,0 +1,62 @@
+@utility feature-card {
+  @apply card-divided card-divided-vertical;
+  --border-color: var(--color-zgray-750);
+  position: relative;
+
+  header {
+    @apply horizontal justify-between items-center;
+    background-color: var(--color-zpurple-1100);
+  }
+
+  .content {
+    @apply prose;
+    flex-grow: 1;
+    gap: calc(var(--spacing) * 3);
+    background-color: var(--color-zpurple-950);
+  }
+
+  .checklist {
+    @apply text-8 simple-svg;
+    margin-left: 0;
+    color: var(--color-neutral-400);
+    fill: var(--color-zorange-500);
+
+    strong {
+      color: var(--color-neutral-300);
+    }
+  }
+
+  .lesson-list {
+    margin-top: auto;
+
+    summary {
+      @apply text-8 text-zorange-500;
+      width: fit-content;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::before {
+      content: '▸';
+      display: inline-block;
+      margin-right: calc(var(--spacing) * 1);
+      transition: transform 150ms ease;
+    }
+
+    &[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    ul,
+    ol {
+      @apply text-8;
+      margin-top: calc(var(--spacing) * 2);
+      margin-left: 2rem;
+      color: var(--color-neutral-400);
+    }
+  }
+}

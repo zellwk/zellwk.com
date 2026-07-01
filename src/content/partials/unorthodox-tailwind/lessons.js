@@ -1,0 +1,121 @@
+export const chapters = [
+  {
+    title: 'Introduction',
+    lessons: [
+      'Introduction',
+      'What Tailwind brings to the table',
+      'Tailwind: The Good and The Bad',
+      'The First and Most Important Step',
+      'Simple Unorthodox System',
+      'The System I Use',
+    ],
+  },
+  {
+    title: 'Tailwind Fundamentals',
+    lessons: [
+      'Introduction',
+      'Installing Tailwind',
+      'Using Tailwind utilities',
+      "Understanding Tailwind's utility system",
+      'Understanding Tailwind values',
+      'Understanding Tailwind variants',
+    ],
+  },
+  {
+    title: 'Unorthodox Fundamentals',
+    lessons: [
+      'Introduction',
+      'Making Simple Tailwind Utilities',
+      'Components vs Utilities',
+      'Specificity, Cascade, and CSS Layers',
+      'Debugging Tailwind Styles',
+      'Composable Utility System',
+      'Create lots of components',
+    ],
+  },
+  {
+    title: 'Layouts System',
+    lessons: [
+      'Tailwind is great for layouts',
+      'Four Types of Layouts',
+      'Building Shell Layouts',
+      'Building Macro Layouts',
+      'Better Responsive Variants',
+      'A collection of maximum widths',
+      'A note on grid wrappers',
+      'Working with sections',
+      'Building Micro Layouts',
+      'Positioning Layouts',
+    ],
+  },
+  {
+    title: 'Typography System',
+    lessons: [
+      'Introduction',
+      'A system for using multiple typefaces',
+      "Tailwind's font-size system",
+      'Finding your font-size system',
+      'My font-size system',
+      'A simple responsive typography system',
+      'The main body',
+      'Vertical rhythm',
+    ],
+  },
+  {
+    title: 'Theming System',
+    lessons: [
+      'Introduction',
+      "Tailwind's colour system",
+      'The pigment system',
+      "Tailwind's gradient system",
+      'A friendlier gradient system',
+      'Handling SVG fill and stroke',
+      "Improving Tailwind's colour palette",
+      'A simple way to theme',
+    ],
+  },
+  {
+    title: 'Useful Tools',
+    lessons: [
+      'Introduction',
+      'Making functional utilities',
+      'Custom variants',
+      'Scaffolding tools',
+      'Extending Tailwind',
+    ],
+  },
+  {
+    title: 'Effects System',
+    lessons: [
+      'Introduction',
+      'Vertical text',
+      'Strikethrough text',
+      'Text stroke',
+      'Highlighting text',
+      'Nicer shadows',
+      'Transitioning shadows',
+      'Drop shadows',
+      'Dark mode tricks',
+      'Gradient borders',
+      'More effects to explore',
+    ],
+  },
+  {
+    title: 'Putting Everything Together',
+    lessons: [
+      'The Unorthodox Tailwind process',
+      'The 4 systems combined',
+      'Create components liberally',
+      'Advanced tips',
+      'My CSS Structure',
+      'A Cheatsheet',
+      'Consolidating your thoughts',
+      'Parting words',
+    ],
+  },
+]
+
+export const totalLessons = chapters.reduce(
+  (sum, chapter) => sum + chapter.lessons.length,
+  0,
+)
