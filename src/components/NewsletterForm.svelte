@@ -2,6 +2,7 @@
   import { Form, Status, TextInput } from '@splendidlabz/svelte'
   import { delay, omitEmpty } from '@splendidlabz/utils'
   import zlFetch from 'zl-fetch'
+  import { ph } from '@/services/tracking/web'
 
   /** @type {{ list: string, children?: import('svelte').Snippet }} */
 
@@ -21,6 +22,8 @@
     if (response) {
       status.code = response.status
       status.text = response.body.message
+      ph.identify(data.email, { name: data.name })
+      ph.capture('newsletter_signup', { list })
       await delay(500)
       window.location.href = redirect
     }

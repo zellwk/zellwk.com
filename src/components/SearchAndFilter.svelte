@@ -1,10 +1,17 @@
 <script>
   import { TextInput } from '@splendidlabz/svelte'
+  import { debounce } from '@splendidlabz/utils'
   import { formatDate } from 'date-fns'
+  import { ph } from '@/services/tracking/web'
   let { posts = $bindable([]) } = $props()
 
   let inputRef = $state(null)
   let searchTerm = $state('')
+
+  const trackSearch = debounce(term => {
+    if (term.trim()) ph.capture('search_used', { query: term })
+  }, 800)
+  $effect(() => trackSearch(searchTerm))
 
   // Combine all derivations into one for better performance
   let data = $derived.by(() => {

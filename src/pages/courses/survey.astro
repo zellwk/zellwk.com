@@ -1,6 +1,7 @@
 ---
 import OneColumn from '@/layouts/OneColumn.astro'
 import { makeEmail, sendEmail } from '@/services/email'
+import { ph } from '@/services/tracking/node'
 import { Sheets } from '@/services/google-sheets'
 import { Markdown } from '@splendidlabz/astro'
 import { getSearchParams, parseData } from '@splendidlabz/astro/server'
@@ -104,6 +105,11 @@ POST: if (Astro.request.method === 'POST') {
 
     await sendEmail({ to: 'zell@zellwk.com', subject, html, text })
   }
+
+  ph.capture('course_survey_submitted', {
+    email,
+    properties: { product: productName, $set: { name } },
+  })
 
   // Proceeds to the next step of the purchase flow.
   return Astro.redirect(redirectURL)

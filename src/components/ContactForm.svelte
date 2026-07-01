@@ -8,6 +8,7 @@
   } from '@splendidlabz/svelte'
   import { wait } from '@splendidlabz/utils'
   import { createZlFetch } from 'zl-fetch'
+  import { ph } from '@/services/tracking/web'
 
   const f = createZlFetch('/api/contact/', { returnError: true })
 
@@ -50,6 +51,9 @@
       status.status = 'success'
       status.message = response.body.message
       console.log(response.body)
+
+      ph.identify(email, { name })
+      ph.capture('contact_submitted', { subject })
 
       // Ensures people have sufficient time to read the status message before they are redirected.
       await wait(2000)
