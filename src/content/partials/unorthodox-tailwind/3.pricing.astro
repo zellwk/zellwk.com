@@ -1,6 +1,6 @@
 ---
-import { Heading, Markdown } from '@splendidlabz/astro'
 import CheckoutButton from '@/components/CheckoutButton.svelte'
+import { Heading, Markdown } from '@splendidlabz/astro'
 import { chapters } from './lessons.js'
 ---
 
@@ -68,10 +68,10 @@ import { chapters } from './lessons.js'
 
           <div class="vertical gap-2">
             <CheckoutButton
-              client:load
-              product="Unorthodox Tailwind"
               value={99}
+              product="Unorthodox Tailwind"
               label="Get Unorthodox Tailwind"
+              client:load
             />
             <p class="text-8 text-zgray-500 text-center italic">
               Pay once. Lifetime updates. Instant access.
@@ -79,17 +79,16 @@ import { chapters } from './lessons.js'
           </div>
         </div>
       </div>
-
-      <div class="prose-responsive max-w-[37rem] mx-auto text-center vertical gap-3">
-        <!-- prettier-ignore -->
-        <Markdown>
-          **Try it for 30 days.** Go through the system and use it on a real project. If your HTML doesn't get cleaner and building doesn't start feeling good again, email me and I'll refund every cent.
-
-          One thing to be straight about: this isn't a plugin you install and forget. It's a system --- mindset shifts and rules you actually apply. If you want something that does the thinking for you, this isn't it.
-
-          But if you're done letting a rulebook decide how you build, it'll pay for itself many times over.
-        </Markdown>
-      </div>
     </div>
+  </div>
+</section>
+
+<section class="section section-cont bg-zpurple-900">
+  <div class="prose-responsive max-w-narrow mx-auto text-center vertical gap-3">
+    <h3 class="h3 text-zorange-500">Try Unorthodox Tailwind for 30 days</h3>
+    <!-- prettier-ignore -->
+    <Markdown>
+    Go through the system and use it on a real project. If you don't feel refreshed about the way you use Tailwind and CSS, email me and I'll refund every cent.
+  </Markdown>
   </div>
 </section>

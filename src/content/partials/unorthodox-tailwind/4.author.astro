@@ -1,0 +1,63 @@
+---
+import { Heading, Image, Markdown, SVG } from '@splendidlabz/astro'
+---
+
+<section class="section">
+  <div class="wrap">
+    <div class="vertical">
+      <Heading class="gap-4" center>
+        <h2 class="h1 max-w-[11em] mx-auto text-zorange-500">
+          I've Always Searched For Better Ways to Style Websites
+        </h2>
+      </Heading>
+
+      <div class="vertical bp8:grid-auto-fr max-w-[55rem] mx-auto !gap-8">
+        <div>
+          <Image
+            class="mt-2 max-w-[18rem] rounded-2r"
+            src="/src/assets/zell/zell-fooling-around.jpg"
+            alt="Zell"
+          />
+        </div>
+
+        <div class="prose-responsive mx-auto">
+          <!-- prettier-ignore -->
+          <Markdown>
+            My name is Zell. 
+
+            I built many kinds of websites over the last 10+ years, from small personal blogs to large web projects, all in pure CSS without any frameworks. 
+            
+            But I wanted to move faster. So I tried Tailwind. And something clicked --- I couldn't go back to pure CSS after that. 
+
+            There was just one problem: I couldn't stand the bloated mess Tailwind creates, so I set out to find a solution. 
+
+            One day, while struggling (and promising myself that I'd test Tailwind *just one more time*), I found the trick that unravelled everything... and the Unorthodox Tailwind methodology was born. 
+
+            Then it matured into the four systems --- Layout, Typography, Theme, and Effects --- that compose your CSS into one clean, cohesive whole.
+          </Markdown>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-mini bg-zpurple-1100 vertical gap-6">
+  <div class="wrap">
+    <div class="text-center text-neutral-400">I've been featured in:</div>
+  </div>
+  <div
+    class="wrap flex flex-col bp8:flex-row items-center justify-center gap-4 bp8:gap-12"
+  >
+    <SVG class="h-5 bp6:h-7 simple-svg fill-neutral-400" icon="smashing-mag" />
+    <SVG class="h-5 bp6:h-7 simple-svg fill-neutral-400" icon="css-tricks" />
+    <SVG class="h-5 bp6:h-7 simple-svg fill-neutral-400" icon="a-list-apart" />
+    <SVG
+      class="h-5 bp6:h-7 simple-svg fill-neutral-400 hidden bp8:block"
+      icon="free-code-camp"
+    />
+    <SVG
+      class="h-5 bp6:h-7 simple-svg fill-neutral-400 hidden bp8:block"
+      icon="sitepoint"
+    />
+  </div>
+</section>
