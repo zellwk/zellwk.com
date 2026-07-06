@@ -1,10 +1,11 @@
 @utility feature-card {
+  @apply @container;
   @apply card-divided card-divided-vertical;
   --border-color: var(--color-zgray-750);
   position: relative;
 
   header {
-    @apply horizontal justify-between items-center;
+    @apply flow gap-y-2 @bp4:horizontal  justify-between items-center;
     background-color: var(--color-zpurple-1100);
   }
 
