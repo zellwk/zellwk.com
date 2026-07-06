@@ -1,5 +1,5 @@
 ---
-import { Heading, Markdown, FancyList } from '@splendidlabz/astro'
+import { FancyList, Heading, Markdown } from '@splendidlabz/astro'
 ---
 
 <section class="section bg-zpurple-900">
@@ -12,63 +12,67 @@ import { Heading, Markdown, FancyList } from '@splendidlabz/astro'
       </Heading>
 
       <div class="prose-responsive max-w-[37rem] mx-auto">
-        <Markdown>You spent years without a framework because you wanted control. Then Tailwind gave you speed, but boxed you right back in.</Markdown>
+        <!-- prettier-ignore -->
+        <Markdown>
+          You spent years without a framework because you wanted control. Then Tailwind gave you speed, but boxed you right back in.
+
+          You have two choices: 
+        </Markdown>
       </div>
 
       <div
-      class="grid-simple bp9:[--cols:2] max-w-[60rem] mx-auto gap-4 items-center"
-    >
-      <div class="vertical gap-2">
-        <p class="text-center italic text-neutral-400">
-          <Markdown inline>Keep fighting it…</Markdown>
-        </p>
-        <div
-          class="prose card p-3 rounded-1r"
-          style="border-color: var(--color-zred-500); background-color: var(--color-zred-850);"
-        >
-          <FancyList
-            class="ml-0 simple-svg fill-zred-500 text-zred-50"
-            icon="ph:x"
-            items={[
-              'Fighting CSS Grid to build a simple layout?',
-              'Wiring up theming by hand?',
-              'Writing complex code just to use two typefaces?',
-              'Hand-rolling shadows and effects every time?',
-            ]}
-          />
+        class="grid-simple bp9:[--cols:2] max-w-[60rem] mx-auto gap-4 items-center"
+      >
+        <div class="vertical gap-2">
+          <p class="text-center italic text-neutral-400">
+            <Markdown inline>Keep fighting it...</Markdown>
+          </p>
+          <div
+            class="prose card p-3 rounded-1r"
+            style="border-color: var(--color-zred-500); background-color: var(--color-zred-850);"
+          >
+            <FancyList
+              class="ml-0 simple-svg fill-zred-500 text-zred-50"
+              icon="ph:x"
+              items={[
+                'Fighting CSS Grid to build a simple layout?',
+                'Wiring up themes by hand?',
+                'Writing complex code just to use two typefaces?',
+                'Hand-rolling shadows and effects every time?',
+              ]}
+            />
+          </div>
         </div>
-      </div>
 
-      <div class="vertical gap-2 italic text-neutral-400">
-        <p class="text-center">
-          <Markdown inline>…or make Tailwind yours:</Markdown>
-        </p>
-        <div
-          class="prose card border-scaffold p-3 rounded-1r"
-          style="border-color: var(--color-zgreen-500); background-color: var(--color-zgreen-900);"
-        >
-          <FancyList
-            class="ml-0 simple-svg text-zgreen-50 fill-zgreen-500"
-            icon="ph:check"
-            items={[
-              'Build most layouts in seconds',
-              'Theme easily with pigments and variables',
-              'Use multiple typefaces easily',
-              'Get effects like nice shadows by dropping a utility',
-            ]}
-          />
+        <div class="vertical gap-2 italic text-neutral-400">
+          <p class="text-center">
+            <Markdown inline>...or make Tailwind yours:</Markdown>
+          </p>
+          <div
+            class="prose card border-scaffold p-3 rounded-1r"
+            style="border-color: var(--color-zgreen-500); background-color: var(--color-zgreen-900);"
+          >
+            <FancyList
+              class="ml-0 simple-svg text-zgreen-50 fill-zgreen-500"
+              icon="ph:check"
+              items={[
+                'Build most layouts in seconds',
+                'Theme easily with pigments and variables',
+                'Use multiple typefaces easily',
+                'Get effects like nice shadows by dropping a utility',
+              ]}
+            />
+          </div>
         </div>
       </div>
-    </div>
 
       <div class="prose-responsive max-w-[37rem] mx-auto">
         <!-- prettier-ignore -->
         <Markdown>
           The choice is yours.
 
-          The real hidden cost is a growing sense of dissatisfaction every time you open the file — the quiet sense that you could be building better than this.
+          The real hidden cost is a growing sense of dissatisfaction every time you open the file --- the quiet sense that you could be building better than this.
         </Markdown>
-
 
         <a
           href="#pricing"
