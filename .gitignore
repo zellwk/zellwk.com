@@ -25,3 +25,5 @@ google-service-account.json
 .specstory/.what-is-this.md
 
 .context/
+
+.playwright-mcp/

@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:css-tricks.com)",
-      "WebFetch(domain:pagespeed.web.dev)"
+      "WebFetch(domain:pagespeed.web.dev)",
+      "mcp__playwright__browser_run_code_unsafe"
     ]
   }
 }

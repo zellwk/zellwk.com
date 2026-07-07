@@ -52,7 +52,7 @@ const blogDateMap = getBlogDateMap()
 const shikiConfig = {
   theme: twilightCosmos,
   // transformers: [transformerColorizedBrackets()],
-  langs: [ 'shell', 'php', 'svelte', 'astro', 'jsx', 'vue', 'js', 'css', 'scss', 'json', 'jsonc', 'md', 'mdx', 'vue'], 
+  langs: [ 'shell', 'php', 'svelte', 'astro', 'jsx', 'vue', 'js', 'css', 'scss', 'json', 'jsonc', 'md', 'mdx', 'vue', 'html'],
 }
 
 export default defineConfig({
