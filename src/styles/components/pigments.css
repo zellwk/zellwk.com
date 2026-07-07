@@ -29,6 +29,15 @@
   --text-hover-color: #fff;
 }
 
+@utility pigment-neutral-outline {
+  --bg-hover-color: var(--color-zorange-800);
+  --text-hover-color: var(--color-zorange-500);
+  --border-hover-color: var(--color-zorange-500);
+  --bg-selected-color: var(--color-zorange-800);
+  --text-selected-color: var(--color-zorange-500);
+  --border-selected-color: var(--color-zorange-500);
+}
+
 @utility pigment-cyan-filled {
   --bg-color: var(--color-zcyan-600);
   --text-color: var(--color-zpurple-1000);

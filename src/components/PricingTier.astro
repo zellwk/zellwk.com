@@ -1,0 +1,62 @@
+---
+import CheckoutButton from '@/components/CheckoutButton.svelte'
+import { FancyList } from '@splendidlabz/astro'
+
+const {
+  title,
+  subtitle,
+  price,
+  priceNote,
+  features = [],
+  ctaLabel,
+  ctaValue,
+  ctaProduct,
+  featured = false,
+  badge,
+} = Astro.props
+
+const ctaClass = featured
+  ? 'button button-large pigment-cyan-filled'
+  : 'button button-large pigment-cyan-outline-dim'
+---
+
+<div
+  class:list={[
+    'pricing-tier relative',
+    featured ? 'is-featured' : 'is-recessed',
+  ]}
+>
+  {
+    badge && (
+      <div class="pricing-tier-badge pill june text-5">{badge}</div>
+    )
+  }
+
+  <header class="vertical gap-0.5">
+    <div class="h4 pricing-tier-title">{title}</div>
+    <p class="pricing-tier-subtitle text-neutral-300"><em>{subtitle}</em></p>
+  </header>
+
+  <div class="content vertical">
+    <div class="pricing-tier-price-wrap vertical gap-0.5">
+      <span class="pricing-tier-price june">${price}</span>
+      {
+        priceNote && (
+          <p class="pricing-tier-note text-8 text-neutral-500 italic">
+            {priceNote}
+          </p>
+        )
+      }
+    </div>
+
+    <FancyList class="checklist" icon="ph:check" items={features} />
+
+    <CheckoutButton
+      value={ctaValue}
+      product={ctaProduct}
+      label={ctaLabel}
+      class={ctaClass}
+      client:load
+    />
+  </div>
+</div>

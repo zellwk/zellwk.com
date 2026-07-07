@@ -1,0 +1,82 @@
+@utility pricing-tier {
+  @apply card-divided card-divided-vertical;
+  --border-color: var(--color-neutral-800);
+  position: relative;
+
+  header {
+    background-color: var(--color-zpurple-1100);
+  }
+
+  .content {
+    flex-grow: 1;
+    gap: calc(var(--spacing) * 3);
+    background-color: var(--color-zpurple-1000);
+  }
+
+  .pricing-tier-price {
+    @apply text-11;
+    color: var(--color-neutral-300);
+    line-height: 1;
+  }
+
+  .checklist {
+    @apply text-8 simple-svg;
+    margin-left: 0;
+    color: var(--color-neutral-400);
+    fill: var(--color-zorange-500);
+
+    strong {
+      color: var(--color-neutral-300);
+    }
+  }
+
+  .pricing-tier-badge {
+    position: absolute;
+    top: calc(var(--spacing) * 3);
+    right: calc(var(--spacing) * 3);
+    z-index: 2;
+    padding-block: calc(var(--spacing) * 1);
+    padding-inline: calc(var(--spacing) * 3);
+    background-color: var(--color-zcyan-800);
+    border: 1px solid var(--color-zcyan-600);
+    color: var(--color-zcyan-500);
+    white-space: nowrap;
+  }
+
+  /* Featured — Complete. Dominates the eye. */
+  &.is-featured {
+    --border-color: var(--color-zorange-500);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--color-zorange-500) 30%, transparent),
+      0 22px 55px -26px color-mix(in srgb, var(--color-zorange-500) 60%, transparent);
+
+    header,
+    .content {
+      background-color: var(--color-zpurple-1000);
+    }
+
+    /* Keep the internal divider subtle so only the outer edge glows. */
+    > :where(:not(:first-child)) {
+      --_bc: var(--color-neutral-800);
+    }
+
+    .pricing-tier-price {
+      @apply text-15;
+      color: var(--color-zorange-500);
+    }
+  }
+
+  /* Recessed — Core. Sits behind Complete. */
+  &.is-recessed {
+    --border-color: var(--color-neutral-800);
+    opacity: 0.85;
+
+    header {
+      background-color: var(--color-zpurple-1100);
+    }
+
+    .content {
+      background-color: var(--color-zpurple-1100);
+    }
+  }
+}
