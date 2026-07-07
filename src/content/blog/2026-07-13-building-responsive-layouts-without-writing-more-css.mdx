@@ -1,0 +1,175 @@
+---
+title: 'Building Responsive Layouts Without Writing More CSS'
+description: 'Tailwind lets you adjust CSS variables at each breakpoint directly in your HTML. Combine that with one flexible grid component and you can build almost any responsive layout without writing more CSS.'
+tags: ['css', 'tailwind']
+---
+
+One of the things that Tailwind unlocked for me is this ability to build responsive layouts without writing more CSS. 
+
+What I'm talking about is not simply writing the CSS in HTML, unlike what most Tailwind fans suggest.  
+
+```html
+<!-- Not just a matter of transferring CSS into classes -->
+<div class="flex flex-col">...</div>
+```
+
+What I'm talking about is using Tailwind's ability to adjust HTML on the fly, coupled with a component I've built to create any layout easily. 
+
+## The Best Example
+
+The best example here is a simple CSS grid with any number of columns. 
+
+To build this in CSS, we can use `grid-template-columns` with `repeat` and a variable to indicate the number of columns we want to create. 
+
+```css
+.grid-simple {
+	display: grid;
+	grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+}
+```
+
+This makes a lot of sense. The code is simple and beautiful. And the component that gets built as a result is very flexible. 
+
+But the problem here is that, with the current CSS conventions, the only way to use this beautiful component is to put it together with a supplementary class — but that defeats the entire purpose of creating a reusable component in the first place. 
+
+```html
+<!-- Say you're creating a feature grid, you might write this --> 
+<div class="grid-simple grid-feature"> ... </div>
+
+<style>
+.grid-feature {
+  --cols: 2;
+}
+</style>
+```
+
+You can see from here that `grid-feature` does nothing extra to the layout aspect. It is simply a forced convention that we lived by.
+
+But if we drop this convention, we can begin to see that it is possible to use this `cols` variable directly to describe the grid we're trying to create. 
+
+```html
+<!-- This is a 2-column grid! --> 
+<div class="grid-simple" style="--cols:2"> ... </div>
+```
+
+This is beautifully descriptive, so it makes a lot more sense than writing a supplementary class. And many people have tried this — tonnes! — from what I've seen in various experiments, as I looked through the internet for examples in the past.
+
+But we all get stuck here because inline styles cannot use media queries, so this pattern is not responsive, and it doesn't work in real-world situations. 
+
+Then people give up searching for a solution.
+
+But the solution has always been right under our eyes. It has been there for the last few years. It comes by a name that most CSS aficionados reject. 
+
+The solution is called Tailwind. 
+
+## Tailwind variants for responsive layouts
+
+Tailwind gives us the ability to use media queries directly in a class. We'll do that by using breakpoint variants. 
+
+```html
+<!-- Set padding to 1rem at "md" breakpoint --> 
+<div class="md:p-4"> ... </div>
+```
+
+Tailwind can adjust CSS variables on the fly as well. 
+
+If we combine that ability with breakpoint variants, we can adjust CSS variables at different breakpoints directly in the HTML. 
+
+```html
+<!-- 2 columns at md, 3 columns at lg --> 
+<div class="grid-simple md:[--cols:2] lg:[--cols:3]"> 
+  ... 
+</div>
+```
+
+Now, we do not need to write any more CSS to build responsive layouts because we can now use our flexible `grid-simple` component to create almost any macro layout. 
+
+```html
+<div class="grid-simple [--cols:1]"> ... </div>
+<div class="grid-simple [--cols:2]"> ... </div>
+<div class="grid-simple [--cols:3]"> ... </div>
+<div class="grid-simple [--cols:4]"> ... </div>
+<div class="grid-simple [--cols:5]"> ... </div>
+<div class="grid-simple [--cols:6]"> ... </div>
+<div class="grid-simple [--cols:7]"> ... </div>
+<div class="grid-simple [--cols:8]"> ... </div>
+<div class="grid-simple [--cols:9]"> ... </div>
+<div class="grid-simple [--cols:10]"> ... </div>
+<div class="grid-simple [--cols:11]"> ... </div>
+<div class="grid-simple [--cols:12]"> ... </div>
+```
+
+Each layout is responsive because we can change the number of columns on the fly just as easily.
+
+```html
+<!-- 1 column on mobile, 3 cols at tablet --> 
+<div class="grid-simple [--cols:1] md:[--cols:3]"> ... </div>
+<!-- 2 columns on mobile, 4 cols at tablet --> 
+<div class="grid-simple [--cols:2] md:[--cols:4]"> ... </div>
+```
+
+This is beautiful — because we can see what the layout is at a glance. 
+
+And at this point, I began to see that there's a whole new way to compose classes together. 
+
+## A different way to compose classes
+
+Everything I talked to you about so far is about layouts. 
+
+`grid-feature` (from the example above) feels awkward when it's grouped together with other layout stuff. 
+
+```css
+/* Feels awkward if grid-feature is just used for layout */
+.grid-feature {
+  --cols: 2;
+}
+```
+
+But `grid-feature` begins to make sense if we put other styles in that make it `feature`. Examples of that can include colour or typography or other things. 
+
+And yet at the same time we can begin to modularize our CSS because colours can be a category of classes. Typography can be another category of classes. 
+
+Eventually I managed to separate all styles into four types: 
+
+- Layouts 
+- Typography
+- Colours or Theming 
+- Effects
+
+Which means we can begin to write our CSS based on these types and compose them together. The pseudo code for this looks ridiculous... 
+
+```html
+<div class="layouts-util-1 layout-util2">
+  <h2 class="type-util theme-util">...</h2>
+  <div class="type-util">
+    <p>...</p>
+    <p>...</p>
+  </div>
+</div>
+```
+
+But the actual output is very readable. 
+
+```html
+<div class="grid-simple [--cols:2] max-w-standard mx-auto">
+  <h2 class="h2 text-yellow-500"> ... </h2>
+  <div class="prose">
+    <p> ... </p>
+    <p> ... </p>
+  </div>
+</div>
+```
+
+## Tailwind is more than it seems
+
+Many people mistakenly believe that Tailwind is just a way to write CSS that is horribly ugly, a way that litters and bloats up the HTML. 
+
+Nothing can be further from the truth. 
+
+Tailwind became popular for a reason. It solved a pain that has been present in CSS for a long time. But Tailwind brings along its own problems that CSS can solve much better. 
+
+So if we combine Tailwind and CSS, we actually have a whole new way to make styles easy, readable, reusable, and maybe even fun to write. Together, they simply make the craft better. 
+
+I wrote a lot more about this whole concept in [Unorthodox Tailwind](/courses/unorthodox-tailwind/). And whatever I've just shared here contains samples of the lessons from within. 
+
+If you love the way your brain is changing from the new perspectives you gained from this article, you might be interested in furthering that change in Unorthodox Tailwind. See you there!
