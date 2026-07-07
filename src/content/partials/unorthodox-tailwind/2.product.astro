@@ -11,9 +11,16 @@ import { chapters } from './lessons.js'
         <h1 class="max-w-[12em]">
           <Markdown> My Entire System in Unorthodox Tailwind </Markdown>
         </h1>
-        <p class="h1-subhead max-w-[33rem]">
+        <p class="h1-subhead max-w-[42rem]">
           <Markdown inline>
             A complete system for using Tailwind and CSS together.
+          </Markdown>
+        </p>
+
+        <p class="h1-subhead max-w-[42rem]">
+          <Markdown inline>
+            The hard part is knowing when to use Tailwind, when to use CSS, and
+            when to use them both. You'll learn that system here.
           </Markdown>
         </p>
       </Heading>
@@ -21,14 +28,14 @@ import { chapters } from './lessons.js'
       <div class="prose-responsive max-w-[37rem] mx-auto">
         <!-- prettier-ignore -->
         <Markdown>
-          I've been building sites for a long time and I've never been happier with the way I write HTML and CSS today. 
+          I've been building sites for a long time and I've never been happier with the way I write HTML and CSS today.
           
           But it took major mindset shifts to get here. I'm documenting these shifts for you inside Unorthodox Tailwind to help you get to where I am. 
         </Markdown>
       </div>
 
       <div
-        class="grid-flex justify-center [--grow:0] max-w-mid [--cols:2] mx-auto"
+        class="grid-flex justify-center [--grow:0] max-w-mid [--cols:1] bp5:[--cols:2] mx-auto"
       >
         <FeatureCard
           title="Chapter 1: Introduction"
@@ -163,14 +170,39 @@ import { chapters } from './lessons.js'
           showButton={false}
         />
       </div>
+      <div
+        class="grid-simple bp9:[--cols:2] max-w-[60rem] mx-auto gap-4 items-center"
+      >
+        <div class="vertical gap-2">
+          <p class="text-center italic text-neutral-400">
+            <Markdown inline>This is for you if...</Markdown>
+          </p>
+          <div
+            class="prose card border-scaffold p-3 rounded-1r"
+            style="border-color: var(--color-zgreen-500); background-color: var(--color-zgreen-900);"
+          >
+            <Markdown>
+              You've used Tailwind. You know CSS. And you're done letting a
+              rulebook decide how you build.
+            </Markdown>
+          </div>
+        </div>
 
-      <!-- <div class="prose-responsive max-w-[37rem] mx-auto">
-        <Markdown>
-          **Who it's for:** You've used Tailwind. You know CSS. And you're done letting a rulebook decide how you build.
-
-          **Not for you if** you want a plugin to install and forget --- or you'd rather follow best practices than decide for yourself.
-          </Markdown>
-      </div> -->
+        <div class="vertical gap-2">
+          <p class="text-center italic text-neutral-400">
+            <Markdown inline>...but not if:</Markdown>
+          </p>
+          <div
+            class="prose card p-3 rounded-1r"
+            style="border-color: var(--color-zred-500); background-color: var(--color-zred-850);"
+          >
+            <Markdown>
+              You want a plugin to install and forget, or you'd rather be told
+              the rules than decide for yourself.
+            </Markdown>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

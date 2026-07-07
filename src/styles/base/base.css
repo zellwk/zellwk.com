@@ -43,13 +43,13 @@
       @apply pigment-without-border;
     }
   }
-
 }
 
+/* 
 pre {
   @apply scrollbar-thin;
   @apply mono;
   --radius: 0.25rem;
   font-size: 0.65em;
   line-height: 1.45;
-}
+} */

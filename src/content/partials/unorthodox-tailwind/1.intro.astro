@@ -67,12 +67,13 @@ import { Heading, Markdown } from '@splendidlabz/astro'
             You don't have to choose between Tailwind and CSS
           </Markdown>
         </h1>
-        <p class="h1-subhead max-w-[38rem]">
-          <Markdown inline>
+        <div class="h1-subhead max-w-[38rem]">
+          <!-- prettier-ignore -->
+          <Markdown>
             You can use them both --- and get the prototyping speed and the
-            clean HTML at the same time
+            clean HTML at the same time.
           </Markdown>
-        </p>
+        </div>
       </Heading>
 
       <div class="prose-responsive max-w-[37rem] mx-auto">
@@ -80,11 +81,11 @@ import { Heading, Markdown } from '@splendidlabz/astro'
         <Markdown>
           Tailwind isn't a CSS replacement. It's three things built into one: 
 
-          - **A Design layer**: A way to write design tokens that you can build on
-          - **A Styling layer**: Use utilities in HTML or through `@apply` in CSS
-          - **A Build layer**: Simplifies your code and build process
+          - **A design layer**: A way to write design tokens that you can build on
+          - **A styling layer**: Use utilities in HTML or through `@apply` in CSS
+          - **A build layer**: Simplifies your code and build process
 
-          Once you see that, the rules change --- and CSS enters the game again, because you can write utilities in HTML when that's faster, switch to `@apply` in CSS when that's cleaner, and build components when it makes sense.
+          Once you see that, the rules change --- and CSS enters the game again. You'll be able to write utilities in HTML when that's faster, switch to `@apply` in CSS when that's cleaner, and build components when it makes sense.
 
           **And this is just the beginning**. 
 

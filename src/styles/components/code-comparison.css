@@ -1,0 +1,7 @@
+.code-comparison {
+  @apply prose;
+  --ec-frm-edBg: transparent;
+  --ec-brdRad: 0;
+  --ec-brdWd: 1px;
+  --ec-brdCol: transparent;
+}

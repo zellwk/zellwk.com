@@ -1,0 +1,93 @@
+---
+import { Heading, Markdown } from '@splendidlabz/astro'
+import { Code } from 'astro-expressive-code/components'
+---
+
+<section class="section bg-zpurple-950">
+  <div class="wrap">
+    <div class="vertical items-center gap-4">
+      <Heading center>
+        <h2 class="h2 max-w-[16em] text-zorange-500">
+          See The Difference For Yourself
+        </h2>
+      </Heading>
+
+      <div class="prose-responsive max-w-[37em] mx-auto">
+        <Markdown>Here's a simple card component with a button.</Markdown>
+      </div>
+
+      <!-- The proof: both produce this exact component -->
+      <div class="vertical items-center gap-3 max-w-[24rem] mx-auto">
+        <article class="card vertical gap-3">
+          <h3 class="h4 text-zorange-500">The Layouts System</h3>
+          <div class="prose">
+            <Markdown>
+              Build layouts in seconds --- HTML that reads like layout, not a
+              wall of classes.
+            </Markdown>
+          </div>
+          <button class="button pigment-orange-filled">See how it works</button>
+        </article>
+      </div>
+
+      <div class="prose-responsive max-w-[16em] text-center mx-auto">
+        <Markdown
+          >And here's the HTML built with Tailwind vs Unorthodox Tailwind</Markdown
+        >
+      </div>
+
+      <!-- The comparison: both visible at once -->
+      <div class="grid-simple bp8:[--cols:2] gap-4 items-center max-w-mid">
+        <!-- Before -->
+        <div class="card card-divided-vertical p-0 !bg-zpurple-1000s">
+          <header class="horizontal justify-between items-baseline px-3 py-2">
+            <span>Standard Tailwind</span>
+            <span>
+              <span>26</span>
+              <span class="text-7 text-neutral-400 italic">classes</span>
+            </span>
+          </header>
+          <div class="code-comparison">
+            <Code
+              code={`<div class="flex flex-col gap-[1.125rem] p-[1.5rem] border-2 border-[oklch(0.2487_0.0274_298.48)] rounded-xl">
+  <h3 class="text-2xl font-bold leading-[1.4] font-[june-expt-variable] text-[oklch(0.8403_0.1724_84.08)]">The Layouts System</h3>
+  <p class="text-[21px] leading-[1.5] text-[oklch(0.89023_0.0195_276.301)]">Build layouts in seconds — HTML that reads like layout, not a wall of classes.</p>
+  <button class="flex items-center justify-center px-[1.25em] py-[0.5em] text-[21px] leading-[21px] rounded-xl bg-[oklch(0.8403_0.1724_84.08)] text-[oklch(0.18_0.02_294.14)] hover:bg-[oklch(0.74_0.16_82.99)]">See how it works</button>
+</div>`}
+              lang="html"
+              wrap
+            />
+          </div>
+        </div>
+
+        <!-- After -->
+        <div
+          class="card card-divided-vertical p-0 !bg-zpurple-1000s [--border-color:var(--color-zorange-700)]"
+        >
+          <header class="horizontal justify-between items-baseline px-3 py-2">
+            <span class="text-zorange-700">Unorthodox Tailwind</span>
+            <span>
+              <span class="text-zorange-700">8</span>
+              <span class="text-7 text-neutral-400 italic">classes</span>
+            </span>
+          </header>
+          <div class="code-comparison">
+            <Code
+              code={`<article class="card vertical gap-3">
+  <h3 class="h4 text-zorange-500">The Layouts System</h3>
+  <div class="prose">Build layouts in seconds — HTML that reads like layout, not a wall of classes.</div>
+  <button class="button pigment-orange-filled">See how it works</button>
+</article>`}
+              lang="html"
+              wrap
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="prose-responsive max-w-[16em] text-center mx-auto">
+        <Markdown>You decide which is more readable.</Markdown>
+      </div>
+    </div>
+  </div>
+</section>
