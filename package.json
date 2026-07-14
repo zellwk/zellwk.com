@@ -12,7 +12,7 @@
     "dev": "gulp dev & astro dev --host",
     "build": "gulp build && astro build",
     "server": "nodemon start.js",
-    "deploy": "npm run build && npm run sync",
+    "deploy": "npm run build && node deploy.js",
     "sync": "node sync.js",
     "preview": "astro preview",
     "astro": "astro"
