@@ -1,5 +1,40 @@
 ---
 import { Markdown } from '@splendidlabz/astro'
+
+const whatsInside = `
+### 1. Art Direction
+
+Breakpoint-specific crops without the markup mess. A clean pattern for serving different images at different viewports --- square on mobile, landscape on desktop --- without hand-writing \`<source>\` tags every time.
+
+### 2. Background Images
+
+Optimized images in CSS layouts. A utility pattern that generates optimized URLs you can use with \`background-image\`. Hero sections, banners, overlays --- all with proper optimization instead of raw full-size files.
+
+### 3. MDX & Markdown Images
+
+Content images that don't punish mobile users. A component pattern that gives your markdown images responsive behavior with automatic \`srcset\` --- so your blog posts serve the right size to every device.
+
+### 4. Framework Interop
+
+Using optimized images in React, Svelte, or Vue components. You can't optimize images inside the framework --- that's Astro's job. But getting them across the boundary cleanly? That's where most people waste time trying \`client:only\` workarounds and fragile hacks. This pattern shows you the clean approach.
+
+### 5. Video as GIF Replacement
+
+Animated GIFs are massive. A 5-second loop can be 10MB. The modern fix is using \`<video>\` with optimized formats --- but Astro doesn't handle video optimization in its build pipeline. This pattern gives you a production workflow for optimized video loops that replace GIFs at a fraction of the file size.
+
+### 6. CI Performance
+
+Image-heavy builds that don't timeout. Strategies for caching, incremental optimization, and configuration that keeps your build pipeline fast --- even with hundreds of images across dozens of pages.
+
+
+## HOW IT FITS TOGETHER
+
+These aren't six disconnected tips.
+
+Art direction handles the viewport problem. Background images handle the CSS problem. MDX images handle the content problem. Framework interop handles the component boundary problem. Video replacement handles the animation problem. CI performance makes sure the whole thing actually ships.
+
+Each pattern supports the next. You stop improvising and start reusing.
+`
 ---
 
 <section>
@@ -12,49 +47,7 @@ import { Markdown } from '@splendidlabz/astro'
   </div>
 
   <div class="prose max-w-narrow mx-auto">
-    <!-- prettier-ignore -->
-    <Markdown>
-
-    ### 1. Art Direction
-
-    Breakpoint-specific crops without the markup mess. A clean pattern for serving different images at different viewports --- square on mobile, landscape on desktop --- without hand-writing `<source>` tags every time.
-
-    ### 2. Background Images
-
-    Optimized images in CSS layouts. A utility pattern that generates optimized URLs you can use with `background-image`. Hero sections, banners, overlays --- all with proper optimization instead of raw full-size files.
-
-    ### 3. MDX & Markdown Images
-
-    Content images that don't punish mobile users. A component pattern that gives your markdown images responsive behavior with automatic `srcset` --- so your blog posts serve the right size to every device.
-
-    ### 4. Framework Interop
-
-    Using optimized images in React, Svelte, or Vue components. You can't optimize images inside the framework --- that's Astro's job. But getting them across the boundary cleanly? That's where most people waste time trying `client:only` workarounds and fragile hacks. This pattern shows you the clean approach.
-
-    ### 5. Video as GIF Replacement
-
-    Animated GIFs are massive. A 5-second loop can be 10MB. The modern fix is using `<video>` with optimized formats --- but Astro doesn't handle video optimization in its build pipeline. This pattern gives you a production workflow for optimized video loops that replace GIFs at a fraction of the file size.
-
-    ### 6. CI Performance
-
-    Image-heavy builds that don't timeout. Strategies for caching, incremental optimization, and configuration that keeps your build pipeline fast --- even with hundreds of images across dozens of pages.
-
-
-    ## HOW IT FITS TOGETHER
-
-    These aren't six disconnected tips.
-
-    Art direction handles the viewport problem. Background images handle the CSS problem. MDX images handle the content problem. Framework interop handles the component boundary problem. Video replacement handles the animation problem. CI performance makes sure the whole thing actually ships.
-
-    Each pattern supports the next. You stop improvising and start reusing.
-
-    </Markdown>
-  </div>
-
-
-
-
-
+    <Markdown content={whatsInside} />
   </div>
 </section>
 
