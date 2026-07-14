@@ -1,3 +1,9 @@
+import {
+  discount,
+  modules,
+  price,
+} from '@/content/data/courses/practical-astro.js'
+
 export const faq = [
   {
     question: 'When will all the modules be ready?',
@@ -15,7 +21,7 @@ export const faq = [
     question: 'What if I only need one module?',
     answer: `You can buy individual modules separately. 
     
-    But this collection gives you all 8 for only $149 — that's 72% off the total price. The collection is the better deal.`,
+    But this collection gives you all ${modules.length} for only $${price} — that's ${discount}% off the total price. The collection is the better deal.`,
   },
   {
     question: 'Is this for beginners or experienced Astro devs?',

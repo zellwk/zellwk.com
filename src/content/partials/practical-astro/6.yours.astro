@@ -1,6 +1,11 @@
 ---
 import { Heading, Markdown } from '@splendidlabz/astro'
 import CheckoutButton from '@/components/CheckoutButton.svelte'
+import {
+  modules,
+  price,
+  totalPrice,
+} from '@/content/data/courses/practical-astro.js'
 ---
 
 <section id="pricing" class="section bg-zpurple-900">
@@ -21,59 +26,21 @@ import CheckoutButton from '@/components/CheckoutButton.svelte'
           </header>
           <div class="content bg-zpurple-1000">
             <ul class="text-8 tabular-nums text-zgray-400 vertical gap-0.25">
-              <li class="horizontal justify-between items-center gap-1.25">
-                <span>1. </span>
-                <span>Content Systems</span>
-                <span class="h-[1em] flex-grow border-b-1 border-dotted"></span>
-                <span>$49</span>
-              </li>
-              <li class="horizontal justify-between items-center gap-1.25">
-                <span>2. </span>
-                <span>Image Systems</span>
-                <span class="h-[1em] flex-grow border-b-1 border-dotted"></span>
-                <span>$49</span>
-              </li>
-              <li class="horizontal justify-between items-center gap-1.25">
-                <span>3. </span>
-                <span>SEO & Discovery</span>
-                <span class="h-[1em] flex-grow border-b-1 border-dotted"></span>
-                <span>$49</span>
-              </li>
-              <li class="horizontal justify-between items-center gap-1.25">
-                <span>4. </span>
-                <span>Form Systems</span>
-                <span class="h-[1em] flex-grow border-b-1 border-dotted"></span>
-                <span>$49</span>
-              </li>
-              <li class="horizontal justify-between items-center gap-1.25">
-                <span>5. </span>
-                <span>Email Systems</span>
-                <span class="h-[1em] flex-grow border-b-1 border-dotted"></span>
-                <span>$49</span>
-              </li>
-              <li class="horizontal justify-between items-center gap-1.25">
-                <span>6. </span>
-                <span>Database Systems</span>
-                <span class="h-[1em] flex-grow border-b-1 border-dotted"></span>
-                <span>$49</span>
-              </li>
-              <li class="horizontal justify-between items-center gap-1.25">
-                <span>7. </span>
-                <span>Auth Systems</span>
-                <span class="h-[1em] flex-grow border-b-1 border-dotted"></span>
-                <span>$149</span>
-              </li>
-              <li class="horizontal justify-between items-center gap-1.25">
-                <span>8. </span>
-                <span>Payment Systems</span>
-                <span class="h-[1em] flex-grow border-b-1 border-dotted"></span>
-                <span>$99</span>
-              </li>
+              {
+                modules.map((module, index) => (
+                  <li class="horizontal justify-between items-center gap-1.25">
+                    <span>{index + 1}. </span>
+                    <span>{module.title}</span>
+                    <span class="h-[1em] flex-grow border-b-1 border-dotted" />
+                    <span>${module.price}</span>
+                  </li>
+                ))
+              }
               <li
                 class="horizontal justify-between items-center gap-1.25 mt-1.25"
               >
                 <span class="text-zpurple-50">Total</span>
-                <span class="strong text-zred-500">$541</span>
+                <span class="strong text-zred-500">${totalPrice}</span>
               </li>
             </ul>
           </div>
@@ -94,10 +61,10 @@ import CheckoutButton from '@/components/CheckoutButton.svelte'
               <div
                 class="h1-subhead text-15 strikethrough [--strike-color:var(--color-zred-500)] [--strike-angle:-12deg] tabular-nums"
               >
-                <span class="opacity-38">$541</span>
+                <span class="opacity-38">${totalPrice}</span>
               </div>
               <div class="h1-subhead text-15">
-                <span class="text-zorange-500">$169 only</span>
+                <span class="text-zorange-500">${price} only</span>
               </div>
             </div>
           </div>
@@ -106,7 +73,7 @@ import CheckoutButton from '@/components/CheckoutButton.svelte'
             <CheckoutButton
               client:load
               product="Practical Astro"
-              value={169}
+              value={price}
               label="Get Practical Astro"
             />
             <div class="vertical gap-1">

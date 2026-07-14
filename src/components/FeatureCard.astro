@@ -1,5 +1,6 @@
 ---
-import { FancyList, If } from '@splendidlabz/astro'
+import { If } from '@splendidlabz/astro'
+import { FancyList } from '@splendidlabz/astro/svelte'
 import { formatDate } from 'date-fns'
 
 const {
@@ -46,7 +47,7 @@ if (available) availableDate = formatDate(new Date(available), 'do MMMM')
     }
     <div class="h4 text-zorange-500">{title}</div>
     <If condition={showPrice}>
-      <div class="june">{price}</div>
+      <div class="june">${price}</div>
     </If>
     <If condition={lessons}>
       <div class="june text-6 text-neutral-500 whitespace-nowrap shrink-0">
@@ -73,7 +74,7 @@ if (available) availableDate = formatDate(new Date(available), 'do MMMM')
           {buttonText}
         </a>
         <div slot="else" class="mt-auto button pigment-disabled">
-          Coming soon
+          Website coming soon
         </div>
       </If>
     </If>

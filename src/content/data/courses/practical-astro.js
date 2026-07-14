@@ -1,7 +1,10 @@
+// Collection price. Everything else on the salespage derives from this.
+export const price = 169
+
 export const modules = [
   {
     title: 'Content Systems',
-    price: '$49',
+    price: 49,
     description: 'Handle content like a pro',
     released: true,
     items: [
@@ -17,7 +20,7 @@ export const modules = [
   },
   {
     title: 'Image Systems',
-    price: '$49',
+    price: 49,
     description: 'Images become a cinch.',
     // link: '/courses/practical-astro/image-systems/',
     available: '2026-07-31',
@@ -39,7 +42,7 @@ export const modules = [
   },
   {
     title: 'Form Systems',
-    price: '$49',
+    price: 49,
     description: 'Handle Forms with ease',
     available: '2026-08-31',
     items: [
@@ -57,7 +60,7 @@ export const modules = [
   },
   {
     title: 'SEO & Discovery',
-    price: '$49',
+    price: 49,
     description: 'SEO made really really easy.',
     items: [
       'Automatic canonical urls',
@@ -73,7 +76,7 @@ export const modules = [
   },
   {
     title: 'Email Systems',
-    price: '$49',
+    price: 49,
     description: 'Create and send emails straight from your Astro site!',
     items: [
       'Supports multiple providers',
@@ -90,7 +93,7 @@ export const modules = [
   },
   {
     title: 'Database Systems',
-    price: '$49',
+    price: 49,
     description: 'Use SQLite easily with Astro DB or Drizzle ORM.',
     items: [
       'Works with Astro DB and Drizzle ORM',
@@ -105,7 +108,7 @@ export const modules = [
   },
   {
     title: 'Auth Systems',
-    price: '$149',
+    price: 149,
     description: 'Authentication without the nightmare.',
     items: [
       'Local authentication -- without 3rd-party software',
@@ -129,7 +132,7 @@ export const modules = [
   },
   {
     title: 'Payment Systems',
-    price: '$99',
+    price: 99,
     description: 'Collect cash with Stripe in hours --- not days.',
     items: [
       'Handle one-time payments',
@@ -149,3 +152,6 @@ export const modules = [
     ],
   },
 ]
+
+export const totalPrice = modules.reduce((sum, module) => sum + module.price, 0)
+export const discount = Math.round((1 - price / totalPrice) * 100)
