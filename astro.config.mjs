@@ -58,6 +58,7 @@ const shikiConfig = {
 export default defineConfig({
   site: config.site.url,
   trailingSlash: 'always',
+  compressHTML: true,
   integrations: [
     expressiveCode(shikiConfig),
     svelte(),
