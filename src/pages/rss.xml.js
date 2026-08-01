@@ -7,6 +7,7 @@ import { experimental_AstroContainer as AstroContainer } from 'astro/container'
 import { getCollection, render } from 'astro:content'
 import config from '../../site-config.js'
 import { components } from '../components/blogPostComponents.js'
+import { postFilter } from '../utils/content.js'
 
 export const prerender = true
 
@@ -17,7 +18,7 @@ export async function GET(context) {
   container.addServerRenderer({ renderer: mdxRenderer })
 
   const blog = await getCollection('blog')
-  const posts = await await processFiles(blog)
+  const posts = await processFiles(blog, { filter: postFilter })
   const items = posts.map(async (post, index) => {
     const rendered = await render(post)
     const { Content } = rendered

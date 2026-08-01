@@ -4,9 +4,10 @@ import { JsonLD, Partial, SVG } from '@splendidlabz/astro'
 import { gatherTags, processFiles } from '@splendidlabz/astro/content'
 import { pluralize } from '@splendidlabz/utils'
 import { getCollection } from 'astro:content'
+import { postFilter } from '@/utils/content.js'
 
 const blog = await getCollection('blog')
-const posts = await processFiles(blog)
+const posts = await processFiles(blog, { filter: postFilter })
 const tags = gatherTags(posts)
 
 // Group tags alphabetically

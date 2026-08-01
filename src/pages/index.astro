@@ -4,9 +4,10 @@ import { processFiles } from '@splendidlabz/astro/content'
 import { getCollection } from 'astro:content'
 import { now } from '../content/data/now'
 import Base from '../layouts/Base.astro'
+import { postFilter } from '../utils/content.js'
 
 const files = await getCollection('blog')
-const posts = (await processFiles(files)).slice(0, 9)
+const posts = (await processFiles(files, { filter: postFilter })).slice(0, 9)
 
 export const prerender = true
 

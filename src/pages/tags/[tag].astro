@@ -4,12 +4,13 @@ import { gatherTags, processFiles } from '@splendidlabz/astro/content'
 import { getCollection } from 'astro:content'
 import { formatDate } from 'date-fns'
 import Base from "@/layouts/Base.astro"
+import { postFilter } from '@/utils/content.js'
 
 export const prerender = true
 
 export async function getStaticPaths() {
   const blog = await getCollection('blog')
-  const posts = processFiles(blog)
+  const posts = processFiles(blog, { filter: postFilter })
   const tags = gatherTags(posts)
 
   return tags.map(tag => {

@@ -2,10 +2,11 @@ import { processFiles } from '@splendidlabz/astro/content'
 import { createOGImage } from '@splendidlabz/og'
 import { getCollection } from 'astro:content'
 import ogStyles from '../../styles/og-styles.css?raw'
+import { postFilter } from '../../utils/content.js'
 
 export async function getStaticPaths() {
   const files = await getCollection('blog')
-  const posts = await processFiles(files)
+  const posts = await processFiles(files, { filter: postFilter })
 
   return posts.map(post => ({
     params: { slug: post.data.slug },

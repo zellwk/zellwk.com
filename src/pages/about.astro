@@ -5,10 +5,11 @@ import { processFiles } from '@splendidlabz/astro/content'
 import { getCollection } from 'astro:content'
 import { now } from '../content/data/now'
 import Base from '../layouts/Base.astro'
+import { postFilter } from '../utils/content.js'
 
 const nowItems = now.slice(0, 2)
 const files = await getCollection('blog')
-const posts = (await processFiles(files)).slice(0, 5)
+const posts = (await processFiles(files, { filter: postFilter })).slice(0, 5)
 
 const SEOProps = {
   title: 'About',

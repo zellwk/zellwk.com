@@ -1,3 +1,6 @@
+// Filter value for processFiles: show unpublished posts in dev, published-only in prod
+export const postFilter = import.meta.env.DEV ? false : 'published'
+
 // import rehypeStringify from 'rehype-stringify'
 // import remarkParse from 'remark-parse'
 // import remarkPlainText from 'remark-plain-text'

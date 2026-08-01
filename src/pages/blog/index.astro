@@ -4,9 +4,10 @@ import Base from '@/layouts/Base.astro'
 import { JsonLD, Markdown, Partial, SVG } from '@splendidlabz/astro'
 import { processFiles } from '@splendidlabz/astro/content'
 import { getCollection } from 'astro:content'
+import { postFilter } from '@/utils/content.js'
 
 const blog = await getCollection('blog')
-const posts = processFiles(blog)
+const posts = processFiles(blog, { filter: postFilter })
 
 const SEOProps = {
   title: 'Blog — Articles on Web Development, CSS, and JavaScript',
