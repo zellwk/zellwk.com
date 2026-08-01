@@ -1,0 +1,13 @@
+---
+import { Markdown } from '@splendidlabz/astro'
+
+const { speaker, content } = Astro.props
+const side = speaker === 'Zell' ? 'self' : 'other'
+---
+
+<div class:list={['transcript-turn', `transcript-turn-${side}`]}>
+  <div class="transcript-bubble">
+    <Markdown content={content} />
+  </div>
+  <p class="transcript-speaker">{speaker}</p>
+</div>

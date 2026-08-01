@@ -1,0 +1,68 @@
+---
+import TranscriptTurn from '@/components/TranscriptTurn.astro'
+import Base from '@/layouts/Base.astro'
+import { parseTranscript } from '@/utils/transcript.js'
+import { Heading, Markdown } from '@splendidlabz/astro'
+import { getCollection } from 'astro:content'
+import { formatDate } from 'date-fns'
+
+export const prerender = true
+
+export async function getStaticPaths() {
+  const entries = await getCollection('transcripts')
+  return entries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const turns = parseTranscript(entry.body)
+const intro = turns[0].speaker ? null : turns.shift()
+---
+
+<Base {...entry.data}>
+  <div class="wrap">
+    <article class="article">
+      <header>
+        <Heading class="gap-4" center>
+          <span class="meta text-zgray-500">
+            Published on {formatDate(entry.data.createAt, 'MMM d, yyyy')}
+          </span>
+          <h1 class="h1">
+            <Markdown inline>{entry.data.title}</Markdown>
+          </h1>
+        </Heading>
+      </header>
+
+      <div class="transcript mt-8">
+        {
+          intro && (
+            <div class="transcript-intro">
+              <Markdown content={intro.content} />
+            </div>
+          )
+        }
+        {
+          turns.map(turn =>
+            turn.speaker ? (
+              <TranscriptTurn {...turn} />
+            ) : (
+              <div class="transcript-note">
+                <Markdown content={turn.content} />
+              </div>
+            ),
+          )
+        }
+      </div>
+
+      {
+        entry.data.article && (
+          <a class="transcript-back" href={entry.data.article.url}>
+            ← Back to {entry.data.article.title}
+          </a>
+        )
+      }
+    </article>
+  </div>
+</Base>

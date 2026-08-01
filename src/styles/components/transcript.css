@@ -1,0 +1,103 @@
+/* Caps the thread so the two sides stay in conversation with each other —
+ * at full page width the bubbles drift too far apart to read as one exchange. */
+.transcript {
+  @apply vertical;
+  gap: 1rlh;
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
+.transcript-intro {
+  @apply text-8;
+  align-self: center;
+  max-width: 34rem;
+  text-align: center;
+  color: var(--color-zgray-400);
+}
+
+.transcript-note {
+  @apply text-7;
+  align-self: center;
+  max-width: 30rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--color-zgray-500);
+}
+
+.transcript-turn {
+  @apply vertical;
+  gap: calc(var(--spacing) * 1);
+  max-width: 100%;
+}
+
+.transcript-turn-self {
+  align-items: flex-end;
+}
+
+.transcript-turn-other {
+  align-items: flex-start;
+}
+
+.transcript-speaker {
+  @apply june text-7;
+  --font-style: 60;
+  color: var(--color-zgray-500);
+}
+
+.transcript-back {
+  @apply text-8;
+  display: block;
+  margin-block-start: 2rlh;
+  text-align: center;
+  color: var(--color-zgray-400);
+
+  @variant interact {
+    color: var(--color-zpurple-300);
+  }
+}
+
+/* fit-content lets a one-line turn hug its text while a long one stretches to
+ * the cap — without it, short and long turns get the same narrow column. */
+.transcript-bubble {
+  @apply vertical text-8 bp8:text-9;
+  gap: 0.75rlh;
+  width: fit-content;
+  max-width: min(100%, 38rem);
+  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
+  border-radius: calc(var(--spacing) * 4);
+  background-color: var(--bubble-color);
+
+  :where(ul, ol) {
+    @apply vertical;
+    gap: 0.25rlh;
+    padding-left: 1.25em;
+    list-style: outside;
+  }
+
+  :where(strong) {
+    color: var(--color-zpurple-100);
+  }
+
+  :where(blockquote) {
+    padding-left: 1em;
+    border-left: 2px solid var(--color-zgray-600);
+    color: var(--color-zgray-400);
+  }
+
+  :where(code) {
+    @apply text-7;
+    padding-inline: 0.3em;
+    border-radius: 0.25em;
+    background-color: var(--color-zpurple-1100);
+  }
+}
+
+.transcript-turn-self .transcript-bubble {
+  --bubble-color: var(--color-zpurple-800);
+  border-end-end-radius: calc(var(--spacing) * 1);
+}
+
+.transcript-turn-other .transcript-bubble {
+  --bubble-color: var(--color-zgray-800);
+  border-end-start-radius: calc(var(--spacing) * 1);
+}
