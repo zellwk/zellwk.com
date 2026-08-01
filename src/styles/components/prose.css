@@ -59,6 +59,20 @@
     font-size: 0.85em;
   }
 
+  footer {
+    @apply stinger bp8:text-7 text-zred-500 relative;
+    --font-weight: 600;
+    margin-top: -0.75lh;
+
+    &::before {
+      content: '— ';
+    }
+
+    cite {
+      font-style: normal;
+    }
+  }
+
   &::before {
     @apply june text-[10.5rem] leading-[1] text-zred-700d pos-topleft absolute;
     content: '“';
