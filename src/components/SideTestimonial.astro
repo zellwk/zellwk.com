@@ -13,25 +13,15 @@ let { title, image, name } = data
 if (!name) name = toTitle(path)
 ---
 
-<blockquote class="stack mt-4">
-  <div class="june text-[10.5rem] leading-[1] text-zred-700d relative -top-6">
-    &ldquo;
+<blockquote class="quote mt-4 text-9">
+  <div class="prose">
+    <Content />
   </div>
-  <div class="pl-9.5">
-    <div class="prose stinger-fit !text-8 text-zgray-400">
-      <Content />
-      <div class="horizontal items-center justify-start gap-3">
-        <Image
-          figureClass="max-w-6 "
-          class="rounded-full"
-          src={image}
-          alt={name}
-        />
-        <div class="text-5 june [--font-style:70]">
-          <span class="text-zorange-500">{name}</span>
-          <span class="text-zgray-500">— {title}</span>
-        </div>
-      </div>
+  <div class="horizontal items-center justify-start gap-3">
+    <Image figureClass="max-w-6" class="rounded-full" src={image} alt={name} />
+    <div class="text-5 june [--font-style:70]">
+      <span class="text-zorange-500">{name}</span>
+      <span class="text-zgray-500">— {title}</span>
     </div>
   </div>
 </blockquote>

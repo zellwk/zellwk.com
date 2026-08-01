@@ -1,0 +1,46 @@
+@utility quote {
+  --quote-glyph-size: 7em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding-left: var(--quote-indent, 1em);
+
+  .prose {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  &::before {
+    @apply june text-zred-700d absolute;
+    content: '“';
+    top: -0.2em;
+    left: 0;
+    font-size: var(--quote-glyph-size);
+    line-height: 1;
+  }
+
+  p {
+    @apply stinger-fit text-zgray-400 relative;
+    font-size: 0.875em;
+  }
+
+  footer {
+    @apply stinger text-zred-500 relative;
+    --font-weight: 600;
+
+    /* Trims the 1em container gap to 0.5em total. In footer-em, since margin
+     * resolves against the footer's own font-size: 0.5 / 0.6667 = 0.75em. */
+    margin-top: -0.75em;
+    font-size: 0.6667em;
+
+    &::before {
+      content: '— ';
+    }
+
+    cite {
+      font-style: normal;
+    }
+  }
+}

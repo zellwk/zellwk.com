@@ -48,35 +48,6 @@
 }
 
 .prose-responsive blockquote {
-  @apply prose;
-  position: relative;
-  gap: 0.75lh;
+  @apply quote;
   margin-top: 1lh;
-  padding-left: 1em;
-
-  p {
-    @apply stinger-fit text-zgray-400 relative;
-    font-size: 0.85em;
-  }
-
-  footer {
-    @apply stinger bp8:text-7 text-zred-500 relative;
-    --font-weight: 600;
-    margin-top: -0.75lh;
-
-    &::before {
-      content: '— ';
-    }
-
-    cite {
-      font-style: normal;
-    }
-  }
-
-  &::before {
-    @apply june text-[10.5rem] leading-[1] text-zred-700d pos-topleft absolute;
-    content: '“';
-    top: calc(var(--spacing) * -5.5);
-    left: 0;
-  }
 }
