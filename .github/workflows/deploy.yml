@@ -50,6 +50,11 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Build site
+        env:
+          FB_CAPI_TOKEN: ${{ secrets.FB_CAPI_TOKEN }}
+          PUBLIC_POSTHOG_KEY: ${{ secrets.PUBLIC_POSTHOG_KEY }}
+          POSTMARK_KEY: ${{ secrets.POSTMARK_KEY }}
+          SENDY_API_KEY: ${{ secrets.SENDY_API_KEY }}
         run: npm run build
 
       - name: Save Astro image cache
