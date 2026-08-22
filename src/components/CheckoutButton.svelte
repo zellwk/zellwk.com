@@ -1,6 +1,6 @@
 <script>
   import { toSlug } from '@splendidlabz/utils'
-  import { ph } from '@/services/tracking/web'
+  import { ph } from '@/services/tracking/ph/web'
 
   let {
     product,

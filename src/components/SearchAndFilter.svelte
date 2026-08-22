@@ -2,7 +2,7 @@
   import { TextInput } from '@splendidlabz/svelte'
   import { debounce } from '@splendidlabz/utils'
   import { formatDate } from 'date-fns'
-  import { ph } from '@/services/tracking/web'
+  import { ph } from '@/services/tracking/ph/web'
   let { posts = $bindable([]) } = $props()
 
   let inputRef = $state(null)

@@ -8,7 +8,7 @@
   } from '@splendidlabz/svelte'
   import { wait } from '@splendidlabz/utils'
   import { createZlFetch } from 'zl-fetch'
-  import { ph } from '@/services/tracking/web'
+  import { ph } from '@/services/tracking/ph/web'
 
   const f = createZlFetch('/api/contact/', { returnError: true })
 

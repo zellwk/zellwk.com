@@ -2,7 +2,7 @@
   import { Form, Status, TextInput } from '@splendidlabz/svelte'
   import { delay, omitEmpty } from '@splendidlabz/utils'
   import zlFetch from 'zl-fetch'
-  import { ph } from '@/services/tracking/web'
+  import { ph } from '@/services/tracking/ph/web'
 
   /** @type {{ list: string, children?: import('svelte').Snippet }} */
 

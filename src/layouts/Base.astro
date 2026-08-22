@@ -19,7 +19,8 @@ const { class: bodyClass, ...props } = Astro.props
     </div>
 
     <script>
-      import { fb, ph } from '@/services/tracking/web'
+      import { fb } from '@/services/tracking/fb/web'
+      import { ph } from '@/services/tracking/ph/web'
 
       fb.init()
       fb.track('PageView')

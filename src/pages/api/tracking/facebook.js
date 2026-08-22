@@ -1,4 +1,4 @@
-import { fb } from '@/services/tracking/node'
+import { fb } from '@/services/tracking/fb/node'
 import { JSONResponse, parseData } from '@splendidlabz/astro/server'
 
 export const prerender = false
