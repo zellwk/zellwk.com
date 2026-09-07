@@ -1,0 +1,255 @@
+---
+import Base from '@/layouts/Base.astro'
+---
+
+<Base class="salespage">
+  <section class="section">
+    <div class="wrap">
+      <div class="vertical" style="align-items:center;">
+        <h2 class="h2" style="text-align:center;max-width:16em;">
+          Same component. Watch the code collapse.
+        </h2>
+
+        <!-- ===== Example 1: Card ===== -->
+        <div class="ba" data-ba>
+          <!-- Rendered proof -->
+          <div class="ba-render">
+            <div class="ba-card">
+              <h3 class="ba-title">The Layouts System</h3>
+              <p class="ba-body">
+                Build layouts in seconds — HTML that reads like layout, not a
+                wall of classes.
+              </p>
+              <button class="ba-follow">See how it works</button>
+            </div>
+          </div>
+
+          <!-- Toggle -->
+          <div class="ba-toggle" role="tablist">
+            <button class="ba-seg is-active" data-seg="before">Before</button>
+            <button class="ba-seg" data-seg="after">After</button>
+            <span class="ba-count" data-count>
+              <b>28</b> utility classes
+            </span>
+          </div>
+
+          <!-- Code stack -->
+          <div class="ba-codewrap" data-codewrap>
+            <pre class="ba-code is-active" data-state="before"><code><span class="t">&lt;div</span> <span class="a">class=</span><span class="noise">"flex flex-col gap-4 p-6 rounded-2xl border border-neutral-800 bg-neutral-900"</span><span class="t">&gt;</span>
+  <span class="t">&lt;h3</span> <span class="a">class=</span><span class="noise">"text-lg font-semibold text-orange-500"</span><span class="t">&gt;</span>The Layouts System<span class="t">&lt;/h3&gt;</span>
+  <span class="t">&lt;p</span> <span class="a">class=</span><span class="noise">"text-base leading-relaxed text-neutral-300"</span><span class="t">&gt;</span>Build layouts in seconds — HTML that reads like layout, not a wall of classes.<span class="t">&lt;/p&gt;</span>
+  <span class="t">&lt;button</span> <span class="a">class=</span><span class="noise">"inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-colors"</span><span class="t">&gt;</span>See how it works<span class="t">&lt;/button&gt;</span>
+<span class="t">&lt;/div&gt;</span></code></pre>
+            <pre class="ba-code" data-state="after"><code><span class="t">&lt;article</span> <span class="a">class=</span><span class="clean">"card vertical gap-4"</span><span class="t">&gt;</span>
+  <span class="t">&lt;h3</span> <span class="a">class=</span><span class="clean">"h4 accent"</span><span class="t">&gt;</span>The Layouts System<span class="t">&lt;/h3&gt;</span>
+  <span class="t">&lt;p</span> <span class="a">class=</span><span class="clean">"prose"</span><span class="t">&gt;</span>Build layouts in seconds — HTML that reads like layout, not a wall of classes.<span class="t">&lt;/p&gt;</span>
+  <span class="t">&lt;button</span> <span class="a">class=</span><span class="clean">"button pigment-orange-filled"</span><span class="t">&gt;</span>See how it works<span class="t">&lt;/button&gt;</span>
+<span class="t">&lt;/article&gt;</span></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .ba {
+      width: 100%;
+      max-width: 46rem;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* Rendered proof */
+    .ba-render {
+      display: flex;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .ba-card {
+      width: 100%;
+      max-width: 22rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background: var(--color-zpurple-1100, #1a1230);
+      border: 1px solid var(--color-zgray-750, #3a3550);
+      box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+    }
+    .ba-card-head {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .ba-avatar {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, var(--color-zorange-500, #ff7a1a), #ff4d6d);
+    }
+    .ba-icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 0.6rem;
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      color: #fff;
+      background: var(--color-zorange-500, #ff7a1a);
+    }
+    .ba-title { font-weight: 650; color: var(--color-zorange-500, #ff9a4d); font-size: 1.15rem; }
+    .ba-body { color: var(--color-zgray-200, #d6d3e6); line-height: 1.5; }
+    .ba-follow {
+      align-self: flex-start;
+      padding: 0.5rem 1.1rem;
+      border-radius: 0.6rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--color-zorange-500, #ff7a1a);
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Toggle */
+    .ba-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      align-self: center;
+    }
+    .ba-seg {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--color-zgray-400, #a09ab8);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color 0.2s, background 0.2s;
+    }
+    .ba-seg.is-active[data-seg="before"] {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .ba-seg.is-active[data-seg="after"] {
+      color: #fff;
+      background: var(--color-zorange-500, #ff7a1a);
+    }
+    .ba-count {
+      margin-left: 0.5rem;
+      padding-right: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--color-zgray-400, #a09ab8);
+      transition: color 0.2s;
+    }
+    .ba-count b {
+      font-size: 1rem;
+      color: #fff;
+      transition: color 0.2s;
+    }
+    .ba.is-after .ba-count b { color: var(--color-zorange-500, #ff7a1a); }
+
+    /* Code stack — the collapse happens here */
+    .ba-codewrap {
+      position: relative;
+      border-radius: 0.9rem;
+      background: #0e0a1c;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      transition: height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.45s, box-shadow 0.45s;
+      height: auto;
+    }
+    .ba.is-after .ba-codewrap {
+      border-color: color-mix(in srgb, var(--color-zorange-500, #ff7a1a) 55%, transparent);
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-zorange-500, #ff7a1a) 25%, transparent),
+        0 12px 40px -18px var(--color-zorange-500, #ff7a1a);
+    }
+    .ba-code {
+      margin: 0;
+      padding: 1.25rem 1.4rem;
+      font-size: 0.8rem;
+      line-height: 1.7;
+      overflow-x: auto;
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.35s, transform 0.35s;
+      pointer-events: none;
+    }
+    .ba-code.is-active {
+      position: relative;
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+    .ba-code code {
+      font-family: var(--font-mono, ui-monospace, monospace);
+      white-space: pre;
+      color: var(--color-zgray-300, #c4c0da);
+    }
+    /* token colors */
+    .ba-code .t { color: #7c6fb0; }
+    .ba-code .a { color: #6b8cff; }
+    .ba-code .noise { color: #5c5878; }        /* before: gray noise */
+    .ba-code .clean { color: var(--color-zorange-500, #ff9a4d); } /* after: meaningful */
+
+    @media (max-width: 480px) {
+      .ba-code { font-size: 0.7rem; padding: 1rem; }
+      .ba-count { display: none; }
+    }
+  </style>
+
+  <script>
+    document.querySelectorAll('[data-ba]').forEach((ba) => {
+      const wrap = ba.querySelector('[data-codewrap]')
+      const codes = ba.querySelectorAll('.ba-code')
+      const segs = ba.querySelectorAll('.ba-seg')
+      const count = ba.querySelector('[data-count]')
+      const counts = { before: '28', after: '8' }
+      const labels = { before: 'utility classes', after: 'classes' }
+
+      function setHeight(state) {
+        const active = ba.querySelector(`.ba-code[data-state="${state}"]`)
+        wrap.style.height = active.scrollHeight + 'px'
+      }
+
+      function select(state) {
+        segs.forEach((s) =>
+          s.classList.toggle('is-active', s.dataset.seg === state)
+        )
+        codes.forEach((c) =>
+          c.classList.toggle('is-active', c.dataset.state === state)
+        )
+        ba.classList.toggle('is-after', state === 'after')
+        if (count) count.innerHTML = `<b>${counts[state]}</b> ${labels[state]}`
+        setHeight(state)
+      }
+
+      segs.forEach((s) =>
+        s.addEventListener('click', () => select(s.dataset.seg))
+      )
+
+      // init
+      requestAnimationFrame(() => setHeight('before'))
+      window.addEventListener('resize', () => {
+        const active = ba.querySelector('.ba-seg.is-active').dataset.seg
+        setHeight(active)
+      })
+    })
+  </script>
+</Base>
