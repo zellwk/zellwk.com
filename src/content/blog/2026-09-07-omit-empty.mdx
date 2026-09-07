@@ -1,0 +1,104 @@
+---
+title: 'The omitEmpty Function'
+description: "Conditional spreads and if-statements bury the shape of an object. omitEmpty strips the empty values out instead, so you can write an optional property as if it were always there. Here's what counts as empty, and when to go shallow."
+tags: ['javascript', 'splendidlabz']
+---
+
+I often encounter situations where I put together an object with conditional properties. 
+
+The most direct way of doing this is as follows: 
+
+```js
+const author = {
+  name: 'Zell Liew', 
+}
+
+if (bio) author.bio = bio
+```
+
+This works, but it's not really nice — because the declaration is split into two places. 
+
+If we want to keep the declaration in the same place, we can use a conditional spread. This looks funky, but it works. 
+
+```js
+const author = {
+  name: 'Zell Liew', 
+  ...(bio && { bio }),
+}
+```
+
+But it feels like we are passing through some JavaScript hoops in order to make this happen. I don't really like the feeling of that.
+
+So I built a function to remove empty values from an object. Then I can simply write the property as if it was already present.
+
+```js
+// This returns the same results as above
+const author = omitEmpty({
+  name: 'Zell Liew', 
+  bio,
+})
+```
+
+## What counts as empty
+
+I consider the following values to be empty:
+
+- `null`
+- `undefined`
+- An empty string (`''`)
+- An empty object (`{}`)
+- An empty array (`[]`)
+
+If a key contains one of these values, then `omitEmpty` will remove the key. 
+
+```js
+omitEmpty({
+  name: 'Zell',
+  date: new Date(),
+  title: '',
+  url: null,
+  meta: {},
+  tags: [],
+})
+
+// Result 
+// { name: 'Zell', date: Date }
+```
+
+## Deep and Shallow
+
+I made `omitEmpty` recursive by default so it can detect empty values within nested objects and arrays. 
+
+```js
+omitEmpty({ 
+  a: { 
+    one: {}, 
+    two: [], 
+    three: 1 
+  } 
+})
+
+// Result 
+// { a: { three: 1 } }
+```
+
+There are some objects we should not recurse through. For cases like these, we can set `shallow` to true to prevent `omitEmpty` from removing empty values in nested objects and arrays. 
+
+```js
+omitEmpty(object, { shallow: true })
+```
+
+## How to use it 
+
+Simply include `@splendidlabz/utils` in your project and you'll get to use `omitEmpty`. 
+
+```js
+import { omitEmpty } from '@splendidlabz/utils'
+
+omitEmpty(/*...*/)
+```
+
+It's a small function that I use a lot to keep my code neat and tidy. 
+
+If you're interested, you can also take a look at [Splendid Labz](https://splendidlabz.com) to find other functions and utilities I've created to make web development simple and easy.
+
