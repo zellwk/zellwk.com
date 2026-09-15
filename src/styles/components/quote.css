@@ -49,3 +49,25 @@
     }
   }
 }
+
+@utility quote-bar {
+  @apply pl-5 pt-2 py-1.25;
+  position: relative;
+  border-left: 2px solid var(--accent-color, var(--color-zviolet-300));
+
+  /* Cuts the quote mark into the top of the left border */
+  &::before {
+    @apply june;
+    content: '“';
+    position: absolute;
+    top: -0.3em;
+    left: -1px;
+    translate: -50% 0;
+    height: 1em;
+    padding: 0.5em 0;
+    font-size: 4rem;
+    line-height: 0.8;
+    color: var(--accent-color, var(--color-zviolet-300));
+    background-color: var(--quote-mark-bg, var(--color-zpurple-1000));
+  }
+}

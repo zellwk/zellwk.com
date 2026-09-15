@@ -1,0 +1,29 @@
+---
+import { toTitle } from '@splendidlabz/utils'
+import { getEntry, render } from 'astro:content'
+
+const { path } = Astro.props
+const entry = await getEntry('testimonials', path)
+const { data } = entry
+const { Content } = await render(entry)
+
+// Prepare variables for use in template
+let { title, name } = data
+if (!name) name = toTitle(path)
+---
+
+<figure
+  class="quote-bar vertical gap-3"
+  style="--accent-color: var(--color-zviolet-300)"
+>
+  <blockquote
+    class="prose gap-[inherit] [--bold-color:var(--color-zviolet-300)] [--bold-weight:500]"
+  >
+    <Content />
+  </blockquote>
+  <footer class="june text-8 text-zviolet-300">
+    —
+    {name}
+    {title && <span class="text-zgray-500">— {title}</span>}
+  </footer>
+</figure>
