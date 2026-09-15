@@ -12,10 +12,10 @@ const posts = (await processFiles(files, { filter: postFilter })).slice(0, 9)
 export const prerender = true
 
 const JsonLDProps = {
-  type: "Organization",
-  name: "Zell Liew",
-  url: "https://zellwk.com",
-  logo: "https://zellwk.com/favicon/favicon.svg",
+  type: 'Organization',
+  name: 'Zell Liew',
+  url: 'https://zellwk.com',
+  logo: 'https://zellwk.com/favicon/favicon.svg',
   sameAs: [
     'https://twitter.com/zellwk',
     'https://github.com/zellwk',
@@ -29,8 +29,8 @@ const JsonLDProps = {
 
 <Base
   bodyClass="home-page [--radius:1.25rlh]"
-  title="Zell Liew — Web Developer, Writer, Coach"
-  description="I build products, coach people, and write about web development, CSS, JavaScript, and sustainable work. Step-by-step tutorials and insights from over a decade of building for the web."
+  title="Building AI Systems for Businesses and Tools for Developers"
+  description="I build AI and automation systems that make businesses easier to run, plus tools and courses for developers like Splendid Labz, Practical Astro and Unorthodox Tailwind."
 >
   <JsonLD {...JsonLDProps} />
   <section class="section">
@@ -81,8 +81,8 @@ const JsonLDProps = {
                 now.map(item => (
                   <div
                     class:list={[
-                      "vertical card card-small !max-w-full", 
-                      `card-${item.color}`
+                      'vertical card card-small !max-w-full',
+                      `card-${item.color}`,
                     ]}
                     style={{
                       '--rowspan': item.cta ? '3' : '2',
@@ -122,7 +122,8 @@ const JsonLDProps = {
                       '--border-color': 'inherit',
                       '--bg-hover-color': 'var(--color-zcyan-700)',
                       '--text-hover-color': 'var(--color-zcyan-100)',
-                    }} rel="noreferrer"
+                    }}
+                    rel="noreferrer"
                   >
                     {post.data.title}
                   </a>
