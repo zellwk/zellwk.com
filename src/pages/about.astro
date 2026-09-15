@@ -1,13 +1,13 @@
 ---
 import { Image, JsonLD, Markdown, Partial, SVG } from '@splendidlabz/astro'
-import { FancyList } from '@splendidlabz/astro/svelte'
 import { processFiles } from '@splendidlabz/astro/content'
+import { FancyList } from '@splendidlabz/astro/svelte'
 import { getCollection } from 'astro:content'
 import { now } from '../content/data/now'
 import Base from '../layouts/Base.astro'
 import { postFilter } from '../utils/content.js'
 
-const nowItems = now.slice(0, 2)
+const nowItems = now.slice(0, 3)
 const files = await getCollection('blog')
 const posts = (await processFiles(files, { filter: postFilter })).slice(0, 5)
 
@@ -61,7 +61,7 @@ export const prerender = true
           <div
             class="june [--font-style:65] text-zgray-500 text-center bp10:text-left -mb-2"
           >
-            Last updated on: January 10th, 2025
+            Last updated on: September 15th, 2026
           </div>
           <hgroup class="vertical hero-heading items-center bp10:items-start">
             <h1 class="h1 text-center bp10:text-left text-zpurple-500">
@@ -135,63 +135,56 @@ export const prerender = true
         <div class="prose bp10:[--span:2] text-10">
           <!-- prettier-ignore -->
           <Markdown>
-            I've been thinking about what to do ever since AI began to take over the planet. (Let's face it, it's here). At the very least, AI has cannibalized my course business --- anyone can ask AI about code, so few people would buy another coding course. 
+            AI taken over the planet. (Let's face it, it's here). At the very least, it has cannibalized my course business --- anyone can ask AI about code, so few people want to buy another coding course. 
 
-            So I'm back in exploration mode. 
+            So I'm back to explore. 
 
-            And here are a few things that I'm looking into:
+            **Most of that exploration revolves around AI and automation**. 
 
-            1. Creating unique courses where AI cannot replicate (like <strong class="text-zpurple-500">Unorthodox Tailwind</strong>).
-            2. Building a component library (<strong class="text-zorange-500">Splendid Labz</strong>) that'll help me ship projects faster.
-            3. Deep diving into AI to see what I can make out of it.
-            4. Building applications and making businesses out of them
-            5. <strong class="text-zred-500">Coaching people</strong> to help them unblock themselves and unravel their potential in life.
+            - Building systems to make businesses easier to run. 
+            - Making personal automation systems like email filtering, triage and drafting of replies 
+            - Figuring out how to get AI to write better (ongoing) 
+            - Getting AI to write better code and better documentation.
+
+            Alongside that, I'm still:
+
+            1. Creating unique courses that AI cannot replicate (like <strong class="text-zpurple-500">Unorthodox Tailwind</strong>).
+            2. Building <strong class="text-zorange-500">Practical Astro</strong>, production-ready Astro patterns you can plonk into real projects.
+            3. Building <strong class="text-zcyan-500">Splendid Labz</strong>, the tools I build my projects with. There are component libraries for Astro and Svelte, a CSS design system, and AI libraries.
+            4. <strong class="text-zred-500">Coaching people</strong> to help them unblock themselves and unravel their potential in life.
 
             Ultimately, I'm looking to create sustainable and thriving businesses that works for me. I don't think I'd ever want to stop growing, so I'd probably never stop exploring too. 
           </Markdown>
 
-          <h3 class="h2 text-zcyan-500">Still Freelancing</h3>
+          <h3 class="h2 text-zcyan-500">Work With Me</h3>
 
           <Markdown>
-            While I'm not actively seeking freelance work, I'm always happy to
-            work on interesting projects. Feel free to [contact me](/contact/)
-            if you want to work on something together!
+            If your team is spending hours on work that probably shouldn't need
+            a human, [tell me what you're doing manually](/contact/) and I'll
+            help you figure out what's possible.
           </Markdown>
         </div>
 
         <div class="flow bp10:vertical justify-center">
-          <div class="card card-small card-purple text-8 vertical">
-            <h3 class="h4 card-title text-zpurple-500">{now[0].title}</h3>
-            <Markdown>{now[0].content}</Markdown>
-            <a
-              href={now[0].link}
-              class="button button-outline justify-self-start pigment-purple-outline"
-            >
-              {now[0].cta}
-            </a>
-          </div>
-
-          <div class="card card-small card-orange text-8 vertical">
-            <h3 class="h4 card-title text-zorange-500">{now[1].title}</h3>
-            <Markdown>{now[1].content}</Markdown>
-            <a
-              href={now[1].link}
-              class="button button-outline justify-self-start pigment-purple-outline"
-            >
-              {now[1].cta}
-            </a>
-          </div>
-
-          <div class="card card-small card-red text-8 vertical">
-            <h3 class="h4 card-title text-zred-500">{now[2].title}</h3>
-            <Markdown>{now[2].content}</Markdown>
-            <a
-              href={now[2].link}
-              class="button button-outline justify-self-start pigment-red-outline"
-            >
-              {now[2].cta}
-            </a>
-          </div>
+          {
+            nowItems.map(item => (
+              <div
+                class:list={[
+                  'card card-small text-8 vertical',
+                  `card-${item.color}`,
+                ]}
+              >
+                <h3 class="h4 card-title">{item.title}</h3>
+                <Markdown>{item.content}</Markdown>
+                <a
+                  href={item.link}
+                  class="button button-outline justify-self-start"
+                >
+                  {item.cta}
+                </a>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
