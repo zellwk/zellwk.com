@@ -6,87 +6,214 @@ import { Code } from 'astro-expressive-code/components'
 <section class="section bg-zpurple-950">
   <div class="wrap">
     <div class="vertical items-center gap-4">
-      <Heading center>
+      <Heading class="gap-4 mb-2" center>
         <h2 class="h2 max-w-[16em] text-zorange-500">
-          See The Difference For Yourself
+          Here's An Example Of The Difference
         </h2>
+
+        <p class="h2-subhead max-w-[38rem]">
+          <Markdown inline>
+            Between pure Tailwind, pure CSS, and Tailwind + CSS.
+          </Markdown>
+        </p>
       </Heading>
 
-      <div class="prose-responsive max-w-[37em] mx-auto">
-        <Markdown>Here's a simple card component with a button.</Markdown>
+      <div class="grid-simple bp8:[--cols:2] bp8:max-w-[45rem] items-center">
+        <div class="prose-responsive max-w-[37em] mx-auto">
+          <!-- prettier-ignore -->
+          <Markdown>
+            Let's just say you want to build this simple card.
+          </Markdown>
+        </div>
+
+        <div
+          class="bp8:-order-1 vertical items-center gap-3 max-w-[24rem] mx-auto"
+        >
+          <article class="card vertical gap-3">
+            <h3 class="h4 text-zorange-500">The Layouts System</h3>
+            <div class="prose">
+              <Markdown>
+                Build layouts in seconds --- HTML that reads like layout, not a
+                wall of classes.
+              </Markdown>
+            </div>
+            <button class="button pigment-orange-filled"
+              >See how it works</button
+            >
+          </article>
+        </div>
       </div>
 
-      <!-- The proof: both produce this exact component -->
-      <div class="vertical items-center gap-3 max-w-[24rem] mx-auto">
-        <article class="card vertical gap-3">
-          <h3 class="h4 text-zorange-500">The Layouts System</h3>
-          <div class="prose">
+      <div class="vertical gap-10 w-full max-w-[46rem] mx-auto">
+        <!-- With Tailwind -->
+        <div class="vertical gap-3">
+          <h3 class="h4 text-zorange-500">With Tailwind</h3>
+          <div class="prose-responsive">
+            <!-- prettier-ignore -->
             <Markdown>
-              Build layouts in seconds --- HTML that reads like layout, not a
-              wall of classes.
+              You write every single class in the HTML and it gets bloated, horribly. At some point, you know that Tailwind is no different from writing vanilla CSS from scratch each time.
             </Markdown>
           </div>
-          <button class="button pigment-orange-filled">See how it works</button>
-        </article>
-      </div>
-
-      <div class="prose-responsive max-w-[16em] text-center mx-auto">
-        <Markdown
-          >And here's the HTML built with Tailwind vs Unorthodox Tailwind</Markdown
-        >
-      </div>
-
-      <!-- The comparison: both visible at once -->
-      <div class="grid-simple bp8:[--cols:2] gap-4 items-center max-w-mid">
-        <!-- Before -->
-        <div class="card card-divided-vertical p-0 !bg-zpurple-1000s">
-          <header class="horizontal justify-between items-baseline px-3 py-2">
-            <span>Standard Tailwind</span>
-            <span>
-              <span>26</span>
-              <span class="text-7 text-neutral-400 italic">classes</span>
-            </span>
-          </header>
-          <div class="code-comparison">
-            <Code
-              code={`<div class="flex flex-col gap-[1.125rem] p-6 border-2 border-zpurple-900 rounded-xl">
+          <div class="card card-divided-vertical p-0 !bg-zpurple-1000s">
+            <header class="horizontal items-baseline px-3 py-2">
+              <span>HTML</span>
+            </header>
+            <div class="code-comparison">
+              <Code
+                code={`<div class="flex flex-col gap-[1.125rem] p-6 border-2 border-zpurple-900 rounded-xl">
   <h3 class="text-2xl font-bold leading-[1.4] font-june text-zorange-500">The Layouts System</h3>
-  <p class="text-xl leading-[1.5] text-zpurple-100">Build layouts in seconds — HTML that reads like layout, not a wall of classes.</p>
+  <p class="text-xl leading-[1.5] text-zpurple-100">Build layouts in seconds --- HTML that reads like layout, not a wall of classes.</p>
   <button class="flex items-center justify-center px-[1.25em] py-[0.5em] text-xl leading-[21px] rounded-xl bg-zorange-500 text-zpurple-1000 hover:bg-zorange-600">See how it works</button>
 </div>`}
-              lang="html"
-              wrap
-            />
+                lang="html"
+                wrap
+              />
+            </div>
           </div>
         </div>
 
-        <!-- After -->
-        <div
-          class="card card-divided-vertical p-0 !bg-zpurple-1000s [--border-color:var(--color-zorange-700)]"
-        >
-          <header class="horizontal justify-between items-baseline px-3 py-2">
-            <span class="text-zorange-700">Unorthodox Tailwind</span>
-            <span>
-              <span class="text-zorange-700">8</span>
-              <span class="text-7 text-neutral-400 italic">classes</span>
-            </span>
-          </header>
-          <div class="code-comparison">
-            <Code
-              code={`<article class="card vertical gap-3">
+        <!-- With CSS -->
+        <div class="vertical gap-3">
+          <h3 class="h4 text-zorange-500">With CSS</h3>
+          <div class="prose-responsive">
+            <!-- prettier-ignore -->
+            <Markdown>
+              The HTML is a lot cleaner. But you can't see how your classes interact with the DOM without pulling up the markup.
+
+              So even if it works, you feel a nagging irritation that you're missing some context if you don't have the HTML and CSS opened side by side.
+            </Markdown>
+          </div>
+          <div class="card card-divided-vertical p-0 !bg-zpurple-1000s">
+            <header class="horizontal items-baseline px-3 py-2">
+              <span>HTML</span>
+            </header>
+            <div class="code-comparison">
+              <Code
+                code={`<article class="card">
+  <h3 class="card-title">The Layouts System</h3>
+  <p class="card-text">Build layouts in seconds --- HTML that reads like layout, not a wall of classes.</p>
+  <button class="card-button">See how it works</button>
+</article>`}
+                lang="html"
+                wrap
+              />
+            </div>
+          </div>
+          <div class="card card-divided-vertical p-0 !bg-zpurple-1000s">
+            <header class="horizontal items-baseline px-3 py-2">
+              <span>CSS</span>
+            </header>
+            <div class="code-comparison">
+              <Code
+                code={`.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  padding: 1.5rem;
+  border: 2px solid var(--color-zpurple-900);
+  border-radius: 0.75rem;
+}
+
+.card-title {
+  font-family: var(--font-june);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-zorange-500);
+}
+
+.card-text {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--color-zpurple-100);
+}
+
+.card-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 1.25em;
+  font-size: 1.25rem;
+  line-height: 21px;
+  border-radius: 0.75rem;
+  background-color: var(--color-zorange-500);
+  color: var(--color-zpurple-1000);
+}
+
+.card-button:hover {
+  background-color: var(--color-zorange-600);
+}`}
+                lang="css"
+                wrap
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- With Tailwind and CSS -->
+        <div class="vertical gap-3">
+          <h3 class="h4 text-zorange-500">With both Tailwind and CSS</h3>
+          <div class="prose-responsive">
+            <!-- prettier-ignore -->
+            <Markdown>
+              The principles of good CSS continue to apply here --- you can create components (or elements/objects/utilities; they mean similar things) and insert them into your HTML.
+            </Markdown>
+          </div>
+          <div class="card card-divided-vertical p-0 !bg-zpurple-1000s">
+            <header class="horizontal items-baseline px-3 py-2">
+              <span>HTML</span>
+            </header>
+            <div class="code-comparison">
+              <Code
+                code={`<article class="card vertical gap-3">
   <h3 class="h4 text-zorange-500">The Layouts System</h3>
-  <div class="prose">Build layouts in seconds — HTML that reads like layout, not a wall of classes.</div>
+  <div class="prose text-zpurple-100">Build layouts in seconds --- HTML that reads like layout, not a wall of classes.</div>
   <button class="button pigment-orange-filled">See how it works</button>
 </article>`}
-              lang="html"
-              wrap
-            />
+                lang="html"
+                wrap
+              />
+            </div>
+          </div>
+          <div class="card card-divided-vertical p-0 !bg-zpurple-1000s">
+            <header class="horizontal items-baseline px-3 py-2">
+              <span>CSS</span>
+            </header>
+            <div class="code-comparison">
+              <Code
+                code={`/* 
+  button, vertical (a flex column), and prose are written once, 
+  and reused in every project 
+*/
+
+@utility h4 {
+  @apply font-june text-2xl font-bold;
+  line-height: 1.4;
+}
+
+@utility pigment-orange-filled {
+  --bg-color: var(--color-zorange-500);
+  --text-color: var(--color-zpurple-1000);
+  --bg-hover-color: var(--color-zorange-600);
+}
+
+@utility card {
+  padding: 1.5rem;
+  border: 2px solid var(--color-zpurple-900);
+  border-radius: 0.75rem;
+}`}
+                lang="css"
+                wrap
+              />
+            </div>
+          </div>
+          <div class="prose-responsive">
+            <!-- prettier-ignore -->
+            <Markdown>
+              Now, if you cover the CSS and just look at the HTML, you still know what's happening! Same thing backwards: If you cover the HTML, your CSS still makes sense without the markup.
+            </Markdown>
           </div>
         </div>
-      </div>
-
-      <div class="prose-responsive max-w-[16em] text-center mx-auto">
-        <Markdown>You decide which is more readable.</Markdown>
       </div>
     </div>
   </div>

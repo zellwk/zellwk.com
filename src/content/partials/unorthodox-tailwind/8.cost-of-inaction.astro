@@ -8,16 +8,16 @@ import { FancyList } from '@splendidlabz/astro/svelte'
     <div class="vertical">
       <Heading class="gap-4 mb-2" center>
         <h2 class="h1 text-zorange-500 max-w-[16em]">
-          <Markdown> How Would You Style Your Websites 30 Days Later?</Markdown>
+          <Markdown>
+            How much better will your HTML and CSS be 30 days later?
+          </Markdown>
         </h2>
       </Heading>
 
       <div class="prose-responsive max-w-[37rem] mx-auto">
         <!-- prettier-ignore -->
         <Markdown>
-          You spent years without a framework because you wanted control. Then Tailwind gave you speed, but boxed you right back in.
-
-          You have two choices: 
+          Will you:
         </Markdown>
       </div>
 
@@ -26,7 +26,9 @@ import { FancyList } from '@splendidlabz/astro/svelte'
       >
         <div class="vertical gap-2">
           <p class="text-center italic text-neutral-400">
-            <Markdown inline>Keep fighting it...</Markdown>
+            <Markdown inline
+              >Keep doing the same thing you've been doing:</Markdown
+            >
           </p>
           <div
             class="prose card p-3 rounded-1r"
@@ -36,10 +38,11 @@ import { FancyList } from '@splendidlabz/astro/svelte'
               class="ml-0 simple-svg fill-zred-500 text-zred-50"
               icon="ph:x"
               items={[
-                'Fighting CSS Grid to build a simple layout?',
-                'Wiring up themes by hand?',
-                'Writing complex code just to use two typefaces?',
-                'Hand-rolling shadows and effects every time?',
+                'Write pure Tailwind or pure CSS',
+                'Create layouts from scratch over and over again',
+                'Struggle with using more than 2 typefaces',
+                'Wire up themes by scattering colour variables everywhere',
+                'Copy-pasting complex effects from online sources',
               ]}
             />
           </div>
@@ -47,7 +50,7 @@ import { FancyList } from '@splendidlabz/astro/svelte'
 
         <div class="vertical gap-2 italic text-neutral-400">
           <p class="text-center">
-            <Markdown inline>...or make Tailwind yours:</Markdown>
+            <Markdown inline>... or try something entirely new</Markdown>
           </p>
           <div
             class="prose card border-scaffold p-3 rounded-1r"
@@ -57,9 +60,10 @@ import { FancyList } from '@splendidlabz/astro/svelte'
               class="ml-0 simple-svg text-zgreen-50 fill-zgreen-500"
               icon="ph:check"
               items={[
-                'Build most layouts in seconds',
-                'Theme easily with pigments and variables',
+                'Use Tailwind and CSS together',
+                'Build layouts using a quick and proven system',
                 'Use multiple typefaces easily',
+                'Theme easily with pigments and variables',
                 'Get effects like nice shadows by dropping a utility',
               ]}
             />
@@ -72,7 +76,11 @@ import { FancyList } from '@splendidlabz/astro/svelte'
         <Markdown>
           The choice is yours.
 
-          The real hidden cost is a growing sense of dissatisfaction every time you open the file --- the quiet sense that you could be building better than this.
+          You already know you have a growing sense of dissatisfaction every time you open your HTML or CSS file.
+
+          **The real hidden cost is ignoring that dissatisfaction** --- knowing you can be doing better than this, yet doing nothing about it.
+
+          30 days later, things can be very different from where they are today. You can be happy and satisfied with how your HTML and CSS look.
         </Markdown>
 
         <a

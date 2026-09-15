@@ -1,5 +1,6 @@
 ---
 import CheckoutButton from '@/components/CheckoutButton.svelte'
+import TestimonialPanel from '@/components/TestimonialPanel.astro'
 import { Heading, Markdown } from '@splendidlabz/astro'
 import { chapters } from './lessons.js'
 ---
@@ -50,15 +51,24 @@ import { chapters } from './lessons.js'
               </li>
             </ul>
           </div>
+          <footer class="bg-zpurple-1100 vertical gap-0.5">
+            <div class="strong text-zpurple-50">Bonus: Splendid Layouts</div>
+            <p class="text-8 text-zgray-400">
+              Every layout utility I use to build responsive layouts without
+              writing more CSS. <strong class="text-white [--bold-weight:500]"
+                >Worth $60</strong
+              >, yours for free.
+            </p>
+          </footer>
         </div>
 
         <div class="vertical gap-4">
           <div class="prose">
             <!-- prettier-ignore -->
             <Markdown>
-              Prototype with Tailwind's speed, keep HTML you can actually read, and adjust styles in seconds instead of untangling classes. 
-              
-              And that growing dread every time you open a file goes away forever.
+              Remove the nagging frustration that's been building up when you read HTML or CSS files.
+
+              **Write styles that you can be proud of**. Apply them both to HTML and CSS. And create a system where your styles add onto each other in a beautiful, maintainable way.
             </Markdown>
           </div>
 
@@ -81,6 +91,18 @@ import { chapters } from './lessons.js'
           </div>
         </div>
       </div>
+
+      <div class="vertical gap-6 mt-4">
+        <p class="text-center italic text-neutral-400">
+          <Markdown inline>What people are saying</Markdown>
+        </p>
+        <div
+          class="grid-simple bp8:[--cols:2] max-w-[60rem] mx-auto gap-6 gap-x-8 items-start [--quote-mark-bg:var(--color-zpurple-900)]"
+        >
+          <TestimonialPanel path="brett-egbert-unorthodox-tailwind" />
+          <TestimonialPanel path="jerome-toole" />
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -90,7 +112,7 @@ import { chapters } from './lessons.js'
     <h3 class="h3 text-zorange-500">Try Unorthodox Tailwind for 30 days</h3>
     <!-- prettier-ignore -->
     <Markdown>
-    Go through the system and use it on a real project. If you don't feel refreshed about the way you use Tailwind and CSS, email me and I'll refund every cent.
+    If you don't think Unorthodox Tailwind is changing the way you're writing Tailwind and CSS, then let me know and I'll refund every cent.
   </Markdown>
   </div>
 </section>

@@ -1,0 +1,114 @@
+---
+import { Heading, Markdown } from '@splendidlabz/astro'
+import { Code } from 'astro-expressive-code/components'
+---
+
+<section class="section">
+  <div class="wrap">
+    <div class="vertical items-center gap-4">
+      <Heading class="gap-4 mb-2" center>
+        <h2 class="h2 max-w-[16em] text-zorange-500">
+          <Markdown inline>
+            One More Example: Changing Colours On Hover And Focus States ---
+            Without the HTML bloat
+          </Markdown>
+        </h2>
+
+        <p class="h2-subhead max-w-[38rem]">
+          <Markdown inline>
+            Simply by using our in-house pigment utility
+          </Markdown>
+        </p>
+      </Heading>
+
+      <div class="vertical gap-10 w-full max-w-[46rem] mx-auto">
+        <div class="grid-simple bp8:[--cols:2] items-center">
+          <div class="prose-responsive">
+            <!-- prettier-ignore -->
+            <Markdown>
+              Now say you wanna create a few buttons with different colours. This should be basic, simple stuff. 
+            </Markdown>
+          </div>
+
+          <div class="bp8:-order-1 vertical items-center gap-3 card">
+            <button class="button pigment-orange-filled">
+              Pigment Orange Filled
+            </button>
+            <button class="button pigment-orange-outline">
+              Pigment Orange Outline
+            </button>
+            <button class="button pigment-purple-outline">
+              Pigment Purple Outline
+            </button>
+          </div>
+        </div>
+
+        <!-- With Tailwind only -->
+        <div class="vertical gap-3">
+          <h3 class="h4 text-zorange-500">With Tailwind only</h3>
+          <div class="prose-responsive">
+            <!-- prettier-ignore -->
+            <Markdown>
+              There's lots of code to write here --- the layout classes, the base colours, and even colours for hover and focus states. Just look at the bloat! 
+            </Markdown>
+          </div>
+          <div class="card card-divided-vertical p-0 !bg-zpurple-1000s">
+            <header class="horizontal items-baseline px-3 py-2">
+              <span>HTML</span>
+            </header>
+            <div class="code-comparison">
+              <Code
+                code={`<button class="flex items-center justify-center px-[1.25em] py-[0.5em] text-xl leading-[21px] rounded-xl border-2 border-zorange-500 text-zorange-500 hover:bg-zorange-800 hover:text-white focus:bg-zorange-800 focus:text-white">Orange Outline</button>`}
+                lang="html"
+                wrap
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- With Tailwind and CSS -->
+        <div class="vertical gap-3">
+          <h3 class="h4 text-zorange-500">With both Tailwind and CSS</h3>
+          <div class="prose-responsive">
+            <!-- prettier-ignore -->
+            <Markdown>
+              I'll cheat a little by showing you my actual `pigment` system.  where I've written all the classes needed beforehand, so we only need to change the background, text, and border colours on each state. 
+            </Markdown>
+          </div>
+          <div class="card card-divided-vertical p-0 !bg-zpurple-1000s">
+            <header class="horizontal items-baseline px-3 py-2">
+              <span>HTML</span>
+            </header>
+            <div class="code-comparison">
+              <Code
+                code={`<button class="button pigment-orange-outline">Orange Outline</button>`}
+                lang="html"
+                wrap
+              />
+            </div>
+          </div>
+          <div class="card card-divided-vertical p-0 !bg-zpurple-1000s">
+            <header class="horizontal items-baseline px-3 py-2">
+              <span>CSS</span>
+            </header>
+            <div class="code-comparison">
+              <Code
+                code={`/* button and pigment defined and reused in every project */
+
+@utility pigment-orange-outline {
+  --bg-color: transparent;
+  --bg-hover-color: var(--color-zorange-800);
+  --text-color: var(--color-zorange-500);
+  --text-hover-color: #fff;
+  --border-color: var(--color-zorange-500);
+}`}
+                lang="css"
+                wrap
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

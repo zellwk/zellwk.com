@@ -8,51 +8,48 @@ import { Heading, Markdown } from '@splendidlabz/astro'
       <Heading class="gap-4 mb-2" center>
         <h1 class="max-w-[13em]">
           <Markdown>
-            Somewhere along the way, Tailwind caused your HTML to stop being
-            readable
+            Tailwind caused your HTML to stop being readable...
           </Markdown>
         </h1>
-        <!-- <p class="h1-subhead max-w-[38rem]">
+        <p class="h1-subhead max-w-[38rem]">
           <Markdown inline>
-            If use Tailwind the way everyone explains it, you might as well go
-            back to plain ol' CSS.
+            And you can't just "fix it" by going back to CSS
           </Markdown>
-        </p> -->
+        </p>
       </Heading>
 
       <div class="prose-responsive max-w-narrow mx-auto">
         <!-- prettier-ignore -->
         <Markdown>
-          You picked up Tailwind to build faster, and it delivered. You felt the difference, because your first workable demo was up in minutes.
-
-          Then you came back to refactor --- only to find many elements packed with 17 utility classes. You couldn't see the structure of the page anymore. You had to rebuild it in your head just to change one thing.
-
-          - Coding became mentally exhausting, not fun 
-          - Your HTML became a horrible bloated mess
+          You picked up Tailwind for various reasons. 
           
-          Then you wonder what you were thinking of when you picked Tailwind up. 
+          - Maybe it's a sense of curiosity
+          - Maybe you just wanted to make things better somehow.
 
-          "*This doesn't work*", you whisper to yourself. 
+          And your first try really blew your mind away.
 
-          You miss just writing CSS --- it's a different kind pain, but better than *this*. But going back feels like a step backward. So you keep stacking utilities, telling yourself that's just how Tailwind works. 
+          *Something clicked* --- maybe you built something really quickly, or you enjoy not having to name your selectors. Whatever it is, something did click.
 
-          And your frustration builds, week after week.
-        </Markdown>
-      </div>
+          So you tried switching to Tailwind.
 
-      <div class="prose-responsive max-w-[28rem] mx-auto mb-2 text-center">
-        <!-- prettier-ignore -->
-        <Markdown>
-          > If you use Tailwind the way it's commonly explained, you might as well just stick with CSS.
-          </Markdown>
-      </div>
+          But to your horror, in the process of switching, or when you come back to refactor, **you find your elements packed with an overwhelming number of utility classes**.
 
-      <div class="prose-responsive max-w-narrow mx-auto">
-        <!-- prettier-ignore -->
-        <Markdown>
-          Tailwind was never the problem. 
+          - You feel your HTML became a *brick* wall --- not just a bloated mess
+          - And it's *impossible* to read without taking everything apart and rebuilding both the HTML and CSS in your head.
 
-          The real problem is that you were led to believe you had to choose either Tailwind or CSS. 
+          Somewhere under your breath, you muttered "*F my life. What the hell was I thinking when I decided to try to shift to Tailwind?*"
+
+          **You miss writing CSS** --- it's a different kind of pain, but better than *this*, but going back to CSS feels like taking a step backwards. So you're somewhat stuck.
+
+          You're in a strange place where nobody understands you. Almost everyone else around seems to be black-and-white about "*YES TAILWIND*" or "*NO TAILWIND*". 
+          
+          But you know better --- **there's something good about Tailwind**. You might not be able to say what it is, but you just know it. 
+
+          In the meantime, you continue to code either the Tailwind way or the CSS way, telling yourself that's just the best you can do for now, with your time constraints.
+
+          And **your frustration builds up every time you read an HTML or a CSS file**. You know something can be better. But what? And how?
+
+          The good news is: You don't have to choose between Tailwind and CSS --- there's a better way. You just don't use Tailwind in the way it's commonly presented.
         </Markdown>
       </div>
     </div>
@@ -64,15 +61,12 @@ import { Heading, Markdown } from '@splendidlabz/astro'
     <div class="vertical">
       <Heading class="gap-4 mb-2" center>
         <h1 class="max-w-[12em]">
-          <Markdown>
-            You don't have to choose between Tailwind and CSS
-          </Markdown>
+          <Markdown> There's a way to use Tailwind with CSS </Markdown>
         </h1>
-        <div class="h1-subhead max-w-[38rem]">
+        <div class="h1-subhead max-w-[40rem]">
           <!-- prettier-ignore -->
           <Markdown>
-            You can use them both --- and get the prototyping speed and the
-            clean HTML at the same time.
+            And get cleaner HTML and better CSS at the same time
           </Markdown>
         </div>
       </Heading>
@@ -80,20 +74,20 @@ import { Heading, Markdown } from '@splendidlabz/astro'
       <div class="prose-responsive max-w-[37rem] mx-auto">
         <!-- prettier-ignore -->
         <Markdown>
-          Tailwind isn't a CSS replacement. It's three things built into one: 
+          Tailwind is three things built into one:
 
-          - **A design layer**: A way to write design tokens that you can build on
-          - **A styling layer**: Use utilities in HTML or through `@apply` in CSS
-          - **A build layer**: Simplifies your code and build process
-
-          Once you see that, the rules change --- and CSS enters the game again. You'll be able to write utilities in HTML when that's faster, switch to `@apply` in CSS when that's cleaner, and build components when it makes sense.
-
-          **And this is just the beginning**. 
-
-          When you see Tailwind as three layers, a door opens: Everything you build can now be sorted into four categories. 
+          - **A design layer** 
+          - **A styling layer**
+          - **A build layer**
           
-          The rules for using Tailwind changes in each of these categories. Master the rules in each category and Tailwind supports everything you do. 
-</Markdown>
+          It's not something to replace CSS with.
+
+          Once you see that, your mind begins to shift --- you might begin to see how Tailwind can be used together with CSS. 
+
+          **This is just the beginning**.
+
+          As you advance deeper, you might begin to see how you'll use Tailwind differently in each of the 4 major categories when styling websites and applications.
+        </Markdown>
       </div>
 
       <div class="grid-simple max-w-mid my-2 bp8:[--cols:2] mx-auto">
@@ -101,12 +95,14 @@ import { Heading, Markdown } from '@splendidlabz/astro'
           class="card vertical gap-2 !bg-zpurple-1100 [--border-color:var(--color-zgray-750)]"
         >
           <header>
-            <div class="h4 text-zorange-500">The Layouts System</div>
+            <div class="h4 text-zorange-500">Layouts</div>
           </header>
           <div class="prose flex-grow gap-3">
-            <Markdown
-              >Build layouts in seconds, and have HTML read like layout instead
-              of a wall of classes.
+            <!-- prettier-ignore -->
+            <Markdown>
+              **Tailwind excels here** with their responsive variants and how it lets you change CSS on the fly without creating additional classes. 
+              
+              When you use these powers together with what CSS gives you, you can build almost any layout without writing more CSS.
             </Markdown>
           </div>
         </div>
@@ -115,12 +111,15 @@ import { Heading, Markdown } from '@splendidlabz/astro'
           class="card vertical gap-2 !bg-zpurple-1100 [--border-color:var(--color-zgray-750)]"
         >
           <header>
-            <div class="h4 text-zorange-500">The Typography System</div>
+            <div class="h4 text-zorange-500">Typography</div>
           </header>
           <div class="prose flex-grow gap-3">
-            <Markdown
-              >Responsive typography with multiple typefaces become a cinch.</Markdown
-            >
+            <!-- prettier-ignore -->
+            <Markdown>
+              **There's nothing better than using Tailwind's @apply** like convenient Sass includes here. 
+              
+              You can use them to create patterns that can be inherited by other utilities easily. It's like creating a cascade of styles with your utilities --- each one more specific than before.
+            </Markdown>
           </div>
         </div>
 
@@ -128,25 +127,30 @@ import { Heading, Markdown } from '@splendidlabz/astro'
           class="card vertical gap-2 !bg-zpurple-1100 [--border-color:var(--color-zgray-750)]"
         >
           <header>
-            <div class="h4 text-zorange-500">The Theming System</div>
+            <div class="h4 text-zorange-500">Theming</div>
           </header>
           <div class="prose flex-grow gap-3">
-            <Markdown
-              >Theming become a simple matter of writing CSS Variables, not
-              utility-littered variants.</Markdown
-            >
+            <!-- prettier-ignore -->
+            <Markdown>
+              **Theming is a pain in the ass with Tailwind** because you'll have to add classes for `hover`, `focus`, `active`, `selected` states. This causes the HTML to become extremely bloated.
+
+              Instead of surrendering this as an inevitable Tailwind defect, **we use CSS to make things simpler**. I've taken a step further here by creating a `Pigment` system that makes styling interactive states super easy with CSS variables.
+            </Markdown>
           </div>
         </div>
         <div
           class="card vertical gap-2 !bg-zpurple-1100 [--border-color:var(--color-zgray-750)]"
         >
           <header>
-            <div class="h4 text-zorange-500">The Effects System</div>
+            <div class="h4 text-zorange-500">Effects</div>
           </header>
           <div class="prose flex-grow gap-3">
-            <Markdown
-              >You can add beautiful effects with a drop of a utility</Markdown
-            >
+            <!-- prettier-ignore -->
+            <Markdown>
+              Effects are stuff that makes a website look nice. There are tonnes of effects --- from gradients, to frosted glass, to highlighting backgrounds.
+
+              Once you get some mastery over Tailwind, you can begin to **build utilities that let you perform these effects just by dropping the utility**. Think of it like Sass includes here too.
+            </Markdown>
           </div>
         </div>
       </div>
@@ -154,10 +158,11 @@ import { Heading, Markdown } from '@splendidlabz/astro'
       <div class="prose-responsive max-w-[37rem] mx-auto">
         <!-- prettier-ignore -->
         <Markdown>
+          You can begin to see that Tailwind works really well with CSS. Your only obstacle is the preconceived notion that it's either Tailwind or CSS.
 
-          Building feels good again --- quick, intuitive, easy to adjust. Less fighting the framework, more making the thing.
+          Let that go. Then you can begin to experiment and **bring in a more advanced --- faster, simpler, more effective --- way of styling to your projects**.
 
-          That future is possible today. 
+          I've put everything I know about using Tailwind and CSS together in Unorthodox Tailwind. I'll tell you more about this later.
         </Markdown>
       </div>
 

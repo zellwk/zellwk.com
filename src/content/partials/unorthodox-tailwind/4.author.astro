@@ -1,14 +1,21 @@
 ---
+import TestimonialLarge from '@/components/TestimonialLarge.astro'
 import { Heading, Image, Markdown, SVG } from '@splendidlabz/astro'
 ---
 
 <section class="section">
   <div class="wrap">
     <div class="vertical">
-      <Heading class="gap-4" center>
+      <Heading class="gap-4 mb-2" center>
         <h2 class="h1 max-w-[11em] mx-auto text-zorange-500">
-          I've Always Searched For Better Ways to Style Websites
+          I've Changed The Way I Build Websites
         </h2>
+        <p class="h1-subhead max-w-[38rem]">
+          <Markdown inline>
+            I became a lot more productive ever since I started using Tailwind +
+            CSS.
+          </Markdown>
+        </p>
       </Heading>
 
       <div class="vertical bp8:grid-auto-fr max-w-[55rem] mx-auto !gap-8">
@@ -23,19 +30,39 @@ import { Heading, Image, Markdown, SVG } from '@splendidlabz/astro'
         <div class="prose-responsive mx-auto">
           <!-- prettier-ignore -->
           <Markdown>
-            My name is Zell. 
+            My name is Zell.
 
-            I built many websites over the last 10+ years, from small personal blogs to large web projects, all in CSS without any frameworks. 
+            **I've built many websites**, small personal blogs to large web projects, **from scratch (with pure CSS)** over the years in my career. (I didn't use frameworks because they often come with styles I had to fight against).
+
+            There was nothing wrong with this method. 
+
+            But I changed one day. 
+
+            **I realised I have been rebuilding the same things over and over again** --- the same layouts, the same buttons, the same styles. The only difference is that they vary a little each time.
+
+            - I hated building the same things over and over again. 
+            - I wanted to repeat less, but build faster. 
             
-            But I wanted to move faster. So I tried Tailwind. And something clicked --- I couldn't go back to pure CSS after that. 
+            **That was when I began to experiment with Tailwind.** 
+            
+            Something clicked. And I couldn't go back to pure CSS anymore. 
+            
+            **But I couldn't stand writing CSS the Tailwind way** (oh god, the awful bloated HTML), so I set out to find a solution.
 
-            **There was just one problem**: I couldn't stand the bloated mess Tailwind creates, so I set out to find a solution. 
+            One day, while struggling (and promising myself that I'd test Tailwind *just one more time*), I realized how Tailwind can be used to support CSS, and how CSS can be used to support Tailwind.
 
-            One day, while struggling (and promising myself that I'd test Tailwind *just one more time*), I found the trick that unravelled everything... and the Unorthodox Tailwind methodology was born. 
+            **And everything I've said above unfolded from there --- the layout, typography, theming, and effects**.
 
-            Then it matured into the four systems --- Layout, Typography, Theme, and Effects --- that composes CSS into one clean, cohesive whole.
+            Now I've built up a library of useful styles that I pluck-and-play. The best part is this library is built in a flexible way, so I never have to fight my own library styles.
+
+            I'd like to share with you the system I've discovered in Unorthodox Tailwind.
           </Markdown>
         </div>
+      </div>
+
+      <div class="max-w-[55rem] mx-auto vertical gap-large mt-8">
+        <TestimonialLarge path="geoff-graham" />
+        <TestimonialLarge path="zoran-jambor" />
       </div>
     </div>
   </div>

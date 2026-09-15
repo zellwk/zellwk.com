@@ -76,7 +76,7 @@
 
 @utility h1 {
   @apply june;
-  @apply text-16 bp8:text-18;
+  @apply text-14 bp8:text-18;
   --font-style: 80;
   line-height: 1.22;
 }
@@ -98,6 +98,14 @@
   @apply text-13 bp8:text-15;
   --font-style: 80;
   line-height: 1.4;
+}
+
+@utility h2-subhead {
+  @apply snug;
+  @apply text-11 bp8:text-13;
+  --font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-zgray-400);
 }
 
 @utility h3 {
