@@ -45,4 +45,12 @@ export const faq = [
     
     And since I use Astro for everything I build, I'll keep these updated as much as I can.`,
   },
+  {
+    question: `What's Splendid Labz?`,
+    answer: `<a href="https://splendidlabz.com/" target="_blank" rel="noopener">Splendid Labz</a> is my collection of libraries for building websites.
+
+    Practical Astro teaches you how each system works and why it's built that way. Some pieces are too involved to teach line by line, so for those I hand you the ready-made version from Splendid Labz.
+
+    When you buy Practical Astro, everything from Splendid Labz these systems use is licensed to you, along with the docs. The rest comes with <a href="https://splendidlabz.com/pricing/#pro" target="_blank" rel="noopener">Splendid Pro</a>.`,
+  },
 ]
