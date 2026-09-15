@@ -1,6 +1,7 @@
 ---
 import { Heading, Markdown } from '@splendidlabz/astro'
 import FeatureCard from '../../../components/FeatureCard.astro'
+import TestimonialPanel from '../../../components/TestimonialPanel.astro'
 import { modules } from '../../data/courses/practical-astro.js'
 ---
 
@@ -22,6 +23,13 @@ import { modules } from '../../data/courses/practical-astro.js'
         class="py-2 grid-flex w-full max-w-[92rem] mx-auto bp7:[--cols:2] bp11:[--cols:3] justify-center"
       >
         {modules.map(module => <FeatureCard key={module.title} {...module} />)}
+      </div>
+
+      <div
+        class="grid-simple bp8:[--cols:2] max-w-[60rem] mx-auto gap-6 gap-x-8 items-start"
+      >
+        <TestimonialPanel path="adam-gonzales" />
+        <TestimonialPanel path="jim-rabon" />
       </div>
     </div>
   </div>

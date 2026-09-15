@@ -1,6 +1,7 @@
 ---
 import { Heading, Markdown } from '@splendidlabz/astro'
 import CheckoutButton from '@/components/CheckoutButton.svelte'
+import TestimonialPanel from '@/components/TestimonialPanel.astro'
 import {
   modules,
   price,
@@ -78,10 +79,21 @@ import {
             />
             <div class="vertical gap-1">
               <p class="text-8 text-zgray-500 text-center italic">
-                Pay once. Lifetime updates. Price rises July 1st.
+                Pay once. Lifetime updates. Price rises Oct 1st.
               </p>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="vertical gap-6 mt-4">
+        <p class="text-center italic text-neutral-400">
+          <Markdown inline>What people are saying</Markdown>
+        </p>
+        <div
+          class="max-w-narrow mx-auto [--quote-mark-bg:var(--color-zpurple-900)]"
+        >
+          <TestimonialPanel path="brett-egbert-practical-astro" />
         </div>
       </div>
     </div>
