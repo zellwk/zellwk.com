@@ -38,7 +38,7 @@ if (!name) name = toTitle(path)
       }
       <h3 class="h3 text-8 max-bp8:leading-[1.45] bp8:text-10">
         <span class="text-zorange-500">{name}</span>
-        <span class="text-zgray-500">— {title}</span>
+        {title && <span class="text-zgray-500">— {title}</span>}
       </h3>
     </div>
     <div class="prose gap-[1em] text-9 bp8:text-10 mt-2 max-w-narrow">
