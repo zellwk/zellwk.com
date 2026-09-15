@@ -38,7 +38,7 @@ const SEOProps = {
                     <testimonial.Content />
                   </div>
                   <footer class="june text-zorange-500 text-6">
-                    {toTitle(testimonial.id)}{' '}
+                    {testimonial.data.name || toTitle(testimonial.id)}{' '}
                     <span class="text-zgray-500">
                       — {testimonial.data.title}
                     </span>

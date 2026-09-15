@@ -7,9 +7,14 @@ const { path } = Astro.props
 const entry = await getEntry('testimonials', path)
 const { data } = entry
 const { Content } = await render(entry)
+const images = import.meta.glob(
+  '/src/assets/testimonials/*.{jpeg,jpg,png,webp}',
+)
 
 // Prepare variables for use in template
 let { title, image, name } = data
+if (!image) image = `/src/assets/testimonials/${path}.jpg`
+if (!Object.keys(images).some(key => key.startsWith(image))) image = null
 if (!name) name = toTitle(path)
 ---
 
@@ -18,10 +23,19 @@ if (!name) name = toTitle(path)
     <Content />
   </div>
   <div class="horizontal items-center justify-start gap-3">
-    <Image figureClass="max-w-6" class="rounded-full" src={image} alt={name} />
+    {
+      image && (
+        <Image
+          figureClass="max-w-6"
+          class="rounded-full"
+          src={image}
+          alt={name}
+        />
+      )
+    }
     <div class="text-5 june [--font-style:70]">
       <span class="text-zorange-500">{name}</span>
-      <span class="text-zgray-500">— {title}</span>
+      {title && <span class="text-zgray-500">— {title}</span>}
     </div>
   </div>
 </blockquote>
