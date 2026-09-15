@@ -15,6 +15,14 @@
   --text-hover-color: var(--color-zpurple-50);
 }
 
+@utility pigment-violet-outline {
+  --bg-color: transparent;
+  --text-color: var(--color-zviolet-300);
+  --border-color: var(--color-zviolet-300);
+  --bg-hover-color: var(--color-zviolet-800);
+  --text-hover-color: var(--color-zviolet-50);
+}
+
 @utility pigment-orange-filled {
   --bg-color: var(--color-zorange-500);
   --text-color: var(--color-zpurple-1000);

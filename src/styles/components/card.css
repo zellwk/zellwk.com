@@ -46,6 +46,10 @@
 .card-violet {
   --border-color: var(--color-zviolet-300);
   --bg-color: var(--color-zpurple-1000);
+
+  :where(button, .button) {
+    @apply pigment-violet-outline;
+  }
 }
 
 .card-small {

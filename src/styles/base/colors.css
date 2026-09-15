@@ -30,7 +30,9 @@
   --color-zpurple-900d: oklch(24.87% 0.0134 298.48deg);
 
   /* Violet */
+  --color-zviolet-50: oklch(92% 0.03 300.59deg);
   --color-zviolet-300: oklch(74% 0.18 300.59deg);
+  --color-zviolet-800: oklch(25% 0.06 300.59deg);
 
   /* Red */
   --color-zred-50: oklch(90.485% 0.016947 22.287deg);
