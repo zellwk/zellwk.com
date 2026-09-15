@@ -3,11 +3,18 @@ import Base from '@/layouts/Base.astro'
 import { Partial } from '@splendidlabz/astro'
 ---
 
-<Base class="salespage">
+<Base
+  class="salespage"
+  title="Practical Astro: Production-Ready Patterns for Astro Sites"
+  description="Eight systems of production-tested Astro patterns for content, images, SEO, forms, auth and payments. Grab the code, use it, and skip weeks of trial and error."
+  OGImageURL="/assets/og/practical-astro-v2.png"
+  OGImageAlt="Production Ready Astro Patterns — Get Practical Astro"
+>
   <Partial path="practical-astro/intro" />
   <Partial path="practical-astro/save-yourself" />
   <Partial path="practical-astro/inside" />
   <Partial path="practical-astro/author" />
+  <Partial path="practical-astro/testimonial" />
   <Partial path="practical-astro/yours" />
   <Partial path="practical-astro/faq" />
   <Partial path="practical-astro/final" />
