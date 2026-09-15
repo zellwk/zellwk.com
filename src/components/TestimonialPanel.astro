@@ -12,16 +12,15 @@ let { title, name } = data
 if (!name) name = toTitle(path)
 ---
 
-<figure
-  class="quote-bar vertical gap-3"
-  style="--accent-color: var(--color-zviolet-300)"
->
+<figure class="quote-bar vertical gap-3">
   <blockquote
-    class="prose gap-[inherit] [--bold-color:var(--color-zviolet-300)] [--bold-weight:500]"
+    class="prose gap-[inherit] [--bold-color:var(--accent-color,var(--color-zviolet-300))] [--bold-weight:500]"
   >
     <Content />
   </blockquote>
-  <footer class="june text-8 text-zviolet-300">
+  <footer
+    class="june text-8 text-[color:var(--accent-color,var(--color-zviolet-300))]"
+  >
     —
     {name}
     {title && <span class="text-zgray-500">— {title}</span>}
