@@ -1,15 +1,10 @@
 ---
 import { Image, JsonLD, Markdown, Partial, SVG } from '@splendidlabz/astro'
-import { processFiles } from '@splendidlabz/astro/content'
 import { FancyList } from '@splendidlabz/astro/svelte'
-import { getCollection } from 'astro:content'
 import { now } from '../content/data/now'
 import Base from '../layouts/Base.astro'
-import { postFilter } from '../utils/content.js'
 
 const nowItems = now.slice(0, 3)
-const files = await getCollection('blog')
-const posts = (await processFiles(files, { filter: postFilter })).slice(0, 5)
 
 const SEOProps = {
   title: 'About',
@@ -74,11 +69,12 @@ export const prerender = true
           <div class="prose text-10">
             <!-- prettier-ignore -->
             <Markdown>
-              I'm a web developer and I'm in the process of creating businesses that syncs with how I work. 
+              I'm a web developer. I've spent the last 13 years building sites, writing about code, and teaching developers through courses like Learn JavaScript and Practical Astro.
 
-              **Besides code, I'm deeply interested in psychology + human development**. I've spent over the 10 years of my life learning about my psychology and how to develop myself. 
-              
-              Since 2023, I've been doing coaching work to help people unblock themselves and move towards their dreams. </Markdown>
+              These days I build AI and automation systems that make businesses easier to run, alongside Splendid Labz, the tools I build my own projects with.
+
+              **Besides code, I'm deeply interested in psychology + human development.** I've spent over 10 years learning about my psychology and how to develop myself, and since 2023 I've been coaching people to unblock themselves and move towards their dreams.
+            </Markdown>
           </div>
         </div>
       </div>

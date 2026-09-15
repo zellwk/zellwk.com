@@ -25,7 +25,7 @@ export const now = [
   {
     title: 'Splendid Labz',
     content:
-      'Components, styles and utilities I build my projects with. It covers Astro and Svelte, a CSS design system, and packages for auth, emails and AI.',
+      'Components, styles and utilities I build my projects with. It covers Astro and Svelte, a CSS design system, and AI libraries.',
     link: 'https://splendidlabz.com/',
     cta: 'Find out more',
     color: 'red',
