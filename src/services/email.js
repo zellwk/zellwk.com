@@ -1,5 +1,5 @@
 import templates from '@/emails/template'
-import { createEmail } from '@splendidlabz/astro/email'
+import { createEmail } from '@splendidlabz/emails'
 import Postmark from '@splendidlabz/third-party/postmark'
 
 // Postmark options
