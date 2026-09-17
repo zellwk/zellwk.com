@@ -44,6 +44,7 @@
         email,
         message,
         subject,
+        phone: data.phone,
       },
     })
 
@@ -68,7 +69,7 @@
   }
 </script>
 
-<Form class="vertical" honeypotName="last-name" {onsubmit}>
+<Form class="vertical" honeypotName="phone" {onsubmit}>
   <div class="grid-simple bp5:[--cols:2]">
     <TextInput name="name" label="Your Name" required />
     <TextInput name="email" label="Your Email Address" required type="email" />

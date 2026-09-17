@@ -1,7 +1,7 @@
 ---
 import { Markdown } from '@splendidlabz/astro'
 import { shuffle } from '@splendidlabz/utils'
-import NewsletterForm from '../../components/NewsletterForm.svelte'
+import NewsletterForm from '../../components/NewsletterForm.astro'
 import SideTestimonial from '../../components/SideTestimonial.astro'
 
 const {
@@ -40,7 +40,7 @@ const selectedTestimonial =
             
             Regardless of the type of content, I do my best to send you at least one insightful piece every week. 
           </Markdown>
-          <NewsletterForm client:load />
+          <NewsletterForm />
         </div>
       </div>
 

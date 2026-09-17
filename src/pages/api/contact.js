@@ -8,13 +8,19 @@ import {
 export const prerender = false
 export async function POST(context) {
   const body = await parseData(context)
-  const { hp, template = 'Contact', name, email, message, subject } = body
+  const {
+    phone: honeypot,
+    template = 'Contact',
+    name,
+    email,
+    message,
+    subject,
+  } = body
 
-  console.log(import.meta.env.POSTMARK_KEY)
   console.log(body)
 
   // Fake the spammers
-  if (hp?.trim())
+  if (honeypot?.trim())
     return JSONResponse({
       status: 'success',
       message: 'Email sent successfully',

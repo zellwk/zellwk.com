@@ -1,5 +1,5 @@
 ---
-import NewsletterForm from '@/components/NewsletterForm.svelte'
+import NewsletterForm from '@/components/NewsletterForm.astro'
 import { Heading, If, Markdown } from '@splendidlabz/astro'
 
 const {
@@ -31,7 +31,6 @@ const {
         <NewsletterForm
           list="practicalAstro"
           redirect="/courses/newsletters/confirm/"
-          client:load
         />
       </div>
     </div>

@@ -1,0 +1,42 @@
+---
+import { Form, HiddenInput, TextInput } from '@splendidlabz/svelte'
+
+/**
+ * @typedef {Object} Props
+ * @property {string} [list='main'] - Sendy list key from `services/sendy.js`.
+ * @property {string} [redirect='/newsletter/confirm/'] - Page shown after subscribing.
+ */
+const { list = 'main', redirect = '/newsletter/confirm/' } = Astro.props
+---
+
+<Form
+  class="vertical newsletter-form"
+  action="/api/sendy/"
+  honeypotName="phone"
+>
+  <HiddenInput name="list" value={list} />
+  <HiddenInput name="redirect" value={redirect} />
+  <div class="grid-simple bp8:[--cols:2]">
+    <TextInput name="name" autocomplete="name" label="First Name" required />
+    <TextInput
+      name="email"
+      type="email"
+      autocomplete="email"
+      label="Email"
+      required
+    />
+  </div>
+  <button class="button !pigment-red-filled" type="submit">Subscribe</button>
+</Form>
+
+<script>
+  import { preventSpam } from '@splendidlabz/utils/dom'
+
+  // Blocks submissions that come too fast or without interaction
+  for (const form of document.querySelectorAll('.newsletter-form')) {
+    preventSpam(form, { honeypotField: 'phone', honeypotDuration: 1000 })
+    form.addEventListener('submit', event => {
+      if (form.containsSpam()) event.preventDefault()
+    })
+  }
+</script>
