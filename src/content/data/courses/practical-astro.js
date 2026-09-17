@@ -41,7 +41,7 @@ export const modules = [
     ],
   },
   {
-    title: 'Form Systems',
+    title: 'Forms & API Routes',
     price: 49,
     description: 'Handle Forms with ease',
     available: '2026-08-31',

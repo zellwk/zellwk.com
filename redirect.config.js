@@ -5,6 +5,8 @@ export default {
   '/blog/think/': '/blog/think-like-a-programmer/',
   '/convertkit/': '/blog/convertkit-cli/',
   '/learnjs/': 'https://learnjavascript.today',
+  '/courses/practical-astro/form-systems/':
+    '/courses/practical-astro/forms-and-api-routes/',
 
   // Redirects because of some random 3rd-party linking to the wrong places... so we get the juice.
   '/quality-of-life-improvements-for-zlfetch': '/blog/zl-fetch-improvements/',
