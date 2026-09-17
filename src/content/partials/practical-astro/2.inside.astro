@@ -25,11 +25,8 @@ import { modules } from '../../data/courses/practical-astro.js'
         {modules.map(module => <FeatureCard key={module.title} {...module} />)}
       </div>
 
-      <div
-        class="grid-simple bp8:[--cols:2] max-w-[60rem] mx-auto gap-6 gap-x-8 items-start"
-      >
+      <div class="max-w-[30rem] mx-auto">
         <TestimonialPanel path="adam-gonzales" />
-        <TestimonialPanel path="jim-rabon" />
       </div>
     </div>
   </div>
