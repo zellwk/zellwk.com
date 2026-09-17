@@ -1,0 +1,38 @@
+---
+import CheckoutButton from '@/components/CheckoutButton.svelte'
+import { modules } from '@/content/data/courses/practical-astro.js'
+import { Heading, Markdown } from '@splendidlabz/astro'
+const imageSystems = modules.find(module => module.title === 'Image Systems')
+---
+
+<section id="pricing" class="section bg-zpurple-900">
+  <div class="wrap">
+    <div class="vertical gap-6">
+      <Heading class="gap-3" center>
+        <a href="../" class="eyebrow pill">Part of Practical Astro</a>
+        <h2 class="h1 text-zorange-500">Available Now</h2>
+      </Heading>
+
+      <div class="prose-responsive max-w-narrow mx-auto text-center">
+        <!-- prettier-ignore -->
+        <Markdown>
+          All lessons are ready. More details on this page soon.
+
+          Get it on its own, or with every module in [Practical Astro](/courses/practical-astro/).
+        </Markdown>
+      </div>
+
+      <div class="vertical gap-2 self-center">
+        <CheckoutButton
+          client:load
+          product="Image Systems"
+          value={imageSystems.price}
+          label={`Get Image Systems — $${imageSystems.price}`}
+        />
+        <p class="text-8 text-zgray-500 text-center italic">
+          Pay once. Lifetime access. Free updates forever.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
