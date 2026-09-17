@@ -13,6 +13,42 @@ const { bodyClass = '', ...props } = Astro.props
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
 
+<!-- Reports the first script or island that fails to load -->
+<script is:inline>
+  {
+    const listeners = new AbortController()
+
+    function reportClientError(report) {
+      listeners.abort()
+      navigator.sendBeacon(
+        '/api/client-error/',
+        JSON.stringify({ page: location.href, ...report }),
+      )
+    }
+
+    window.addEventListener(
+      'error',
+      event => {
+        if (!event.target.src?.includes('/_astro/')) return
+        reportClientError({ type: 'script', url: event.target.src })
+      },
+      { capture: true, signal: listeners.signal },
+    )
+
+    window.addEventListener(
+      'astro:hydration-error',
+      event => {
+        reportClientError({
+          type: 'hydration',
+          url: event.detail.componentUrl,
+          message: String(event.detail.error),
+        })
+      },
+      { signal: listeners.signal },
+    )
+  }
+</script>
+
 <!-- Fonts -->
 <link rel="preconnect" href="https://use.typekit.net" crossorigin />
 <link rel="stylesheet" href="https://use.typekit.net/pki5tfy.css" />
