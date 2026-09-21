@@ -1,7 +1,7 @@
 <script>
   import {
     Form,
-    Select,
+    NativeSelect,
     Status,
     TextInput,
     Textarea,
@@ -75,7 +75,7 @@
     <TextInput name="email" label="Your Email Address" required type="email" />
   </div>
 
-  <Select
+  <NativeSelect
     name="about"
     items={['Question', 'Feedback', 'Report a bug', 'Others']}
     label="What's your message about?"
