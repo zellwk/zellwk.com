@@ -12,7 +12,6 @@ export const lists = {
 export const sendy = createSendy({
   baseURL: 'https://sendy.splendidlabz.com',
   apiKey: import.meta.env.SENDY_API_KEY,
-  listId: lists.main,
   getReferrer: getCurrentUrl,
   getIpAddress,
 })

@@ -1,4 +1,3 @@
-/* eslint-env browser */
 export default function exitIntent(node) {
   document.addEventListener('pointerout', exiting)
 

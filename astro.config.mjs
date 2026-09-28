@@ -3,6 +3,7 @@ import mdx from '@astrojs/mdx'
 import node from '@astrojs/node'
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
+import { splendidSvelte } from '@splendidlabz/svelte/astro'
 // import { transformerColorizedBrackets } from '@shikijs/colorized-brackets'
 import tailwindcss from '@tailwindcss/vite'
 import expressiveCode from 'astro-expressive-code'
@@ -63,6 +64,7 @@ export default defineConfig({
   integrations: [
     expressiveCode(shikiConfig),
     svelte(),
+    splendidSvelte(),
     mdx(),
     sitemap({
       serialize(item) {

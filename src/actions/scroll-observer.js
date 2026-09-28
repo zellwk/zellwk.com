@@ -1,5 +1,3 @@
-/* eslint-env browser */
-
 /**
  * Scroll Observer
  * @param {Number} threshold Float between 0 to 1. When to fire a threshold event.
@@ -10,7 +8,7 @@ export default function scrollObserver(
   {
     threshold = 0, // Float between 0 to 1.
     tolerance = 0.1, // Float between 0 to 1. Tolerance for event firing
-  } = {}
+  } = {},
 ) {
   let prevScrollTop = 0
 

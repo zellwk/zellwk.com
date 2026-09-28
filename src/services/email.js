@@ -1,6 +1,6 @@
 import templates from '@/emails/template'
 import { createEmail } from '@splendidlabz/emails'
-import Postmark from '@splendidlabz/third-party/postmark'
+import { Postmark } from '@splendidlabz/emails/providers'
 
 // Postmark options
 const PM_OPTIONS = {

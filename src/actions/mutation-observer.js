@@ -1,4 +1,3 @@
-/* eslint-env browser */
 // https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/observe
 export default function mutationObserver(node, options) {
   const observer = new MutationObserver(mutations => {
@@ -7,7 +6,7 @@ export default function mutationObserver(node, options) {
       node.dispatchEvent(
         new CustomEvent('mutate', {
           detail: { node, mutation, observer },
-        })
+        }),
       )
     })
   })
