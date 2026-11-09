@@ -1,4 +1,5 @@
 import { lists, sendy } from '../../services/sendy.js'
+import { fb } from '../../services/tracking/fb/node.js'
 import { ph } from '../../services/tracking/ph/node.js'
 import { parseData } from '../../services/utils.js'
 export const prerender = false
@@ -33,6 +34,16 @@ export async function POST(context) {
     context,
     properties: { list, $set: { name } },
   })
+
+  // The form's page, not this endpoint, is where the signup happened.
+  const { error } = await fb.track('Lead', {
+    context,
+    email,
+    content_name: list || 'main',
+    event_source_url:
+      context.request.headers.get('referer') || context.url.href,
+  })
+  if (error) console.error('Meta CAPI Lead failed', error)
 
   return context.redirect(redirectURL, 303)
 }

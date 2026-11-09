@@ -1,4 +1,5 @@
 ---
+import { fb } from '@/services/tracking/fb/node'
 import { ph } from '@/services/tracking/ph/node'
 import { getSearchParams } from '@splendidlabz/astro/server'
 
@@ -27,6 +28,17 @@ if (email) {
     email,
     properties: { value, product, $set: { name } },
   })
+
+  // The store sells in USD. The URL drops its query, which holds the email.
+  const { error } = await fb.track('Purchase', {
+    context: Astro,
+    email,
+    value,
+    currency: 'USD',
+    content_name: product,
+    event_source_url: new URL(Astro.url.pathname, Astro.site).href,
+  })
+  if (error) console.error('Meta CAPI Purchase failed', error)
 }
 
 // Forward every param so the survey prefills name/email as before.
