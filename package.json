@@ -29,7 +29,7 @@
     "@splendidlabz/styles": "^4.15.0",
     "@splendidlabz/svelte": "^4.17.2",
     "@splendidlabz/third-party": "^2.0.6",
-    "@splendidlabz/tracking": "^0.2.44",
+    "@splendidlabz/tracking": "^0.2.46",
     "@splendidlabz/utils": "^1.22.1",
     "@tailwindcss/vite": "^4.3.2",
     "astro": "7.0.9",
