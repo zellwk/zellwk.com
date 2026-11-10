@@ -44,7 +44,8 @@
     "svelte": "^5.56.5",
     "tailwindcss": "^4.3.2",
     "twilight-cosmos-theme": "^1.0.9",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "zl-fetch": "^6.3.5"
   },
   "devDependencies": {
     "@shikijs/colorized-brackets": "^4.3.1",
