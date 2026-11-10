@@ -13,7 +13,7 @@ export async function POST(context) {
   const { token, phone, name, email, list, redirect } = await parseData(context)
   const isJsonRequest = context.request.headers
     .get('content-type')
-    .includes('json')
+    ?.includes('json')
 
   // Only redirects within the site
   const isLocalRedirect =

@@ -22,10 +22,13 @@ export async function parseData(
   { sanitize: shouldSanitize = true } = {},
 ) {
   const { request } = context
-  const contentType = request.headers.get('content-type')
+  const contentType = request.headers.get('content-type') || ''
 
   // Parse and return JSON
   if (contentType.includes('json')) return request.json()
+
+  // Reads no fields from a body that isn't a form
+  if (!contentType.includes('form')) return {}
 
   // Standard form data
   let data = formDataToObject(await request.formData())

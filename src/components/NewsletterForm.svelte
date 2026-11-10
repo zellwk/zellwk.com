@@ -1,5 +1,6 @@
 <script>
   import { Form, HiddenInput, TextInput } from '@splendidlabz/svelte'
+  import { onMount } from 'svelte'
   import zlFetch from 'zl-fetch'
 
   /**
@@ -14,6 +15,10 @@
   let status = $state('info')
   let statusText = $state('')
   let isSubmitting = $state(false)
+  let isMounted = $state(false)
+
+  // Enables Subscribe once a submit can fetch its token
+  onMount(() => (isMounted = true))
 
   /**
    * subscribe
@@ -69,7 +74,7 @@
   </div>
   <button
     class="button !pigment-red-filled"
-    disabled={isSubmitting}
+    disabled={!isMounted || isSubmitting}
     type="submit">Subscribe</button
   >
 </Form>
