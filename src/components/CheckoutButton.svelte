@@ -16,6 +16,7 @@
   // Store URLs follow the slugified product name, e.g.
   // "Practical Astro" -> store.zellwk.com/practical-astro/. Pass `href` to override.
   const url = $derived(href ?? `https://store.zellwk.com/${toSlug(product)}/`)
+  let isCheckoutPending = false
 
   async function startCheckout(event) {
     // posthog-js flushes queued events via sendBeacon on pagehide, so this
@@ -34,9 +35,13 @@
       return
     }
 
+    // Ignores a second click while the page is leaving
+    event.preventDefault()
+    if (isCheckoutPending) return
+    isCheckoutPending = true
+
     // Navigates once the Meta events leave, or after the cap
     const maxDelayMs = 300
-    event.preventDefault()
     try {
       await Promise.race([trackInitiateCheckout(), delay(maxDelayMs)])
     } finally {
@@ -56,6 +61,13 @@
     zlFetch.post(config.fb.capiEndpoint, { body: capiData, keepalive: true })
     fb.sendPixelEvent(pixelData, {})
   }
+
+  function resetPendingCheckout(event) {
+    // Allows checkout again after a back-forward cache restore
+    if (event.persisted) isCheckoutPending = false
+  }
 </script>
+
+<svelte:window onpageshow={resetPendingCheckout} />
 
 <a class={klass} href={url} onclick={startCheckout}>{label}</a>
