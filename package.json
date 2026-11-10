@@ -15,7 +15,8 @@
     "deploy": "npm run build && node deploy.js",
     "sync": "node sync.js",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest"
   },
   "dependencies": {
     "@astrojs/mdx": "7.0.3",
@@ -56,6 +57,7 @@
     "eslint": "^10.11.0",
     "glob": "^13.0.6",
     "gulp": "^5.0.1",
-    "sass": "^1.101.0"
+    "sass": "^1.101.0",
+    "vitest": "^4.1.12"
   }
 }
