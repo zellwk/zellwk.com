@@ -1,19 +1,34 @@
+import { verifyFormToken } from '../../services/form-token.js'
 import { lists, sendy } from '../../services/sendy.js'
 import { fb } from '../../services/tracking/fb/node.js'
 import { ph } from '../../services/tracking/ph/node.js'
-import { parseData } from '../../services/utils.js'
+import { JSONResponse, parseData } from '../../services/utils.js'
 export const prerender = false
 
+/**
+ * @import { APIContext } from 'astro'
+ */
+
 export async function POST(context) {
-  const { phone, name, email, list, redirect } = await parseData(context)
+  const { token, phone, name, email, list, redirect } = await parseData(context)
+  const isJsonRequest = context.request.headers
+    .get('content-type')
+    .includes('json')
 
   // Only redirects within the site
   const isLocalRedirect =
     redirect?.startsWith('/') && !redirect.startsWith('//')
   const redirectURL = isLocalRedirect ? redirect : '/newsletter/confirm/'
 
-  // Fakes success for spammers
-  if (phone) return context.redirect(redirectURL, 303)
+  // Fakes success for bots and spammers
+  const hasValidToken = verifyFormToken({
+    token,
+    cookieNonce: context.cookies.get('form_nonce')?.value,
+    secret: import.meta.env.FORM_TOKEN_SECRET,
+    now: Date.now(),
+  })
+  if (phone || !hasValidToken)
+    return buildRedirect({ context, redirectURL, isJsonRequest })
 
   const response = await sendy.subscribe({
     context,
@@ -23,8 +38,8 @@ export async function POST(context) {
   })
 
   if (!response) {
-    return new Response(
-      "Sorry, I couldn't subscribe you. Please go back and try again.",
+    return JSONResponse(
+      { message: "Sorry, I couldn't subscribe you. Please try again." },
       { status: 400 },
     )
   }
@@ -45,5 +60,20 @@ export async function POST(context) {
   })
   if (error) console.error('Meta CAPI Lead failed', error)
 
+  return buildRedirect({ context, redirectURL, isJsonRequest })
+}
+
+/**
+ * buildRedirect
+ * Sends the person to the page after subscribing.
+ *
+ * @param {object} opts
+ * @param {APIContext} opts.context
+ * @param {string} opts.redirectURL Page after subscribing
+ * @param {boolean} opts.isJsonRequest Whether the island sent it
+ * @returns {Response}
+ */
+function buildRedirect({ context, redirectURL, isJsonRequest }) {
+  if (isJsonRequest) return JSONResponse({ redirect: redirectURL })
   return context.redirect(redirectURL, 303)
 }

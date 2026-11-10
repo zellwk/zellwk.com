@@ -1,6 +1,6 @@
 ---
 import { Markdown, Partial } from '@splendidlabz/astro'
-import NewsletterForm from '../../components/NewsletterForm.astro'
+import NewsletterForm from '../../components/NewsletterForm.svelte'
 ---
 
 <section class="section">
@@ -29,7 +29,9 @@ import NewsletterForm from '../../components/NewsletterForm.astro'
             I aim to send you at least one insightful piece every week.           
           </Markdown>
 
-          <NewsletterForm />
+
+
+          <NewsletterForm client:idle />
         </div>
       </div>
 
