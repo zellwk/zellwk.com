@@ -1,0 +1,12 @@
+---
+import { getLatestIssue } from '@/utils/newsletter.js'
+import { redirect } from '@splendidlabz/astro/server'
+import { getCollection } from 'astro:content'
+
+export const prerender = false
+
+const issue = getLatestIssue(await getCollection('newsletter'))
+const issueUrl = issue ? `/newsletter/${issue.data.slug}/` : '/newsletter/'
+
+return redirect(Astro, issueUrl, { status: 302 })
+---

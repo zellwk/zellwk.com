@@ -16,7 +16,8 @@
     "sync": "node sync.js",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "vitest"
+    "test": "vitest",
+    "sync-newsletter": "node tools/sync-newsletter/sync-newsletter.js"
   },
   "dependencies": {
     "@astrojs/mdx": "7.0.3",
@@ -58,6 +59,7 @@
     "glob": "^13.0.6",
     "gulp": "^5.0.1",
     "sass": "^1.101.0",
-    "vitest": "^4.1.12"
+    "vitest": "^4.1.12",
+    "yaml": "^2.9.1"
   }
 }

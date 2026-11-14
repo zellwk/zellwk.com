@@ -1,6 +1,15 @@
 ---
 import Base from '@/layouts/Base.astro'
+import { getIssues } from '@/utils/newsletter.js'
 import { Partial } from '@splendidlabz/astro'
+import { getCollection } from 'astro:content'
+import { formatDate } from 'date-fns'
+
+const issues = getIssues(await getCollection('newsletter'))
+const issuesByYear = Object.groupBy(issues, issue =>
+  issue.data.date.getFullYear(),
+)
+const years = Object.keys(issuesByYear).sort((a, b) => Number(b) - Number(a))
 
 const SEOProps = {
   title: 'Newsletter',
@@ -12,5 +21,31 @@ const SEOProps = {
 <Base {...SEOProps}>
   <div class="wrap">
     <Partial path="JoinMyNewsletter" testimonialCount={2} />
+  </div>
+
+  <div class="wrap mt-section">
+    <section class="vertical gap-8 max-w-narrow mx-auto">
+      <h2 class="h2">Past issues</h2>
+
+      {
+        years.map(year => (
+          <div class="vertical gap-2">
+            <h3 class="h3 text-zorange-500">{year}</h3>
+            <div class="blog-list">
+              {issuesByYear[year].map(issue => (
+                <div class="blog-list-item">
+                  <div class="date">
+                    {formatDate(issue.data.date, 'dd MMM')}
+                  </div>
+                  <a class="title" href={`/newsletter/${issue.data.slug}/`}>
+                    {issue.data.title}
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </section>
   </div>
 </Base>

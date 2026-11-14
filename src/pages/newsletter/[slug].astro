@@ -1,0 +1,55 @@
+---
+import { components } from '@/components/blogPostComponents.js'
+import Base from '@/layouts/Base.astro'
+import { getIssues } from '@/utils/newsletter.js'
+import { JsonLD, Markdown, Partial, SVG } from '@splendidlabz/astro'
+import { getCollection, render } from 'astro:content'
+import { formatDate } from 'date-fns'
+
+export const prerender = true
+
+export async function getStaticPaths() {
+  const issues = getIssues(await getCollection('newsletter'))
+  return issues.map(issue => ({
+    params: { slug: issue.data.slug },
+    props: { issue },
+  }))
+}
+
+const { issue } = Astro.props
+const { Content } = await render(issue)
+---
+
+<Base title={issue.data.title} description={issue.data.description}>
+  <JsonLD
+    type="BreadcrumbList"
+    items={[
+      { name: 'Home', url: '/' },
+      { name: 'Newsletter', url: '/newsletter/' },
+      { name: issue.data.title },
+    ]}
+  />
+
+  <div class="wrap">
+    <article class="article vertical gap-8 max-w-narrow mx-auto">
+      <header>
+        <div class="meta text-zgray-500">
+          Sent on {formatDate(issue.data.date, 'MMM d, yyyy')}
+        </div>
+        <h1 class="h1">{issue.data.title}</h1>
+      </header>
+
+      <div class="content prose-responsive">
+        <Content {components} />
+        <p>Stay awesome,<br />Zell</p>
+        {issue.data.ps && <Markdown content={issue.data.ps} />}
+      </div>
+    </article>
+  </div>
+
+  <div class="mt-section">
+    <SVG class="rotate-180 simple-svg stroke-zred-500" icon="wriggle-line" />
+  </div>
+
+  <Partial path="JoinMyNewsletter" />
+</Base>

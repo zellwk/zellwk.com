@@ -1,0 +1,59 @@
+---
+title: Speaking without inhibition, and a small function I use a lot
+description: a function called omitEmpty to remove empty values
+ps: P.S. More build notes over the next two months. Let's see how it goes.
+---
+
+I've come to a funny realisation that I've been trying too hard to make my newsletters and articles "enticing" for people.
+
+- I make myself try to follow marketing tropes
+- But I frown upon the same tropes since I find them tactless and manipulative
+
+And I get stuck 😂.
+
+The best way out of this trap is to allow myself to explore my voice. So I'm experimenting with this thought for the next two months or so.
+
+> What if I turn my outgoing messages into a "builder's channel" where I just talk about the things I build, without trying to get people to use or buy them?
+
+That'll be an interesting experiment!
+
+This leads me to the first article I'd like to share with you today.
+
+## Speaking Without Inhibition
+
+How freely we can speak is a measure of how free we actually are. If we censor ourselves all the time, we're being run by other people's opinions.
+
+[Here's the piece](https://zellwk.com/blog/speaking-without-inhibition/).
+
+## The omitEmpty Function
+
+(Here we go with the test of the builder's voice.)
+
+I often encounter situations where I put together objects with conditional properties like this:
+
+<Image
+  src="/src/assets/newsletter/omit-empty-split-declaration.png"
+  alt="An object declared with a name property, then an if statement adding bio to it afterwards"
+/>
+
+It works, but I don't like it — because the declaration is split into two places.
+
+If we want to keep the declaration in the same place, we can use a conditional spread. But it looks funky.
+
+<Image
+  src="/src/assets/newsletter/omit-empty-conditional-spread.png"
+  alt="The same object with a conditional spread inside it, spreading bio only when bio has a value"
+/>
+
+It feels like we are jumping through some JavaScript hoops in order to make this happen. I don't really like that either.
+
+So I built a function to remove empty values from an object. Then I can simply write the property, and it'll be stripped automatically if it has an empty value.
+
+<Image
+  src="/src/assets/newsletter/omit-empty-result.png"
+  alt="The omitEmpty call with a comment underneath showing the result when bio is empty: an object holding only name"
+/>
+
+[Find out more about omitEmpty here](https://zellwk.com/blog/omit-empty/).
+
+Thanks for reading. I appreciate you doing so, as always.

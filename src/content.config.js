@@ -25,4 +25,24 @@ const transcripts = defineCollection({
   }),
 })
 
-export const collections = { blog, partials, testimonials, data, transcripts }
+// Each file is named <sent-date>-<slug>, like a blog post.
+const newsletter = defineCollection({
+  loader: glob({
+    base: './src/content/newsletter',
+    pattern: '*.{md,mdx}',
+  }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    ps: z.string().optional(),
+  }),
+})
+
+export const collections = {
+  blog,
+  partials,
+  testimonials,
+  data,
+  transcripts,
+  newsletter,
+}

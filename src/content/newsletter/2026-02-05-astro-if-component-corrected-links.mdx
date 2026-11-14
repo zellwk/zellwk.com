@@ -1,0 +1,70 @@
+---
+title: Astro If Component (Corrected links)
+description: And how I'm handling depressive thoughts about work
+---
+
+If you've tried accessing the links in the previous newsletter, you might have noticed that they went sent to broken pages. 
+
+Well, after some investigation, I realized that the links and pages were correct! But I forgot to push the articles up my Git repository... then my Github action triggered the previous state and unpublished them... 🤦‍♂️
+
+Anyway, feel free to try the link again. They should work this time. (Fingers crossed 🤞). 
+
+---
+
+I promised you a tech-related article soon, so here it is! This time, it’s about [Astro](https://astro.build). 
+
+## Why Astro? 
+
+As I’m saying this, I realize I probably should an article about why I favor Astro over other frameworks. 
+
+I’ll work on that soon! So, stay tuned. It might help you if you’re choosing between frameworks. 
+
+## Astro If Component 
+
+One thing that consistently irritates me about Astro (and React, for the same reason) is the lack of an `if` statement. 
+
+Instead of a simple `if`, we have to use a JSX conditional like this. 
+
+```astro
+{
+  condition && (
+    <!-- Markup goes here --> 
+  )
+}
+```
+
+This is annoying because the condition takes up space and creates indentation, which makes the code harder to parse.
+
+I created an [`If`](https://splendidlabz.com/docs/astro/components/if/) component that simplifies JSX code above. 
+
+```astro
+<If condition={1 + 1 === 2}>
+  <!-- Markup goes here --> 
+</If>
+```
+
+And a [`Not`](https://splendidlabz.com/docs/astro/components/not/) component that does the opposite. 
+
+```astro
+<Not condition={authorized}>
+  <!-- Markup goes here --> 
+</Not>
+```
+
+[Today’s article](https://zellwk.com/blog/astro-if-and-not/) dives deeper into these components: how to use them, and also the caveats you need to know when using them. 
+
+## Writing about tech is surprisingly tough! 
+
+It’s strange. I thought writing about technical content would be easier than writing about personal content, since I've done it so many times before...
+
+But it’s surprisingly tough!  
+
+My negative thoughts kept racing: “People won’t like this”. “Nobody is going to buy”. “There are not enough users”. “They’re going to find you irritating for trying to sell”. “Why waste your time and energy”, etc.
+
+It was a downward spiral.
+
+What brightened me up was a passage by Benjamin Zander from “[The Art Of Possibility](https://www.amazon.sg/Art-Possibility-Transforming-Professional-Personal/dp/0142001104)”. 
+
+So here’s how I’m [dealing with these sorta depressive and demoralizing thoughts](https://zellwk.com/blog/everyone-loves-this/) now. 
+
+As always, thanks for reading this, and I wish you all the best for 2026.
