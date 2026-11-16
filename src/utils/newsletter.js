@@ -24,3 +24,15 @@ export function getIssues(entries) {
 export function getLatestIssue(entries) {
   return getIssues(entries)[0]
 }
+
+/**
+ * groupByYear
+ * Splits issues into years, newest year first.
+ *
+ * @param {object[]} issues Issues sorted newest first
+ * @returns {{ year: number, issues: object[] }[]}
+ */
+export function groupByYear(issues) {
+  const issuesByYear = Map.groupBy(issues, issue => issue.data.date.getFullYear())
+  return [...issuesByYear].map(([year, yearIssues]) => ({ year, issues: yearIssues }))
+}

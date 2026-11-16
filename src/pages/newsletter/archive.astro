@@ -1,0 +1,64 @@
+---
+import Base from '@/layouts/Base.astro'
+import { getIssues, groupByYear } from '@/utils/newsletter.js'
+import { JsonLD, Partial } from '@splendidlabz/astro'
+import { getCollection } from 'astro:content'
+import { formatDate } from 'date-fns'
+
+const years = groupByYear(getIssues(await getCollection('newsletter')))
+
+const SEOProps = {
+  title: 'Newsletter archive',
+  description: 'Every issue of my newsletter, grouped by year',
+}
+---
+
+<Base {...SEOProps}>
+  <JsonLD
+    type="BreadcrumbList"
+    items={[
+      { name: 'Home', url: '/' },
+      { name: 'Newsletter', url: '/newsletter/' },
+      { name: 'Newsletter archive' },
+    ]}
+  />
+
+  <div class="wrap">
+    <section class="vertical gap-8 max-w-narrow mx-auto">
+      <h1 class="h1">Newsletter archive</h1>
+
+      {
+        years.map(({ year, issues }) => (
+          <div class="vertical gap-2">
+            <h2 id={year} class="h3 text-zorange-500">
+              {year}
+            </h2>
+            <div class="blog-list">
+              {issues.map(issue => (
+                <div class="blog-list-item">
+                  <div class="date">
+                    {formatDate(issue.data.date, 'dd MMM')}
+                  </div>
+                  <a class="title" href={`/newsletter/${issue.data.slug}/`}>
+                    {issue.data.title}
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </section>
+  </div>
+
+  <div class="mt-section">
+    <Partial path="JoinMyNewsletter" />
+  </div>
+</Base>
+
+<style is:global>
+  /* Smooth scrolling loses the jump to a year when the page opens with a cross-page view transition */
+  html {
+    scroll-behavior: auto;
+  }
+</style>
