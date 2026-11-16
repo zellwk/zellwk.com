@@ -18,9 +18,4 @@ export default {
   '/blog/js': '/blog/js-promises/',
   '/blog/css-translate-values-in-': '/blog/css-translate-values-in-javascript/',
   '/kb/how-to-master-express-js-error-handling': '/blog/express-errors/',
-
-  // The video sample lead page moved from /leads/ to /lm/
-  '/leads/video-sample/': '/lm/video-sample/',
-  '/leads/video-sample/confirm/': '/lm/video-sample/confirm/',
-  '/leads/video-sample/subscribed/': '/lm/video-sample/subscribed/',
 }
