@@ -1,0 +1,113 @@
+---
+import afterPoster from '@/assets/leads/video-sample/after-poster.jpg'
+import beforePoster from '@/assets/leads/video-sample/before-poster.jpg'
+import NewsletterForm from '@/components/NewsletterForm.svelte'
+import Base from '@/layouts/Base.astro'
+import { Heading, Video } from '@splendidlabz/astro'
+
+const SEOProps = {
+  title: 'What happens after Claude edits my raw videos',
+  description:
+    'My raw recording beside the video Claude made from it, with retakes and pauses removed.',
+  noindex: true,
+}
+---
+
+<Base {...SEOProps}>
+  <div class="wrap">
+    <section class="vertical gap-8 max-w-narrow mx-auto">
+      <div class="vertical gap-4">
+        <h1 class="h1">What happens after Claude edits my raw videos</h1>
+        <p>There are two videos below.</p>
+        <p>
+          Before is my full recording with all my retakes and pauses. I gave it
+          to my video skill and Claude creates the After version from it in one
+          take. It spends only 20k tokens to do this.
+        </p>
+      </div>
+
+      <div class="grid-simple [--cols:2] gap-6">
+        <div class="vertical gap-2">
+          <div class="flex justify-between items-baseline gap-2">
+            <h2 class="h3 text-zorange-500">Before</h2>
+            <p class="text-zgray-500">4:07</p>
+          </div>
+          <Video
+            src="/src/assets/leads/video-sample/before.mp4"
+            poster={beforePoster.src}
+            preload="metadata"
+            figure={false}
+          />
+        </div>
+        <div class="vertical gap-2">
+          <div class="flex justify-between items-baseline gap-2">
+            <h2 class="h3 text-zorange-500">After</h2>
+            <p class="text-zgray-500">1:12</p>
+          </div>
+          <Video
+            src="/src/assets/leads/video-sample/after.mp4"
+            poster={afterPoster.src}
+            preload="metadata"
+            figure={false}
+          />
+        </div>
+      </div>
+
+      <div class="vertical gap-4">
+        <h2 class="h3 text-zorange-500">What the skill does</h2>
+        <ul class="vertical gap-2 list-disc pl-6">
+          <li>Cuts your retakes and keeps the last take</li>
+          <li>Removes filler words</li>
+          <li>Shortens long pauses</li>
+          <li>
+            Takes out background noise and tunes the EQ to your voice and mic
+          </li>
+          <li>Writes captions from your own audio, after the cut</li>
+          <li>Converts iPhone HDR video to standard colour</li>
+          <li>Runs on your own Claude</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <section class="section bg-zpurple-900 mt-section">
+    <div class="wrap">
+      <div class="vertical gap-6">
+        <Heading center>
+          <h2 class="h1 text-zorange-500">Want the Skill?</h2>
+        </Heading>
+
+        <div class="prose-responsive max-w-narrow mx-auto">
+          <p>
+            I'm getting the skill ready for you as we speak. It'll take just a
+            bit more as I package it together with all of the other things you'd
+            find useful.
+          </p>
+          <p>
+            In the meantime, leave your name and email below and I'll send you
+            the recording habits that let Claude clean up your videos nicely.
+          </p>
+
+          <NewsletterForm
+            client:load
+            list="videoProcessing"
+            redirect="/leads/video-sample/confirm/"
+            buttonText="Send me the habits"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Pauses the other sample when one starts playing
+  document.addEventListener(
+    'play',
+    event => {
+      for (const video of document.querySelectorAll('video'))
+        if (video !== event.target) video.pause()
+    },
+    { capture: true },
+  )
+</script>

@@ -7,10 +7,15 @@
    * @typedef {object} Props
    * @property {string} [list] Sendy list key
    * @property {string} [redirect] Page after subscribing
+   * @property {string} [buttonText] Submit button label
    */
 
   /** @type {Props} */
-  let { list = 'main', redirect = '/newsletter/confirm/' } = $props()
+  let {
+    list = 'main',
+    redirect = '/newsletter/confirm/',
+    buttonText = 'Subscribe',
+  } = $props()
 
   let status = $state('info')
   let statusText = $state('')
@@ -75,6 +80,6 @@
   <button
     class="button !pigment-red-filled"
     disabled={!isMounted || isSubmitting}
-    type="submit">Subscribe</button
+    type="submit">{buttonText}</button
   >
 </Form>

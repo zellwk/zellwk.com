@@ -4,6 +4,7 @@ import { getCurrentUrl, getIpAddress } from './utils.js'
 export const lists = {
   main: '6hZ8N5yHH763fbenJv68UMxQ',
   practicalAstro: 'IAOYAidfjLzdbdRS7d892Tgg',
+  videoProcessing: 'sRNuR0CGTExUs56StVvgFg',
   practicalAstroPurchase: '',
   contentSystemPurchase: '',
   imageSystemPurchase: '',

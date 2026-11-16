@@ -67,6 +67,8 @@ export default defineConfig({
     splendidSvelte(),
     mdx(),
     sitemap({
+      // Keeps noindex lead pages out of the sitemap
+      filter: page => !page.includes('/leads/'),
       serialize(item) {
         const blogMatch = item.url.match(/\/blog\/([^/]+)\/$/)
         if (blogMatch) {
