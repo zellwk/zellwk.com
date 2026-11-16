@@ -16,4 +16,6 @@ I updated one of my super popular posts on building a Simple CRUD application wi
 
 There’s A LOT OF GOLD in this article if you’re trying to learn to build web applications. I also gave this app a facelift so it looks better than before😉
 
+![Add CSS to make the app look better.](../../assets/2020/crud/looks.png)
+
 [Here’s the article again](https://zellwk.com/blog/crud-express-mongodb). Enjoy!

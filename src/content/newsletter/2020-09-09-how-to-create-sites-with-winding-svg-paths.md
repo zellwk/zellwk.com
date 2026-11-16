@@ -8,6 +8,8 @@ What paths?
 
 Here's the Mobile and Desktop view, side by side. I'm talking about the winding paths that lead from one set of content to another set of content.
 
+![Million Devs site: mobile and desktop versions compared.](../../assets/2020/million-devs/million.png)
+
 I always wanted to create a site with curved elements, similar to this. So I took the chance to inspect the code. What I realized blew my mind 🤯.
 
 I wanted to share what I found.

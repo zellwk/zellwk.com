@@ -10,6 +10,8 @@ Earlier in February, I decided to put all my courses under a brand called Magica
 
 This portal is simply a place where you can access all my courses and workshops.
 
+![A list of our courses and workshops](../../assets/blog/mds-student-portal/courses-and-workshops.png)
+
 If you have purchased the Courses, Workshops, or Everything package from [Magical Dev School](https://magicaldevschool.com/join), you will be able to access the corresponding items you have purchased.
 
 If you have purchased a course (like [Learn JavaScript](https://learnjavascript.today)) before I put everything into Magical Dev School, you will also be able to use the Magical Dev School student. portal. In this case, you’ll have access to the full Learn JavaScript course in the portal.

@@ -14,7 +14,11 @@ There are better ways.
 
 The first is to use a browser like [Polypane](https://polypane.app/?ref=zellwk) that lets you debug multiple viewports at the same time. It costs only $9/m and it has the potential to reduce a lot of developmental headaches.
 
+![](../../assets/blog/test-container-queries/polypane.png)
+
 If you don’t want to spend any money, the second way is to debug your components with a utility that lets you display the component in many different sizes.
+
+![](../../assets/blog/test-container-queries/utility.png)
 
 I’ll show you how to use this utility in today’s article.
 

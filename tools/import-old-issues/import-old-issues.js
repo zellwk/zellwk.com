@@ -52,6 +52,17 @@ async function importIssues({ sortDir, scratchDir }) {
   const siteRoot = fileURLToPath(new URL('../../', import.meta.url))
   const issueDir = path.join(siteRoot, 'src/content/newsletter')
   const manifestPath = fileURLToPath(new URL('written.json', import.meta.url))
+  const matchesPath = fileURLToPath(
+    new URL('image-matches.json', import.meta.url),
+  )
+
+  // Reads the repo's image files and the matched dead images
+  const imageAssets = {
+    paths: new Set(
+      await fs.readdir(path.join(siteRoot, 'src/assets'), { recursive: true }),
+    ),
+    matches: JSON.parse(await fs.readFile(matchesPath, 'utf-8')),
+  }
 
   // Reads the emails marked as issues, oldest first
   const rows = await getIssueRows(sortDir)
@@ -68,7 +79,13 @@ async function importIssues({ sortDir, scratchDir }) {
   // Checks which images still answer
   await fs.mkdir(scratchDir, { recursive: true })
   const liveImageUrls = await getLiveImageUrls({
-    imageUrls: [...new Set(emails.flatMap(email => getImageUrls(email.html)))],
+    imageUrls: [
+      ...new Set(
+        emails.flatMap(email =>
+          getImageUrls({ html: email.html, imageAssets }),
+        ),
+      ),
+    ],
     cachePath: path.join(scratchDir, 'image-status.json'),
   })
 
@@ -79,6 +96,7 @@ async function importIssues({ sortDir, scratchDir }) {
       html: email.html,
       subject: email.subject,
       liveImageUrls,
+      imageAssets,
     }),
   }))
   const fileNames = getImportFileNames(

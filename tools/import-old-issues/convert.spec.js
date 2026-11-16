@@ -8,9 +8,18 @@ import {
 } from './convert.js'
 
 const liveImageUrls = new Set(['https://convertkit.s3.amazonaws.com/live.png'])
+const imageAssets = {
+  paths: new Set(['2015/05/first-item-position.png']),
+  matches: {
+    'https://embed.filekitcdn.com/e/acct/matched?w=800&fit=max': {
+      asset: 'blog/post/output.png',
+      alt: 'Output from the post',
+    },
+  },
+}
 
 function convert(html, subject = 'A subject') {
-  return convertOldIssue({ html, subject, liveImageUrls })
+  return convertOldIssue({ html, subject, liveImageUrls, imageAssets })
 }
 
 function base64(url) {
@@ -202,9 +211,40 @@ describe('images', () => {
   })
 
   it('lists only content images on other hosts for checking', () => {
-    expect(getImageUrls(html)).toEqual([
+    expect(getImageUrls({ html, imageAssets })).toEqual([
       'https://convertkit.s3.amazonaws.com/live.png',
       'https://embed.filekitcdn.com/e/dead/email',
+    ])
+  })
+})
+
+describe('restored images', () => {
+  const html = `
+    <p>Hey Zell,</p>
+    <p><img src="http://www.zell-weekeat.com/wp-content/uploads/2015/05/first-item-position.png" alt="First item"></p>
+    <p><img src="http://www.zell-weekeat.com/wp-content/uploads/2015/05/gone.png" alt="Gone"></p>
+    <p><img src="https://embed.filekitcdn.com/e/acct/matched?w=800&amp;fit=max" alt=""></p>
+    <p>Stay awesome,<br>Zell</p>`
+
+  it('maps an old WordPress upload only when its asset exists', () => {
+    const issue = convert(html)
+    expect(issue.body).toContain(
+      '![First item](../../assets/2015/05/first-item-position.png)',
+    )
+    expect(issue.removedImages).toEqual([
+      'http://www.zell-weekeat.com/wp-content/uploads/2015/05/gone.png',
+    ])
+  })
+
+  it('points a matched dead image at its asset with the post’s alt', () => {
+    expect(convert(html).body).toContain(
+      '![Output from the post](../../assets/blog/post/output.png)',
+    )
+  })
+
+  it('leaves restored images out of the liveness check', () => {
+    expect(getImageUrls({ html, imageAssets })).toEqual([
+      'http://www.zell-weekeat.com/wp-content/uploads/2015/05/gone.png',
     ])
   })
 })

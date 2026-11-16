@@ -8,6 +8,8 @@ If you don’t know, Operator Mono is this fancy code font that was in the rage 
 
 It’s pricey too — it costs $200. It took me a long time to contemplate and I finally bought it.
 
+![Operator mono used for some code.](../../assets/2022/operator-mono/operator_ide2.png)
+
 Fast forward two years, I decided to stop using Operator Mono and switch back to a free font.
 
 I’ll like to share the story of why and what I learned from this incident. (If you’re curious, I’ll also share with you what font I switched to!).

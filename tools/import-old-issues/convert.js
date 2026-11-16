@@ -19,13 +19,23 @@ import { getIssueSlug } from '../sync-newsletter/convert.js'
  * @property {string[]} unresolvedLinks Link texts whose target is lost
  * @property {boolean} hasSignOff Whether a sign-off was found
  *
+ * @typedef {object} ImageAssets
+ * @property {Set<string>} paths Files under src/assets
+ * @property {Record<string, ImageMatch>} matches Dead image URL to its asset
+ *
+ * @typedef {object} ImageMatch
+ * @property {string} asset Path under src/assets
+ * @property {string} alt Alt text from the blog post
+ *
  * @param {object} opts
  * @param {string} opts.html Email HTML
  * @param {string} opts.subject Email subject
  * @param {Set<string>} opts.liveImageUrls Image URLs that answer 200
+ * @param {ImageAssets} opts.imageAssets Repo files for dead images
  * @returns {OldIssue}
  */
-export function convertOldIssue({ html, subject, liveImageUrls }) {
+export function convertOldIssue(opts) {
+  const { html, subject, liveImageUrls, imageAssets } = opts
   const $ = cheerio.load(html)
 
   // Removes markup that never shows in the letter
@@ -65,10 +75,13 @@ export function convertOldIssue({ html, subject, liveImageUrls }) {
     )
   })
 
-  // Marks dead images, and points old site images at the repo's assets
+  // Marks dead images, and points restorable ones at the repo's assets
   $('img').each((index, element) => {
     const image = $(element)
-    image.attr('src', getImageSource({ src: image.attr('src'), liveImageUrls }))
+    const src = image.attr('src') ?? ''
+    const match = imageAssets.matches[src]
+    if (match) image.attr('alt', match.alt)
+    image.attr('src', getImageSource({ src, liveImageUrls, imageAssets }))
   })
 
   // Converts to Markdown and cuts the letter out of the email
@@ -95,16 +108,20 @@ export function convertOldIssue({ html, subject, liveImageUrls }) {
  * getImageUrls
  * Lists the content images whose liveness has to be checked.
  *
- * @param {string} html Email HTML
+ * @param {object} opts
+ * @param {string} opts.html Email HTML
+ * @param {ImageAssets} opts.imageAssets
  * @returns {string[]}
  */
-export function getImageUrls(html) {
+export function getImageUrls({ html, imageAssets }) {
   const $ = cheerio.load(html)
   return $('img')
     .filter((index, element) => !isChromeImage($(element)))
     .map((index, element) => $(element).attr('src') ?? '')
     .get()
-    .filter(src => /^https?:\/\//.test(src) && !getAssetPath(src))
+    .filter(
+      src => /^https?:\/\//.test(src) && !getAssetPath({ src, imageAssets }),
+    )
 }
 
 /**
@@ -298,15 +315,16 @@ function removeSubscriberId(target) {
 
 /**
  * getImageSource
- * Keeps live images, maps old site images to assets, marks the rest dead.
+ * Points restorable images at assets, keeps live ones, marks the rest dead.
  *
  * @param {object} opts
- * @param {string | undefined} opts.src
+ * @param {string} opts.src
  * @param {Set<string>} opts.liveImageUrls
+ * @param {ImageAssets} opts.imageAssets
  * @returns {string}
  */
-function getImageSource({ src = '', liveImageUrls }) {
-  const assetPath = getAssetPath(src)
+function getImageSource({ src, liveImageUrls, imageAssets }) {
+  const assetPath = getAssetPath({ src, imageAssets })
   if (assetPath) return assetPath
   if (liveImageUrls.has(src)) return src
   return `DEAD:${src}`
@@ -314,14 +332,27 @@ function getImageSource({ src = '', liveImageUrls }) {
 
 /**
  * getAssetPath
- * Maps an old zellwk.com image URL to its file in src/assets.
+ * Maps an old site image or a matched dead image to its file in src/assets.
  *
- * @param {string} src
+ * @param {object} opts
+ * @param {string} opts.src
+ * @param {ImageAssets} opts.imageAssets
  * @returns {string}
  */
-function getAssetPath(src) {
-  const match = src.match(/^https?:\/\/(?:www\.)?zellwk\.com\/images\/(.+)$/)
-  return match ? `../../assets/${match[1]}` : ''
+function getAssetPath({ src, imageAssets }) {
+  const siteImage = src.match(
+    /^https?:\/\/(?:www\.)?zellwk\.com\/images\/(.+)$/,
+  )
+  if (siteImage) return `../../assets/${siteImage[1]}`
+
+  const wordpressUpload = src.match(
+    /^https?:\/\/(?:www\.)?zell-weekeat\.com\/wp-content\/uploads\/(.+)$/,
+  )
+  if (wordpressUpload && imageAssets.paths.has(wordpressUpload[1]))
+    return `../../assets/${wordpressUpload[1]}`
+
+  const match = imageAssets.matches[src]
+  return match ? `../../assets/${match.asset}` : ''
 }
 
 /**

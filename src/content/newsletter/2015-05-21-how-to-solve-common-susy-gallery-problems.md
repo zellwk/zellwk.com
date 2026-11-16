@@ -15,7 +15,11 @@ I’m talking about two problems here.
 
 The first problem happens when the first item of the gallery is not positioned in the correct place:
 
+![First item is placed in the wrong position](../../assets/2015/05/first-item-position.png)
+
 The second problem happens when you want to make a gallery of different widths:
+
+![Having different galleries items of different width](../../assets/2015/05/different-gallery-widths.png)
 
 It’s super easy to solve both of these problems once you understand the gallery output.
 

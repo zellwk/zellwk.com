@@ -21,6 +21,8 @@ I chose this keyboard for two reasons:
 
 I’m pretty happy with this keyboard now. Here’s my new setup when I work from a cafe!
 
+![My cafe setup with the Corne Keyboard](../../assets/blog/corne-keyboard/setup.jpg)
+
 Using the core keyboard (and two wrist rests) at Starbucks
 
 Today, I wanna share the process I used to set up this keyboard.

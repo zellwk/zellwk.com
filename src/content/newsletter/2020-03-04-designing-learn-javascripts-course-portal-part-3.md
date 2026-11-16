@@ -8,6 +8,8 @@ Today, I talk about how I designed the Account page and the Components page.
 
 The Account Page:
 
+![The account page.](../../assets/2020/ljs-portal-3/account-page.png)
+
 The Components Page:
 
 Here's the article. Enjoy!

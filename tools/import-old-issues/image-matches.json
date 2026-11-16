@@ -1,0 +1,62 @@
+{
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/cAAxtL1NKz6U9v64gGuU8y?w=800&fit=max": {
+    "asset": "2020/multi-line-gradient/link.gif",
+    "alt": "Blue color link with blue underline. When hovered, the text has an orange to yellow gradient; underline becomes solid orange."
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/ogxRNgqUx9tDCnH7iMyCPz?w=800&fit=max": {
+    "asset": "2020/ljs-portal-3/account-page.png",
+    "alt": "The account page."
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/dCpytT1iiHESPVtxG18aKk?w=800&fit=max": {
+    "asset": "2020/crud/looks.png",
+    "alt": "Add CSS to make the app look better."
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/dVYdj9BkBAvbja7J3ejfCr?w=800&fit=max": {
+    "asset": "2020/million-devs/million.png",
+    "alt": "Million Devs site: mobile and desktop versions compared."
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/cCYoSNgANzPbUvoUu64D18?w=800&fit=max": {
+    "asset": "2022/operator-mono/operator_ide2.png",
+    "alt": "Operator mono used for some code."
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/nVyYqNxgxUqHhQR9MsKUDw/email": {
+    "asset": "blog/astro-fancy-list-item/markdown.png",
+    "alt": "List items written like normal markdown"
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/iWFn86S5DAN8YAsY7SxVcd/email": {
+    "asset": "blog/astro-fancy-list-item/output.png",
+    "alt": "Output that uses SVGs as the list bullet"
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/8UJ81HmFXbW1vAsLiiMbhr/email": {
+    "asset": "blog/test-container-queries/polypane.png",
+    "alt": ""
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/cJ9ZxN6LpiZMcBZFaK5yUJ/email": {
+    "asset": "blog/test-container-queries/utility.png",
+    "alt": ""
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/g8yUDVCyNuaRijTdvDQx8V/email": {
+    "asset": "blog/mds-student-portal/courses-and-workshops.png",
+    "alt": "A list of our courses and workshops"
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/m5gvYSKXTh1rQyjVgw5fJo/email": {
+    "asset": "blog/free-chapters/courses.png",
+    "alt": ""
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/i7w6ZFoUn2QLmSqF8NgqkG/email": {
+    "asset": "blog/corne-keyboard/setup.jpg",
+    "alt": "My cafe setup with the Corne Keyboard"
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/sdxDqrQm7yGwNW34UzoLoB/email": {
+    "asset": "blog/splendid-layouts-here/card.png",
+    "alt": ""
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/7AgrKaMfiX9k8yQbyjH8PK/email": {
+    "asset": "blog/splendid-layouts-here/cloudflare-card.png",
+    "alt": ""
+  },
+  "https://embed.filekitcdn.com/e/oAoqea3o7E5JeLrQyahUcg/iSuVf5G7NBAPbWRNuUzZvU/email": {
+    "asset": "blog/splendid-layouts-here/cloudflare-card-output.png",
+    "alt": ""
+  }
+}
