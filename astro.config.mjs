@@ -68,7 +68,7 @@ export default defineConfig({
     mdx(),
     sitemap({
       // Keeps noindex lead pages out of the sitemap
-      filter: page => !page.includes('/leads/'),
+      filter: page => !page.includes('/lm/'),
       serialize(item) {
         const blogMatch = item.url.match(/\/blog\/([^/]+)\/$/)
         if (blogMatch) {
